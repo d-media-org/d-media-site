@@ -207,7 +207,7 @@ img {
   display: grid;
   gap: 16px;
   padding: 36px 0 0;
-  max-width: 640px;
+  max-width: 760px;
 }
 
 .eyebrow {
@@ -345,6 +345,11 @@ img {
   display: grid;
   gap: 12px;
   max-width: 760px;
+}
+
+.section-heading-balanced,
+.page-intro-balanced {
+  max-width: 960px;
 }
 
 .section-heading h2 {
@@ -569,8 +574,12 @@ img {
   width: 100%;
 }
 
+.split-content-balanced {
+  max-width: 1120px;
+}
+
 .services-overview {
-  max-width: 700px;
+  max-width: 1120px;
   gap: 28px;
 }
 
@@ -773,6 +782,11 @@ img {
   min-height: 320px;
   align-content: space-between;
   padding: 28px;
+}
+
+.brand-principle-strong {
+  font-family: var(--font-panton-semibold), sans-serif;
+  color: var(--foreground);
 }
 
 .contact-section {
@@ -1481,7 +1495,7 @@ a[href]:not(.button):not(.site-brand a):not(.site-nav a):not(.site-nav-mobile a)
 
 @media (min-width: 980px) {
   .hero-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1.18fr) minmax(320px, 0.82fr);
     align-items: start;
   }
 
@@ -1490,7 +1504,13 @@ a[href]:not(.button):not(.site-brand a):not(.site-nav a):not(.site-nav-mobile a)
   }
 
   .hero-copy {
-    max-width: 760px;
+    max-width: 100%;
+  }
+
+  .split-content-balanced,
+  .services-overview {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
   }
 
   .projects-grid,

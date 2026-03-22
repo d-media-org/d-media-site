@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { BrandAsset } from "@/components/brand-asset";
 import { BrandText } from "@/components/brand-text";
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
@@ -8,6 +10,12 @@ import {
 } from "@/lib/site-content";
 
 export default function Home() {
+  const homeOutcomes = [
+    "По-ясна бранд идентичност и последователен визуален език",
+    "Готови формати за дигитални канали, документи и клиентски материали",
+    "Работна система, която може да се използва веднага и да се развива устойчиво",
+  ];
+
   return (
     <main className="site-shell" id="top">
       <section className="hero-grid">
@@ -15,16 +23,21 @@ export default function Home() {
 
         <div className="hero-copy">
           <p className="eyebrow">Бранд. Съдържание. Дизайн. Реклама.</p>
-          <h1>Създаване на бранд идентичност, съдържание, дизайн и реклама.</h1>
+          <h1>Визуални системи за брандове, които трябва да изглеждат последователно и да работят уверено.</h1>
           <p className="hero-text">
-            <BrandText text="d . media помага на брандове да изградят по-ясно присъствие чрез идентичност, съдържание, дигитални носители и рекламни формати, подредени в последователна система." />
+            <BrandText text="d . media изгражда бранд идентичност, съдържание, дигитални носители и рекламни формати така, че клиентът да получи не просто визия, а ясна, използваема и последователна система." />
           </p>
+          <ul className="detail-list hero-detail-list">
+            {homeOutcomes.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
           <div className="hero-actions">
             <a href="/services" className="button button-primary">
-              Услуги
+              Прегледай услугите
             </a>
-            <a href="#contact" className="button button-secondary">
-              Запитване
+            <a href="/contact" className="button button-secondary">
+              Започни запитване
             </a>
           </div>
         </div>
@@ -42,21 +55,23 @@ export default function Home() {
           </div>
           <div className="hero-card hero-card-note">
             <p>
-              Създаване на бранд идентичност, съдържание, дигитални формати,
-              документни системи и реклама в една последователна работна рамка.
+              Подходът свързва бранд идентичност, съдържание, документи, дигитални формати и реклама в една последователна работна рамка.
             </p>
           </div>
         </aside>
       </section>
 
       <section className="section-grid section-split">
-        <div className="section-heading">
+        <div className="section-heading section-heading-balanced">
           <p className="eyebrow">
             <BrandText text="какво прави d . media" />
           </p>
-          <h2>Ясна работна рамка за бранд, съдържание, дигитални носители и клиентски материали.</h2>
+          <h2>Брандът се позиционира като студио за ясна визуална структура, последователни носители и работещи клиентски материали.</h2>
+          <p className="page-text">
+            Сайтът трябва да показва това ясно още тук: d . media не продава отделни случайни файлове, а системен резултат, който може да се използва в реална работа.
+          </p>
         </div>
-        <div className="split-content">
+        <div className="split-content split-content-balanced">
           <div className="card format-panel">
             <div className="format-lockup">
               <div className="brand-image brand-image-logotype">
@@ -78,20 +93,24 @@ export default function Home() {
           </div>
           <div className="card brand-principle">
             <p>
-              Всеки проект се разглежда като цялостна система: задача, визуален
-              език, реални носители и готови файлове, които могат да се използват
-              веднага и последователно.
+              Всеки проект се разглежда като цялостна система: задача, визуален език, реални носители и готови файлове, които могат да се използват веднага и последователно.
+            </p>
+            <p className="brand-principle-strong">
+              Това е разликата между красива визия и завършено присъствие.
             </p>
           </div>
         </div>
       </section>
 
       <section className="section-grid section-split" id="services">
-        <div className="section-heading">
+        <div className="section-heading section-heading-balanced">
           <p className="eyebrow">услуги</p>
-          <h2>Подреден процес, ясни услуги и резултат, който е готов за реална употреба.</h2>
+          <h2>Клиентът получава подреден процес, ясни услуги и резултат, който е готов за реална употреба.</h2>
+          <p className="page-text">
+            Структурата е проста: какво се изработва, как се движи проектът и какво остава след финалното предаване.
+          </p>
         </div>
-        <div className="split-content services-overview">
+        <div className="split-content split-content-balanced services-overview">
           <div className="card service-overview-card content-card-wide">
             <ul className="service-list">
               {services.map((service) => (
@@ -110,13 +129,16 @@ export default function Home() {
       </section>
 
       <section className="section-grid section-split" id="about">
-        <div className="section-heading">
+        <div className="section-heading section-heading-balanced">
           <p className="eyebrow">за бранда</p>
           <h2>
-            Бранд, изграден чрез практика, последователност и дългосрочна логика.
+            d . media е изграден като последователен бранд с фокус върху идентичност, дигитален дизайн и устойчиво развитие.
           </h2>
+          <p className="page-text">
+            Представянето не трябва да звучи абстрактно, а да показва професионална посока: естетика, функционалност и системно мислене.
+          </p>
         </div>
-        <div className="split-content stacked-cards">
+        <div className="split-content split-content-balanced stacked-cards">
           <div className="card text-card content-card-wide">
             <p>
               <BrandText text="d . media е бранд, фокусиран върху визуална идентичност, дигитален дизайн и създаване на устойчиви брандове." />
@@ -135,11 +157,17 @@ export default function Home() {
       <section className="section-grid contact-section" id="contact">
         <div className="card contact-card content-card-wide">
           <p className="eyebrow">Бранд. Съдържание. Дизайн. Реклама.</p>
-          <h2>Ако подготвяш нов бранд, сайт или визуална система, можем да започнем оттук.</h2>
+          <h2>Ако подготвяш нов бранд, сайт или по-ясна визуална система, следващата стъпка е кратко запитване с контекст и посока.</h2>
+          <p className="page-text">
+            Оттам разговорът преминава към работен обхват, оферта и реално изпълнение.
+          </p>
           <div className="hero-actions contact-cta">
-            <a href="/contact" className="button button-primary">
+            <Link href="/contact" className="button button-primary">
               Към контакт
-            </a>
+            </Link>
+            <Link href="/projects" className="button button-secondary">
+              Виж проектите
+            </Link>
           </div>
         </div>
       </section>
