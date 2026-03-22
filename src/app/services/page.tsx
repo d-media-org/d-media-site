@@ -17,7 +17,7 @@ import { getSiteRuntimeConfig } from "@/lib/site-runtime-config";
 export const metadata: Metadata = {
   title: "Услуги",
   description:
-    "Категории услуги, процес на работа, документи и практична система на работа на d . media.",
+    "Услуги, процес, документи и реален работен ред в d . media: от идентичност и съдържание до уебсайт и готови материали.",
   alternates: {
     canonical: "/services",
   },

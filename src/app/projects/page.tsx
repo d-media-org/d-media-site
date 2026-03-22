@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 
 import { ProtectedImage } from "@/components/protected-image";
@@ -6,6 +7,15 @@ import { ProjectShowcase } from "@/components/project-showcase";
 import { resolvedProjectPngArchive } from "@/lib/asset-url";
 import { getFeaturedProjectSlugs } from "@/lib/featured-projects";
 import { getSiteRuntimeConfig } from "@/lib/site-runtime-config";
+
+export const metadata: Metadata = {
+  title: "Проекти",
+  description:
+    "Подбрани акцентни проекти и пълен архив с реални файлове, които показват как d . media превежда идентичността в работещо приложение.",
+  alternates: {
+    canonical: "/projects",
+  },
+};
 
 function formatFileCount(count: number) {
   return `${count} ${count === 1 ? "файл" : "файла"}`;
@@ -21,25 +31,22 @@ export default async function ProjectsPage() {
         <SiteHeader />
         <div className="section-heading page-intro page-intro-balanced">
           <p className="eyebrow">проекти</p>
-          <h1>Проекти, които показват как d . media изгражда работещи системи за реални брандове.</h1>
+          <h1>Проекти, които показват как d . media превежда една идея в работещо визуално присъствие.</h1>
           <p className="page-text">
-            Тук е събрано реалното съдържание от проектните папки. Акцентите отпред показват най-силните системи, а архивът отдолу отваря целия наличен визуален материал по проекти.
+            Тук е събрано реалното съдържание от проектните папки. Акцентите отпред показват най-силните системи, а архивът отдолу отваря реалния диапазон на работа по отделните брандове.
           </p>
         </div>
         <div className="showcase-grid project-reading-grid">
           <article className="card package-card">
             <h3>Какво показва портфолиото</h3>
             <p>
-              Проектите отпред показват, че d . media може да изгради
-              разпознаваем знак, да го преведе в реални носители и да поддържа
-              последователен визуален характер.
+              Акцентните проекти показват как един бранд може да премине от знак и логотип към реални носители, дигитални формати и последователно присъствие.
             </p>
           </article>
           <article className="card package-card">
             <h3>Какво вижда клиентът</h3>
             <p>
-              Не просто красиви изображения, а ясна увереност, че проектът може
-              да стигне от идентичност до реално приложение и готови материали.
+              Не просто красиви изображения, а увереност, че проектът може да стигне от идентичност до готови материали, които работят в реална среда.
             </p>
           </article>
         </div>
@@ -55,9 +62,9 @@ export default async function ProjectsPage() {
 
         <div className="section-heading page-subheading">
           <p className="eyebrow">пълен архив</p>
-          <h2>Пълният архив показва диапазона на работа чрез реално наличните проектни файлове.</h2>
+          <h2>Пълният архив показва обхвата на работа чрез реално наличните файлове по проектите.</h2>
           <p className="page-text">
-            Всеки проект в този архив има собствена страница с реално наличните файлове от папката си, така че посетителят да вижда реалната дълбочина на работата.
+            Всеки проект има собствена страница с наличните файлове от папката си, така че посетителят да вижда не обещание, а реално извършена работа.
           </p>
         </div>
         <div className="archive-grid">
@@ -91,9 +98,9 @@ export default async function ProjectsPage() {
         <article className="card projects-cta-card">
           <div className="services-cta-copy">
             <p className="eyebrow">следваща стъпка</p>
-            <h2>Ако търсиш същата яснота за собствен бранд или дигитално присъствие, следващата стъпка е кратък контекст и добре формулирана задача.</h2>
+            <h2>Ако търсиш същата яснота за собствен бранд или дигитално присъствие, следващата стъпка е кратко запитване с реален контекст.</h2>
             <p className="page-text">
-              Архивът показва как d . media работи. Следващата стъпка е този подход да бъде адаптиран към твоя канал, аудитория и бизнес посока.
+              Проектите показват как d . media работи. Следващата стъпка е този подход да бъде адаптиран към твоя бранд, канал и бизнес посока.
             </p>
           </div>
           <div className="hero-actions">

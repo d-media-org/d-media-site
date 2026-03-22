@@ -1,6 +1,17 @@
+import type { Metadata } from "next";
+
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
 import { contactEmail, contactPhone, contactPhoneHref, socials } from "@/lib/site-content";
 import { getSiteRuntimeConfig } from "@/lib/site-runtime-config";
+
+export const metadata: Metadata = {
+  title: "Контакт",
+  description:
+    "Контакт с d . media за нов бранд, уебсайт, съдържание, документна система или по-ясно визуално присъствие.",
+  alternates: {
+    canonical: "/contact",
+  },
+};
 
 export default async function ContactPage() {
   const siteRuntimeConfig = await getSiteRuntimeConfig();
@@ -16,7 +27,7 @@ export default async function ContactPage() {
         <SiteHeader />
         <div className="section-heading page-intro">
           <p className="eyebrow">контакт</p>
-          <h1>Стартова точка за нов бранд, страница, документна система или формат за съдържание.</h1>
+          <h1>Стартова точка за нов бранд, уебсайт, документна система или формат за съдържание.</h1>
           <p className="page-text">
             Ако проектът изисква по-ясна визуална структура и последователно дигитално присъствие, разговорът започва оттук.
           </p>
@@ -38,8 +49,8 @@ export default async function ContactPage() {
             <h2>Какво следва след това</h2>
             <p>
               След първия контакт проектът преминава към работен контекст,
-              оферта, потвърждение и изпълнение според избраната услуга и
-              нужния формат.
+              оферта, потвърждение и изпълнение според нужния формат,
+              срок и обхват.
             </p>
             <div className="hero-actions contact-hero-actions">
               <a href={siteRuntimeConfig.contact.primaryCta.href} className="button button-primary">

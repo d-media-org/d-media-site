@@ -1,7 +1,18 @@
+import type { Metadata } from "next";
+
 import { BrandName, BrandText } from "@/components/brand-text";
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
 import { resolveAssetUrl } from "@/lib/asset-url";
 import { aboutNotes, principles } from "@/lib/site-content";
+
+export const metadata: Metadata = {
+  title: "За бранда",
+  description:
+    "История, подход и официален брандбук на d . media с фокус върху визуална идентичност, дигитален дизайн и устойчиво присъствие.",
+  alternates: {
+    canonical: "/about",
+  },
+};
 
 export default function AboutPage() {
   return (

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 
 import { BrandAsset } from "@/components/brand-asset";
@@ -8,7 +9,16 @@ import {
   process,
   services,
 } from "@/lib/site-content";
+import { siteDescription } from "@/lib/seo";
 import { getSiteRuntimeConfig } from "@/lib/site-runtime-config";
+
+export const metadata: Metadata = {
+  title: "Бранд идентичност, съдържание и дигитално присъствие",
+  description: siteDescription,
+  alternates: {
+    canonical: "/",
+  },
+};
 
 export default async function Home() {
   const siteRuntimeConfig = await getSiteRuntimeConfig();
@@ -25,9 +35,9 @@ export default async function Home() {
 
         <div className="hero-copy">
           <p className="eyebrow">Бранд. Съдържание. Дизайн. Реклама.</p>
-          <h1>Визуални системи за брандове, които изглеждат последователно и работят уверено.</h1>
+          <h1>Бранд идентичност, съдържание и дигитално присъствие, изградени като една работеща система.</h1>
           <p className="hero-text">
-            <BrandText text="d . media изгражда бранд идентичност, съдържание, дигитални носители и рекламни формати така, че клиентът да получи не просто визия, а ясна, използваема и последователна система." />
+            <BrandText text="d . media създава бранд идентичност, съдържание, уебсайтове и рекламни формати така, че клиентът да получи не просто визия, а ясна, подредена и използваема система за реална работа." />
           </p>
           <ul className="detail-list hero-detail-list">
             {homeOutcomes.map((item) => (
@@ -57,7 +67,7 @@ export default async function Home() {
           </div>
           <div className="hero-card hero-card-note">
             <p>
-              Подходът свързва бранд идентичност, съдържание, документи, дигитални формати и реклама в една последователна система.
+              Подходът свързва идентичност, съдържание, документи, дигитални формати и реклама в една последователна система.
             </p>
           </div>
         </aside>
@@ -68,9 +78,9 @@ export default async function Home() {
           <p className="eyebrow">
             <BrandText text="какво прави d . media" />
           </p>
-          <h2>Брандът се развива като студио за ясна визуална структура, последователни носители и работещи клиентски материали.</h2>
+          <h2>Брандът работи като студио за ясна визуална структура, последователни носители и материали, готови за реална употреба.</h2>
           <p className="page-text">
-            d . media не предлага случайни единични файлове, а подреден резултат, който може да се използва в реална работа.
+            d . media не предлага отделни разпилени файлове, а подреден резултат, който може да се използва веднага и да се развива устойчиво.
           </p>
         </div>
         <div className="split-content split-content-balanced">
@@ -95,7 +105,7 @@ export default async function Home() {
           </div>
           <div className="card brand-principle">
             <p>
-              Всеки проект се разглежда като цялостна система: задача, визуален език, реални носители и готови файлове, които могат да се използват веднага и последователно.
+              Всеки проект се разглежда като цялостна система: задача, визуален език, реални носители и готови файлове, които запазват един и същ характер навсякъде.
             </p>
             <p className="brand-principle-strong">
               Това е разликата между красива визия и завършено присъствие.
@@ -135,12 +145,12 @@ export default async function Home() {
       {siteRuntimeConfig.home.sections.about ? (
         <section className="section-grid section-split" id="about">
           <div className="section-heading section-heading-balanced">
-            <p className="eyebrow">за бранда</p>
+          <p className="eyebrow">за бранда</p>
           <h2>
             d . media е изграден като последователен бранд с фокус върху идентичност, дигитален дизайн и устойчиво присъствие.
           </h2>
           <p className="page-text">
-            Подходът съчетава естетика, функционалност и ясна система на работа.
+            Подходът съчетава естетика, функционалност и ясна система на работа, без да разчита на случайни решения.
           </p>
           </div>
           <div className="split-content split-content-balanced stacked-cards">
@@ -163,9 +173,9 @@ export default async function Home() {
       <section className="section-grid contact-section" id="contact">
         <div className="card contact-card content-card-wide">
           <p className="eyebrow">Бранд. Съдържание. Дизайн. Реклама.</p>
-          <h2>Ако подготвяш нов бранд, уебсайт или по-ясна визуална система, следващата стъпка е кратко запитване с контекст и посока.</h2>
+          <h2>Ако подготвяш нов бранд, уебсайт или по-ясно визуално присъствие, следващата стъпка е кратко запитване с контекст и посока.</h2>
           <p className="page-text">
-            Оттам разговорът преминава към работен обхват, оферта и реално изпълнение.
+            Оттам разговорът преминава към работен обхват, оферта и изпълнение според реалната нужда на проекта.
           </p>
           <div className="hero-actions contact-cta">
             <Link href={siteRuntimeConfig.home.finalPrimaryCta.href} className="button button-primary">

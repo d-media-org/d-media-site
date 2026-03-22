@@ -3,6 +3,13 @@ import localFont from "next/font/local";
 import { Analytics } from "@vercel/analytics/next";
 
 import { AnnouncementBar } from "@/components/announcement-bar";
+import {
+  baseUrl,
+  getOrganizationSchema,
+  getWebsiteSchema,
+  siteDescription,
+  siteKeywords,
+} from "@/lib/seo";
 import { getSiteRuntimeConfig } from "@/lib/site-runtime-config";
 
 import "./globals.css";
@@ -38,7 +45,7 @@ const pantonLight = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.d-media.org"),
+  metadataBase: new URL(baseUrl),
   icons: {
     icon: [
       { url: "/dmedia-favicon-v4-16.png", sizes: "16x16", type: "image/png" },
@@ -52,28 +59,17 @@ export const metadata: Metadata = {
     default: "d . media",
     template: "%s | d . media",
   },
-  description:
-    "d . media: създаване на бранд идентичност, създаване на съдържание, управление на социални медии, графичен дизайн и реклама.",
-  keywords: [
-    "d . media",
-    "visual design",
-    "branding",
-    "brand identity",
-    "editorial design",
-    "digital design",
-    "web design",
-    "graphic design",
-  ],
+  description: siteDescription,
+  keywords: siteKeywords,
   alternates: {
     canonical: "/",
   },
   openGraph: {
     type: "website",
     locale: "bg_BG",
-    url: "https://www.d-media.org",
-    title: "d . media",
-    description:
-      "Създаване на бранд идентичност, създаване на съдържание, управление на социални медии, графичен дизайн и реклама.",
+    url: baseUrl,
+    title: "d . media | Бранд идентичност, съдържание и дигитално присъствие",
+    description: siteDescription,
     siteName: "d . media",
     images: [
       {
@@ -86,9 +82,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "d . media",
-    description:
-      "Създаване на бранд идентичност, създаване на съдържание, управление на социални медии, графичен дизайн и реклама.",
+    title: "d . media | Бранд идентичност, съдържание и дигитално присъствие",
+    description: siteDescription,
     images: ["/twitter-image.png"],
   },
   robots: {
@@ -114,12 +109,17 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const siteRuntimeConfig = await getSiteRuntimeConfig();
+  const structuredData = [getOrganizationSchema(), getWebsiteSchema()];
 
   return (
     <html lang="bg">
       <body
         className={`${pantonBlack.variable} ${pantonBold.variable} ${pantonSemiBold.variable} ${pantonRegular.variable} ${pantonLight.variable} antialiased`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
         {siteRuntimeConfig.announcement ? (
           <AnnouncementBar
             text={siteRuntimeConfig.announcement.text}
