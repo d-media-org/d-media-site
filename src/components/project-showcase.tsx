@@ -1,16 +1,18 @@
 import Link from "next/link";
 
 import { ProtectedImage } from "@/components/protected-image";
-import { featuredProjectPngs } from "@/lib/project-png-archive";
+import { getFeaturedProjects } from "@/lib/featured-projects";
 
 function formatFileCount(count: number) {
   return `${count} ${count === 1 ? "файл" : "файла"}`;
 }
 
-export function ProjectShowcase({ className }: { className?: string }) {
+export async function ProjectShowcase({ className }: { className?: string }) {
+  const featuredProjects = await getFeaturedProjects();
+
   return (
     <div className={className ? `showcase-grid ${className}` : "showcase-grid"}>
-      {featuredProjectPngs.map((project) => (
+      {featuredProjects.map((project) => (
         <Link className="card showcase-card showcase-link-card" href={`/projects/${project.slug}`} key={project.slug}>
           <article>
             <div className="showcase-image">

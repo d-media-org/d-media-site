@@ -3,13 +3,16 @@ import Link from "next/link";
 import { ProtectedImage } from "@/components/protected-image";
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
 import { ProjectShowcase } from "@/components/project-showcase";
-import { featuredProjectPngs, projectPngArchive } from "@/lib/project-png-archive";
+import { getFeaturedProjectSlugs } from "@/lib/featured-projects";
+import { projectPngArchive } from "@/lib/project-png-archive";
 
 function formatFileCount(count: number) {
   return `${count} ${count === 1 ? "файл" : "файла"}`;
 }
 
-export default function ProjectsPage() {
+export default async function ProjectsPage() {
+  const featuredProjectSlugs = await getFeaturedProjectSlugs();
+
   return (
     <main className="site-shell" id="top">
       <section className="section-grid">
@@ -70,7 +73,7 @@ export default function ProjectsPage() {
                 <div className="archive-project-copy">
                   <div className="project-card-footer">
                     <span className="archive-category">
-                      {featuredProjectPngs.some((item) => item.slug === project.slug) ? "акцентен проект" : "пълен архив"}
+                      {featuredProjectSlugs.includes(project.slug) ? "акцентен проект" : "пълен архив"}
                     </span>
                     <span className="archive-count">{formatFileCount(project.imageCount)}</span>
                   </div>
