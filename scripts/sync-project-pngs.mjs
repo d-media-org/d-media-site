@@ -41,7 +41,6 @@ const featuredConfig = {
     ],
   },
   "aneliart": {
-    priority: 3,
     title: "Aneli Art",
     summary:
       "Компактен авторски знак с минималистично присъствие и директна разпознаваемост.",
@@ -54,7 +53,7 @@ const featuredConfig = {
     ],
   },
   "yanita": {
-    priority: 4,
+    priority: 3,
     title: "Yanita",
     summary:
       "Салонен бранд с богат приложен архив: covers, profile assets и gift card формати, подготвени за ежедневна употреба.",
@@ -67,7 +66,6 @@ const featuredConfig = {
     ],
   },
   "diana": {
-    priority: 5,
     title: "Diana",
     summary:
       "Елегантен identity проект за хендмейд украса за празненства, изграден чрез чист силует и гъвкави logo варианти.",
@@ -80,7 +78,6 @@ const featuredConfig = {
     ],
   },
   "mis-18": {
-    priority: 6,
     title: "MIS 18",
     summary:
       "Бранд за митническа агенция с logo пакет, mockup приложение и по-широко дигитално присъствие, включително сайт на d . media.",
@@ -397,7 +394,7 @@ for (const [index, dirName] of projectDirs.entries()) {
     imageCount: images.length,
     cover,
     images,
-    featured: Boolean(feature),
+    featured: typeof feature?.priority === "number",
     priority: feature?.priority ?? 999,
     summary:
       feature?.summary ??

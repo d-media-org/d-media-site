@@ -86,30 +86,9 @@ export const projectPngArchive = [
     ]
   },
   {
-    "slug": "aneliart",
-    "title": "Aneli Art",
-    "imageCount": 1,
-    "cover": "/assets/project-covers/aneliart.png",
-    "images": [
-      {
-        "src": "/assets/project-pngs/aneliart/01.png",
-        "label": "AneliArt.png"
-      }
-    ],
-    "featured": true,
-    "priority": 3,
-    "summary": "Компактен авторски знак с минималистично присъствие и директна разпознаваемост.",
-    "context": "Лек авторски identity проект, концентриран около един самостоятелен знак.",
-    "focus": [
-      "Изчистен самостоятелен знак",
-      "Минимален визуален шум",
-      "Подходящ за артистично и авторско позициониране"
-    ]
-  },
-  {
     "slug": "yanita",
     "title": "Yanita",
-    "imageCount": 10,
+    "imageCount": 9,
     "cover": "/assets/project-covers/yanita.png",
     "images": [
       {
@@ -138,23 +117,19 @@ export const projectPngArchive = [
       },
       {
         "src": "/assets/project-pngs/yanita/07.png",
-        "label": "YANITA gift card copy.png"
-      },
-      {
-        "src": "/assets/project-pngs/yanita/08.png",
         "label": "YANITA gift card.png"
       },
       {
-        "src": "/assets/project-pngs/yanita/09.png",
+        "src": "/assets/project-pngs/yanita/08.png",
         "label": "Yanita info cover.png"
       },
       {
-        "src": "/assets/project-pngs/yanita/10.png",
+        "src": "/assets/project-pngs/yanita/09.png",
         "label": "Yanita modern transperent.png"
       }
     ],
     "featured": true,
-    "priority": 4,
+    "priority": 3,
     "summary": "Салонен бранд с богат приложен архив: covers, profile assets и gift card формати, подготвени за ежедневна употреба.",
     "context": "Identity проект за салон за красота, развит в реални клиентски и social формати.",
     "focus": [
@@ -164,69 +139,24 @@ export const projectPngArchive = [
     ]
   },
   {
-    "slug": "diana",
-    "title": "Diana",
-    "imageCount": 5,
-    "cover": "/assets/project-covers/diana.png",
+    "slug": "aneliart",
+    "title": "Aneli Art",
+    "imageCount": 1,
+    "cover": "/assets/project-covers/aneliart.png",
     "images": [
       {
-        "src": "/assets/project-pngs/diana/01.png",
-        "label": "Diana_logo_black background.png"
-      },
-      {
-        "src": "/assets/project-pngs/diana/02.png",
-        "label": "Diana_logo_no color_black background.png"
-      },
-      {
-        "src": "/assets/project-pngs/diana/03.png",
-        "label": "Diana_logo_no color_white background.png"
-      },
-      {
-        "src": "/assets/project-pngs/diana/04.png",
-        "label": "Diana_logo_transparent.png"
-      },
-      {
-        "src": "/assets/project-pngs/diana/05.png",
-        "label": "Diana_logo_white background.png"
+        "src": "/assets/project-pngs/aneliart/01.png",
+        "label": "AneliArt.png"
       }
     ],
-    "featured": true,
-    "priority": 5,
-    "summary": "Елегантен identity проект за хендмейд украса за празненства, изграден чрез чист силует и гъвкави logo варианти.",
-    "context": "Бранд с по-тих и декоративен визуален език, фокусиран върху формата на логото.",
+    "featured": false,
+    "priority": 999,
+    "summary": "Компактен авторски знак с минималистично присъствие и директна разпознаваемост.",
+    "context": "Лек авторски identity проект, концентриран около един самостоятелен знак.",
     "focus": [
-      "Варианти с и без цвят",
-      "Версии за различни фонове",
-      "По-деликатно logo-driven присъствие"
-    ]
-  },
-  {
-    "slug": "mis-18",
-    "title": "MIS 18",
-    "imageCount": 3,
-    "cover": "/assets/project-covers/mis-18.png",
-    "images": [
-      {
-        "src": "/assets/project-pngs/mis-18/01.png",
-        "label": "MIS 18 logo _ mockup.png"
-      },
-      {
-        "src": "/assets/project-pngs/mis-18/02.png",
-        "label": "MIS 18 logo _ Transperent.png"
-      },
-      {
-        "src": "/assets/project-pngs/mis-18/03.png",
-        "label": "MIS 18 logo.png"
-      }
-    ],
-    "featured": true,
-    "priority": 6,
-    "summary": "Бранд за митническа агенция с logo пакет, mockup приложение и по-широко дигитално присъствие, включително сайт на d . media.",
-    "context": "Identity проект за административна и логистична среда, където знакът трябва да стои директно и уверено.",
-    "focus": [
-      "Основен logo export",
-      "Прозрачен вариант за дигитална употреба",
-      "Mockup контекст и връзка със site implementation"
+      "Изчистен самостоятелен знак",
+      "Минимален визуален шум",
+      "Подходящ за артистично и авторско позициониране"
     ]
   },
   {
@@ -276,7 +206,7 @@ export const projectPngArchive = [
         "label": "boris lilov PHOTOGRAPHY logotype _ white BG.png"
       }
     ],
-    "featured": true,
+    "featured": false,
     "priority": 999,
     "summary": "Фотографски бранд с пълен набор logo, logotype и комбинирани варианти за различни фонове и промоционална употреба.",
     "context": "Проект за фотографско позициониране, изграден върху чиста типографска тежест и ясни identity lockups.",
@@ -284,6 +214,43 @@ export const projectPngArchive = [
       "Logo, logotype и комбинирани варианти",
       "Черни, бели и прозрачни версии",
       "Mockup контекст за по-реален прочит на идентичността"
+    ]
+  },
+  {
+    "slug": "diana",
+    "title": "Diana",
+    "imageCount": 5,
+    "cover": "/assets/project-covers/diana.png",
+    "images": [
+      {
+        "src": "/assets/project-pngs/diana/01.png",
+        "label": "Diana_logo_black background.png"
+      },
+      {
+        "src": "/assets/project-pngs/diana/02.png",
+        "label": "Diana_logo_no color_black background.png"
+      },
+      {
+        "src": "/assets/project-pngs/diana/03.png",
+        "label": "Diana_logo_no color_white background.png"
+      },
+      {
+        "src": "/assets/project-pngs/diana/04.png",
+        "label": "Diana_logo_transparent.png"
+      },
+      {
+        "src": "/assets/project-pngs/diana/05.png",
+        "label": "Diana_logo_white background.png"
+      }
+    ],
+    "featured": false,
+    "priority": 999,
+    "summary": "Елегантен identity проект за хендмейд украса за празненства, изграден чрез чист силует и гъвкави logo варианти.",
+    "context": "Бранд с по-тих и декоративен визуален език, фокусиран върху формата на логото.",
+    "focus": [
+      "Варианти с и без цвят",
+      "Версии за различни фонове",
+      "По-деликатно logo-driven присъствие"
     ]
   },
   {
@@ -305,7 +272,7 @@ export const projectPngArchive = [
         "label": "enduro team STOLETOVO (white).png"
       }
     ],
-    "featured": true,
+    "featured": false,
     "priority": 999,
     "summary": "Компактен знак за off-road / team среда с ясни monochrome варианти и директна четимост.",
     "context": "Проект, ориентиран към клубно и спортно присъствие, където знакът трябва да стои твърдо и бързо разпознаваемо.",
@@ -326,7 +293,7 @@ export const projectPngArchive = [
         "label": "Galka’s nails transperent.png"
       }
     ],
-    "featured": true,
+    "featured": false,
     "priority": 999,
     "summary": "Минимален beauty export с директно име и ясен знак за бърза употреба.",
     "context": "Компактен проект с фокус върху най-кратката възможна визуална форма.",
@@ -351,7 +318,7 @@ export const projectPngArchive = [
         "label": "Go Smile White.png"
       }
     ],
-    "featured": true,
+    "featured": false,
     "priority": 999,
     "summary": "Компактен brand пакет за избелващ продукт за зъби, развит в чисти monochrome logo варианти.",
     "context": "Продуктов бранд, при който директното име и ясната четимост са водещи.",
@@ -388,7 +355,7 @@ export const projectPngArchive = [
         "label": "J & V.png"
       }
     ],
-    "featured": true,
+    "featured": false,
     "priority": 999,
     "summary": "Бранд за дрехи с ясно fashion-oriented присъствие, комбиниращ logo варианти и mockup ориентиран архив.",
     "context": "Идентичност за clothing label, развита през по-стилен и редакционен визуален тон.",
@@ -409,7 +376,7 @@ export const projectPngArchive = [
         "label": "make up by Tsvetomira work logo _ transperent.png"
       }
     ],
-    "featured": true,
+    "featured": false,
     "priority": 999,
     "summary": "По-ранният етап на бранд на гримьорка, който по-късно се развива към TS makeup.",
     "context": "Ранна identity посока, в която се вижда преходът към по-ясна и по-завършена beauty марка.",
@@ -417,6 +384,35 @@ export const projectPngArchive = [
       "Първоначален logo asset",
       "Връзка с по-късната еволюция към TS makeup",
       "Beauty-oriented начална визуална рамка"
+    ]
+  },
+  {
+    "slug": "mis-18",
+    "title": "MIS 18",
+    "imageCount": 3,
+    "cover": "/assets/project-covers/mis-18.png",
+    "images": [
+      {
+        "src": "/assets/project-pngs/mis-18/01.png",
+        "label": "MIS 18 logo _ mockup.png"
+      },
+      {
+        "src": "/assets/project-pngs/mis-18/02.png",
+        "label": "MIS 18 logo _ Transperent.png"
+      },
+      {
+        "src": "/assets/project-pngs/mis-18/03.png",
+        "label": "MIS 18 logo.png"
+      }
+    ],
+    "featured": false,
+    "priority": 999,
+    "summary": "Бранд за митническа агенция с logo пакет, mockup приложение и по-широко дигитално присъствие, включително сайт на d . media.",
+    "context": "Identity проект за административна и логистична среда, където знакът трябва да стои директно и уверено.",
+    "focus": [
+      "Основен logo export",
+      "Прозрачен вариант за дигитална употреба",
+      "Mockup контекст и връзка със site implementation"
     ]
   },
   {
@@ -442,7 +438,7 @@ export const projectPngArchive = [
         "label": "Photo workshop _ white _ transparent _ logo.png"
       }
     ],
-    "featured": true,
+    "featured": false,
     "priority": 999,
     "summary": "Идентичност за photo-oriented формат с няколко logo версии за различен фон и контекст.",
     "context": "Проект с образователен и фотографски тон, при който типографията и четимостта са водещи.",
@@ -471,7 +467,7 @@ export const projectPngArchive = [
         "label": "Plamena nails _ logo _ violet _ transperent.png"
       }
     ],
-    "featured": true,
+    "featured": false,
     "priority": 999,
     "summary": "Компактен beauty знак с цветови варианти и по-декоративно присъствие.",
     "context": "Nail-oriented identity проект, развит чрез няколко цветови версии на един и същ знак.",
@@ -504,7 +500,7 @@ export const projectPngArchive = [
         "label": "PP hairstyle.png"
       }
     ],
-    "featured": true,
+    "featured": false,
     "priority": 999,
     "summary": "Beauty бранд с няколко logo варианта и ясно име, подготвен за различни фонове и ежедневна употреба.",
     "context": "Идентичност за hair-oriented услуга, изградена около директна четимост и познаваемо име.",
@@ -549,7 +545,7 @@ export const projectPngArchive = [
         "label": "SFS_white.png"
       }
     ],
-    "featured": true,
+    "featured": false,
     "priority": 999,
     "summary": "Спортно-ориентиран знак с по-директен характер и пълен набор варианти за фон и приложение.",
     "context": "Identity проект, изграден за по-ясно присъствие в клубна и спортна среда.",
@@ -570,7 +566,7 @@ export const projectPngArchive = [
         "label": "Stanulovi-01-01.png"
       }
     ],
-    "featured": true,
+    "featured": false,
     "priority": 999,
     "summary": "Компактен identity знак за място или обект, представен като чист единичен brand asset.",
     "context": "Проект с фокус върху директна разпознаваемост и ясно изписване на името.",
@@ -607,7 +603,7 @@ export const projectPngArchive = [
         "label": "TS makeup _ logo.png"
       }
     ],
-    "featured": true,
+    "featured": false,
     "priority": 999,
     "summary": "По-завършената еволюция на Makeup by Tsvetomira, развита в по-изчистена beauty identity система.",
     "context": "Продължение на вече съществуващ бранд, преработен в по-събран и по-разпознаваем знак.",
@@ -640,7 +636,7 @@ export const projectPngArchive = [
         "label": "Сянка от миналото.png"
       }
     ],
-    "featured": true,
+    "featured": false,
     "priority": 999,
     "summary": "Визуална идентичност за YouTube канал, развит в ко-продукционен контекст с d . media.",
     "context": "Проект за видео съдържание, при който знакът трябва да работи уверено в канална и дигитална среда.",
