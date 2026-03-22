@@ -125,11 +125,32 @@ function collectPngFiles(dir) {
     }
 
     if (entry.isFile() && entry.name.toLowerCase().endsWith(".png")) {
+      const lowerName = entry.name.toLowerCase();
+
+      if (lowerName.includes("preview")) {
+        continue;
+      }
+
       files.push(fullPath);
     }
   }
 
   return files.sort((a, b) => a.localeCompare(b));
+}
+
+function prioritizeImages(files) {
+  return [...files].sort((a, b) => {
+    const aName = path.basename(a).toLowerCase();
+    const bName = path.basename(b).toLowerCase();
+    const aIsMockup = aName.includes("mockup");
+    const bIsMockup = bName.includes("mockup");
+
+    if (aIsMockup !== bIsMockup) {
+      return aIsMockup ? -1 : 1;
+    }
+
+    return a.localeCompare(b);
+  });
 }
 
 function copyOptimizedPng(source, output) {
@@ -156,7 +177,7 @@ const archive = [];
 
 for (const [index, dirName] of projectDirs.entries()) {
   const sourceDir = path.join(sourceRoot, dirName);
-  const pngFiles = collectPngFiles(sourceDir);
+  const pngFiles = prioritizeImages(collectPngFiles(sourceDir));
 
   if (pngFiles.length === 0) {
     continue;

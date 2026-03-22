@@ -1,7 +1,6 @@
 import { BrandAsset } from "@/components/brand-asset";
 import { BrandText } from "@/components/brand-text";
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
-import { ProjectShowcase } from "@/components/project-showcase";
 import {
   formats,
   process,
@@ -18,11 +17,11 @@ export default function Home() {
           <p className="eyebrow">Бранд. Съдържание. Дизайн. Реклама.</p>
           <h1>Създаване на бранд идентичност, съдържание, дизайн и реклама.</h1>
           <p className="hero-text">
-            <BrandText text="d . media работи по брандове, съдържание и дигитални формати с ясен визуален ред, спокойна типография и решения, които могат да се използват реално." />
+            <BrandText text="d . media помага на брандове да изградят по-ясно присъствие чрез идентичност, съдържание, дигитални носители и рекламни формати, подредени в последователна система." />
           </p>
           <div className="hero-actions">
-            <a href="#projects" className="button button-primary">
-              Избрани проекти
+            <a href="/services" className="button button-primary">
+              Услуги
             </a>
             <a href="#contact" className="button button-secondary">
               Запитване
@@ -43,19 +42,11 @@ export default function Home() {
           </div>
           <div className="hero-card hero-card-note">
             <p>
-              Управление на социални медии, графичен дизайн, съдържание,
-              документни формати и реклама в една последователна работна рамка.
+              Създаване на бранд идентичност, съдържание, дигитални формати,
+              документни системи и реклама в една последователна работна рамка.
             </p>
           </div>
         </aside>
-      </section>
-
-      <section className="section-grid" id="projects">
-        <div className="section-heading">
-          <p className="eyebrow">избрани направления</p>
-          <h2>Системи, които работят отвъд един носител.</h2>
-        </div>
-        <ProjectShowcase />
       </section>
 
       <section className="section-grid section-split">
@@ -63,7 +54,7 @@ export default function Home() {
           <p className="eyebrow">
             <BrandText text="какво прави d . media" />
           </p>
-          <h2>Една работна рамка за бранд, съдържание, документи и дигитални носители.</h2>
+          <h2>Ясна работна рамка за бранд, съдържание, дигитални носители и клиентски материали.</h2>
         </div>
         <div className="split-content">
           <div className="card format-panel">
@@ -87,8 +78,9 @@ export default function Home() {
           </div>
           <div className="card brand-principle">
             <p>
-              Проектите се разглеждат като цялостни системи: идея, визуален
-              език, конкретни носители и готови файлове за реална употреба.
+              Всеки проект се разглежда като цялостна система: задача, визуален
+              език, реални носители и готови файлове, които могат да се използват
+              веднага и последователно.
             </p>
           </div>
         </div>
@@ -97,7 +89,7 @@ export default function Home() {
       <section className="section-grid section-split" id="services">
         <div className="section-heading">
           <p className="eyebrow">услуги</p>
-          <h2>Подреден процес, чиста система, готови файлове за работа.</h2>
+          <h2>Подреден процес, ясни услуги и резултат, който е готов за реална употреба.</h2>
         </div>
         <div className="split-content services-overview">
           <div className="card service-overview-card content-card-wide">
@@ -121,7 +113,7 @@ export default function Home() {
         <div className="section-heading">
           <p className="eyebrow">за бранда</p>
           <h2>
-            Бранд, изграден чрез последователност, практика и ясен визуален език.
+            Бранд, изграден чрез практика, последователност и дългосрочна логика.
           </h2>
         </div>
         <div className="split-content stacked-cards">
@@ -133,8 +125,8 @@ export default function Home() {
           <div className="card text-card content-card-wide">
             <p>
               Работата съчетава естетика, функционалност и стратегическо
-              мислене, така че всеки проект да работи като система, а не като
-              единична визия.
+              мислене, така че клиентът да получи не просто визия, а ясна,
+              използваема и устойчива система.
             </p>
           </div>
         </div>

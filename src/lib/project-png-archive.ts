@@ -2,63 +2,51 @@ export const projectPngArchive = [
   {
     "slug": "support-account",
     "title": "Support Account",
-    "imageCount": 14,
+    "imageCount": 11,
     "cover": "/assets/project-pngs/support-account/01.png",
     "images": [
       {
         "src": "/assets/project-pngs/support-account/01.png",
-        "label": "Support Account_bussines card_2 sides_preview.png"
-      },
-      {
-        "src": "/assets/project-pngs/support-account/02.png",
-        "label": "Support Account_bussines card_back side_preview.png"
-      },
-      {
-        "src": "/assets/project-pngs/support-account/03.png",
-        "label": "Support Account_front side_preview.png"
-      },
-      {
-        "src": "/assets/project-pngs/support-account/04.png",
-        "label": "Support Account_logo_black background.png"
-      },
-      {
-        "src": "/assets/project-pngs/support-account/05.png",
         "label": "Support Account_logo_mockup.png"
       },
       {
-        "src": "/assets/project-pngs/support-account/06.png",
-        "label": "Support Account_logo_transparent.png"
-      },
-      {
-        "src": "/assets/project-pngs/support-account/07.png",
-        "label": "Support Account_logo_white background.png"
-      },
-      {
-        "src": "/assets/project-pngs/support-account/08.png",
-        "label": "Support Account_logotype_black background (bulgarian).png"
-      },
-      {
-        "src": "/assets/project-pngs/support-account/09.png",
-        "label": "Support Account_logotype_black background (original).png"
-      },
-      {
-        "src": "/assets/project-pngs/support-account/10.png",
+        "src": "/assets/project-pngs/support-account/02.png",
         "label": "Support Account_logotype_mockup.png"
       },
       {
-        "src": "/assets/project-pngs/support-account/11.png",
+        "src": "/assets/project-pngs/support-account/03.png",
+        "label": "Support Account_logo_black background.png"
+      },
+      {
+        "src": "/assets/project-pngs/support-account/04.png",
+        "label": "Support Account_logo_transparent.png"
+      },
+      {
+        "src": "/assets/project-pngs/support-account/05.png",
+        "label": "Support Account_logo_white background.png"
+      },
+      {
+        "src": "/assets/project-pngs/support-account/06.png",
+        "label": "Support Account_logotype_black background (bulgarian).png"
+      },
+      {
+        "src": "/assets/project-pngs/support-account/07.png",
+        "label": "Support Account_logotype_black background (original).png"
+      },
+      {
+        "src": "/assets/project-pngs/support-account/08.png",
         "label": "Support Account_logotype_transparent (bulgarian).png"
       },
       {
-        "src": "/assets/project-pngs/support-account/12.png",
+        "src": "/assets/project-pngs/support-account/09.png",
         "label": "Support Account_logotype_transparent (original).png"
       },
       {
-        "src": "/assets/project-pngs/support-account/13.png",
+        "src": "/assets/project-pngs/support-account/10.png",
         "label": "Support Account_logotype_white background (original).png"
       },
       {
-        "src": "/assets/project-pngs/support-account/14.png",
+        "src": "/assets/project-pngs/support-account/11.png",
         "label": "Support Account_logotytpe_white background.png"
       }
     ],
@@ -604,12 +592,12 @@ export const projectPngArchive = [
   {
     "slug": "sport-fishing-stoletovo",
     "title": "Sport fishing Stoletovo",
-    "imageCount": 15,
+    "imageCount": 11,
     "cover": "/assets/project-pngs/sport-fishing-stoletovo/01.png",
     "images": [
       {
         "src": "/assets/project-pngs/sport-fishing-stoletovo/01.png",
-        "label": "Archive/SFC_original_black - preview.png"
+        "label": "SFS_mockup.png"
       },
       {
         "src": "/assets/project-pngs/sport-fishing-stoletovo/02.png",
@@ -617,54 +605,38 @@ export const projectPngArchive = [
       },
       {
         "src": "/assets/project-pngs/sport-fishing-stoletovo/03.png",
-        "label": "Archive/SFC_original_white - preview.png"
-      },
-      {
-        "src": "/assets/project-pngs/sport-fishing-stoletovo/04.png",
         "label": "Archive/SFC_original_white.png"
       },
       {
-        "src": "/assets/project-pngs/sport-fishing-stoletovo/05.png",
-        "label": "Archive/SFS_black - preview.png"
-      },
-      {
-        "src": "/assets/project-pngs/sport-fishing-stoletovo/06.png",
+        "src": "/assets/project-pngs/sport-fishing-stoletovo/04.png",
         "label": "Archive/SFS_black.png"
       },
       {
-        "src": "/assets/project-pngs/sport-fishing-stoletovo/07.png",
-        "label": "Archive/SFS_white - preview.png"
-      },
-      {
-        "src": "/assets/project-pngs/sport-fishing-stoletovo/08.png",
+        "src": "/assets/project-pngs/sport-fishing-stoletovo/05.png",
         "label": "Archive/SFS_white.png"
       },
       {
-        "src": "/assets/project-pngs/sport-fishing-stoletovo/09.png",
+        "src": "/assets/project-pngs/sport-fishing-stoletovo/06.png",
         "label": "SFS_black_transperent.png"
       },
       {
-        "src": "/assets/project-pngs/sport-fishing-stoletovo/10.png",
+        "src": "/assets/project-pngs/sport-fishing-stoletovo/07.png",
         "label": "SFS_black.png"
       },
       {
-        "src": "/assets/project-pngs/sport-fishing-stoletovo/11.png",
-        "label": "SFS_mockup.png"
-      },
-      {
-        "src": "/assets/project-pngs/sport-fishing-stoletovo/12.png",
+        "src": "/assets/project-pngs/sport-fishing-stoletovo/08.png",
         "label": "SFS_original.png"
       },
       {
-        "src": "/assets/project-pngs/sport-fishing-stoletovo/13.png",
+        "src": "/assets/project-pngs/sport-fishing-stoletovo/09.png",
         "label": "SFS_orignal_transperent.png"
       },
       {
-        "src": "/assets/project-pngs/sport-fishing-stoletovo/14.png",
+        "src": "/assets/project-pngs/sport-fishing-stoletovo/10.png",
         "label": "SFS_white_transperent.png"
       },
       {
-        "src": "/assets/project-pngs/sport-fishing-stoletovo/15.png",
+        "src": "/assets/project-pngs/sport-fishing-stoletovo/11.png",
         "label": "SFS_white.png"
       }
     ],
@@ -887,15 +859,15 @@ export const projectPngArchive = [
     "images": [
       {
         "src": "/assets/project-pngs/project-30/01.png",
-        "label": "Сянка от миналото_logo_no txt_white background.png"
+        "label": "Сянка от миналото_mockup.png"
       },
       {
         "src": "/assets/project-pngs/project-30/02.png",
-        "label": "Сянка от миналото_logo_white background.png"
+        "label": "Сянка от миналото_logo_no txt_white background.png"
       },
       {
         "src": "/assets/project-pngs/project-30/03.png",
-        "label": "Сянка от миналото_mockup.png"
+        "label": "Сянка от миналото_logo_white background.png"
       },
       {
         "src": "/assets/project-pngs/project-30/04.png",

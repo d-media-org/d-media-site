@@ -124,13 +124,10 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
               <div className="mockup-image">
                 <Image
                   src={image.src}
-                  alt={`${project.title} ${image.label}`}
+                  alt={project.title}
                   fill
                   sizes="(max-width: 767px) 100vw, 720px"
                 />
-              </div>
-              <div className="project-png-caption">
-                <p>{image.label}</p>
               </div>
             </article>
           ))}

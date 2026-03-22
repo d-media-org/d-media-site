@@ -403,7 +403,8 @@ img {
 }
 
 .showcase-image img {
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center;
 }
 
 .mockup-grid {
@@ -434,20 +435,8 @@ img {
 }
 
 .mockup-image img {
-  object-fit: cover;
-}
-
-.project-png-caption {
-  border-top: 1px solid var(--line);
-  padding: 14px 16px 16px;
-}
-
-.project-png-caption p {
-  font-family: var(--font-panton-regular), sans-serif;
-  font-size: 12px;
-  line-height: 1.35;
-  color: var(--text-soft);
-  overflow-wrap: anywhere;
+  object-fit: contain;
+  object-position: center;
 }
 
 .showcase-copy {
@@ -1320,7 +1309,8 @@ a[href]:not(.button):not(.site-brand a):not(.site-nav a):not(.site-nav-mobile a)
 }
 
 .archive-project-cover img {
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center;
 }
 
 .archive-project-copy {
