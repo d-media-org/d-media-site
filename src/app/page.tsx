@@ -8,8 +8,10 @@ import {
   process,
   services,
 } from "@/lib/site-content";
+import { getSiteRuntimeConfig } from "@/lib/site-runtime-config";
 
-export default function Home() {
+export default async function Home() {
+  const siteRuntimeConfig = await getSiteRuntimeConfig();
   const homeOutcomes = [
     "По-ясна бранд идентичност и последователен визуален език",
     "Готови формати за дигитални канали, документи и клиентски материали",
@@ -33,11 +35,11 @@ export default function Home() {
             ))}
           </ul>
           <div className="hero-actions">
-            <a href="/services" className="button button-primary">
-              Прегледай услугите
+            <a href={siteRuntimeConfig.home.heroPrimaryCta.href} className="button button-primary">
+              {siteRuntimeConfig.home.heroPrimaryCta.label}
             </a>
-            <a href="/contact" className="button button-secondary">
-              Започни запитване
+            <a href={siteRuntimeConfig.home.heroSecondaryCta.href} className="button button-secondary">
+              {siteRuntimeConfig.home.heroSecondaryCta.label}
             </a>
           </div>
         </div>
@@ -102,57 +104,61 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section-grid section-split" id="services">
-        <div className="section-heading section-heading-balanced">
-          <p className="eyebrow">услуги</p>
-          <h2>Клиентът получава подреден процес, ясни услуги и резултат, който е готов за реална употреба.</h2>
-          <p className="page-text">
-            Структурата е проста: какво се изработва, как се движи проектът и какво остава след финалното предаване.
-          </p>
-        </div>
-        <div className="split-content split-content-balanced services-overview">
-          <div className="card service-overview-card content-card-wide">
-            <ul className="service-list">
-              {services.map((service) => (
-                <li key={service}>{service}</li>
-              ))}
-            </ul>
+      {siteRuntimeConfig.home.sections.services ? (
+        <section className="section-grid section-split" id="services">
+          <div className="section-heading section-heading-balanced">
+            <p className="eyebrow">услуги</p>
+            <h2>Клиентът получава подреден процес, ясни услуги и резултат, който е готов за реална употреба.</h2>
+            <p className="page-text">
+              Структурата е проста: какво се изработва, как се движи проектът и какво остава след финалното предаване.
+            </p>
           </div>
-          <div className="card process-card content-card-wide">
-            <ul className="process-list">
-              {process.map((step) => (
-                <li key={step}>{step}</li>
-              ))}
-            </ul>
+          <div className="split-content split-content-balanced services-overview">
+            <div className="card service-overview-card content-card-wide">
+              <ul className="service-list">
+                {services.map((service) => (
+                  <li key={service}>{service}</li>
+                ))}
+              </ul>
+            </div>
+            <div className="card process-card content-card-wide">
+              <ul className="process-list">
+                {process.map((step) => (
+                  <li key={step}>{step}</li>
+                ))}
+              </ul>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      ) : null}
 
-      <section className="section-grid section-split" id="about">
-        <div className="section-heading section-heading-balanced">
-          <p className="eyebrow">за бранда</p>
-          <h2>
-            d . media е изграден като последователен бранд с фокус върху идентичност, дигитален дизайн и устойчиво присъствие.
-          </h2>
-          <p className="page-text">
-            Представянето не трябва да звучи абстрактно, а да показва професионална посока: естетика, функционалност и ясна система на работа.
-          </p>
-        </div>
-        <div className="split-content split-content-balanced stacked-cards">
-          <div className="card text-card content-card-wide">
-            <p>
-              <BrandText text="d . media е бранд, фокусиран върху визуална идентичност, дигитален дизайн и създаване на устойчиви брандове." />
+      {siteRuntimeConfig.home.sections.about ? (
+        <section className="section-grid section-split" id="about">
+          <div className="section-heading section-heading-balanced">
+            <p className="eyebrow">за бранда</p>
+            <h2>
+              d . media е изграден като последователен бранд с фокус върху идентичност, дигитален дизайн и устойчиво присъствие.
+            </h2>
+            <p className="page-text">
+              Представянето не трябва да звучи абстрактно, а да показва професионална посока: естетика, функционалност и ясна система на работа.
             </p>
           </div>
-          <div className="card text-card content-card-wide">
-            <p>
-              Работата съчетава естетика, функционалност и стратегическо
-              мислене, така че клиентът да получи не просто визия, а ясна,
-              използваема и устойчива система.
-            </p>
+          <div className="split-content split-content-balanced stacked-cards">
+            <div className="card text-card content-card-wide">
+              <p>
+                <BrandText text="d . media е бранд, фокусиран върху визуална идентичност, дигитален дизайн и създаване на устойчиви брандове." />
+              </p>
+            </div>
+            <div className="card text-card content-card-wide">
+              <p>
+                Работата съчетава естетика, функционалност и стратегическо
+                мислене, така че клиентът да получи не просто визия, а ясна,
+                използваема и устойчива система.
+              </p>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      ) : null}
 
       <section className="section-grid contact-section" id="contact">
         <div className="card contact-card content-card-wide">
@@ -162,11 +168,11 @@ export default function Home() {
             Оттам разговорът преминава към работен обхват, оферта и реално изпълнение.
           </p>
           <div className="hero-actions contact-cta">
-            <Link href="/contact" className="button button-primary">
-              Към контакт
+            <Link href={siteRuntimeConfig.home.finalPrimaryCta.href} className="button button-primary">
+              {siteRuntimeConfig.home.finalPrimaryCta.label}
             </Link>
-            <Link href="/projects" className="button button-secondary">
-              Виж проектите
+            <Link href={siteRuntimeConfig.home.finalSecondaryCta.href} className="button button-secondary">
+              {siteRuntimeConfig.home.finalSecondaryCta.label}
             </Link>
           </div>
         </div>

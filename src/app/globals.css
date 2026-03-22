@@ -36,6 +36,34 @@ body {
   font-family: var(--font-panton-regular), sans-serif;
 }
 
+.announcement-bar {
+  width: min(1440px, calc(100% - 48px));
+  margin: 24px auto 0;
+  padding: 10px 16px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--surface-soft);
+  color: var(--text-soft);
+  font-family: var(--font-panton-light), sans-serif;
+  font-size: 12px;
+  line-height: 1.35;
+  text-align: center;
+}
+
+.announcement-bar p,
+.announcement-bar-link {
+  display: block;
+}
+
+.announcement-bar-link {
+  transition: color 160ms ease, opacity 160ms ease;
+}
+
+.announcement-bar-link:hover,
+.announcement-bar-link:focus-visible {
+  color: var(--foreground);
+}
+
 a {
   color: inherit;
   text-decoration: none;

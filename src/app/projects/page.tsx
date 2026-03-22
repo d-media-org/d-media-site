@@ -5,6 +5,7 @@ import { SiteFooter, SiteHeader } from "@/components/site-chrome";
 import { ProjectShowcase } from "@/components/project-showcase";
 import { getFeaturedProjectSlugs } from "@/lib/featured-projects";
 import { projectPngArchive } from "@/lib/project-png-archive";
+import { getSiteRuntimeConfig } from "@/lib/site-runtime-config";
 
 function formatFileCount(count: number) {
   return `${count} ${count === 1 ? "файл" : "файла"}`;
@@ -12,6 +13,7 @@ function formatFileCount(count: number) {
 
 export default async function ProjectsPage() {
   const featuredProjectSlugs = await getFeaturedProjectSlugs();
+  const siteRuntimeConfig = await getSiteRuntimeConfig();
 
   return (
     <main className="site-shell" id="top">
@@ -95,11 +97,11 @@ export default async function ProjectsPage() {
             </p>
           </div>
           <div className="hero-actions">
-            <a href="/contact" className="button button-primary">
-              Започни проект
+            <a href={siteRuntimeConfig.projects.primaryCta.href} className="button button-primary">
+              {siteRuntimeConfig.projects.primaryCta.label}
             </a>
-            <a href="/services" className="button button-secondary">
-              Услуги
+            <a href={siteRuntimeConfig.projects.secondaryCta.href} className="button button-secondary">
+              {siteRuntimeConfig.projects.secondaryCta.label}
             </a>
           </div>
         </article>

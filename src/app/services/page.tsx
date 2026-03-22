@@ -12,6 +12,7 @@ import {
   servicePackages,
   services,
 } from "@/lib/site-content";
+import { getSiteRuntimeConfig } from "@/lib/site-runtime-config";
 
 export const metadata: Metadata = {
   title: "Услуги",
@@ -22,7 +23,8 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ServicesPage() {
+export default async function ServicesPage() {
+  const siteRuntimeConfig = await getSiteRuntimeConfig();
   const serviceOutcomes = [
     {
       title: "Какво получава клиентът",
@@ -186,11 +188,11 @@ export default function ServicesPage() {
             </p>
           </div>
           <div className="hero-actions">
-            <a href="/contact" className="button button-primary">
-              Към контакт
+            <a href={siteRuntimeConfig.services.primaryCta.href} className="button button-primary">
+              {siteRuntimeConfig.services.primaryCta.label}
             </a>
-            <a href="/terms" className="button button-secondary">
-              Условия
+            <a href={siteRuntimeConfig.services.secondaryCta.href} className="button button-secondary">
+              {siteRuntimeConfig.services.secondaryCta.label}
             </a>
           </div>
         </article>

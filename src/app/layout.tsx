@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { Analytics } from "@vercel/analytics/next";
+
+import { AnnouncementBar } from "@/components/announcement-bar";
+import { getSiteRuntimeConfig } from "@/lib/site-runtime-config";
+
 import "./globals.css";
 
 const pantonBlack = localFont({
@@ -104,16 +108,24 @@ export const metadata: Metadata = {
   category: "design",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const siteRuntimeConfig = await getSiteRuntimeConfig();
+
   return (
     <html lang="bg">
       <body
         className={`${pantonBlack.variable} ${pantonBold.variable} ${pantonSemiBold.variable} ${pantonRegular.variable} ${pantonLight.variable} antialiased`}
       >
+        {siteRuntimeConfig.announcement ? (
+          <AnnouncementBar
+            text={siteRuntimeConfig.announcement.text}
+            href={siteRuntimeConfig.announcement.href}
+          />
+        ) : null}
         {children}
         <Analytics />
       </body>

@@ -1,7 +1,9 @@
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
 import { contactEmail, contactPhone, contactPhoneHref, socials } from "@/lib/site-content";
+import { getSiteRuntimeConfig } from "@/lib/site-runtime-config";
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const siteRuntimeConfig = await getSiteRuntimeConfig();
   const inquiryPoints = [
     "Какъв тип проект подготвяш",
     "Какъв е реалният носител или канал",
@@ -40,11 +42,11 @@ export default function ContactPage() {
               нужния формат.
             </p>
             <div className="hero-actions contact-hero-actions">
-              <a href={`mailto:${contactEmail}`} className="button button-primary">
-                Изпрати e-mail
+              <a href={siteRuntimeConfig.contact.primaryCta.href} className="button button-primary">
+                {siteRuntimeConfig.contact.primaryCta.label}
               </a>
-              <a href="/services" className="button button-secondary">
-                Прегледай услугите
+              <a href={siteRuntimeConfig.contact.secondaryCta.href} className="button button-secondary">
+                {siteRuntimeConfig.contact.secondaryCta.label}
               </a>
             </div>
           </article>
