@@ -1,4 +1,5 @@
 import { ProtectedImage } from "@/components/protected-image";
+import { resolveAssetUrl } from "@/lib/asset-url";
 
 type BrandAssetProps = {
   lightSrc: string;
@@ -26,7 +27,7 @@ export function BrandAsset({
   return (
     <span className={`brand-asset ${className ?? ""}`.trim()}>
       <ProtectedImage
-        src={lightSrc}
+        src={resolveAssetUrl(lightSrc)}
         alt={alt}
         width={width}
         height={height}
@@ -35,7 +36,7 @@ export function BrandAsset({
       />
       {darkSrc ? (
         <ProtectedImage
-          src={darkSrc}
+          src={resolveAssetUrl(darkSrc)}
           alt={alt}
           width={darkWidth ?? width}
           height={darkHeight ?? height}

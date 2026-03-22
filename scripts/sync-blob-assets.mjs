@@ -3,6 +3,7 @@ import path from "node:path";
 import { put } from "@vercel/blob";
 
 const assetRoots = [
+  path.resolve("public/assets/brand"),
   path.resolve("public/assets/project-covers"),
   path.resolve("public/assets/project-pngs"),
   path.resolve("public/assets/documents"),

@@ -1,4 +1,7 @@
 export const blobAssetManifest: Record<string, string> = {
+  "/assets/brand/ONLY-brandmark.png": "https://doncv5yem7gbmqbm.public.blob.vercel-storage.com/assets/brand/ONLY-brandmark.png",
+  "/assets/brand/ONLY-logotype.png": "https://doncv5yem7gbmqbm.public.blob.vercel-storage.com/assets/brand/ONLY-logotype.png",
+  "/assets/brand/sketch-logotype.png": "https://doncv5yem7gbmqbm.public.blob.vercel-storage.com/assets/brand/sketch-logotype.png",
   "/assets/documents/d-media-brandbook.pdf": "https://doncv5yem7gbmqbm.public.blob.vercel-storage.com/assets/documents/d-media-brandbook.pdf",
   "/assets/project-covers/aneliart.png": "https://doncv5yem7gbmqbm.public.blob.vercel-storage.com/assets/project-covers/aneliart.png",
   "/assets/project-covers/boris-lilov-photography.png": "https://doncv5yem7gbmqbm.public.blob.vercel-storage.com/assets/project-covers/boris-lilov-photography.png",
