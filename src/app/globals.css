@@ -212,7 +212,7 @@ img {
 
 .eyebrow {
   font-family: var(--font-panton-semibold), sans-serif;
-  font-size: 13px;
+  font-size: 14px;
   text-transform: lowercase;
   letter-spacing: 0.02em;
   line-height: 1.2;
@@ -460,7 +460,7 @@ img {
   padding-top: 10px;
   border-top: 1px solid var(--line);
   font-family: var(--font-panton-light), sans-serif;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.38;
   color: var(--text-soft);
   overflow-wrap: anywhere;
@@ -480,7 +480,7 @@ img {
 
 .project-link-hint {
   font-family: var(--font-panton-regular), sans-serif;
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.2;
   color: var(--text-soft);
 }
@@ -510,7 +510,7 @@ img {
 
 .case-study-label {
   font-family: var(--font-panton-semibold), sans-serif;
-  font-size: 12px;
+  font-size: 13px;
   line-height: 1.1;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1422,7 +1422,7 @@ a[href]:not(.button):not(.site-brand a):not(.site-nav a):not(.site-nav-mobile a)
 .archive-category,
 .archive-count {
   font-family: var(--font-panton-light), sans-serif;
-  font-size: 12px;
+  font-size: 13px;
   color: var(--muted);
 }
 
@@ -1676,7 +1676,7 @@ a[href]:not(.button):not(.site-brand a):not(.site-nav a):not(.site-nav-mobile a)
 
   .eyebrow,
   .project-meta {
-    font-size: 12px;
+    font-size: 13px;
     letter-spacing: 0.03em;
   }
 
@@ -1992,7 +1992,7 @@ a[href]:not(.button):not(.site-brand a):not(.site-nav a):not(.site-nav-mobile a)
 
   .site-nav-mobile {
     gap: 2px;
-    font-size: 7.5px;
+    font-size: 8.5px;
   }
 
   .contact-links,
