@@ -16,7 +16,7 @@ import {
 export const metadata: Metadata = {
   title: "Услуги",
   description:
-    "Категории услуги, процес на работа, документи и operational рамка на d . media.",
+    "Категории услуги, процес на работа, документи и практическа рамка на d . media.",
   alternates: {
     canonical: "/services",
   },
@@ -165,7 +165,7 @@ export default function ServicesPage() {
           ))}
         </div>
         <div className="section-heading page-subheading">
-          <p className="eyebrow">operational рамка</p>
+          <p className="eyebrow">практична рамка</p>
           <h2>Практичните условия, които определят как работи проектът след началото му.</h2>
         </div>
         <div className="card">

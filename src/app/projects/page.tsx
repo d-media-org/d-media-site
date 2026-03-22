@@ -18,7 +18,7 @@ export default function ProjectsPage() {
           <p className="eyebrow">проекти</p>
           <h1>Проектите трябва да покажат не просто визуален вкус, а способност на d . media да изгражда работещи системи за реални брандове.</h1>
           <p className="page-text">
-            Тази страница показва само реалното съдържание, което в момента е налично в Brand projects. Акцентите отпред водят към най-силните системи, а архивът отдолу отваря целия наличен визуален слой по проекти.
+            Тази страница показва само реалното съдържание, което в момента е налично в проектните папки. Акцентите отпред водят към най-силните системи, а архивът отдолу отваря целия наличен визуален материал по проекти.
           </p>
         </div>
         <div className="showcase-grid project-reading-grid">
@@ -34,14 +34,14 @@ export default function ProjectsPage() {
             <h3>Какво трябва да усети клиентът</h3>
             <p>
               Не просто красиви изображения, а ясна увереност, че проектът може
-              да стигне от идентичност до реално приложение и готови файлове.
+              да стигне от идентичност до реално приложение и готови материали.
             </p>
           </article>
         </div>
 
         <div className="section-heading page-subheading">
           <p className="eyebrow">акценти</p>
-          <h2>Support Account, Support Account Group и избраните брандове отпред задават стандарта за цялото портфолио.</h2>
+          <h2>Support Account, Support Account Group и Yanita задават стандарта за цялото портфолио.</h2>
           <p className="page-text">
             Това са проектите, които най-ясно показват как идентичността се превежда към реални формати, приложения и работещо клиентско присъствие.
           </p>
@@ -49,10 +49,10 @@ export default function ProjectsPage() {
         <ProjectShowcase className="projects-grid" />
 
         <div className="section-heading page-subheading">
-          <p className="eyebrow">пълен png архив</p>
-          <h2>Пълният архив показва диапазона на работа, без да измисля допълнително съдържание извън реално наличните проектни файлове.</h2>
+          <p className="eyebrow">пълен архив</p>
+          <h2>Пълният архив показва диапазона на работа, без да добавя съдържание извън реално наличните проектни файлове.</h2>
           <p className="page-text">
-            Всеки проект в този архив има собствена страница с реално наличните PNG exports от папката си, така че посетителят да вижда реалната дълбочина на работата.
+            Всеки проект в този архив има собствена страница с реално наличните файлове от папката си, така че посетителят да вижда реалната дълбочина на работата.
           </p>
         </div>
         <div className="archive-grid">
@@ -70,7 +70,7 @@ export default function ProjectsPage() {
                 <div className="archive-project-copy">
                   <div className="project-card-footer">
                     <span className="archive-category">
-                      {featuredProjectPngs.some((item) => item.slug === project.slug) ? "акцентен проект" : "png архив"}
+                      {featuredProjectPngs.some((item) => item.slug === project.slug) ? "акцентен проект" : "пълен архив"}
                     </span>
                     <span className="archive-count">{formatFileCount(project.imageCount)}</span>
                   </div>

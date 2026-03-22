@@ -74,7 +74,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
         <SiteHeader />
 
         <div className="section-heading page-intro">
-          <p className="eyebrow">case study</p>
+          <p className="eyebrow">проект</p>
           <h1>{project.title}</h1>
           <p className="page-text">{project.context}</p>
         </div>
@@ -110,7 +110,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
               </div>
             </div>
             <div className="project-card-footer">
-              <span className="project-meta">реални png exports от проектната папка</span>
+              <span className="project-meta">реални файлове от проектната папка</span>
               <Link className="inline-link" href="/projects">
                 обратно към проектите
               </Link>
@@ -120,7 +120,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
 
         <div className="section-heading page-subheading">
           <p className="eyebrow">приложения</p>
-          <h2>Всички налични PNG exports от този проект.</h2>
+          <h2>Всички налични файлове от този проект.</h2>
         </div>
         <div className="mockup-grid projects-gallery">
           {project.images.map((image) => (

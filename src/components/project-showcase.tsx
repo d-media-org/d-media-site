@@ -31,7 +31,7 @@ export function ProjectShowcase({ className }: { className?: string }) {
               </ul>
               <div className="project-card-footer">
                 <span className="project-meta">{formatFileCount(project.imageCount)}</span>
-                <span className="project-link-hint">отвори case study</span>
+                <span className="project-link-hint">отвори проекта</span>
               </div>
             </div>
           </article>
