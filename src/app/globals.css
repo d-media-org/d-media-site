@@ -703,6 +703,19 @@ img {
   max-width: 560px;
 }
 
+.split-content-balanced > .card,
+.contact-start-grid > .card,
+.service-outcomes-grid > .card,
+.project-reading-grid > .card,
+.projects-cta-card,
+.services-cta-card {
+  max-width: none;
+}
+
+.contact-section > .card {
+  max-width: 760px;
+}
+
 .package-card {
   display: grid;
   gap: 16px;
@@ -1408,7 +1421,7 @@ a[href]:not(.button):not(.site-brand a):not(.site-nav a):not(.site-nav-mobile a)
 .services-cta-copy {
   display: grid;
   gap: 12px;
-  max-width: 64ch;
+  max-width: 68ch;
 }
 
 .project-lead {
