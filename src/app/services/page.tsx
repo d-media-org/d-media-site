@@ -17,7 +17,7 @@ import { getSiteRuntimeConfig } from "@/lib/site-runtime-config";
 export const metadata: Metadata = {
   title: "Услуги",
   description:
-    "Категории услуги, процес на работа, документи и практическа рамка на d . media.",
+    "Категории услуги, процес на работа, документи и практична система на работа на d . media.",
   alternates: {
     canonical: "/services",
   },
@@ -46,9 +46,9 @@ export default async function ServicesPage() {
         <SiteHeader />
         <div className="section-heading page-intro">
           <p className="eyebrow">услуги</p>
-          <h1>Услуги, процес и документи, подредени като реална работна рамка.</h1>
+          <h1>Услуги, процес и документи, подредени в ясна система на работа.</h1>
           <p className="page-text">
-            <BrandText text="d . media работи с реални категории услуги, конкретна логика на възлагане и ясно предаване на файловете. Тук е подредена практичната рамка: какво се изработва, как започва проектът и с кои документи се движи." />
+            <BrandText text="d . media работи с реални категории услуги, ясна логика на възлагане и подредено предаване на файловете. Тук е събрано какво се изработва, как започва проектът и с кои документи се движи." />
           </p>
         </div>
         <div className="showcase-grid service-outcomes-grid">
@@ -65,7 +65,7 @@ export default async function ServicesPage() {
           <p className="eyebrow">основни направления</p>
           <h2>От идентичност и съдържание до документи и дигитални носители в една последователна структура.</h2>
           <p className="page-text">
-            Страницата е подредена така, че първо да показва обхвата, после реалните категории услуги, а след това начина, по който един проект се уговаря и завършва.
+            Първо е обхватът, после реалните категории услуги, а след това начинът, по който един проект се уговаря и завършва.
           </p>
         </div>
         <div className="split-content page-grid services-overview">
