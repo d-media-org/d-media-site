@@ -16,6 +16,10 @@ function getCaseStudy(slug: string) {
   return projectPngArchive.find((project) => project.slug === slug);
 }
 
+function formatFileCount(count: number) {
+  return `${count} ${count === 1 ? "файл" : "файла"}`;
+}
+
 export async function generateStaticParams() {
   return projectPngArchive.map((project) => ({ slug: project.slug }));
 }
@@ -101,7 +105,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
             <div className="case-study-section">
               <span className="case-study-label">Архив</span>
               <div className="tag-list">
-                <span className="tag-pill">{`${project.imageCount} PNG файла`}</span>
+                <span className="tag-pill">{formatFileCount(project.imageCount)}</span>
                 <span className="tag-pill">{project.featured ? "Акцентен проект" : "Архивен проект"}</span>
               </div>
             </div>

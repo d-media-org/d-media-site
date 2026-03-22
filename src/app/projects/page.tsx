@@ -5,6 +5,10 @@ import { SiteFooter, SiteHeader } from "@/components/site-chrome";
 import { ProjectShowcase } from "@/components/project-showcase";
 import { featuredProjectPngs, projectPngArchive } from "@/lib/project-png-archive";
 
+function formatFileCount(count: number) {
+  return `${count} ${count === 1 ? "файл" : "файла"}`;
+}
+
 export default function ProjectsPage() {
   return (
     <main className="site-shell" id="top">
@@ -68,7 +72,7 @@ export default function ProjectsPage() {
                     <span className="archive-category">
                       {featuredProjectPngs.some((item) => item.slug === project.slug) ? "акцентен проект" : "png архив"}
                     </span>
-                    <span className="archive-count">{`${project.imageCount} png файла`}</span>
+                    <span className="archive-count">{formatFileCount(project.imageCount)}</span>
                   </div>
                   <h3>{project.title}</h3>
                   <p>{project.summary}</p>

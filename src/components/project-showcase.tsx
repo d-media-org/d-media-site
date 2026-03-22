@@ -3,6 +3,10 @@ import Link from "next/link";
 import { ProtectedImage } from "@/components/protected-image";
 import { featuredProjectPngs } from "@/lib/project-png-archive";
 
+function formatFileCount(count: number) {
+  return `${count} ${count === 1 ? "файл" : "файла"}`;
+}
+
 export function ProjectShowcase({ className }: { className?: string }) {
   return (
     <div className={className ? `showcase-grid ${className}` : "showcase-grid"}>
@@ -26,7 +30,7 @@ export function ProjectShowcase({ className }: { className?: string }) {
                 ))}
               </ul>
               <div className="project-card-footer">
-                <span className="project-meta">{`${project.imageCount} png файла`}</span>
+                <span className="project-meta">{formatFileCount(project.imageCount)}</span>
                 <span className="project-link-hint">отвори case study</span>
               </div>
             </div>
