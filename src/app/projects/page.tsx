@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Image from "next/image";
 
+import { ProtectedImage } from "@/components/protected-image";
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
 import { ProjectShowcase } from "@/components/project-showcase";
 import { featuredProjectPngs, projectPngArchive } from "@/lib/project-png-archive";
@@ -57,7 +57,7 @@ export default function ProjectsPage() {
             <Link className="card archive-card archive-project-card showcase-link-card" href={`/projects/${project.slug}`} key={project.slug}>
               <article>
                 <div className="archive-project-cover">
-                  <Image
+                  <ProtectedImage
                     src={project.cover}
                     alt={project.title}
                     fill

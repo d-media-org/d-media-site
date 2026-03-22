@@ -11,6 +11,7 @@ const excludedDirectories = new Set(["салон за красота Нюанс�
 const fixedSlugByDirectory = {
   "Сянка от миналото": "syanka-ot-minaloto",
 };
+const excludedFileNames = new Set(["yanita gift card copy.png"]);
 
 const featuredConfig = {
   "support-account": {
@@ -301,6 +302,10 @@ function collectImageFiles(dir) {
       }
 
       if (lowerName.includes("preview")) {
+        continue;
+      }
+
+      if (excludedFileNames.has(lowerName)) {
         continue;
       }
 

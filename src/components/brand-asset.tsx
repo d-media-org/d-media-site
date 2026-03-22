@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { ProtectedImage } from "@/components/protected-image";
 
 type BrandAssetProps = {
   lightSrc: string;
@@ -25,7 +25,7 @@ export function BrandAsset({
 }: BrandAssetProps) {
   return (
     <span className={`brand-asset ${className ?? ""}`.trim()}>
-      <Image
+      <ProtectedImage
         src={lightSrc}
         alt={alt}
         width={width}
@@ -34,7 +34,7 @@ export function BrandAsset({
         className={`brand-asset-light${darkSrc ? "" : " brand-asset-single"}`}
       />
       {darkSrc ? (
-        <Image
+        <ProtectedImage
           src={darkSrc}
           alt={alt}
           width={darkWidth ?? width}

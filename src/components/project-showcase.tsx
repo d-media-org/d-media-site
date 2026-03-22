@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Image from "next/image";
 
+import { ProtectedImage } from "@/components/protected-image";
 import { featuredProjectPngs } from "@/lib/project-png-archive";
 
 export function ProjectShowcase({ className }: { className?: string }) {
@@ -10,7 +10,7 @@ export function ProjectShowcase({ className }: { className?: string }) {
         <Link className="card showcase-card showcase-link-card" href={`/projects/${project.slug}`} key={project.slug}>
           <article>
             <div className="showcase-image">
-              <Image
+              <ProtectedImage
                 src={project.cover}
                 alt={project.title}
                 fill

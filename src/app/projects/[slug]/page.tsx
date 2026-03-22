@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { ProtectedImage } from "@/components/protected-image";
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
 import { projectPngArchive } from "@/lib/project-png-archive";
 
@@ -77,7 +77,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
 
         <article className="card case-study-hero">
           <div className="showcase-image case-study-image">
-            <Image
+            <ProtectedImage
               src={project.cover}
               alt={project.title}
               fill
@@ -122,7 +122,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
           {project.images.map((image) => (
             <article className="card mockup-card project-png-card" key={image.src}>
               <div className="mockup-image">
-                <Image
+                <ProtectedImage
                   src={image.src}
                   alt={project.title}
                   fill
