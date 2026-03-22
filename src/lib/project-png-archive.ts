@@ -3,7 +3,7 @@ export const projectPngArchive = [
     "slug": "support-account",
     "title": "Support Account",
     "imageCount": 11,
-    "cover": "/assets/project-pngs/support-account/01.png",
+    "cover": "/assets/project-covers/support-account.jpg",
     "images": [
       {
         "src": "/assets/project-pngs/support-account/01.png",
@@ -64,7 +64,7 @@ export const projectPngArchive = [
     "slug": "support-account-group",
     "title": "Support Account Group",
     "imageCount": 2,
-    "cover": "/assets/project-pngs/support-account-group/01.png",
+    "cover": "/assets/project-covers/support-account-group.jpg",
     "images": [
       {
         "src": "/assets/project-pngs/support-account-group/01.png",
@@ -89,7 +89,7 @@ export const projectPngArchive = [
     "slug": "aneliart",
     "title": "Aneli Art",
     "imageCount": 1,
-    "cover": "/assets/project-pngs/aneliart/01.png",
+    "cover": "/assets/project-covers/aneliart.png",
     "images": [
       {
         "src": "/assets/project-pngs/aneliart/01.png",
@@ -110,7 +110,7 @@ export const projectPngArchive = [
     "slug": "yanita",
     "title": "Yanita",
     "imageCount": 13,
-    "cover": "/assets/project-pngs/yanita/01.png",
+    "cover": "/assets/project-covers/yanita.jpg",
     "images": [
       {
         "src": "/assets/project-pngs/yanita/01.png",
@@ -179,7 +179,7 @@ export const projectPngArchive = [
     "slug": "diana",
     "title": "Diana",
     "imageCount": 5,
-    "cover": "/assets/project-pngs/diana/01.png",
+    "cover": "/assets/project-covers/diana.png",
     "images": [
       {
         "src": "/assets/project-pngs/diana/01.png",
@@ -216,7 +216,7 @@ export const projectPngArchive = [
     "slug": "mis-18",
     "title": "MIS 18",
     "imageCount": 3,
-    "cover": "/assets/project-pngs/mis-18/01.png",
+    "cover": "/assets/project-covers/mis-18.png",
     "images": [
       {
         "src": "/assets/project-pngs/mis-18/01.png",
@@ -245,7 +245,7 @@ export const projectPngArchive = [
     "slug": "boris-lilov-photography",
     "title": "Boris Lilov photography",
     "imageCount": 10,
-    "cover": "/assets/project-pngs/boris-lilov-photography/01.png",
+    "cover": "/assets/project-covers/boris-lilov-photography.png",
     "images": [
       {
         "src": "/assets/project-pngs/boris-lilov-photography/01.png",
@@ -302,7 +302,7 @@ export const projectPngArchive = [
     "slug": "elena-skevov-mua",
     "title": "Elena Skevov mua",
     "imageCount": 1,
-    "cover": "/assets/project-pngs/elena-skevov-mua/01.png",
+    "cover": "/assets/project-covers/elena-skevov-mua.jpg",
     "images": [
       {
         "src": "/assets/project-pngs/elena-skevov-mua/01.png",
@@ -323,7 +323,7 @@ export const projectPngArchive = [
     "slug": "enduro-team-stoletovo",
     "title": "enduro team STOLETOVO",
     "imageCount": 3,
-    "cover": "/assets/project-pngs/enduro-team-stoletovo/01.png",
+    "cover": "/assets/project-covers/enduro-team-stoletovo.png",
     "images": [
       {
         "src": "/assets/project-pngs/enduro-team-stoletovo/01.png",
@@ -352,7 +352,7 @@ export const projectPngArchive = [
     "slug": "galka-nails",
     "title": "Galka nails",
     "imageCount": 1,
-    "cover": "/assets/project-pngs/galka-nails/01.png",
+    "cover": "/assets/project-covers/galka-nails.png",
     "images": [
       {
         "src": "/assets/project-pngs/galka-nails/01.png",
@@ -373,7 +373,7 @@ export const projectPngArchive = [
     "slug": "gosmile",
     "title": "GoSmile",
     "imageCount": 2,
-    "cover": "/assets/project-pngs/gosmile/01.png",
+    "cover": "/assets/project-covers/gosmile.png",
     "images": [
       {
         "src": "/assets/project-pngs/gosmile/01.png",
@@ -398,7 +398,7 @@ export const projectPngArchive = [
     "slug": "j-v",
     "title": "J & V",
     "imageCount": 5,
-    "cover": "/assets/project-pngs/j-v/01.png",
+    "cover": "/assets/project-covers/j-v.png",
     "images": [
       {
         "src": "/assets/project-pngs/j-v/01.png",
@@ -435,7 +435,7 @@ export const projectPngArchive = [
     "slug": "makeup-by-tsvetomira",
     "title": "makeup by Tsvetomira",
     "imageCount": 1,
-    "cover": "/assets/project-pngs/makeup-by-tsvetomira/01.png",
+    "cover": "/assets/project-covers/makeup-by-tsvetomira.jpg",
     "images": [
       {
         "src": "/assets/project-pngs/makeup-by-tsvetomira/01.png",
@@ -456,7 +456,7 @@ export const projectPngArchive = [
     "slug": "mv-makeup",
     "title": "MV makeup",
     "imageCount": 1,
-    "cover": "/assets/project-pngs/mv-makeup/01.png",
+    "cover": "/assets/project-covers/mv-makeup.jpg",
     "images": [
       {
         "src": "/assets/project-pngs/mv-makeup/01.png",
@@ -477,7 +477,7 @@ export const projectPngArchive = [
     "slug": "photo-workshop",
     "title": "Photo workshop",
     "imageCount": 4,
-    "cover": "/assets/project-pngs/photo-workshop/01.png",
+    "cover": "/assets/project-covers/photo-workshop.png",
     "images": [
       {
         "src": "/assets/project-pngs/photo-workshop/01.png",
@@ -510,7 +510,7 @@ export const projectPngArchive = [
     "slug": "plamena-nails",
     "title": "Plamena nails",
     "imageCount": 3,
-    "cover": "/assets/project-pngs/plamena-nails/01.png",
+    "cover": "/assets/project-covers/plamena-nails.jpg",
     "images": [
       {
         "src": "/assets/project-pngs/plamena-nails/01.png",
@@ -539,7 +539,7 @@ export const projectPngArchive = [
     "slug": "pp-hairstyle",
     "title": "PP hairstyle",
     "imageCount": 4,
-    "cover": "/assets/project-pngs/pp-hairstyle/01.png",
+    "cover": "/assets/project-covers/pp-hairstyle.png",
     "images": [
       {
         "src": "/assets/project-pngs/pp-hairstyle/01.png",
@@ -572,7 +572,7 @@ export const projectPngArchive = [
     "slug": "road-assistance",
     "title": "Road assistance",
     "imageCount": 1,
-    "cover": "/assets/project-pngs/road-assistance/01.png",
+    "cover": "/assets/project-covers/road-assistance.png",
     "images": [
       {
         "src": "/assets/project-pngs/road-assistance/01.png",
@@ -593,7 +593,7 @@ export const projectPngArchive = [
     "slug": "sport-fishing-stoletovo",
     "title": "Sport fishing Stoletovo",
     "imageCount": 11,
-    "cover": "/assets/project-pngs/sport-fishing-stoletovo/01.png",
+    "cover": "/assets/project-covers/sport-fishing-stoletovo.png",
     "images": [
       {
         "src": "/assets/project-pngs/sport-fishing-stoletovo/01.png",
@@ -654,7 +654,7 @@ export const projectPngArchive = [
     "slug": "stanulovi-s-house",
     "title": "Stanulovi's house",
     "imageCount": 3,
-    "cover": "/assets/project-pngs/stanulovi-s-house/01.png",
+    "cover": "/assets/project-covers/stanulovi-s-house.png",
     "images": [
       {
         "src": "/assets/project-pngs/stanulovi-s-house/01.png",
@@ -683,7 +683,7 @@ export const projectPngArchive = [
     "slug": "tanev-car-detailing-service",
     "title": "TANEV car detailing service",
     "imageCount": 3,
-    "cover": "/assets/project-pngs/tanev-car-detailing-service/01.png",
+    "cover": "/assets/project-covers/tanev-car-detailing-service.png",
     "images": [
       {
         "src": "/assets/project-pngs/tanev-car-detailing-service/01.png",
@@ -712,7 +712,7 @@ export const projectPngArchive = [
     "slug": "ts-makeup",
     "title": "TS makeup",
     "imageCount": 5,
-    "cover": "/assets/project-pngs/ts-makeup/01.png",
+    "cover": "/assets/project-covers/ts-makeup.png",
     "images": [
       {
         "src": "/assets/project-pngs/ts-makeup/01.png",
@@ -749,7 +749,7 @@ export const projectPngArchive = [
     "slug": "zautre",
     "title": "ZaUtre",
     "imageCount": 16,
-    "cover": "/assets/project-pngs/zautre/01.png",
+    "cover": "/assets/project-covers/zautre.png",
     "images": [
       {
         "src": "/assets/project-pngs/zautre/01.png",
@@ -830,7 +830,7 @@ export const projectPngArchive = [
     "slug": "project-29",
     "title": "салон за красота Нюанси - файлове",
     "imageCount": 2,
-    "cover": "/assets/project-pngs/project-29/01.png",
+    "cover": "/assets/project-covers/project-29.png",
     "images": [
       {
         "src": "/assets/project-pngs/project-29/01.png",
@@ -855,7 +855,7 @@ export const projectPngArchive = [
     "slug": "project-30",
     "title": "Сянка от миналото",
     "imageCount": 6,
-    "cover": "/assets/project-pngs/project-30/01.png",
+    "cover": "/assets/project-covers/project-30.png",
     "images": [
       {
         "src": "/assets/project-pngs/project-30/01.png",
@@ -896,7 +896,7 @@ export const projectPngArchive = [
     "slug": "project-31",
     "title": "ТЕТИ - Милена Богданова",
     "imageCount": 1,
-    "cover": "/assets/project-pngs/project-31/01.png",
+    "cover": "/assets/project-covers/project-31.jpg",
     "images": [
       {
         "src": "/assets/project-pngs/project-31/01.png",

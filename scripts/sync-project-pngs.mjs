@@ -5,6 +5,7 @@ import { spawnSync } from "node:child_process";
 const sourceRoot =
   "/Users/m.dragoev/Library/Mobile Documents/com~apple~CloudDocs/d . media/Projects/Brand projects";
 const projectOutputRoot = path.resolve("public/assets/project-pngs");
+const projectCoverRoot = path.resolve("public/assets/project-covers");
 const dataOutputPath = path.resolve("src/lib/project-png-archive.ts");
 
 const featuredConfig = {
@@ -113,6 +114,10 @@ function removeDir(target) {
 }
 
 function collectPngFiles(dir) {
+  return collectImageFiles(dir).filter((file) => file.toLowerCase().endsWith(".png"));
+}
+
+function collectImageFiles(dir) {
   const entries = fs.readdirSync(dir, { withFileTypes: true });
   const files = [];
 
@@ -124,8 +129,12 @@ function collectPngFiles(dir) {
       continue;
     }
 
-    if (entry.isFile() && entry.name.toLowerCase().endsWith(".png")) {
+    if (entry.isFile()) {
       const lowerName = entry.name.toLowerCase();
+
+      if (!lowerName.endsWith(".png") && !lowerName.endsWith(".jpg") && !lowerName.endsWith(".jpeg")) {
+        continue;
+      }
 
       if (lowerName.includes("preview")) {
         continue;
@@ -153,7 +162,7 @@ function prioritizeImages(files) {
   });
 }
 
-function copyOptimizedPng(source, output) {
+function copyOptimizedImage(source, output) {
   fs.mkdirSync(path.dirname(output), { recursive: true });
 
   const result = spawnSync("sips", ["-Z", "1800", source, "--out", output], {
@@ -166,6 +175,7 @@ function copyOptimizedPng(source, output) {
 }
 
 removeDir(projectOutputRoot);
+removeDir(projectCoverRoot);
 
 const projectDirs = fs
   .readdirSync(sourceRoot, { withFileTypes: true })
@@ -177,6 +187,7 @@ const archive = [];
 
 for (const [index, dirName] of projectDirs.entries()) {
   const sourceDir = path.join(sourceRoot, dirName);
+  const imageFiles = prioritizeImages(collectImageFiles(sourceDir));
   const pngFiles = prioritizeImages(collectPngFiles(sourceDir));
 
   if (pngFiles.length === 0) {
@@ -188,11 +199,17 @@ for (const [index, dirName] of projectDirs.entries()) {
   const outputDir = path.join(projectOutputRoot, slug);
   fs.mkdirSync(outputDir, { recursive: true });
 
+  const coverFile = imageFiles[0];
+  const coverExtension = path.extname(coverFile).toLowerCase();
+  const coverOutputPath = path.join(projectCoverRoot, `${slug}${coverExtension}`);
+  copyOptimizedImage(coverFile, coverOutputPath);
+  const cover = `/assets/project-covers/${slug}${coverExtension}`;
+
   const images = pngFiles.map((file, index) => {
     const ext = path.extname(file).toLowerCase();
     const destFileName = `${String(index + 1).padStart(2, "0")}${ext}`;
     const destPath = path.join(outputDir, destFileName);
-    copyOptimizedPng(file, destPath);
+    copyOptimizedImage(file, destPath);
 
     const relativeLabel = path.relative(sourceDir, file).replaceAll("\\", "/");
 
@@ -208,7 +225,7 @@ for (const [index, dirName] of projectDirs.entries()) {
     slug,
     title: feature?.title ?? title,
     imageCount: images.length,
-    cover: images[0].src,
+    cover,
     images,
     featured: Boolean(feature),
     priority: feature?.priority ?? 999,
