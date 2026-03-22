@@ -4,7 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
-import { featuredCaseStudies } from "@/lib/site-content";
+import { projectPngArchive } from "@/lib/project-png-archive";
 
 type CaseStudyPageProps = {
   params: Promise<{
@@ -13,11 +13,11 @@ type CaseStudyPageProps = {
 };
 
 function getCaseStudy(slug: string) {
-  return featuredCaseStudies.find((project) => project.slug === slug);
+  return projectPngArchive.find((project) => project.slug === slug);
 }
 
 export async function generateStaticParams() {
-  return featuredCaseStudies.map((project) => ({ slug: project.slug }));
+  return projectPngArchive.map((project) => ({ slug: project.slug }));
 }
 
 export async function generateMetadata({ params }: CaseStudyPageProps): Promise<Metadata> {
@@ -41,7 +41,7 @@ export async function generateMetadata({ params }: CaseStudyPageProps): Promise<
       description: project.summary,
       images: [
         {
-          url: project.image,
+          url: project.cover,
           width: 1600,
           height: 1000,
           alt: project.title,
@@ -51,7 +51,7 @@ export async function generateMetadata({ params }: CaseStudyPageProps): Promise<
     twitter: {
       title: `${project.title} | d . media`,
       description: project.summary,
-      images: [project.image],
+      images: [project.cover],
     },
   };
 }
@@ -78,7 +78,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
         <article className="card case-study-hero">
           <div className="showcase-image case-study-image">
             <Image
-              src={project.image}
+              src={project.cover}
               alt={project.title}
               fill
               sizes="(max-width: 979px) 100vw, 70vw"
@@ -88,32 +88,25 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
           <div className="case-study-body">
             <div className="case-study-section">
               <span className="case-study-label">Контекст</span>
-              <p>{project.intro}</p>
+              <p>{project.context}</p>
             </div>
             <div className="case-study-section">
               <span className="case-study-label">Обхват</span>
               <ul className="detail-list">
-                {project.details.map((detail) => (
+                {project.focus.map((detail) => (
                   <li key={detail}>{detail}</li>
                 ))}
               </ul>
             </div>
             <div className="case-study-section">
-              <span className="case-study-label">Услуги</span>
+              <span className="case-study-label">Архив</span>
               <div className="tag-list">
-                {project.services.map((item) => (
-                  <span className="tag-pill" key={item}>
-                    {item}
-                  </span>
-                ))}
+                <span className="tag-pill">{`${project.imageCount} PNG файла`}</span>
+                <span className="tag-pill">{project.featured ? "Акцентен проект" : "Архивен проект"}</span>
               </div>
             </div>
-            <div className="case-study-section">
-              <span className="case-study-label">Резултат</span>
-              <p>{project.outcome}</p>
-            </div>
             <div className="project-card-footer">
-              <span className="project-meta">{project.meta}</span>
+              <span className="project-meta">реални png exports от проектната папка</span>
               <Link className="inline-link" href="/projects">
                 обратно към проектите
               </Link>
@@ -123,18 +116,21 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
 
         <div className="section-heading page-subheading">
           <p className="eyebrow">приложения</p>
-          <h2>Реални носители и визуални среди, в които проектът работи.</h2>
+          <h2>Всички налични PNG exports от този проект.</h2>
         </div>
         <div className="mockup-grid projects-gallery">
-          {project.applications.map((image) => (
-            <article className="card mockup-card" key={image}>
+          {project.images.map((image) => (
+            <article className="card mockup-card project-png-card" key={image.src}>
               <div className="mockup-image">
                 <Image
-                  src={image}
-                  alt={`${project.title} application`}
+                  src={image.src}
+                  alt={`${project.title} ${image.label}`}
                   fill
                   sizes="(max-width: 767px) 100vw, 720px"
                 />
+              </div>
+              <div className="project-png-caption">
+                <p>{image.label}</p>
               </div>
             </article>
           ))}

@@ -3,8 +3,7 @@ import Image from "next/image";
 
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
 import { ProjectShowcase } from "@/components/project-showcase";
-import { portfolioArchive } from "@/lib/portfolio-archive";
-import { archiveProject, mockups, projectApplications } from "@/lib/site-content";
+import { featuredProjectPngs, projectPngArchive } from "@/lib/project-png-archive";
 
 export default function ProjectsPage() {
   return (
@@ -13,104 +12,81 @@ export default function ProjectsPage() {
         <SiteHeader />
         <div className="section-heading page-intro">
           <p className="eyebrow">проекти</p>
-          <h1>Подредени case studies, в които идентичността се развива като система, а не като единична визия.</h1>
+          <h1>Подредени case studies и пълен PNG архив от реалните проектни папки на d . media.</h1>
           <p className="page-text">
-            Всеки проект тук е организиран като кратка case study рамка:
-            контекст, системни решения, носители и резултат.
+            Тази страница показва само PNG exports от проектите. Акцентите отпред
+            подреждат най-силните системи, а архивът отдолу отваря целия наличен
+            визуален слой по проекти.
+          </p>
+        </div>
+
+        <div className="section-heading page-subheading">
+          <p className="eyebrow">акценти</p>
+          <h2>Support Account, Support Account Group и избраните системи с най-силен архивен потенциал.</h2>
+          <p className="page-text">
+            Тук са подредени проектите, които показват най-ясно как един бранд
+            се развива през logo exports, logotype варианти, covers, profile assets
+            и реални приложения.
           </p>
         </div>
         <ProjectShowcase className="projects-grid" />
 
         <div className="section-heading page-subheading">
-          <p className="eyebrow">допълнителен проект</p>
-          <h2>{archiveProject.title}</h2>
-          <p className="page-text">{archiveProject.text}</p>
-        </div>
-        <Link className="card showcase-card showcase-card-single showcase-link-card" href={`/projects/${archiveProject.slug}`}>
-          <article>
-            <div className="showcase-image">
-              <Image
-                src={archiveProject.image}
-                alt={archiveProject.title}
-                fill
-                sizes="(max-width: 979px) 100vw, 60vw"
-              />
-            </div>
-            <div className="showcase-copy">
-              <h3>{archiveProject.title}</h3>
-              <p>{archiveProject.summary}</p>
-              <div className="project-card-footer">
-                <span className="project-meta">{archiveProject.meta}</span>
-                <span className="project-link-hint">отвори case study</span>
-              </div>
-            </div>
-          </article>
-        </Link>
-
-        <div className="section-heading page-subheading">
-          <p className="eyebrow">проектни приложения</p>
-          <h2>Приложения и визуални среди от наличните проектни папки.</h2>
-        </div>
-        <div className="mockup-grid projects-gallery">
-          {projectApplications.map((item) => (
-            <article className="card mockup-card" key={item.image}>
-              <div className="mockup-image">
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  fill
-                  sizes="(max-width: 767px) 100vw, 720px"
-                />
-              </div>
-            </article>
-          ))}
-        </div>
-
-        <div className="section-heading page-subheading">
-          <p className="eyebrow">mockups</p>
-          <h2>Работна и презентационна галерия от различни визуални среди.</h2>
+          <p className="eyebrow">пълен png архив</p>
+          <h2>Всички проекти с налични PNG файлове, подредени като отворим архив за разглеждане.</h2>
           <p className="page-text">
-            Тази секция включва цялата папка Mockups като визуален архив за
-            presentation context, surfaces и brand applications.
-          </p>
-        </div>
-        <div className="mockup-grid projects-gallery">
-          {mockups.map((item) => (
-            <article className="card mockup-card" key={item.id}>
-              <div className="mockup-image">
-                <Image
-                  src={item.image}
-                  alt={`Mockup ${item.id}`}
-                  fill
-                  sizes="(max-width: 767px) 100vw, 720px"
-                />
-              </div>
-            </article>
-          ))}
-        </div>
-
-        <div className="section-heading page-subheading">
-          <p className="eyebrow">портфолио архив</p>
-          <h2>Пълният архив на проектите, организиран по папки и с реалните файлове във всяка от тях.</h2>
-          <p className="page-text">
-            Тази секция публикува целия проектен обем като сгъваем архив, така
-            че всяка папка да има собствено място със съдържанието си.
+            Акцентните проекти имат по-силна текстова рамка, но всеки проект в
+            този архив има собствена страница с всички налични PNG exports от
+            папката му.
           </p>
         </div>
         <div className="archive-grid">
-          {portfolioArchive.map((item) => (
-            <details className="card archive-card" key={`${item.category}-${item.title}`}>
-              <summary className="archive-summary">
-                <span className="archive-category">{item.category}</span>
-                <h3>{item.title}</h3>
-                <span className="archive-count">{item.fileCount} файла</span>
-              </summary>
-              <ul className="archive-files">
-                {item.files.map((file) => (
-                  <li key={file}>{file}</li>
-                ))}
-              </ul>
-            </details>
+          {projectPngArchive.map((project) => (
+            <Link className="card archive-card archive-project-card showcase-link-card" href={`/projects/${project.slug}`} key={project.slug}>
+              <article>
+                <div className="archive-project-cover">
+                  <Image
+                    src={project.cover}
+                    alt={project.title}
+                    fill
+                    sizes="(max-width: 767px) 100vw, 720px"
+                  />
+                </div>
+                <div className="archive-project-copy">
+                  <div className="project-card-footer">
+                    <span className="archive-category">
+                      {featuredProjectPngs.some((item) => item.slug === project.slug) ? "акцентен проект" : "png архив"}
+                    </span>
+                    <span className="archive-count">{`${project.imageCount} png файла`}</span>
+                  </div>
+                  <h3>{project.title}</h3>
+                  <p>{project.summary}</p>
+                  <span className="project-link-hint">отвори проекта</span>
+                </div>
+              </article>
+            </Link>
+          ))}
+        </div>
+
+        <div className="section-heading page-subheading">
+          <p className="eyebrow">логика на съдържанието</p>
+          <h2>Какво вижда посетителят и защо.</h2>
+          <p className="page-text">
+            Отпред стоят проектите с най-ясна identity логика и най-богат PNG слой.
+            След тях идва целият архив, защото той показва реалния обем на работа:
+            logo варианти, social exports, covers, profile assets и готови файлове
+            за употреба.
+          </p>
+        </div>
+        <div className="archive-grid">
+          {featuredProjectPngs.map((project) => (
+            <article className="card archive-card" key={`${project.slug}-logic`}>
+              <div className="archive-summary archive-summary-static">
+                <span className="archive-category">{project.title}</span>
+                <h3>{project.context}</h3>
+                <span className="archive-count">{project.focus.join(" • ")}</span>
+              </div>
+            </article>
           ))}
         </div>
       </section>

@@ -422,6 +422,11 @@ img {
   overflow: hidden;
 }
 
+.project-png-card {
+  display: grid;
+  gap: 0;
+}
+
 .mockup-image {
   position: relative;
   aspect-ratio: 4 / 3;
@@ -430,6 +435,19 @@ img {
 
 .mockup-image img {
   object-fit: cover;
+}
+
+.project-png-caption {
+  border-top: 1px solid var(--line);
+  padding: 14px 16px 16px;
+}
+
+.project-png-caption p {
+  font-family: var(--font-panton-regular), sans-serif;
+  font-size: 12px;
+  line-height: 1.35;
+  color: var(--text-soft);
+  overflow-wrap: anywhere;
 }
 
 .showcase-copy {
@@ -1289,6 +1307,38 @@ a[href]:not(.button):not(.site-brand a):not(.site-nav a):not(.site-nav-mobile a)
   overflow: hidden;
 }
 
+.archive-project-card {
+  display: block;
+  text-decoration: none;
+}
+
+.archive-project-cover {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  background: var(--surface-soft);
+  border-bottom: 1px solid var(--line);
+}
+
+.archive-project-cover img {
+  object-fit: cover;
+}
+
+.archive-project-copy {
+  display: grid;
+  gap: 12px;
+  padding: 22px 24px 24px;
+}
+
+.archive-project-copy h3 {
+  font-family: var(--font-panton-bold), sans-serif;
+  font-size: 21px;
+  line-height: 1.14;
+}
+
+.archive-project-copy p {
+  max-width: 64ch;
+}
+
 .archive-summary {
   display: grid;
   gap: 8px;
@@ -1305,6 +1355,10 @@ a[href]:not(.button):not(.site-brand a):not(.site-nav a):not(.site-nav-mobile a)
   font-family: var(--font-panton-bold), sans-serif;
   font-size: 21px;
   line-height: 1.14;
+}
+
+.archive-summary-static {
+  cursor: default;
 }
 
 .archive-category,
