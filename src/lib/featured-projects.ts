@@ -1,6 +1,6 @@
 import { get } from "@vercel/edge-config";
 
-import { projectPngArchive } from "@/lib/project-png-archive";
+import { resolvedProjectPngArchive } from "@/lib/asset-url";
 
 const fallbackFeaturedProjectSlugs = [
   "support-account",
@@ -9,7 +9,7 @@ const fallbackFeaturedProjectSlugs = [
 ] as const;
 
 function isKnownProjectSlug(value: string) {
-  return projectPngArchive.some((project) => project.slug === value);
+  return resolvedProjectPngArchive.some((project) => project.slug === value);
 }
 
 export async function getFeaturedProjectSlugs() {
@@ -39,9 +39,9 @@ export async function getFeaturedProjectSlugs() {
 export async function getFeaturedProjects() {
   const featuredProjectSlugs = await getFeaturedProjectSlugs();
   const featuredProjects = featuredProjectSlugs
-    .map((slug) => projectPngArchive.find((project) => project.slug === slug))
+    .map((slug) => resolvedProjectPngArchive.find((project) => project.slug === slug))
     .filter(
-      (project): project is (typeof projectPngArchive)[number] => project !== undefined,
+      (project): project is (typeof resolvedProjectPngArchive)[number] => project !== undefined,
     );
 
   return featuredProjects;

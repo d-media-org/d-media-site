@@ -10,10 +10,12 @@
     "lint": "eslint",
     "lint:cache": "eslint --cache --cache-location .eslintcache",
     "check": "npm run build && npm run lint:cache",
+    "sync:blob": "node --env-file=.env.local scripts/sync-blob-assets.mjs",
     "ship": "npm run check && npx vercel --prod --yes"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
+    "@vercel/blob": "^2.3.1",
     "@vercel/edge-config": "^1.4.3",
     "next": "16.1.7",
     "react": "19.2.3",

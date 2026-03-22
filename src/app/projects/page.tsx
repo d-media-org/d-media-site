@@ -3,8 +3,8 @@ import Link from "next/link";
 import { ProtectedImage } from "@/components/protected-image";
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
 import { ProjectShowcase } from "@/components/project-showcase";
+import { resolvedProjectPngArchive } from "@/lib/asset-url";
 import { getFeaturedProjectSlugs } from "@/lib/featured-projects";
-import { projectPngArchive } from "@/lib/project-png-archive";
 import { getSiteRuntimeConfig } from "@/lib/site-runtime-config";
 
 function formatFileCount(count: number) {
@@ -61,7 +61,7 @@ export default async function ProjectsPage() {
           </p>
         </div>
         <div className="archive-grid">
-          {projectPngArchive.map((project) => (
+          {resolvedProjectPngArchive.map((project) => (
             <Link className="card archive-card archive-project-card showcase-link-card" href={`/projects/${project.slug}`} key={project.slug}>
               <article>
                 <div className="archive-project-cover">

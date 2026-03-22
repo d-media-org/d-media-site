@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 
 import { ProtectedImage } from "@/components/protected-image";
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
-import { projectPngArchive } from "@/lib/project-png-archive";
+import { resolvedProjectPngArchive } from "@/lib/asset-url";
 
 type CaseStudyPageProps = {
   params: Promise<{
@@ -13,7 +13,7 @@ type CaseStudyPageProps = {
 };
 
 function getCaseStudy(slug: string) {
-  return projectPngArchive.find((project) => project.slug === slug);
+  return resolvedProjectPngArchive.find((project) => project.slug === slug);
 }
 
 function formatFileCount(count: number) {
@@ -21,7 +21,7 @@ function formatFileCount(count: number) {
 }
 
 export async function generateStaticParams() {
-  return projectPngArchive.map((project) => ({ slug: project.slug }));
+  return resolvedProjectPngArchive.map((project) => ({ slug: project.slug }));
 }
 
 export async function generateMetadata({ params }: CaseStudyPageProps): Promise<Metadata> {

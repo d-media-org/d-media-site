@@ -1,5 +1,6 @@
 import { BrandName, BrandText } from "@/components/brand-text";
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
+import { resolveAssetUrl } from "@/lib/asset-url";
 import { aboutNotes, principles } from "@/lib/site-content";
 
 export default function AboutPage() {
@@ -39,7 +40,7 @@ export default function AboutPage() {
             </p>
             <div className="hero-actions brandbook-actions">
               <a
-                href="/assets/documents/d-media-brandbook.pdf"
+                href={resolveAssetUrl("/assets/documents/d-media-brandbook.pdf")}
                 target="_blank"
                 rel="noreferrer"
                 className="button button-secondary"
