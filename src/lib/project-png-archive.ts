@@ -109,8 +109,8 @@ export const projectPngArchive = [
   {
     "slug": "yanita",
     "title": "Yanita",
-    "imageCount": 13,
-    "cover": "/assets/project-covers/yanita.jpg",
+    "imageCount": 10,
+    "cover": "/assets/project-covers/yanita.png",
     "images": [
       {
         "src": "/assets/project-pngs/yanita/01.png",
@@ -134,35 +134,23 @@ export const projectPngArchive = [
       },
       {
         "src": "/assets/project-pngs/yanita/06.png",
-        "label": "Facebook PAGE cover.png"
-      },
-      {
-        "src": "/assets/project-pngs/yanita/07.png",
         "label": "Facebook PAGE profile picture.png"
       },
       {
-        "src": "/assets/project-pngs/yanita/08.png",
+        "src": "/assets/project-pngs/yanita/07.png",
         "label": "YANITA gift card copy.png"
       },
       {
-        "src": "/assets/project-pngs/yanita/09.png",
+        "src": "/assets/project-pngs/yanita/08.png",
         "label": "YANITA gift card.png"
       },
       {
-        "src": "/assets/project-pngs/yanita/10.png",
+        "src": "/assets/project-pngs/yanita/09.png",
         "label": "Yanita info cover.png"
       },
       {
-        "src": "/assets/project-pngs/yanita/11.png",
-        "label": "Yanita logo 2.png"
-      },
-      {
-        "src": "/assets/project-pngs/yanita/12.png",
+        "src": "/assets/project-pngs/yanita/10.png",
         "label": "Yanita modern transperent.png"
-      },
-      {
-        "src": "/assets/project-pngs/yanita/13.png",
-        "label": "Yanita services.png"
       }
     ],
     "featured": true,
@@ -291,27 +279,6 @@ export const projectPngArchive = [
     "featured": false,
     "priority": 999,
     "summary": "Boris Lilov photography е част от архивния PNG слой на d . media с готови logo, application и visual export варианти.",
-    "context": "Архивен бранд проект с налични PNG exports, подредени като визуална следа за реалната работа по проекта.",
-    "focus": [
-      "Реални PNG exports от проектната папка",
-      "Видими logo и application варианти",
-      "Архивна следа за начина на работа и развитие"
-    ]
-  },
-  {
-    "slug": "elena-skevov-mua",
-    "title": "Elena Skevov mua",
-    "imageCount": 1,
-    "cover": "/assets/project-covers/elena-skevov-mua.jpg",
-    "images": [
-      {
-        "src": "/assets/project-pngs/elena-skevov-mua/01.png",
-        "label": "es mua.png"
-      }
-    ],
-    "featured": false,
-    "priority": 999,
-    "summary": "Elena Skevov mua е част от архивния PNG слой на d . media с готови logo, application и visual export варианти.",
     "context": "Архивен бранд проект с налични PNG exports, подредени като визуална следа за реалната работа по проекта.",
     "focus": [
       "Реални PNG exports от проектната папка",
@@ -453,27 +420,6 @@ export const projectPngArchive = [
     ]
   },
   {
-    "slug": "mv-makeup",
-    "title": "MV makeup",
-    "imageCount": 1,
-    "cover": "/assets/project-covers/mv-makeup.jpg",
-    "images": [
-      {
-        "src": "/assets/project-pngs/mv-makeup/01.png",
-        "label": "MV makeup.png"
-      }
-    ],
-    "featured": false,
-    "priority": 999,
-    "summary": "MV makeup е част от архивния PNG слой на d . media с готови logo, application и visual export варианти.",
-    "context": "Архивен бранд проект с налични PNG exports, подредени като визуална следа за реалната работа по проекта.",
-    "focus": [
-      "Реални PNG exports от проектната папка",
-      "Видими logo и application варианти",
-      "Архивна следа за начина на работа и развитие"
-    ]
-  },
-  {
     "slug": "photo-workshop",
     "title": "Photo workshop",
     "imageCount": 4,
@@ -510,7 +456,7 @@ export const projectPngArchive = [
     "slug": "plamena-nails",
     "title": "Plamena nails",
     "imageCount": 3,
-    "cover": "/assets/project-covers/plamena-nails.jpg",
+    "cover": "/assets/project-covers/plamena-nails.png",
     "images": [
       {
         "src": "/assets/project-pngs/plamena-nails/01.png",
@@ -569,30 +515,9 @@ export const projectPngArchive = [
     ]
   },
   {
-    "slug": "road-assistance",
-    "title": "Road assistance",
-    "imageCount": 1,
-    "cover": "/assets/project-covers/road-assistance.png",
-    "images": [
-      {
-        "src": "/assets/project-pngs/road-assistance/01.png",
-        "label": "istockphoto-483568226-1024x1024.png"
-      }
-    ],
-    "featured": false,
-    "priority": 999,
-    "summary": "Road assistance е част от архивния PNG слой на d . media с готови logo, application и visual export варианти.",
-    "context": "Архивен бранд проект с налични PNG exports, подредени като визуална следа за реалната работа по проекта.",
-    "focus": [
-      "Реални PNG exports от проектната папка",
-      "Видими logo и application варианти",
-      "Архивна следа за начина на работа и развитие"
-    ]
-  },
-  {
     "slug": "sport-fishing-stoletovo",
     "title": "Sport fishing Stoletovo",
-    "imageCount": 11,
+    "imageCount": 7,
     "cover": "/assets/project-covers/sport-fishing-stoletovo.png",
     "images": [
       {
@@ -601,42 +526,26 @@ export const projectPngArchive = [
       },
       {
         "src": "/assets/project-pngs/sport-fishing-stoletovo/02.png",
-        "label": "Archive/SFC_original_black.png"
-      },
-      {
-        "src": "/assets/project-pngs/sport-fishing-stoletovo/03.png",
-        "label": "Archive/SFC_original_white.png"
-      },
-      {
-        "src": "/assets/project-pngs/sport-fishing-stoletovo/04.png",
-        "label": "Archive/SFS_black.png"
-      },
-      {
-        "src": "/assets/project-pngs/sport-fishing-stoletovo/05.png",
-        "label": "Archive/SFS_white.png"
-      },
-      {
-        "src": "/assets/project-pngs/sport-fishing-stoletovo/06.png",
         "label": "SFS_black_transperent.png"
       },
       {
-        "src": "/assets/project-pngs/sport-fishing-stoletovo/07.png",
+        "src": "/assets/project-pngs/sport-fishing-stoletovo/03.png",
         "label": "SFS_black.png"
       },
       {
-        "src": "/assets/project-pngs/sport-fishing-stoletovo/08.png",
+        "src": "/assets/project-pngs/sport-fishing-stoletovo/04.png",
         "label": "SFS_original.png"
       },
       {
-        "src": "/assets/project-pngs/sport-fishing-stoletovo/09.png",
+        "src": "/assets/project-pngs/sport-fishing-stoletovo/05.png",
         "label": "SFS_orignal_transperent.png"
       },
       {
-        "src": "/assets/project-pngs/sport-fishing-stoletovo/10.png",
+        "src": "/assets/project-pngs/sport-fishing-stoletovo/06.png",
         "label": "SFS_white_transperent.png"
       },
       {
-        "src": "/assets/project-pngs/sport-fishing-stoletovo/11.png",
+        "src": "/assets/project-pngs/sport-fishing-stoletovo/07.png",
         "label": "SFS_white.png"
       }
     ],
@@ -653,54 +562,17 @@ export const projectPngArchive = [
   {
     "slug": "stanulovi-s-house",
     "title": "Stanulovi's house",
-    "imageCount": 3,
+    "imageCount": 1,
     "cover": "/assets/project-covers/stanulovi-s-house.png",
     "images": [
       {
         "src": "/assets/project-pngs/stanulovi-s-house/01.png",
-        "label": "Stanulovi-01-01 copy.png"
-      },
-      {
-        "src": "/assets/project-pngs/stanulovi-s-house/02.png",
         "label": "Stanulovi-01-01.png"
-      },
-      {
-        "src": "/assets/project-pngs/stanulovi-s-house/03.png",
-        "label": "Неозаглавен дизайн.png"
       }
     ],
     "featured": false,
     "priority": 999,
     "summary": "Stanulovi's house е част от архивния PNG слой на d . media с готови logo, application и visual export варианти.",
-    "context": "Архивен бранд проект с налични PNG exports, подредени като визуална следа за реалната работа по проекта.",
-    "focus": [
-      "Реални PNG exports от проектната папка",
-      "Видими logo и application варианти",
-      "Архивна следа за начина на работа и развитие"
-    ]
-  },
-  {
-    "slug": "tanev-car-detailing-service",
-    "title": "TANEV car detailing service",
-    "imageCount": 3,
-    "cover": "/assets/project-covers/tanev-car-detailing-service.png",
-    "images": [
-      {
-        "src": "/assets/project-pngs/tanev-car-detailing-service/01.png",
-        "label": "Instagram typo.png"
-      },
-      {
-        "src": "/assets/project-pngs/tanev-car-detailing-service/02.png",
-        "label": "TANEV CDS lite.png"
-      },
-      {
-        "src": "/assets/project-pngs/tanev-car-detailing-service/03.png",
-        "label": "TANEV YouTube banner.png"
-      }
-    ],
-    "featured": false,
-    "priority": 999,
-    "summary": "TANEV car detailing service е част от архивния PNG слой на d . media с готови logo, application и visual export варианти.",
     "context": "Архивен бранд проект с налични PNG exports, подредени като визуална следа за реалната работа по проекта.",
     "focus": [
       "Реални PNG exports от проектната папка",
@@ -746,98 +618,17 @@ export const projectPngArchive = [
     ]
   },
   {
-    "slug": "zautre",
-    "title": "ZaUtre",
-    "imageCount": 16,
-    "cover": "/assets/project-covers/zautre.png",
-    "images": [
-      {
-        "src": "/assets/project-pngs/zautre/01.png",
-        "label": "Black bgr - Grаy type.png"
-      },
-      {
-        "src": "/assets/project-pngs/zautre/02.png",
-        "label": "Black bgr - White type.png"
-      },
-      {
-        "src": "/assets/project-pngs/zautre/03.png",
-        "label": "Blue bgr - Black type.png"
-      },
-      {
-        "src": "/assets/project-pngs/zautre/04.png",
-        "label": "Blue bgr - White type.png"
-      },
-      {
-        "src": "/assets/project-pngs/zautre/05.png",
-        "label": "Green bgr - Black type.png"
-      },
-      {
-        "src": "/assets/project-pngs/zautre/06.png",
-        "label": "Green bgr - White type.png"
-      },
-      {
-        "src": "/assets/project-pngs/zautre/07.png",
-        "label": "Orange bgr - Black type.png"
-      },
-      {
-        "src": "/assets/project-pngs/zautre/08.png",
-        "label": "Orange bgr - White type.png"
-      },
-      {
-        "src": "/assets/project-pngs/zautre/09.png",
-        "label": "Red bgr - Black type.png"
-      },
-      {
-        "src": "/assets/project-pngs/zautre/10.png",
-        "label": "Red bgr - White type.png"
-      },
-      {
-        "src": "/assets/project-pngs/zautre/11.png",
-        "label": "White bgr - Black type.png"
-      },
-      {
-        "src": "/assets/project-pngs/zautre/12.png",
-        "label": "White bgr - Grаy type.png"
-      },
-      {
-        "src": "/assets/project-pngs/zautre/13.png",
-        "label": "Yellow bgr - Black type.png"
-      },
-      {
-        "src": "/assets/project-pngs/zautre/14.png",
-        "label": "Yellow bgr - White type.png"
-      },
-      {
-        "src": "/assets/project-pngs/zautre/15.png",
-        "label": "Тurquoise bgr - Black type.png"
-      },
-      {
-        "src": "/assets/project-pngs/zautre/16.png",
-        "label": "Тurquoise bgr - White type.png"
-      }
-    ],
-    "featured": false,
-    "priority": 999,
-    "summary": "ZaUtre е част от архивния PNG слой на d . media с готови logo, application и visual export варианти.",
-    "context": "Архивен бранд проект с налични PNG exports, подредени като визуална следа за реалната работа по проекта.",
-    "focus": [
-      "Реални PNG exports от проектната папка",
-      "Видими logo и application варианти",
-      "Архивна следа за начина на работа и развитие"
-    ]
-  },
-  {
-    "slug": "project-29",
+    "slug": "project-20",
     "title": "салон за красота Нюанси - файлове",
     "imageCount": 2,
-    "cover": "/assets/project-covers/project-29.png",
+    "cover": "/assets/project-covers/project-20.png",
     "images": [
       {
-        "src": "/assets/project-pngs/project-29/01.png",
+        "src": "/assets/project-pngs/project-20/01.png",
         "label": "PP hairstyle.png"
       },
       {
-        "src": "/assets/project-pngs/project-29/02.png",
+        "src": "/assets/project-pngs/project-20/02.png",
         "label": "TS makeup.png"
       }
     ],
@@ -852,60 +643,31 @@ export const projectPngArchive = [
     ]
   },
   {
-    "slug": "project-30",
+    "slug": "project-21",
     "title": "Сянка от миналото",
-    "imageCount": 6,
-    "cover": "/assets/project-covers/project-30.png",
+    "imageCount": 4,
+    "cover": "/assets/project-covers/project-21.png",
     "images": [
       {
-        "src": "/assets/project-pngs/project-30/01.png",
+        "src": "/assets/project-pngs/project-21/01.png",
         "label": "Сянка от миналото_mockup.png"
       },
       {
-        "src": "/assets/project-pngs/project-30/02.png",
+        "src": "/assets/project-pngs/project-21/02.png",
         "label": "Сянка от миналото_logo_no txt_white background.png"
       },
       {
-        "src": "/assets/project-pngs/project-30/03.png",
+        "src": "/assets/project-pngs/project-21/03.png",
         "label": "Сянка от миналото_logo_white background.png"
       },
       {
-        "src": "/assets/project-pngs/project-30/04.png",
-        "label": "Сянка от миналото_youtube banner.png"
-      },
-      {
-        "src": "/assets/project-pngs/project-30/05.png",
-        "label": "Сянка от миналото_youtube watermark.png"
-      },
-      {
-        "src": "/assets/project-pngs/project-30/06.png",
+        "src": "/assets/project-pngs/project-21/04.png",
         "label": "Сянка от миналото.png"
       }
     ],
     "featured": false,
     "priority": 999,
     "summary": "Сянка от миналото е част от архивния PNG слой на d . media с готови logo, application и visual export варианти.",
-    "context": "Архивен бранд проект с налични PNG exports, подредени като визуална следа за реалната работа по проекта.",
-    "focus": [
-      "Реални PNG exports от проектната папка",
-      "Видими logo и application варианти",
-      "Архивна следа за начина на работа и развитие"
-    ]
-  },
-  {
-    "slug": "project-31",
-    "title": "ТЕТИ - Милена Богданова",
-    "imageCount": 1,
-    "cover": "/assets/project-covers/project-31.jpg",
-    "images": [
-      {
-        "src": "/assets/project-pngs/project-31/01.png",
-        "label": "Screenshot 2024-01-02 at 0.01.47.png"
-      }
-    ],
-    "featured": false,
-    "priority": 999,
-    "summary": "ТЕТИ - Милена Богданова е част от архивния PNG слой на d . media с готови logo, application и visual export варианти.",
     "context": "Архивен бранд проект с налични PNG exports, подредени като визуална следа за реалната работа по проекта.",
     "focus": [
       "Реални PNG exports от проектната папка",
