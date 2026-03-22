@@ -19,13 +19,12 @@ export function ProjectShowcase({ className }: { className?: string }) {
             </div>
             <div className="showcase-copy">
               <h3>{project.title}</h3>
-              <p>{project.context}</p>
-              <ul className="detail-list">
-                {project.focus.map((detail) => (
+              <p className="project-lead">{project.summary}</p>
+              <ul className="detail-list detail-list-compact">
+                {project.focus.slice(0, 2).map((detail) => (
                   <li key={detail}>{detail}</li>
                 ))}
               </ul>
-              <p className="outcome-text">{project.summary}</p>
               <div className="project-card-footer">
                 <span className="project-meta">{`${project.imageCount} png файла`}</span>
                 <span className="project-link-hint">отвори case study</span>

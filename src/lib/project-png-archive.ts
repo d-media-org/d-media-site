@@ -52,12 +52,12 @@ export const projectPngArchive = [
     ],
     "featured": true,
     "priority": 1,
-    "summary": "Най-завършената identity система в архива: знак, логотип, версии за фон, business card previews и мокъпи, които показват бранда в пълна бизнес среда.",
-    "context": "Проект, в който идентичността работи като цялостна система, а не като единичен знак.",
+    "summary": "Отделна identity система за счетоводна и payroll дейност, развита през знак, логотип и приложения за различни работни среди.",
+    "context": "Самостоятелен бранд, изграден като ясна визуална система за бизнес комуникация.",
     "focus": [
-      "Лого и логотип в оригинални и български варианти",
-      "Пълни PNG exports за светъл, тъмен и прозрачен фон",
-      "Business card previews и мокъпи като реална употреба"
+      "Лого и логотип в оригинални и български версии",
+      "Варианти за светъл, тъмен и прозрачен фон",
+      "Мокъпи и приложни визии за реален business контекст"
     ]
   },
   {
@@ -77,12 +77,12 @@ export const projectPngArchive = [
     ],
     "featured": true,
     "priority": 2,
-    "summary": "Разширение на основната Support Account логика към групов бранд с ясно logo/logotype приложение и по-корпоративен характер.",
-    "context": "Проектът развива вече съществуваща система в по-структурирана групова марка.",
+    "summary": "Отделен бранд към същото юридическо лице, с по-корпоративен характер и по-структурирано logo / logotype присъствие.",
+    "context": "Самостоятелна марка с близка бизнес логика, развита в по-строга корпоративна посока.",
     "focus": [
-      "Logo и logotype за чист фон",
-      "Връзка със системата на Support Account",
-      "Стъпка към по-широка корпоративна архитектура"
+      "Чисти logo и logotype решения за корпоративна употреба",
+      "Визуална връзка с Support Account без смесване на марките",
+      "Мокъп ориентиран cover за по-силен business-first прочит"
     ]
   },
   {
@@ -98,12 +98,12 @@ export const projectPngArchive = [
     ],
     "featured": true,
     "priority": 3,
-    "summary": "Компактен авторски знак, представен в чист PNG export като директен brand asset.",
-    "context": "Минимален identity проект, в който фокусът е върху разпознаваемия знак.",
+    "summary": "Компактен авторски знак с минималистично присъствие и директна разпознаваемост.",
+    "context": "Лек авторски identity проект, концентриран около един самостоятелен знак.",
     "focus": [
       "Изчистен самостоятелен знак",
-      "Лек, авторски характер",
-      "Подходящ за art-facing присъствие"
+      "Минимален визуален шум",
+      "Подходящ за артистично и авторско позициониране"
     ]
   },
   {
@@ -155,12 +155,12 @@ export const projectPngArchive = [
     ],
     "featured": true,
     "priority": 4,
-    "summary": "Един от най-богатите клиентски архиви: лого, social covers, profile assets, gift card варианти и service-oriented материали.",
-    "context": "Бранд, преведен от logo решение към реални клиентски и social формати.",
+    "summary": "Салонен бранд с богат приложен архив: covers, profile assets и gift card формати, подготвени за ежедневна употреба.",
+    "context": "Identity проект за салон за красота, развит в реални клиентски и social формати.",
     "focus": [
-      "Facebook cover и profile PNG assets",
-      "Gift card и service visuals",
-      "Широк диапазон от ежедневни brand applications"
+      "Facebook covers и profile assets",
+      "Gift card и service-oriented материали",
+      "Превод на идентичността към ежедневно client-facing приложение"
     ]
   },
   {
@@ -192,12 +192,12 @@ export const projectPngArchive = [
     ],
     "featured": true,
     "priority": 5,
-    "summary": "Елегантен identity проект с няколко logo варианта за фон и чист силует на знака.",
-    "context": "Проект с по-тих и по-изчистен визуален език, фокусиран върху формата на логото.",
+    "summary": "Елегантен identity проект за хендмейд украса за празненства, изграден чрез чист силует и гъвкави logo варианти.",
+    "context": "Бранд с по-тих и декоративен визуален език, фокусиран върху формата на логото.",
     "focus": [
       "Варианти с и без цвят",
-      "Работа за светъл, тъмен и прозрачен фон",
-      "Чисто logo-driven присъствие"
+      "Версии за различни фонове",
+      "По-деликатно logo-driven присъствие"
     ]
   },
   {
@@ -221,17 +221,17 @@ export const projectPngArchive = [
     ],
     "featured": true,
     "priority": 6,
-    "summary": "Кратък, но ясен logo пакет с mockup приложение и базови PNG exports за употреба.",
-    "context": "Компактен logo проект, фокусиран върху ясна употреба и директна видимост на знака.",
+    "summary": "Бранд за митническа агенция с logo пакет, mockup приложение и по-широко дигитално присъствие, включително сайт на d . media.",
+    "context": "Identity проект за административна и логистична среда, където знакът трябва да стои директно и уверено.",
     "focus": [
       "Основен logo export",
-      "Прозрачен вариант",
-      "Mockup приложение за контекст"
+      "Прозрачен вариант за дигитална употреба",
+      "Mockup контекст и връзка със site implementation"
     ]
   },
   {
     "slug": "boris-lilov-photography",
-    "title": "Boris Lilov photography",
+    "title": "Boris Lilov Photography",
     "imageCount": 10,
     "cover": "/assets/project-covers/boris-lilov-photography.png",
     "images": [
@@ -276,19 +276,19 @@ export const projectPngArchive = [
         "label": "boris lilov PHOTOGRAPHY logotype _ white BG.png"
       }
     ],
-    "featured": false,
+    "featured": true,
     "priority": 999,
-    "summary": "Boris Lilov photography е част от архивния PNG слой на d . media с готови logo, application и visual export варианти.",
-    "context": "Архивен бранд проект с налични PNG exports, подредени като визуална следа за реалната работа по проекта.",
+    "summary": "Фотографски бранд с пълен набор logo, logotype и комбинирани варианти за различни фонове и промоционална употреба.",
+    "context": "Проект за фотографско позициониране, изграден върху чиста типографска тежест и ясни identity lockups.",
     "focus": [
-      "Реални PNG exports от проектната папка",
-      "Видими logo и application варианти",
-      "Архивна следа за начина на работа и развитие"
+      "Logo, logotype и комбинирани варианти",
+      "Черни, бели и прозрачни версии",
+      "Mockup контекст за по-реален прочит на идентичността"
     ]
   },
   {
     "slug": "enduro-team-stoletovo",
-    "title": "enduro team STOLETOVO",
+    "title": "Enduro Team Stoletovo",
     "imageCount": 3,
     "cover": "/assets/project-covers/enduro-team-stoletovo.png",
     "images": [
@@ -305,19 +305,19 @@ export const projectPngArchive = [
         "label": "enduro team STOLETOVO (white).png"
       }
     ],
-    "featured": false,
+    "featured": true,
     "priority": 999,
-    "summary": "enduro team STOLETOVO е част от архивния PNG слой на d . media с готови logo, application и visual export варианти.",
-    "context": "Архивен бранд проект с налични PNG exports, подредени като визуална следа за реалната работа по проекта.",
+    "summary": "Компактен знак за off-road / team среда с ясни monochrome варианти и директна четимост.",
+    "context": "Проект, ориентиран към клубно и спортно присъствие, където знакът трябва да стои твърдо и бързо разпознаваемо.",
     "focus": [
-      "Реални PNG exports от проектната папка",
-      "Видими logo и application варианти",
-      "Архивна следа за начина на работа и развитие"
+      "Черна, бяла и прозрачна версия",
+      "Силен клубен характер",
+      "Директна употреба върху различни носители"
     ]
   },
   {
     "slug": "galka-nails",
-    "title": "Galka nails",
+    "title": "Galka Nails",
     "imageCount": 1,
     "cover": "/assets/project-covers/galka-nails.png",
     "images": [
@@ -326,19 +326,19 @@ export const projectPngArchive = [
         "label": "Galka’s nails transperent.png"
       }
     ],
-    "featured": false,
+    "featured": true,
     "priority": 999,
-    "summary": "Galka nails е част от архивния PNG слой на d . media с готови logo, application и visual export варианти.",
-    "context": "Архивен бранд проект с налични PNG exports, подредени като визуална следа за реалната работа по проекта.",
+    "summary": "Минимален beauty export с директно име и ясен знак за бърза употреба.",
+    "context": "Компактен проект с фокус върху най-кратката възможна визуална форма.",
     "focus": [
-      "Реални PNG exports от проектната папка",
-      "Видими logo и application варианти",
-      "Архивна следа за начина на работа и развитие"
+      "Един основен brand asset",
+      "Прозрачна версия за приложение",
+      "Чист beauty-oriented знак"
     ]
   },
   {
     "slug": "gosmile",
-    "title": "GoSmile",
+    "title": "GO SMILE",
     "imageCount": 2,
     "cover": "/assets/project-covers/gosmile.png",
     "images": [
@@ -351,14 +351,14 @@ export const projectPngArchive = [
         "label": "Go Smile White.png"
       }
     ],
-    "featured": false,
+    "featured": true,
     "priority": 999,
-    "summary": "GoSmile е част от архивния PNG слой на d . media с готови logo, application и visual export варианти.",
-    "context": "Архивен бранд проект с налични PNG exports, подредени като визуална следа за реалната работа по проекта.",
+    "summary": "Компактен brand пакет за избелващ продукт за зъби, развит в чисти monochrome logo варианти.",
+    "context": "Продуктов бранд, при който директното име и ясната четимост са водещи.",
     "focus": [
-      "Реални PNG exports от проектната папка",
-      "Видими logo и application варианти",
-      "Архивна следа за начина на работа и развитие"
+      "Черна и бяла logo версия",
+      "Чисто продуктово позициониране",
+      "Минимална и лесно приложима визуална система"
     ]
   },
   {
@@ -388,19 +388,19 @@ export const projectPngArchive = [
         "label": "J & V.png"
       }
     ],
-    "featured": false,
+    "featured": true,
     "priority": 999,
-    "summary": "J & V е част от архивния PNG слой на d . media с готови logo, application и visual export варианти.",
-    "context": "Архивен бранд проект с налични PNG exports, подредени като визуална следа за реалната работа по проекта.",
+    "summary": "Бранд за дрехи с ясно fashion-oriented присъствие, комбиниращ logo варианти и mockup ориентиран архив.",
+    "context": "Идентичност за clothing label, развита през по-стилен и редакционен визуален тон.",
     "focus": [
-      "Реални PNG exports от проектната папка",
-      "Видими logo и application варианти",
-      "Архивна следа за начина на работа и развитие"
+      "Основни logo варианти",
+      "Mockup контекст за по-реална маркова среда",
+      "По-моден и чист brand характер"
     ]
   },
   {
     "slug": "makeup-by-tsvetomira",
-    "title": "makeup by Tsvetomira",
+    "title": "Makeup by Tsvetomira",
     "imageCount": 1,
     "cover": "/assets/project-covers/makeup-by-tsvetomira.jpg",
     "images": [
@@ -409,19 +409,19 @@ export const projectPngArchive = [
         "label": "make up by Tsvetomira work logo _ transperent.png"
       }
     ],
-    "featured": false,
+    "featured": true,
     "priority": 999,
-    "summary": "makeup by Tsvetomira е част от архивния PNG слой на d . media с готови logo, application и visual export варианти.",
-    "context": "Архивен бранд проект с налични PNG exports, подредени като визуална следа за реалната работа по проекта.",
+    "summary": "По-ранният етап на бранд на гримьорка, който по-късно се развива към TS makeup.",
+    "context": "Ранна identity посока, в която се вижда преходът към по-ясна и по-завършена beauty марка.",
     "focus": [
-      "Реални PNG exports от проектната папка",
-      "Видими logo и application варианти",
-      "Архивна следа за начина на работа и развитие"
+      "Първоначален logo asset",
+      "Връзка с по-късната еволюция към TS makeup",
+      "Beauty-oriented начална визуална рамка"
     ]
   },
   {
     "slug": "photo-workshop",
-    "title": "Photo workshop",
+    "title": "Photo Workshop",
     "imageCount": 4,
     "cover": "/assets/project-covers/photo-workshop.png",
     "images": [
@@ -442,19 +442,19 @@ export const projectPngArchive = [
         "label": "Photo workshop _ white _ transparent _ logo.png"
       }
     ],
-    "featured": false,
+    "featured": true,
     "priority": 999,
-    "summary": "Photo workshop е част от архивния PNG слой на d . media с готови logo, application и visual export варианти.",
-    "context": "Архивен бранд проект с налични PNG exports, подредени като визуална следа за реалната работа по проекта.",
+    "summary": "Идентичност за photo-oriented формат с няколко logo версии за различен фон и контекст.",
+    "context": "Проект с образователен и фотографски тон, при който типографията и четимостта са водещи.",
     "focus": [
-      "Реални PNG exports от проектната папка",
-      "Видими logo и application варианти",
-      "Архивна следа за начина на работа и развитие"
+      "Няколко logo версии",
+      "Работа за тъмен, светъл и прозрачен фон",
+      "Спокоен фотографски визуален език"
     ]
   },
   {
     "slug": "plamena-nails",
-    "title": "Plamena nails",
+    "title": "Plamena Nails",
     "imageCount": 3,
     "cover": "/assets/project-covers/plamena-nails.png",
     "images": [
@@ -471,19 +471,19 @@ export const projectPngArchive = [
         "label": "Plamena nails _ logo _ violet _ transperent.png"
       }
     ],
-    "featured": false,
+    "featured": true,
     "priority": 999,
-    "summary": "Plamena nails е част от архивния PNG слой на d . media с готови logo, application и visual export варианти.",
-    "context": "Архивен бранд проект с налични PNG exports, подредени като визуална следа за реалната работа по проекта.",
+    "summary": "Компактен beauty знак с цветови варианти и по-декоративно присъствие.",
+    "context": "Nail-oriented identity проект, развит чрез няколко цветови версии на един и същ знак.",
     "focus": [
-      "Реални PNG exports от проектната папка",
-      "Видими logo и application варианти",
-      "Архивна следа за начина на работа и развитие"
+      "Няколко цветови варианта",
+      "Прозрачни файлове за лесно приложение",
+      "По-лек и декоративен beauty тон"
     ]
   },
   {
     "slug": "pp-hairstyle",
-    "title": "PP hairstyle",
+    "title": "PP Hairstyle",
     "imageCount": 4,
     "cover": "/assets/project-covers/pp-hairstyle.png",
     "images": [
@@ -504,19 +504,19 @@ export const projectPngArchive = [
         "label": "PP hairstyle.png"
       }
     ],
-    "featured": false,
+    "featured": true,
     "priority": 999,
-    "summary": "PP hairstyle е част от архивния PNG слой на d . media с готови logo, application и visual export варианти.",
-    "context": "Архивен бранд проект с налични PNG exports, подредени като визуална следа за реалната работа по проекта.",
+    "summary": "Beauty бранд с няколко logo варианта и ясно име, подготвен за различни фонове и ежедневна употреба.",
+    "context": "Идентичност за hair-oriented услуга, изградена около директна четимост и познаваемо име.",
     "focus": [
-      "Реални PNG exports от проектната папка",
-      "Видими logo и application варианти",
-      "Архивна следа за начина на работа и развитие"
+      "Logo за светъл, тъмен и прозрачен фон",
+      "По-лек beauty service характер",
+      "Ясна практическа употреба"
     ]
   },
   {
     "slug": "sport-fishing-stoletovo",
-    "title": "Sport fishing Stoletovo",
+    "title": "Sport Fishing Stoletovo",
     "imageCount": 7,
     "cover": "/assets/project-covers/sport-fishing-stoletovo.png",
     "images": [
@@ -549,19 +549,19 @@ export const projectPngArchive = [
         "label": "SFS_white.png"
       }
     ],
-    "featured": false,
+    "featured": true,
     "priority": 999,
-    "summary": "Sport fishing Stoletovo е част от архивния PNG слой на d . media с готови logo, application и visual export варианти.",
-    "context": "Архивен бранд проект с налични PNG exports, подредени като визуална следа за реалната работа по проекта.",
+    "summary": "Спортно-ориентиран знак с по-директен характер и пълен набор варианти за фон и приложение.",
+    "context": "Identity проект, изграден за по-ясно присъствие в клубна и спортна среда.",
     "focus": [
-      "Реални PNG exports от проектната папка",
-      "Видими logo и application варианти",
-      "Архивна следа за начина на работа и развитие"
+      "Черни, бели и прозрачни версии",
+      "Mockup контекст за реална употреба",
+      "По-силен emblematic характер"
     ]
   },
   {
     "slug": "stanulovi-s-house",
-    "title": "Stanulovi's house",
+    "title": "Stanulovi's House",
     "imageCount": 1,
     "cover": "/assets/project-covers/stanulovi-s-house.png",
     "images": [
@@ -570,14 +570,14 @@ export const projectPngArchive = [
         "label": "Stanulovi-01-01.png"
       }
     ],
-    "featured": false,
+    "featured": true,
     "priority": 999,
-    "summary": "Stanulovi's house е част от архивния PNG слой на d . media с готови logo, application и visual export варианти.",
-    "context": "Архивен бранд проект с налични PNG exports, подредени като визуална следа за реалната работа по проекта.",
+    "summary": "Компактен identity знак за място или обект, представен като чист единичен brand asset.",
+    "context": "Проект с фокус върху директна разпознаваемост и ясно изписване на името.",
     "focus": [
-      "Реални PNG exports от проектната папка",
-      "Видими logo и application варианти",
-      "Архивна следа за начина на работа и развитие"
+      "Един основен visual export",
+      "Чисто име и знак в едно решение",
+      "Лесно приложение в базови контексти"
     ]
   },
   {
@@ -607,72 +607,47 @@ export const projectPngArchive = [
         "label": "TS makeup _ logo.png"
       }
     ],
-    "featured": false,
+    "featured": true,
     "priority": 999,
-    "summary": "TS makeup е част от архивния PNG слой на d . media с готови logo, application и visual export варианти.",
-    "context": "Архивен бранд проект с налични PNG exports, подредени като визуална следа за реалната работа по проекта.",
+    "summary": "По-завършената еволюция на Makeup by Tsvetomira, развита в по-изчистена beauty identity система.",
+    "context": "Продължение на вече съществуващ бранд, преработен в по-събран и по-разпознаваем знак.",
     "focus": [
-      "Реални PNG exports от проектната папка",
-      "Видими logo и application варианти",
-      "Архивна следа за начина на работа и развитие"
+      "Няколко logo варианта",
+      "Версии за фон и специални приложения",
+      "По-зрял beauty-oriented визуален език"
     ]
   },
   {
-    "slug": "project-20",
-    "title": "салон за красота Нюанси - файлове",
-    "imageCount": 2,
-    "cover": "/assets/project-covers/project-20.png",
-    "images": [
-      {
-        "src": "/assets/project-pngs/project-20/01.png",
-        "label": "PP hairstyle.png"
-      },
-      {
-        "src": "/assets/project-pngs/project-20/02.png",
-        "label": "TS makeup.png"
-      }
-    ],
-    "featured": false,
-    "priority": 999,
-    "summary": "салон за красота Нюанси - файлове е част от архивния PNG слой на d . media с готови logo, application и visual export варианти.",
-    "context": "Архивен бранд проект с налични PNG exports, подредени като визуална следа за реалната работа по проекта.",
-    "focus": [
-      "Реални PNG exports от проектната папка",
-      "Видими logo и application варианти",
-      "Архивна следа за начина на работа и развитие"
-    ]
-  },
-  {
-    "slug": "project-21",
+    "slug": "syanka-ot-minaloto",
     "title": "Сянка от миналото",
     "imageCount": 4,
-    "cover": "/assets/project-covers/project-21.png",
+    "cover": "/assets/project-covers/syanka-ot-minaloto.png",
     "images": [
       {
-        "src": "/assets/project-pngs/project-21/01.png",
+        "src": "/assets/project-pngs/syanka-ot-minaloto/01.png",
         "label": "Сянка от миналото_mockup.png"
       },
       {
-        "src": "/assets/project-pngs/project-21/02.png",
+        "src": "/assets/project-pngs/syanka-ot-minaloto/02.png",
         "label": "Сянка от миналото_logo_no txt_white background.png"
       },
       {
-        "src": "/assets/project-pngs/project-21/03.png",
+        "src": "/assets/project-pngs/syanka-ot-minaloto/03.png",
         "label": "Сянка от миналото_logo_white background.png"
       },
       {
-        "src": "/assets/project-pngs/project-21/04.png",
+        "src": "/assets/project-pngs/syanka-ot-minaloto/04.png",
         "label": "Сянка от миналото.png"
       }
     ],
-    "featured": false,
+    "featured": true,
     "priority": 999,
-    "summary": "Сянка от миналото е част от архивния PNG слой на d . media с готови logo, application и visual export варианти.",
-    "context": "Архивен бранд проект с налични PNG exports, подредени като визуална следа за реалната работа по проекта.",
+    "summary": "Визуална идентичност за YouTube канал, развит в ко-продукционен контекст с d . media.",
+    "context": "Проект за видео съдържание, при който знакът трябва да работи уверено в канална и дигитална среда.",
     "focus": [
-      "Реални PNG exports от проектната папка",
-      "Видими logo и application варианти",
-      "Архивна следа за начина на работа и развитие"
+      "Logo и вариант без текст",
+      "Файлове за светъл фон и mockup приложение",
+      "Присъствие, ориентирано към YouTube среда"
     ]
   }
 ] as const;

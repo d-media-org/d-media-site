@@ -898,6 +898,7 @@ img {
   display: grid;
   gap: 16px;
   align-content: start;
+  padding: 28px;
 }
 
 .contact-start-card h2,
@@ -1389,12 +1390,21 @@ a[href]:not(.button):not(.site-brand a):not(.site-nav a):not(.site-nav-mobile a)
   gap: 18px;
   max-width: 1120px;
   width: 100%;
+  padding: 28px;
 }
 
 .services-cta-copy {
   display: grid;
   gap: 12px;
   max-width: 64ch;
+}
+
+.project-lead {
+  color: var(--text-soft);
+}
+
+.detail-list-compact {
+  gap: 8px;
 }
 
 .archive-category,
@@ -1713,6 +1723,8 @@ a[href]:not(.button):not(.site-brand a):not(.site-nav a):not(.site-nav-mobile a)
   .contact-card,
   .package-card,
   .contact-start-card,
+  .services-cta-card,
+  .projects-cta-card,
   .contact-detail-card,
   .service-category-card,
   .about-copy,
@@ -1939,6 +1951,8 @@ a[href]:not(.button):not(.site-brand a):not(.site-nav a):not(.site-nav-mobile a)
   .contact-card,
   .package-card,
   .contact-start-card,
+  .services-cta-card,
+  .projects-cta-card,
   .contact-detail-card,
   .service-category-card {
     padding: 16px;

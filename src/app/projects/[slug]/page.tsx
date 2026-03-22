@@ -72,7 +72,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
         <div className="section-heading page-intro">
           <p className="eyebrow">case study</p>
           <h1>{project.title}</h1>
-          <p className="page-text">{project.summary}</p>
+          <p className="page-text">{project.context}</p>
         </div>
 
         <article className="card case-study-hero">
@@ -87,8 +87,8 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
           </div>
           <div className="case-study-body">
             <div className="case-study-section">
-              <span className="case-study-label">Контекст</span>
-              <p>{project.context}</p>
+              <span className="case-study-label">Позициониране</span>
+              <p>{project.summary}</p>
             </div>
             <div className="case-study-section">
               <span className="case-study-label">Обхват</span>
