@@ -47,7 +47,9 @@ export default function AboutPage() {
           <div className="card package-card content-card-wide brandbook-card">
             <h2>Официален брандбук</h2>
             <p>
-              <BrandText text={"Пълният PDF с идентичността, приложенията и визуалните правила на\n d . media е достъпен директно през сайта."} />
+              Пълният PDF с идентичността, приложенията и визуалните правила на
+              <br />
+              <BrandName /> е достъпен директно през сайта.
             </p>
             <div className="hero-actions brandbook-actions">
               <a
