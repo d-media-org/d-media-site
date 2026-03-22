@@ -252,9 +252,9 @@ img {
 .contact-card h2 {
   font-family: var(--font-panton-bold), sans-serif;
   font-size: clamp(25px, 2.9vw, 38px);
-  line-height: 1.06;
+  line-height: 1.08;
   letter-spacing: -0.035em;
-  max-width: 15ch;
+  max-width: 16ch;
 }
 
 .hero-text,
@@ -273,7 +273,7 @@ img {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  padding-top: 4px;
+  padding-top: 6px;
 }
 
 .button {
@@ -293,6 +293,7 @@ img {
 .button-primary {
   background: var(--accent);
   color: var(--accent-foreground);
+  box-shadow: 0 1px 0 color-mix(in srgb, var(--foreground) 8%, transparent) inset;
 }
 
 .button-primary:hover {
@@ -386,7 +387,7 @@ img {
 }
 
 .page-subheading {
-  padding-top: 22px;
+  padding-top: 26px;
 }
 
 .project-grid {
@@ -475,7 +476,7 @@ img {
 .showcase-copy {
   display: grid;
   gap: 14px;
-  padding: 24px 24px 26px;
+  padding: 24px 24px 28px;
 }
 
 .detail-list {
@@ -504,6 +505,7 @@ img {
   align-items: center;
   justify-content: space-between;
   gap: 12px;
+  padding-top: 2px;
 }
 
 .project-link-hint {
@@ -949,7 +951,7 @@ img {
 .contact-start-card,
 .service-outcome-card {
   display: grid;
-  gap: 16px;
+  gap: 14px;
   align-content: start;
   padding: 28px;
 }
@@ -1401,7 +1403,7 @@ a[href]:not(.button):not(.site-brand a):not(.site-nav a):not(.site-nav-mobile a)
 
 .archive-project-copy {
   display: grid;
-  gap: 12px;
+  gap: 11px;
   padding: 22px 24px 24px;
 }
 
@@ -1444,12 +1446,14 @@ a[href]:not(.button):not(.site-brand a):not(.site-nav a):not(.site-nav-mobile a)
   max-width: 1120px;
   width: 100%;
   padding: 28px;
+  background: linear-gradient(180deg, var(--surface) 0%, var(--surface-soft) 100%);
+  border-color: color-mix(in srgb, var(--line) 78%, var(--foreground) 6%);
 }
 
 .services-cta-copy {
   display: grid;
   gap: 12px;
-  max-width: 68ch;
+  max-width: 62ch;
 }
 
 .project-lead {
