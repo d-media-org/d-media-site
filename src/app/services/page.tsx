@@ -23,15 +23,47 @@ export const metadata: Metadata = {
 };
 
 export default function ServicesPage() {
+  const serviceOutcomes = [
+    {
+      title: "Какво получава клиентът",
+      text: "Ясна визуална система, готови файлове и последователна логика на приложение вместо разпилени отделни материали.",
+    },
+    {
+      title: "Как работи процесът",
+      text: "Запитване, работен обхват, оферта, изпълнение и предаване в подредена последователност без неясни етапи.",
+    },
+    {
+      title: "Какво остава след проекта",
+      text: "Файлове и формати, които могат да бъдат използвани веднага за публикуване, принтиране или следващо развитие.",
+    },
+  ];
+
   return (
     <main className="site-shell" id="top">
       <section className="section-grid">
         <SiteHeader />
         <div className="section-heading page-intro">
           <p className="eyebrow">услуги</p>
-          <h1>Услуги, процес и документи в ясна работна система.</h1>
+          <h1>Услуги, процес и документи, подредени като реална работна рамка.</h1>
           <p className="page-text">
             <BrandText text="d . media работи с реални категории услуги, конкретна логика на възлагане и ясно предаване на файловете. Тук е подредена практичната рамка: какво се изработва, как започва проектът и с кои документи се движи." />
+          </p>
+        </div>
+        <div className="showcase-grid service-outcomes-grid">
+          {serviceOutcomes.map((item) => (
+            <article className="card package-card service-outcome-card" key={item.title}>
+              <h3>{item.title}</h3>
+              <p>
+                <BrandText text={item.text} />
+              </p>
+            </article>
+          ))}
+        </div>
+        <div className="section-heading page-subheading">
+          <p className="eyebrow">основни направления</p>
+          <h2>От идентичност и съдържание до документи и дигитални носители в една последователна структура.</h2>
+          <p className="page-text">
+            Страницата е подредена така, че първо да показва обхвата, после реалните категории услуги, а след това начина, по който един проект се уговаря и завършва.
           </p>
         </div>
         <div className="split-content page-grid services-overview">
@@ -71,6 +103,10 @@ export default function ServicesPage() {
             </article>
           ))}
         </div>
+        <div className="section-heading page-subheading">
+          <p className="eyebrow">какво може да включва проектът</p>
+          <h2>Различни комбинации според нуждата на бранда, канала и крайния формат.</h2>
+        </div>
         <div className="showcase-grid package-grid">
           {servicePackages.map((item) => (
             <article className="card package-card" key={item.title}>
@@ -100,6 +136,9 @@ export default function ServicesPage() {
         <div className="section-heading page-subheading">
           <p className="eyebrow">процес</p>
           <h2>Запитване, оферта, потвърждение, работа и предаване в ясна последователност.</h2>
+          <p className="page-text">
+            Това е практичният ред, в който проектът преминава от първоначален контекст към финални файлове и готови материали.
+          </p>
         </div>
         <div className="showcase-grid definition-grid">
           {processDetails.map((item) => (
@@ -138,6 +177,23 @@ export default function ServicesPage() {
             ))}
           </ul>
         </div>
+        <article className="card services-cta-card">
+          <div className="services-cta-copy">
+            <p className="eyebrow">следваща стъпка</p>
+            <h2>Ако имаш нужда от нов бранд, по-ясно съдържание или подредена визуална система, проектът може да започне с кратко запитване.</h2>
+            <p className="page-text">
+              Изпрати тема, контекст и какъв тип резултат ти е нужен. Оттам процесът минава към работен обхват, оферта и реално изпълнение.
+            </p>
+          </div>
+          <div className="hero-actions">
+            <a href="/contact" className="button button-primary">
+              Към контакт
+            </a>
+            <a href="/terms" className="button button-secondary">
+              Условия
+            </a>
+          </div>
+        </article>
       </section>
       <SiteFooter />
     </main>
