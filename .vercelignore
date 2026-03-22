@@ -1,0 +1,10 @@
+.git
+.next
+node_modules
+.qa
+tmp
+scripts
+.DS_Store
+**/.DS_Store
+README.md
+.eslintcache
