@@ -41,6 +41,7 @@ async function uploadFile(filePath) {
   const pathname = toPublicPath(filePath).slice(1);
   const body = fs.readFileSync(filePath);
   const sizeInMegabytes = body.byteLength / (1024 * 1024);
+  const version = Math.round(fs.statSync(filePath).mtimeMs);
 
   const blob = await put(pathname, body, {
     access: "public",
@@ -50,7 +51,7 @@ async function uploadFile(filePath) {
     multipart: sizeInMegabytes >= 4.5,
   });
 
-  return [toPublicPath(filePath), blob.url];
+  return [toPublicPath(filePath), `${blob.url}?v=${version}`];
 }
 
 async function main() {
