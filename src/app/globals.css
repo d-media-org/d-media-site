@@ -570,7 +570,7 @@ img {
 .text-card,
 .process-card,
 .contact-card {
-  padding: 28px;
+  padding: 32px;
 }
 
 .project-card {
@@ -1393,6 +1393,7 @@ a[href]:not(.button):not(.site-brand a):not(.site-nav a):not(.site-nav-mobile a)
   aspect-ratio: 16 / 10;
   background: var(--surface-soft);
   border-bottom: 1px solid var(--line);
+  padding: 18px;
 }
 
 .archive-project-cover img {
@@ -1402,8 +1403,8 @@ a[href]:not(.button):not(.site-brand a):not(.site-nav a):not(.site-nav-mobile a)
 
 .archive-project-copy {
   display: grid;
-  gap: 11px;
-  padding: 22px 24px 24px;
+  gap: 12px;
+  padding: 24px 26px 26px;
 }
 
 .archive-project-copy h3 {
@@ -1418,8 +1419,8 @@ a[href]:not(.button):not(.site-brand a):not(.site-nav a):not(.site-nav-mobile a)
 
 .archive-summary {
   display: grid;
-  gap: 8px;
-  padding: 22px 24px;
+  gap: 10px;
+  padding: 24px 26px;
   cursor: pointer;
   list-style: none;
 }
@@ -1500,8 +1501,8 @@ a[href]:not(.button):not(.site-brand a):not(.site-nav a):not(.site-nav-mobile a)
     --muted: #9b9b9f;
     --line: #262629;
     --fog: #171719;
-    --surface: #141416;
-    --surface-soft: #18181a;
+    --surface: #17181b;
+    --surface-soft: #1d1f23;
     --text-soft: #d3d3d6;
     --text-faint: #b5b5b9;
     --accent: #f4f4f4;
@@ -1534,6 +1535,12 @@ a[href]:not(.button):not(.site-brand a):not(.site-nav a):not(.site-nav-mobile a)
 
   .brand-image-sketch img {
     filter: invert(1) brightness(0.88) opacity(0.82);
+  }
+
+  .archive-project-cover,
+  .showcase-image,
+  .case-study-image {
+    background: color-mix(in srgb, var(--surface-soft) 82%, white 18%);
   }
 }
 
@@ -1807,7 +1814,7 @@ a[href]:not(.button):not(.site-brand a):not(.site-nav a):not(.site-nav-mobile a)
   .brand-principle,
   .privacy-details summary,
   .privacy-details-copy {
-    padding: 18px;
+    padding: 20px;
   }
 
   .hero-card-sketch img {
@@ -2109,7 +2116,7 @@ a[href]:not(.button):not(.site-brand a):not(.site-nav a):not(.site-nav-mobile a)
 
   .archive-project-copy,
   .case-study-body {
-    padding: 16px;
+    padding: 18px;
   }
 
   .button {

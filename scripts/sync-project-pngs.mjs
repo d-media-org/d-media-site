@@ -317,26 +317,39 @@ function prioritizeImages(files) {
   return [...files].sort((a, b) => {
     const aName = path.basename(a).toLowerCase();
     const bName = path.basename(b).toLowerCase();
-    const aIsMockup = aName.includes("mockup");
-    const bIsMockup = bName.includes("mockup");
-    const aIsTransparent =
-      aName.includes("transparent") ||
-      aName.includes("transperent") ||
-      aName.includes("trasperent");
-    const bIsTransparent =
-      bName.includes("transparent") ||
-      bName.includes("transperent") ||
-      bName.includes("trasperent");
+    const getRank = (name) => {
+      const isTransparent =
+        name.includes("transparent") ||
+        name.includes("transperent") ||
+        name.includes("trasperent");
+      const isMockup = name.includes("mockup");
+      const isLogotype = name.includes("logotype");
+      const isLogo = name.includes("logo");
+      const isCombined = name.includes("logo+logotype") || name.includes("logo_logotype");
+      const isOriginal = name.includes("original");
+      const isBulgarian = name.includes("bulgarian");
 
-    if (aIsTransparent !== bIsTransparent) {
-      return aIsTransparent ? -1 : 1;
+      let rank = 0;
+
+      if (isTransparent) rank -= 200;
+      if (isLogotype) rank -= 90;
+      if (isCombined) rank -= 60;
+      if (!isLogotype && isLogo) rank -= 20;
+      if (isOriginal) rank -= 25;
+      if (isBulgarian) rank += 20;
+      if (isMockup && !isTransparent) rank += 40;
+
+      return rank;
+    };
+
+    const aRank = getRank(aName);
+    const bRank = getRank(bName);
+
+    if (aRank !== bRank) {
+      return aRank - bRank;
     }
 
-    if (aIsMockup !== bIsMockup) {
-      return aIsMockup ? -1 : 1;
-    }
-
-    return a.localeCompare(b);
+    return aName.localeCompare(bName);
   });
 }
 

@@ -7,7 +7,7 @@ export const projectPngArchive = [
     "images": [
       {
         "src": "/assets/project-pngs/support-account/01.png",
-        "label": "Support Account_logo_transparent.png"
+        "label": "Support Account_logotype_transparent (original).png"
       },
       {
         "src": "/assets/project-pngs/support-account/02.png",
@@ -15,39 +15,39 @@ export const projectPngArchive = [
       },
       {
         "src": "/assets/project-pngs/support-account/03.png",
-        "label": "Support Account_logotype_transparent (original).png"
+        "label": "Support Account_logo_transparent.png"
       },
       {
         "src": "/assets/project-pngs/support-account/04.png",
-        "label": "Support Account_logo_mockup.png"
-      },
-      {
-        "src": "/assets/project-pngs/support-account/05.png",
-        "label": "Support Account_logotype_mockup.png"
-      },
-      {
-        "src": "/assets/project-pngs/support-account/06.png",
-        "label": "Support Account_logo_black background.png"
-      },
-      {
-        "src": "/assets/project-pngs/support-account/07.png",
-        "label": "Support Account_logo_white background.png"
-      },
-      {
-        "src": "/assets/project-pngs/support-account/08.png",
-        "label": "Support Account_logotype_black background (bulgarian).png"
-      },
-      {
-        "src": "/assets/project-pngs/support-account/09.png",
         "label": "Support Account_logotype_black background (original).png"
       },
       {
-        "src": "/assets/project-pngs/support-account/10.png",
+        "src": "/assets/project-pngs/support-account/05.png",
         "label": "Support Account_logotype_white background (original).png"
       },
       {
-        "src": "/assets/project-pngs/support-account/11.png",
+        "src": "/assets/project-pngs/support-account/06.png",
+        "label": "Support Account_logotype_black background (bulgarian).png"
+      },
+      {
+        "src": "/assets/project-pngs/support-account/07.png",
+        "label": "Support Account_logotype_mockup.png"
+      },
+      {
+        "src": "/assets/project-pngs/support-account/08.png",
+        "label": "Support Account_logo_black background.png"
+      },
+      {
+        "src": "/assets/project-pngs/support-account/09.png",
+        "label": "Support Account_logo_white background.png"
+      },
+      {
+        "src": "/assets/project-pngs/support-account/10.png",
         "label": "Support Account_logotytpe_white background.png"
+      },
+      {
+        "src": "/assets/project-pngs/support-account/11.png",
+        "label": "Support Account_logo_mockup.png"
       }
     ],
     "featured": true,
@@ -64,15 +64,15 @@ export const projectPngArchive = [
     "slug": "support-account-group",
     "title": "Support Account Group",
     "imageCount": 2,
-    "cover": "/assets/project-covers/support-account-group.jpg",
+    "cover": "/assets/project-covers/support-account-group.png",
     "images": [
       {
         "src": "/assets/project-pngs/support-account-group/01.png",
-        "label": "Support Account Group_logo_white background.png"
+        "label": "Support Account Group_logotype_transparent.png"
       },
       {
         "src": "/assets/project-pngs/support-account-group/02.png",
-        "label": "Support Account Group_logotype_white background.png"
+        "label": "Support Account Group_logo_white background.png"
       }
     ],
     "featured": true,
@@ -142,7 +142,7 @@ export const projectPngArchive = [
     "slug": "aneliart",
     "title": "Aneli Art",
     "imageCount": 1,
-    "cover": "/assets/project-covers/aneliart.png",
+    "cover": "/assets/project-covers/aneliart.jpeg",
     "images": [
       {
         "src": "/assets/project-pngs/aneliart/01.png",
@@ -167,43 +167,43 @@ export const projectPngArchive = [
     "images": [
       {
         "src": "/assets/project-pngs/boris-lilov-photography/01.png",
-        "label": "boris lilov PHOTOGRAPHY logo _ transperent.png"
-      },
-      {
-        "src": "/assets/project-pngs/boris-lilov-photography/02.png",
         "label": "boris lilov PHOTOGRAPHY logo+logotype _ transperent.png"
       },
       {
-        "src": "/assets/project-pngs/boris-lilov-photography/03.png",
+        "src": "/assets/project-pngs/boris-lilov-photography/02.png",
         "label": "boris lilov PHOTOGRAPHY logotype _ transperent.png"
       },
       {
+        "src": "/assets/project-pngs/boris-lilov-photography/03.png",
+        "label": "boris lilov PHOTOGRAPHY logo _ transperent.png"
+      },
+      {
         "src": "/assets/project-pngs/boris-lilov-photography/04.png",
-        "label": "boris lilov PHOTOGRAPHY _ mockup.png"
-      },
-      {
-        "src": "/assets/project-pngs/boris-lilov-photography/05.png",
-        "label": "boris lilov PHOTOGRAPHY logo _ black BG.png"
-      },
-      {
-        "src": "/assets/project-pngs/boris-lilov-photography/06.png",
-        "label": "boris lilov PHOTOGRAPHY logo _ white BG.png"
-      },
-      {
-        "src": "/assets/project-pngs/boris-lilov-photography/07.png",
         "label": "boris lilov PHOTOGRAPHY logo+logotype _ black BG.png"
       },
       {
-        "src": "/assets/project-pngs/boris-lilov-photography/08.png",
+        "src": "/assets/project-pngs/boris-lilov-photography/05.png",
         "label": "boris lilov PHOTOGRAPHY logo+logotype _ white BG.png"
       },
       {
-        "src": "/assets/project-pngs/boris-lilov-photography/09.png",
+        "src": "/assets/project-pngs/boris-lilov-photography/06.png",
         "label": "boris lilov PHOTOGRAPHY logotype _ black BG.png"
       },
       {
-        "src": "/assets/project-pngs/boris-lilov-photography/10.png",
+        "src": "/assets/project-pngs/boris-lilov-photography/07.png",
         "label": "boris lilov PHOTOGRAPHY logotype _ white BG.png"
+      },
+      {
+        "src": "/assets/project-pngs/boris-lilov-photography/08.png",
+        "label": "boris lilov PHOTOGRAPHY logo _ black BG.png"
+      },
+      {
+        "src": "/assets/project-pngs/boris-lilov-photography/09.png",
+        "label": "boris lilov PHOTOGRAPHY logo _ white BG.png"
+      },
+      {
+        "src": "/assets/project-pngs/boris-lilov-photography/10.png",
+        "label": "boris lilov PHOTOGRAPHY _ mockup.png"
       }
     ],
     "featured": false,
@@ -336,23 +336,23 @@ export const projectPngArchive = [
     "images": [
       {
         "src": "/assets/project-pngs/j-v/01.png",
-        "label": "J & V _ mockup.png"
-      },
-      {
-        "src": "/assets/project-pngs/j-v/02.png",
         "label": "J & V 2.png"
       },
       {
-        "src": "/assets/project-pngs/j-v/03.png",
+        "src": "/assets/project-pngs/j-v/02.png",
         "label": "J & V 3.png"
       },
       {
-        "src": "/assets/project-pngs/j-v/04.png",
+        "src": "/assets/project-pngs/j-v/03.png",
         "label": "J & V 4.png"
       },
       {
-        "src": "/assets/project-pngs/j-v/05.png",
+        "src": "/assets/project-pngs/j-v/04.png",
         "label": "J & V.png"
+      },
+      {
+        "src": "/assets/project-pngs/j-v/05.png",
+        "label": "J & V _ mockup.png"
       }
     ],
     "featured": false,
@@ -398,11 +398,11 @@ export const projectPngArchive = [
       },
       {
         "src": "/assets/project-pngs/mis-18/02.png",
-        "label": "MIS 18 logo _ mockup.png"
+        "label": "MIS 18 logo.png"
       },
       {
         "src": "/assets/project-pngs/mis-18/03.png",
-        "label": "MIS 18 logo.png"
+        "label": "MIS 18 logo _ mockup.png"
       }
     ],
     "featured": false,
@@ -530,7 +530,7 @@ export const projectPngArchive = [
       },
       {
         "src": "/assets/project-pngs/sport-fishing-stoletovo/04.png",
-        "label": "SFS_mockup.png"
+        "label": "SFS_original.png"
       },
       {
         "src": "/assets/project-pngs/sport-fishing-stoletovo/05.png",
@@ -538,11 +538,11 @@ export const projectPngArchive = [
       },
       {
         "src": "/assets/project-pngs/sport-fishing-stoletovo/06.png",
-        "label": "SFS_original.png"
+        "label": "SFS_white.png"
       },
       {
         "src": "/assets/project-pngs/sport-fishing-stoletovo/07.png",
-        "label": "SFS_white.png"
+        "label": "SFS_mockup.png"
       }
     ],
     "featured": false,
@@ -621,19 +621,19 @@ export const projectPngArchive = [
     "images": [
       {
         "src": "/assets/project-pngs/syanka-ot-minaloto/01.png",
-        "label": "Сянка от миналото_mockup.png"
-      },
-      {
-        "src": "/assets/project-pngs/syanka-ot-minaloto/02.png",
         "label": "Сянка от миналото_logo_no txt_white background.png"
       },
       {
-        "src": "/assets/project-pngs/syanka-ot-minaloto/03.png",
+        "src": "/assets/project-pngs/syanka-ot-minaloto/02.png",
         "label": "Сянка от миналото_logo_white background.png"
       },
       {
-        "src": "/assets/project-pngs/syanka-ot-minaloto/04.png",
+        "src": "/assets/project-pngs/syanka-ot-minaloto/03.png",
         "label": "Сянка от миналото.png"
+      },
+      {
+        "src": "/assets/project-pngs/syanka-ot-minaloto/04.png",
+        "label": "Сянка от миналото_mockup.png"
       }
     ],
     "featured": false,
