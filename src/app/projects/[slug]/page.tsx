@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 
 import { ProtectedImage } from "@/components/protected-image";
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
-import { resolvedProjectPngArchive } from "@/lib/asset-url";
+import { resolvedAllProjectsArchive } from "@/lib/asset-url";
 
 type CaseStudyPageProps = {
   params: Promise<{
@@ -13,7 +13,7 @@ type CaseStudyPageProps = {
 };
 
 function getCaseStudy(slug: string) {
-  return resolvedProjectPngArchive.find((project) => project.slug === slug);
+  return resolvedAllProjectsArchive.find((project) => project.slug === slug);
 }
 
 function formatFileCount(count: number) {
@@ -21,7 +21,7 @@ function formatFileCount(count: number) {
 }
 
 export async function generateStaticParams() {
-  return resolvedProjectPngArchive.map((project) => ({ slug: project.slug }));
+  return resolvedAllProjectsArchive.map((project) => ({ slug: project.slug }));
 }
 
 export async function generateMetadata({ params }: CaseStudyPageProps): Promise<Metadata> {
@@ -99,7 +99,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
             <div className="case-study-section">
               <span className="case-study-label">Обхват</span>
               <ul className="detail-list">
-                {project.focus.map((detail) => (
+                {project.focus.map((detail: string) => (
                   <li key={detail}>{detail}</li>
                 ))}
               </ul>
@@ -108,7 +108,13 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
               <span className="case-study-label">Архив</span>
               <div className="tag-list">
                 <span className="tag-pill">{formatFileCount(project.imageCount)}</span>
-                <span className="tag-pill">{project.featured ? "Акцентен проект" : "Архивен проект"}</span>
+                <span className="tag-pill">
+                  {project.featured
+                    ? "Акцентен проект"
+                    : "archiveType" in project && project.archiveType === "historical"
+                      ? "Исторически архив"
+                      : "Архивен проект"}
+                </span>
               </div>
             </div>
             <div className="project-card-footer">
