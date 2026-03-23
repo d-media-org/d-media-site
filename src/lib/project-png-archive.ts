@@ -142,7 +142,7 @@ export const projectPngArchive = [
     "slug": "aneliart",
     "title": "Aneli Art",
     "imageCount": 1,
-    "cover": "/assets/project-covers/aneliart.jpeg",
+    "cover": "/assets/project-covers/aneliart.png",
     "images": [
       {
         "src": "/assets/project-pngs/aneliart/01.png",

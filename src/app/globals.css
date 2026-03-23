@@ -436,6 +436,7 @@ img {
   aspect-ratio: 16 / 10;
   background: var(--surface-soft);
   border-bottom: 1px solid var(--line);
+  padding: 22px;
 }
 
 .showcase-image img {
@@ -527,6 +528,7 @@ img {
 
 .case-study-image {
   aspect-ratio: 16 / 9;
+  padding: 24px;
 }
 
 .case-study-body {
@@ -1393,7 +1395,7 @@ a[href]:not(.button):not(.site-brand a):not(.site-nav a):not(.site-nav-mobile a)
   aspect-ratio: 16 / 10;
   background: var(--surface-soft);
   border-bottom: 1px solid var(--line);
-  padding: 18px;
+  padding: 22px;
 }
 
 .archive-project-cover img {
@@ -2116,6 +2118,15 @@ a[href]:not(.button):not(.site-brand a):not(.site-nav a):not(.site-nav-mobile a)
 
   .archive-project-copy,
   .case-study-body {
+    padding: 18px;
+  }
+
+  .showcase-image,
+  .archive-project-cover {
+    padding: 16px;
+  }
+
+  .case-study-image {
     padding: 18px;
   }
 

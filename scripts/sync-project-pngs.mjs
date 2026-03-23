@@ -344,6 +344,13 @@ function prioritizeImages(files) {
 
     const aRank = getRank(aName);
     const bRank = getRank(bName);
+    const aExt = path.extname(aName).toLowerCase();
+    const bExt = path.extname(bName).toLowerCase();
+
+    if (aExt !== bExt) {
+      if (aExt === ".png") return -1;
+      if (bExt === ".png") return 1;
+    }
 
     if (aRank !== bRank) {
       return aRank - bRank;
