@@ -328,12 +328,12 @@ function prioritizeImages(files) {
       bName.includes("transperent") ||
       bName.includes("trasperent");
 
-    if (aIsMockup !== bIsMockup) {
-      return aIsMockup ? -1 : 1;
-    }
-
     if (aIsTransparent !== bIsTransparent) {
       return aIsTransparent ? -1 : 1;
+    }
+
+    if (aIsMockup !== bIsMockup) {
+      return aIsMockup ? -1 : 1;
     }
 
     return a.localeCompare(b);

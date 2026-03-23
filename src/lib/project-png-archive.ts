@@ -3,27 +3,27 @@ export const projectPngArchive = [
     "slug": "support-account",
     "title": "Support Account",
     "imageCount": 11,
-    "cover": "/assets/project-covers/support-account.jpg",
+    "cover": "/assets/project-covers/support-account.png",
     "images": [
       {
         "src": "/assets/project-pngs/support-account/01.png",
-        "label": "Support Account_logo_mockup.png"
-      },
-      {
-        "src": "/assets/project-pngs/support-account/02.png",
-        "label": "Support Account_logotype_mockup.png"
-      },
-      {
-        "src": "/assets/project-pngs/support-account/03.png",
         "label": "Support Account_logo_transparent.png"
       },
       {
-        "src": "/assets/project-pngs/support-account/04.png",
+        "src": "/assets/project-pngs/support-account/02.png",
         "label": "Support Account_logotype_transparent (bulgarian).png"
       },
       {
-        "src": "/assets/project-pngs/support-account/05.png",
+        "src": "/assets/project-pngs/support-account/03.png",
         "label": "Support Account_logotype_transparent (original).png"
+      },
+      {
+        "src": "/assets/project-pngs/support-account/04.png",
+        "label": "Support Account_logo_mockup.png"
+      },
+      {
+        "src": "/assets/project-pngs/support-account/05.png",
+        "label": "Support Account_logotype_mockup.png"
       },
       {
         "src": "/assets/project-pngs/support-account/06.png",
@@ -167,19 +167,19 @@ export const projectPngArchive = [
     "images": [
       {
         "src": "/assets/project-pngs/boris-lilov-photography/01.png",
-        "label": "boris lilov PHOTOGRAPHY _ mockup.png"
-      },
-      {
-        "src": "/assets/project-pngs/boris-lilov-photography/02.png",
         "label": "boris lilov PHOTOGRAPHY logo _ transperent.png"
       },
       {
-        "src": "/assets/project-pngs/boris-lilov-photography/03.png",
+        "src": "/assets/project-pngs/boris-lilov-photography/02.png",
         "label": "boris lilov PHOTOGRAPHY logo+logotype _ transperent.png"
       },
       {
-        "src": "/assets/project-pngs/boris-lilov-photography/04.png",
+        "src": "/assets/project-pngs/boris-lilov-photography/03.png",
         "label": "boris lilov PHOTOGRAPHY logotype _ transperent.png"
+      },
+      {
+        "src": "/assets/project-pngs/boris-lilov-photography/04.png",
+        "label": "boris lilov PHOTOGRAPHY _ mockup.png"
       },
       {
         "src": "/assets/project-pngs/boris-lilov-photography/05.png",
@@ -369,7 +369,7 @@ export const projectPngArchive = [
     "slug": "makeup-by-tsvetomira",
     "title": "Makeup by Tsvetomira",
     "imageCount": 1,
-    "cover": "/assets/project-covers/makeup-by-tsvetomira.jpg",
+    "cover": "/assets/project-covers/makeup-by-tsvetomira.png",
     "images": [
       {
         "src": "/assets/project-pngs/makeup-by-tsvetomira/01.png",
@@ -394,11 +394,11 @@ export const projectPngArchive = [
     "images": [
       {
         "src": "/assets/project-pngs/mis-18/01.png",
-        "label": "MIS 18 logo _ mockup.png"
+        "label": "MIS 18 logo _ Transperent.png"
       },
       {
         "src": "/assets/project-pngs/mis-18/02.png",
-        "label": "MIS 18 logo _ Transperent.png"
+        "label": "MIS 18 logo _ mockup.png"
       },
       {
         "src": "/assets/project-pngs/mis-18/03.png",
@@ -518,19 +518,19 @@ export const projectPngArchive = [
     "images": [
       {
         "src": "/assets/project-pngs/sport-fishing-stoletovo/01.png",
-        "label": "SFS_mockup.png"
-      },
-      {
-        "src": "/assets/project-pngs/sport-fishing-stoletovo/02.png",
         "label": "SFS_black_transperent.png"
       },
       {
-        "src": "/assets/project-pngs/sport-fishing-stoletovo/03.png",
+        "src": "/assets/project-pngs/sport-fishing-stoletovo/02.png",
         "label": "SFS_orignal_transperent.png"
       },
       {
-        "src": "/assets/project-pngs/sport-fishing-stoletovo/04.png",
+        "src": "/assets/project-pngs/sport-fishing-stoletovo/03.png",
         "label": "SFS_white_transperent.png"
+      },
+      {
+        "src": "/assets/project-pngs/sport-fishing-stoletovo/04.png",
+        "label": "SFS_mockup.png"
       },
       {
         "src": "/assets/project-pngs/sport-fishing-stoletovo/05.png",
