@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { BrandText } from "@/components/brand-text";
 import { ProtectedImage } from "@/components/protected-image";
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
 import { ProjectShowcase } from "@/components/project-showcase";
@@ -31,7 +32,9 @@ export default async function ProjectsPage() {
         <SiteHeader />
         <div className="section-heading page-intro page-intro-balanced">
           <p className="eyebrow">проекти</p>
-          <h1>Проекти, които показват как d . media превежда една идея в работещо визуално присъствие.</h1>
+          <h1>
+            <BrandText text="Проекти, които показват как d . media превежда една идея в работещо визуално присъствие." />
+          </h1>
           <p className="page-text">
             Тук е събрано реалното съдържание от проектните папки. Акцентите отпред показват най-силните системи, а архивът отдолу отваря реалния диапазон на работа по отделните брандове.
           </p>
@@ -100,7 +103,7 @@ export default async function ProjectsPage() {
             <p className="eyebrow">следваща стъпка</p>
             <h2>Ако търсиш същата яснота за собствен бранд или дигитално присъствие, следващата стъпка е кратко запитване с реален контекст.</h2>
             <p className="page-text">
-              Проектите показват как d . media работи. Следващата стъпка е този подход да бъде адаптиран към твоя бранд, канал и бизнес посока.
+              <BrandText text="Проектите показват как d . media работи. Следващата стъпка е този подход да бъде адаптиран към твоя бранд, канал и бизнес посока." />
             </p>
           </div>
           <div className="hero-actions">
