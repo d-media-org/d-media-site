@@ -75,12 +75,14 @@ export default async function ProjectsPage() {
             <Link className="card archive-card archive-project-card showcase-link-card" href={`/projects/${project.slug}`} key={project.slug}>
               <article>
                 <div className="archive-project-cover">
-                  <ProtectedImage
-                    src={project.cover}
-                    alt={project.title}
-                    fill
-                    sizes="(max-width: 767px) 100vw, 720px"
-                  />
+                  <div className="archive-project-cover-frame">
+                    <ProtectedImage
+                      src={project.cover}
+                      alt={project.title}
+                      fill
+                      sizes="(max-width: 767px) 100vw, 720px"
+                    />
+                  </div>
                 </div>
                 <div className="archive-project-copy">
                   <div className="project-card-footer">

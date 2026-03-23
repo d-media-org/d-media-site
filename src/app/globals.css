@@ -436,10 +436,20 @@ img {
   aspect-ratio: 16 / 10;
   background: var(--surface-soft);
   border-bottom: 1px solid var(--line);
-  padding: 22px;
 }
 
-.showcase-image img {
+.showcase-image-frame,
+.archive-project-cover-frame,
+.case-study-image-frame {
+  position: absolute;
+  inset: 24px;
+}
+
+.showcase-image img,
+.showcase-image-frame img,
+.archive-project-cover img,
+.archive-project-cover-frame img,
+.case-study-image-frame img {
   object-fit: contain;
   object-position: center;
 }
@@ -528,7 +538,6 @@ img {
 
 .case-study-image {
   aspect-ratio: 16 / 9;
-  padding: 24px;
 }
 
 .case-study-body {
@@ -1395,7 +1404,6 @@ a[href]:not(.button):not(.site-brand a):not(.site-nav a):not(.site-nav-mobile a)
   aspect-ratio: 16 / 10;
   background: var(--surface-soft);
   border-bottom: 1px solid var(--line);
-  padding: 22px;
 }
 
 .archive-project-cover img {
@@ -2123,11 +2131,16 @@ a[href]:not(.button):not(.site-brand a):not(.site-nav a):not(.site-nav-mobile a)
 
   .showcase-image,
   .archive-project-cover {
-    padding: 16px;
+    min-height: 0;
   }
 
-  .case-study-image {
-    padding: 18px;
+  .showcase-image-frame,
+  .archive-project-cover-frame {
+    inset: 16px;
+  }
+
+  .case-study-image-frame {
+    inset: 18px;
   }
 
   .button {

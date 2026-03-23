@@ -81,13 +81,15 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
 
         <article className="card case-study-hero">
           <div className="showcase-image case-study-image">
-            <ProtectedImage
-              src={project.cover}
-              alt={project.title}
-              fill
-              sizes="(max-width: 979px) 100vw, 70vw"
-              priority
-            />
+            <div className="case-study-image-frame">
+              <ProtectedImage
+                src={project.cover}
+                alt={project.title}
+                fill
+                sizes="(max-width: 979px) 100vw, 70vw"
+                priority
+              />
+            </div>
           </div>
           <div className="case-study-body">
             <div className="case-study-section">

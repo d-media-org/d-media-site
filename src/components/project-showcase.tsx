@@ -16,12 +16,14 @@ export async function ProjectShowcase({ className }: { className?: string }) {
         <Link className="card showcase-card showcase-link-card" href={`/projects/${project.slug}`} key={project.slug}>
           <article>
             <div className="showcase-image">
-              <ProtectedImage
-                src={project.cover}
-                alt={project.title}
-                fill
-                sizes="(max-width: 979px) 100vw, 50vw"
-              />
+              <div className="showcase-image-frame">
+                <ProtectedImage
+                  src={project.cover}
+                  alt={project.title}
+                  fill
+                  sizes="(max-width: 979px) 100vw, 50vw"
+                />
+              </div>
             </div>
             <div className="showcase-copy">
               <h3>{project.title}</h3>
