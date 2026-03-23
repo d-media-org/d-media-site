@@ -93,39 +93,39 @@ export const projectPngArchive = [
     "images": [
       {
         "src": "/assets/project-pngs/yanita/01.png",
-        "label": "Facebook PAGE cover black BG.png"
+        "label": "Yanita modern transperent.png"
       },
       {
         "src": "/assets/project-pngs/yanita/02.png",
-        "label": "Facebook PAGE cover black EN.png"
+        "label": "Facebook PAGE cover black BG.png"
       },
       {
         "src": "/assets/project-pngs/yanita/03.png",
-        "label": "Facebook PAGE cover white BG HQ.png"
+        "label": "Facebook PAGE cover black EN.png"
       },
       {
         "src": "/assets/project-pngs/yanita/04.png",
-        "label": "Facebook PAGE cover white BG.png"
+        "label": "Facebook PAGE cover white BG HQ.png"
       },
       {
         "src": "/assets/project-pngs/yanita/05.png",
-        "label": "Facebook PAGE cover white EN.png"
+        "label": "Facebook PAGE cover white BG.png"
       },
       {
         "src": "/assets/project-pngs/yanita/06.png",
-        "label": "Facebook PAGE profile picture.png"
+        "label": "Facebook PAGE cover white EN.png"
       },
       {
         "src": "/assets/project-pngs/yanita/07.png",
-        "label": "YANITA gift card.png"
+        "label": "Facebook PAGE profile picture.png"
       },
       {
         "src": "/assets/project-pngs/yanita/08.png",
-        "label": "Yanita info cover.png"
+        "label": "YANITA gift card.png"
       },
       {
         "src": "/assets/project-pngs/yanita/09.png",
-        "label": "Yanita modern transperent.png"
+        "label": "Yanita info cover.png"
       }
     ],
     "featured": true,
@@ -171,35 +171,35 @@ export const projectPngArchive = [
       },
       {
         "src": "/assets/project-pngs/boris-lilov-photography/02.png",
-        "label": "boris lilov PHOTOGRAPHY logo _ black BG.png"
-      },
-      {
-        "src": "/assets/project-pngs/boris-lilov-photography/03.png",
         "label": "boris lilov PHOTOGRAPHY logo _ transperent.png"
       },
       {
-        "src": "/assets/project-pngs/boris-lilov-photography/04.png",
-        "label": "boris lilov PHOTOGRAPHY logo _ white BG.png"
-      },
-      {
-        "src": "/assets/project-pngs/boris-lilov-photography/05.png",
-        "label": "boris lilov PHOTOGRAPHY logo+logotype _ black BG.png"
-      },
-      {
-        "src": "/assets/project-pngs/boris-lilov-photography/06.png",
+        "src": "/assets/project-pngs/boris-lilov-photography/03.png",
         "label": "boris lilov PHOTOGRAPHY logo+logotype _ transperent.png"
       },
       {
+        "src": "/assets/project-pngs/boris-lilov-photography/04.png",
+        "label": "boris lilov PHOTOGRAPHY logotype _ transperent.png"
+      },
+      {
+        "src": "/assets/project-pngs/boris-lilov-photography/05.png",
+        "label": "boris lilov PHOTOGRAPHY logo _ black BG.png"
+      },
+      {
+        "src": "/assets/project-pngs/boris-lilov-photography/06.png",
+        "label": "boris lilov PHOTOGRAPHY logo _ white BG.png"
+      },
+      {
         "src": "/assets/project-pngs/boris-lilov-photography/07.png",
-        "label": "boris lilov PHOTOGRAPHY logo+logotype _ white BG.png"
+        "label": "boris lilov PHOTOGRAPHY logo+logotype _ black BG.png"
       },
       {
         "src": "/assets/project-pngs/boris-lilov-photography/08.png",
-        "label": "boris lilov PHOTOGRAPHY logotype _ black BG.png"
+        "label": "boris lilov PHOTOGRAPHY logo+logotype _ white BG.png"
       },
       {
         "src": "/assets/project-pngs/boris-lilov-photography/09.png",
-        "label": "boris lilov PHOTOGRAPHY logotype _ transperent.png"
+        "label": "boris lilov PHOTOGRAPHY logotype _ black BG.png"
       },
       {
         "src": "/assets/project-pngs/boris-lilov-photography/10.png",
@@ -261,11 +261,11 @@ export const projectPngArchive = [
     "images": [
       {
         "src": "/assets/project-pngs/enduro-team-stoletovo/01.png",
-        "label": "enduro team STOLETOVO (black).png"
+        "label": "enduro team STOLETOVO (transperent).png"
       },
       {
         "src": "/assets/project-pngs/enduro-team-stoletovo/02.png",
-        "label": "enduro team STOLETOVO (transperent).png"
+        "label": "enduro team STOLETOVO (black).png"
       },
       {
         "src": "/assets/project-pngs/enduro-team-stoletovo/03.png",
@@ -485,11 +485,11 @@ export const projectPngArchive = [
     "images": [
       {
         "src": "/assets/project-pngs/pp-hairstyle/01.png",
-        "label": "PP hairstyle _ logo _ black bcg.png"
+        "label": "PP hairstyle _ logo _ transperent.png"
       },
       {
         "src": "/assets/project-pngs/pp-hairstyle/02.png",
-        "label": "PP hairstyle _ logo _ transperent.png"
+        "label": "PP hairstyle _ logo _ black bcg.png"
       },
       {
         "src": "/assets/project-pngs/pp-hairstyle/03.png",
@@ -526,19 +526,19 @@ export const projectPngArchive = [
       },
       {
         "src": "/assets/project-pngs/sport-fishing-stoletovo/03.png",
-        "label": "SFS_black.png"
-      },
-      {
-        "src": "/assets/project-pngs/sport-fishing-stoletovo/04.png",
-        "label": "SFS_original.png"
-      },
-      {
-        "src": "/assets/project-pngs/sport-fishing-stoletovo/05.png",
         "label": "SFS_orignal_transperent.png"
       },
       {
-        "src": "/assets/project-pngs/sport-fishing-stoletovo/06.png",
+        "src": "/assets/project-pngs/sport-fishing-stoletovo/04.png",
         "label": "SFS_white_transperent.png"
+      },
+      {
+        "src": "/assets/project-pngs/sport-fishing-stoletovo/05.png",
+        "label": "SFS_black.png"
+      },
+      {
+        "src": "/assets/project-pngs/sport-fishing-stoletovo/06.png",
+        "label": "SFS_original.png"
       },
       {
         "src": "/assets/project-pngs/sport-fishing-stoletovo/07.png",
@@ -584,19 +584,19 @@ export const projectPngArchive = [
     "images": [
       {
         "src": "/assets/project-pngs/ts-makeup/01.png",
-        "label": "TS makeup _ logo _ black BG.png"
-      },
-      {
-        "src": "/assets/project-pngs/ts-makeup/02.png",
         "label": "TS makeup _ logo _ lasercut _ trasperent.png"
       },
       {
-        "src": "/assets/project-pngs/ts-makeup/03.png",
+        "src": "/assets/project-pngs/ts-makeup/02.png",
         "label": "TS makeup _ logo _ transperent _ +shadow.png"
       },
       {
-        "src": "/assets/project-pngs/ts-makeup/04.png",
+        "src": "/assets/project-pngs/ts-makeup/03.png",
         "label": "TS makeup _ logo _ transperent.png"
+      },
+      {
+        "src": "/assets/project-pngs/ts-makeup/04.png",
+        "label": "TS makeup _ logo _ black BG.png"
       },
       {
         "src": "/assets/project-pngs/ts-makeup/05.png",

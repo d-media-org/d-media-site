@@ -319,8 +319,14 @@ function prioritizeImages(files) {
     const bName = path.basename(b).toLowerCase();
     const aIsMockup = aName.includes("mockup");
     const bIsMockup = bName.includes("mockup");
-    const aIsTransparent = aName.includes("transparent");
-    const bIsTransparent = bName.includes("transparent");
+    const aIsTransparent =
+      aName.includes("transparent") ||
+      aName.includes("transperent") ||
+      aName.includes("trasperent");
+    const bIsTransparent =
+      bName.includes("transparent") ||
+      bName.includes("transperent") ||
+      bName.includes("trasperent");
 
     if (aIsMockup !== bIsMockup) {
       return aIsMockup ? -1 : 1;
