@@ -68,12 +68,12 @@ export const metadata: Metadata = {
     type: "website",
     locale: "bg_BG",
     url: baseUrl,
-    title: "d . media | Бранд идентичност, съдържание и дигитално присъствие",
+    title: "d . media",
     description: siteDescription,
     siteName: "d . media",
     images: [
       {
-        url: "/opengraph-image?v=20260323-2",
+        url: "/api/social-preview?v=20260323-6",
         width: 1200,
         height: 630,
         alt: "d . media",
@@ -82,9 +82,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "d . media | Бранд идентичност, съдържание и дигитално присъствие",
+    title: "d . media",
     description: siteDescription,
-    images: ["/twitter-image?v=20260323-2"],
+    images: ["/api/social-preview?v=20260323-6"],
   },
   robots: {
     index: true,

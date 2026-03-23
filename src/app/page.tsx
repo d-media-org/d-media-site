@@ -13,7 +13,7 @@ import { siteDescription } from "@/lib/seo";
 import { getSiteRuntimeConfig } from "@/lib/site-runtime-config";
 
 export const metadata: Metadata = {
-  title: "Бранд идентичност, съдържание и дигитално присъствие",
+  title: "d . media",
   description: siteDescription,
   alternates: {
     canonical: "/",
