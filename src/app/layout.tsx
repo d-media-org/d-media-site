@@ -73,7 +73,7 @@ export const metadata: Metadata = {
     siteName: "d . media",
     images: [
       {
-        url: "/opengraph-image.png",
+        url: "/opengraph-image",
         width: 1200,
         height: 630,
         alt: "d . media",
@@ -84,7 +84,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "d . media | Бранд идентичност, съдържание и дигитално присъствие",
     description: siteDescription,
-    images: ["/twitter-image.png"],
+    images: ["/twitter-image"],
   },
   robots: {
     index: true,
