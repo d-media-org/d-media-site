@@ -73,7 +73,7 @@ export const metadata: Metadata = {
     siteName: "d . media",
     images: [
       {
-        url: "/api/social-preview?v=20260323-6",
+        url: "/api/social-preview?v=20260323-7",
         width: 1200,
         height: 630,
         alt: "d . media",
@@ -84,7 +84,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "d . media",
     description: siteDescription,
-    images: ["/api/social-preview?v=20260323-6"],
+    images: ["/api/social-preview?v=20260323-7"],
   },
   robots: {
     index: true,
