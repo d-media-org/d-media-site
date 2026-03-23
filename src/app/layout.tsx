@@ -15,31 +15,31 @@ import { getSiteRuntimeConfig } from "@/lib/site-runtime-config";
 import "./globals.css";
 
 const pantonBlack = localFont({
-  src: "../../public/assets/fonts/Panton-Black.ttf",
+  src: "../../public/assets/fonts/Panton-Black.woff2",
   variable: "--font-panton-black",
   display: "swap",
 });
 
 const pantonBold = localFont({
-  src: "../../public/assets/fonts/Panton-Bold.ttf",
+  src: "../../public/assets/fonts/Panton-Bold.woff2",
   variable: "--font-panton-bold",
   display: "swap",
 });
 
 const pantonSemiBold = localFont({
-  src: "../../public/assets/fonts/Panton-SemiBold.ttf",
+  src: "../../public/assets/fonts/Panton-SemiBold.woff2",
   variable: "--font-panton-semibold",
   display: "swap",
 });
 
 const pantonRegular = localFont({
-  src: "../../public/assets/fonts/Panton-Regular.ttf",
+  src: "../../public/assets/fonts/Panton-Regular.woff2",
   variable: "--font-panton-regular",
   display: "swap",
 });
 
 const pantonLight = localFont({
-  src: "../../public/assets/fonts/Panton-Light.ttf",
+  src: "../../public/assets/fonts/Panton-Light.woff2",
   variable: "--font-panton-light",
   display: "swap",
 });
