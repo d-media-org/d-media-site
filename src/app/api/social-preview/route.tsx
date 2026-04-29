@@ -14,7 +14,7 @@ async function loadImageDataUrl(relativePath: string) {
 }
 
 export async function GET() {
-  const logotype = await loadImageDataUrl("/assets/brand/ONLY-logotype.png");
+  const brandmark = await loadImageDataUrl("/assets/brand/ONLY-brandmark.png");
 
   return new ImageResponse(
     (
@@ -33,15 +33,16 @@ export async function GET() {
           style={{
             display: "flex",
             alignItems: "center",
-            justifyContent: "center",
+            justifyContent: "flex-start",
             width: "100%",
             height: "100%",
           }}
         >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            alt="d . media logotype"
-            src={logotype}
-            style={{ width: 720, height: 196, objectFit: "contain" }}
+            alt="d . media brandmark"
+            src={brandmark}
+            style={{ width: 220, height: 220, objectFit: "contain" }}
           />
         </div>
       </div>

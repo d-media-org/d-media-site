@@ -1,8 +1,37 @@
+import type { Locale } from "@/lib/i18n";
+
+function getImageOrder(label: string) {
+  const normalized = label.toLowerCase();
+
+  if (normalized.includes("transparent") || normalized.includes("transperent")) {
+    return 0;
+  }
+
+  if (
+    normalized.includes("white") ||
+    normalized.includes("light") ||
+    normalized.includes("бял") ||
+    normalized.includes("свет")
+  ) {
+    return 1;
+  }
+
+  if (
+    normalized.includes("black") ||
+    normalized.includes("dark") ||
+    normalized.includes("чер")
+  ) {
+    return 2;
+  }
+
+  return 3;
+}
+
 export const projectPngArchive = [
   {
     "slug": "support-account",
     "title": "Support Account",
-    "imageCount": 11,
+    "imageCount": 3,
     "cover": "/assets/project-covers/support-account.png",
     "images": [
       {
@@ -17,47 +46,15 @@ export const projectPngArchive = [
         "src": "/assets/project-pngs/support-account/03.png",
         "label": "Support Account_logo_transparent.png"
       },
-      {
-        "src": "/assets/project-pngs/support-account/04.png",
-        "label": "Support Account_logotype_black background (original).png"
-      },
-      {
-        "src": "/assets/project-pngs/support-account/05.png",
-        "label": "Support Account_logotype_white background (original).png"
-      },
-      {
-        "src": "/assets/project-pngs/support-account/06.png",
-        "label": "Support Account_logotype_black background (bulgarian).png"
-      },
-      {
-        "src": "/assets/project-pngs/support-account/07.png",
-        "label": "Support Account_logotype_mockup.png"
-      },
-      {
-        "src": "/assets/project-pngs/support-account/08.png",
-        "label": "Support Account_logo_black background.png"
-      },
-      {
-        "src": "/assets/project-pngs/support-account/09.png",
-        "label": "Support Account_logo_white background.png"
-      },
-      {
-        "src": "/assets/project-pngs/support-account/10.png",
-        "label": "Support Account_logotytpe_white background.png"
-      },
-      {
-        "src": "/assets/project-pngs/support-account/11.png",
-        "label": "Support Account_logo_mockup.png"
-      }
     ],
     "featured": true,
     "priority": 1,
-    "summary": "Отделна identity система за счетоводна и payroll дейност, развита през знак, логотип и приложения за различни работни среди.",
-    "context": "Самостоятелен бранд, изграден като ясна визуална система за бизнес комуникация.",
+    "summary": "Корпоративна идентичност за счетоводна дейност с ясен и подреден професионален облик.",
+    "context": "Подборът тук е сведен до основните прозрачни файлове, които държат най-точно първичната logo система и отделното присъствие на бранда.",
     "focus": [
-      "Лого и логотип в оригинални и български версии",
-      "Варианти за светъл, тъмен и прозрачен фон",
-      "Мокъпи и приложни визии за реален business контекст"
+      "Оригинален прозрачен логотип",
+      "Българска версия на логотипа",
+      "Прозрачен logo вариант за директно приложение"
     ]
   },
   {
@@ -72,97 +69,81 @@ export const projectPngArchive = [
       },
       {
         "src": "/assets/project-pngs/support-account-group/02.png",
-        "label": "Support Account Group_logo_white background.png"
+        "label": "Support Account Group_transparent.png"
       }
     ],
     "featured": true,
     "priority": 2,
-    "summary": "Отделен бранд към същото юридическо лице, с по-корпоративен характер и по-структурирано logo / logotype присъствие.",
-    "context": "Самостоятелна марка с близка бизнес логика, развита в по-строга корпоративна посока.",
+    "summary": "Корпоративна идентичност за втори бранд в рамките на същата счетоводна дейност.",
+    "context": "Подборът е сведен до двата прозрачни основни файла, които пазят най-чисто връзката със Support Account и отделното позициониране на групата.",
     "focus": [
-      "Чисти logo и logotype решения за корпоративна употреба",
-      "Визуална връзка с Support Account без смесване на марките",
-      "Мокъп ориентиран cover за по-силен business-first прочит"
+      "Прозрачен логотип за корпоративна употреба",
+      "Комбиниран прозрачен знак за директно приложение",
+      "Ясна връзка със Support Account без смесване на марките"
     ]
   },
   {
     "slug": "yanita",
     "title": "Yanita",
-    "imageCount": 9,
+    "imageCount": 3,
     "cover": "/assets/project-covers/yanita.png",
     "images": [
       {
         "src": "/assets/project-pngs/yanita/01.png",
-        "label": "Yanita modern transperent.png"
+        "label": "Yanita_logo @ original_transparent.png"
       },
       {
         "src": "/assets/project-pngs/yanita/02.png",
-        "label": "Facebook PAGE cover black BG.png"
+        "label": "Yanita_logo @ black_transparent.png"
       },
       {
         "src": "/assets/project-pngs/yanita/03.png",
-        "label": "Facebook PAGE cover black EN.png"
-      },
-      {
-        "src": "/assets/project-pngs/yanita/04.png",
-        "label": "Facebook PAGE cover white BG HQ.png"
-      },
-      {
-        "src": "/assets/project-pngs/yanita/05.png",
-        "label": "Facebook PAGE cover white BG.png"
-      },
-      {
-        "src": "/assets/project-pngs/yanita/06.png",
-        "label": "Facebook PAGE cover white EN.png"
-      },
-      {
-        "src": "/assets/project-pngs/yanita/07.png",
-        "label": "Facebook PAGE profile picture.png"
-      },
-      {
-        "src": "/assets/project-pngs/yanita/08.png",
-        "label": "YANITA gift card.png"
-      },
-      {
-        "src": "/assets/project-pngs/yanita/09.png",
-        "label": "Yanita info cover.png"
+        "label": "Yanita_logo @ white_transparent.png"
       }
     ],
     "featured": true,
     "priority": 3,
-    "summary": "Салонен бранд с богат приложен архив: covers, profile assets и gift card формати, подготвени за ежедневна употреба.",
-    "context": "Identity проект за салон за красота, развит в реални клиентски и social формати.",
+    "summary": "Beauty идентичност, представена през основните прозрачни logo варианти.",
+    "context": "Текущият архив пази чистата основа на знака в оригинална, тъмна и светла версия, без приложните файлове от по-късни формати.",
     "focus": [
-      "Facebook covers и profile assets",
-      "Gift card и service-oriented материали",
-      "Превод на идентичността към ежедневно client-facing приложение"
+      "Оригинален прозрачен знак",
+      "Черна прозрачна версия",
+      "Бяла прозрачна версия"
     ]
   },
   {
     "slug": "aneliart",
     "title": "Aneli Art",
-    "imageCount": 1,
+    "imageCount": 3,
     "cover": "/assets/project-covers/aneliart.png",
     "images": [
       {
         "src": "/assets/project-pngs/aneliart/01.png",
-        "label": "AneliArt.png"
+        "label": "AneliArt_logo_transparent.png"
+      },
+      {
+        "src": "/assets/project-pngs/aneliart/02.png",
+        "label": "AneliArt_logo @ black_transparent.png"
+      },
+      {
+        "src": "/assets/project-pngs/aneliart/03.png",
+        "label": "AneliArt_logo @ white_transparent.png"
       }
     ],
     "featured": false,
     "priority": 999,
-    "summary": "Компактен авторски знак с минималистично присъствие и директна разпознаваемост.",
-    "context": "Лек авторски identity проект, концентриран около един самостоятелен знак.",
+    "summary": "Авторски знак с чист силует и подредени прозрачни версии за различен фон.",
+    "context": "Архивът вече държи основния знак в прозрачна, черна и бяла версия, вместо единичен export.",
     "focus": [
-      "Изчистен самостоятелен знак",
-      "Минимален визуален шум",
-      "Подходящ за артистично и авторско позициониране"
+      "Основен прозрачен знак",
+      "Черна прозрачна версия",
+      "Бяла прозрачна версия"
     ]
   },
   {
     "slug": "boris-lilov-photography",
     "title": "Boris Lilov Photography",
-    "imageCount": 10,
+    "imageCount": 3,
     "cover": "/assets/project-covers/boris-lilov-photography.png",
     "images": [
       {
@@ -177,108 +158,126 @@ export const projectPngArchive = [
         "src": "/assets/project-pngs/boris-lilov-photography/03.png",
         "label": "boris lilov PHOTOGRAPHY logo _ transperent.png"
       },
-      {
-        "src": "/assets/project-pngs/boris-lilov-photography/04.png",
-        "label": "boris lilov PHOTOGRAPHY logo+logotype _ black BG.png"
-      },
-      {
-        "src": "/assets/project-pngs/boris-lilov-photography/05.png",
-        "label": "boris lilov PHOTOGRAPHY logo+logotype _ white BG.png"
-      },
-      {
-        "src": "/assets/project-pngs/boris-lilov-photography/06.png",
-        "label": "boris lilov PHOTOGRAPHY logotype _ black BG.png"
-      },
-      {
-        "src": "/assets/project-pngs/boris-lilov-photography/07.png",
-        "label": "boris lilov PHOTOGRAPHY logotype _ white BG.png"
-      },
-      {
-        "src": "/assets/project-pngs/boris-lilov-photography/08.png",
-        "label": "boris lilov PHOTOGRAPHY logo _ black BG.png"
-      },
-      {
-        "src": "/assets/project-pngs/boris-lilov-photography/09.png",
-        "label": "boris lilov PHOTOGRAPHY logo _ white BG.png"
-      },
-      {
-        "src": "/assets/project-pngs/boris-lilov-photography/10.png",
-        "label": "boris lilov PHOTOGRAPHY _ mockup.png"
-      }
     ],
     "featured": false,
     "priority": 999,
-    "summary": "Фотографски бранд с пълен набор logo, logotype и комбинирани варианти за различни фонове и промоционална употреба.",
-    "context": "Проект за фотографско позициониране, изграден върху чиста типографска тежест и ясни identity lockups.",
+    "summary": "Фотографска идентичност, представена чрез основните прозрачни варианти на системата.",
+    "context": "Подборът вече е фокусиран върху комбинирания знак, логотипа и самостоятелното logo решение в прозрачни файлове.",
     "focus": [
-      "Logo, logotype и комбинирани варианти",
-      "Черни, бели и прозрачни версии",
-      "Mockup контекст за по-реален прочит на идентичността"
+      "Комбиниран прозрачен знак",
+      "Прозрачен логотип",
+      "Прозрачен logo знак"
     ]
   },
   {
     "slug": "diana",
     "title": "Diana",
-    "imageCount": 5,
+    "imageCount": 4,
     "cover": "/assets/project-covers/diana.png",
     "images": [
       {
         "src": "/assets/project-pngs/diana/01.png",
-        "label": "Diana_logo_transparent.png"
+        "label": "Diana_logo @ original_transparent.png"
       },
       {
         "src": "/assets/project-pngs/diana/02.png",
-        "label": "Diana_logo_black background.png"
+        "label": "Diana_logo @ original_white type_transparent.png"
       },
       {
         "src": "/assets/project-pngs/diana/03.png",
-        "label": "Diana_logo_no color_black background.png"
+        "label": "Diana_logo @ black_transparent.png"
       },
       {
         "src": "/assets/project-pngs/diana/04.png",
-        "label": "Diana_logo_no color_white background.png"
-      },
-      {
-        "src": "/assets/project-pngs/diana/05.png",
-        "label": "Diana_logo_white background.png"
+        "label": "Diana_logo @ white_transparent.png"
       }
     ],
     "featured": false,
     "priority": 999,
-    "summary": "Елегантен identity проект за хендмейд украса за празненства, изграден чрез чист силует и гъвкави logo варианти.",
-    "context": "Бранд с по-тих и декоративен визуален език, фокусиран върху формата на логото.",
+    "summary": "Идентичност за бранд за ръчно изработена украса за празненства и събития.",
+    "context": "Посоката търсеше по-деликатно и празнично присъствие, което да остане четимо и подредено в различни формати.",
     "focus": [
-      "Варианти с и без цвят",
-      "Версии за различни фонове",
-      "По-деликатно logo-driven присъствие"
+      "Оригинален прозрачен знак",
+      "Вариант с бял letterform treatment",
+      "Черна и бяла прозрачна версия"
+    ]
+  },
+  {
+    "slug": "dj-nedi",
+    "title": "DJ NEDI",
+    "imageCount": 3,
+    "cover": "/assets/project-covers/dj-nedi.png",
+    "images": [
+      {
+        "src": "/assets/project-pngs/dj-nedi/01.png",
+        "label": "DJ Nedi_logo @ black_transparent.png"
+      },
+      {
+        "src": "/assets/project-pngs/dj-nedi/02.png",
+        "label": "DJ Nedi_logo @ white_transparent.png"
+      },
+      {
+        "src": "/assets/project-pngs/dj-nedi/03.png",
+        "label": "Dynamite_cover_transparent.png"
+      }
+    ],
+    "featured": true,
+    "priority": 4,
+    "summary": "Визуален пакет за диджей с обложка, визии за клип и YouTube приложение.",
+    "context": "Проектът беше насочен към дигитално присъствие, в което знакът, обложката и материалите за клипа трябва да работят заедно.",
+    "focus": [
+      "Черна прозрачна версия на логото",
+      "Бяла прозрачна версия на логото",
+      "Прозрачна обложка за Dynamite"
+    ]
+  },
+  {
+    "slug": "dj-just-mp",
+    "title": "DJ Just MP",
+    "imageCount": 3,
+    "cover": "/assets/project-covers/dj-just-mp.png",
+    "images": [
+      {
+        "src": "/assets/project-pngs/dj-just-mp/01.png",
+        "label": "DJ Just MP_logo @ original_transparent.png"
+      },
+      {
+        "src": "/assets/project-pngs/dj-just-mp/02.png",
+        "label": "DJ Just MP_logo @ black_transparent.png"
+      },
+      {
+        "src": "/assets/project-pngs/dj-just-mp/03.png",
+        "label": "DJ Just MP_logo @ white_transparent.png"
+      }
+    ],
+    "featured": false,
+    "priority": 999,
+    "summary": "DJ идентичност, представена чрез трите основни прозрачни версии на знака.",
+    "context": "Подборът е сведен до оригиналния, черния и белия прозрачeн вариант, за да се пази най-чистият вид на системата.",
+    "focus": [
+      "Оригинален прозрачен знак",
+      "Черна прозрачна версия",
+      "Бяла прозрачна версия"
     ]
   },
   {
     "slug": "enduro-team-stoletovo",
     "title": "Enduro Team Stoletovo",
-    "imageCount": 3,
+    "imageCount": 1,
     "cover": "/assets/project-covers/enduro-team-stoletovo.png",
     "images": [
       {
         "src": "/assets/project-pngs/enduro-team-stoletovo/01.png",
         "label": "enduro team STOLETOVO (transperent).png"
       },
-      {
-        "src": "/assets/project-pngs/enduro-team-stoletovo/02.png",
-        "label": "enduro team STOLETOVO (black).png"
-      },
-      {
-        "src": "/assets/project-pngs/enduro-team-stoletovo/03.png",
-        "label": "enduro team STOLETOVO (white).png"
-      }
     ],
     "featured": false,
     "priority": 999,
-    "summary": "Компактен знак за off-road / team среда с ясни monochrome варианти и директна четимост.",
-    "context": "Проект, ориентиран към клубно и спортно присъствие, където знакът трябва да стои твърдо и бързо разпознаваемо.",
+    "summary": "Знак за off-road отбор, запазен тук в основния прозрачен export.",
+    "context": "Текущият архив държи само оригиналния прозрачен файл, който носи най-чисто клубния характер на знака.",
     "focus": [
-      "Черна, бяла и прозрачна версия",
-      "Силен клубен характер",
+      "Основен прозрачен знак",
+      "Ясно изразен клубен характер",
       "Директна употреба върху различни носители"
     ]
   },
@@ -295,12 +294,12 @@ export const projectPngArchive = [
     ],
     "featured": false,
     "priority": 999,
-    "summary": "Минимален beauty export с директно име и ясен знак за бърза употреба.",
-    "context": "Компактен проект с фокус върху най-кратката възможна визуална форма.",
+    "summary": "Компактен beauty знак с директно име и бързо разпознаване.",
+    "context": "Проектът беше сведен до най-чистата форма, без да губи характер и приложимост.",
     "focus": [
       "Един основен brand asset",
       "Прозрачна версия за приложение",
-      "Чист beauty-oriented знак"
+      "Чист beauty знак с директно присъствие"
     ]
   },
   {
@@ -320,8 +319,8 @@ export const projectPngArchive = [
     ],
     "featured": false,
     "priority": 999,
-    "summary": "Компактен brand пакет за избелващ продукт за зъби, развит в чисти monochrome logo варианти.",
-    "context": "Продуктов бранд, при който директното име и ясната четимост са водещи.",
+    "summary": "Визуален пакет за продукт с чисти monochrome версии и ясно име.",
+    "context": "Задачата беше да се изведе името с максимална четимост и чиста продуктова визуална рамка.",
     "focus": [
       "Черна и бяла logo версия",
       "Чисто продуктово позициониране",
@@ -357,12 +356,12 @@ export const projectPngArchive = [
     ],
     "featured": false,
     "priority": 999,
-    "summary": "Бранд за дрехи с ясно fashion-oriented присъствие, комбиниращ logo варианти и mockup ориентиран архив.",
-    "context": "Идентичност за clothing label, развита през по-стилен и редакционен визуален тон.",
+    "summary": "Идентичност за clothing label с чист fashion характер.",
+    "context": "Проектът търсеше по-редакционен прочит, в който знакът да стои уверено и без излишно усложнение.",
     "focus": [
       "Основни logo варианти",
-      "Mockup контекст за по-реална маркова среда",
-      "По-моден и чист brand характер"
+      "Мокъп контекст за по-реална маркова среда",
+      "Чист и редакционен моден характер"
     ]
   },
   {
@@ -378,47 +377,39 @@ export const projectPngArchive = [
     ],
     "featured": false,
     "priority": 999,
-    "summary": "По-ранният етап на бранд на гримьорка, който по-късно се развива към TS makeup.",
-    "context": "Ранна identity посока, в която се вижда преходът към по-ясна и по-завършена beauty марка.",
+    "summary": "Ранен етап от идентичност за гримьорски услуги.",
+    "context": "Този проект поставя първата визуална основа преди по-късното развитие на бранда в по-завършена посока.",
     "focus": [
       "Първоначален logo asset",
       "Връзка с по-късната еволюция към TS makeup",
-      "Beauty-oriented начална визуална рамка"
+      "Начална beauty визуална рамка"
     ]
   },
   {
     "slug": "mis-18",
     "title": "MIS 18",
-    "imageCount": 3,
+    "imageCount": 1,
     "cover": "/assets/project-covers/mis-18.png",
     "images": [
       {
         "src": "/assets/project-pngs/mis-18/01.png",
         "label": "MIS 18 logo _ Transperent.png"
       },
-      {
-        "src": "/assets/project-pngs/mis-18/02.png",
-        "label": "MIS 18 logo.png"
-      },
-      {
-        "src": "/assets/project-pngs/mis-18/03.png",
-        "label": "MIS 18 logo _ mockup.png"
-      }
     ],
     "featured": false,
     "priority": 999,
-    "summary": "Бранд за митническа агенция с logo пакет, mockup приложение и по-широко дигитално присъствие, включително сайт на d . media.",
-    "context": "Identity проект за административна и логистична среда, където знакът трябва да стои директно и уверено.",
+    "summary": "Идентичност и дигитални материали за митническа агенция.",
+    "context": "Проектът беше ориентиран към административна и логистична среда, в която четимостта и ясният професионален облик са решаващи.",
     "focus": [
-      "Основен logo export",
-      "Прозрачен вариант за дигитална употреба",
-      "Mockup контекст и връзка със site implementation"
+      "Основен прозрачен logo export",
+      "Ясна дигитална употреба",
+      "Чист знак за професионална среда"
     ]
   },
   {
     "slug": "photo-workshop",
-    "title": "Photo Workshop",
-    "imageCount": 4,
+    "title": "Фото работилничка",
+    "imageCount": 2,
     "cover": "/assets/project-covers/photo-workshop.png",
     "images": [
       {
@@ -429,22 +420,14 @@ export const projectPngArchive = [
         "src": "/assets/project-pngs/photo-workshop/02.png",
         "label": "Photo workshop _ white _ transparent _ logo.png"
       },
-      {
-        "src": "/assets/project-pngs/photo-workshop/03.png",
-        "label": "Photo workshop _ black _ logo.png"
-      },
-      {
-        "src": "/assets/project-pngs/photo-workshop/04.png",
-        "label": "Photo workshop _ logo.png"
-      }
     ],
     "featured": false,
     "priority": 999,
-    "summary": "Идентичност за photo-oriented формат с няколко logo версии за различен фон и контекст.",
-    "context": "Проект с образователен и фотографски тон, при който типографията и четимостта са водещи.",
+    "summary": "Идентичност за Фото работилничка като фотостудио с версии за различни носители.",
+    "context": "Решението трябваше да събере фотографския характер на студиото в спокойна и чиста визуална рамка.",
     "focus": [
-      "Няколко logo версии",
-      "Работа за тъмен, светъл и прозрачен фон",
+      "Цветен прозрачен logo вариант",
+      "Бяла прозрачна версия",
       "Спокоен фотографски визуален език"
     ]
   },
@@ -469,90 +452,62 @@ export const projectPngArchive = [
     ],
     "featured": false,
     "priority": 999,
-    "summary": "Компактен beauty знак с цветови варианти и по-декоративно присъствие.",
-    "context": "Nail-oriented identity проект, развит чрез няколко цветови версии на един и същ знак.",
+    "summary": "Beauty знак с цветови варианти и ясно декоративно присъствие.",
+    "context": "Проектът беше насочен към един знак в няколко цветови версии, подготвен за различни повърхности и бърза употреба.",
     "focus": [
       "Няколко цветови варианта",
       "Прозрачни файлове за лесно приложение",
-      "По-лек и декоративен beauty тон"
+      "Лек и декоративен beauty тон"
     ]
   },
   {
     "slug": "pp-hairstyle",
     "title": "PP Hairstyle",
-    "imageCount": 4,
+    "imageCount": 1,
     "cover": "/assets/project-covers/pp-hairstyle.png",
     "images": [
       {
         "src": "/assets/project-pngs/pp-hairstyle/01.png",
         "label": "PP hairstyle _ logo _ transperent.png"
       },
-      {
-        "src": "/assets/project-pngs/pp-hairstyle/02.png",
-        "label": "PP hairstyle _ logo _ black bcg.png"
-      },
-      {
-        "src": "/assets/project-pngs/pp-hairstyle/03.png",
-        "label": "PP hairstyle - бял фон.png"
-      },
-      {
-        "src": "/assets/project-pngs/pp-hairstyle/04.png",
-        "label": "PP hairstyle.png"
-      }
     ],
     "featured": false,
     "priority": 999,
-    "summary": "Beauty бранд с няколко logo варианта и ясно име, подготвен за различни фонове и ежедневна употреба.",
-    "context": "Идентичност за hair-oriented услуга, изградена около директна четимост и познаваемо име.",
+    "summary": "Beauty бранд с ясни версии за ежедневна употреба.",
+    "context": "Проектът трябваше да изведе името чисто и разпознаваемо в различни базови приложения за услугата.",
     "focus": [
-      "Logo за светъл, тъмен и прозрачен фон",
+      "Основен прозрачен logo файл",
       "По-лек beauty service характер",
       "Ясна практическа употреба"
     ]
   },
   {
     "slug": "sport-fishing-stoletovo",
-    "title": "Sport Fishing Stoletovo",
-    "imageCount": 7,
+    "title": "Спортен риболов Столетово",
+    "imageCount": 3,
     "cover": "/assets/project-covers/sport-fishing-stoletovo.png",
     "images": [
       {
         "src": "/assets/project-pngs/sport-fishing-stoletovo/01.png",
-        "label": "SFS_black_transperent.png"
+        "label": "SFS_orignal_transperent.png"
       },
       {
         "src": "/assets/project-pngs/sport-fishing-stoletovo/02.png",
-        "label": "SFS_orignal_transperent.png"
+        "label": "SFS_black_transperent.png"
       },
       {
         "src": "/assets/project-pngs/sport-fishing-stoletovo/03.png",
         "label": "SFS_white_transperent.png"
-      },
-      {
-        "src": "/assets/project-pngs/sport-fishing-stoletovo/04.png",
-        "label": "SFS_original.png"
-      },
-      {
-        "src": "/assets/project-pngs/sport-fishing-stoletovo/05.png",
-        "label": "SFS_black.png"
-      },
-      {
-        "src": "/assets/project-pngs/sport-fishing-stoletovo/06.png",
-        "label": "SFS_white.png"
-      },
-      {
-        "src": "/assets/project-pngs/sport-fishing-stoletovo/07.png",
-        "label": "SFS_mockup.png"
       }
     ],
     "featured": false,
     "priority": 999,
-    "summary": "Спортно-ориентиран знак с по-директен характер и пълен набор варианти за фон и приложение.",
-    "context": "Identity проект, изграден за по-ясно присъствие в клубна и спортна среда.",
+    "summary": "Идентичност за място за спортен риболов с директен характер и ясни версии за приложение.",
+    "context": "Решението беше насочено към по-ясно присъствие за самото място, без да губи сила при реално приложение.",
     "focus": [
-      "Черни, бели и прозрачни версии",
-      "Mockup контекст за реална употреба",
-      "По-силен emblematic характер"
+      "Оригинален прозрачен знак",
+      "Черна прозрачна версия",
+      "Бяла прозрачна версия"
     ]
   },
   {
@@ -568,8 +523,8 @@ export const projectPngArchive = [
     ],
     "featured": false,
     "priority": 999,
-    "summary": "Компактен identity знак за място или обект, представен като чист единичен brand asset.",
-    "context": "Проект с фокус върху директна разпознаваемост и ясно изписване на името.",
+    "summary": "Компактен знак за къща за гости с чисто и ясно изписване.",
+    "context": "Проектът беше фокусиран върху директна разпознаваемост и спокойно присъствие в базови приложения за място за настаняване.",
     "focus": [
       "Един основен visual export",
       "Чисто име и знак в едно решение",
@@ -579,7 +534,7 @@ export const projectPngArchive = [
   {
     "slug": "ts-makeup",
     "title": "TS makeup",
-    "imageCount": 5,
+    "imageCount": 2,
     "cover": "/assets/project-covers/ts-makeup.png",
     "images": [
       {
@@ -590,27 +545,77 @@ export const projectPngArchive = [
         "src": "/assets/project-pngs/ts-makeup/02.png",
         "label": "TS makeup _ logo _ transperent _ +shadow.png"
       },
+    ],
+    "featured": false,
+    "priority": 999,
+    "summary": "По-завършен етап от прехода от d . media към Makeup by Tsvetomira в по-чист beauty знак.",
+    "context": "Това е по-зрелият етап на ребрандиране, в който ранната посока е събрана в по-точно и уверено решение за Makeup by Tsvetomira.",
+    "focus": [
+      "Lasercut прозрачен вариант",
+      "Прозрачна версия със сянка",
+      "По-зрял beauty визуален език след прехода към новото име"
+    ]
+  },
+  {
+    "slug": "kdj",
+    "title": "KDJ",
+    "imageCount": 4,
+    "cover": "/assets/project-covers/kdj.png",
+    "images": [
       {
-        "src": "/assets/project-pngs/ts-makeup/03.png",
-        "label": "TS makeup _ logo _ transperent.png"
+        "src": "/assets/project-pngs/kdj/01.png",
+        "label": "KDJ _ logo _ electric green _ transperent.png"
       },
       {
-        "src": "/assets/project-pngs/ts-makeup/04.png",
-        "label": "TS makeup _ logo _ black BG.png"
+        "src": "/assets/project-pngs/kdj/02.png",
+        "label": "KDJ _ logo _ electric orange _ transperent.png"
       },
       {
-        "src": "/assets/project-pngs/ts-makeup/05.png",
-        "label": "TS makeup _ logo.png"
+        "src": "/assets/project-pngs/kdj/03.png",
+        "label": "KDJ _ logo _ black _ transperent.png"
+      },
+      {
+        "src": "/assets/project-pngs/kdj/04.png",
+        "label": "KDJ _ logo _ white _ transperent.png"
       }
     ],
     "featured": false,
     "priority": 999,
-    "summary": "По-завършената еволюция на Makeup by Tsvetomira, развита в по-изчистена beauty identity система.",
-    "context": "Продължение на вече съществуващ бранд, преработен в по-събран и по-разпознаваем знак.",
+    "summary": "Идентичност с няколко цветови прозрачни версии за директна дигитална и сценична употреба.",
+    "context": "Архивът събира четирите основни прозрачни exports, през които се вижда цветовият диапазон и поведението на знака върху различен фон.",
     "focus": [
-      "Няколко logo варианта",
-      "Версии за фон и специални приложения",
-      "По-зрял beauty-oriented визуален език"
+      "Electric green прозрачна версия",
+      "Electric orange прозрачна версия",
+      "Черна и бяла прозрачна версия"
+    ]
+  },
+  {
+    "slug": "tanev-car-detailing",
+    "title": "TANEV Car Detailing",
+    "imageCount": 3,
+    "cover": "/assets/project-covers/tanev-car-detailing.png",
+    "images": [
+      {
+        "src": "/assets/project-pngs/tanev-car-detailing/01.png",
+        "label": "TANEV CDS_logo_transparent.png"
+      },
+      {
+        "src": "/assets/project-pngs/tanev-car-detailing/02.png",
+        "label": "TANEV CDS_logo @ black_transparent.png"
+      },
+      {
+        "src": "/assets/project-pngs/tanev-car-detailing/03.png",
+        "label": "TANEV CDS_logo @ white_transparent.png"
+      }
+    ],
+    "featured": false,
+    "priority": 999,
+    "summary": "Car detailing идентичност, запазена през основните прозрачни версии на знака.",
+    "context": "Подборът е сведен до оригиналния, черния и белия прозрачен export, за да остане най-чистата работна система на знака.",
+    "focus": [
+      "Основен прозрачен знак",
+      "Черна прозрачна версия",
+      "Бяла прозрачна версия"
     ]
   },
   {
@@ -638,14 +643,264 @@ export const projectPngArchive = [
     ],
     "featured": false,
     "priority": 999,
-    "summary": "Визуална идентичност за YouTube канал, развит в ко-продукционен контекст с d . media.",
-    "context": "Проект за видео съдържание, при който знакът трябва да работи уверено в канална и дигитална среда.",
+    "summary": "Визуална идентичност за YouTube канал и видео съдържание.",
+    "context": "Проектът беше създаден за силно дигитално присъствие, в което знакът и каналната употреба трябва да работят заедно.",
     "focus": [
-      "Logo и вариант без текст",
-      "Файлове за светъл фон и mockup приложение",
+      "Лого и вариант без текст",
+      "Файлове за светъл фон и мокъп приложение",
       "Присъствие, ориентирано към YouTube среда"
     ]
   }
 ] as const;
 
 export const featuredProjectPngs = projectPngArchive.filter((project) => project.featured);
+
+const localizedProjectCopy = {
+  bg: {},
+  en: {
+    "support-account": {
+      summary: "Corporate identity for an accounting business with a clear and structured professional presence.",
+      context: "The selection here is reduced to the core transparent files that preserve the primary logo system and the brand’s independent presence most clearly.",
+      focus: [
+        "Original transparent logotype",
+        "Bulgarian logotype version",
+        "Transparent logo version for direct application",
+      ],
+    },
+    "support-account-group": {
+      summary: "Corporate identity for a second brand within the same accounting activity.",
+      context: "The selection is reduced to the two core transparent files that keep the link to Support Account clear while preserving the group’s separate positioning.",
+      focus: [
+        "Transparent logotype for corporate use",
+        "Combined transparent mark for direct application",
+        "A clear visual link to Support Account without mixing the two brands",
+      ],
+    },
+    yanita: {
+      summary: "Beauty identity presented through the core transparent logo versions.",
+      context: "The current archive keeps the sign in its original, dark, and light transparent versions, without the later applied formats.",
+      focus: [
+        "Original transparent mark",
+        "Black transparent version",
+        "White transparent version",
+      ],
+    },
+    aneliart: {
+      summary: "An authorial mark with a clean silhouette and organised transparent versions for different backgrounds.",
+      context: "The archive now holds the main sign in transparent, black, and white variants instead of a single export.",
+      focus: [
+        "Primary transparent mark",
+        "Black transparent version",
+        "White transparent version",
+      ],
+    },
+    "boris-lilov-photography": {
+      summary: "Photography identity represented through the core transparent versions of the system.",
+      context: "The selection is now focused on the combined mark, the logotype, and the standalone logo in transparent files.",
+      focus: [
+        "Combined transparent mark",
+        "Transparent logotype",
+        "Transparent logo sign",
+      ],
+    },
+    diana: {
+      summary: "Identity for a handmade decorations brand for celebrations and events.",
+      context: "The direction called for a softer, more festive presence that would still remain legible and organised across formats.",
+      focus: [
+        "Original transparent mark",
+        "Variant with a white type treatment",
+        "Black and white transparent versions",
+      ],
+    },
+    "dj-nedi": {
+      summary: "Visual package for a DJ with cover art, video materials, and YouTube use.",
+      context: "The project focused on digital presence, where the mark, cover art, and the materials around the video release had to work together.",
+      focus: [
+        "Black transparent logo version",
+        "White transparent logo version",
+        "Transparent Dynamite cover artwork",
+      ],
+    },
+    "dj-just-mp": {
+      summary: "DJ identity shown through the three core transparent versions of the mark.",
+      context: "The selection is reduced to the original, black, and white transparent exports to preserve the cleanest reading of the system.",
+      focus: [
+        "Original transparent mark",
+        "Black transparent version",
+        "White transparent version",
+      ],
+    },
+    "enduro-team-stoletovo": {
+      summary: "A mark for an off-road team, kept here through its primary transparent export.",
+      context: "The current archive keeps only the original transparent file, which carries the club character most cleanly.",
+      focus: [
+        "Primary transparent mark",
+        "A clearly expressed club character",
+        "Direct application across different materials",
+      ],
+    },
+    "galka-nails": {
+      summary: "A compact beauty mark with a direct name and quick recognition.",
+      context: "The project was reduced to its cleanest form without losing character or usability.",
+      focus: [
+        "One core brand asset",
+        "Transparent version for application",
+        "A clean beauty mark with a direct presence",
+      ],
+    },
+    gosmile: {
+      summary: "A visual package for a product with clean monochrome versions and a clear name.",
+      context: "The task was to bring the name forward with maximum legibility and a clean product-oriented visual frame.",
+      focus: [
+        "Black and white logo version",
+        "Clear product positioning",
+        "Minimal and easy-to-apply visual system",
+      ],
+    },
+    "j-v": {
+      summary: "Identity for a clothing label with a clean fashion character.",
+      context: "The project aimed for a more editorial reading in which the mark could feel confident without unnecessary complication.",
+      focus: [
+        "Core logo variants",
+        "Mockup context for a more realistic brand setting",
+        "A clean and editorial fashion character",
+      ],
+    },
+    "makeup-by-tsvetomira": {
+      summary: "An early-stage identity for make-up services.",
+      context: "This project established the first visual foundation before the brand evolved into a more developed direction.",
+      focus: [
+        "Initial logo asset",
+        "A link to the later evolution into TS makeup",
+        "An early beauty visual framework",
+      ],
+    },
+    "mis-18": {
+      summary: "Identity and digital materials for a customs agency.",
+      context: "The project was built for an administrative and logistics setting, where legibility and a clear professional image were essential.",
+      focus: [
+        "Primary transparent logo export",
+        "Clear digital application",
+        "A clean sign for a professional setting",
+      ],
+    },
+    "photo-workshop": {
+      title: "Foto Rabotilnichka",
+      summary: "Identity for Foto Rabotilnichka as a photography studio, with versions for different applications.",
+      context: "The solution needed to bring the studio’s photographic character into a calm, clean visual framework.",
+      focus: [
+        "Colour transparent logo version",
+        "White transparent version",
+        "A calm photographic visual language",
+      ],
+    },
+    "plamena-nails": {
+      summary: "A beauty mark with colour variants and a clearly decorative presence.",
+      context: "The project centred on one sign in several colour versions, prepared for different surfaces and immediate use.",
+      focus: [
+        "Several colour variants",
+        "Transparent files for easy application",
+        "A light, decorative beauty tone",
+      ],
+    },
+    "pp-hairstyle": {
+      summary: "A beauty brand with clear versions for everyday use.",
+      context: "The project had to bring the name forward in a clean and recognisable way across the core applications of the service.",
+      focus: [
+        "Primary transparent logo file",
+        "A lighter beauty service character",
+        "Clear practical application",
+      ],
+    },
+    "sport-fishing-stoletovo": {
+      title: "Sport Fishing Stoletovo",
+      summary: "Identity for a sport fishing venue with direct character and clear application versions.",
+      context: "The solution aimed for a clearer presence for the place itself without losing force in real use.",
+      focus: [
+        "Original transparent mark",
+        "Black transparent version",
+        "White transparent version",
+      ],
+    },
+    "stanulovi-s-house": {
+      summary: "A compact sign for a guest house with a clean and clear wordmark.",
+      context: "The project focused on direct recognition and a calm presence in the core applications of a hospitality place.",
+      focus: [
+        "One primary visual export",
+        "A clean combination of name and sign",
+        "Easy application in core contexts",
+      ],
+    },
+    "ts-makeup": {
+      summary: "A more developed stage in the shift from d . media to Makeup by Tsvetomira, resolved through a cleaner beauty sign.",
+      context: "This is the more mature stage of the rebrand, where the earlier direction was gathered into a more precise and confident solution for Makeup by Tsvetomira.",
+      focus: [
+        "Lasercut transparent variant",
+        "Transparent version with shadow",
+        "A more mature beauty visual language after the move into the new name",
+      ],
+    },
+    kdj: {
+      summary: "Identity with several colour-led transparent versions for direct digital and stage use.",
+      context: "The archive gathers the four core transparent exports, showing the colour range and the sign’s behaviour on different backgrounds.",
+      focus: [
+        "Electric green transparent version",
+        "Electric orange transparent version",
+        "Black and white transparent versions",
+      ],
+    },
+    "tanev-car-detailing": {
+      title: "TANEV Car Detailing",
+      summary: "Car detailing identity kept through the main transparent versions of the sign.",
+      context: "The selection is reduced to the original, black, and white transparent exports so the clean working system of the mark stays intact.",
+      focus: [
+        "Primary transparent mark",
+        "Black transparent version",
+        "White transparent version",
+      ],
+    },
+    "syanka-ot-minaloto": {
+      title: "Shadow from the Past",
+      summary: "Visual identity for a YouTube channel and video-led content.",
+      context: "The project was created for a strongly digital presence in which the mark and the channel application had to work together.",
+      focus: [
+        "Logo and a text-free variation",
+        "Files for light backgrounds and mockup application",
+        "A presence shaped for the YouTube environment",
+      ],
+    },
+  },
+} as const;
+
+export function getProjectPngArchive(locale: Locale) {
+  if (locale === "bg") {
+    return projectPngArchive.map((project) => ({
+      ...project,
+      images: [...project.images].sort((left, right) => {
+        const leftOrder = getImageOrder(left.label ?? "");
+        const rightOrder = getImageOrder(right.label ?? "");
+
+        if (leftOrder !== rightOrder) {
+          return leftOrder - rightOrder;
+        }
+
+        return 0;
+      }),
+    }));
+  }
+
+  return projectPngArchive.map((project) => ({
+    ...project,
+    ...localizedProjectCopy.en[project.slug as keyof typeof localizedProjectCopy.en],
+    images: [...project.images].sort((left, right) => {
+      const leftOrder = getImageOrder(left.label ?? "");
+      const rightOrder = getImageOrder(right.label ?? "");
+
+      if (leftOrder !== rightOrder) {
+        return leftOrder - rightOrder;
+      }
+
+      return 0;
+    }),
+  }));
+}

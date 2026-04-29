@@ -4,6 +4,8 @@ import { put } from "@vercel/blob";
 
 const assetRoots = [
   path.resolve("public/assets/brand"),
+  path.resolve("public/assets/legacy-project-covers"),
+  path.resolve("public/assets/legacy-project-files"),
   path.resolve("public/assets/project-covers"),
   path.resolve("public/assets/project-pngs"),
   path.resolve("public/assets/documents"),
@@ -65,14 +67,13 @@ async function main() {
   for (const filePath of files) {
     const [publicPath, blobUrl] = await uploadFile(filePath);
     manifestEntries.push([publicPath, blobUrl]);
-    console.log(`Uploaded ${publicPath}`);
   }
 
   const manifestObject = Object.fromEntries(manifestEntries);
   const fileContents = `export const blobAssetManifest: Record<string, string> = ${JSON.stringify(manifestObject, null, 2)};\n`;
   fs.writeFileSync(manifestOutputPath, fileContents);
 
-  console.log(`Wrote manifest with ${manifestEntries.length} entries to ${manifestOutputPath}`);
+  process.stdout.write(`Manifest updated: ${manifestEntries.length} assets -> ${manifestOutputPath}\n`);
 }
 
 main().catch((error) => {

@@ -36,4 +36,4 @@ for (const { name, context } of contexts) {
 }
 
 await browser.close();
-console.log(outDir);
+process.stdout.write(`${outDir}\n`);

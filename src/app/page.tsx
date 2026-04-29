@@ -3,54 +3,56 @@ import Link from "next/link";
 
 import { BrandAsset } from "@/components/brand-asset";
 import { BrandText } from "@/components/brand-text";
-import { SiteFooter, SiteHeader } from "@/components/site-chrome";
+import { ProjectShowcase } from "@/components/project-showcase";
 import {
-  formats,
-  process,
-  services,
+  contactEmail,
+  getSiteContent,
 } from "@/lib/site-content";
-import { siteDescription } from "@/lib/seo";
+import { localizeHref, type Locale } from "@/lib/i18n";
+import { getPageCopy } from "@/lib/page-copy";
+import { getPageMetadata } from "@/lib/seo";
 import { getSiteRuntimeConfig } from "@/lib/site-runtime-config";
 
-export const metadata: Metadata = {
-  title: "d . media",
-  description: siteDescription,
-  alternates: {
-    canonical: "/",
-  },
-};
+export const metadata: Metadata = getPageMetadata({
+  locale: "bg",
+  title: getPageCopy("bg").home.metaTitle,
+  description: getPageCopy("bg").home.metaDescription,
+  path: "/",
+});
 
-export default async function Home() {
+export async function HomePage({ locale = "bg" }: { locale?: Locale }) {
+  const copy = getPageCopy(locale).home;
+  const localizedContent = getSiteContent(locale);
   const siteRuntimeConfig = await getSiteRuntimeConfig();
-  const homeOutcomes = [
-    "По-ясна бранд идентичност и последователен визуален език",
-    "Готови формати за дигитални канали, документи и клиентски материали",
-    "Работна система, която може да се използва веднага и да се развива устойчиво",
-  ];
+  const homepageServices = localizedContent.coreServices.map((service) => ({
+    id: service.id,
+    title: service.title,
+    text: service.text,
+  }));
+  const processSteps = localizedContent.coreProcess;
+  const aboutSummary = localizedContent.aboutSummary;
 
   return (
     <main className="site-shell" id="top">
-      <section className="hero-grid">
-        <SiteHeader />
-
+      <section className="hero-grid home-hero">
         <div className="hero-copy">
-          <p className="eyebrow">Бранд. Съдържание. Дизайн. Реклама.</p>
-          <h1>Бранд идентичност, съдържание и дигитално присъствие, изградени като една работеща система.</h1>
+          <p className="eyebrow">{copy.eyebrow}</p>
+          <h1>{copy.title}</h1>
           <p className="hero-text">
-            <BrandText text="d . media създава бранд идентичност, съдържание, уебсайтове и рекламни формати така, че клиентът да получи не просто визия, а ясна, подредена и използваема система за реална работа." />
+            <BrandText text={copy.text} />
           </p>
-          <ul className="detail-list hero-detail-list">
-            {homeOutcomes.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
           <div className="hero-actions">
-            <a href={siteRuntimeConfig.home.heroPrimaryCta.href} className="button button-primary">
-              {siteRuntimeConfig.home.heroPrimaryCta.label}
-            </a>
-            <a href={siteRuntimeConfig.home.heroSecondaryCta.href} className="button button-secondary">
-              {siteRuntimeConfig.home.heroSecondaryCta.label}
-            </a>
+            <Link
+              href={localizeHref(locale, "/contact")}
+              className="button button-primary"
+              data-ga-event="cta_start_project_click"
+              data-ga-location="home_hero"
+            >
+              {copy.primaryCta}
+            </Link>
+            <Link href={localizeHref(locale, "/services")} className="button button-secondary">
+              {copy.secondaryCta}
+            </Link>
           </div>
         </div>
 
@@ -59,136 +61,174 @@ export default async function Home() {
             <div className="brand-image brand-image-brandmark">
               <BrandAsset
                 lightSrc="/assets/brand/ONLY-brandmark.png"
-                alt="Брандмарк d . media"
+                alt={copy.brandmarkAlt}
                 width={118}
                 height={118}
               />
             </div>
           </div>
           <div className="hero-card hero-card-note">
-            <p>
-              Подходът свързва идентичност, съдържание, документи, дигитални формати и реклама в една последователна система.
-            </p>
+            <p>{copy.note}</p>
           </div>
         </aside>
       </section>
 
-      <section className="section-grid section-split">
-        <div className="section-heading section-heading-balanced">
-          <p className="eyebrow">
-            <BrandText text="какво прави d . media" />
-          </p>
-          <h2>Брандът работи като студио за ясна визуална структура, последователни носители и материали, готови за реална употреба.</h2>
-          <p className="page-text">
-            <BrandText text="d . media не предлага отделни разпилени файлове, а подреден резултат, който може да се използва веднага и да се развива устойчиво." />
-          </p>
-        </div>
-        <div className="split-content split-content-balanced">
-          <div className="card format-panel">
-            <div className="format-lockup">
-              <div className="brand-image brand-image-logotype">
-                <BrandAsset
-                  lightSrc="/assets/brand/ONLY-logotype.png"
-                  alt="d . media"
-                  width={246}
-                  height={52}
-                />
-              </div>
-            </div>
-            <div className="format-grid">
-              {formats.map((format) => (
-                <span className="format-chip" key={format}>
-                  {format}
-                </span>
-              ))}
-            </div>
-          </div>
-          <div className="card brand-principle">
-            <p>
-              Всеки проект се разглежда като цялостна система: задача, визуален език, реални носители и готови файлове, които запазват един и същ характер навсякъде.
-            </p>
-            <p className="brand-principle-strong">
-              Това е разликата между красива визия и завършено присъствие.
-            </p>
-          </div>
-        </div>
-      </section>
-
       {siteRuntimeConfig.home.sections.services ? (
-        <section className="section-grid section-split" id="services">
-          <div className="section-heading section-heading-balanced">
-            <p className="eyebrow">услуги</p>
-            <h2>Клиентът получава подреден процес, ясни услуги и резултат, който е готов за реална употреба.</h2>
-            <p className="page-text">
-              Структурата е проста: какво се изработва, как се движи проектът и какво остава след финалното предаване.
-            </p>
+        <section className="section-grid home-section" id="services">
+          <div className="section-heading page-intro-balanced">
+            <p className="eyebrow">{copy.servicesEyebrow}</p>
+            <h2>{copy.servicesTitle}</h2>
           </div>
-          <div className="split-content split-content-balanced services-overview">
-            <div className="card service-overview-card content-card-wide">
-              <ul className="service-list">
-                {services.map((service) => (
-                  <li key={service}>{service}</li>
-                ))}
-              </ul>
-            </div>
-            <div className="card process-card content-card-wide">
-              <ul className="process-list">
-                {process.map((step) => (
-                  <li key={step}>{step}</li>
-                ))}
-              </ul>
-            </div>
+          <div className="showcase-grid service-card-grid">
+            {homepageServices.map((service) => (
+              <article className="card service-category-card" key={service.title}>
+                <h3>{service.title}</h3>
+                <p>{service.text}</p>
+              </article>
+            ))}
+          </div>
+          <div className="section-actions">
+            <Link
+              href={localizeHref(locale, "/contact")}
+              className="button button-primary"
+              data-ga-event="cta_start_project_click"
+              data-ga-location="home_services"
+            >
+              {copy.servicesCta}
+            </Link>
           </div>
         </section>
       ) : null}
+
+      <section className="section-grid home-section" id="pricing">
+        <div className="section-heading page-intro-balanced">
+          <p className="eyebrow">{copy.pricingEyebrow}</p>
+          <h2>{copy.pricingTitle}</h2>
+          <p className="page-text">{copy.pricingText}</p>
+          <p className="project-meta">{copy.pricingRangeCue}</p>
+        </div>
+        <div className="showcase-grid project-reading-grid">
+          {copy.pricingItems.map((item, index) => (
+            <article
+              className={`card package-card${index === 0 ? " is-featured" : ""}`}
+              key={item.title}
+            >
+              <h3>{item.title}</h3>
+              <p className="package-price">{item.price}</p>
+              <p className="project-meta package-value">→ {item.value}</p>
+            </article>
+          ))}
+        </div>
+        <div className="section-heading page-subheading">
+          <p className="project-meta">{copy.pricingNote}</p>
+          <p className="project-meta">{copy.pricingSecondaryNote}</p>
+        </div>
+        <div className="section-actions">
+          <Link
+            href={localizeHref(locale, "/contact")}
+            className="button button-primary"
+            data-ga-event="cta_send_inquiry_click"
+            data-ga-location="home_pricing"
+          >
+            {copy.pricingCta}
+          </Link>
+        </div>
+      </section>
+
+      <section className="section-grid home-section" id="process">
+        <div className="section-heading page-intro-balanced">
+          <p className="eyebrow">{copy.processEyebrow}</p>
+          <h2>{copy.processTitle}</h2>
+        </div>
+        <div className="process-timeline">
+          {processSteps.map((step) => (
+            <article className="card process-step-card" key={step.id}>
+              <span className="process-step-index">{step.id}</span>
+              <h3>{step.title}</h3>
+              <p>{step.text}</p>
+            </article>
+          ))}
+        </div>
+        <div className="section-actions">
+          <Link
+            href={localizeHref(locale, "/contact")}
+            className="button button-primary"
+            data-ga-event="cta_send_inquiry_click"
+            data-ga-location="home_process"
+          >
+            {copy.processCta}
+          </Link>
+        </div>
+      </section>
+
+      <section className="section-grid home-section" id="projects">
+        <div className="section-heading page-intro-balanced">
+          <p className="eyebrow">{copy.projectsEyebrow}</p>
+          <h2>{copy.projectsTitle}</h2>
+          <p className="page-text">{copy.projectsText}</p>
+        </div>
+        <ProjectShowcase className="projects-grid" locale={locale} />
+        <div className="section-actions">
+          <Link href={localizeHref(locale, "/projects")} className="button button-secondary">
+            {copy.projectsCta}
+          </Link>
+        </div>
+      </section>
 
       {siteRuntimeConfig.home.sections.about ? (
-        <section className="section-grid section-split" id="about">
-          <div className="section-heading section-heading-balanced">
-          <p className="eyebrow">за бранда</p>
-          <h2>
-            <BrandText text="d . media е изграден като последователен бранд с фокус върху идентичност, дигитален дизайн и устойчиво присъствие." />
-          </h2>
-          <p className="page-text">
-            Подходът съчетава естетика, функционалност и ясна система на работа, без да разчита на случайни решения.
-          </p>
+        <section className="section-grid home-section" id="about">
+          <div className="section-heading page-intro-balanced">
+            <p className="eyebrow">{copy.aboutEyebrow}</p>
+            <h2>
+              <BrandText text={copy.aboutTitle} />
+            </h2>
           </div>
-          <div className="split-content split-content-balanced stacked-cards">
-            <div className="card text-card content-card-wide">
-              <p>
-                <BrandText text="d . media е бранд, фокусиран върху визуална идентичност, дигитален дизайн и създаване на устойчиви брандове." />
-              </p>
-            </div>
-            <div className="card text-card content-card-wide">
-              <p>
-                Работата съчетава естетика, функционалност и стратегическо
-                мислене, така че клиентът да получи не просто визия, а ясна,
-                използваема и устойчива система.
-              </p>
-            </div>
+          <div className="showcase-grid about-summary-grid">
+            {aboutSummary.map((item) => (
+              <article className="card text-card about-summary-card" key={item}>
+                <p>
+                  <BrandText text={item} />
+                </p>
+              </article>
+            ))}
+          </div>
+          <div className="section-actions">
+            <Link href={localizeHref(locale, "/contact")} className="button button-primary">
+              {copy.aboutCta}
+            </Link>
           </div>
         </section>
       ) : null}
 
-      <section className="section-grid contact-section" id="contact">
+      <section className="section-grid contact-section home-section" id="contact">
         <div className="card contact-card content-card-wide">
-          <p className="eyebrow">Бранд. Съдържание. Дизайн. Реклама.</p>
-          <h2>Ако подготвяш нов бранд, уебсайт или по-ясно визуално присъствие, следващата стъпка е кратко запитване с контекст и посока.</h2>
+          <p className="eyebrow">{copy.contactEyebrow}</p>
+          <h2>{copy.contactTitle}</h2>
           <p className="page-text">
-            Оттам разговорът преминава към работен обхват, оферта и изпълнение според реалната нужда на проекта.
+            {copy.contactText}
           </p>
+          <a href={`mailto:${contactEmail}`} className="contact-email-inline">
+            {contactEmail}
+          </a>
           <div className="hero-actions contact-cta">
-            <Link href={siteRuntimeConfig.home.finalPrimaryCta.href} className="button button-primary">
-              {siteRuntimeConfig.home.finalPrimaryCta.label}
+            <Link
+              href="mailto:contact@d-media.org"
+              className="button button-primary"
+              data-ga-event="cta_send_inquiry_click"
+              data-ga-location="home_contact"
+            >
+              {copy.contactPrimaryCta}
             </Link>
-            <Link href={siteRuntimeConfig.home.finalSecondaryCta.href} className="button button-secondary">
-              {siteRuntimeConfig.home.finalSecondaryCta.label}
+            <Link href={localizeHref(locale, "/services")} className="button button-secondary">
+              {copy.contactSecondaryCta}
             </Link>
           </div>
         </div>
       </section>
-
-      <SiteFooter />
     </main>
   );
+}
+
+export default async function Home() {
+  return HomePage({ locale: "bg" });
 }

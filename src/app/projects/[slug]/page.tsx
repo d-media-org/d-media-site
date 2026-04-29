@@ -2,9 +2,13 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { ImageLightboxGallery } from "@/components/image-lightbox-gallery";
 import { ProtectedImage } from "@/components/protected-image";
-import { SiteFooter, SiteHeader } from "@/components/site-chrome";
-import { resolvedAllProjectsArchive } from "@/lib/asset-url";
+import { getResolvedAllProjectsArchive } from "@/lib/asset-url";
+import { localizeHref, type Locale } from "@/lib/i18n";
+import { getPageCopy } from "@/lib/page-copy";
+import { getUiCopy } from "@/lib/ui-copy";
+import { baseUrl, brandName } from "@/lib/seo";
 
 type CaseStudyPageProps = {
   params: Promise<{
@@ -12,40 +16,72 @@ type CaseStudyPageProps = {
   }>;
 };
 
-function getCaseStudy(slug: string) {
-  return resolvedAllProjectsArchive.find((project) => project.slug === slug);
+function getCaseStudy(slug: string, locale: Locale) {
+  return getResolvedAllProjectsArchive(locale).find((project) => project.slug === slug);
 }
 
-function formatFileCount(count: number) {
-  return `${count} ${count === 1 ? "файл" : "файла"}`;
+function formatFileCount(count: number, locale: Locale) {
+  return locale === "en"
+    ? `${count} ${count === 1 ? "file" : "files"}`
+    : `${count} ${count === 1 ? "файл" : "файла"}`;
+}
+
+function toAbsoluteAssetUrl(url: string) {
+  if (url.startsWith("http://") || url.startsWith("https://")) {
+    return url;
+  }
+
+  return `${baseUrl}${url.startsWith("/") ? url : `/${url}`}`;
 }
 
 export async function generateStaticParams() {
-  return resolvedAllProjectsArchive.map((project) => ({ slug: project.slug }));
+  return getResolvedAllProjectsArchive("bg").map((project) => ({ slug: project.slug }));
 }
 
-export async function generateMetadata({ params }: CaseStudyPageProps): Promise<Metadata> {
+export async function generateCaseStudyMetadata(
+  locale: Locale,
+  { params }: CaseStudyPageProps,
+): Promise<Metadata> {
   const { slug } = await params;
-  const project = getCaseStudy(slug);
+  const copy = getPageCopy(locale).projectDetail;
+  const { seo } = getPageCopy(locale);
+  const project = getCaseStudy(slug, locale);
 
   if (!project) {
     return {
-      title: "Проект",
+      title: copy.fallbackTitle,
     };
   }
 
+  const localizedPath = localizeHref(locale, `/projects/${project.slug}`);
+  const ogImage = toAbsoluteAssetUrl(project.cover);
+  const metaDescription =
+    locale === "bg"
+      ? `${project.title} — ${project.summary} ${project.focus[0] ?? ""}`.trim()
+      : `${project.title} — ${project.summary} ${project.focus[0] ?? ""}`.trim();
+
   return {
     title: project.title,
-    description: project.summary,
+    description: metaDescription,
+    keywords: Array.from(seo.siteKeywords),
     alternates: {
-      canonical: `/projects/${project.slug}`,
+      canonical: localizedPath,
+      languages: {
+        bg: `${baseUrl}${localizeHref("bg", `/projects/${project.slug}`)}`,
+        en: `${baseUrl}${localizeHref("en", `/projects/${project.slug}`)}`,
+        "x-default": `${baseUrl}${localizeHref("bg", `/projects/${project.slug}`)}`,
+      },
     },
     openGraph: {
+      type: "website",
+      locale: locale === "bg" ? "bg_BG" : "en_US",
+      url: `${baseUrl}${localizedPath}`,
+      siteName: brandName,
       title: `${project.title} | d . media`,
-      description: project.summary,
+      description: metaDescription,
       images: [
         {
-          url: project.cover,
+          url: ogImage,
           width: 1600,
           height: 1000,
           alt: project.title,
@@ -53,16 +89,26 @@ export async function generateMetadata({ params }: CaseStudyPageProps): Promise<
       ],
     },
     twitter: {
+      card: "summary_large_image",
       title: `${project.title} | d . media`,
-      description: project.summary,
-      images: [project.cover],
+      description: metaDescription,
+      images: [ogImage],
     },
   };
 }
 
-export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
+export async function generateMetadata({ params }: CaseStudyPageProps): Promise<Metadata> {
+  return generateCaseStudyMetadata("bg", { params });
+}
+
+export async function CaseStudyPageView({
+  params,
+  locale = "bg",
+}: CaseStudyPageProps & { locale?: Locale }) {
   const { slug } = await params;
-  const project = getCaseStudy(slug);
+  const copy = getPageCopy(locale).projectDetail;
+  const ui = getUiCopy(locale);
+  const project = getCaseStudy(slug, locale);
 
   if (!project) {
     notFound();
@@ -71,10 +117,7 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
   return (
     <main className="site-shell" id="top">
       <section className="section-grid">
-        <SiteHeader />
-
         <div className="section-heading page-intro">
-          <p className="eyebrow">проект</p>
           <h1>{project.title}</h1>
           <p className="page-text">{project.context}</p>
         </div>
@@ -93,11 +136,15 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
           </div>
           <div className="case-study-body">
             <div className="case-study-section">
-              <span className="case-study-label">Позициониране</span>
+              <span className="case-study-label">{copy.context}</span>
+              <p>{project.context}</p>
+            </div>
+            <div className="case-study-section">
+              <span className="case-study-label">{copy.solution}</span>
               <p>{project.summary}</p>
             </div>
             <div className="case-study-section">
-              <span className="case-study-label">Обхват</span>
+              <span className="case-study-label">{copy.usage}</span>
               <ul className="detail-list">
                 {project.focus.map((detail: string) => (
                   <li key={detail}>{detail}</li>
@@ -105,47 +152,47 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
               </ul>
             </div>
             <div className="case-study-section">
-              <span className="case-study-label">Архив</span>
+              <span className="case-study-label">{copy.archive}</span>
               <div className="tag-list">
-                <span className="tag-pill">{formatFileCount(project.imageCount)}</span>
+                <span className="tag-pill">{formatFileCount(project.imageCount, locale)}</span>
                 <span className="tag-pill">
                   {project.featured
-                    ? "Акцентен проект"
+                    ? ui.featuredProject
                     : "archiveType" in project && project.archiveType === "historical"
-                      ? "Исторически архив"
-                      : "Архивен проект"}
+                      ? ui.historicalArchive
+                      : ui.archiveProject}
                 </span>
               </div>
             </div>
             <div className="project-card-footer">
-              <span className="project-meta">реални файлове от проектната папка</span>
-              <Link className="inline-link" href="/projects">
-                обратно към проектите
+              <span className="project-meta">{copy.meta}</span>
+              <Link className="inline-link" href={localizeHref(locale, "/projects")}>
+                {copy.back}
               </Link>
             </div>
           </div>
         </article>
 
         <div className="section-heading page-subheading">
-          <p className="eyebrow">приложения</p>
-          <h2>Всички налични файлове от този проект.</h2>
+          <h2>{copy.applicationsTitle}</h2>
         </div>
-        <div className="mockup-grid projects-gallery">
-          {project.images.map((image) => (
-            <article className="card mockup-card project-png-card" key={image.src}>
-              <div className="mockup-image">
-                <ProtectedImage
-                  src={image.src}
-                  alt={project.title}
-                  fill
-                  sizes="(max-width: 767px) 100vw, 720px"
-                />
-              </div>
-            </article>
-          ))}
-        </div>
+        <ImageLightboxGallery
+          items={project.images.map((image: { src: string; label?: string }) => ({
+            src: image.src,
+            alt: image.label ?? project.title,
+          }))}
+          locale={locale}
+          gridClassName="mockup-grid projects-gallery"
+          cardClassName="card mockup-card project-png-card"
+          triggerClassName="gallery-trigger project-file-trigger"
+          frameClassName="mockup-image"
+          imageSizes="(max-width: 767px) 100vw, 720px"
+        />
       </section>
-      <SiteFooter />
     </main>
   );
+}
+
+export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
+  return CaseStudyPageView({ params, locale: "bg" });
 }

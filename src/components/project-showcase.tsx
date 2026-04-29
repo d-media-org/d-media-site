@@ -2,18 +2,24 @@ import Link from "next/link";
 
 import { ProtectedImage } from "@/components/protected-image";
 import { getFeaturedProjects } from "@/lib/featured-projects";
+import type { Locale } from "@/lib/i18n";
+import { localizeHref } from "@/lib/i18n";
+import { getUiCopy } from "@/lib/ui-copy";
 
-function formatFileCount(count: number) {
-  return `${count} ${count === 1 ? "файл" : "файла"}`;
-}
-
-export async function ProjectShowcase({ className }: { className?: string }) {
-  const featuredProjects = await getFeaturedProjects();
+export async function ProjectShowcase({
+  className,
+  locale = "bg",
+}: {
+  className?: string;
+  locale?: Locale;
+}) {
+  const ui = getUiCopy(locale);
+  const featuredProjects = await getFeaturedProjects(locale);
 
   return (
     <div className={className ? `showcase-grid ${className}` : "showcase-grid"}>
       {featuredProjects.map((project) => (
-        <Link className="card showcase-card showcase-link-card" href={`/projects/${project.slug}`} key={project.slug}>
+        <Link className="card showcase-card showcase-link-card" href={localizeHref(locale, `/projects/${project.slug}`)} key={project.slug}>
           <article>
             <div className="showcase-image">
               <div className="showcase-image-frame">
@@ -28,14 +34,9 @@ export async function ProjectShowcase({ className }: { className?: string }) {
             <div className="showcase-copy">
               <h3>{project.title}</h3>
               <p className="project-lead">{project.summary}</p>
-              <ul className="detail-list detail-list-compact">
-                {project.focus.slice(0, 2).map((detail) => (
-                  <li key={detail}>{detail}</li>
-                ))}
-              </ul>
               <div className="project-card-footer">
-                <span className="project-meta">{formatFileCount(project.imageCount)}</span>
-                <span className="project-link-hint">отвори проекта</span>
+                <span className="project-meta">{ui.fileCount(project.imageCount)}</span>
+                <span className="project-link-hint">{ui.projectHint}</span>
               </div>
             </div>
           </article>

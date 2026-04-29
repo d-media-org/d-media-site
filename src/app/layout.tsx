@@ -1,46 +1,33 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import localFont from "next/font/local";
-import { Analytics } from "@vercel/analytics/next";
+import Script from "next/script";
 
 import { AnnouncementBar } from "@/components/announcement-bar";
+import { ConsentBanner } from "@/components/consent-banner";
+import { SiteFooter, SiteHeader } from "@/components/site-chrome";
+import { normalizeLocale } from "@/lib/i18n";
+import { getPageCopy } from "@/lib/page-copy";
 import {
   baseUrl,
+  brandName,
+  defaultSocialImage,
   getOrganizationSchema,
   getWebsiteSchema,
-  siteDescription,
-  siteKeywords,
 } from "@/lib/seo";
 import { getSiteRuntimeConfig } from "@/lib/site-runtime-config";
 
 import "./globals.css";
 
-const pantonBlack = localFont({
-  src: "../../public/assets/fonts/Panton-Black.woff2",
-  variable: "--font-panton-black",
-  display: "swap",
-});
-
-const pantonBold = localFont({
-  src: "../../public/assets/fonts/Panton-Bold.woff2",
-  variable: "--font-panton-bold",
-  display: "swap",
-});
-
-const pantonSemiBold = localFont({
-  src: "../../public/assets/fonts/Panton-SemiBold.woff2",
-  variable: "--font-panton-semibold",
-  display: "swap",
-});
-
-const pantonRegular = localFont({
-  src: "../../public/assets/fonts/Panton-Regular.woff2",
-  variable: "--font-panton-regular",
-  display: "swap",
-});
-
-const pantonLight = localFont({
-  src: "../../public/assets/fonts/Panton-Light.woff2",
-  variable: "--font-panton-light",
+const pantonWeb = localFont({
+  src: [
+    { path: "../../public/fonts/panton/Panton-Light.otf", weight: "300", style: "normal" },
+    { path: "../../public/fonts/panton/Panton-Regular.otf", weight: "400", style: "normal" },
+    { path: "../../public/fonts/panton/Panton-SemiBold.otf", weight: "600", style: "normal" },
+    { path: "../../public/fonts/panton/Panton-Bold.otf", weight: "700", style: "normal" },
+    { path: "../../public/fonts/panton/Panton-Black.otf", weight: "900", style: "normal" },
+  ],
+  variable: "--font-panton",
   display: "swap",
 });
 
@@ -59,32 +46,30 @@ export const metadata: Metadata = {
     default: "d . media",
     template: "%s | d . media",
   },
-  description: siteDescription,
-  keywords: siteKeywords,
+  description: getPageCopy("bg").seo.siteDescription,
+  keywords: Array.from(getPageCopy("bg").seo.siteKeywords),
   alternates: {
     canonical: "/",
+    languages: {
+      bg: `${baseUrl}/`,
+      en: `${baseUrl}/en`,
+      "x-default": `${baseUrl}/`,
+    },
   },
   openGraph: {
     type: "website",
     locale: "bg_BG",
     url: baseUrl,
-    title: "d . media",
-    description: siteDescription,
-    siteName: "d . media",
-    images: [
-      {
-        url: "/api/social-preview?v=20260323-7",
-        width: 1200,
-        height: 630,
-        alt: "d . media",
-      },
-    ],
+    title: brandName,
+    description: getPageCopy("bg").seo.siteDescription,
+    siteName: brandName,
+    images: [defaultSocialImage],
   },
   twitter: {
     card: "summary_large_image",
-    title: "d . media",
-    description: siteDescription,
-    images: ["/api/social-preview?v=20260323-7"],
+    title: brandName,
+    description: getPageCopy("bg").seo.siteDescription,
+    images: [defaultSocialImage.url],
   },
   robots: {
     index: true,
@@ -108,26 +93,114 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const requestHeaders = await headers();
+  const locale = normalizeLocale(requestHeaders.get("x-d-media-locale"));
+  const googleAnalyticsId = process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID;
   const siteRuntimeConfig = await getSiteRuntimeConfig();
-  const structuredData = [getOrganizationSchema(), getWebsiteSchema()];
+  const structuredData = [
+    { id: "organization-schema", value: getOrganizationSchema(locale) },
+    { id: "website-schema", value: getWebsiteSchema(locale) },
+  ];
 
   return (
-    <html lang="bg">
-      <body
-        className={`${pantonBlack.variable} ${pantonBold.variable} ${pantonSemiBold.variable} ${pantonRegular.variable} ${pantonLight.variable} antialiased`}
-      >
+    <html lang={locale} suppressHydrationWarning>
+      <head>
         <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+          id="metricool-tracker"
+          dangerouslySetInnerHTML={{
+            __html:
+              'function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"bb2d091ed8041192a71878d4501d6ce7"})});',
+          }}
         />
+      </head>
+      <body
+        className={`${pantonWeb.variable} antialiased`}
+      >
+        <Script id="theme-sync" strategy="beforeInteractive">
+          {`(() => {
+            const root = document.documentElement;
+            const media = window.matchMedia("(prefers-color-scheme: dark)");
+            const STORAGE_KEY = "d-media-theme-mode";
+            const userAgent = window.navigator.userAgent || "";
+            const isEmbeddedIos =
+              /iPhone|iPad|iPod/i.test(userAgent) &&
+              /(FBAN|FBAV|FB_IAB|Messenger|Instagram)/i.test(userAgent);
+
+            const getStoredMode = () => {
+              try {
+                return window.localStorage.getItem(STORAGE_KEY) || "auto";
+              } catch {
+                return "auto";
+              }
+            };
+
+            const applyTheme = () => {
+              const mode = getStoredMode();
+              const resolvedTheme = mode === "auto"
+                ? (media.matches ? "dark" : "light")
+                : mode;
+              root.dataset.themeMode = mode;
+              root.dataset.theme = resolvedTheme;
+              root.dataset.embeddedIos = isEmbeddedIos ? "true" : "false";
+              root.lang = window.location.pathname === "/en" || window.location.pathname.startsWith("/en/")
+                ? "en"
+                : "bg";
+            };
+            applyTheme();
+
+            if (!isEmbeddedIos) {
+              if (typeof media.addEventListener === "function") {
+                media.addEventListener("change", applyTheme);
+              } else if (typeof media.addListener === "function") {
+                media.addListener(applyTheme);
+              }
+            }
+          })();`}
+        </Script>
+        {googleAnalyticsId ? (
+          <Script id="google-consent-default" strategy="beforeInteractive">
+            {`let storedConsent = null;
+try {
+  storedConsent = window.localStorage.getItem('d-media-consent');
+} catch {}
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+if (storedConsent === 'accepted') {
+  gtag('consent', 'default', {
+    analytics_storage: 'granted',
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied'
+  });
+} else {
+  gtag('consent', 'default', {
+    analytics_storage: 'denied',
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    wait_for_update: 500
+  });
+}`}
+          </Script>
+        ) : null}
+        {structuredData.map((item) => (
+          <script
+            key={item.id}
+            id={item.id}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(item.value) }}
+          />
+        ))}
         {siteRuntimeConfig.announcement ? (
           <AnnouncementBar
             text={siteRuntimeConfig.announcement.text}
             href={siteRuntimeConfig.announcement.href}
           />
         ) : null}
+        <SiteHeader />
         {children}
-        <Analytics />
+        <SiteFooter />
+        <ConsentBanner />
       </body>
     </html>
   );

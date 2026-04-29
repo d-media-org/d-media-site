@@ -1,15 +1,17 @@
 import { get } from "@vercel/edge-config";
 
-import { resolvedProjectPngArchive } from "@/lib/asset-url";
+import { getResolvedAllProjectsArchive, resolvedAllProjectsArchive } from "@/lib/asset-url";
+import type { Locale } from "@/lib/i18n";
 
 const fallbackFeaturedProjectSlugs = [
   "support-account",
   "support-account-group",
   "yanita",
+  "dj-nedi",
 ] as const;
 
 function isKnownProjectSlug(value: string) {
-  return resolvedProjectPngArchive.some((project) => project.slug === value);
+  return resolvedAllProjectsArchive.some((project) => project.slug === value);
 }
 
 export async function getFeaturedProjectSlugs() {
@@ -26,7 +28,7 @@ export async function getFeaturedProjectSlugs() {
 
     const validFeaturedProjectSlugs = featuredProjectSlugs
       .filter((slug): slug is string => typeof slug === "string")
-      .filter(isKnownProjectSlug);
+    .filter(isKnownProjectSlug);
 
     return validFeaturedProjectSlugs.length > 0
       ? validFeaturedProjectSlugs
@@ -36,12 +38,13 @@ export async function getFeaturedProjectSlugs() {
   }
 }
 
-export async function getFeaturedProjects() {
+export async function getFeaturedProjects(locale: Locale = "bg") {
   const featuredProjectSlugs = await getFeaturedProjectSlugs();
+  const archive = getResolvedAllProjectsArchive(locale);
   const featuredProjects = featuredProjectSlugs
-    .map((slug) => resolvedProjectPngArchive.find((project) => project.slug === slug))
+    .map((slug) => archive.find((project) => project.slug === slug))
     .filter(
-      (project): project is (typeof resolvedProjectPngArchive)[number] => project !== undefined,
+      (project): project is (typeof archive)[number] => project !== undefined,
     );
 
   return featuredProjects;

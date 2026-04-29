@@ -454,5 +454,3 @@ archive.sort((a, b) => {
 
 const fileContents = `export const projectPngArchive = ${JSON.stringify(archive, null, 2)} as const;\n\nexport const featuredProjectPngs = projectPngArchive.filter((project) => project.featured);\n`;
 fs.writeFileSync(dataOutputPath, fileContents);
-
-console.log(`Synced ${archive.length} projects with PNG files.`);

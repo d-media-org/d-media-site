@@ -1,70 +1,86 @@
 import type { Metadata } from "next";
 
 import { BrandName, BrandText } from "@/components/brand-text";
-import { SiteFooter, SiteHeader } from "@/components/site-chrome";
 import { resolveAssetUrl } from "@/lib/asset-url";
-import { aboutNotes, principles } from "@/lib/site-content";
+import { type Locale } from "@/lib/i18n";
+import { getPageCopy } from "@/lib/page-copy";
+import { getSiteContent } from "@/lib/site-content";
+import { getPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "За бранда",
-  description:
-    "История, подход и официален брандбук на d . media с фокус върху визуална идентичност, дигитален дизайн и устойчиво присъствие.",
-  alternates: {
-    canonical: "/about",
-  },
-};
+export const metadata: Metadata = getPageMetadata({
+  locale: "bg",
+  title: getPageCopy("bg").about.metaTitle,
+  description: getPageCopy("bg").about.metaDescription,
+  path: "/about",
+});
 
-export default function AboutPage() {
+export function AboutPageView({ locale = "bg" }: { locale?: Locale }) {
+  const copy = getPageCopy(locale).about;
+  const siteContent = getSiteContent(locale);
+  const brandbookWebHref =
+    locale === "en" ? "/brandbook_web_exact_en/index.html" : "/brandbook_web_exact/index.html";
+  const brandbookPdfHref = resolveAssetUrl(
+    locale === "en"
+      ? "/assets/documents/d_media_professional_brandbook_new_en.pdf"
+      : "/assets/documents/d_media_professional_brandbook_new.pdf"
+  );
+  const brandbookOpenLabel = locale === "en" ? "Open brand book" : "Отвори брандбук";
+  const brandbookDownloadLabel =
+    locale === "en" ? "Download brand book (PDF)" : "Свали брандбук (PDF)";
+  const logoPackDownloadLabel =
+    locale === "en"
+      ? "Download brand logo and logotype"
+      : "Свали лого и логотип на марката";
+
   return (
     <main className="site-shell" id="top">
       <section className="section-grid">
-        <SiteHeader />
         <div className="section-heading page-intro">
-          <p className="eyebrow">за бранда</p>
           <h1><BrandName /></h1>
-          <p className="page-text">
-            Визуална идентичност, дигитален дизайн и устойчиви брандове.
-          </p>
+          <p className="page-text">{copy.text}</p>
         </div>
         <div className="split-content page-grid stacked-cards">
           <div className="card about-copy content-card-wide">
-            {aboutNotes.map((note) => (
-              <p key={note}>
-                <BrandText text={note} />
+            {siteContent.aboutNotes.map((item) => (
+              <p key={item}>
+                <BrandText text={item} />
               </p>
             ))}
-            <div className="principles-list">
-              {principles.map((principle) => (
-                <div className="principle-row" key={principle}>
-                  <span className="principle-bullet" aria-hidden="true">
-                    •
-                  </span>
-                  <p>{principle}</p>
-                </div>
-              ))}
-            </div>
           </div>
           <div className="card package-card content-card-wide brandbook-card">
-            <h2>Официален брандбук</h2>
-            <p>
-              Пълният PDF с идентичността, приложенията и визуалните правила на
-              <br />
-              <BrandName /> е достъпен директно през сайта.
-            </p>
+            <h2>{copy.brandbookTitle}</h2>
+            <p>{copy.brandbookText}</p>
             <div className="hero-actions brandbook-actions">
               <a
-                href={resolveAssetUrl("/assets/documents/d-media-brandbook.pdf")}
+                href={brandbookWebHref}
                 target="_blank"
                 rel="noreferrer"
-                className="button button-secondary"
+                className="button button-secondary desktop-only"
               >
-                Отвори брандбука
+                {brandbookOpenLabel}
+              </a>
+              <a
+                href={brandbookPdfHref}
+                className="button button-secondary"
+                download
+              >
+                {brandbookDownloadLabel}
+              </a>
+              <a
+                href="/downloads/d-media-logo-pack.zip"
+                className="button button-secondary"
+                download
+              >
+                {logoPackDownloadLabel}
               </a>
             </div>
           </div>
         </div>
       </section>
-      <SiteFooter />
     </main>
   );
+}
+
+export default function AboutPage() {
+  return <AboutPageView locale="bg" />;
 }

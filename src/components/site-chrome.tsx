@@ -6,23 +6,19 @@ import { useEffect, useRef, useState } from "react";
 import type { SVGProps } from "react";
 import {
   siBehance,
-  siFacebook,
   siInstagram,
-  siThreads,
   siTiktok,
-  siX,
   siYoutube,
 } from "simple-icons";
 
 import { BrandAsset } from "@/components/brand-asset";
 import { BrandName } from "@/components/brand-text";
-import { socials } from "@/lib/site-content";
+import { getLocaleFromPathname, localizeHref } from "@/lib/i18n";
+import { getSiteContent, contactEmail } from "@/lib/site-content";
+import { getLocaleSwitcherItems, getUiCopy } from "@/lib/ui-copy";
 
 const socialIconMap = {
-  Facebook: siFacebook.path,
   Instagram: siInstagram.path,
-  Threads: siThreads.path,
-  X: siX.path,
   Behance: siBehance.path,
   YouTube: siYoutube.path,
   TikTok: siTiktok.path,
@@ -62,77 +58,188 @@ function SocialIcon({
   );
 }
 
+function ThemeIcon({
+  kind,
+  ...props
+}: { kind: "auto" | "light" | "dark" } & SVGProps<SVGSVGElement>) {
+  if (kind === "light") {
+    return (
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
+        <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="1.65" />
+        <path
+          d="M12 2.8V5.1M12 18.9v2.3M5.49 5.49l1.63 1.63M16.88 16.88l1.63 1.63M2.8 12h2.3M18.9 12h2.3M5.49 18.51l1.63-1.63M16.88 7.12l1.63-1.63"
+          stroke="currentColor"
+          strokeWidth="1.65"
+          strokeLinecap="round"
+        />
+      </svg>
+    );
+  }
+
+  if (kind === "dark") {
+    return (
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
+        <path
+          d="M16.9 14.9A7.3 7.3 0 0 1 9.1 7.1a7.35 7.35 0 1 0 7.8 7.8Z"
+          stroke="currentColor"
+          strokeWidth="1.65"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    );
+  }
+
+  return (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" {...props}>
+      <text
+        x="12"
+        y="16"
+        textAnchor="middle"
+        fill="currentColor"
+        fontSize="12"
+        fontWeight="700"
+        fontFamily="inherit"
+      >
+        A
+      </text>
+    </svg>
+  );
+}
+
 export function SiteHeader() {
   const pathname = usePathname();
-  const navItems = [
-    { href: "/", label: "Начало" },
-    { href: "/projects", label: "Проекти" },
-    { href: "/services", label: "Услуги" },
-    { href: "/about", label: "За бранда" },
-    { href: "/contact", label: "Контакт" },
-  ];
+  const locale = getLocaleFromPathname(pathname);
+  const siteContent = getSiteContent(locale);
+  const ui = getUiCopy(locale);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  useEffect(() => {
+    document.documentElement.lang = locale;
+  }, [locale]);
 
   return (
     <header className="site-header">
-      <div className="site-brand brand-image brand-image-logotype">
-        <Link href="/" aria-label="Начало">
-          <BrandAsset
-            lightSrc="/assets/brand/ONLY-logotype.png"
-            alt="d . media"
-            width={206}
-            height={44}
-            priority
-          />
-        </Link>
-      </div>
-      <div className="site-header-nav">
-        <nav className="site-nav site-nav-desktop" aria-label="Основна навигация">
-          {navItems.map((item) => {
+      <div className="site-header-inner">
+        <div className="site-header-main">
+          <div className="site-brand brand-image brand-image-logotype">
+            <Link href={localizeHref(locale, "/")} aria-label={ui.homeAria}>
+              <BrandAsset
+                lightSrc="/assets/brand/ONLY-logotype.png"
+                alt="d . media"
+                width={206}
+                height={44}
+                priority
+              />
+            </Link>
+          </div>
+          <button
+            type="button"
+            className={`site-menu-toggle${isMenuOpen ? " is-active" : ""}`}
+            aria-expanded={isMenuOpen}
+            aria-controls="site-mobile-nav"
+            aria-label={isMenuOpen ? ui.closeMenu : ui.openMenu}
+            onClick={() => setIsMenuOpen((current) => !current)}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+        </div>
+        <div className="site-header-nav">
+          <nav className="site-nav site-nav-desktop" aria-label={ui.mainNavigationAria}>
+            {siteContent.mainNavigation.map((item) => {
+              const href = localizeHref(locale, item.href);
+              const isActive =
+                href === localizeHref(locale, "/") ? pathname === href : pathname.startsWith(href);
+
+              return (
+                <Link
+                  key={item.href}
+                  href={href}
+                  className={isActive ? "is-active" : undefined}
+                  aria-current={isActive ? "page" : undefined}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
+            <div className="locale-switcher" aria-label={ui.languageSwitcherAria}>
+              {getLocaleSwitcherItems(locale, pathname).map((item) => (
+                <Link
+                  key={item.locale}
+                  href={item.href}
+                  className={item.isActive ? "is-active" : undefined}
+                  hrefLang={item.locale}
+                  lang={item.locale}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </nav>
+        </div>
+        <nav
+          id="site-mobile-nav"
+          className={`site-mobile-panel${isMenuOpen ? " is-open" : ""}`}
+          aria-label={ui.mobileNavigationAria}
+        >
+          {siteContent.mainNavigation.map((item) => {
+            const href = localizeHref(locale, item.href);
             const isActive =
-              item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
+              href === localizeHref(locale, "/") ? pathname === href : pathname.startsWith(href);
 
             return (
               <Link
                 key={item.href}
-                href={item.href}
+                href={href}
                 className={isActive ? "is-active" : undefined}
                 aria-current={isActive ? "page" : undefined}
+                onClick={() => setIsMenuOpen(false)}
               >
                 {item.label}
               </Link>
             );
           })}
+          <div className="locale-switcher locale-switcher-mobile" aria-label={ui.languageSwitcherAria}>
+            {getLocaleSwitcherItems(locale, pathname).map((item) => (
+              <Link
+                key={item.locale}
+                href={item.href}
+                className={item.isActive ? "is-active" : undefined}
+                hrefLang={item.locale}
+                lang={item.locale}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
         </nav>
       </div>
-      <nav className="site-nav-mobile" aria-label="Мобилна навигация">
-        {navItems.map((item) => {
-          const isActive =
-            item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
-
-          return (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={isActive ? "is-active" : undefined}
-              aria-current={isActive ? "page" : undefined}
-            >
-              {item.label}
-            </Link>
-          );
-        })}
-      </nav>
     </header>
   );
 }
 
 export function SiteFooter() {
+  const pathname = usePathname();
+  const locale = getLocaleFromPathname(pathname);
+  const siteContent = getSiteContent(locale);
+  const ui = getUiCopy(locale);
+  const [footerCopyrightBefore, footerCopyrightAfter = ""] =
+    ui.footer.copyright.split("d . media");
   const footerRef = useRef<HTMLElement | null>(null);
   const [showTopButton, setShowTopButton] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
+      if (window.innerWidth >= 980) {
+        setShowTopButton(window.scrollY > 120);
+        return;
+      }
+
       const footerTop = footerRef.current?.getBoundingClientRect().top ?? Infinity;
-      const hideClearance = window.innerWidth <= 767 ? 84 : 96;
+      const hideClearance = 84;
       const shouldHideForFooter = footerTop < window.innerHeight - hideClearance;
       setShowTopButton(window.scrollY > 240 && !shouldHideForFooter);
     };
@@ -147,80 +254,187 @@ export function SiteFooter() {
     };
   }, []);
 
-  const footerServices = [
-    "създаване на бранд идентичност",
-    "създаване на съдържание",
-    "управление на социални медии",
-    "графичен дизайн и реклама",
-  ];
-
   return (
-    <footer className="site-footer" ref={footerRef}>
-      <div className="site-footer-inner">
-        <div className="footer-brand">
-          <Link href="/" className="footer-brand-link" aria-label="Към началната страница">
-            <div className="footer-brand-row">
-              <div className="brand-image brand-image-brandmark footer-brandmark">
-                <BrandAsset
-                  lightSrc="/assets/brand/ONLY-brandmark.png"
-                  alt="d . media"
-                  width={46}
-                  height={46}
-                  priority
-                />
-              </div>
-              <div className="footer-brand-copy">
-                {footerServices.map((item) => (
-                  <p key={item}>{item}</p>
-                ))}
-              </div>
+    <>
+      <footer className="site-footer" ref={footerRef}>
+        <div className="site-footer-inner">
+          <div className="footer-column footer-column-contact">
+            <h2>{ui.footer.contact}</h2>
+            <div className="footer-contact-list">
+              <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
+            </div>
+          </div>
+          <div className="footer-column footer-column-socials">
+            <div className="footer-links footer-socials">
+              {siteContent.socials.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={social.label}
+                  title={social.label}
+                >
+                  <span className="footer-social-icon" aria-hidden="true">
+                    <SocialIcon label={social.label} className="footer-social-icon-svg" />
+                  </span>
+                  <span className="sr-only">{social.label}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+          <div className="footer-column footer-column-legal">
+            <div className="footer-links footer-legal">
+              <Link href={localizeHref(locale, "/terms")}>{ui.footer.terms}</Link>
+              <Link href={localizeHref(locale, "/privacy")}>{ui.footer.privacy}</Link>
+            </div>
+          </div>
+        </div>
+        <div className="site-footer-bottom">
+          <p>
+            {footerCopyrightBefore}
+            {" "}
+            <BrandName />
+            {" "}
+            {footerCopyrightAfter}
+          </p>
+          <ThemeToggle
+            locale={locale}
+            className="theme-toggle footer-theme-toggle"
+            ui={ui.footer}
+          />
+          <Link href={localizeHref(locale, "/")} className="footer-brand-link footer-brand-link-logo footer-brand-bottom" aria-label={ui.footer.backToStart}>
+            <div className="brand-image brand-image-brandmark footer-brandmark footer-brandmark-only">
+              <BrandAsset
+                lightSrc="/assets/brand/ONLY-brandmark.png"
+                alt="d . media"
+                width={48}
+                height={48}
+              />
             </div>
           </Link>
         </div>
-        <div className="footer-center">
-          <div className="footer-links footer-socials">
-            {socials.map((social) => (
-              <a
-                key={social.label}
-                href={social.href}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={social.label}
-                title={social.label}
-              >
-                <span className="footer-social-icon" aria-hidden="true">
-                  <SocialIcon label={social.label} className="footer-social-icon-svg" />
-                </span>
-                <span className="sr-only">{social.label}</span>
-              </a>
-            ))}
-          </div>
-          <div className="footer-copyright">
-            <p>
-              © 2026 <BrandName />
-            </p>
-            <p>
-              Дизайн и сайт: <BrandName />
-            </p>
-          </div>
-        </div>
-        <div className="footer-side">
-          <div className="footer-links footer-legal">
-            <Link href="/terms">Условия</Link>
-            <Link href="/privacy">Поверителност</Link>
-          </div>
-        </div>
-      </div>
+      </footer>
       <a
         className={`floating-top${showTopButton ? "" : " is-hidden"}`}
         href="#top"
-        aria-label="Към началото"
+        aria-label={ui.footer.backToTop}
       >
-        <span className="floating-top-label">Нагоре</span>
+        <span className="floating-top-label">{ui.footer.backToTop}</span>
         <span className="floating-top-arrow" aria-hidden="true">
           ↑
         </span>
       </a>
-    </footer>
+    </>
+  );
+}
+
+type ThemeMode = "auto" | "light" | "dark";
+
+function ThemeToggle({
+  locale,
+  className,
+  ui,
+}: {
+  locale: "bg" | "en";
+  className?: string;
+  ui: ReturnType<typeof getUiCopy>["footer"];
+}) {
+  const [mode, setMode] = useState<ThemeMode>("auto");
+
+  useEffect(() => {
+    const root = document.documentElement;
+    const media = window.matchMedia("(prefers-color-scheme: dark)");
+    const STORAGE_KEY = "d-media-theme-mode";
+    const readStoredMode = () => {
+      try {
+        return window.localStorage.getItem(STORAGE_KEY);
+      } catch {
+        return null;
+      }
+    };
+
+    const writeStoredMode = (nextMode: ThemeMode) => {
+      try {
+        window.localStorage.setItem(STORAGE_KEY, nextMode);
+      } catch {
+        // Theme still applies for the current session when storage is unavailable.
+      }
+    };
+
+    const applyTheme = (nextMode: ThemeMode) => {
+      const resolvedTheme = nextMode === "auto"
+        ? (media.matches ? "dark" : "light")
+        : nextMode;
+
+      root.dataset.themeMode = nextMode;
+      root.dataset.theme = resolvedTheme;
+      writeStoredMode(nextMode);
+      setMode(nextMode);
+    };
+
+    const storedMode = readStoredMode();
+    const initialMode = storedMode === "light" || storedMode === "dark" ? storedMode : "auto";
+    applyTheme(initialMode);
+
+    const syncAutoMode = () => {
+      const currentMode = (readStoredMode() as ThemeMode | null) ?? "auto";
+      if (currentMode === "auto") {
+        root.dataset.theme = media.matches ? "dark" : "light";
+      }
+    };
+
+    if (typeof media.addEventListener === "function") {
+      media.addEventListener("change", syncAutoMode);
+    } else if (typeof media.addListener === "function") {
+      media.addListener(syncAutoMode);
+    }
+
+    return () => {
+      if (typeof media.removeEventListener === "function") {
+        media.removeEventListener("change", syncAutoMode);
+      } else if (typeof media.removeListener === "function") {
+        media.removeListener(syncAutoMode);
+      }
+    };
+  }, []);
+
+  const items = [
+    { key: "auto" as const, label: ui.themeAuto },
+    { key: "light" as const, label: ui.themeLight },
+    { key: "dark" as const, label: ui.themeDark },
+  ];
+
+  return (
+    <div className={className} aria-label={ui.themeSwitcherAria} role="group" data-locale={locale}>
+      {items.map((item) => (
+        <button
+          key={item.key}
+          type="button"
+          className={mode === item.key ? "is-active" : undefined}
+          aria-pressed={mode === item.key}
+          title={item.label}
+          onClick={() => {
+            const root = document.documentElement;
+            const media = window.matchMedia("(prefers-color-scheme: dark)");
+            const resolvedTheme = item.key === "auto"
+              ? (media.matches ? "dark" : "light")
+              : item.key;
+
+            root.dataset.themeMode = item.key;
+            root.dataset.theme = resolvedTheme;
+            try {
+              window.localStorage.setItem("d-media-theme-mode", item.key);
+            } catch {
+              // Theme still applies for the current session when storage is unavailable.
+            }
+            setMode(item.key);
+          }}
+        >
+          <ThemeIcon kind={item.key} className="theme-toggle-icon" />
+          <span className="sr-only">{item.label}</span>
+        </button>
+      ))}
+    </div>
   );
 }

@@ -1,79 +1,47 @@
 import type { Metadata } from "next";
 
-import { SiteFooter, SiteHeader } from "@/components/site-chrome";
-import { contactEmail, contactPhone, contactPhoneHref, socials } from "@/lib/site-content";
-import { getSiteRuntimeConfig } from "@/lib/site-runtime-config";
+import { type Locale } from "@/lib/i18n";
+import { getPageCopy } from "@/lib/page-copy";
+import { contactEmail, contactPhone, contactPhoneHref, getSiteContent } from "@/lib/site-content";
+import { getPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Контакт",
-  description:
-    "Контакт с d . media за нов бранд, уебсайт, съдържание, документна система или по-ясно визуално присъствие.",
-  alternates: {
-    canonical: "/contact",
-  },
-};
+export const metadata: Metadata = getPageMetadata({
+  locale: "bg",
+  title: getPageCopy("bg").contact.metaTitle,
+  description: getPageCopy("bg").contact.metaDescription,
+  path: "/contact",
+});
 
-export default async function ContactPage() {
-  const siteRuntimeConfig = await getSiteRuntimeConfig();
-  const inquiryPoints = [
-    "Какъв тип проект подготвяш",
-    "Какъв е реалният носител или канал",
-    "Има ли срок, бюджет или готови материали",
-  ];
+export function ContactPageView({ locale = "bg" }: { locale?: Locale }) {
+  const copy = getPageCopy(locale).contact;
+  const siteContent = getSiteContent(locale);
 
   return (
     <main className="site-shell" id="top">
       <section className="section-grid">
-        <SiteHeader />
         <div className="section-heading page-intro">
-          <p className="eyebrow">контакт</p>
-          <h1>Стартова точка за нов бранд, уебсайт, документна система или формат за съдържание.</h1>
-          <p className="page-text">
-            Ако проектът изисква по-ясна визуална структура и последователно дигитално присъствие, разговорът започва оттук.
-          </p>
+          <h1>{copy.title}</h1>
+          <p className="page-text">{copy.text}</p>
         </div>
         <div className="showcase-grid contact-start-grid">
           <article className="card contact-start-card">
-            <h2>Как да започне запитването</h2>
-            <p>
-              Най-добрият старт е кратък и ясен: какво ще се изработи,
-              къде ще се използва и какъв резултат очакваш от проекта.
-            </p>
-            <ul className="detail-list">
-              {inquiryPoints.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
+            <h2>{copy.needsTitle}</h2>
+            <p>{copy.needsText}</p>
           </article>
           <article className="card contact-start-card">
-            <h2>Какво следва след това</h2>
-            <p>
-              След първия контакт проектът преминава към работен контекст,
-              оферта, потвърждение и изпълнение според нужния формат,
-              срок и обхват.
-            </p>
-            <div className="hero-actions contact-hero-actions">
-              <a href={siteRuntimeConfig.contact.primaryCta.href} className="button button-primary">
-                {siteRuntimeConfig.contact.primaryCta.label}
-              </a>
-              <a href={siteRuntimeConfig.contact.secondaryCta.href} className="button button-secondary">
-                {siteRuntimeConfig.contact.secondaryCta.label}
-              </a>
-            </div>
+            <h2>{copy.responseTitle}</h2>
+            <p>{copy.responseText}</p>
           </article>
         </div>
         <div className="split-content page-grid stacked-cards">
           <div className="card contact-detail-card content-card-wide">
-            <h2>Основен контакт</h2>
+            <h2>{copy.mainContact}</h2>
             <div className="contact-stack">
               <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
               <a href={`tel:${contactPhoneHref}`}>{contactPhone}</a>
             </div>
-          </div>
-          <div className="card contact-detail-card content-card-wide">
-            <h2>Канали</h2>
             <div className="contact-stack contact-channel-list">
-              {socials.map((social) => (
+              {siteContent.socials.map((social) => (
                 <a
                   key={social.label}
                   href={social.href}
@@ -89,7 +57,10 @@ export default async function ContactPage() {
           </div>
         </div>
       </section>
-      <SiteFooter />
     </main>
   );
+}
+
+export default function ContactPage() {
+  return <ContactPageView locale="bg" />;
 }
