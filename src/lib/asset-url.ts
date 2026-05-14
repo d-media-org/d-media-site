@@ -3,15 +3,16 @@ import { type Locale } from "@/lib/i18n";
 import { getLegacyMockupCollections, legacyProjectArchive } from "@/lib/legacy-project-archive";
 import { getProjectPngArchive, projectPngArchive } from "@/lib/project-png-archive";
 
-const localOptimizedAssets = new Set([
-  "/assets/brand/ONLY-logotype.png",
-  "/assets/project-covers/support-account.png",
-  "/assets/project-covers/support-account-group.png",
-]);
+const localOptimizedAssets: Record<string, string> = {
+  "/assets/brand/ONLY-logotype.png": "/optimized-assets/brand/ONLY-logotype.png",
+  "/assets/project-covers/support-account.png": "/optimized-assets/project-covers/support-account.png",
+  "/assets/project-covers/support-account-group.png":
+    "/optimized-assets/project-covers/support-account-group.png",
+};
 
 export function resolveAssetUrl(pathname: string) {
-  if (localOptimizedAssets.has(pathname)) {
-    return pathname;
+  if (localOptimizedAssets[pathname]) {
+    return localOptimizedAssets[pathname];
   }
 
   return blobAssetManifest[pathname] ?? pathname;
