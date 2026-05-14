@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { type Locale } from "@/lib/i18n";
 import { getPageCopy } from "@/lib/page-copy";
 import { contactEmail, contactPhone, contactPhoneHref, getSiteContent } from "@/lib/site-content";
-import { getPageMetadata } from "@/lib/seo";
+import { getBreadcrumbSchema, getFaqSchema, getPageMetadata, getWebPageSchema } from "@/lib/seo";
 
 export const metadata: Metadata = getPageMetadata({
   locale: "bg",
@@ -15,9 +15,35 @@ export const metadata: Metadata = getPageMetadata({
 export function ContactPageView({ locale = "bg" }: { locale?: Locale }) {
   const copy = getPageCopy(locale).contact;
   const siteContent = getSiteContent(locale);
+  const pageSchema = getWebPageSchema({
+    locale,
+    path: "/contact",
+    title: copy.metaTitle,
+    description: copy.metaDescription,
+  });
+  const breadcrumbSchema = getBreadcrumbSchema({
+    locale,
+    path: "/contact",
+    title: copy.metaTitle,
+  });
 
   return (
     <main className="site-shell" id="top">
+      <script
+        id="webpage-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }}
+      />
+      <script
+        id="breadcrumb-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        id="faq-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(getFaqSchema(locale)) }}
+      />
       <section className="section-grid">
         <div className="section-heading page-intro">
           <h1>{copy.title}</h1>

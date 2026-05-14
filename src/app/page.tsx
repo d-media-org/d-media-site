@@ -10,7 +10,7 @@ import {
 } from "@/lib/site-content";
 import { localizeHref, type Locale } from "@/lib/i18n";
 import { getPageCopy } from "@/lib/page-copy";
-import { getPageMetadata } from "@/lib/seo";
+import { getPageMetadata, getWebPageSchema } from "@/lib/seo";
 import { getSiteRuntimeConfig } from "@/lib/site-runtime-config";
 
 export const metadata: Metadata = getPageMetadata({
@@ -31,9 +31,20 @@ export async function HomePage({ locale = "bg" }: { locale?: Locale }) {
   }));
   const processSteps = localizedContent.coreProcess;
   const aboutSummary = localizedContent.aboutSummary;
+  const pageSchema = getWebPageSchema({
+    locale,
+    path: "/",
+    title: copy.metaTitle,
+    description: copy.metaDescription,
+  });
 
   return (
     <main className="site-shell" id="top">
+      <script
+        id="webpage-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }}
+      />
       <section className="hero-grid home-hero">
         <div className="hero-copy">
           <p className="eyebrow">{copy.eyebrow}</p>

@@ -10,7 +10,7 @@ import { getFeaturedProjectSlugs } from "@/lib/featured-projects";
 import { localizeHref, type Locale } from "@/lib/i18n";
 import { getPageCopy } from "@/lib/page-copy";
 import { getUiCopy } from "@/lib/ui-copy";
-import { getPageMetadata } from "@/lib/seo";
+import { getBreadcrumbSchema, getPageMetadata, getWebPageSchema } from "@/lib/seo";
 
 export const metadata: Metadata = getPageMetadata({
   locale: "bg",
@@ -28,9 +28,30 @@ export async function ProjectsPageView({ locale = "bg" }: { locale?: Locale }) {
   const archiveProjects = resolvedProjectPngArchive.filter(
     (project) => !featuredProjectSlugs.includes(project.slug),
   );
+  const pageSchema = getWebPageSchema({
+    locale,
+    path: "/projects",
+    title: copy.metaTitle,
+    description: copy.metaDescription,
+  });
+  const breadcrumbSchema = getBreadcrumbSchema({
+    locale,
+    path: "/projects",
+    title: copy.metaTitle,
+  });
 
   return (
     <main className="site-shell" id="top">
+      <script
+        id="webpage-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }}
+      />
+      <script
+        id="breadcrumb-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <section className="section-grid">
         <div className="section-heading page-intro page-intro-balanced">
           <h1>

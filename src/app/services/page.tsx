@@ -7,7 +7,12 @@ import {
 } from "@/lib/site-content";
 import { localizeHref, type Locale } from "@/lib/i18n";
 import { getPageCopy } from "@/lib/page-copy";
-import { getPageMetadata } from "@/lib/seo";
+import {
+  getBreadcrumbSchema,
+  getPageMetadata,
+  getServiceCatalogSchema,
+  getWebPageSchema,
+} from "@/lib/seo";
 
 export const metadata: Metadata = getPageMetadata({
   locale: "bg",
@@ -19,9 +24,35 @@ export const metadata: Metadata = getPageMetadata({
 export function ServicesPageView({ locale = "bg" }: { locale?: Locale }) {
   const copy = getPageCopy(locale).services;
   const siteContent = getSiteContent(locale);
+  const pageSchema = getWebPageSchema({
+    locale,
+    path: "/services",
+    title: copy.metaTitle,
+    description: copy.metaDescription,
+  });
+  const breadcrumbSchema = getBreadcrumbSchema({
+    locale,
+    path: "/services",
+    title: copy.metaTitle,
+  });
 
   return (
     <main className="site-shell services-page" id="top">
+      <script
+        id="webpage-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }}
+      />
+      <script
+        id="breadcrumb-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        id="service-catalog-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(getServiceCatalogSchema(locale)) }}
+      />
       <section className="section-grid">
         <div className="section-heading page-intro">
           <h1>{copy.title}</h1>

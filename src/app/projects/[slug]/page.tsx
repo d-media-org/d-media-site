@@ -8,7 +8,13 @@ import { getResolvedAllProjectsArchive } from "@/lib/asset-url";
 import { localizeHref, type Locale } from "@/lib/i18n";
 import { getPageCopy } from "@/lib/page-copy";
 import { getUiCopy } from "@/lib/ui-copy";
-import { baseUrl, brandName } from "@/lib/seo";
+import {
+  baseUrl,
+  brandName,
+  getProjectBreadcrumbSchema,
+  getProjectCreativeWorkSchema,
+  getWebPageSchema,
+} from "@/lib/seo";
 
 type CaseStudyPageProps = {
   params: Promise<{
@@ -114,8 +120,43 @@ export async function CaseStudyPageView({
     notFound();
   }
 
+  const projectSchema = getProjectCreativeWorkSchema({
+    locale,
+    slug: project.slug,
+    title: project.title,
+    description: `${project.summary} ${project.context}`.trim(),
+    image: toAbsoluteAssetUrl(project.cover),
+    keywords: [project.title, ...project.focus],
+  });
+  const breadcrumbSchema = getProjectBreadcrumbSchema({
+    locale,
+    slug: project.slug,
+    title: project.title,
+  });
+  const webPageSchema = getWebPageSchema({
+    locale,
+    path: `/projects/${project.slug}`,
+    title: project.title,
+    description: `${project.summary} ${project.context}`.trim(),
+  });
+
   return (
     <main className="site-shell" id="top">
+      <script
+        id="webpage-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
+      />
+      <script
+        id="project-creative-work-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(projectSchema) }}
+      />
+      <script
+        id="project-breadcrumb-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <section className="section-grid">
         <div className="section-heading page-intro">
           <h1>{project.title}</h1>

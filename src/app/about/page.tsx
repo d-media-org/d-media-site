@@ -5,7 +5,7 @@ import { resolveAssetUrl } from "@/lib/asset-url";
 import { type Locale } from "@/lib/i18n";
 import { getPageCopy } from "@/lib/page-copy";
 import { getSiteContent } from "@/lib/site-content";
-import { getPageMetadata } from "@/lib/seo";
+import { getBreadcrumbSchema, getPageMetadata, getWebPageSchema } from "@/lib/seo";
 
 export const metadata: Metadata = getPageMetadata({
   locale: "bg",
@@ -31,9 +31,30 @@ export function AboutPageView({ locale = "bg" }: { locale?: Locale }) {
     locale === "en"
       ? "Download brand logo and logotype"
       : "Свали лого и логотип на марката";
+  const pageSchema = getWebPageSchema({
+    locale,
+    path: "/about",
+    title: copy.metaTitle,
+    description: copy.metaDescription,
+  });
+  const breadcrumbSchema = getBreadcrumbSchema({
+    locale,
+    path: "/about",
+    title: copy.metaTitle,
+  });
 
   return (
     <main className="site-shell" id="top">
+      <script
+        id="webpage-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }}
+      />
+      <script
+        id="breadcrumb-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <section className="section-grid">
         <div className="section-heading page-intro">
           <h1><BrandName /></h1>

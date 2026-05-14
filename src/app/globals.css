@@ -405,7 +405,7 @@ img {
   gap: var(--space-8);
   font-family: var(--font-panton-regular), sans-serif;
   font-size: var(--type-small);
-  color: var(--text-faint);
+  color: var(--muted);
   align-items: center;
 }
 

@@ -6,7 +6,7 @@ import { type Locale } from "@/lib/i18n";
 import { getTermsPolicy } from "@/lib/legal-content";
 import { getPageCopy } from "@/lib/page-copy";
 import { getSiteContent } from "@/lib/site-content";
-import { getPageMetadata } from "@/lib/seo";
+import { getBreadcrumbSchema, getPageMetadata, getWebPageSchema } from "@/lib/seo";
 
 export const metadata: Metadata = getPageMetadata({
   locale: "bg",
@@ -19,9 +19,30 @@ export function TermsPageView({ locale = "bg" }: { locale?: Locale }) {
   const copy = getPageCopy(locale).terms;
   const siteContent = getSiteContent(locale);
   const fullTermsSections = getTermsPolicy(locale);
+  const pageSchema = getWebPageSchema({
+    locale,
+    path: "/terms",
+    title: copy.metaTitle,
+    description: copy.metaDescription,
+  });
+  const breadcrumbSchema = getBreadcrumbSchema({
+    locale,
+    path: "/terms",
+    title: copy.metaTitle,
+  });
 
   return (
     <main className="site-shell terms-page" id="top">
+      <script
+        id="webpage-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(pageSchema) }}
+      />
+      <script
+        id="breadcrumb-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <section className="section-grid">
         <div className="section-heading page-intro">
           <h1>
