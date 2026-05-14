@@ -38,17 +38,17 @@
   --type-h3: 20px;
   --type-body: 16px;
   --type-small: 12px;
-  --font-panton-regular: var(--font-panton-regular-file);
-  --font-panton-light: var(--font-panton-light-file);
-  --font-panton-semibold: var(--font-panton-semibold-file);
-  --font-panton-bold: var(--font-panton-bold-file);
-  --font-panton-black: var(--font-panton-black-file);
+  --font-panton-regular: var(--font-panton);
+  --font-panton-light: var(--font-panton);
+  --font-panton-semibold: var(--font-panton);
+  --font-panton-bold: var(--font-panton);
+  --font-panton-black: var(--font-panton);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-panton-regular), sans-serif;
+  --font-sans: var(--font-panton), sans-serif;
 }
 
 * {
@@ -71,7 +71,7 @@ html[data-theme="light"] {
 body {
   background: var(--background);
   color: var(--text);
-  font-family: var(--font-panton-regular), sans-serif;
+  font-family: var(--font-panton), sans-serif;
   font-feature-settings: "locl" 1;
   margin: 0;
 }
@@ -639,10 +639,10 @@ img {
 }
 
 .hero-copy h1 {
-  font-family: var(--font-panton-bold), sans-serif;
+  font-family: var(--font-panton-black), sans-serif;
   font-size: var(--type-h1);
-  line-height: 1.04;
-  letter-spacing: -0.05em;
+  line-height: 1.02;
+  letter-spacing: -0.055em;
   max-width: 12ch;
   color: var(--foreground);
 }

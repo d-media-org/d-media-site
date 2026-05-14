@@ -19,35 +19,15 @@ import { getSiteRuntimeConfig } from "@/lib/site-runtime-config";
 
 import "./globals.css";
 
-const pantonRegular = localFont({
-  src: "../../public/fonts/panton/Panton-Regular.otf",
-  variable: "--font-panton-regular-file",
-  display: "swap",
-});
-
-const pantonSemiBold = localFont({
-  src: "../../public/fonts/panton/Panton-SemiBold.otf",
-  variable: "--font-panton-semibold-file",
-  display: "swap",
-});
-
-const pantonBlack = localFont({
-  src: "../../public/fonts/panton/Panton-Black.otf",
-  variable: "--font-panton-black-file",
-  display: "swap",
-  preload: false,
-});
-
-const pantonLight = localFont({
-  src: "../../public/fonts/panton/Panton-Light.otf",
-  variable: "--font-panton-light-file",
-  display: "swap",
-  preload: false,
-});
-
-const pantonBold = localFont({
-  src: "../../public/fonts/panton/Panton-Bold.otf",
-  variable: "--font-panton-bold-file",
+const pantonWeb = localFont({
+  src: [
+    { path: "../../public/fonts/panton/Panton-Light.otf", weight: "300", style: "normal" },
+    { path: "../../public/fonts/panton/Panton-Regular.otf", weight: "400", style: "normal" },
+    { path: "../../public/fonts/panton/Panton-SemiBold.otf", weight: "600", style: "normal" },
+    { path: "../../public/fonts/panton/Panton-Bold.otf", weight: "700", style: "normal" },
+    { path: "../../public/fonts/panton/Panton-Black.otf", weight: "900", style: "normal" },
+  ],
+  variable: "--font-panton",
   display: "swap",
 });
 
@@ -126,7 +106,7 @@ export default async function RootLayout({
     <html lang={locale} suppressHydrationWarning>
       <head />
       <body
-        className={`${pantonRegular.variable} ${pantonSemiBold.variable} ${pantonBlack.variable} ${pantonLight.variable} ${pantonBold.variable} antialiased`}
+        className={`${pantonWeb.variable} antialiased`}
       >
         <Script id="theme-sync" strategy="beforeInteractive">
           {`(() => {
