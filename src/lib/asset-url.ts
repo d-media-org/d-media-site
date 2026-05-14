@@ -3,7 +3,17 @@ import { type Locale } from "@/lib/i18n";
 import { getLegacyMockupCollections, legacyProjectArchive } from "@/lib/legacy-project-archive";
 import { getProjectPngArchive, projectPngArchive } from "@/lib/project-png-archive";
 
+const localOptimizedAssets = new Set([
+  "/assets/brand/ONLY-logotype.png",
+  "/assets/project-covers/support-account.png",
+  "/assets/project-covers/support-account-group.png",
+]);
+
 export function resolveAssetUrl(pathname: string) {
+  if (localOptimizedAssets.has(pathname)) {
+    return pathname;
+  }
+
   return blobAssetManifest[pathname] ?? pathname;
 }
 
