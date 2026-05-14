@@ -1,17 +1,24 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Script from "next/script";
-import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 
-import { AnalyticsEvents } from "@/components/analytics-events";
 import { getLocaleFromPathname, localizeHref } from "@/lib/i18n";
 import { getUiCopy } from "@/lib/ui-copy";
 
 const CONSENT_KEY = "d-media-consent";
+const AnalyticsEvents = dynamic(() =>
+  import("@/components/analytics-events").then((mod) => mod.AnalyticsEvents),
+);
+const Analytics = dynamic(() =>
+  import("@vercel/analytics/next").then((mod) => mod.Analytics),
+);
+const SpeedInsights = dynamic(() =>
+  import("@vercel/speed-insights/next").then((mod) => mod.SpeedInsights),
+);
 
 type ConsentState = "accepted" | "rejected" | null;
 

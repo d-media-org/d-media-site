@@ -11,7 +11,7 @@ import { getSiteContent } from "@/lib/site-content";
 export const baseUrl = "https://www.d-media.org";
 export const brandName = "d . media";
 export const defaultSocialImage = {
-  url: `${baseUrl}/api/social-preview?v=20260419-1`,
+  url: `${baseUrl}/social-preview-dmedia-v2.png`,
   width: 1200,
   height: 630,
   alt: brandName,
