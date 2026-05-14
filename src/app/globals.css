@@ -635,7 +635,7 @@ img {
   letter-spacing: -0.04em;
   max-width: 100%;
   text-wrap: balance;
-  overflow-wrap: anywhere;
+  overflow-wrap: break-word;
 }
 
 .hero-copy h1 {
@@ -2733,6 +2733,12 @@ html[data-embedded-ios="true"] .gallery-lightbox {
 }
 
 @media (max-width: 767px) {
+  .home-section,
+  .site-footer {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 960px;
+  }
+
   .site-shell {
     --section-space: 64px;
     --section-gap: 24px;
@@ -2778,6 +2784,7 @@ html[data-embedded-ios="true"] .gallery-lightbox {
     font-size: clamp(30px, 8.8vw, 36px);
     line-height: 1.12;
     max-width: 100%;
+    text-wrap: pretty;
   }
 
   .hero-text,
@@ -2984,6 +2991,7 @@ html[data-embedded-ios="true"] .gallery-lightbox {
   .page-intro h1,
   .contact-card h2 {
     font-size: clamp(28px, 9vw, 36px);
+    text-wrap: pretty;
   }
 
   .hero-text,
