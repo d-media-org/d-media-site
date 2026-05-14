@@ -27,7 +27,7 @@ export async function ProjectShowcase({
                   src={project.cover}
                   alt={project.title}
                   fill
-                  sizes="(max-width: 979px) 100vw, 50vw"
+                  sizes="(max-width: 767px) calc(100vw - 32px), (max-width: 1199px) 48vw, 500px"
                 />
               </div>
             </div>

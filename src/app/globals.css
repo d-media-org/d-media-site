@@ -1470,7 +1470,7 @@ img {
   line-height: 1.1;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--text-faint);
+  color: var(--muted);
   margin: 0;
 }
 
@@ -2775,8 +2775,8 @@ html[data-embedded-ios="true"] .gallery-lightbox {
   .section-heading h2,
   .page-intro h1,
   .contact-card h2 {
-    font-size: clamp(32px, 10vw, 40px);
-    line-height: 1.2;
+    font-size: clamp(30px, 8.8vw, 36px);
+    line-height: 1.12;
     max-width: 100%;
   }
 
