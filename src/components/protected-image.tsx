@@ -1,5 +1,3 @@
-"use client";
-
 import Image, { type ImageProps } from "next/image";
 
 type ProtectedImageProps = ImageProps & {
@@ -15,8 +13,6 @@ export function ProtectedImage({
   return (
     <span
       className={`protected-image${protectionClassName ? ` ${protectionClassName}` : ""}`}
-      onContextMenu={(event) => event.preventDefault()}
-      onDragStart={(event) => event.preventDefault()}
     >
       <Image
         alt={alt}
