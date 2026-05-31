@@ -114,9 +114,8 @@ export default async function RootLayout({
             const media = window.matchMedia("(prefers-color-scheme: dark)");
             const STORAGE_KEY = "d-media-theme-mode";
             const userAgent = window.navigator.userAgent || "";
-            const isIosMobile = /iPhone|iPad|iPod/i.test(userAgent);
             const isEmbeddedIos =
-              isIosMobile &&
+              /iPhone|iPad|iPod/i.test(userAgent) &&
               /(FBAN|FBAV|FB_IAB|Messenger|Instagram)/i.test(userAgent);
 
             const getStoredMode = () => {
@@ -134,7 +133,6 @@ export default async function RootLayout({
                 : mode;
               root.dataset.themeMode = mode;
               root.dataset.theme = resolvedTheme;
-              root.dataset.iosMobile = isIosMobile ? "true" : "false";
               root.dataset.embeddedIos = isEmbeddedIos ? "true" : "false";
               root.lang = window.location.pathname === "/en" || window.location.pathname.startsWith("/en/")
                 ? "en"

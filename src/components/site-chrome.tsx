@@ -232,14 +232,6 @@ export function SiteFooter() {
   const [showTopButton, setShowTopButton] = useState(false);
 
   useEffect(() => {
-    const isIosMobile = document.documentElement.dataset.iosMobile === "true";
-
-    if (isIosMobile) {
-      return;
-    }
-
-    let frame = 0;
-
     const handleScroll = () => {
       if (window.innerWidth >= 980) {
         setShowTopButton(window.scrollY > 120);
@@ -252,27 +244,13 @@ export function SiteFooter() {
       setShowTopButton(window.scrollY > 240 && !shouldHideForFooter);
     };
 
-    const scheduleHandleScroll = () => {
-      if (frame !== 0) {
-        return;
-      }
-
-      frame = window.requestAnimationFrame(() => {
-        frame = 0;
-        handleScroll();
-      });
-    };
-
     handleScroll();
-    window.addEventListener("scroll", scheduleHandleScroll, { passive: true });
-    window.addEventListener("resize", scheduleHandleScroll, { passive: true });
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll);
 
     return () => {
-      if (frame !== 0) {
-        window.cancelAnimationFrame(frame);
-      }
-      window.removeEventListener("scroll", scheduleHandleScroll);
-      window.removeEventListener("resize", scheduleHandleScroll);
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
     };
   }, []);
 
@@ -367,7 +345,6 @@ function ThemeToggle({
   useEffect(() => {
     const root = document.documentElement;
     const media = window.matchMedia("(prefers-color-scheme: dark)");
-    const isIosMobile = root.dataset.iosMobile === "true";
     const STORAGE_KEY = "d-media-theme-mode";
     const readStoredMode = () => {
       try {
@@ -407,21 +384,17 @@ function ThemeToggle({
       }
     };
 
-    if (!isIosMobile) {
-      if (typeof media.addEventListener === "function") {
-        media.addEventListener("change", syncAutoMode);
-      } else if (typeof media.addListener === "function") {
-        media.addListener(syncAutoMode);
-      }
+    if (typeof media.addEventListener === "function") {
+      media.addEventListener("change", syncAutoMode);
+    } else if (typeof media.addListener === "function") {
+      media.addListener(syncAutoMode);
     }
 
     return () => {
-      if (!isIosMobile) {
-        if (typeof media.removeEventListener === "function") {
-          media.removeEventListener("change", syncAutoMode);
-        } else if (typeof media.removeListener === "function") {
-          media.removeListener(syncAutoMode);
-        }
+      if (typeof media.removeEventListener === "function") {
+        media.removeEventListener("change", syncAutoMode);
+      } else if (typeof media.removeListener === "function") {
+        media.removeListener(syncAutoMode);
       }
     };
   }, []);

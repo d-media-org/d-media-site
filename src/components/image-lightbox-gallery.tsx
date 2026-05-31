@@ -32,20 +32,9 @@ export function ImageLightboxGallery({
 }: ImageLightboxGalleryProps) {
   const ui = getUiCopy(locale);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const [isLightboxEnabled] = useState(() => {
-    if (typeof document === "undefined") {
-      return true;
-    }
-
-    const root = document.documentElement.dataset;
-    const isIosMobile = root.iosMobile === "true";
-    const isEmbeddedIos = root.embeddedIos === "true";
-
-    return !(isIosMobile || isEmbeddedIos);
-  });
 
   useEffect(() => {
-    if (!isLightboxEnabled || activeIndex === null) {
+    if (activeIndex === null) {
       return;
     }
 
@@ -57,7 +46,7 @@ export function ImageLightboxGallery({
 
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [activeIndex, isLightboxEnabled]);
+  }, [activeIndex]);
 
   const activeItem = activeIndex === null ? null : items[activeIndex];
 
@@ -66,23 +55,12 @@ export function ImageLightboxGallery({
       <div className={gridClassName}>
         {items.map((item, index) => (
           <article className={cardClassName} key={item.src}>
-            {isLightboxEnabled ? (
-              <button
-                type="button"
-                className={triggerClassName}
-                onClick={() => setActiveIndex(index)}
-                aria-label={`${ui.mockupHint}: ${item.alt}`}
-              >
-                <div className={frameClassName}>
-                  <ProtectedImage
-                    src={item.src}
-                    alt={item.alt}
-                    fill
-                    sizes={imageSizes}
-                  />
-                </div>
-              </button>
-            ) : (
+            <button
+              type="button"
+              className={triggerClassName}
+              onClick={() => setActiveIndex(index)}
+              aria-label={`${ui.mockupHint}: ${item.alt}`}
+            >
               <div className={frameClassName}>
                 <ProtectedImage
                   src={item.src}
@@ -91,12 +69,12 @@ export function ImageLightboxGallery({
                   sizes={imageSizes}
                 />
               </div>
-            )}
+            </button>
           </article>
         ))}
       </div>
 
-      {isLightboxEnabled && activeItem ? (
+      {activeItem ? (
         <div
           className="gallery-lightbox"
           role="dialog"
