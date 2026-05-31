@@ -82,7 +82,7 @@ export async function ProjectsPageView({ locale = "bg" }: { locale?: Locale }) {
         </div>
         <div className="archive-grid">
           {archiveProjects.map((project) => (
-            <Link className="card archive-card archive-project-card showcase-link-card" href={localizeHref(locale, `/projects/${project.slug}`)} key={project.slug}>
+            <Link className="card archive-card archive-project-card showcase-link-card" href={localizeHref(locale, `/projects/${project.slug}`)} key={project.slug} prefetch={false}>
               <article>
                 <div className="archive-project-cover">
                   <div className="archive-project-cover-frame">
@@ -90,7 +90,7 @@ export async function ProjectsPageView({ locale = "bg" }: { locale?: Locale }) {
                       src={project.cover}
                       alt={project.title}
                       fill
-                      sizes="(max-width: 767px) 100vw, 720px"
+                      sizes="(max-width: 767px) calc(100vw - 32px), 720px"
                     />
                   </div>
                 </div>

@@ -10,6 +10,7 @@
     "lint": "eslint",
     "lint:cache": "eslint --cache --cache-location .eslintcache",
     "check": "npm run build && npm run lint:cache",
+    "assets:web": "node scripts/generate-web-assets.mjs",
     "sync:blob": "node --env-file=.env.local scripts/sync-blob-assets.mjs",
     "ship": "npm run check && npx vercel --prod --yes"
   },
@@ -31,6 +32,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.1.7",
     "playwright": "^1.58.2",
+    "sharp": "^0.34.5",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

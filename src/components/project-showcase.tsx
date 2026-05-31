@@ -19,7 +19,7 @@ export async function ProjectShowcase({
   return (
     <div className={className ? `showcase-grid ${className}` : "showcase-grid"}>
       {featuredProjects.map((project) => (
-        <Link className="card showcase-card showcase-link-card" href={localizeHref(locale, `/projects/${project.slug}`)} key={project.slug}>
+        <Link className="card showcase-card showcase-link-card" href={localizeHref(locale, `/projects/${project.slug}`)} key={project.slug} prefetch={false}>
           <article>
             <div className="showcase-image">
               <div className="showcase-image-frame">
