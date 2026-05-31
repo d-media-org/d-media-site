@@ -4,8 +4,11 @@ import { spawnSync } from "node:child_process";
 
 const sourceRoot =
   "/Users/m.dragoev/Library/Mobile Documents/com~apple~CloudDocs/d . media/Projects/Brand projects";
-const projectOutputRoot = path.resolve("public/assets/project-pngs");
-const projectCoverRoot = path.resolve("public/assets/project-covers");
+const sourceAssetRoot =
+  process.env.D_MEDIA_SOURCE_ASSET_ROOT ??
+  path.resolve("..", "d . media - site source archive", "assets");
+const projectOutputRoot = path.join(sourceAssetRoot, "project-pngs");
+const projectCoverRoot = path.join(sourceAssetRoot, "project-covers");
 const dataOutputPath = path.resolve("src/lib/project-png-archive.ts");
 const excludedDirectories = new Set(["салон за красота Нюанси - файлове"]);
 const fixedSlugByDirectory = {

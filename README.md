@@ -1,37 +1,61 @@
 ## d . media - site
 
-Официалният уеб проект на `d . media`, изграден с `Next.js` според брандбука на бранда.
+Официалният Next.js сайт на `d . media`. Визуалната система използва само локалните Panton файлове и следва текущия brand book.
 
 ## Local Development
 
-Стартиране на локален development server:
-
 ```bash
+npm install
 npm run dev
-```
-
-Отвори [http://localhost:3000](http://localhost:3000), за да видиш сайта локално.
-
-Основните route-ове са:
-- `/`
-- `/projects`
-- `/services`
-- `/about`
-
-Типографията използва локални файлове от `Panton`.
-
-## Build
-
-```bash
+npm run lint
 npm run build
 ```
 
-## Deploy
+## Asset Pipeline
 
-Препоръчителният deploy target е `Vercel`, след което домейнът `d-media.org` може да бъде вързан през `Cloudflare DNS`.
+Source originals не се deploy-ват. Те се пазят в:
 
-## Notes
+```text
+/Users/m.dragoev/d . media - site source archive/assets/
+```
 
-- брандът винаги се изписва като `d . media`
-- използва се само `Panton`
-- визуалната система следва монохромната рамка от brand book-а
+Структурата съдържа `project-covers/`, `project-pngs/`, `legacy-project-files/` и архивни документи. Browser-facing WebP derivatives се генерират в `public/optimized-assets/project-web/`:
+
+```bash
+npm run assets:web
+```
+
+Blob manifest се синхронизира от source архива, публичните brand assets и активните PDF downloads:
+
+```bash
+npm run sync:blob
+npm run blob:audit
+```
+
+Ако shell средата съдържа `VERCEL_OIDC_TOKEN`, Blob audit командата го изключва и използва `BLOB_READ_WRITE_TOKEN`, за да избегне CLI credential conflict.
+
+## Edge Config
+
+Поддържани ключове:
+
+- `featuredProjectSlugs`: масив от валидни project slug стойности.
+- `siteRuntimeConfig.announcement`: `{ text, href? }` или `null`.
+- `siteRuntimeConfig.home.sections.services`: boolean.
+- `siteRuntimeConfig.home.sections.about`: boolean.
+
+При липсващ или невалиден Edge Config сайтът използва безопасни fallback стойности.
+
+## Release Checklist
+
+1. Изпълни `npm run assets:web`, ако source assets са променени.
+2. Изпълни `npm run lint`, `npm run build` и `npm audit`.
+3. Качи Vercel preview.
+4. Провери BG/EN routes, `/projects`, detail routes, lightbox и WebKit iPhone stress сценария.
+5. Провери `robots.txt`, `sitemap.xml`, manifest и social preview.
+6. Качи live само при чист preview резултат.
+
+## Brand Rules
+
+- Брандът винаги се изписва като `d . media`.
+- Използва се само `Panton`.
+- Не променяй визуалната идентичност без изрична задача.

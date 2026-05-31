@@ -2,13 +2,15 @@ import fs from "node:fs";
 import path from "node:path";
 import { put } from "@vercel/blob";
 
+const sourceAssetRoot =
+  process.env.D_MEDIA_SOURCE_ASSET_ROOT ??
+  path.resolve("..", "d . media - site source archive", "assets");
 const assetRoots = [
-  path.resolve("public/assets/brand"),
-  path.resolve("public/assets/legacy-project-covers"),
-  path.resolve("public/assets/legacy-project-files"),
-  path.resolve("public/assets/project-covers"),
-  path.resolve("public/assets/project-pngs"),
-  path.resolve("public/assets/documents"),
+  { directory: path.resolve("public/assets/brand"), publicPrefix: "assets/brand" },
+  { directory: path.join(sourceAssetRoot, "legacy-project-files"), publicPrefix: "assets/legacy-project-files" },
+  { directory: path.join(sourceAssetRoot, "project-covers"), publicPrefix: "assets/project-covers" },
+  { directory: path.join(sourceAssetRoot, "project-pngs"), publicPrefix: "assets/project-pngs" },
+  { directory: path.resolve("public/assets/documents"), publicPrefix: "assets/documents" },
 ];
 
 const manifestOutputPath = path.resolve("src/lib/blob-asset-manifest.ts");
@@ -33,9 +35,9 @@ function walk(directory) {
   });
 }
 
-function toPublicPath(absoluteFilePath) {
-  const relativeToPublic = path.relative(path.resolve("public"), absoluteFilePath);
-  return `/${relativeToPublic.split(path.sep).join("/")}`;
+function toPublicPath(absoluteFilePath, root) {
+  const relativePath = path.relative(root.directory, absoluteFilePath);
+  return `/${path.join(root.publicPrefix, relativePath).split(path.sep).join("/")}`;
 }
 
 function getContentType(filePath) {
@@ -43,8 +45,9 @@ function getContentType(filePath) {
   return contentTypeByExtension[extension] ?? "application/octet-stream";
 }
 
-async function uploadFile(filePath) {
-  const pathname = toPublicPath(filePath).slice(1);
+async function uploadFile(filePath, root) {
+  const publicPath = toPublicPath(filePath, root);
+  const pathname = publicPath.slice(1);
   const body = fs.readFileSync(filePath);
   const sizeInMegabytes = body.byteLength / (1024 * 1024);
   const version = Math.round(fs.statSync(filePath).mtimeMs);
@@ -57,7 +60,7 @@ async function uploadFile(filePath) {
     multipart: sizeInMegabytes >= 4.5,
   });
 
-  return [toPublicPath(filePath), `${blob.url}?v=${version}`];
+  return [publicPath, `${blob.url}?v=${version}`];
 }
 
 async function main() {
@@ -65,11 +68,13 @@ async function main() {
     throw new Error("Missing BLOB_READ_WRITE_TOKEN. Pull Vercel env first.");
   }
 
-  const files = assetRoots.flatMap((root) => walk(root)).sort();
+  const files = assetRoots.flatMap((root) =>
+    walk(root.directory).map((filePath) => ({ filePath, root })),
+  ).sort((left, right) => left.filePath.localeCompare(right.filePath));
   const manifestEntries = [];
 
-  for (const filePath of files) {
-    const [publicPath, blobUrl] = await uploadFile(filePath);
+  for (const { filePath, root } of files) {
+    const [publicPath, blobUrl] = await uploadFile(filePath, root);
     manifestEntries.push([publicPath, blobUrl]);
   }
 

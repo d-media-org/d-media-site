@@ -24,7 +24,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return localizedPaths.map((path) => ({
     url: `${baseUrl}${path}`,
-    lastModified: new Date(),
     changeFrequency: path === "/" || path === "/en" ? "weekly" : path.includes("/projects/") ? "monthly" : "monthly",
     priority:
       path === "/" || path === "/en"

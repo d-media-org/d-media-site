@@ -9,7 +9,9 @@ const assetRoots = [
   "project-pngs",
   "legacy-project-files",
 ];
-const sourceRoot = "public/assets";
+const sourceRoot =
+  process.env.D_MEDIA_SOURCE_ASSET_ROOT ??
+  path.resolve("..", "d . media - site source archive", "assets");
 const outputRoot = "public/optimized-assets/project-web";
 const manifestPath = "src/lib/generated-web-asset-manifest.ts";
 const imagePattern = /\.(png|jpe?g)$/i;
@@ -49,7 +51,8 @@ const files = (
 const manifest = {};
 
 for (const sourcePath of files) {
-  const assetPath = `/${sourcePath.replace(/^public\//, "").split(path.sep).join("/")}`;
+  const relativeAssetPath = path.relative(sourceRoot, sourcePath).split(path.sep).join("/");
+  const assetPath = `/assets/${relativeAssetPath}`;
   const outputName = getOutputName(assetPath);
   const outputPath = path.join(outputRoot, outputName);
   const outputUrl = `/optimized-assets/project-web/${outputName}`;

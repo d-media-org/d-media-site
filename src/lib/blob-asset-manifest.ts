@@ -2,7 +2,6 @@ export const blobAssetManifest: Record<string, string> = {
   "/assets/brand/ONLY-brandmark.png": "https://doncv5yem7gbmqbm.public.blob.vercel-storage.com/assets/brand/ONLY-brandmark.png?v=1773780070600",
   "/assets/brand/ONLY-logotype.png": "https://doncv5yem7gbmqbm.public.blob.vercel-storage.com/assets/brand/ONLY-logotype.png?v=1773780070605",
   "/assets/brand/sketch-logotype.png": "https://doncv5yem7gbmqbm.public.blob.vercel-storage.com/assets/brand/sketch-logotype.png?v=1773778099870",
-  "/assets/documents/d-media-brandbook.pdf": "https://doncv5yem7gbmqbm.public.blob.vercel-storage.com/assets/documents/d-media-brandbook.pdf?v=1773945459851",
   "/assets/legacy-project-files/flyer-mockups/481159328_2724640094395065_5692584808678090360_n.jpg": "https://doncv5yem7gbmqbm.public.blob.vercel-storage.com/assets/legacy-project-files/flyer-mockups/481159328_2724640094395065_5692584808678090360_n.jpg?v=1774299481371",
   "/assets/legacy-project-files/flyer-mockups/481260778_2724640077728400_882415871851379020_n.jpg": "https://doncv5yem7gbmqbm.public.blob.vercel-storage.com/assets/legacy-project-files/flyer-mockups/481260778_2724640077728400_882415871851379020_n.jpg?v=1774299481376",
   "/assets/legacy-project-files/flyer-mockups/481332918_2724640057728402_2347982715872970579_n.jpg": "https://doncv5yem7gbmqbm.public.blob.vercel-storage.com/assets/legacy-project-files/flyer-mockups/481332918_2724640057728402_2347982715872970579_n.jpg?v=1774299481380",
