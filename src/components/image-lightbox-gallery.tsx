@@ -33,9 +33,18 @@ export function ImageLightboxGallery({
 }: ImageLightboxGalleryProps) {
   const ui = getUiCopy(locale);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const [isLightboxEnabled, setIsLightboxEnabled] = useState(false);
 
   useEffect(() => {
-    if (activeIndex === null) {
+    const frame = window.requestAnimationFrame(() => {
+      setIsLightboxEnabled(!window.matchMedia("(max-width: 767px)").matches);
+    });
+
+    return () => window.cancelAnimationFrame(frame);
+  }, []);
+
+  useEffect(() => {
+    if (!isLightboxEnabled || activeIndex === null) {
       return;
     }
 
@@ -47,7 +56,7 @@ export function ImageLightboxGallery({
 
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [activeIndex]);
+  }, [activeIndex, isLightboxEnabled]);
 
   const activeItem = activeIndex === null ? null : items[activeIndex];
 
@@ -56,12 +65,23 @@ export function ImageLightboxGallery({
       <div className={gridClassName}>
         {items.map((item, index) => (
           <article className={cardClassName} key={item.src}>
-            <button
-              type="button"
-              className={triggerClassName}
-              onClick={() => setActiveIndex(index)}
-              aria-label={`${ui.mockupHint}: ${item.alt}`}
-            >
+            {isLightboxEnabled ? (
+              <button
+                type="button"
+                className={triggerClassName}
+                onClick={() => setActiveIndex(index)}
+                aria-label={`${ui.mockupHint}: ${item.alt}`}
+              >
+                <div className={frameClassName}>
+                  <ViewportProtectedImage
+                    src={item.src}
+                    alt={item.alt}
+                    fill
+                    sizes={imageSizes}
+                  />
+                </div>
+              </button>
+            ) : (
               <div className={frameClassName}>
                 <ViewportProtectedImage
                   src={item.src}
@@ -70,12 +90,12 @@ export function ImageLightboxGallery({
                   sizes={imageSizes}
                 />
               </div>
-            </button>
+            )}
           </article>
         ))}
       </div>
 
-      {activeItem ? (
+      {isLightboxEnabled && activeItem ? (
         <div
           className="gallery-lightbox"
           role="dialog"

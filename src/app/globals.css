@@ -2550,6 +2550,25 @@ html[data-embedded-ios="true"] .gallery-lightbox {
   cursor: default;
 }
 
+.mobile-deferred-details {
+  width: 100%;
+  max-width: 1120px;
+  overflow: hidden;
+}
+
+.mobile-deferred-details[open] > .archive-summary {
+  border-bottom: 1px solid var(--line);
+}
+
+.mobile-deferred-details > .archive-grid,
+.mobile-deferred-details > .legacy-mockup-grid {
+  padding: var(--space-16);
+}
+
+.legacy-mockup-details .archive-summary p {
+  max-width: 64ch;
+}
+
 .services-cta-card,
 .projects-cta-card {
   display: grid;
