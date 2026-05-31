@@ -41,7 +41,6 @@ export const blobAssetManifest: Record<string, string> = {
   "/assets/project-covers/syanka-ot-minaloto.png": "https://doncv5yem7gbmqbm.public.blob.vercel-storage.com/assets/project-covers/syanka-ot-minaloto.png?v=1750691368000",
   "/assets/project-covers/ts-makeup.png": "https://doncv5yem7gbmqbm.public.blob.vercel-storage.com/assets/project-covers/ts-makeup.png?v=1648139180000",
   "/assets/project-covers/yanita.png": "https://doncv5yem7gbmqbm.public.blob.vercel-storage.com/assets/project-covers/yanita.png?v=1776100083501",
-  "/assets/project-pngs/.DS_Store": "https://doncv5yem7gbmqbm.public.blob.vercel-storage.com/assets/project-pngs/.DS_Store?v=1774288877583",
   "/assets/project-pngs/aneliart/01.png": "https://doncv5yem7gbmqbm.public.blob.vercel-storage.com/assets/project-pngs/aneliart/01.png?v=1612121413000",
   "/assets/project-pngs/boris-lilov-photography/01.png": "https://doncv5yem7gbmqbm.public.blob.vercel-storage.com/assets/project-pngs/boris-lilov-photography/01.png?v=1715245965000",
   "/assets/project-pngs/boris-lilov-photography/02.png": "https://doncv5yem7gbmqbm.public.blob.vercel-storage.com/assets/project-pngs/boris-lilov-photography/02.png?v=1715246617000",

@@ -24,6 +24,10 @@ const contentTypeByExtension = {
 
 function walk(directory) {
   return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
+    if (entry.name === ".DS_Store") {
+      return [];
+    }
+
     const fullPath = path.join(directory, entry.name);
     return entry.isDirectory() ? walk(fullPath) : fullPath;
   });
