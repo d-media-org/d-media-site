@@ -3,8 +3,8 @@ import Link from "next/link";
 
 import { BrandText } from "@/components/brand-text";
 import { ImageLightboxGallery } from "@/components/image-lightbox-gallery";
-import { ProtectedImage } from "@/components/protected-image";
 import { ProjectShowcase } from "@/components/project-showcase";
+import { ViewportProtectedImage } from "@/components/viewport-protected-image";
 import { getResolvedLegacyMockupCollections, getResolvedProjectPngArchive } from "@/lib/asset-url";
 import { getFeaturedProjectSlugs } from "@/lib/featured-projects";
 import { localizeHref, type Locale } from "@/lib/i18n";
@@ -86,7 +86,7 @@ export async function ProjectsPageView({ locale = "bg" }: { locale?: Locale }) {
               <article>
                 <div className="archive-project-cover">
                   <div className="archive-project-cover-frame">
-                    <ProtectedImage
+                    <ViewportProtectedImage
                       src={project.cover}
                       alt={project.title}
                       fill

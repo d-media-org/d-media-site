@@ -1004,6 +1004,8 @@ img {
   display: block;
 }
 
+.showcase-image-frame .viewport-protected-image,
+.archive-project-cover-frame .viewport-protected-image,
 .mockup-image .viewport-protected-image,
 .legacy-mockup-frame .viewport-protected-image {
   position: absolute;
@@ -1011,6 +1013,8 @@ img {
   display: block;
 }
 
+.showcase-image-frame .viewport-protected-image .protected-image,
+.archive-project-cover-frame .viewport-protected-image .protected-image,
 .mockup-image .viewport-protected-image .protected-image,
 .legacy-mockup-frame .viewport-protected-image .protected-image {
   position: absolute;

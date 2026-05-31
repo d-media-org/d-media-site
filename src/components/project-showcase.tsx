@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { ProtectedImage } from "@/components/protected-image";
+import { ViewportProtectedImage } from "@/components/viewport-protected-image";
 import { getFeaturedProjects } from "@/lib/featured-projects";
 import type { Locale } from "@/lib/i18n";
 import { localizeHref } from "@/lib/i18n";
@@ -23,7 +23,7 @@ export async function ProjectShowcase({
           <article>
             <div className="showcase-image">
               <div className="showcase-image-frame">
-                <ProtectedImage
+                <ViewportProtectedImage
                   src={project.cover}
                   alt={project.title}
                   fill
