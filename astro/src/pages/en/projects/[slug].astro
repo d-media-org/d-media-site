@@ -19,6 +19,7 @@ const { project } = Astro.props;
 const copy = getPageCopy(locale).projectDetail;
 const ui = getUiCopy(locale);
 const caseStudySections = "caseStudySections" in project ? project.caseStudySections : [];
+const projectHeroImage = "detailCover" in project ? project.detailCover : project.cover;
 const formatFileCount = (count: number) =>
   locale === "en" ? `${count} ${count === 1 ? "file" : "files"}` : `${count} ${count === 1 ? "файл" : "файла"}`;
 ---
@@ -34,7 +35,7 @@ const formatFileCount = (count: number) =>
       slug: project.slug,
       title: project.title,
       description: `${project.summary} ${project.context}`.trim(),
-      image: project.cover,
+      image: projectHeroImage,
       keywords: [project.title, ...project.focus],
     }),
     getProjectBreadcrumbSchema({ locale, slug: project.slug, title: project.title }),
@@ -50,7 +51,7 @@ const formatFileCount = (count: number) =>
       <article class="card case-study-hero">
         <div class="showcase-image case-study-image">
           <div class="case-study-image-frame">
-            <img src={project.cover} alt={project.title} loading="eager" decoding="async" />
+            <img src={projectHeroImage} alt={project.title} loading="eager" decoding="async" />
           </div>
         </div>
         <div class="case-study-body">

@@ -33,20 +33,21 @@ export const projectPngArchive = [
     "title": "d . media",
     "imageCount": 2,
     "cover": "/assets/brand/ONLY-logotype.png",
+    "detailCover": "/downloads/brand-assets/d . media logotype_transparent.png",
     "images": [
       {
-        "src": "/assets/brand/ONLY-logotype.png",
+        "src": "/downloads/brand-assets/d . media logotype_transparent.png",
         "label": "d . media logotype"
       },
       {
-        "src": "/assets/brand/ONLY-brandmark.png",
+        "src": "/downloads/brand-assets/d . media logo_transparent.png",
         "label": "d . media brand mark"
       }
     ],
     "featured": true,
     "priority": 0,
-    "summary": "Собствената платформа на d . media, изградена като бърз сайт с Astro, Cloudflare, SEO и GEO основа.",
-    "context": "Проектът показва как бранд идентичност, съдържание, уеб архитектура и реално приложение работят в една система.",
+    "summary": "Собствената платформа на d . media, изградена като бърз, многоезичен и поддържим сайт с ясна SEO/GEO основа.",
+    "context": "Проектът показва как бранд идентичност, съдържание, уеб архитектура, производителност и реално приложение работят в една система.",
     "focus": [
       "100 Performance, 100 Accessibility, 100 Best Practices и 100 SEO в Lighthouse",
       "Миграция към Astro и Cloudflare Pages",
@@ -55,35 +56,43 @@ export const projectPngArchive = [
     "caseStudySections": [
       {
         "title": "Предизвикателство",
-        "text": "Сайтът трябваше да представи d . media като творческо студио, без да губи скорост, яснота, SEO основа и стабилност в мобилна среда."
+        "text": "Сайтът трябваше да представи d . media като творческо студио, да събере услуги, проекти, брандбук, правни страници и двуезична структура, без да губи скорост, яснота и стабилност в мобилна среда."
       },
       {
         "title": "Подход",
-        "text": "Подредихме съдържанието, услугите, проектите и контактния flow в минимална система, която води към действие без визуален шум."
+        "text": "Подредихме съдържанието, услугите, проектите, контактния поток и архивите в минимална система, която води към действие без визуален шум."
       },
       {
         "title": "Архитектура",
-        "text": "Платформата е изградена около статична Astro архитектура, локални оптимизирани файлове, ясни маршрути и синхронизирана езикова структура между BG и EN."
+        "text": "Платформата премина от първоначален Next.js сайт към Astro/Cloudflare Pages архитектура с ясни маршрути, локални публични assets и синхронизирана езикова структура между BG и EN."
       },
       {
         "title": "Performance",
-        "text": "Целта беше сайтът да остане лек, бърз и стабилен: 100 Performance, 100 Accessibility, 100 Best Practices и 100 SEO в Lighthouse."
+        "text": "Финалната линия е стабилно PageSpeed/Lighthouse състояние около 100 Performance, 100 Accessibility, 100 Best Practices и 100 SEO, с възможни моментни флуктуации според измерването."
       },
       {
         "title": "Миграция към Astro",
-        "text": "Преминаването към Astro намали runtime тежестта и направи сайта по-предвидим за статично публикуване и дългосрочна поддръжка."
+        "text": "Миграцията към Astro намали runtime тежестта и направи сайта по-предвидим за статично публикуване, route validation и дългосрочна поддръжка."
       },
       {
         "title": "Миграция към Cloudflare",
-        "text": "Преместването към Cloudflare Pages даде по-чиста инфраструктура, директен контрол върху домейна и стабилна edge delivery основа."
+        "text": "Преместването към Cloudflare Pages даде по-чиста инфраструктура, директен контрол върху домейна, preview/live процес и премахване на активната зависимост от стар външен asset слой."
       },
       {
         "title": "SEO и GEO готовност",
-        "text": "Метаданни, canonical, hreflang, sitemap, schema и социални preview файлове са подредени за search, AI search и реална индексация."
+        "text": "Метаданни, canonical, hreflang, sitemap, schema, social preview и llms файлове са подредени за search, AI search и реална индексация."
+      },
+      {
+        "title": "Визуална система",
+        "text": "Сайтът запазва Panton типографията, монохромната editorial посока, logotype-only social preview логиката и минимална визуална система без декоративен шум."
+      },
+      {
+        "title": "Галерии и мобилна стабилност",
+        "text": "Проектният архив премина през оптимизация на PNG файлове, bounded web derivatives, portrait/landscape логика за mockup секции и специални итерации за iPhone/Safari стабилност."
       },
       {
         "title": "Резултат",
-        "text": "d-media.org работи като собствен работен пример: бранд система, съдържание и уеб платформа, изградени по същия стандарт, който предлагаме."
+        "text": "d-media.org работи като собствен работен пример: бранд система, съдържание, проектен архив и уеб платформа, изградени по същия стандарт, който предлагаме."
       }
     ]
   },
@@ -718,8 +727,8 @@ const localizedProjectCopy = {
   bg: {},
   en: {
     "d-media": {
-      summary: "The d . media platform, built as a performance-first website with Astro, Cloudflare, SEO, and GEO foundations.",
-      context: "The project shows how brand identity, content, web architecture, and real application work as one system.",
+      summary: "The d . media platform, built as a fast, multilingual, maintainable website with a clear SEO/GEO foundation.",
+      context: "The project shows how brand identity, content, web architecture, performance, and real application work as one system.",
       focus: [
         "100 Performance, 100 Accessibility, 100 Best Practices, and 100 SEO in Lighthouse",
         "Migration to Astro and Cloudflare Pages",
@@ -728,35 +737,43 @@ const localizedProjectCopy = {
       caseStudySections: [
         {
           title: "Challenge",
-          text: "The website had to present d . media as a creative studio without losing speed, clarity, SEO foundation, or mobile stability.",
+          text: "The website had to present d . media as a creative studio and bring together services, projects, the brand book, legal pages, and a bilingual structure without losing speed, clarity, or mobile stability.",
         },
         {
           title: "Approach",
-          text: "We organised the content, services, projects, and contact flow into a minimal system that guides action without visual noise.",
+          text: "We organised the content, services, projects, contact flow, and archives into a minimal system that guides action without visual noise.",
         },
         {
           title: "Architecture",
-          text: "The platform is built around static Astro architecture, local optimised assets, clear routes, and language parity between BG and EN.",
+          text: "The platform moved from an initial Next.js website to an Astro/Cloudflare Pages architecture with clear routes, local browser-facing assets, and language parity between BG and EN.",
         },
         {
           title: "Performance",
-          text: "The goal was to keep the website light, fast, and stable: 100 Performance, 100 Accessibility, 100 Best Practices, and 100 SEO in Lighthouse.",
+          text: "The final baseline is a stable PageSpeed/Lighthouse state around 100 Performance, 100 Accessibility, 100 Best Practices, and 100 SEO, with possible momentary measurement fluctuations.",
         },
         {
           title: "Migration to Astro",
-          text: "Moving to Astro reduced runtime weight and made the site more predictable for static publishing and long-term maintenance.",
+          text: "Moving to Astro reduced runtime weight and made the site more predictable for static publishing, route validation, and long-term maintenance.",
         },
         {
           title: "Migration to Cloudflare",
-          text: "Moving to Cloudflare Pages created a cleaner infrastructure, direct domain control, and a stable edge delivery foundation.",
+          text: "Moving to Cloudflare Pages created cleaner infrastructure, direct domain control, a preview/live workflow, and removal of the active dependency on the former external asset layer.",
         },
         {
           title: "SEO and GEO readiness",
-          text: "Metadata, canonical, hreflang, sitemap, schema, and social preview assets are structured for search, AI search, and real indexing.",
+          text: "Metadata, canonical, hreflang, sitemap, schema, social preview, and llms files are structured for search, AI search, and real indexing.",
+        },
+        {
+          title: "Visual System",
+          text: "The site keeps the Panton typography, monochrome editorial direction, logotype-only social preview logic, and a minimal visual system without decorative noise.",
+        },
+        {
+          title: "Galleries and mobile stability",
+          text: "The project archive went through PNG optimisation, bounded web derivatives, portrait/landscape logic for mockup sections, and dedicated iPhone/Safari stability iterations.",
         },
         {
           title: "Results",
-          text: "d-media.org works as its own case study: brand system, content, and web platform built on the same standards we offer.",
+          text: "d-media.org works as its own case study: brand system, content, project archive, and web platform built on the same standards we offer.",
         },
       ],
     },
