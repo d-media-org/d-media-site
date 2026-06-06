@@ -35,6 +35,53 @@ const path = "/services/web-design-development";
         ))}
       </div>
 
+      <div class="section-heading page-subheading">
+        <h2>{copy.integrationsTitle}</h2>
+        <p class="page-text"><BrandText text={copy.integrationsText} /></p>
+      </div>
+      <div class="showcase-grid service-card-grid">
+        {copy.integrationGroups.map((group) => (
+          <article class="card service-category-card">
+            <h2>{group.title}</h2>
+            <p><BrandText text={group.text} /></p>
+          </article>
+        ))}
+      </div>
+
+      <div class="section-heading page-subheading">
+        <h2>{copy.pricingTitle}</h2>
+        <p class="page-text"><BrandText text={copy.pricingText} /></p>
+        <p class="project-meta">{copy.pricingNote}</p>
+      </div>
+      {copy.pricingGroups.map((group) => (
+        <>
+          <div class="section-heading page-subheading">
+            <h2>{group.title}</h2>
+          </div>
+          <div class="showcase-grid project-reading-grid">
+            {group.items.map((item) => (
+              <article class="card package-card">
+                <h3>{item.title}</h3>
+                <p class="package-price">{item.price}</p>
+              </article>
+            ))}
+          </div>
+        </>
+      ))}
+
+      <div class="section-heading page-subheading">
+        <h2>{copy.processTitle}</h2>
+      </div>
+      <div class="process-timeline">
+        {copy.processSteps.map((step, index) => (
+          <article class="card process-step-card">
+            <span class="process-step-index">{String(index + 1).padStart(2, "0")}</span>
+            <h3>{step.title}</h3>
+            <p><BrandText text={step.text} /></p>
+          </article>
+        ))}
+      </div>
+
       <article class="card services-cta-card">
         <div class="services-cta-copy">
           <h2>{copy.ctaTitle}</h2>

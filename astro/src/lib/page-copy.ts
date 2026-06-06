@@ -13,10 +13,12 @@ const pageCopy = {
         "уеб дизайн",
         "изработка на сайт",
         "корпоративни сайтове",
-        "Astro разработка",
-        "Cloudflare Pages",
         "SEO-ready сайтове",
         "GEO-ready сайтове",
+        "многоезични сайтове",
+        "онлайн магазини",
+        "интеграции за сайт",
+        "поддръжка на сайт",
         "управление на социални медии",
         "графичен дизайн",
         "реклама",
@@ -112,7 +114,7 @@ const pageCopy = {
     webService: {
       metaTitle: "Уеб дизайн и разработка",
       metaDescription:
-        "Уеб дизайн и разработка на бързи сайтове с Astro, Cloudflare Pages, SEO и GEO основа от d . media в София.",
+        "Уеб дизайн и разработка на бързи сайтове, дигитални платформи, интеграции, SEO и GEO основа според реалния обхват на проекта.",
       title: "Уеб дизайн и разработка",
       intro:
         "Създаваме сайтове и уеб платформи, които работят като част от бранд системата: ясни, бързи, поддържими и подготвени за реална употреба.",
@@ -138,7 +140,11 @@ const pageCopy = {
           text: "Разработваме фокусирани страници за кампания, услуга или конкретен обхват с ясен conversion flow.",
         },
         {
-          title: "Performance-first архитектура",
+          title: "Дигитални платформи",
+          text: "Създаваме по-структурирани уеб среди за услуги, портфолиа, съдържание, заявки, интеграции и дългосрочно развитие.",
+        },
+        {
+          title: "Архитектура с фокус върху скоростта",
           text: "Работим със структура, файлове и подход към публикуването, които пазят скорост, четимост и стабилно мобилно поведение.",
         },
         {
@@ -146,12 +152,12 @@ const pageCopy = {
           text: "Подготвяме съдържание, метаданни, schema и езикова архитектура за търсене, AI search и реално индексиране.",
         },
         {
-          title: "Cloudflare инфраструктура",
-          text: "Използваме Cloudflare Pages за бързо, стабилно и предвидимо публикуване без излишна платформена зависимост.",
+          title: "Инфраструктура и публикуване",
+          text: "Подбираме хостинг, публикуване и работна среда според проекта, клиента и нужната дългосрочна поддръжка.",
         },
         {
-          title: "Astro разработка",
-          text: "Изграждаме леки, статични и поддържими сайтове, когато проектът има нужда от скорост, контрол и чист frontend подход.",
+          title: "Технологичен избор",
+          text: "Работим с подходящата платформа и технологичен подход за конкретния обхват: статичен сайт, CMS, онлайн магазин, интеграции или персонализирано решение.",
         },
         {
           title: "Дългосрочна поддръжка",
@@ -160,6 +166,98 @@ const pageCopy = {
         {
           title: "Защо има значение",
           text: "Сайтът не е отделна витрина. Той е работеща част от идентичността, съдържанието и комуникацията на бранда.",
+        },
+      ],
+      integrationsTitle: "Интеграции и електронна търговия",
+      integrationsText:
+        "Интеграциите се подреждат според реалната работа на бизнеса. Целта не е сайтът да стане по-сложен, а да свърже нужните системи чисто и предвидимо.",
+      integrationGroups: [
+        {
+          title: "Платежни системи",
+          text: "Stripe, PayPal, myPOS, BORICA и tbi bank за плащания, които следват реалния процес на продажба.",
+        },
+        {
+          title: "Онлайн магазини",
+          text: "Shopify, WooCommerce, Shopify migration и WooCommerce migration за подредена търговска среда и по-чист преход.",
+        },
+        {
+          title: "CRM системи",
+          text: "HubSpot, Pipedrive, Zoho CRM и Salesforce за по-ясен контакт, проследяване и управление на запитвания.",
+        },
+        {
+          title: "Маркетинг платформи",
+          text: "Mailchimp, Brevo, MailerLite и ActiveCampaign за по-подредена email комуникация и автоматизация.",
+        },
+        {
+          title: "Системи за резервации",
+          text: "Calendly, SimplyBook и Bookeo за услуги, които изискват ясен процес на часове, потвърждения и заявки.",
+        },
+        {
+          title: "Аналитика",
+          text: "Google Analytics, Google Tag Manager и Meta Pixel за измерване, без излишен tracking шум.",
+        },
+        {
+          title: "Бизнес интеграции",
+          text: "Google Maps, YouTube, Vimeo, WhatsApp, Messenger, Instagram и LinkedIn като част от работещата комуникационна среда.",
+        },
+        {
+          title: "Персонализирани API интеграции",
+          text: "Свързваме специфични системи, когато готовите решения не покриват реалния процес.",
+        },
+      ],
+      pricingTitle: "Начални рамки за уеб обхват.",
+      pricingText:
+        "Цените са начални рамки за подреден обхват. Финалната оферта зависи от съдържание, структура, интеграции, миграция и нужната поддръжка.",
+      pricingGroups: [
+        {
+          title: "Уеб дизайн и разработка",
+          items: [
+            { title: "Landing Page", price: "690 € (1 349 лв.)" },
+            { title: "Портфолио сайт", price: "1 990 € (3 892 лв.)" },
+            { title: "Корпоративен уеб сайт", price: "2 490 € (4 870 лв.)" },
+            { title: "Премиум дигитална платформа", price: "4 990 € (9 760 лв.)" },
+          ],
+        },
+        {
+          title: "Интеграции и автоматизация",
+          items: [
+            { title: "Платежна интеграция", price: "290 € (567 лв.)" },
+            { title: "CRM интеграция", price: "390 € (763 лв.)" },
+            { title: "Система за резервации", price: "390 € (763 лв.)" },
+            { title: "Маркетинг автоматизация", price: "290 € (567 лв.)" },
+            { title: "Shopify интеграция", price: "490 € (958 лв.)" },
+            { title: "Миграция на онлайн магазин", price: "990 € (1 936 лв.)" },
+            { title: "Персонализирана API интеграция", price: "По договаряне" },
+          ],
+        },
+        {
+          title: "Поддръжка и развитие",
+          items: [
+            { title: "Техническа поддръжка", price: "49 € (96 лв.) / месец" },
+            { title: "Разширена поддръжка", price: "99 € (194 лв.) / месец" },
+            { title: "Приоритетна поддръжка", price: "199 € (389 лв.) / месец" },
+            { title: "Миграция на уеб сайт", price: "290 € (567 лв.)" },
+          ],
+        },
+      ],
+      pricingNote: "Цените в лева са изчислени при фиксиран курс 1 € = 1.95583 лв.",
+      processTitle: "Процес",
+      processSteps: [
+        {
+          title: "Контекст",
+          text: "Събираме бизнес цел, съдържание, аудитория, езици, нужни системи и реалния начин, по който сайтът трябва да се използва.",
+        },
+        {
+          title: "Структура",
+          text: "Подреждаме страниците, съдържанието, user flow, SEO/GEO основата и точките за контакт.",
+        },
+        {
+          title: "Дизайн и разработка",
+          text: "Изграждаме визуална и техническа система, която остава лека, четима, поддържима и готова за публикуване.",
+        },
+        {
+          title: "Публикуване и развитие",
+          text: "Предаваме сайта с ясна структура, проверени assets, базова документация и възможност за последваща поддръжка.",
         },
       ],
       ctaTitle: "Ако сайтът трябва да работи като система, започни оттук.",
@@ -270,11 +368,13 @@ const pageCopy = {
         "web design",
         "website development",
         "corporate websites",
-        "Astro development",
-        "Cloudflare Pages",
         "performance-focused websites",
         "SEO-ready websites",
         "GEO-ready websites",
+        "multilingual websites",
+        "online stores",
+        "website integrations",
+        "website maintenance",
         "social media management",
         "graphic design",
         "advertising",
@@ -370,7 +470,7 @@ const pageCopy = {
     webService: {
       metaTitle: "Web Design & Development",
       metaDescription:
-        "Web design and development for performance-first websites with Astro, Cloudflare Pages, SEO, and GEO foundations by d . media in Sofia, Bulgaria.",
+        "Web design and development for fast websites, digital platforms, integrations, SEO, and GEO foundations shaped around the real project scope.",
       title: "Web Design & Development",
       intro:
         "We create websites and web platforms that work as part of the brand system: clear, fast, maintainable, and ready for real use.",
@@ -396,6 +496,10 @@ const pageCopy = {
           text: "We develop focused pages for a campaign, service, or defined scope with a clear conversion flow.",
         },
         {
+          title: "Digital platforms",
+          text: "We create more structured web environments for services, portfolios, content, inquiries, integrations, and long-term development.",
+        },
+        {
           title: "Performance-first architecture",
           text: "We work with structure, assets, and delivery decisions that protect speed, readability, and stable mobile behaviour.",
         },
@@ -404,12 +508,12 @@ const pageCopy = {
           text: "We prepare content, metadata, schema, and language architecture for search, AI search, and real indexing.",
         },
         {
-          title: "Cloudflare infrastructure",
-          text: "We use Cloudflare Pages for fast, stable, and predictable publishing without unnecessary platform dependency.",
+          title: "Infrastructure and publishing",
+          text: "We choose hosting, deployment, and the working environment around the project, the client, and long-term maintenance needs.",
         },
         {
-          title: "Astro development",
-          text: "We build light, static, and maintainable websites when the project needs speed, control, and clean frontend delivery.",
+          title: "Technology choice",
+          text: "We work with the right platform and stack for the scope: static website, CMS, online store, integrations, or a custom solution.",
         },
         {
           title: "Long-term maintainability",
@@ -418,6 +522,98 @@ const pageCopy = {
         {
           title: "Why it matters",
           text: "A website is not a separate showcase. It is a working part of the brand identity, content, and communication system.",
+        },
+      ],
+      integrationsTitle: "Integrations and e-commerce",
+      integrationsText:
+        "Integrations are shaped around the real business process. The goal is not to make the website heavier, but to connect the right systems cleanly and predictably.",
+      integrationGroups: [
+        {
+          title: "Payment systems",
+          text: "Stripe, PayPal, myPOS, BORICA, and tbi bank for payments that follow the real sales process.",
+        },
+        {
+          title: "Online stores",
+          text: "Shopify, WooCommerce, Shopify migration, and WooCommerce migration for a structured commerce environment and a cleaner transition.",
+        },
+        {
+          title: "CRM systems",
+          text: "HubSpot, Pipedrive, Zoho CRM, and Salesforce for clearer contact, tracking, and inquiry management.",
+        },
+        {
+          title: "Marketing platforms",
+          text: "Mailchimp, Brevo, MailerLite, and ActiveCampaign for more ordered email communication and automation.",
+        },
+        {
+          title: "Booking systems",
+          text: "Calendly, SimplyBook, and Bookeo for services that need a clear booking, confirmation, and inquiry process.",
+        },
+        {
+          title: "Analytics",
+          text: "Google Analytics, Google Tag Manager, and Meta Pixel for measurement without unnecessary tracking noise.",
+        },
+        {
+          title: "Business integrations",
+          text: "Google Maps, YouTube, Vimeo, WhatsApp, Messenger, Instagram, and LinkedIn as part of the working communication environment.",
+        },
+        {
+          title: "Custom API integrations",
+          text: "We connect specific systems when ready-made solutions do not cover the real process.",
+        },
+      ],
+      pricingTitle: "Starting ranges for web scope.",
+      pricingText:
+        "Prices are starting ranges for an ordered scope. The final quote depends on content, structure, integrations, migration, and maintenance needs.",
+      pricingGroups: [
+        {
+          title: "Web Design & Development",
+          items: [
+            { title: "Landing Page", price: "690 € (BGN 1,349)" },
+            { title: "Portfolio website", price: "1,990 € (BGN 3,892)" },
+            { title: "Corporate website", price: "2,490 € (BGN 4,870)" },
+            { title: "Premium digital platform", price: "4,990 € (BGN 9,760)" },
+          ],
+        },
+        {
+          title: "Integrations and automation",
+          items: [
+            { title: "Payment integration", price: "290 € (BGN 567)" },
+            { title: "CRM integration", price: "390 € (BGN 763)" },
+            { title: "Booking system", price: "390 € (BGN 763)" },
+            { title: "Marketing automation", price: "290 € (BGN 567)" },
+            { title: "Shopify integration", price: "490 € (BGN 958)" },
+            { title: "Online store migration", price: "990 € (BGN 1,936)" },
+            { title: "Custom API integration", price: "By agreement" },
+          ],
+        },
+        {
+          title: "Maintenance and growth",
+          items: [
+            { title: "Technical maintenance", price: "49 € (BGN 96) / month" },
+            { title: "Extended maintenance", price: "99 € (BGN 194) / month" },
+            { title: "Priority maintenance", price: "199 € (BGN 389) / month" },
+            { title: "Website migration", price: "290 € (BGN 567)" },
+          ],
+        },
+      ],
+      pricingNote: "BGN prices are calculated at the fixed exchange rate 1 € = BGN 1.95583.",
+      processTitle: "Process",
+      processSteps: [
+        {
+          title: "Context",
+          text: "We gather the business goal, content, audience, languages, required systems, and the real way the website needs to be used.",
+        },
+        {
+          title: "Structure",
+          text: "We organise the pages, content, user flow, SEO/GEO foundation, and contact points.",
+        },
+        {
+          title: "Design and development",
+          text: "We build a visual and technical system that stays light, readable, maintainable, and ready to publish.",
+        },
+        {
+          title: "Publishing and growth",
+          text: "We deliver the website with clear structure, checked assets, basic documentation, and a path for future maintenance.",
         },
       ],
       ctaTitle: "If the website needs to work as a system, start here.",
