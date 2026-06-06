@@ -31,19 +31,10 @@ export const projectPngArchive = [
   {
     "slug": "d-media",
     "title": "d . media",
-    "imageCount": 2,
+    "imageCount": 0,
     "cover": "/assets/brand/ONLY-logotype.png",
     "detailCover": "/downloads/brand-assets/d . media logotype_transparent.png",
-    "images": [
-      {
-        "src": "/downloads/brand-assets/d . media logotype_transparent.png",
-        "label": "d . media logotype"
-      },
-      {
-        "src": "/downloads/brand-assets/d . media logo_transparent.png",
-        "label": "d . media brand mark"
-      }
-    ],
+    "images": [],
     "featured": true,
     "priority": 0,
     "summary": "Собствената платформа на d . media, изградена като бърз, многоезичен и поддържим сайт с ясна SEO/GEO основа.",

@@ -20,6 +20,7 @@ const copy = getPageCopy(locale).projectDetail;
 const ui = getUiCopy(locale);
 const caseStudySections = "caseStudySections" in project ? project.caseStudySections : [];
 const projectHeroImage = "detailCover" in project ? project.detailCover : project.cover;
+const hasProjectFiles = project.images.length > 0;
 const formatFileCount = (count: number) =>
   locale === "en" ? `${count} ${count === 1 ? "file" : "files"}` : `${count} ${count === 1 ? "файл" : "файла"}`;
 ---
@@ -77,13 +78,15 @@ const formatFileCount = (count: number) =>
               <p><BrandText text={section.text} /></p>
             </div>
           ))}
-          <div class="case-study-section">
-            <span class="case-study-label">{copy.archive}</span>
-            <div class="tag-list">
-              <span class="tag-pill">{formatFileCount(project.imageCount)}</span>
-              <span class="tag-pill">{project.featured ? ui.featuredProject : ui.archiveProject}</span>
+          {hasProjectFiles ? (
+            <div class="case-study-section">
+              <span class="case-study-label">{copy.archive}</span>
+              <div class="tag-list">
+                <span class="tag-pill">{formatFileCount(project.imageCount)}</span>
+                <span class="tag-pill">{project.featured ? ui.featuredProject : ui.archiveProject}</span>
+              </div>
             </div>
-          </div>
+          ) : null}
           <div class="project-card-footer">
             <span class="project-meta">{copy.meta}</span>
             <a class="inline-link" href={localizeHref(locale, "/projects")}>{copy.back}</a>
@@ -91,23 +94,27 @@ const formatFileCount = (count: number) =>
         </div>
       </article>
 
-      <div class="section-heading page-subheading">
-        <h2>{copy.applicationsTitle}</h2>
-      </div>
-      <div class="mockup-grid projects-gallery">
-        {project.images.map((image: { src: string; label?: string }) => (
-          <a
-            class="card mockup-card project-png-card gallery-trigger project-file-trigger"
-            href={image.src}
-            data-gallery-trigger
-            data-gallery-alt={image.label ?? project.title}
-          >
-            <div class="mockup-image">
-              <img src={image.src} alt={image.label ?? project.title} decoding="async" />
-            </div>
-          </a>
-        ))}
-      </div>
+      {hasProjectFiles ? (
+        <>
+          <div class="section-heading page-subheading">
+            <h2>{copy.applicationsTitle}</h2>
+          </div>
+          <div class="mockup-grid projects-gallery">
+            {project.images.map((image: { src: string; label?: string }) => (
+              <a
+                class="card mockup-card project-png-card gallery-trigger project-file-trigger"
+                href={image.src}
+                data-gallery-trigger
+                data-gallery-alt={image.label ?? project.title}
+              >
+                <div class="mockup-image">
+                  <img src={image.src} alt={image.label ?? project.title} decoding="async" />
+                </div>
+              </a>
+            ))}
+          </div>
+        </>
+      ) : null}
     </section>
   </main>
 </Layout>
