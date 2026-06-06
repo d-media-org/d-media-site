@@ -2,7 +2,20 @@
 
 Официалният сайт на `d . media`.
 
-Текущият production сайт все още е Next.js/Vercel до изричен cutover. Подготвената Cloudflare версия е статичен Astro сайт в `astro/`, предназначен за Cloudflare Pages.
+Текущият production сайт е статичен Astro сайт, deploy-нат в Cloudflare Pages.
+
+Live:
+
+```text
+https://www.d-media.org
+https://d-media.org
+```
+
+Preview:
+
+```text
+https://preview.d-media-site.pages.dev
+```
 
 ## Local Development
 
@@ -21,6 +34,7 @@ Cloudflare build-ът е статичен и не изисква Workers или 
 npm run astro:dev
 npm run astro:cf:validate
 npm run astro:cf:deploy:preview
+npm run astro:cf:deploy:production
 ```
 
 Cloudflare Pages настройки:
@@ -32,6 +46,13 @@ Root directory: astro
 Build command: npm run build
 Build output directory: dist
 Node.js version: 22.x
+```
+
+Deployment aliases:
+
+```text
+Preview branch: preview
+Production branch: main
 ```
 
 `astro:cf:validate` прави build и проверява:
@@ -57,9 +78,39 @@ npm run assets:web
 
 Cloudflare Pages build-ът използва само локални файлове от `public/` и генерирания WebP manifest. Няма външен asset storage fallback.
 
+Критичните brand assets използват bounded display-size WebP файлове:
+
+```text
+public/optimized-assets/brand/ONLY-logotype.display.webp
+public/optimized-assets/brand/ONLY-brandmark.display.webp
+```
+
+Panton се сервира чрез subset `woff2` файлове в:
+
+```text
+public/fonts/panton-subset/
+```
+
 ## Runtime Config
 
 Текущата Cloudflare версия е статична. Featured projects, announcement и home section visibility използват кодови fallback стойности, без външен runtime config service.
+
+## Current QA Baseline
+
+- PageSpeed Insights е постигнал `100` навсякъде след performance pass-а:
+  - Mobile Performance: `100`
+  - Desktop Performance: `100`
+  - Accessibility: `100`
+  - Best Practices: `100`
+  - SEO: `100` за indexable production URL-ите
+- `/projects` legacy секциите имат orientation-aware gallery rendering:
+  - `legacy-mockup-card-portrait`
+  - `legacy-mockup-card-landscape`
+- Проверените legacy секции са:
+  - `Колекция от мокъпи на флаери за клубни събития`
+  - `Колекция от мокъпи на част от проектите`
+  - `Архив флаери`
+- Lightbox е проверен за portrait изображения.
 
 ## Release Checklist
 
@@ -68,7 +119,8 @@ Cloudflare Pages build-ът използва само локални файло�
 3. Качи Cloudflare preview чрез `npm run astro:cf:deploy:preview`.
 4. Провери BG/EN routes, `/projects`, detail routes, lightbox, consent, theme toggle и WebKit iPhone stress сценария.
 5. Провери `robots.txt`, `sitemap.xml`, manifest, social preview, PDF downloads и logo pack.
-6. Прави Cloudflare production/custom-domain cutover само след чист preview резултат и изрично потвърждение.
+6. Прави Cloudflare production deploy чрез `npm run astro:cf:deploy:production` само след чист preview резултат и изрично потвърждение.
+7. След live deploy провери `https://www.d-media.org` и `https://d-media.org` за `200`, правилни brand assets и `/projects` gallery classes.
 
 ## Brand Rules
 

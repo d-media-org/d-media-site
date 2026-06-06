@@ -529,7 +529,179 @@
 - `AUDIT.md` фиксира production audit snapshot към `2026-05-31`.
 - `AUDIT.md` отбелязва известна audit бележка за transitive `postcss` advisory през текущия Next.js пакет и изрично забранява `npm audit fix --force`, ако това води до breaking downgrade.
 
-## 11. Как да се поддържа този файл
+## 11. Cloudflare Pages migration и 2026-06-06 live състояние
+
+### Cloudflare Pages migration
+- GitHub repo-то на сайта е вързано с Cloudflare Pages.
+- Проектът е преместен от Vercel към Cloudflare Pages с основен Pages project:
+  - `d-media-site`
+- Активните публични домейни са:
+  - `https://www.d-media.org`
+  - `https://d-media.org`
+- И двата домейна сочат към Cloudflare Pages и връщат `200` през Cloudflare.
+- DNS за `d-media.org` и `www.d-media.org` е оставен като CNAME към `d-media-site.pages.dev`.
+- Vercel DNS verification остатъкът `_vercel.d-media.org` е премахнат, защото вече не е нужен след миграцията.
+- Vercel/Blob dependency е премахната от активната runtime логика, доколкото browser-facing assets вече се сервират от `public/` и Cloudflare Pages.
+
+### Cloudflare deploy workflow
+- Preview deploy script:
+  - `npm run astro:cf:deploy:preview`
+- Production deploy script:
+  - `npm run astro:cf:deploy:production`
+- Preview alias беше преименуван от:
+  - `astro-migration.d-media-site.pages.dev`
+  - към `preview.d-media-site.pages.dev`
+- Актуалният preview URL е:
+  - `https://preview.d-media-site.pages.dev`
+
+### 2026-06-06 commits
+
+#### `a180d81 Prepare Cloudflare Astro migration`
+- Подготвя Astro/Cloudflare Pages миграцията.
+- Запазва съществуващата структура, маршрути, езикови версии и assets pipeline.
+
+#### `e5f4812 Rename Cloudflare Pages project target`
+- Преименува Cloudflare Pages project target към `d-media-site`.
+- Подготвя по-адекватно име за реалното преместване.
+
+#### `aa124ee Optimize critical brand assets and fonts`
+- Добавени са subset Panton `woff2` файлове:
+  - `public/fonts/panton-subset/Panton-Light.latin-cyrillic.woff2`
+  - `public/fonts/panton-subset/Panton-Regular.latin-cyrillic.woff2`
+  - `public/fonts/panton-subset/Panton-SemiBold.latin-cyrillic.woff2`
+  - `public/fonts/panton-subset/Panton-Bold.latin-cyrillic.woff2`
+  - `public/fonts/panton-subset/Panton-Black.latin-cyrillic.woff2`
+- `@font-face` в Astro глобалния CSS е пренасочен към subset fonts.
+- Font preload-ите са пренасочени към subset `Regular` и `Black`.
+- Добавени са lossless WebP brand assets:
+  - `public/optimized-assets/brand/ONLY-brandmark.lossless.webp`
+  - `public/optimized-assets/brand/ONLY-logotype.lossless.webp`
+
+#### `364ab30 Tighten brand asset delivery for preview`
+- Preview alias default е сменен към `preview`.
+- Brand asset mapping е пренасочен към display-size WebP файлове:
+  - `ONLY-brandmark.display.webp`
+  - `ONLY-logotype.display.webp`
+- Целта е по-малък critical image payload без промяна на layout или визуална идентичност.
+
+#### `89e73e3 Match logotype asset to display size`
+- Header logotype display asset е свит до реалния показван размер:
+  - `224x58`
+  - приблизително `5.3KB`
+- SVG вариантът не е използван, защото наличният SVG съдържа допълнителен `@` слой и font-dependent текст, което носи риск за бранд визуализацията.
+- След тази промяна PageSpeed mobile performance на preview достигна `100`.
+
+#### `a47c8f6 Fix legacy project gallery display`
+- Поправя неправилното показване на изображенията в `/projects` legacy секциите:
+  - `Колекция от мокъпи на флаери за клубни събития`
+  - `Колекция от мокъпи на част от проектите`
+  - `Архив флаери`
+- Основният дефект беше, че `.legacy-mockup-frame img` имаше `object-fit: contain`, но нямаше `display: block`, `width: 100%` и `height: 100%`.
+- Добавени са ориентационни класове:
+  - `legacy-mockup-card-portrait`
+  - `legacy-mockup-card-landscape`
+- Вертикалните флаери вече се показват в portrait рамка `3 / 4`.
+- Landscape mockup-ите остават в `16 / 11`.
+- Lightbox за portrait изображение е проверен с реален browser pass и запазва правилна пропорция.
+
+#### `b4f9e39 Keep proven font preload set`
+- Върнат е стабилният font preload set:
+  - `Panton-Regular.latin-cyrillic.woff2`
+  - `Panton-Black.latin-cyrillic.woff2`
+- Експерименталният preload на `SemiBold` и `Bold` не е оставен, защото локален Lighthouse run показа риск от по-лош Speed Index.
+- Това запазва доказаното performance състояние вместо рискова оптимизация само по audit suggestion.
+
+### 2026-06-06 Cloudflare Pages deploy-и
+
+#### Preview performance deploy
+- Preview URL:
+  - `https://preview.d-media-site.pages.dev`
+- Deployment URL:
+  - `https://34ae3042.d-media-site.pages.dev`
+- Контекст:
+  - първи preview с subset Panton fonts и lossless WebP brand assets.
+
+#### Preview alias rename + display assets
+- Preview URL:
+  - `https://preview.d-media-site.pages.dev`
+- Deployment URL:
+  - `https://aee6dd66.d-media-site.pages.dev`
+- Контекст:
+  - preview alias default сменен от `astro-migration` към `preview`
+  - добавени display-size WebP brand assets.
+
+#### Preview logotype display-size deploy
+- Preview URL:
+  - `https://preview.d-media-site.pages.dev`
+- Deployment URL:
+  - `https://22063191.d-media-site.pages.dev`
+- Контекст:
+  - header logotype asset намален до `224x58`.
+
+#### Production performance deploy
+- Production deployment URL:
+  - `https://785722f7.d-media-site.pages.dev`
+- Live domains:
+  - `https://www.d-media.org`
+  - `https://d-media.org`
+- Контекст:
+  - performance state с PageSpeed mobile `100` е качен live.
+  - Live проверка потвърди `200`, Cloudflare server и `ONLY-logotype.display.webp`.
+
+#### Preview gallery fix deploy
+- Preview URL:
+  - `https://preview.d-media-site.pages.dev`
+- Deployment URL:
+  - `https://b74fc8f2.d-media-site.pages.dev`
+- Контекст:
+  - първи preview на legacy gallery display fix и portrait/landscape класове.
+
+#### Preview stabilized gallery deploy
+- Preview URL:
+  - `https://preview.d-media-site.pages.dev`
+- Deployment URL:
+  - `https://b53bd22d.d-media-site.pages.dev`
+- Контекст:
+  - gallery fix запазен
+  - рисковият font preload експеримент премахнат
+  - върнат стабилният preload set.
+
+#### Production gallery fix deploy
+- Production deployment URL:
+  - `https://aed79d63.d-media-site.pages.dev`
+- Live domains:
+  - `https://www.d-media.org`
+  - `https://d-media.org`
+- Контекст:
+  - legacy project gallery display fix е качен live.
+  - Live проверка потвърди:
+    - `/projects/` връща `200`
+    - `/en/projects/` връща `200`
+    - HTML съдържа `legacy-mockup-card-portrait`
+    - HTML съдържа `legacy-mockup-card-landscape`
+    - homepage продължава да използва `ONLY-logotype.display.webp`
+
+### 2026-06-06 validation notes
+- Използвани проверки:
+  - `npm run lint`
+  - `npm run astro:cf:validate`
+  - Cloudflare preview deploy
+  - Cloudflare production deploy
+  - live route smoke checks през `https://www.d-media.org` и `https://d-media.org`
+  - browser/Playwright проверка на `/projects`
+  - lightbox проверка за portrait image
+  - локален Lighthouse mobile/desktop pass за performance диагностика
+- След performance оптимизациите PageSpeed Insights е постигнал `100` навсякъде:
+  - Mobile Performance: `100`
+  - Desktop Performance: `100`
+  - Accessibility: `100`
+  - Best Practices: `100`
+  - SEO: `100` за indexable production URL-ите
+- PageSpeed mobile `98` на live беше анализиран като Lighthouse lab variance/FCP-LCP timing, а не като image regression.
+- Desktop Lighthouse остава `100` при локална проверка.
+- Рискова performance промяна не е оставена, когато показа потенциално влошаване.
+
+## 12. Как да се поддържа този файл
 
 При следващи значими промени е добре:
 - всеки нов commit да се добавя тук
