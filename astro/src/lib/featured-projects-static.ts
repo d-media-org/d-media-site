@@ -3,9 +3,9 @@ import type { Locale } from "@/lib/i18n";
 
 export const featuredProjectSlugs = [
   "d-media",
+  "yanita",
   "support-account",
   "support-account-group",
-  "yanita",
   "dj-nedi",
 ] as const;
 

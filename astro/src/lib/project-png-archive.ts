@@ -88,6 +88,35 @@ export const projectPngArchive = [
     ]
   },
   {
+    "slug": "yanita",
+    "title": "Yanita",
+    "imageCount": 3,
+    "cover": "/assets/project-covers/yanita.png",
+    "images": [
+      {
+        "src": "/assets/project-pngs/yanita/01.png",
+        "label": "Yanita_logo @ original_transparent.png"
+      },
+      {
+        "src": "/assets/project-pngs/yanita/02.png",
+        "label": "Yanita_logo @ black_transparent.png"
+      },
+      {
+        "src": "/assets/project-pngs/yanita/03.png",
+        "label": "Yanita_logo @ white_transparent.png"
+      }
+    ],
+    "featured": true,
+    "priority": 1,
+    "summary": "Beauty идентичност, представена през основните прозрачни logo варианти.",
+    "context": "Текущият архив пази чистата основа на знака в оригинална, тъмна и светла версия, без приложните файлове от по-късни формати.",
+    "focus": [
+      "Оригинален прозрачен знак",
+      "Черна прозрачна версия",
+      "Бяла прозрачна версия"
+    ]
+  },
+  {
     "slug": "support-account",
     "title": "Support Account",
     "imageCount": 3,
@@ -107,7 +136,7 @@ export const projectPngArchive = [
       },
     ],
     "featured": true,
-    "priority": 1,
+    "priority": 2,
     "summary": "Корпоративна идентичност за счетоводна дейност с ясен и подреден професионален облик.",
     "context": "Подборът тук е сведен до основните прозрачни файлове, които държат най-точно първичната logo система и отделното присъствие на бранда.",
     "focus": [
@@ -132,42 +161,13 @@ export const projectPngArchive = [
       }
     ],
     "featured": true,
-    "priority": 2,
+    "priority": 3,
     "summary": "Корпоративна идентичност за втори бранд в рамките на същата счетоводна дейност.",
     "context": "Подборът е сведен до двата прозрачни основни файла, които пазят най-чисто връзката със Support Account и отделното позициониране на групата.",
     "focus": [
       "Прозрачен логотип за корпоративна употреба",
       "Комбиниран прозрачен знак за директно приложение",
       "Ясна връзка със Support Account без смесване на марките"
-    ]
-  },
-  {
-    "slug": "yanita",
-    "title": "Yanita",
-    "imageCount": 3,
-    "cover": "/assets/project-covers/yanita.png",
-    "images": [
-      {
-        "src": "/assets/project-pngs/yanita/01.png",
-        "label": "Yanita_logo @ original_transparent.png"
-      },
-      {
-        "src": "/assets/project-pngs/yanita/02.png",
-        "label": "Yanita_logo @ black_transparent.png"
-      },
-      {
-        "src": "/assets/project-pngs/yanita/03.png",
-        "label": "Yanita_logo @ white_transparent.png"
-      }
-    ],
-    "featured": true,
-    "priority": 3,
-    "summary": "Beauty идентичност, представена през основните прозрачни logo варианти.",
-    "context": "Текущият архив пази чистата основа на знака в оригинална, тъмна и светла версия, без приложните файлове от по-късни формати.",
-    "focus": [
-      "Оригинален прозрачен знак",
-      "Черна прозрачна версия",
-      "Бяла прозрачна версия"
     ]
   },
   {
