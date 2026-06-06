@@ -4,7 +4,8 @@ import { getLegacyMockupCollections, legacyProjectArchive } from "@/lib/legacy-p
 import { getProjectPngArchive, projectPngArchive } from "@/lib/project-png-archive";
 
 const localOptimizedAssets: Record<string, string> = {
-  "/assets/brand/ONLY-logotype.png": "/optimized-assets/brand/ONLY-logotype.png",
+  "/assets/brand/ONLY-brandmark.png": "/optimized-assets/brand/ONLY-brandmark.lossless.webp",
+  "/assets/brand/ONLY-logotype.png": "/optimized-assets/brand/ONLY-logotype.lossless.webp",
 };
 
 export function resolveAssetUrl(pathname: string) {

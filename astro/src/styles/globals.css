@@ -1,6 +1,6 @@
 @font-face {
   font-family: "PantonLight";
-  src: url("/fonts/panton/Panton-Light.woff2") format("woff2");
+  src: url("/fonts/panton-subset/Panton-Light.latin-cyrillic.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -8,7 +8,7 @@
 
 @font-face {
   font-family: "PantonRegular";
-  src: url("/fonts/panton/Panton-Regular.woff2") format("woff2");
+  src: url("/fonts/panton-subset/Panton-Regular.latin-cyrillic.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -16,7 +16,7 @@
 
 @font-face {
   font-family: "PantonSemiBold";
-  src: url("/fonts/panton/Panton-SemiBold.woff2") format("woff2");
+  src: url("/fonts/panton-subset/Panton-SemiBold.latin-cyrillic.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -24,7 +24,7 @@
 
 @font-face {
   font-family: "PantonBold";
-  src: url("/fonts/panton/Panton-Bold.woff2") format("woff2");
+  src: url("/fonts/panton-subset/Panton-Bold.latin-cyrillic.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -32,7 +32,7 @@
 
 @font-face {
   font-family: "PantonBlack";
-  src: url("/fonts/panton/Panton-Black.woff2") format("woff2");
+  src: url("/fonts/panton-subset/Panton-Black.latin-cyrillic.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
