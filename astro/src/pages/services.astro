@@ -1,0 +1,64 @@
+---
+import BrandText from "@/components/BrandText.astro";
+import Layout from "@/layouts/Layout.astro";
+import { localizeHref, type Locale } from "@/lib/i18n";
+import { getPageCopy } from "@/lib/page-copy";
+import { getBreadcrumbSchema, getServiceCatalogSchema } from "@/lib/seo";
+import { getSiteContent } from "@/lib/site-content";
+
+const locale: Locale = "bg";
+const copy = getPageCopy(locale).services;
+const siteContent = getSiteContent(locale);
+---
+
+<Layout
+  locale={locale}
+  title={`${copy.metaTitle} | d . media`}
+  description={copy.metaDescription}
+  path="/services"
+  structuredData={[
+    getBreadcrumbSchema({ locale, path: "/services", title: copy.metaTitle }),
+    getServiceCatalogSchema(locale),
+  ]}
+>
+  <main class="site-shell services-page" id="top">
+    <section class="section-grid">
+      <div class="section-heading page-intro">
+        <h1>{copy.title}</h1>
+        <p class="page-text">
+          <BrandText text={copy.text} />
+        </p>
+      </div>
+      <div class="showcase-grid service-card-grid">
+        {siteContent.coreServices.map((service) => (
+          <article class="card service-category-card">
+            <h2>{service.title}</h2>
+            <p>{service.text}</p>
+            <p><strong>{copy.includes}:</strong> {service.includes}</p>
+            <p><strong>{copy.audience}:</strong> {service.audience}</p>
+            <p><strong>{copy.result}:</strong> {service.result}</p>
+          </article>
+        ))}
+      </div>
+      <article class="card services-cta-card">
+        <div class="services-cta-copy">
+          <h2>{copy.ctaTitle}</h2>
+          <p class="page-text">{copy.ctaText}</p>
+        </div>
+        <div class="hero-actions">
+          <a
+            href={localizeHref(locale, "/contact")}
+            class="button button-primary"
+            data-ga-event="cta_start_project_click"
+            data-ga-location="services_cta"
+          >
+            {copy.primaryCta}
+          </a>
+          <a href={localizeHref(locale, "/projects")} class="button button-secondary">
+            {copy.secondaryCta}
+          </a>
+        </div>
+      </article>
+    </section>
+  </main>
+</Layout>

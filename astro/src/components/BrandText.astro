@@ -1,0 +1,21 @@
+---
+type Props = {
+  text: string;
+};
+
+const { text } = Astro.props;
+const parts = text.split("d . media");
+---
+
+{parts.length === 1 ? (
+  text
+) : (
+  <>
+    {parts.map((part, index) => (
+      <>
+        {part}
+        {index < parts.length - 1 ? <span class="brand-name">d . media</span> : null}
+      </>
+    ))}
+  </>
+)}

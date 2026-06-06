@@ -1,0 +1,54 @@
+---
+import { resolveAssetUrl } from "@/lib/asset-url";
+
+type Props = {
+  lightSrc: string;
+  darkSrc?: string;
+  alt: string;
+  width: number;
+  height: number;
+  darkWidth?: number;
+  darkHeight?: number;
+  class?: string;
+  loading?: "eager" | "lazy";
+  fetchPriority?: "high" | "low" | "auto";
+};
+
+const {
+  lightSrc,
+  darkSrc,
+  alt,
+  width,
+  height,
+  darkWidth,
+  darkHeight,
+  class: className = "",
+  loading = "eager",
+  fetchPriority = "auto",
+} = Astro.props;
+---
+
+<span class={`brand-asset ${className}`.trim()}>
+  <img
+    src={resolveAssetUrl(lightSrc)}
+    alt={alt}
+    width={width}
+    height={height}
+    class={`brand-asset-light${darkSrc ? "" : " brand-asset-single"}`}
+    loading={loading}
+    fetchpriority={fetchPriority}
+    decoding="async"
+  />
+  {darkSrc ? (
+    <img
+      src={resolveAssetUrl(darkSrc)}
+      alt={alt}
+      width={darkWidth ?? width}
+      height={darkHeight ?? height}
+      class="brand-asset-dark"
+      loading={loading}
+      fetchpriority={fetchPriority}
+      decoding="async"
+    />
+  ) : null}
+</span>

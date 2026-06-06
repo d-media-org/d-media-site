@@ -7,7 +7,6 @@ import { getPrivacyPolicy } from "@/lib/legal-content";
 import {
   contactEmail,
   contactPhone,
-  contactPhoneHref,
   getSiteContent,
 } from "@/lib/site-content";
 import { getBreadcrumbSchema, getPageMetadata, getWebPageSchema } from "@/lib/seo";
@@ -90,15 +89,15 @@ export function PrivacyPageView({ locale = "bg" }: { locale?: Locale }) {
               <section className="privacy-section" key={section.id}>
                 {section.title ? <h3>{formatSectionHeading(section.id, section.title)}</h3> : null}
                 {section.content?.map((paragraph) => (
+                  paragraph === contactPhone ? null : (
                   <p key={paragraph}>
                     {paragraph === contactEmail ? (
                       <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
-                    ) : paragraph === contactPhone ? (
-                      <a href={`tel:${contactPhoneHref}`}>{contactPhone}</a>
                     ) : (
                       <BrandText text={paragraph} />
                     )}
                   </p>
+                  )
                 ))}
                 {section.bullets ? (
                   <ul className="privacy-bullets">

@@ -1,0 +1,486 @@
+---
+import "../styles/globals.css";
+
+import BrandAsset from "@/components/BrandAsset.astro";
+import { getAlternateLocale, localizeHref, stripLocalePrefix, type Locale } from "@/lib/i18n";
+import { getOrganizationSchema, getWebPageSchema, getWebsiteSchema } from "@/lib/seo";
+import { contactEmail, getSiteContent } from "@/lib/site-content";
+import { getLocaleSwitcherItems, getUiCopy } from "@/lib/ui-copy";
+
+type Props = {
+  locale?: Locale;
+  title?: string;
+  description?: string;
+  path?: string;
+  structuredData?: unknown[];
+};
+
+const {
+  locale = "bg",
+  title = "d . media",
+  description = "d . media",
+  path = "/",
+  structuredData = [],
+} = Astro.props;
+const siteContent = getSiteContent(locale);
+const ui = getUiCopy(locale);
+const alternateLocale = getAlternateLocale(locale);
+const alternateHref = localizeHref(alternateLocale, stripLocalePrefix(path));
+const localizedPath = localizeHref(locale, path);
+const localeSwitcherItems = getLocaleSwitcherItems(locale, path);
+const [footerCopyrightBefore, footerCopyrightAfter = ""] =
+  ui.footer.copyright.split("d . media");
+const isActiveHref = (href: string) =>
+  href === localizeHref(locale, "/") ? localizedPath === href : localizedPath.startsWith(href);
+const schemaItems = [
+  getOrganizationSchema(locale),
+  getWebsiteSchema(locale),
+  getWebPageSchema({ locale, path, title, description }),
+  ...structuredData,
+];
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={`https://www.d-media.org${localizedPath}`} />
+    <link rel="alternate" hreflang="bg" href={`https://www.d-media.org${localizeHref("bg", path)}`} />
+    <link rel="alternate" hreflang="en" href={`https://www.d-media.org${localizeHref("en", path)}`} />
+    <link rel="alternate" hreflang="x-default" href={`https://www.d-media.org${localizeHref("bg", path)}`} />
+    <link rel="icon" type="image/png" sizes="16x16" href="/dmedia-favicon-v4-16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/dmedia-favicon-v4-32.png" />
+    <link rel="icon" href="/dmedia-favicon-v4.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/dmedia-apple-touch-v4.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="preload" href="/fonts/panton/Panton-Regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/panton/Panton-Black.woff2" as="font" type="font/woff2" crossorigin />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="d . media" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={`https://www.d-media.org${localizedPath}`} />
+    <meta property="og:image" content="https://www.d-media.org/social-preview-dmedia-v3.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://www.d-media.org/social-preview-dmedia-v3.png" />
+    {schemaItems.map((item) => (
+      <script type="application/ld+json" set:html={JSON.stringify(item)} />
+    ))}
+    <script is:inline>
+      (() => {
+        const root = document.documentElement;
+        const media = window.matchMedia("(prefers-color-scheme: dark)");
+        const STORAGE_KEY = "d-media-theme-mode";
+        const getStoredMode = () => {
+          try {
+            return window.localStorage.getItem(STORAGE_KEY) || "auto";
+          } catch {
+            return "auto";
+          }
+        };
+        const applyTheme = () => {
+          const mode = getStoredMode();
+          const resolvedTheme = mode === "auto" ? (media.matches ? "dark" : "light") : mode;
+          root.dataset.themeMode = mode;
+          root.dataset.theme = resolvedTheme;
+        };
+        applyTheme();
+      })();
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="site-header-inner">
+        <div class="site-header-main">
+          <div class="site-brand brand-image brand-image-logotype">
+            <a href={localizeHref(locale, "/")} aria-label={ui.homeAria}>
+              <BrandAsset
+                lightSrc="/assets/brand/ONLY-logotype.png"
+                alt="d . media"
+                width={206}
+                height={54}
+                fetchPriority="high"
+              />
+            </a>
+          </div>
+          <button
+            type="button"
+            class="site-menu-toggle"
+            aria-expanded="false"
+            aria-controls="site-mobile-nav"
+            aria-label={ui.openMenu}
+            data-menu-toggle
+            data-open-label={ui.openMenu}
+            data-close-label={ui.closeMenu}
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+        <div class="site-header-nav">
+          <nav class="site-nav site-nav-desktop" aria-label={ui.mainNavigationAria}>
+            {siteContent.mainNavigation.map((item) => (
+              <a
+                href={localizeHref(locale, item.href)}
+                class={isActiveHref(localizeHref(locale, item.href)) ? "is-active" : undefined}
+                aria-current={isActiveHref(localizeHref(locale, item.href)) ? "page" : undefined}
+              >
+                {item.label}
+              </a>
+            ))}
+            <div class="locale-switcher" aria-label={ui.languageSwitcherAria}>
+              {localeSwitcherItems.map((item) => (
+                <a
+                  href={item.href}
+                  class={item.isActive ? "is-active" : undefined}
+                  hreflang={item.locale}
+                  lang={item.locale}
+                >
+                  {item.label}
+                </a>
+              ))}
+            </div>
+          </nav>
+        </div>
+        <nav id="site-mobile-nav" class="site-mobile-panel" aria-label={ui.mobileNavigationAria} data-mobile-panel>
+          {siteContent.mainNavigation.map((item) => (
+            <a
+              href={localizeHref(locale, item.href)}
+              class={isActiveHref(localizeHref(locale, item.href)) ? "is-active" : undefined}
+              aria-current={isActiveHref(localizeHref(locale, item.href)) ? "page" : undefined}
+            >
+              {item.label}
+            </a>
+          ))}
+          <div class="locale-switcher locale-switcher-mobile" aria-label={ui.languageSwitcherAria}>
+            {localeSwitcherItems.map((item) => (
+              <a
+                href={item.href}
+                class={item.isActive ? "is-active" : undefined}
+                hreflang={item.locale}
+                lang={item.locale}
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
+        </nav>
+      </div>
+    </header>
+    <slot />
+    <footer class="site-footer">
+      <div class="site-footer-inner">
+        <div class="footer-column footer-column-contact">
+          <h2>{ui.footer.contact}</h2>
+          <div class="footer-contact-list">
+            <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
+          </div>
+        </div>
+        <div class="footer-column footer-column-socials">
+          <div class="footer-links footer-socials">
+            {siteContent.socials.map((social) => (
+            <a href={social.href} target="_blank" rel="noreferrer" aria-label={social.label} title={social.label}>
+              <span class="footer-social-icon" aria-hidden="true">
+                {social.label === "Instagram" ? (
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="footer-social-icon-svg">
+                    <path d="M16.98 3H7.02A4.02 4.02 0 0 0 3 7.02v9.96A4.02 4.02 0 0 0 7.02 21h9.96A4.02 4.02 0 0 0 21 16.98V7.02A4.02 4.02 0 0 0 16.98 3Zm1.47 13.98a1.47 1.47 0 0 1-1.47 1.47H7.02a1.47 1.47 0 0 1-1.47-1.47V7.02a1.47 1.47 0 0 1 1.47-1.47h9.96a1.47 1.47 0 0 1 1.47 1.47v9.96ZM12 7.06A4.94 4.94 0 1 0 16.94 12 4.95 4.95 0 0 0 12 7.06Zm0 7.33A2.39 2.39 0 1 1 14.39 12 2.39 2.39 0 0 1 12 14.39Zm5.05-7.74a1.15 1.15 0 1 1-1.15-1.15 1.15 1.15 0 0 1 1.15 1.15Z" fill="currentColor" />
+                  </svg>
+                ) : social.label === "Behance" ? (
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="footer-social-icon-svg">
+                    <path d="M9.35 11.4A2.73 2.73 0 0 0 10.88 8.8C10.88 6.2 8.96 5 6.48 5H2v14h4.79c2.62 0 4.86-1.26 4.86-4.03a3.52 3.52 0 0 0-2.3-3.57ZM4.64 7.22h1.73c.66 0 1.68.12 1.68 1.39 0 1.2-.8 1.43-1.57 1.43H4.64V7.22Zm1.89 9.56H4.64v-4.43h1.96c.98 0 2.34.28 2.34 2.18 0 1.58-1 2.25-2.07 2.25Zm9.86-8.35c-3.38 0-5.39 2.52-5.39 5.42 0 3.18 1.88 5.42 5.31 5.42 2.21 0 3.9-1 4.66-3.23h-2.43a2.24 2.24 0 0 1-2.14 1.1c-1.5 0-2.56-.9-2.62-2.68H21c.22-3.45-1.7-6.03-4.61-6.03Zm-2.55 4.07a2.44 2.44 0 0 1 2.42-2.14 2.14 2.14 0 0 1 2.15 2.14h-4.57ZM13 6.4h6V5h-6v1.4Z" fill="currentColor" />
+                  </svg>
+                ) : social.label === "LinkedIn" ? (
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="footer-social-icon-svg">
+                    <path d="M19.8 3.6H4.2C3.54 3.6 3 4.14 3 4.8V19.2C3 19.86 3.54 20.4 4.2 20.4H19.8C20.46 20.4 21 19.86 21 19.2V4.8C21 4.14 20.46 3.6 19.8 3.6ZM8.1 18H5.7V10.2H8.1V18ZM6.9 9.12C6.12 9.12 5.49 8.48 5.49 7.71C5.49 6.93 6.12 6.3 6.9 6.3C7.68 6.3 8.31 6.93 8.31 7.71C8.31 8.48 7.68 9.12 6.9 9.12ZM18.3 18H15.9V14.13C15.9 13.21 15.88 12.03 14.61 12.03C13.31 12.03 13.11 13.04 13.11 14.06V18H10.71V10.2H13.02V11.27H13.05C13.37 10.66 14.16 10.01 15.33 10.01C17.76 10.01 18.3 11.61 18.3 13.69V18Z" fill="currentColor" />
+                  </svg>
+                ) : social.label === "TikTok" ? (
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="footer-social-icon-svg">
+                    <path d="M14.7 3c.24 2.02 1.42 3.95 3.37 5.08a6.35 6.35 0 0 0 2.33.79v2.74a9.03 9.03 0 0 1-3.07-.58v5.05c0 3.55-2.88 6.42-6.43 6.42S4.48 19.63 4.48 16.08 7.36 9.66 10.9 9.66c.3 0 .6.02.89.07v2.84a3.66 3.66 0 0 0-.89-.12 3.63 3.63 0 1 0 3.63 3.63V3h2.17Z" fill="currentColor" />
+                  </svg>
+                ) : (
+                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="footer-social-icon-svg">
+                    <path d="M20.2 8.3C20 7.5 19.4 6.9 18.6 6.7C17.2 6.3 12 6.3 12 6.3C12 6.3 6.8 6.3 5.4 6.7C4.6 6.9 4 7.5 3.8 8.3C3.4 9.7 3.4 12.5 3.4 12.5C3.4 12.5 3.4 15.3 3.8 16.7C4 17.5 4.6 18.1 5.4 18.3C6.8 18.7 12 18.7 12 18.7C12 18.7 17.2 18.7 18.6 18.3C19.4 18.1 20 17.5 20.2 16.7C20.6 15.3 20.6 12.5 20.6 12.5C20.6 12.5 20.6 9.7 20.2 8.3ZM10.4 15.2V9.8L15 12.5L10.4 15.2Z" fill="currentColor" />
+                  </svg>
+                )}
+              </span>
+              <span class="sr-only">{social.label}</span>
+            </a>
+            ))}
+          </div>
+        </div>
+        <div class="footer-column footer-column-legal">
+          <div class="footer-links footer-legal">
+            <a href={localizeHref(locale, "/terms")}>{ui.footer.terms}</a>
+            <a href={localizeHref(locale, "/privacy")}>{ui.footer.privacy}</a>
+          </div>
+        </div>
+      </div>
+      <div class="site-footer-bottom">
+        <p>{footerCopyrightBefore} <span class="brand-name">d . media</span>{footerCopyrightAfter}</p>
+        <div class="theme-toggle footer-theme-toggle" aria-label={ui.footer.themeSwitcherAria} role="group" data-theme-toggle>
+          <button type="button" data-theme-mode-option="auto" title={ui.footer.themeAuto} aria-pressed="true">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="theme-toggle-icon"><text x="12" y="16" text-anchor="middle" fill="currentColor" font-size="12" font-weight="700" font-family="inherit">A</text></svg>
+            <span class="sr-only">{ui.footer.themeAuto}</span>
+          </button>
+          <button type="button" data-theme-mode-option="light" title={ui.footer.themeLight} aria-pressed="false">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="theme-toggle-icon"><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.65" /><path d="M12 2.8V5.1M12 18.9v2.3M5.49 5.49l1.63 1.63M16.88 16.88l1.63 1.63M2.8 12h2.3M18.9 12h2.3M5.49 18.51l1.63-1.63M16.88 7.12l1.63-1.63" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" /></svg>
+            <span class="sr-only">{ui.footer.themeLight}</span>
+          </button>
+          <button type="button" data-theme-mode-option="dark" title={ui.footer.themeDark} aria-pressed="false">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="theme-toggle-icon"><path d="M16.9 14.9A7.3 7.3 0 0 1 9.1 7.1a7.35 7.35 0 1 0 7.8 7.8Z" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" /></svg>
+            <span class="sr-only">{ui.footer.themeDark}</span>
+          </button>
+        </div>
+        <a href={localizeHref(locale, "/")} class="footer-brand-link footer-brand-link-logo footer-brand-bottom" aria-label={ui.footer.backToStart}>
+          <div class="brand-image brand-image-brandmark footer-brandmark footer-brandmark-only">
+            <BrandAsset
+              lightSrc="/assets/brand/ONLY-brandmark.png"
+              alt="d . media"
+              width={48}
+              height={48}
+              loading="lazy"
+              fetchPriority="low"
+            />
+          </div>
+        </a>
+      </div>
+    </footer>
+    <a class="floating-top is-hidden" href="#top" aria-label={ui.footer.backToTop} data-floating-top>
+      <span class="floating-top-label">{ui.footer.backToTop}</span>
+      <span class="floating-top-arrow" aria-hidden="true">↑</span>
+    </a>
+    <div class="consent-banner" role="dialog" aria-live="polite" aria-label={ui.consent.ariaLabel} hidden data-consent-banner>
+      <div class="consent-banner-copy">
+        <p class="eyebrow">{ui.consent.eyebrow}</p>
+        <p>{ui.consent.text}</p>
+        <a href={localizeHref(locale, "/privacy")}>{ui.consent.more}</a>
+      </div>
+      <div class="consent-banner-actions">
+        <button type="button" class="button button-secondary" data-consent-choice="rejected">
+          {ui.consent.reject}
+        </button>
+        <button type="button" class="button button-primary" data-consent-choice="accepted">
+          {ui.consent.accept}
+        </button>
+      </div>
+    </div>
+    <script is:inline>
+      (() => {
+        const toggle = document.querySelector("[data-menu-toggle]");
+        const panel = document.querySelector("[data-mobile-panel]");
+        if (!toggle || !panel) return;
+        toggle.addEventListener("click", () => {
+          const isOpen = toggle.getAttribute("aria-expanded") === "true";
+          const nextOpen = !isOpen;
+          toggle.setAttribute("aria-expanded", String(nextOpen));
+          toggle.setAttribute("aria-label", nextOpen ? toggle.dataset.closeLabel : toggle.dataset.openLabel);
+          toggle.classList.toggle("is-active", nextOpen);
+          panel.classList.toggle("is-open", nextOpen);
+        });
+        panel.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", () => {
+            toggle.setAttribute("aria-expanded", "false");
+            toggle.setAttribute("aria-label", toggle.dataset.openLabel);
+            toggle.classList.remove("is-active");
+            panel.classList.remove("is-open");
+          });
+        });
+      })();
+    </script>
+    <script is:inline>
+      (() => {
+        const banner = document.querySelector("[data-consent-banner]");
+        if (!banner) return;
+        const key = "d-media-consent";
+        const version = "2026-06-06";
+        const readConsent = () => {
+          try {
+            const raw = window.localStorage.getItem(key);
+            if (!raw) return null;
+            const parsed = JSON.parse(raw);
+            if (parsed?.version !== version) return null;
+            return parsed.choice;
+          } catch {
+            return null;
+          }
+        };
+        const hideBanner = () => {
+          banner.hidden = true;
+          banner.setAttribute("aria-hidden", "true");
+        };
+        const current = readConsent();
+        if (current !== "accepted" && current !== "rejected") {
+          banner.hidden = false;
+          banner.setAttribute("aria-hidden", "false");
+        }
+        document.addEventListener("click", (event) => {
+          const target = event.target;
+          const button = target instanceof Element ? target.closest("[data-consent-choice]") : null;
+          if (!(button instanceof HTMLElement) || !banner.contains(button)) return;
+          event.preventDefault();
+          const choice = button.dataset.consentChoice || "rejected";
+          try {
+            window.localStorage.setItem(key, JSON.stringify({ choice, version }));
+          } catch {}
+          hideBanner();
+        });
+      })();
+    </script>
+    <script is:inline>
+      (() => {
+        const topLink = document.querySelector("[data-floating-top]");
+        const footer = document.querySelector(".site-footer");
+        if (!topLink) return;
+        const handleScroll = () => {
+          if (window.innerWidth >= 980) {
+            topLink.classList.toggle("is-hidden", window.scrollY <= 120);
+            return;
+          }
+          const footerTop = footer?.getBoundingClientRect().top ?? Infinity;
+          const shouldHideForFooter = footerTop < window.innerHeight - 84;
+          topLink.classList.toggle("is-hidden", window.scrollY <= 240 || shouldHideForFooter);
+        };
+        handleScroll();
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        window.addEventListener("resize", handleScroll);
+      })();
+    </script>
+    <script is:inline>
+      (() => {
+        const root = document.documentElement;
+        const media = window.matchMedia("(prefers-color-scheme: dark)");
+        const storageKey = "d-media-theme-mode";
+        const controls = Array.from(document.querySelectorAll("[data-theme-mode-option]"));
+        const readMode = () => {
+          try {
+            const value = window.localStorage.getItem(storageKey);
+            return value === "light" || value === "dark" || value === "auto" ? value : "auto";
+          } catch {
+            return "auto";
+          }
+        };
+        const applyMode = (mode) => {
+          const resolvedTheme = mode === "auto" ? (media.matches ? "dark" : "light") : mode;
+          root.dataset.themeMode = mode;
+          root.dataset.theme = resolvedTheme;
+          controls.forEach((control) => {
+            const isActive = control.dataset.themeModeOption === mode;
+            control.classList.toggle("is-active", isActive);
+            control.setAttribute("aria-pressed", String(isActive));
+          });
+          try {
+            window.localStorage.setItem(storageKey, mode);
+          } catch {}
+        };
+        controls.forEach((control) => {
+          control.addEventListener("click", () => applyMode(control.dataset.themeModeOption || "auto"));
+        });
+        applyMode(readMode());
+        const syncAuto = () => {
+          if (readMode() === "auto") applyMode("auto");
+        };
+        if (typeof media.addEventListener === "function") {
+          media.addEventListener("change", syncAuto);
+        }
+      })();
+    </script>
+    <script is:inline define:vars={{ closeLabel: ui.closePreview }}>
+      (() => {
+        const triggers = Array.from(document.querySelectorAll("[data-gallery-trigger]"));
+        if (!triggers.length) return;
+
+        let overlay = null;
+        let removeLightboxListeners = null;
+
+        const close = () => {
+          removeLightboxListeners?.();
+          removeLightboxListeners = null;
+          overlay?.remove();
+          overlay = null;
+          document.documentElement.classList.remove("is-gallery-open");
+        };
+
+        const open = (src, alt) => {
+          close();
+          overlay = document.createElement("div");
+          overlay.className = "gallery-lightbox";
+          overlay.setAttribute("role", "dialog");
+          overlay.setAttribute("aria-modal", "true");
+          overlay.setAttribute("aria-label", alt);
+          const panel = document.createElement("div");
+          panel.className = "gallery-lightbox-panel";
+          const topbar = document.createElement("div");
+          topbar.className = "gallery-lightbox-topbar";
+          const closeButton = document.createElement("button");
+          closeButton.type = "button";
+          closeButton.className = "gallery-lightbox-close";
+          closeButton.setAttribute("aria-label", closeLabel);
+          closeButton.textContent = "×";
+          const frame = document.createElement("div");
+          frame.className = "gallery-lightbox-frame";
+          const imageWrap = document.createElement("div");
+          imageWrap.className = "gallery-lightbox-image";
+          const image = document.createElement("img");
+          const setImageOrientation = () => {
+            image.classList.remove("is-landscape", "is-portrait", "is-square");
+            const ratio = image.naturalWidth / Math.max(image.naturalHeight, 1);
+            image.classList.add(ratio > 1.08 ? "is-landscape" : ratio < 0.92 ? "is-portrait" : "is-square");
+          };
+          const fitImage = () => {
+            if (!image.naturalWidth || !image.naturalHeight) return;
+            const maxWidth = imageWrap.clientWidth;
+            const maxHeight = imageWrap.clientHeight;
+            if (!maxWidth || !maxHeight) return;
+            const scale = Math.min(maxWidth / image.naturalWidth, maxHeight / image.naturalHeight);
+            image.style.width = `${Math.floor(image.naturalWidth * scale)}px`;
+            image.style.height = `${Math.floor(image.naturalHeight * scale)}px`;
+          };
+          image.alt = alt;
+          image.loading = "eager";
+          image.decoding = "async";
+          image.addEventListener("load", () => {
+            setImageOrientation();
+            fitImage();
+          });
+          image.src = src;
+          if (image.complete) {
+            setImageOrientation();
+            fitImage();
+          }
+          imageWrap.append(image);
+          frame.append(imageWrap);
+          topbar.append(closeButton);
+          panel.append(topbar, frame);
+          overlay.append(panel);
+          overlay.addEventListener("click", (event) => {
+            if (event.target === overlay) close();
+          });
+          closeButton.addEventListener("click", close);
+          document.body.append(overlay);
+          requestAnimationFrame(fitImage);
+          const handleResize = () => fitImage();
+          window.addEventListener("resize", handleResize);
+          removeLightboxListeners = () => window.removeEventListener("resize", handleResize);
+          document.documentElement.classList.add("is-gallery-open");
+        };
+
+        triggers.forEach((trigger) => {
+          trigger.addEventListener("click", (event) => {
+            event.preventDefault();
+            open(trigger.getAttribute("href"), trigger.dataset.galleryAlt || "");
+          });
+        });
+
+        window.addEventListener("keydown", (event) => {
+          if (event.key === "Escape") close();
+        });
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,105 @@
+---
+import BrandText from "@/components/BrandText.astro";
+import Layout from "@/layouts/Layout.astro";
+import { getResolvedAllProjectsArchive } from "@/lib/asset-url";
+import { localizeHref, type Locale } from "@/lib/i18n";
+import { getPageCopy } from "@/lib/page-copy";
+import { getProjectBreadcrumbSchema, getProjectCreativeWorkSchema } from "@/lib/seo";
+import { getUiCopy } from "@/lib/ui-copy";
+
+export function getStaticPaths() {
+  return getResolvedAllProjectsArchive("bg").map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+const locale: Locale = "bg";
+const { project } = Astro.props;
+const copy = getPageCopy(locale).projectDetail;
+const ui = getUiCopy(locale);
+const formatFileCount = (count: number) =>
+  locale === "en" ? `${count} ${count === 1 ? "file" : "files"}` : `${count} ${count === 1 ? "файл" : "файла"}`;
+---
+
+<Layout
+  locale={locale}
+  title={`${project.title} | d . media`}
+  description={`${project.summary} ${project.context}`.trim()}
+  path={`/projects/${project.slug}`}
+  structuredData={[
+    getProjectCreativeWorkSchema({
+      locale,
+      slug: project.slug,
+      title: project.title,
+      description: `${project.summary} ${project.context}`.trim(),
+      image: project.cover,
+      keywords: [project.title, ...project.focus],
+    }),
+    getProjectBreadcrumbSchema({ locale, slug: project.slug, title: project.title }),
+  ]}
+>
+  <main class="site-shell" id="top">
+    <section class="section-grid">
+      <div class="section-heading page-intro">
+        <h1>{project.title}</h1>
+        <p class="page-text">{project.context}</p>
+      </div>
+
+      <article class="card case-study-hero">
+        <div class="showcase-image case-study-image">
+          <div class="case-study-image-frame">
+            <img src={project.cover} alt={project.title} loading="eager" decoding="async" />
+          </div>
+        </div>
+        <div class="case-study-body">
+          <div class="case-study-section">
+            <span class="case-study-label">{copy.context}</span>
+            <p>{project.context}</p>
+          </div>
+          <div class="case-study-section">
+            <span class="case-study-label">{copy.solution}</span>
+            <p>{project.summary}</p>
+          </div>
+          <div class="case-study-section">
+            <span class="case-study-label">{copy.usage}</span>
+            <ul class="detail-list">
+              {project.focus.map((detail: string) => (
+                <li>{detail}</li>
+              ))}
+            </ul>
+          </div>
+          <div class="case-study-section">
+            <span class="case-study-label">{copy.archive}</span>
+            <div class="tag-list">
+              <span class="tag-pill">{formatFileCount(project.imageCount)}</span>
+              <span class="tag-pill">{project.featured ? ui.featuredProject : ui.archiveProject}</span>
+            </div>
+          </div>
+          <div class="project-card-footer">
+            <span class="project-meta">{copy.meta}</span>
+            <a class="inline-link" href={localizeHref(locale, "/projects")}>{copy.back}</a>
+          </div>
+        </div>
+      </article>
+
+      <div class="section-heading page-subheading">
+        <h2>{copy.applicationsTitle}</h2>
+      </div>
+      <div class="mockup-grid projects-gallery">
+        {project.images.map((image: { src: string; label?: string }) => (
+          <a
+            class="card mockup-card project-png-card gallery-trigger project-file-trigger"
+            href={image.src}
+            data-gallery-trigger
+            data-gallery-alt={image.label ?? project.title}
+          >
+            <div class="mockup-image">
+              <img src={image.src} alt={image.label ?? project.title} decoding="async" />
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+  </main>
+</Layout>

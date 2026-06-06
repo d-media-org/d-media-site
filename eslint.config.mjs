@@ -10,6 +10,9 @@ const eslintConfig = defineConfig([
     // Default ignores of eslint-config-next:
     ".next/**",
     ".vercel/**",
+    "astro/.astro/**",
+    "astro/dist/**",
+    "astro/node_modules/**",
     "out/**",
     "build/**",
     "next-env.d.ts",

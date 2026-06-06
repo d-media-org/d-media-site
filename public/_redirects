@@ -1,0 +1,6 @@
+/index.html / 301
+/en/index.html /en 301
+/bg / 301
+/bg/* /:splat 301
+/brandbook /brandbook_web_exact/index.html 302
+/en/brandbook /brandbook_web_exact_en/index.html 302

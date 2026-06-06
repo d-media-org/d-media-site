@@ -1,6 +1,6 @@
-import { get } from "@vercel/edge-config";
+import { unstable_cache } from "next/cache";
 
-import { getResolvedAllProjectsArchive, resolvedAllProjectsArchive } from "@/lib/asset-url";
+import { getResolvedAllProjectsArchive } from "@/lib/asset-url";
 import type { Locale } from "@/lib/i18n";
 
 const fallbackFeaturedProjectSlugs = [
@@ -10,32 +10,16 @@ const fallbackFeaturedProjectSlugs = [
   "dj-nedi",
 ] as const;
 
-function isKnownProjectSlug(value: string) {
-  return resolvedAllProjectsArchive.some((project) => project.slug === value);
-}
+const readFeaturedProjectSlugs = unstable_cache(
+  async () => {
+    return [...fallbackFeaturedProjectSlugs];
+  },
+  ["featured-project-slugs"],
+  { revalidate: 300 }
+);
 
 export async function getFeaturedProjectSlugs() {
-  if (!process.env.EDGE_CONFIG) {
-    return [...fallbackFeaturedProjectSlugs];
-  }
-
-  try {
-    const featuredProjectSlugs = await get("featuredProjectSlugs");
-
-    if (!Array.isArray(featuredProjectSlugs)) {
-      return [...fallbackFeaturedProjectSlugs];
-    }
-
-    const validFeaturedProjectSlugs = featuredProjectSlugs
-      .filter((slug): slug is string => typeof slug === "string")
-    .filter(isKnownProjectSlug);
-
-    return validFeaturedProjectSlugs.length > 0
-      ? validFeaturedProjectSlugs
-      : [...fallbackFeaturedProjectSlugs];
-  } catch {
-    return [...fallbackFeaturedProjectSlugs];
-  }
+  return readFeaturedProjectSlugs();
 }
 
 export async function getFeaturedProjects(locale: Locale = "bg") {

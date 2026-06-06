@@ -32,7 +32,6 @@ A project starts with short context, the needed service, timing, volume, and any
 ## Contact
 
 - Email: contact@d-media.org
-- Phone: +359 892 494 495
 - Location: Sofia, Bulgaria
 
 ## Social profiles

@@ -1,0 +1,62 @@
+---
+import { localizeHref, type Locale } from "@/lib/i18n";
+import { resolveAssetUrl } from "@/lib/asset-url";
+import { getUiCopy } from "@/lib/ui-copy";
+
+type Project = {
+  slug: string;
+  title: string;
+  summary: string;
+  cover: string;
+  imageCount: number;
+};
+
+type Props = {
+  project: Project;
+  locale: Locale;
+  variant?: "showcase" | "archive";
+};
+
+const { project, locale, variant = "showcase" } = Astro.props;
+const ui = getUiCopy(locale);
+const isArchive = variant === "archive";
+const coverSrc = resolveAssetUrl(project.cover);
+---
+
+<a
+  class={`card ${isArchive ? "archive-card archive-project-card" : "showcase-card"} showcase-link-card`}
+  href={localizeHref(locale, `/projects/${project.slug}`)}
+>
+  <article>
+    <div class={isArchive ? "archive-project-cover" : "showcase-image"}>
+      <div class={isArchive ? "archive-project-cover-frame" : "showcase-image-frame"}>
+        <img
+          src={coverSrc}
+          alt={project.title}
+          loading="lazy"
+          decoding="async"
+          fetchpriority="low"
+          sizes={isArchive ? "(max-width: 767px) calc(100vw - 32px), 720px" : "(max-width: 767px) calc(100vw - 32px), (max-width: 1199px) 48vw, 500px"}
+        />
+      </div>
+    </div>
+    <div class={isArchive ? "archive-project-copy" : "showcase-copy"}>
+      {isArchive ? (
+        <div class="project-card-footer">
+          <span class="archive-category">{ui.fullArchive}</span>
+          <span class="archive-count">{ui.fileCount(project.imageCount)}</span>
+        </div>
+      ) : null}
+      <h3>{project.title}</h3>
+      <p class={isArchive ? undefined : "project-lead"}>{project.summary}</p>
+      {isArchive ? (
+        <span class="project-link-hint">{ui.projectHint}</span>
+      ) : (
+        <div class="project-card-footer">
+          <span class="project-meta">{ui.fileCount(project.imageCount)}</span>
+          <span class="project-link-hint">{ui.projectHint}</span>
+        </div>
+      )}
+    </div>
+  </article>
+</a>

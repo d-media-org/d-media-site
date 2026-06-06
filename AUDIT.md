@@ -1,23 +1,27 @@
-# Production Audit
+# Production / Cloudflare Audit
 
-Дата: 2026-05-31
+Дата: 2026-06-06
 
 ## Current State
 
 - Next.js security update: `16.2.6`.
 - Project galleries използват bounded hashed WebP derivatives.
 - Source originals са архивирани извън deploy tree.
-- Vercel Blob orphan cleanup е изпълнен.
+- External blob/storage fallback е премахнат от Cloudflare build-а.
 - BG/EN routes, metadata, canonical, hreflang, robots, sitemap и social preview са активни.
+- Astro static build е подготвен за Cloudflare Pages в `astro/`.
+- Cloudflare Pages config е в `astro/wrangler.toml`.
+- Cloudflare headers/redirects се копират от `public/_headers` и `public/_redirects`.
+- Няма нужни Cloudflare Workers/Pages Functions за текущата функционалност.
 
 ## Required Release Gates
 
 - `npm run lint`
-- `npm run build`
+- `npm run astro:cf:validate`
 - `npm audit`
-- WebKit iPhone stress pass за `/projects`, detail routes и lightbox
+- WebKit iPhone stress pass за `/projects`, detail routes, consent и lightbox
 - Facebook/Messenger WebView stress pass
-- Preview CDN sweep за routes и image transforms
+- Cloudflare preview CDN sweep за routes, static assets, PDFs, logo pack, social preview и redirects
 
 ## Known Audit Note
 

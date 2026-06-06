@@ -1,0 +1,110 @@
+---
+import BrandText from "@/components/BrandText.astro";
+import ProjectCard from "@/components/ProjectCard.astro";
+import Layout from "@/layouts/Layout.astro";
+import { getResolvedLegacyMockupCollections, getResolvedProjectPngArchive } from "@/lib/asset-url";
+import { getFeaturedProjectSlugs, getFeaturedProjects } from "@/lib/featured-projects-static";
+import { localizeHref, type Locale } from "@/lib/i18n";
+import { getPageCopy } from "@/lib/page-copy";
+import { getBreadcrumbSchema } from "@/lib/seo";
+
+const locale: Locale = "en";
+const copy = getPageCopy(locale).projects;
+const resolvedProjectPngArchive = getResolvedProjectPngArchive(locale);
+const legacyMockupCollections = getResolvedLegacyMockupCollections(locale);
+const featuredProjectSlugs = getFeaturedProjectSlugs();
+const featuredProjects = getFeaturedProjects(locale);
+const archiveProjects = resolvedProjectPngArchive.filter(
+  (project) => !featuredProjectSlugs.includes(project.slug as (typeof featuredProjectSlugs)[number]),
+);
+---
+
+<Layout
+  locale={locale}
+  title={`${copy.metaTitle} | d . media`}
+  description={copy.metaDescription}
+  path="/projects"
+  structuredData={[getBreadcrumbSchema({ locale, path: "/projects", title: copy.metaTitle })]}
+>
+  <main class="site-shell" id="top">
+    <section class="section-grid">
+      <div class="section-heading page-intro page-intro-balanced">
+        <h1><BrandText text={copy.title} /></h1>
+        <p class="page-text">{copy.text}</p>
+      </div>
+      <div class="showcase-grid project-reading-grid">
+        <article class="card package-card">
+          <h3>{copy.readingTitle}</h3>
+          <p>{copy.readingText}</p>
+        </article>
+        <article class="card package-card">
+          <h3>{copy.resultTitle}</h3>
+          <p>{copy.resultText}</p>
+        </article>
+      </div>
+
+      <div class="section-heading page-subheading">
+        <h2>{copy.selectedTitle}</h2>
+        <p class="page-text">{copy.selectedText}</p>
+      </div>
+      <div class="showcase-grid projects-grid">
+        {featuredProjects.map((project) => (
+          <ProjectCard project={project} locale={locale} />
+        ))}
+      </div>
+
+      <div class="section-heading page-subheading">
+        <h2>{copy.archiveTitle}</h2>
+        <p class="page-text">{copy.archiveText}</p>
+      </div>
+      <div class="archive-grid">
+        {archiveProjects.map((project) => (
+          <ProjectCard project={project} locale={locale} variant="archive" />
+        ))}
+      </div>
+
+      {legacyMockupCollections.map((collection) => (
+        <section class="legacy-mockup-section">
+          <div class="section-heading page-subheading">
+            <h2>{collection.title}</h2>
+            <p class="page-text">{collection.description}</p>
+          </div>
+          <div class="legacy-mockup-grid">
+            {collection.items.map((item) => (
+              <a
+                class="card legacy-mockup-card gallery-trigger legacy-mockup-trigger"
+                href={item.src}
+                data-gallery-trigger
+                data-gallery-alt={item.alt}
+              >
+                <div class="legacy-mockup-frame">
+                  <img src={item.src} alt={item.alt} loading="lazy" decoding="async" />
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
+      ))}
+
+      <article class="card projects-cta-card">
+        <div class="services-cta-copy">
+          <h2>{copy.ctaTitle}</h2>
+          <p class="page-text"><BrandText text={copy.ctaText} /></p>
+        </div>
+        <div class="hero-actions">
+          <a
+            href={localizeHref(locale, "/contact")}
+            class="button button-primary"
+            data-ga-event="cta_start_project_click"
+            data-ga-location="projects_cta"
+          >
+            {copy.primaryCta}
+          </a>
+          <a href={localizeHref(locale, "/services")} class="button button-secondary">
+            {copy.secondaryCta}
+          </a>
+        </div>
+      </article>
+    </section>
+  </main>
+</Layout>

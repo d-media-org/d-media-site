@@ -11,7 +11,6 @@ import {
 import { localizeHref, type Locale } from "@/lib/i18n";
 import { getPageCopy } from "@/lib/page-copy";
 import { getPageMetadata, getWebPageSchema } from "@/lib/seo";
-import { getSiteRuntimeConfig } from "@/lib/site-runtime-config";
 
 export const metadata: Metadata = getPageMetadata({
   locale: "bg",
@@ -20,10 +19,11 @@ export const metadata: Metadata = getPageMetadata({
   path: "/",
 });
 
+export const revalidate = 300;
+
 export async function HomePage({ locale = "bg" }: { locale?: Locale }) {
   const copy = getPageCopy(locale).home;
   const localizedContent = getSiteContent(locale);
-  const siteRuntimeConfig = await getSiteRuntimeConfig();
   const homepageServices = localizedContent.coreServices.map((service) => ({
     id: service.id,
     title: service.title,
@@ -84,32 +84,30 @@ export async function HomePage({ locale = "bg" }: { locale?: Locale }) {
         </aside>
       </section>
 
-      {siteRuntimeConfig.home.sections.services ? (
-        <section className="section-grid home-section" id="services">
-          <div className="section-heading page-intro-balanced">
-            <p className="eyebrow">{copy.servicesEyebrow}</p>
-            <h2>{copy.servicesTitle}</h2>
-          </div>
-          <div className="showcase-grid service-card-grid">
-            {homepageServices.map((service) => (
-              <article className="card service-category-card" key={service.title}>
-                <h3>{service.title}</h3>
-                <p>{service.text}</p>
-              </article>
-            ))}
-          </div>
-          <div className="section-actions">
-            <Link
-              href={localizeHref(locale, "/contact")}
-              className="button button-primary"
-              data-ga-event="cta_start_project_click"
-              data-ga-location="home_services"
-            >
-              {copy.servicesCta}
-            </Link>
-          </div>
-        </section>
-      ) : null}
+      <section className="section-grid home-section" id="services">
+        <div className="section-heading page-intro-balanced">
+          <p className="eyebrow">{copy.servicesEyebrow}</p>
+          <h2>{copy.servicesTitle}</h2>
+        </div>
+        <div className="showcase-grid service-card-grid">
+          {homepageServices.map((service) => (
+            <article className="card service-category-card" key={service.title}>
+              <h3>{service.title}</h3>
+              <p>{service.text}</p>
+            </article>
+          ))}
+        </div>
+        <div className="section-actions">
+          <Link
+            href={localizeHref(locale, "/contact")}
+            className="button button-primary"
+            data-ga-event="cta_start_project_click"
+            data-ga-location="home_services"
+          >
+            {copy.servicesCta}
+          </Link>
+        </div>
+      </section>
 
       <section className="section-grid home-section" id="pricing">
         <div className="section-heading page-intro-balanced">
@@ -186,30 +184,28 @@ export async function HomePage({ locale = "bg" }: { locale?: Locale }) {
         </div>
       </section>
 
-      {siteRuntimeConfig.home.sections.about ? (
-        <section className="section-grid home-section" id="about">
-          <div className="section-heading page-intro-balanced">
-            <p className="eyebrow">{copy.aboutEyebrow}</p>
-            <h2>
-              <BrandText text={copy.aboutTitle} />
-            </h2>
-          </div>
-          <div className="showcase-grid about-summary-grid">
-            {aboutSummary.map((item) => (
-              <article className="card text-card about-summary-card" key={item}>
-                <p>
-                  <BrandText text={item} />
-                </p>
-              </article>
-            ))}
-          </div>
-          <div className="section-actions">
-            <Link href={localizeHref(locale, "/contact")} className="button button-primary">
-              {copy.aboutCta}
-            </Link>
-          </div>
-        </section>
-      ) : null}
+      <section className="section-grid home-section" id="about">
+        <div className="section-heading page-intro-balanced">
+          <p className="eyebrow">{copy.aboutEyebrow}</p>
+          <h2>
+            <BrandText text={copy.aboutTitle} />
+          </h2>
+        </div>
+        <div className="showcase-grid about-summary-grid">
+          {aboutSummary.map((item) => (
+            <article className="card text-card about-summary-card" key={item}>
+              <p>
+                <BrandText text={item} />
+              </p>
+            </article>
+          ))}
+        </div>
+        <div className="section-actions">
+          <Link href={localizeHref(locale, "/contact")} className="button button-primary">
+            {copy.aboutCta}
+          </Link>
+        </div>
+      </section>
 
       <section className="section-grid contact-section home-section" id="contact">
         <div className="card contact-card content-card-wide">

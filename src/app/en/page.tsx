@@ -11,6 +11,8 @@ export const metadata: Metadata = getPageMetadata({
   path: "/",
 });
 
+export const revalidate = 300;
+
 export default async function EnglishHomePage() {
   return HomePage({ locale: "en" });
 }

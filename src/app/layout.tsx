@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
-import { headers } from "next/headers";
 import localFont from "next/font/local";
 import Script from "next/script";
 
 import { AnnouncementBar } from "@/components/announcement-bar";
 import { DeferredConsentBanner } from "@/components/deferred-consent-banner";
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
-import { normalizeLocale } from "@/lib/i18n";
 import { getPageCopy } from "@/lib/page-copy";
 import {
   baseUrl,
@@ -19,15 +17,46 @@ import { getSiteRuntimeConfig } from "@/lib/site-runtime-config";
 
 import "./globals.css";
 
-const pantonWeb = localFont({
-  src: [
-    { path: "../../public/fonts/panton/Panton-Light.otf", weight: "300", style: "normal" },
-    { path: "../../public/fonts/panton/Panton-Regular.otf", weight: "400", style: "normal" },
-    { path: "../../public/fonts/panton/Panton-SemiBold.otf", weight: "600", style: "normal" },
-    { path: "../../public/fonts/panton/Panton-Bold.otf", weight: "700", style: "normal" },
-    { path: "../../public/fonts/panton/Panton-Black.otf", weight: "900", style: "normal" },
-  ],
-  variable: "--font-panton",
+const pantonLight = localFont({
+  src: "../../public/fonts/panton/Panton-Light.woff2",
+  variable: "--font-panton-light",
+  weight: "300",
+  style: "normal",
+  display: "swap",
+  preload: false,
+});
+
+const pantonRegular = localFont({
+  src: "../../public/fonts/panton/Panton-Regular.woff2",
+  variable: "--font-panton-regular",
+  weight: "400",
+  style: "normal",
+  display: "swap",
+});
+
+const pantonSemiBold = localFont({
+  src: "../../public/fonts/panton/Panton-SemiBold.woff2",
+  variable: "--font-panton-semibold",
+  weight: "600",
+  style: "normal",
+  display: "swap",
+  preload: false,
+});
+
+const pantonBold = localFont({
+  src: "../../public/fonts/panton/Panton-Bold.woff2",
+  variable: "--font-panton-bold",
+  weight: "700",
+  style: "normal",
+  display: "swap",
+  preload: false,
+});
+
+const pantonBlack = localFont({
+  src: "../../public/fonts/panton/Panton-Black.woff2",
+  variable: "--font-panton-black",
+  weight: "900",
+  style: "normal",
   display: "swap",
 });
 
@@ -93,20 +122,25 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const requestHeaders = await headers();
-  const locale = normalizeLocale(requestHeaders.get("x-d-media-locale"));
   const googleAnalyticsId = process.env.NEXT_PUBLIC_GA4_MEASUREMENT_ID;
   const siteRuntimeConfig = await getSiteRuntimeConfig();
   const structuredData = [
-    { id: "organization-schema", value: getOrganizationSchema(locale) },
-    { id: "website-schema", value: getWebsiteSchema(locale) },
+    { id: "organization-schema", value: getOrganizationSchema("bg") },
+    { id: "website-schema", value: getWebsiteSchema("bg") },
   ];
 
   return (
-    <html lang={locale} suppressHydrationWarning>
+    <html lang="bg" suppressHydrationWarning>
       <head />
       <body
-        className={`${pantonWeb.variable} antialiased`}
+        className={[
+          pantonLight.variable,
+          pantonRegular.variable,
+          pantonSemiBold.variable,
+          pantonBold.variable,
+          pantonBlack.variable,
+          "antialiased",
+        ].join(" ")}
       >
         <Script id="theme-sync" strategy="beforeInteractive">
           {`(() => {

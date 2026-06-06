@@ -16,6 +16,10 @@
 # next.js
 /.next/
 /out/
+/astro/.astro/
+/astro/.wrangler/
+/astro/dist/
+/astro/node_modules/
 
 # production
 /build

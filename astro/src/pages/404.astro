@@ -1,0 +1,18 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { getUiCopy } from "@/lib/ui-copy";
+
+const ui = getUiCopy("bg");
+---
+
+<Layout locale="bg" title={`${ui.notFound.title} | d . media`} description={ui.notFound.title} path="/404">
+  <main class="site-shell">
+    <section class="section-grid">
+      <div class="section-heading page-intro">
+        <p class="eyebrow">{ui.notFound.eyebrow}</p>
+        <h1>{ui.notFound.title}</h1>
+        <a href="/" class="button button-primary">{ui.notFound.home}</a>
+      </div>
+    </section>
+  </main>
+</Layout>

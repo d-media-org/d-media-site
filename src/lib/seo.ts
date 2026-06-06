@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 
 import {
   contactEmail,
-  contactPhone,
 } from "@/lib/site-content";
 import { defaultLocale, localizeHref, type Locale } from "@/lib/i18n";
 import { getPageCopy } from "@/lib/page-copy";
@@ -84,12 +83,10 @@ export function getOrganizationSchema(locale: Locale = "bg") {
     logo: `${baseUrl}/dmedia-apple-touch-v4.png`,
     image: `${baseUrl}/dmedia-apple-touch-v4.png`,
     email: contactEmail,
-    telephone: contactPhone,
     contactPoint: {
       "@type": "ContactPoint",
       contactType: locale === "bg" ? "Проектни запитвания" : "Project inquiries",
       email: contactEmail,
-      telephone: contactPhone,
       availableLanguage: ["bg", "en"],
     },
     areaServed: "BG",

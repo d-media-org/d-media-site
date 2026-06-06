@@ -1,0 +1,78 @@
+---
+import BrandText from "@/components/BrandText.astro";
+import Layout from "@/layouts/Layout.astro";
+import { type Locale } from "@/lib/i18n";
+import { getPrivacyPolicy } from "@/lib/legal-content";
+import { getPageCopy } from "@/lib/page-copy";
+import { contactEmail, contactPhone, getSiteContent } from "@/lib/site-content";
+
+const locale: Locale = "bg";
+const copy = getPageCopy(locale).privacy;
+const siteContent = getSiteContent(locale);
+const fullPolicySections = getPrivacyPolicy(locale);
+const formatSectionHeading = (id: string, title: string) => {
+  const heading = `${id}. ${title}`;
+  return /^\d+$/.test(id) ? heading.toUpperCase() : heading;
+};
+---
+
+<Layout locale={locale} title={`${copy.metaTitle} | d . media`} description={copy.metaDescription} path="/privacy">
+  <main class="site-shell" id="top">
+    <section class="section-grid">
+      <div class="section-heading page-intro">
+        <h1>{copy.title}</h1>
+        <p class="page-text"><BrandText text={copy.text} /></p>
+      </div>
+
+      <div class="card">
+        <ul class="policy-list">
+          {siteContent.privacySummary.map((item) => (
+            <li><BrandText text={item} /></li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="showcase-grid definition-grid">
+        {siteContent.privacySections.map((section) => (
+          <article class="card package-card">
+            <h3>{section.title}</h3>
+            <p><BrandText text={section.text} /></p>
+          </article>
+        ))}
+      </div>
+
+      <details class="card privacy-details">
+        <summary>{copy.full}</summary>
+        <div class="privacy-details-copy">
+          <p>{copy.policyTitle}</p>
+          {fullPolicySections.map((section) => (
+            <section class="privacy-section">
+              {section.title ? <h3>{formatSectionHeading(section.id, section.title)}</h3> : null}
+              {section.content?.map((paragraph) => (
+                paragraph === contactPhone ? null : (
+                  <p>
+                    {paragraph === contactEmail ? (
+                      <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
+                    ) : (
+                      <BrandText text={paragraph} />
+                    )}
+                  </p>
+                )
+              ))}
+              {section.bullets ? (
+                <ul class="privacy-bullets">
+                  {section.bullets.map((bullet) => (
+                    <li><BrandText text={bullet} /></li>
+                  ))}
+                </ul>
+              ) : null}
+              {section.tail?.map((paragraph) => (
+                <p><BrandText text={paragraph} /></p>
+              ))}
+            </section>
+          ))}
+        </div>
+      </details>
+    </section>
+  </main>
+</Layout>

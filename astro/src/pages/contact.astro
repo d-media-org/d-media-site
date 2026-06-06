@@ -1,0 +1,47 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { type Locale } from "@/lib/i18n";
+import { getPageCopy } from "@/lib/page-copy";
+import { contactEmail, getSiteContent } from "@/lib/site-content";
+
+const locale: Locale = "bg";
+const copy = getPageCopy(locale).contact;
+const siteContent = getSiteContent(locale);
+---
+
+<Layout locale={locale} title={`${copy.metaTitle} | d . media`} description={copy.metaDescription} path="/contact">
+  <main class="site-shell" id="top">
+    <section class="section-grid">
+      <div class="section-heading page-intro">
+        <h1>{copy.title}</h1>
+        <p class="page-text">{copy.text}</p>
+      </div>
+      <div class="showcase-grid contact-start-grid">
+        <article class="card contact-start-card">
+          <h2>{copy.needsTitle}</h2>
+          <p>{copy.needsText}</p>
+        </article>
+        <article class="card contact-start-card">
+          <h2>{copy.responseTitle}</h2>
+          <p>{copy.responseText}</p>
+        </article>
+      </div>
+      <div class="split-content page-grid stacked-cards">
+        <div class="card contact-detail-card content-card-wide">
+          <h2>{copy.mainContact}</h2>
+          <div class="contact-stack">
+            <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
+          </div>
+          <div class="contact-stack contact-channel-list">
+            {siteContent.socials.map((social) => (
+              <a href={social.href} target="_blank" rel="noreferrer" class="contact-channel">
+                <span>{social.label}</span>
+                <span>{social.handle}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

@@ -1,6 +1,8 @@
 ## d . media - site
 
-Официалният Next.js сайт на `d . media`. Визуалната система използва само локалните Panton файлове и следва текущия brand book.
+Официалният сайт на `d . media`.
+
+Текущият production сайт все още е Next.js/Vercel до изричен cutover. Подготвената Cloudflare версия е статичен Astro сайт в `astro/`, предназначен за Cloudflare Pages.
 
 ## Local Development
 
@@ -10,6 +12,34 @@ npm run dev
 npm run lint
 npm run build
 ```
+
+## Cloudflare / Astro
+
+Cloudflare build-ът е статичен и не изисква Workers или Pages Functions.
+
+```bash
+npm run astro:dev
+npm run astro:cf:validate
+npm run astro:cf:deploy:preview
+```
+
+Cloudflare Pages настройки:
+
+```text
+Project: d-media-site-astro
+Framework preset: Astro
+Root directory: astro
+Build command: npm run build
+Build output directory: dist
+Node.js version: 22.x
+```
+
+`astro:cf:validate` прави build и проверява:
+
+- задължителни routes, SEO файлове, manifest, favicon, PDFs и logo pack
+- `_headers` и `_redirects`
+- всички локални `href`/`src` references в HTML
+- липса на `_next`, Vercel runtime и Metricool references в Astro output
 
 ## Asset Pipeline
 
@@ -25,34 +55,20 @@ Source originals не се deploy-ват. Те се пазят в:
 npm run assets:web
 ```
 
-Blob manifest се синхронизира от source архива, публичните brand assets и активните PDF downloads:
+Cloudflare Pages build-ът използва само локални файлове от `public/` и генерирания WebP manifest. Няма външен asset storage fallback.
 
-```bash
-npm run sync:blob
-npm run blob:audit
-```
+## Runtime Config
 
-Ако shell средата съдържа `VERCEL_OIDC_TOKEN`, Blob audit командата го изключва и използва `BLOB_READ_WRITE_TOKEN`, за да избегне CLI credential conflict.
-
-## Edge Config
-
-Поддържани ключове:
-
-- `featuredProjectSlugs`: масив от валидни project slug стойности.
-- `siteRuntimeConfig.announcement`: `{ text, href? }` или `null`.
-- `siteRuntimeConfig.home.sections.services`: boolean.
-- `siteRuntimeConfig.home.sections.about`: boolean.
-
-При липсващ или невалиден Edge Config сайтът използва безопасни fallback стойности.
+Текущата Cloudflare версия е статична. Featured projects, announcement и home section visibility използват кодови fallback стойности, без външен runtime config service.
 
 ## Release Checklist
 
 1. Изпълни `npm run assets:web`, ако source assets са променени.
-2. Изпълни `npm run lint`, `npm run build` и `npm audit`.
-3. Качи Vercel preview.
-4. Провери BG/EN routes, `/projects`, detail routes, lightbox и WebKit iPhone stress сценария.
-5. Провери `robots.txt`, `sitemap.xml`, manifest и social preview.
-6. Качи live само при чист preview резултат.
+2. Изпълни `npm run lint` и `npm run astro:cf:validate`.
+3. Качи Cloudflare preview чрез `npm run astro:cf:deploy:preview`.
+4. Провери BG/EN routes, `/projects`, detail routes, lightbox, consent, theme toggle и WebKit iPhone stress сценария.
+5. Провери `robots.txt`, `sitemap.xml`, manifest, social preview, PDF downloads и logo pack.
+6. Прави Cloudflare production/custom-domain cutover само след чист preview резултат и изрично потвърждение.
 
 ## Brand Rules
 

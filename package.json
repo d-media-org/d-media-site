@@ -11,15 +11,15 @@
     "lint:cache": "eslint --cache --cache-location .eslintcache",
     "check": "npm run build && npm run lint:cache",
     "assets:web": "node scripts/generate-web-assets.mjs",
-    "blob:audit": "env -u VERCEL_OIDC_TOKEN node --env-file=.env.local scripts/audit-blob-assets.mjs",
-    "sync:blob": "env -u VERCEL_OIDC_TOKEN node --env-file=.env.local scripts/sync-blob-assets.mjs",
-    "ship": "npm run check && npx vercel --prod --yes"
+    "astro:dev": "npm --prefix astro run dev",
+    "astro:build": "npm --prefix astro run build",
+    "astro:preview": "npm --prefix astro run preview",
+    "astro:cf:validate": "npm run astro:build && node scripts/validate-cloudflare-dist.mjs",
+    "astro:cf:projects": "npx wrangler pages project list",
+    "astro:cf:deploy:preview": "npm run astro:cf:validate && cd astro && npx wrangler pages deploy dist --project-name \"${CF_PAGES_PROJECT:-d-media-site-astro}\" --branch \"${CF_PAGES_PREVIEW_BRANCH:-astro-migration}\"",
+    "astro:cf:deploy:production": "npm run astro:cf:validate && cd astro && npx wrangler pages deploy dist --project-name \"${CF_PAGES_PROJECT:-d-media-site-astro}\" --branch \"${CF_PAGES_PRODUCTION_BRANCH:-main}\""
   },
   "dependencies": {
-    "@vercel/analytics": "^2.0.1",
-    "@vercel/blob": "^2.4.0",
-    "@vercel/edge-config": "^1.4.3",
-    "@vercel/speed-insights": "^2.0.0",
     "next": "16.2.6",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",

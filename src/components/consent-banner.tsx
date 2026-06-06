@@ -13,12 +13,6 @@ const CONSENT_KEY = "d-media-consent";
 const AnalyticsEvents = dynamic(() =>
   import("@/components/analytics-events").then((mod) => mod.AnalyticsEvents),
 );
-const Analytics = dynamic(() =>
-  import("@vercel/analytics/next").then((mod) => mod.Analytics),
-);
-const SpeedInsights = dynamic(() =>
-  import("@vercel/speed-insights/next").then((mod) => mod.SpeedInsights),
-);
 
 type ConsentState = "accepted" | "rejected" | null;
 
@@ -115,8 +109,6 @@ gtag('config', '${googleAnalyticsId}', {
             </>
           ) : null}
           <AnalyticsEvents />
-          <Analytics />
-          <SpeedInsights />
         </>
       ) : null}
     </>

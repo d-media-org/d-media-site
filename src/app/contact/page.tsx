@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import { type Locale } from "@/lib/i18n";
 import { getPageCopy } from "@/lib/page-copy";
-import { contactEmail, contactPhone, contactPhoneHref, getSiteContent } from "@/lib/site-content";
+import { contactEmail, getSiteContent } from "@/lib/site-content";
 import { getBreadcrumbSchema, getFaqSchema, getPageMetadata, getWebPageSchema } from "@/lib/seo";
 
 export const metadata: Metadata = getPageMetadata({
@@ -64,7 +64,6 @@ export function ContactPageView({ locale = "bg" }: { locale?: Locale }) {
             <h2>{copy.mainContact}</h2>
             <div className="contact-stack">
               <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
-              <a href={`tel:${contactPhoneHref}`}>{contactPhone}</a>
             </div>
             <div className="contact-stack contact-channel-list">
               {siteContent.socials.map((social) => (

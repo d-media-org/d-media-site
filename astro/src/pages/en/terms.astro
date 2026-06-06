@@ -1,0 +1,85 @@
+---
+import BrandText from "@/components/BrandText.astro";
+import Layout from "@/layouts/Layout.astro";
+import { type Locale } from "@/lib/i18n";
+import { getTermsPolicy } from "@/lib/legal-content";
+import { getPageCopy } from "@/lib/page-copy";
+import { getSiteContent } from "@/lib/site-content";
+
+const locale: Locale = "en";
+const copy = getPageCopy(locale).terms;
+const siteContent = getSiteContent(locale);
+const fullTermsSections = getTermsPolicy(locale);
+---
+
+<Layout locale={locale} title={`${copy.metaTitle} | d . media`} description={copy.metaDescription} path="/terms">
+  <main class="site-shell terms-page" id="top">
+    <section class="section-grid">
+      <div class="section-heading page-intro">
+        <h1><BrandText text={copy.title} /></h1>
+        <p class="page-text"><BrandText text={copy.text} /></p>
+      </div>
+
+      <div class="terms-layout">
+        <div class="terms-short">
+          <section class="terms-block card terms-short-card terms-short-primary">
+            <ul class="terms-summary-list">
+              {siteContent.termsSummary.map((item) => (
+                <li><BrandText text={item} /></li>
+              ))}
+            </ul>
+          </section>
+
+          <div class="terms-summary-grid">
+            {siteContent.termsSections.map((section) => (
+              <section class="terms-block card terms-short-card">
+                <h2>{section.title}</h2>
+                <p><BrandText text={section.text} /></p>
+              </section>
+            ))}
+          </div>
+        </div>
+
+        <details class="card privacy-details">
+          <summary>{copy.fullLabel}</summary>
+          <div class="privacy-details-copy">
+            <p>{copy.policyTitle}</p>
+            {fullTermsSections.map((section) => (
+              <section class="privacy-section">
+                {section.title ? <h3>{section.id}. {section.title}</h3> : null}
+                {section.content?.map((paragraph) => (
+                  <p><BrandText text={paragraph} /></p>
+                ))}
+                {section.bullets ? (
+                  <ul class="privacy-bullets">
+                    {section.bullets.map((bullet) => (
+                      <li><BrandText text={bullet} /></li>
+                    ))}
+                  </ul>
+                ) : null}
+                {section.subsections?.map((subsection) => (
+                  <section class="privacy-section">
+                    {subsection.title ? <h3>{subsection.id}. {subsection.title}</h3> : null}
+                    {subsection.content?.map((paragraph) => (
+                      <p><BrandText text={paragraph} /></p>
+                    ))}
+                    {subsection.bullets ? (
+                      <ul class="privacy-bullets">
+                        {subsection.bullets.map((bullet) => (
+                          <li><BrandText text={bullet} /></li>
+                        ))}
+                      </ul>
+                    ) : null}
+                  </section>
+                ))}
+                {section.tail?.map((paragraph) => (
+                  <p><BrandText text={paragraph} /></p>
+                ))}
+              </section>
+            ))}
+          </div>
+        </details>
+      </div>
+    </section>
+  </main>
+</Layout>

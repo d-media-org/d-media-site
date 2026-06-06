@@ -1,16 +1,13 @@
+import fs from "node:fs/promises";
+import path from "node:path";
 import { ImageResponse } from "next/og";
-
-import { blobAssetManifest } from "@/lib/blob-asset-manifest";
 
 export const runtime = "nodejs";
 
 async function loadImageDataUrl(relativePath: string) {
-  const response = await fetch(
-    blobAssetManifest[relativePath] ?? new URL(relativePath, "https://www.d-media.org"),
-  );
-  const arrayBuffer = await response.arrayBuffer();
-  const base64 = Buffer.from(arrayBuffer).toString("base64");
-  return `data:${response.headers.get("content-type") ?? "image/png"};base64,${base64}`;
+  const filePath = path.join(process.cwd(), "public", relativePath);
+  const image = await fs.readFile(filePath);
+  return `data:image/png;base64,${image.toString("base64")}`;
 }
 
 export async function GET() {
