@@ -53,6 +53,11 @@ const pageCopy = {
           value: "лого, логотип и основни правила за подредено първо приложение",
         },
         {
+          title: "Стартов уеб обхват",
+          price: "от 690 € (1 349 лв.)",
+          value: "лендинг страница с ясна структура, съдържание и основа за реална употреба",
+        },
+        {
           title: "Стартов social пакет",
           price: "от 25 € (48,90 лв.)",
           value: "базова визия и текстов ред за работещо първо присъствие",
@@ -407,6 +412,11 @@ const pageCopy = {
           title: "Visual identity starter package",
           price: "from 700 € (BGN 1369.08)",
           value: "logo, logotype, and core rules for an ordered first rollout",
+        },
+        {
+          title: "Web entry scope",
+          price: "from 690 € (BGN 1,349)",
+          value: "a landing page with clear structure, content, and a base for real use",
         },
         {
           title: "Social starter package",
