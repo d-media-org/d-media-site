@@ -103,6 +103,7 @@ public/fonts/panton-subset/
   - Accessibility: `100`
   - Best Practices: `100`
   - SEO: `100` за indexable production URL-ите
+- Performance score може да флуктуира между `99` и `100` в отделни PageSpeed lab runs заради Lighthouse/PSI variance, cache/edge timing, latency и FCP/LCP измервания. Това не се третира автоматично като regression, ако няма нов конкретен audit проблем.
 - `/projects` legacy секциите имат orientation-aware gallery rendering:
   - `legacy-mockup-card-portrait`
   - `legacy-mockup-card-landscape`

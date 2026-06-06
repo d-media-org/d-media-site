@@ -697,7 +697,8 @@
   - Accessibility: `100`
   - Best Practices: `100`
   - SEO: `100` за indexable production URL-ите
-- PageSpeed mobile `98` на live беше анализиран като Lighthouse lab variance/FCP-LCP timing, а не като image regression.
+- Performance score може да флуктуира между `99` и `100` в отделни PageSpeed lab runs. Това е документирано като нормална Lighthouse/PSI variance, свързана с cache/edge timing, latency и FCP/LCP измервания, а не автоматично като code regression.
+- PageSpeed mobile `98` на live беше анализиран като по-широка Lighthouse lab variance/FCP-LCP timing ситуация, а не като image regression.
 - Desktop Lighthouse остава `100` при локална проверка.
 - Рискова performance промяна не е оставена, когато показа потенциално влошаване.
 
