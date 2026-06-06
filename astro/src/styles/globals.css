@@ -2857,6 +2857,10 @@ html[data-theme="dark"] .footer-legal a:focus-visible {
   background: var(--surface-soft);
 }
 
+.legacy-mockup-card-portrait .legacy-mockup-frame {
+  aspect-ratio: 3 / 4;
+}
+
 .legacy-mockup-frame .protected-image {
   position: relative;
   display: block;
@@ -2869,6 +2873,9 @@ html[data-theme="dark"] .footer-legal a:focus-visible {
 }
 
 .legacy-mockup-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   object-position: center;
 }

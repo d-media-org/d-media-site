@@ -17,6 +17,20 @@ const featuredProjects = getFeaturedProjects(locale);
 const archiveProjects = resolvedProjectPngArchive.filter(
   (project) => !featuredProjectSlugs.includes(project.slug as (typeof featuredProjectSlugs)[number]),
 );
+const portraitLegacyMockupPaths = new Set([
+  "/optimized-assets/project-web/a5954d06a2b4-481903080-2724640101061731-1049849463403877498-n.webp",
+  "/optimized-assets/project-web/1d7ad868d9cd-481159328-2724640094395065-5692584808678090360-n.webp",
+  "/optimized-assets/project-web/e4b931a413e7-481332918-2724640057728402-2347982715872970579-n.webp",
+  "/optimized-assets/project-web/deb2f780f556-481260778-2724640077728400-882415871851379020-n.webp",
+  "/optimized-assets/project-web/7bb41c42930f-05apr-addicted-to-music-h.webp",
+  "/optimized-assets/project-web/628ca7e51e24-12jan-music-addiction.webp",
+  "/optimized-assets/project-web/811ca5e4f888-22-23dec-opium-night-bar.webp",
+  "/optimized-assets/project-web/4f842207c627-27500177-794592694066491-3836290634886429689-o.webp",
+  "/optimized-assets/project-web/39e5bdaff03f-27dec-rnb-2.webp",
+  "/optimized-assets/project-web/fec395da172e-53833614-1056930751166016-7592783103018401792-o.webp",
+  "/optimized-assets/project-web/d823e4538f8e-addicted-to-music.webp",
+  "/optimized-assets/project-web/5c3b534b05ff-nye-flyer-2.webp",
+]);
 ---
 
 <Layout
@@ -72,7 +86,9 @@ const archiveProjects = resolvedProjectPngArchive.filter(
           <div class="legacy-mockup-grid">
             {collection.items.map((item) => (
               <a
-                class="card legacy-mockup-card gallery-trigger legacy-mockup-trigger"
+                class={`card legacy-mockup-card gallery-trigger legacy-mockup-trigger ${
+                  portraitLegacyMockupPaths.has(item.src) ? "legacy-mockup-card-portrait" : "legacy-mockup-card-landscape"
+                }`}
                 href={item.src}
                 data-gallery-trigger
                 data-gallery-alt={item.alt}
