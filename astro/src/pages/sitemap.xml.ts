@@ -26,7 +26,16 @@ function sitemapEntry(path: string) {
 
 export function GET() {
   const allProjects = [...projectPngArchive, ...legacyProjectArchive];
-  const basePaths = ["", "/projects", "/services", "/about", "/contact", "/terms", "/privacy"];
+  const basePaths = [
+    "",
+    "/projects",
+    "/services",
+    "/services/web-design-development",
+    "/about",
+    "/contact",
+    "/terms",
+    "/privacy",
+  ];
   const projectPaths = allProjects.map((project) => `/projects/${project.slug}`);
   const localizedPaths = [
     ...basePaths.flatMap((path) => [

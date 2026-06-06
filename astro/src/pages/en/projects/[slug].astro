@@ -18,6 +18,7 @@ const locale: Locale = "en";
 const { project } = Astro.props;
 const copy = getPageCopy(locale).projectDetail;
 const ui = getUiCopy(locale);
+const caseStudySections = "caseStudySections" in project ? project.caseStudySections : [];
 const formatFileCount = (count: number) =>
   locale === "en" ? `${count} ${count === 1 ? "file" : "files"}` : `${count} ${count === 1 ? "файл" : "файла"}`;
 ---
@@ -69,6 +70,12 @@ const formatFileCount = (count: number) =>
               ))}
             </ul>
           </div>
+          {caseStudySections.map((section: { title: string; text: string }) => (
+            <div class="case-study-section">
+              <span class="case-study-label">{section.title}</span>
+              <p><BrandText text={section.text} /></p>
+            </div>
+          ))}
           <div class="case-study-section">
             <span class="case-study-label">{copy.archive}</span>
             <div class="tag-list">

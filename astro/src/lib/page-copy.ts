@@ -4,12 +4,19 @@ const pageCopy = {
   bg: {
     seo: {
       siteDescription:
-        "В d . media създаваме бранд идентичност, съдържание, графичен дизайн и реклама за реално приложение от студио в София, България.",
+        "В d . media създаваме бранд идентичност, съдържание, уеб платформи, графичен дизайн и реклама за реално приложение от студио в София, България.",
       siteKeywords: [
         "d . media",
         "бранд идентичност",
         "създаване на бранд идентичност",
         "създаване на съдържание",
+        "уеб дизайн",
+        "изработка на сайт",
+        "корпоративни сайтове",
+        "Astro разработка",
+        "Cloudflare Pages",
+        "SEO-ready сайтове",
+        "GEO-ready сайтове",
         "управление на социални медии",
         "графичен дизайн",
         "реклама",
@@ -19,18 +26,18 @@ const pageCopy = {
       ],
     },
     home: {
-      metaTitle: "Бранд идентичност, съдържание, дизайн и реклама",
+      metaTitle: "Бранд идентичност, съдържание, уеб платформи, дизайн и реклама",
       metaDescription:
-        "d . media е студио в София за бранд идентичност, съдържание, дизайн и реклама с фокус върху реално приложение.",
+        "d . media е студио в София за бранд идентичност, съдържание, уеб платформи, дизайн и реклама с фокус върху реално приложение.",
       eyebrow: "Ясен облик. Подредена комуникация. Реално приложение.",
       brandmarkAlt: "Брандмарк на d . media",
-      title: "Създаваме бранд идентичност, съдържание, дизайн и реклама в една работеща система.",
-      text: "Работим за бизнеси, които търсят ясен облик, подредена комуникация и материали за реална употреба. От знака до ежедневната комуникация, всичко се изгражда в една последователна система.",
+      title: "Създаваме бранд идентичност, съдържание, уеб платформи, дизайн и реклама в една работеща система.",
+      text: "Работим за бизнеси, които търсят ясен облик, подредена комуникация и дигитална среда за реална употреба. От знака до сайта и ежедневната комуникация, всичко се изгражда в една последователна система.",
       note: "Ясен облик. Подреден процес. Последователно приложение.",
       primaryCta: "Изпрати проектно запитване",
       secondaryCta: "Разгледай услугите",
       servicesEyebrow: "услуги",
-      servicesTitle: "Четири основни решения. Един подреден обхват.",
+      servicesTitle: "Пет основни решения. Един подреден обхват.",
       servicesCta: "Изпрати кратък проектен контекст",
       pricingEyebrow: "начални рамки",
       pricingTitle: "Начални рамки за стартов обхват.",
@@ -75,6 +82,11 @@ const pageCopy = {
       aboutEyebrow: "за бранда",
       aboutTitle: "Работим със система, ред и реално приложение.",
       aboutCta: "Изпрати проектен контекст",
+      trustEyebrow: "стандарт",
+      trustTitle: "Изградено по същия стандарт, който предлагаме.",
+      trustText:
+        "Платформата d-media.org е проектирана, разработена и поддържана от d . media с Astro, Cloudflare, performance-first архитектура и ясна SEO/GEO основа.",
+      trustCta: "Виж проекта d . media",
       contactEyebrow: "следваща стъпка",
       contactTitle: "Ако обхватът е ясен, продължаваме оттук.",
       contactText: "Изпрати проектен контекст и ще върнем обхват, срок и следваща стъпка според задачата.",
@@ -84,10 +96,10 @@ const pageCopy = {
     services: {
       metaTitle: "Услуги",
       metaDescription:
-        "Услуги на d . media за бранд идентичност, съдържание, графичен дизайн и реклама от студио в София.",
+        "Услуги на d . media за бранд идентичност, съдържание, уеб дизайн, разработка на сайтове, графичен дизайн и реклама от студио в София.",
       eyebrow: "услуги",
-      title: "Услуги за бранд, съдържание и работещо присъствие.",
-      text: "Тук е работният обхват. Всяка услуга е подредена така, че да води до ясен deliverable и готовност за реална употреба.",
+      title: "Услуги за бранд, съдържание, уеб платформи и работещо присъствие.",
+      text: "Тук е работният обхват. Всяка услуга е подредена така, че да води до ясен deliverable, стабилна основа и готовност за реална употреба.",
       includes: "Какво включва",
       audience: "За кого е",
       result: "Какъв резултат дава",
@@ -95,6 +107,65 @@ const pageCopy = {
       ctaTitle: "Когато контекстът е ясен, работата тръгва подредено.",
       ctaText: "Изпрати проектен контекст, нужда и срок. Оттам подреждаме обхвата, цената и следващата стъпка.",
       primaryCta: "Изпрати проектен контекст",
+      secondaryCta: "Разгледай проектите",
+    },
+    webService: {
+      metaTitle: "Уеб дизайн и разработка",
+      metaDescription:
+        "Уеб дизайн и разработка на бързи сайтове с Astro, Cloudflare Pages, SEO и GEO основа от d . media в София.",
+      title: "Уеб дизайн и разработка",
+      intro:
+        "Създаваме сайтове и уеб платформи, които работят като част от бранд системата: ясни, бързи, поддържими и подготвени за реална употреба.",
+      sections: [
+        {
+          title: "Какво създаваме",
+          text: "Корпоративни сайтове, портфолио сайтове, бизнес презентации и лендинг страници с ясна структура, съдържание и визуална логика.",
+        },
+        {
+          title: "Корпоративни сайтове",
+          text: "Подреждаме идентичност, услуги, доверие и контакт в стабилна дигитална среда за бизнес употреба.",
+        },
+        {
+          title: "Портфолио сайтове",
+          text: "Изграждаме представяне на работа, проекти и профил без визуален шум и без излишна сложност.",
+        },
+        {
+          title: "Бизнес презентационни сайтове",
+          text: "Създаваме сайтове за ясно позициониране, конкретно предложение и лесна следваща стъпка.",
+        },
+        {
+          title: "Лендинг страници",
+          text: "Разработваме фокусирани страници за кампания, услуга или конкретен обхват с ясен conversion flow.",
+        },
+        {
+          title: "Performance-first архитектура",
+          text: "Работим със структура, файлове и подход към публикуването, които пазят скорост, четимост и стабилно мобилно поведение.",
+        },
+        {
+          title: "SEO и GEO готовност",
+          text: "Подготвяме съдържание, метаданни, schema и езикова архитектура за търсене, AI search и реално индексиране.",
+        },
+        {
+          title: "Cloudflare инфраструктура",
+          text: "Използваме Cloudflare Pages за бързо, стабилно и предвидимо публикуване без излишна платформена зависимост.",
+        },
+        {
+          title: "Astro разработка",
+          text: "Изграждаме леки, статични и поддържими сайтове, когато проектът има нужда от скорост, контрол и чист frontend подход.",
+        },
+        {
+          title: "Дългосрочна поддръжка",
+          text: "Оставяме ясна структура, която може да се развива, обновява и пренася без хаос.",
+        },
+        {
+          title: "Защо има значение",
+          text: "Сайтът не е отделна витрина. Той е работеща част от идентичността, съдържанието и комуникацията на бранда.",
+        },
+      ],
+      ctaTitle: "Ако сайтът трябва да работи като система, започни оттук.",
+      ctaText:
+        "Изпрати кратък контекст за бизнеса, нужния тип сайт, наличното съдържание и срока. Оттам подреждаме обхвата и следващата стъпка.",
+      primaryCta: "Изпрати контекст за сайт",
       secondaryCta: "Разгледай проектите",
     },
     projects: {
@@ -137,9 +208,9 @@ const pageCopy = {
     about: {
       metaTitle: "За бранда",
       metaDescription:
-        "Научи повече за d . media, начина на работа и достъпа до официалния брандбук на студиото в София.",
+        "Научи повече за d . media, начина на работа, визуалните системи и дигиталните платформи на студиото в София.",
       eyebrow: "за бранда",
-      text: "d . media е студио, изградено за ясна работа, последователност и реална употреба.",
+      text: "d . media е студио, изградено за ясна работа, последователност, дигитални платформи и реална употреба.",
       brandbookTitle: "Официален брандбук",
       brandbookText:
         "Брандбукът показва основната система, правилата за употреба и начина, по който идентичността се държи последователно.",
@@ -149,7 +220,7 @@ const pageCopy = {
     contact: {
       metaTitle: "Контакт",
       metaDescription:
-        "Свържи се с d . media за нов проект по бранд идентичност, съдържание, дизайн или реклама.",
+        "Свържи се с d . media за нов проект по бранд идентичност, съдържание, уеб платформа, дизайн или реклама.",
       eyebrow: "контакт",
       title: "Ако имаш проект, започни с ясен контекст.",
       text: "Изпрати какво трябва да се изработи, за кого е, в какъв срок и с какъв приоритет. Връщаме преценка, обхват и следваща стъпка.",
@@ -190,12 +261,20 @@ const pageCopy = {
   en: {
     seo: {
       siteDescription:
-        "At d . media, we create brand identity, content, graphic design, and advertising for real application from a studio based in Sofia, Bulgaria.",
+        "At d . media, we create brand identity, content, web platforms, graphic design, and advertising for real application from a studio based in Sofia, Bulgaria.",
       siteKeywords: [
         "d . media",
         "brand identity",
         "brand identity design",
         "content creation",
+        "web design",
+        "website development",
+        "corporate websites",
+        "Astro development",
+        "Cloudflare Pages",
+        "performance-focused websites",
+        "SEO-ready websites",
+        "GEO-ready websites",
         "social media management",
         "graphic design",
         "advertising",
@@ -205,18 +284,18 @@ const pageCopy = {
       ],
     },
     home: {
-      metaTitle: "Brand identity, content, design, and advertising",
+      metaTitle: "Brand identity, content, web platforms, design, and advertising",
       metaDescription:
-        "d . media is a Sofia, Bulgaria studio for brand identity, content, design, and advertising built for real application.",
+        "d . media is a Sofia, Bulgaria studio for brand identity, content, web platforms, design, and advertising built for real application.",
       eyebrow: "Clear presence. Ordered communication. Real application.",
       brandmarkAlt: "d . media brand mark",
-      title: "We create brand identity, content, design and advertising in one working system.",
-      text: "We work with businesses that need a clear presence, ordered communication, and materials for real use. From mark to day-to-day communication, everything is built as one consistent system.",
+      title: "We create brand identity, content, web platforms, design and advertising in one working system.",
+      text: "We work with businesses that need a clear presence, ordered communication, and a digital environment for real use. From mark to website and day-to-day communication, everything is built as one consistent system.",
       note: "Clear presence. Ordered process. Consistent application.",
       primaryCta: "Send a project inquiry",
       secondaryCta: "Explore services",
       servicesEyebrow: "services",
-      servicesTitle: "Four core solutions. One clear scope.",
+      servicesTitle: "Five core solutions. One clear scope.",
       servicesCta: "Send short project context",
       pricingEyebrow: "starting ranges",
       pricingTitle: "Starting ranges for entry scope.",
@@ -261,6 +340,11 @@ const pageCopy = {
       aboutEyebrow: "about",
       aboutTitle: "We work with system, order, and real application.",
       aboutCta: "Send project context",
+      trustEyebrow: "standard",
+      trustTitle: "Built on the same standards we offer.",
+      trustText:
+        "The d-media.org platform is designed, developed, and continuously improved by d . media with Astro, Cloudflare, performance-first architecture, and a clear SEO/GEO foundation.",
+      trustCta: "View the d . media case study",
       contactEyebrow: "next step",
       contactTitle: "If the scope is clear, we continue from here.",
       contactText: "Send project context and we will return with scope, timing, and the next step for the task.",
@@ -270,10 +354,10 @@ const pageCopy = {
     services: {
       metaTitle: "Services",
       metaDescription:
-        "Services by d . media for brand identity, content, graphic design, and advertising from a studio based in Sofia, Bulgaria.",
+        "Services by d . media for brand identity, content, web design, website development, graphic design, and advertising from a studio based in Sofia, Bulgaria.",
       eyebrow: "services",
-      title: "Services for brand, content, and working presence.",
-      text: "This is the working scope. Each service is structured to lead to a clear deliverable and immediate readiness for real use.",
+      title: "Services for brand, content, web platforms, and working presence.",
+      text: "This is the working scope. Each service is structured to lead to a clear deliverable, stable foundation, and immediate readiness for real use.",
       includes: "What it includes",
       audience: "Who it is for",
       result: "What result it delivers",
@@ -281,6 +365,65 @@ const pageCopy = {
       ctaTitle: "When the context is clear, the work starts in order.",
       ctaText: "Send project context, the need, and the deadline. We align scope, pricing, and the next step from there.",
       primaryCta: "Send project context",
+      secondaryCta: "Explore projects",
+    },
+    webService: {
+      metaTitle: "Web Design & Development",
+      metaDescription:
+        "Web design and development for performance-first websites with Astro, Cloudflare Pages, SEO, and GEO foundations by d . media in Sofia, Bulgaria.",
+      title: "Web Design & Development",
+      intro:
+        "We create websites and web platforms that work as part of the brand system: clear, fast, maintainable, and ready for real use.",
+      sections: [
+        {
+          title: "What we create",
+          text: "Corporate websites, portfolio websites, business presentation websites, and landing pages with clear structure, content, and visual logic.",
+        },
+        {
+          title: "Corporate websites",
+          text: "We organise identity, services, trust, and contact into a stable digital environment for business use.",
+        },
+        {
+          title: "Portfolio websites",
+          text: "We build a clear presentation of work, projects, and profile without visual noise or unnecessary complexity.",
+        },
+        {
+          title: "Business presentation websites",
+          text: "We create websites for clear positioning, a concrete offer, and an easy next step.",
+        },
+        {
+          title: "Landing pages",
+          text: "We develop focused pages for a campaign, service, or defined scope with a clear conversion flow.",
+        },
+        {
+          title: "Performance-first architecture",
+          text: "We work with structure, assets, and delivery decisions that protect speed, readability, and stable mobile behaviour.",
+        },
+        {
+          title: "SEO and GEO readiness",
+          text: "We prepare content, metadata, schema, and language architecture for search, AI search, and real indexing.",
+        },
+        {
+          title: "Cloudflare infrastructure",
+          text: "We use Cloudflare Pages for fast, stable, and predictable publishing without unnecessary platform dependency.",
+        },
+        {
+          title: "Astro development",
+          text: "We build light, static, and maintainable websites when the project needs speed, control, and clean frontend delivery.",
+        },
+        {
+          title: "Long-term maintainability",
+          text: "We leave a clear structure that can be developed, updated, and moved without chaos.",
+        },
+        {
+          title: "Why it matters",
+          text: "A website is not a separate showcase. It is a working part of the brand identity, content, and communication system.",
+        },
+      ],
+      ctaTitle: "If the website needs to work as a system, start here.",
+      ctaText:
+        "Send short context about the business, the type of website needed, existing content, and timing. We align the scope and next step from there.",
+      primaryCta: "Send website context",
       secondaryCta: "Explore projects",
     },
     projects: {
@@ -323,9 +466,9 @@ const pageCopy = {
     about: {
       metaTitle: "About",
       metaDescription:
-        "Learn more about d . media, the working approach, and access to the official brand book of the Sofia-based studio.",
+        "Learn more about d . media, the working approach, visual systems, and digital platforms of the Sofia-based studio.",
       eyebrow: "about",
-      text: "d . media is a studio built for clear work, consistency, and real use.",
+      text: "d . media is a studio built for clear work, consistency, digital platforms, and real use.",
       brandbookTitle: "Official brand book",
       brandbookText:
         "The brand book shows the core system, the usage rules, and the way the identity stays consistent in application.",
@@ -335,7 +478,7 @@ const pageCopy = {
     contact: {
       metaTitle: "Contact",
       metaDescription:
-        "Contact d . media about a new project in brand identity, content, design, or advertising.",
+        "Contact d . media about a new project in brand identity, content, web platforms, design, or advertising.",
       eyebrow: "contact",
       title: "If you have a project, start with clear context.",
       text: "Send what needs to be developed, who it is for, the deadline, and the level of priority. We return with an assessment, scope, and next step.",

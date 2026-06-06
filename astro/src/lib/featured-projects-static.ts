@@ -2,6 +2,7 @@ import { getResolvedAllProjectsArchive, resolvedAllProjectsArchive } from "@/lib
 import type { Locale } from "@/lib/i18n";
 
 export const featuredProjectSlugs = [
+  "d-media",
   "support-account",
   "support-account-group",
   "yanita",

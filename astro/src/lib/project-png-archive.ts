@@ -29,6 +29,65 @@ function getImageOrder(label: string) {
 
 export const projectPngArchive = [
   {
+    "slug": "d-media",
+    "title": "d . media",
+    "imageCount": 2,
+    "cover": "/assets/brand/ONLY-logotype.png",
+    "images": [
+      {
+        "src": "/assets/brand/ONLY-logotype.png",
+        "label": "d . media logotype"
+      },
+      {
+        "src": "/assets/brand/ONLY-brandmark.png",
+        "label": "d . media brand mark"
+      }
+    ],
+    "featured": true,
+    "priority": 0,
+    "summary": "Собствената платформа на d . media, изградена като бърз сайт с Astro, Cloudflare, SEO и GEO основа.",
+    "context": "Проектът показва как бранд идентичност, съдържание, уеб архитектура и реално приложение работят в една система.",
+    "focus": [
+      "100 Performance, 100 Accessibility, 100 Best Practices и 100 SEO в Lighthouse",
+      "Миграция към Astro и Cloudflare Pages",
+      "SEO, GEO и multilingual архитектура за реална употреба"
+    ],
+    "caseStudySections": [
+      {
+        "title": "Предизвикателство",
+        "text": "Сайтът трябваше да представи d . media като творческо студио, без да губи скорост, яснота, SEO основа и стабилност в мобилна среда."
+      },
+      {
+        "title": "Подход",
+        "text": "Подредихме съдържанието, услугите, проектите и контактния flow в минимална система, която води към действие без визуален шум."
+      },
+      {
+        "title": "Архитектура",
+        "text": "Платформата е изградена около статична Astro архитектура, локални оптимизирани файлове, ясни маршрути и синхронизирана езикова структура между BG и EN."
+      },
+      {
+        "title": "Performance",
+        "text": "Целта беше сайтът да остане лек, бърз и стабилен: 100 Performance, 100 Accessibility, 100 Best Practices и 100 SEO в Lighthouse."
+      },
+      {
+        "title": "Миграция към Astro",
+        "text": "Преминаването към Astro намали runtime тежестта и направи сайта по-предвидим за статично публикуване и дългосрочна поддръжка."
+      },
+      {
+        "title": "Миграция към Cloudflare",
+        "text": "Преместването към Cloudflare Pages даде по-чиста инфраструктура, директен контрол върху домейна и стабилна edge delivery основа."
+      },
+      {
+        "title": "SEO и GEO готовност",
+        "text": "Метаданни, canonical, hreflang, sitemap, schema и социални preview файлове са подредени за search, AI search и реална индексация."
+      },
+      {
+        "title": "Резултат",
+        "text": "d-media.org работи като собствен работен пример: бранд система, съдържание и уеб платформа, изградени по същия стандарт, който предлагаме."
+      }
+    ]
+  },
+  {
     "slug": "support-account",
     "title": "Support Account",
     "imageCount": 3,
@@ -658,6 +717,49 @@ export const featuredProjectPngs = projectPngArchive.filter((project) => project
 const localizedProjectCopy = {
   bg: {},
   en: {
+    "d-media": {
+      summary: "The d . media platform, built as a performance-first website with Astro, Cloudflare, SEO, and GEO foundations.",
+      context: "The project shows how brand identity, content, web architecture, and real application work as one system.",
+      focus: [
+        "100 Performance, 100 Accessibility, 100 Best Practices, and 100 SEO in Lighthouse",
+        "Migration to Astro and Cloudflare Pages",
+        "SEO, GEO, and multilingual architecture for real use",
+      ],
+      caseStudySections: [
+        {
+          title: "Challenge",
+          text: "The website had to present d . media as a creative studio without losing speed, clarity, SEO foundation, or mobile stability.",
+        },
+        {
+          title: "Approach",
+          text: "We organised the content, services, projects, and contact flow into a minimal system that guides action without visual noise.",
+        },
+        {
+          title: "Architecture",
+          text: "The platform is built around static Astro architecture, local optimised assets, clear routes, and language parity between BG and EN.",
+        },
+        {
+          title: "Performance",
+          text: "The goal was to keep the website light, fast, and stable: 100 Performance, 100 Accessibility, 100 Best Practices, and 100 SEO in Lighthouse.",
+        },
+        {
+          title: "Migration to Astro",
+          text: "Moving to Astro reduced runtime weight and made the site more predictable for static publishing and long-term maintenance.",
+        },
+        {
+          title: "Migration to Cloudflare",
+          text: "Moving to Cloudflare Pages created a cleaner infrastructure, direct domain control, and a stable edge delivery foundation.",
+        },
+        {
+          title: "SEO and GEO readiness",
+          text: "Metadata, canonical, hreflang, sitemap, schema, and social preview assets are structured for search, AI search, and real indexing.",
+        },
+        {
+          title: "Results",
+          text: "d-media.org works as its own case study: brand system, content, and web platform built on the same standards we offer.",
+        },
+      ],
+    },
     "support-account": {
       summary: "Corporate identity for an accounting business with a clear and structured professional presence.",
       context: "The selection here is reduced to the core transparent files that preserve the primary logo system and the brand’s independent presence most clearly.",

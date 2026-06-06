@@ -37,6 +37,9 @@ const siteContent = getSiteContent(locale);
             <p><strong>{copy.includes}:</strong> {service.includes}</p>
             <p><strong>{copy.audience}:</strong> {service.audience}</p>
             <p><strong>{copy.result}:</strong> {service.result}</p>
+            {"detailHref" in service ? (
+              <a class="inline-link" href={localizeHref(locale, service.detailHref)}>{service.detailLabel}</a>
+            ) : null}
           </article>
         ))}
       </div>

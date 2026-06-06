@@ -184,6 +184,21 @@ const aboutSummary = localizedContent.aboutSummary;
       </div>
     </section>
 
+    <section class="section-grid home-section" id="platform-standard">
+      <article class="card services-cta-card">
+        <div class="services-cta-copy">
+          <p class="eyebrow">{copy.trustEyebrow}</p>
+          <h2>{copy.trustTitle}</h2>
+          <p class="page-text"><BrandText text={copy.trustText} /></p>
+        </div>
+        <div class="hero-actions">
+          <a href={localizeHref(locale, "/projects/d-media")} class="button button-secondary">
+            {copy.trustCta}
+          </a>
+        </div>
+      </article>
+    </section>
+
     <section class="section-grid contact-section home-section" id="contact">
       <div class="card contact-card content-card-wide">
         <p class="eyebrow">{copy.contactEyebrow}</p>
