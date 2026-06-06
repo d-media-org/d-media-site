@@ -534,12 +534,14 @@
 ### Cloudflare Pages migration
 - GitHub repo-то на сайта е вързано с Cloudflare Pages.
 - Проектът е преместен от Vercel към Cloudflare Pages с основен Pages project:
-  - `d-media-site`
+  - `d-media`
 - Активните публични домейни са:
   - `https://www.d-media.org`
   - `https://d-media.org`
 - И двата домейна сочат към Cloudflare Pages и връщат `200` през Cloudflare.
 - DNS за `d-media.org` и `www.d-media.org` е оставен като CNAME към `d-media-site.pages.dev`.
+- На `2026-06-06` Cloudflare Pages project name беше преименуван от `d-media-site` на `d-media`.
+- Cloudflare API прие project rename, но запази `.pages.dev` subdomain като `d-media-site.pages.dev`; опитите за `subdomain: "d-media.pages.dev"` и `subdomain: "d-media"` бяха игнорирани от API.
 - Vercel DNS verification остатъкът `_vercel.d-media.org` е премахнат, защото вече не е нужен след миграцията.
 - Vercel/Blob dependency е премахната от активната runtime логика, доколкото browser-facing assets вече се сервират от `public/` и Cloudflare Pages.
 

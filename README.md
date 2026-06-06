@@ -40,7 +40,7 @@ npm run astro:cf:deploy:production
 Cloudflare Pages настройки:
 
 ```text
-Project: d-media-site
+Project: d-media
 Framework preset: Astro
 Root directory: astro
 Build command: npm run build
@@ -54,6 +54,8 @@ Deployment aliases:
 Preview branch: preview
 Production branch: main
 ```
+
+Cloudflare Pages project name е `d-media`. Cloudflare запази вътрешния `.pages.dev` subdomain като `d-media-site.pages.dev` след rename; deploy scripts вече сочат към project name `d-media`.
 
 `astro:cf:validate` прави build и проверява:
 

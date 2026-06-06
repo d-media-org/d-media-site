@@ -16,8 +16,8 @@
     "astro:preview": "npm --prefix astro run preview",
     "astro:cf:validate": "npm run astro:build && node scripts/validate-cloudflare-dist.mjs",
     "astro:cf:projects": "npx wrangler pages project list",
-    "astro:cf:deploy:preview": "npm run astro:cf:validate && cd astro && npx wrangler pages deploy dist --project-name \"${CF_PAGES_PROJECT:-d-media-site}\" --branch \"${CF_PAGES_PREVIEW_BRANCH:-preview}\"",
-    "astro:cf:deploy:production": "npm run astro:cf:validate && cd astro && npx wrangler pages deploy dist --project-name \"${CF_PAGES_PROJECT:-d-media-site}\" --branch \"${CF_PAGES_PRODUCTION_BRANCH:-main}\""
+    "astro:cf:deploy:preview": "npm run astro:cf:validate && cd astro && npx wrangler pages deploy dist --project-name \"${CF_PAGES_PROJECT:-d-media}\" --branch \"${CF_PAGES_PREVIEW_BRANCH:-preview}\"",
+    "astro:cf:deploy:production": "npm run astro:cf:validate && cd astro && npx wrangler pages deploy dist --project-name \"${CF_PAGES_PROJECT:-d-media}\" --branch \"${CF_PAGES_PRODUCTION_BRANCH:-main}\""
   },
   "dependencies": {
     "next": "16.2.6",
