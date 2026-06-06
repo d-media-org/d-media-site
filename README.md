@@ -26,7 +26,7 @@ npm run astro:cf:deploy:preview
 Cloudflare Pages настройки:
 
 ```text
-Project: d-media-site-astro
+Project: d-media-site
 Framework preset: Astro
 Root directory: astro
 Build command: npm run build

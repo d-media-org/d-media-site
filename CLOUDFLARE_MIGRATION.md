@@ -32,7 +32,7 @@ astro/wrangler.toml
 It defines:
 
 ```text
-name = "d-media-site-astro"
+name = "d-media-site"
 pages_build_output_dir = "dist"
 ```
 
@@ -66,7 +66,7 @@ npm run astro:cf:projects
 Preview deployment uses an explicit project name to avoid deploying to the wrong Pages project:
 
 ```bash
-export CF_PAGES_PROJECT="d-media-site-astro"
+export CF_PAGES_PROJECT="d-media-site"
 npm run astro:cf:deploy:preview
 ```
 
@@ -81,9 +81,9 @@ Do not run a production Pages deployment or custom-domain cutover until the prev
 Current Pages project:
 
 ```text
-Project: d-media-site-astro
+Project: d-media-site
 Preview branch: astro-migration
-Preview URL: https://astro-migration.d-media-site-astro.pages.dev
+Preview URL: https://astro-migration.d-media-site.pages.dev
 Latest deployment URL: use the output from `npm run astro:cf:deploy:preview`
 ```
 
