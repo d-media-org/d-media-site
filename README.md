@@ -11,7 +11,7 @@ https://www.d-media.org
 https://d-media.org
 ```
 
-Preview:
+Preview alias:
 
 ```text
 https://preview.d-media-site.pages.dev
@@ -51,11 +51,11 @@ Node.js version: 22.x
 Deployment aliases:
 
 ```text
-Preview branch: preview
+Preview branch label: preview
 Production branch: main
 ```
 
-Cloudflare Pages project name е `d-media`. Cloudflare запази вътрешния `.pages.dev` subdomain като `d-media-site.pages.dev` след rename; deploy scripts вече сочат към project name `d-media`.
+Cloudflare Pages project name е `d-media`. Cloudflare запази вътрешния `.pages.dev` subdomain като `d-media-site.pages.dev` след rename; deploy scripts вече сочат към project name `d-media`. Проектът е с `Git Provider: No`, тоест Pages не следи Git branch-ове автоматично и се обновява само чрез Wrangler deploy.
 
 `astro:cf:validate` прави build и проверява:
 

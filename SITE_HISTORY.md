@@ -12,18 +12,18 @@
 - последните production промени, качени live след последния commit
 
 Последен commit в историята:
-- `36dcefa` — `2026-06-08` — `Add blog and service detail sections`
+- `ff0f205` — `2026-06-08` — `Document blog, services, and production sync history`
 
-Текущото live и git състояние са синхронизирани към този commit по branch `codex/d-media-site-review`.
+Текущото live и git състояние са синхронизирани към този commit по branch `blog-services-live-sync`.
 
 ## 0. Идентичност на repository и deployment проекта
 
 ### Git repository
 - GitHub remote: `https://github.com/d-media-org/d-media-site.git`
 - Основен branch: `main`
-- Налични работни/codex branches в локалния clone:
-  - `codex/d-media-site-review`
-  - `codex/preview-workflow`
+- Налични работни branches в локалния clone:
+  - `blog-services-live-sync`
+  - `preview-workflow`
 - Към момента няма git tags.
 
 ### Vercel project
@@ -806,10 +806,10 @@
 - Временните `.tmp-*` audit screenshot файлове са изтрити.
 - Всички реални промени са commit-нати и push-нати.
 - Branch:
-  - `codex/d-media-site-review`
+  - `blog-services-live-sync`
 - Remote:
   - `origin https://github.com/d-media-org/d-media-site.git`
 - Потвърдено синхронно състояние:
-  - local `HEAD` = `36dcefa50d2bdbafa300042fffaf96bfbdbdabd9`
-  - `origin/codex/d-media-site-review` = `36dcefa50d2bdbafa300042fffaf96bfbdbdabd9`
+  - local `HEAD` = `ff0f2058b74c960d10cebac341ebc9242c23839e`
+  - `origin/blog-services-live-sync` = `ff0f2058b74c960d10cebac341ebc9242c23839e`
 - Към този момент worktree е чист и без untracked временни файлове.
