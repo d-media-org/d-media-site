@@ -12,9 +12,9 @@
 - последните production промени, качени live след последния commit
 
 Последен commit в историята:
-- `bb6f5a2` — `2026-05-31` — `Add standard favicon endpoint`
+- `36dcefa` — `2026-06-08` — `Add blog and service detail sections`
 
-Текущо live състояние включва и неприключили в git промени след този commit.
+Текущото live и git състояние са синхронизирани към този commit по branch `codex/d-media-site-review`.
 
 ## 0. Идентичност на repository и deployment проекта
 
@@ -710,3 +710,106 @@
 - всеки нов commit да се добавя тук
 - production-only промени без commit също да се описват отделно
 - да се отбелязват важни deploy-и, когато live състоянието се разминава с последния git commit
+
+## 13. Blog, service detail pages и навигационни изходи
+
+### 2026-06-07 to 2026-06-08
+
+#### `36dcefa` — `Add blog and service detail sections`
+- Добавена е цялостна blog / knowledge center архитектура в Astro:
+  - `/blog`
+  - `/blog/[slug]`
+  - `/blog/drafts`
+  - `/blog/drafts/[slug]`
+  - `/en/blog`
+- Добавен е локален blog data layer в:
+  - `astro/src/lib/blog.ts`
+- Публикувана е реална първа статия:
+  - `Защо създадохме d . media`
+- Добавени са останалите начални статии като реални route-ове и metadata-ready записи.
+- Добавени са draft case study route-ове за локален preview.
+- Един публичен казус е изваден от draft:
+  - `Как достигнахме 100/100/100/100 на d-media.org`
+
+#### Blog UX / navigation
+- Добавена е логика за връщане назад от article страниците:
+  - `Назад към статиите`
+  - `Назад към казусите`
+- Връщането пази предишната scroll позиция в blog списъка.
+- `Свързани статии` и `Следваща стъпка` са подредени според финалната поисканa логика.
+- Blog category controls са преработени в работещ client-side филтър, валидиран с реален browser test.
+- Потвърдено поведение:
+  - `Казуси` филтрира до публичния case study
+  - `SEO и GEO` показва само SEO/GEO материалите
+
+#### Services expansion
+- Създаден е общ reusable шаблон:
+  - `astro/src/components/ServiceDetailPage.astro`
+- С него е уеднаквена detail логиката за service pages.
+- Освен `Уеб дизайн и разработка` са добавени още отделни service detail страници:
+  - `/services/brand-identity`
+  - `/services/content-social-media`
+  - `/services/graphic-design`
+  - `/services/advertising`
+  - `/services/additional-charges-rights`
+- Добавени са и английските им версии под `/en/services/...`
+- Картите в `/services` и `/en/services` вече имат detail links за всички основни услуги.
+- `Допълнителни начисления и права` е отделено като самостоятелен service type със собствена страница.
+
+#### Pricing scope additions
+- В data слоя са добавени начални рамки за:
+  - визуална идентичност
+  - социални визуални формати
+  - графични материали за принт
+  - рекламни видео/анимационни услуги
+  - допълнителни начисления, priority и usage rights
+- Не са добавяни непотвърдени цени за области, за които не е имало потвърден източник.
+
+#### Navigation exits audit
+- Направен е отделен pass за локални навигационни изходи вътре в съдържателните страници.
+- Добавени са локални връзки:
+  - `обратно към услугите` във всички service detail страници
+  - `обратно към контактите` в:
+    - `/terms`
+    - `/privacy`
+    - `/en/terms`
+    - `/en/privacy`
+- Проектните detail страници вече са имали:
+  - `обратно към проектите`
+- Blog article страниците вече имат:
+  - `Назад към статиите`
+- Draft case study страниците вече имат:
+  - `Назад към казусите`
+
+#### llms / GEO support
+- `public/llms.txt` и `public/llms-bg.txt` са обновени спрямо разширения site structure.
+- Това е документирано като LLM-orientation helper, а не като официален ranking фактор.
+
+### 2026-06-08 Cloudflare Pages production deploy
+
+#### Production deploy for blog + services expansion
+- Production deployment URL:
+  - `https://47659d1a.d-media-site.pages.dev`
+- Live domains:
+  - `https://www.d-media.org`
+  - `https://d-media.org`
+- Потвърдено е, че custom domain routing вече сервира новите route-ове, включително:
+  - `/services/additional-charges-rights/`
+- Live HTML проверка потвърждава:
+  - новата service page title
+  - `обратно към услугите`
+  - новия `serviceType` масив в schema с `Допълнителни начисления и права`
+
+### 2026-06-08 Git sync state
+
+#### Clean sync after production deploy
+- Временните `.tmp-*` audit screenshot файлове са изтрити.
+- Всички реални промени са commit-нати и push-нати.
+- Branch:
+  - `codex/d-media-site-review`
+- Remote:
+  - `origin https://github.com/d-media-org/d-media-site.git`
+- Потвърдено синхронно състояние:
+  - local `HEAD` = `36dcefa50d2bdbafa300042fffaf96bfbdbdabd9`
+  - `origin/codex/d-media-site-review` = `36dcefa50d2bdbafa300042fffaf96bfbdbdabd9`
+- Към този момент worktree е чист и без untracked временни файлове.
