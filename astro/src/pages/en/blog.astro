@@ -1,0 +1,42 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { getBlogCategories, getBlogPageCopy } from "@/lib/blog";
+import { type Locale } from "@/lib/i18n";
+import { getBreadcrumbSchema } from "@/lib/seo";
+
+const locale: Locale = "en";
+const copy = getBlogPageCopy(locale);
+const categories = getBlogCategories(locale);
+---
+
+<Layout
+  locale={locale}
+  title={`${copy.metaTitle} | d . media`}
+  description={copy.metaDescription}
+  path="/blog"
+  openGraphType="website"
+  structuredData={[getBreadcrumbSchema({ locale, path: "/blog", title: copy.metaTitle })]}
+>
+  <main class="site-shell" id="top">
+    <section class="section-grid">
+      <div class="section-heading page-intro">
+        <p class="eyebrow">blog</p>
+        <h1>{copy.title}</h1>
+        <p class="page-text">{copy.intro}</p>
+      </div>
+
+      <div class="blog-filters" aria-label={copy.filtersLabel}>
+        {categories.map((category) => (
+          <span class="tag-pill">{category.label}</span>
+        ))}
+      </div>
+
+      <article class="card services-cta-card">
+        <div class="services-cta-copy">
+          <h2>{copy.emptyTitle}</h2>
+          <p class="page-text">{copy.emptyText}</p>
+        </div>
+      </article>
+    </section>
+  </main>
+</Layout>

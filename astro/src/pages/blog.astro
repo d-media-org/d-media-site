@@ -1,0 +1,159 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import {
+  formatBlogDate,
+  getBlogCategories,
+  getBlogPageCopy,
+  getPublishedBlogPosts,
+} from "@/lib/blog";
+import { type Locale } from "@/lib/i18n";
+import { getBreadcrumbSchema } from "@/lib/seo";
+
+const locale: Locale = "bg";
+const copy = getBlogPageCopy(locale);
+const categories = getBlogCategories(locale);
+const posts = getPublishedBlogPosts(locale);
+---
+
+<Layout
+  locale={locale}
+  title={`${copy.metaTitle} | d . media`}
+  description={copy.metaDescription}
+  path="/blog"
+  openGraphType="website"
+  structuredData={[getBreadcrumbSchema({ locale, path: "/blog", title: copy.metaTitle })]}
+>
+  <main class="site-shell" id="top">
+    <section class="section-grid">
+      <div class="section-heading page-intro">
+        <p class="eyebrow">blog</p>
+        <h1>{copy.title}</h1>
+        <p class="page-text">{copy.intro}</p>
+      </div>
+
+      <article class="card services-cta-card">
+        <div class="services-cta-copy">
+          <h2>{copy.knowledgeTitle}</h2>
+          <p class="page-text">{copy.knowledgeText}</p>
+        </div>
+      </article>
+
+      <div class="blog-filters" aria-label={copy.filtersLabel}>
+        <button type="button" class="tag-pill" data-blog-filter="all" aria-pressed="true">{copy.allLabel}</button>
+        {categories.map((category) => (
+          <button type="button" class="tag-pill" data-blog-filter={category.key} aria-pressed="false">{category.label}</button>
+        ))}
+      </div>
+
+      <div id="all" class="project-grid">
+        {posts.map((post) => (
+          <article class="card service-category-card" data-blog-card data-blog-category={post.category}>
+            <div class="blog-meta-row">
+              <p class="project-meta">{categories.find((category) => category.key === post.category)?.label}</p>
+              <p class="project-meta">
+                <time datetime={post.datePublished}>{formatBlogDate(locale, post.datePublished)}</time> · {post.readingTime} {copy.readTimeLabel}
+              </p>
+            </div>
+            <h2>{post.title}</h2>
+            <p>{post.excerpt}</p>
+            <div class="project-card-footer">
+              <a class="inline-link" href={`/blog/${post.slug}`} data-blog-article-link>{copy.articleCta}</a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  </main>
+
+  <script is:inline>
+    const blogScrollKey = "dmedia:blog-scroll-y";
+    const blogPathKey = "dmedia:blog-scroll-path";
+    const blogFilterKey = "dmedia:blog-filter";
+    const filterControls = Array.from(document.querySelectorAll("[data-blog-filter]"));
+    const validFilters = ["all", ...filterControls.map((item) => item.getAttribute("data-blog-filter")).filter(Boolean)];
+
+    const getRequestedFilter = () => {
+      const hashValue = window.location.hash.replace("#", "");
+      if (hashValue && validFilters.includes(hashValue)) {
+        return hashValue;
+      }
+
+      const stored = sessionStorage.getItem(blogFilterKey);
+      if (stored && validFilters.includes(stored)) {
+        return stored;
+      }
+
+      return "all";
+    };
+
+    const applyBlogFilter = (filter) => {
+      document.querySelectorAll("[data-blog-card]").forEach((card) => {
+        const cardCategory = card.getAttribute("data-blog-category");
+        const isVisible = filter === "all" || cardCategory === filter;
+        card.toggleAttribute("hidden", !isVisible);
+        card.setAttribute("aria-hidden", isVisible ? "false" : "true");
+        card.style.display = isVisible ? "" : "none";
+      });
+
+      filterControls.forEach((control) => {
+        const isActive = control.getAttribute("data-blog-filter") === filter;
+        control.setAttribute("aria-pressed", isActive ? "true" : "false");
+      });
+
+      sessionStorage.setItem(blogFilterKey, filter);
+      const nextHash = filter === "all" ? "" : `#${filter}`;
+      window.history.replaceState(null, "", `${window.location.pathname}${nextHash}`);
+    };
+
+    const restoreBlogScroll = () => {
+      if (sessionStorage.getItem(blogPathKey) !== window.location.pathname) {
+        return;
+      }
+
+      const stored = sessionStorage.getItem(blogScrollKey);
+      if (!stored) {
+        return;
+      }
+
+      const y = Number.parseFloat(stored);
+      if (!Number.isFinite(y)) {
+        sessionStorage.removeItem(blogScrollKey);
+        sessionStorage.removeItem(blogPathKey);
+        return;
+      }
+
+      requestAnimationFrame(() => {
+        window.scrollTo({ top: y, behavior: "auto" });
+        sessionStorage.removeItem(blogScrollKey);
+        sessionStorage.removeItem(blogPathKey);
+      });
+    };
+
+    applyBlogFilter(getRequestedFilter());
+    restoreBlogScroll();
+
+    document.addEventListener("click", (event) => {
+      const target = event.target;
+      const control = target instanceof Element ? target.closest("[data-blog-filter]") : null;
+      if (!(control instanceof HTMLElement)) {
+        return;
+      }
+
+      const filter = control.getAttribute("data-blog-filter") || "all";
+      if (validFilters.includes(filter)) {
+        applyBlogFilter(filter);
+      }
+    });
+
+    window.addEventListener("hashchange", () => {
+      applyBlogFilter(getRequestedFilter());
+    });
+
+    document.querySelectorAll("[data-blog-article-link]").forEach((link) => {
+      link.addEventListener("click", () => {
+        sessionStorage.setItem(blogScrollKey, String(window.scrollY));
+        sessionStorage.setItem(blogPathKey, window.location.pathname);
+      });
+    });
+  </script>
+</Layout>

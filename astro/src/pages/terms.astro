@@ -1,7 +1,7 @@
 ---
 import BrandText from "@/components/BrandText.astro";
 import Layout from "@/layouts/Layout.astro";
-import { type Locale } from "@/lib/i18n";
+import { localizeHref, type Locale } from "@/lib/i18n";
 import { getTermsPolicy } from "@/lib/legal-content";
 import { getPageCopy } from "@/lib/page-copy";
 import { getSiteContent } from "@/lib/site-content";
@@ -10,6 +10,7 @@ const locale: Locale = "bg";
 const copy = getPageCopy(locale).terms;
 const siteContent = getSiteContent(locale);
 const fullTermsSections = getTermsPolicy(locale);
+const backLabel = "обратно към контактите";
 ---
 
 <Layout locale={locale} title={`${copy.metaTitle} | d . media`} description={copy.metaDescription} path="/terms">
@@ -18,6 +19,9 @@ const fullTermsSections = getTermsPolicy(locale);
       <div class="section-heading page-intro">
         <h1><BrandText text={copy.title} /></h1>
         <p class="page-text"><BrandText text={copy.text} /></p>
+        <div class="project-card-footer">
+          <a class="inline-link" href={localizeHref(locale, "/contact")}>{backLabel}</a>
+        </div>
       </div>
 
       <div class="terms-layout">
@@ -79,6 +83,10 @@ const fullTermsSections = getTermsPolicy(locale);
             ))}
           </div>
         </details>
+      </div>
+
+      <div class="project-card-footer">
+        <a class="inline-link" href={localizeHref(locale, "/contact")}>{backLabel}</a>
       </div>
     </section>
   </main>

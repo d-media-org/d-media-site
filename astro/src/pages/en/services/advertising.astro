@@ -4,13 +4,8 @@ import { type Locale } from "@/lib/i18n";
 import { getPageCopy } from "@/lib/page-copy";
 
 const locale: Locale = "en";
-const copy = getPageCopy(locale).webService;
-const path = "/services/web-design-development";
+const copy = getPageCopy(locale).advertisingService;
+const path = "/services/advertising";
 ---
 
-<ServiceDetailPage
-  locale={locale}
-  path={path}
-  copy={copy}
-  ctaLocation="web_service_cta"
-/>
+<ServiceDetailPage locale={locale} path={path} copy={copy} ctaLocation="advertising_service_cta" />

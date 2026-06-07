@@ -1,0 +1,11 @@
+---
+import ServiceDetailPage from "@/components/ServiceDetailPage.astro";
+import { type Locale } from "@/lib/i18n";
+import { getPageCopy } from "@/lib/page-copy";
+
+const locale: Locale = "bg";
+const copy = getPageCopy(locale).brandIdentityService;
+const path = "/services/brand-identity";
+---
+
+<ServiceDetailPage locale={locale} path={path} copy={copy} ctaLocation="brand_identity_service_cta" />

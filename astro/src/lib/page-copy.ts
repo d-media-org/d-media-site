@@ -92,7 +92,7 @@ const pageCopy = {
       trustEyebrow: "стандарт",
       trustTitle: "Изградено по същия стандарт, който предлагаме.",
       trustText:
-        "Платформата d-media.org е проектирана, разработена и поддържана от d . media с Astro, Cloudflare, performance-first архитектура и ясна SEO/GEO основа.",
+        "Платформата d-media.org е проектирана, разработена и поддържана от d . media с Astro, Cloudflare, performance-first архитектура и ясна SEO/GEO основа. Текущият PageSpeed Insights baseline е 98/100/100/100 на mobile и 100/100/100/100 на desktop.",
       trustCta: "Виж проекта d . media",
       contactEyebrow: "следваща стъпка",
       contactTitle: "Ако обхватът е ясен, продължаваме оттук.",
@@ -271,6 +271,283 @@ const pageCopy = {
       primaryCta: "Изпрати контекст за сайт",
       secondaryCta: "Разгледай проектите",
     },
+    brandIdentityService: {
+      metaTitle: "Бранд идентичност",
+      metaDescription:
+        "Обхват за бранд идентичност: логотип, лого, брандмарк, визуална идентичност и векторизация с ясни начални рамки.",
+      title: "Бранд идентичност",
+      intro:
+        "Създаваме идентичност, която работи като система: знак, логотип, цветова рамка и визуални правила, подготвени за реална употреба.",
+      sections: [
+        { title: "Какво създаваме", text: "Логотип, лого, брандмарк и цялостна визуална идентичност според реалния контекст на бранда и средата, в която ще се използва." },
+        { title: "Логотип", text: "Разработваме typographic решение, когато името на бранда трябва да носи основната разпознаваемост и да стои чисто в дигитална и печатна среда." },
+        { title: "Лого / брандмарк", text: "Създаваме знак, когато брандът има нужда от самостоятелен визуален носител за малки формати, иконична употреба и по-бързо разпознаване." },
+        { title: "Комбинирана система", text: "Когато проектът изисква и знак, и typographic линия, подреждаме връзката между тях така, че системата да стои стабилно във всички точки на контакт." },
+        { title: "Визуална идентичност", text: "Изграждаме по-широка рамка с цветове, типография, композиционна логика и базови правила за приложение, не само отделен знак." },
+        { title: "Векторизация и прецизиране", text: "Подготвяме налични растерни лога и логотипи за чиста употреба, когато е нужен технически годен файл без компромис в ръбовете и мащабирането." },
+        { title: "Защо има значение", text: "Идентичността не е просто първо впечатление. Тя е основата, върху която по-късно стъпват сайтът, съдържанието, документите и рекламата." },
+      ],
+      pricingTitle: "Начални рамки за идентичност.",
+      pricingText:
+        "Това са начални рамки за най-честите идентичностни задачи. Финалната оферта зависи от сложност, вариантност, приложни сценарии и нужната система около основния знак.",
+      pricingGroups: [
+        {
+          title: "Услуги за дизайн на визуална идентичност",
+          items: [
+            { title: "Дизайн на логотип", price: "149,99 € / 293,35 лв." },
+            { title: "Дизайн на лого / брандмарк", price: "199,99 € / 391,15 лв." },
+            { title: "Дизайн на лого / брандмарк и логотип", price: "299,99 € / 586,73 лв." },
+            { title: "Създаване на визуална идентичност", price: "699,99 € / 1369,06 лв." },
+            { title: "Векторизиране на растерно лого и/или логотип", price: "59,99 € / 117,33 лв." },
+          ],
+        },
+      ],
+      pricingNote: "Цените са начални рамки и се подреждат спрямо реалния обхват на проекта.",
+      processTitle: "Процес",
+      processSteps: [
+        { title: "Контекст", text: "Изясняваме името, средата на употреба, аудиторията и ролята на идентичността в реалната комуникация на бранда." },
+        { title: "Посока", text: "Подреждаме визуална логика, типографски характер и нужната система около основния знак според задачата." },
+        { title: "Разработка", text: "Изграждаме и прецизираме финалните варианти, така че да работят чисто в малки, средни и големи формати." },
+        { title: "Предаване", text: "Предаваме подредени файлове и базова рамка за приложение, така че идентичността да може да се използва веднага и последователно." },
+      ],
+      ctaTitle: "Ако идентичността трябва да издържа в реална употреба, започни оттук.",
+      ctaText: "Изпрати име, контекст, среда на употреба и какъв тип система е нужна. Оттам подреждаме точния обхват и следващата стъпка.",
+      primaryCta: "Изпрати контекст за идентичност",
+      secondaryCta: "Разгледай проектите",
+    },
+    contentService: {
+      metaTitle: "Съдържание и социални медии",
+      metaDescription:
+        "Обхват за съдържание и социални медии: визии за платформи, корици, формати, пакети и начални рамки за социални графики.",
+      title: "Съдържание и социални медии",
+      intro:
+        "Подреждаме съдържание и социални формати така, че брандът да комуникира последователно, а не като поредица от несвързани публикации.",
+      sections: [
+        { title: "Какво подреждаме", text: "Корици, социални визии, формати, адаптации и работна визуална линия за присъствие в канали, кампании и ежедневно публикуване." },
+        { title: "Корици и първо впечатление", text: "Изграждаме корици за събития, профили, страници и групи така, че да носят ясна среда още преди първата публикация." },
+        { title: "Формати 1:1 и 9:16", text: "Разработваме основните социални формати с ясна композиционна логика, четим текст и повторяем визуален ред." },
+        { title: "YouTube и специфични платформи", text: "Подготвяме банери, thumbnails и сродни формати там, където платформата изисква отделна визуална дисциплина." },
+        { title: "Пакетна логика", text: "Когато са нужни няколко визии, ги подреждаме като серия, а не като отделни несвързани решения." },
+        { title: "Шаблонно и по поръчка", text: "Работим както по шаблонна логика за по-бърз и ясен обхват, така и по поръчка, когато е нужна отделна композиция и по-специфично решение." },
+        { title: "Важно уточнение", text: "Началните рамки по-долу покриват визуалните формати за социални мрежи. Текстове, календар, стратегия и публикуване се подреждат отделно според обем и работен режим." },
+      ],
+      pricingTitle: "Начални рамки за социални формати.",
+      pricingText:
+        "Тези рамки покриват най-честите визуални формати за присъствие в социални мрежи. Финалният обхват зависи от брой визии, адаптации, текстова работа и нужната последователност между каналите.",
+      pricingGroups: [
+        {
+          title: "Услуги за дизайн на графични проекти за присъствие в социални мрежи по шаблон",
+          items: [
+            { title: "Корица за събитие (Facebook)", price: "29,99 € / 58,66 лв." },
+            { title: "Корица за профил / група / страница (Facebook)", price: "29,99 € / 58,66 лв." },
+            { title: "Графичен дизайн в аспект 1:1", price: "24,99 € / 48,88 лв." },
+            { title: "Графичен дизайн в аспект 9:16", price: "24,99 € / 48,88 лв." },
+            { title: "Графичен дизайн за YouTube (банер, thumbnail и др.)", price: "34,99 € / 68,43 лв." },
+            { title: "Пакет 3x (три визии по избор)", price: "69,99 € / 136,89 лв." },
+          ],
+        },
+        {
+          title: "Услуги за дизайн на графични проекти за присъствие в социални мрежи по поръчка",
+          items: [
+            { title: "Корица за събитие (Facebook)", price: "44,99 € / 87,99 лв." },
+            { title: "Корица за профил / група / страница (Facebook)", price: "44,99 € / 87,99 лв." },
+            { title: "Графичен дизайн в аспект 1:1", price: "34,99 € / 68,43 лв." },
+            { title: "Графичен дизайн в аспект 9:16", price: "34,99 € / 68,43 лв." },
+            { title: "Графичен дизайн за YouTube (банер, thumbnail и др.)", price: "49,99 € / 97,77 лв." },
+            { title: "Пакет 3x (три услуги по избор)", price: "99,99 € / 195,56 лв." },
+          ],
+        },
+      ],
+      pricingNote: "Текстова работа, календар и публикуване се оценяват допълнително според обем и честота.",
+      processTitle: "Процес",
+      processSteps: [
+        { title: "Контекст", text: "Изясняваме каналите, честотата, визуалната линия и какъв тип съдържание реално трябва да се публикува." },
+        { title: "Система", text: "Подреждаме основните формати, обхвата на адаптациите и това как отделните визии ще стоят като една серия." },
+        { title: "Разработка", text: "Изграждаме конкретните формати с ясен ритъм, четимост и стабилна визуална връзка между публикациите." },
+        { title: "Предаване", text: "Предаваме готовите визии и, когато е нужно, логика за следващи формати, така че присъствието да остане последователно." },
+      ],
+      ctaTitle: "Ако присъствието в социалните мрежи трябва да стои подредено, започни оттук.",
+      ctaText: "Изпрати каналите, нужните формати, честотата и дали работим по шаблон или по поръчка. Оттам подреждаме точния обхват.",
+      primaryCta: "Изпрати контекст за съдържание",
+      secondaryCta: "Разгледай проектите",
+    },
+    graphicDesignService: {
+      metaTitle: "Графичен дизайн",
+      metaDescription:
+        "Обхват за графичен дизайн: визитки, ваучери, флаери, брошури, менюта и други печатни формати с начални рамки по шаблон и по поръчка.",
+      title: "Графичен дизайн",
+      intro:
+        "Създаваме графични материали за печат и ежедневна визуална работа, така че форматите да бъдат ясни, четими и готови за реална употреба.",
+      sections: [
+        { title: "Какво изработваме", text: "Визитки, ваучери, брошури, флаери, менюта и други печатни или информационни формати, които трябва да носят ясна визуална логика." },
+        { title: "Ежедневни формати", text: "Подготвяме малки и средни формати, които брандът използва постоянно и които трябва да изглеждат събрано, не случайно." },
+        { title: "Шаблонен обхват", text: "Когато задачата е по-стандартизирана, работим в по-ясна рамка с подготвена логика за по-бързо и предвидимо изпълнение." },
+        { title: "Обхват по поръчка", text: "Когато дизайнът изисква по-специфична композиция, повече съдържание или отделно визуално решение, подреждаме задачата по поръчка." },
+        { title: "Информационни материали", text: "При менюта и по-сложни брошури работим с повече внимание към структурата, навигацията и четимостта на съдържанието." },
+        { title: "Защо има значение", text: "Печатният или информационният материал често е последната точка, в която брандът трябва да изглежда така ясно, както изглежда и онлайн." },
+      ],
+      pricingTitle: "Начални рамки за графични материали.",
+      pricingText:
+        "Това са начални рамки за най-честите печатни и информационни формати. Финалната цена зависи от съдържание, сложност, брой страници, адаптации и дали обхватът е шаблонен или по поръчка.",
+      pricingGroups: [
+        {
+          title: "Услуги за дизайн на графични проекти за принтиране по шаблон",
+          items: [
+            { title: "Едностранна визитка", price: "24,99 € / 48,88 лв." },
+            { title: "Двустранна визитка", price: "29,99 € / 58,66 лв." },
+            { title: "Едностранен ваучер (giftcard)", price: "29,99 € / 58,66 лв." },
+            { title: "Двустранен ваучер (giftcard)", price: "34,99 € / 68,43 лв." },
+            { title: "Брошура с една страница / Бигована брошура / Флаер", price: "39,99 € / 78,21 лв." },
+            { title: "Други (менюта, информационни брошури с няколко страници)", price: "69,99 € / 136,89 лв." },
+          ],
+        },
+        {
+          title: "Услуги за дизайн на графични проекти за принтиране по поръчка",
+          items: [
+            { title: "Едностранна визитка", price: "49,99 € / 97,77 лв." },
+            { title: "Двустранна визитка", price: "59,99 € / 117,33 лв." },
+            { title: "Едностранен ваучер (giftcard)", price: "54,99 € / 107,55 лв." },
+            { title: "Двустранен ваучер (giftcard)", price: "64,99 € / 127,11 лв." },
+            { title: "Брошура с една страница / Бигована брошура / Флаер", price: "79,99 € / 156,45 лв." },
+            { title: "Други (менюта, информационни брошури с няколко страници)", price: "119,99 € / 234,68 лв." },
+          ],
+        },
+      ],
+      pricingNote: "Подготовката за печат, съдържанието и броят страници влияят пряко върху финалния обхват.",
+      processTitle: "Процес",
+      processSteps: [
+        { title: "Контекст", text: "Изясняваме формата, съдържанието, печатната среда и дали задачата е в шаблонна рамка или изисква отделно решение." },
+        { title: "Подреждане", text: "Подреждаме композицията, текста и визуалната тежест така, че материалът да бъде ясен още при първи поглед." },
+        { title: "Разработка", text: "Изграждаме финалния дизайн с внимание към четимост, печатна логика и съвместимост с общата визуална система на бранда." },
+        { title: "Предаване", text: "Предаваме готовите файлове в подходящ формат за печат или последваща употреба, без технически хаос по края на проекта." },
+      ],
+      ctaTitle: "Ако материалите трябва да са готови за реална употреба, започни оттук.",
+      ctaText: "Изпрати нужния формат, съдържанието, броя страници и дали задачата е по шаблон или по поръчка. Оттам подреждаме обхвата.",
+      primaryCta: "Изпрати контекст за дизайн",
+      secondaryCta: "Разгледай проектите",
+    },
+    advertisingService: {
+      metaTitle: "Реклама",
+      metaDescription:
+        "Обхват за реклама: видеообработка, видео реклама, анимация на лого и логотип, приоритетни начисления, white-label и лицензионни рамки.",
+      title: "Реклама",
+      intro:
+        "Изграждаме рекламни формати, които водят до ясно послание и действие: видеообработка, анимация, адаптации и допълнителни права според начина на употреба.",
+      sections: [
+        { title: "Видео реклама с предоставено съдържание", text: "Работим по видеообработка и рекламни проекти, когато има наличен материал и задачата е да се подреди в ясна и работеща рекламна форма." },
+        { title: "Анимация, свързана с идентичността", text: "Анимираме лого и логотип, когато брандът има нужда от по-динамична употреба в intro, outro, реклама или видео среда." },
+        { title: "По проект на d . media", text: "Когато анимираме знак, създаден от нас, имаме пряка визуална логика и по-ясна рамка за движение, ритъм и поведение." },
+        { title: "С предоставени файлове", text: "Когато работим с външно създадени файлове, първо подреждаме техническата им годност и след това разработваме анимационния обхват." },
+        { title: "Приоритет и срок", text: "При бърза, експресна и супер експресна поръчка начисляваме отделна рамка според съкращаването на договореното време за работа." },
+        { title: "Права и допълнителни начисления", text: "Когато е нужна white-label работа, работа с клиент на място или по-широко право на използване, това се подрежда отделно като част от рекламния обхват." },
+      ],
+      pricingTitle: "Начални рамки за рекламни формати.",
+      pricingText:
+        "Тези рамки покриват рекламна видеообработка, анимация, допълнителни начисления и права за използване. Финалният обхват зависи от продължителност, сложност, изходни файлове и начина на използване.",
+      pricingGroups: [
+        {
+          title: "Услуги за видео реклама с предоставено съдържание",
+          items: [
+            { title: "Видео рекламен проект / видеообработка до 1 минута", price: "0,29 € / 0,57 лв. за 1 секунда видеосъдържание" },
+            { title: "Видео рекламен проект / видеообработка над 1 минута", price: "0,49 € / 0,96 лв. за 1 секунда видеосъдържание" },
+          ],
+        },
+        {
+          title: "Услуги за видео анимация, свързани с визуалната идентичност",
+          items: [
+            { title: "Анимация с лого и/или логотип по проект на d . media до 5 секунди", price: "49,99 € / 97,77 лв." },
+            { title: "Анимация с лого и/или логотип по проект на d . media до 10 секунди", price: "79,99 € / 156,45 лв." },
+            { title: "Анимация с лого и/или логотип по проект на d . media над 10 секунди", price: "99,99 € / 195,56 лв." },
+            { title: "Всяка секунда след десетата", price: "+4,99 € / +9,76 лв." },
+            { title: "Анимация с лого и/или логотип с предоставени файлове до 5 секунди", price: "69,99 € / 136,89 лв." },
+            { title: "Анимация с лого и/или логотип с предоставени файлове до 10 секунди", price: "89,99 € / 176,00 лв." },
+            { title: "Анимация с лого и/или логотип с предоставени файлове над 10 секунди", price: "109,99 € / 215,12 лв." },
+            { title: "Всяка секунда след десетата", price: "+5,99 € / +11,72 лв." },
+          ],
+        },
+        {
+          title: "Допълнителни начисления и права",
+          items: [
+            { title: "Работа с клиент на място", price: "+20%" },
+            { title: "Премахване на брандирането от d . media (white-label)", price: "19,99 € / 39,10 лв." },
+            { title: "Бърза поръчка", price: "+25%" },
+            { title: "Експресна поръчка", price: "+50%" },
+            { title: "Супер експресна поръчка", price: "+75%" },
+            { title: "Неизключителен лиценз за използване на създаденото съдържание за срок от 1 година", price: "49,99 € / 97,77 лв." },
+            { title: "Изключителен лиценз за използване на създаденото съдържание за срок от 1 година", price: "99,99 € / 195,56 лв." },
+            { title: "Пълно прехвърляне на правата за проекта", price: "200% от стойността на проекта, но не по-малко от 2799 € / 5474,37 лв." },
+          ],
+        },
+      ],
+      pricingNote: "Правата за използване, приоритетът и начинът на работа се договарят според конкретната рекламна задача.",
+      processTitle: "Процес",
+      processSteps: [
+        { title: "Контекст", text: "Изясняваме какъв е форматът, къде ще се използва, какви файлове има и какъв срок реално се търси." },
+        { title: "Обхват", text: "Подреждаме продължителността, вида анимация или видеообработка, нужните адаптации и рамката за права на използване." },
+        { title: "Разработка", text: "Изграждаме рекламния материал с ясен ритъм, чиста визуална логика и контрол върху финалното усещане." },
+        { title: "Предаване", text: "Предаваме готов материал в уговорения формат и с яснота по правата, срока на използване и следващите приложения." },
+      ],
+      ctaTitle: "Ако рекламният формат трябва да е ясен още преди пускането, започни оттук.",
+      ctaText: "Изпрати какъв тип реклама е нужна, какви файлове има, къде ще се използва и с какъв срок. Оттам подреждаме реалния обхват.",
+      primaryCta: "Изпрати контекст за реклама",
+      secondaryCta: "Разгледай проектите",
+    },
+    additionalChargesRightsService: {
+      metaTitle: "Допълнителни начисления и права",
+      metaDescription:
+        "Отделен обхват за допълнителни начисления, приоритетни поръчки, white-label работа и права за използване на създаденото съдържание.",
+      title: "Допълнителни начисления и права",
+      intro:
+        "Когато проектът изисква по-бърз срок, отделен начин на работа или специфични права за използване, тези рамки се подреждат отделно от основната услуга.",
+      sections: [
+        { title: "Какво влиза тук", text: "Това е отделен обхват за приоритет, white-label работа, работа с клиент на място и лицензионни или правни условия около предаването на създаденото съдържание." },
+        { title: "Приоритетни поръчки", text: "Когато срокът трябва да бъде съкратен, начисляваме отделна рамка според степента на ускоряване и влиянието върху работния процес." },
+        { title: "White-label и присъствие на място", text: "Когато проектът трябва да бъде предаден без брандиране на d . media или изисква физическа работа с клиента на място, това се оценява отделно." },
+        { title: "Права за използване", text: "Не всяка услуга автоматично включва разширен или изключителен лиценз. Когато проектът го изисква, правата се подреждат като самостоятелен обхват." },
+        { title: "Пълно прехвърляне", text: "При пълно прехвърляне на права рамката е значително по-широка, защото засяга бъдещото използване, контрол и стойност на самия проект." },
+        { title: "Защо е отделно", text: "Тези начисления не са второстепенен detail. Те влияят пряко върху срока, модела на работа и начина, по който съдържанието може да бъде използвано след предаването." },
+      ],
+      pricingTitle: "Начални рамки за допълнителни начисления и права.",
+      pricingText:
+        "Тази страница обобщава отделните начисления и правни рамки, които могат да се добавят към основните услуги, когато реалният проект го изисква.",
+      pricingGroups: [
+        {
+          title: "Допълнителни начисления върху услугите",
+          items: [
+            { title: "Работа с клиент на място", price: "+20%" },
+            { title: "Премахване на брандирането от d . media (white-label)", price: "19,99 € / 39,10 лв." },
+          ],
+        },
+        {
+          title: "Начисления за приоритет",
+          items: [
+            { title: "Бърза поръчка — съкращаване на договореното време за изработка с 25%", price: "+25%" },
+            { title: "Експресна поръчка — съкращаване на договореното време за изработка с 50%", price: "+50%" },
+            { title: "Супер експресна поръчка — съкращаване на договореното време за изработка с 75%", price: "+75%" },
+          ],
+        },
+        {
+          title: "Такси за придобиване правото на използване на създаденото съдържание",
+          items: [
+            { title: "Неизключителен лиценз за използване на създаденото съдържание за срок от 1 година", price: "49,99 € / 97,77 лв." },
+            { title: "Изключителен лиценз за използване на създаденото съдържание за срок от 1 година", price: "99,99 € / 195,56 лв." },
+            { title: "Пълно прехвърляне на правата за проекта", price: "200% от стойността на проекта, но не по-малко от 2799 € / 5474,37 лв." },
+          ],
+        },
+      ],
+      pricingNote: "Тези рамки се добавят към основната услуга само когато са реално приложими към проекта.",
+      processTitle: "Процес",
+      processSteps: [
+        { title: "Уточнение", text: "Изясняваме дали проектът изисква приоритет, white-label, работа на място или конкретен лиценз за използване." },
+        { title: "Подреждане", text: "Включваме допълнителната рамка в офертата така, че срокът, цената и правата да бъдат ясни още преди старта." },
+        { title: "Потвърждение", text: "Потвърждаваме отделно условията, които излизат извън стандартния обхват на услугата." },
+        { title: "Предаване", text: "При финалното предаване правата, ограниченията и допълнителните условия остават формулирани ясно, без неясноти след проекта." },
+      ],
+      ctaTitle: "Ако проектът изисква отделна рамка за срок или права, започни оттук.",
+      ctaText: "Изпрати основната услуга и уточни дали има ускорен срок, white-label работа или нужда от конкретни права за използване. Оттам подреждаме рамката правилно.",
+      primaryCta: "Изпрати контекст за условията",
+      secondaryCta: "Разгледай проектите",
+    },
     projects: {
       metaTitle: "Проекти",
       metaDescription:
@@ -321,10 +598,10 @@ const pageCopy = {
       secondaryCta: "Отвори брандбука",
     },
     contact: {
-      metaTitle: "Контакт",
+      metaTitle: "Контакти",
       metaDescription:
         "Свържи се с d . media за нов проект по бранд идентичност, съдържание, уеб платформа, дизайн или реклама.",
-      eyebrow: "контакт",
+      eyebrow: "контакти",
       title: "Ако имаш проект, започни с ясен контекст.",
       text: "Изпрати какво трябва да се изработи, за кого е, в какъв срок и с какъв приоритет. Връщаме преценка, обхват и следваща стъпка.",
       needsTitle: "Какво да изпратиш",
@@ -335,7 +612,7 @@ const pageCopy = {
         "Връщаме отговор с преценка, обхват, срок, цена или нужда от кратко уточнение преди оферта.",
       primaryCta: "Изпрати проектен контекст",
       secondaryCta: "Разгледай услугите",
-      mainContact: "Контакт",
+      mainContact: "Контакти",
       channels: "Канали",
     },
     terms: {
@@ -453,7 +730,7 @@ const pageCopy = {
       trustEyebrow: "standard",
       trustTitle: "Built on the same standards we offer.",
       trustText:
-        "The d-media.org platform is designed, developed, and continuously improved by d . media with Astro, Cloudflare, performance-first architecture, and a clear SEO/GEO foundation.",
+        "The d-media.org platform is designed, developed, and continuously improved by d . media with Astro, Cloudflare, performance-first architecture, and a clear SEO/GEO foundation. The current PageSpeed Insights baseline is 98/100/100/100 on mobile and 100/100/100/100 on desktop.",
       trustCta: "View the d . media case study",
       contactEyebrow: "next step",
       contactTitle: "If the scope is clear, we continue from here.",
@@ -632,6 +909,283 @@ const pageCopy = {
       primaryCta: "Send website context",
       secondaryCta: "Explore projects",
     },
+    brandIdentityService: {
+      metaTitle: "Brand Identity",
+      metaDescription:
+        "Scope for brand identity: logotype, logo, brand mark, visual identity, and vectorisation with clear starting ranges.",
+      title: "Brand Identity",
+      intro:
+        "We create identity as a system: mark, logotype, colour framework, and visual rules prepared for real use.",
+      sections: [
+        { title: "What we create", text: "Logotypes, logos, brand marks, and full visual identity systems shaped around the real context of the brand and the environment in which it will be used." },
+        { title: "Logotype", text: "We develop a typographic solution when the brand name itself needs to carry the core recognisability and remain clean across digital and print use." },
+        { title: "Logo / brand mark", text: "We create a sign when the brand needs a standalone visual carrier for small formats, iconic use, and faster recognition." },
+        { title: "Combined system", text: "When the project needs both a mark and a typographic line, we organise the relationship between them so the system stays stable across all touchpoints." },
+        { title: "Visual identity", text: "We build a wider framework of colour, typography, composition logic, and core usage rules, not just an isolated sign." },
+        { title: "Vectorisation and refinement", text: "We prepare existing raster logos and logotypes for clean use when a technically sound file is needed without compromised edges or scaling." },
+        { title: "Why it matters", text: "Identity is not just a first impression. It is the base on which the website, content, documents, and advertising later rely." },
+      ],
+      pricingTitle: "Starting ranges for identity.",
+      pricingText:
+        "These are starting ranges for the most common identity tasks. The final quote depends on complexity, variation, application scenarios, and the level of system needed around the core mark.",
+      pricingGroups: [
+        {
+          title: "Visual identity design services",
+          items: [
+            { title: "Logotype design", price: "149,99 € / BGN 293,35" },
+            { title: "Logo / brand mark design", price: "199,99 € / BGN 391,15" },
+            { title: "Logo / brand mark and logotype design", price: "299,99 € / BGN 586,73" },
+            { title: "Visual identity creation", price: "699,99 € / BGN 1369,06" },
+            { title: "Vectorising a raster logo and/or logotype", price: "59,99 € / BGN 117,33" },
+          ],
+        },
+      ],
+      pricingNote: "Prices are starting ranges and are aligned around the real scope of the project.",
+      processTitle: "Process",
+      processSteps: [
+        { title: "Context", text: "We define the name, usage environment, audience, and the role the identity needs to play in the real communication of the brand." },
+        { title: "Direction", text: "We organise visual logic, typographic character, and the system needed around the core sign according to the task." },
+        { title: "Development", text: "We build and refine the final options so they work cleanly in small, medium, and large formats." },
+        { title: "Delivery", text: "We deliver organised files and a basic application framework so the identity can be used immediately and consistently." },
+      ],
+      ctaTitle: "If the identity needs to hold up in real use, start here.",
+      ctaText: "Send the name, context, usage environment, and the type of system you need. From there we align the exact scope and next step.",
+      primaryCta: "Send identity context",
+      secondaryCta: "Explore projects",
+    },
+    contentService: {
+      metaTitle: "Content and Social Media",
+      metaDescription:
+        "Scope for content and social media: platform visuals, covers, formats, packages, and starting ranges for social graphics.",
+      title: "Content and Social Media",
+      intro:
+        "We organise content and social formats so the brand communicates consistently, not as a sequence of disconnected posts.",
+      sections: [
+        { title: "What we organise", text: "Covers, social visuals, formats, adaptations, and a working visual line for channels, campaigns, and day-to-day publishing." },
+        { title: "Covers and first impression", text: "We build event, profile, page, and group covers so the environment feels clear even before the first post." },
+        { title: "1:1 and 9:16 formats", text: "We develop the core social formats with clear composition logic, readable text, and a repeatable visual rhythm." },
+        { title: "YouTube and platform-specific formats", text: "We prepare banners, thumbnails, and related formats where the platform requires its own visual discipline." },
+        { title: "Package logic", text: "When several visuals are needed, we structure them as a series rather than as isolated one-off pieces." },
+        { title: "Template-based and custom", text: "We work both through template-based logic for faster, clearer scope and through custom execution when a more specific composition is needed." },
+        { title: "Important note", text: "The starting ranges below cover visual formats for social media. Copywriting, calendars, strategy, and publishing are scoped separately according to volume and working mode." },
+      ],
+      pricingTitle: "Starting ranges for social formats.",
+      pricingText:
+        "These ranges cover the most common visual formats for social presence. The final scope depends on the number of visuals, adaptations, copy work, and the consistency needed across channels.",
+      pricingGroups: [
+        {
+          title: "Social media design services, template-based",
+          items: [
+            { title: "Event cover (Facebook)", price: "29,99 € / BGN 58,66" },
+            { title: "Profile / group / page cover (Facebook)", price: "29,99 € / BGN 58,66" },
+            { title: "Graphic design in 1:1 format", price: "24,99 € / BGN 48,88" },
+            { title: "Graphic design in 9:16 format", price: "24,99 € / BGN 48,88" },
+            { title: "YouTube graphic design (banner, thumbnail, etc.)", price: "34,99 € / BGN 68,43" },
+            { title: "3x package (three visuals of choice)", price: "69,99 € / BGN 136,89" },
+          ],
+        },
+        {
+          title: "Social media design services, custom",
+          items: [
+            { title: "Event cover (Facebook)", price: "44,99 € / BGN 87,99" },
+            { title: "Profile / group / page cover (Facebook)", price: "44,99 € / BGN 87,99" },
+            { title: "Graphic design in 1:1 format", price: "34,99 € / BGN 68,43" },
+            { title: "Graphic design in 9:16 format", price: "34,99 € / BGN 68,43" },
+            { title: "YouTube graphic design (banner, thumbnail, etc.)", price: "49,99 € / BGN 97,77" },
+            { title: "3x package (three services of choice)", price: "99,99 € / BGN 195,56" },
+          ],
+        },
+      ],
+      pricingNote: "Copy work, calendars, and publishing are quoted separately according to volume and frequency.",
+      processTitle: "Process",
+      processSteps: [
+        { title: "Context", text: "We define the channels, frequency, visual line, and the type of content that actually needs to be published." },
+        { title: "System", text: "We organise the main formats, the scope of adaptations, and how the individual visuals should function as one series." },
+        { title: "Development", text: "We build the specific formats with a clear rhythm, readability, and stable visual connection between posts." },
+        { title: "Delivery", text: "We deliver the ready visuals and, where needed, the logic for future formats so the presence stays consistent." },
+      ],
+      ctaTitle: "If social presence needs to feel structured, start here.",
+      ctaText: "Send the channels, required formats, frequency, and whether we are working template-based or custom. From there we align the exact scope.",
+      primaryCta: "Send content context",
+      secondaryCta: "Explore projects",
+    },
+    graphicDesignService: {
+      metaTitle: "Graphic Design",
+      metaDescription:
+        "Scope for graphic design: business cards, gift cards, flyers, brochures, menus, and other print formats with starting ranges for template-based and custom work.",
+      title: "Graphic Design",
+      intro:
+        "We create graphic materials for print and day-to-day visual use so the formats stay clear, readable, and ready for real application.",
+      sections: [
+        { title: "What we create", text: "Business cards, gift cards, brochures, flyers, menus, and other print or informational formats that need clear visual logic." },
+        { title: "Everyday formats", text: "We prepare small and medium formats the brand uses constantly and that need to look composed rather than random." },
+        { title: "Template-based scope", text: "When the task is more standardised, we work within a clearer framework with prepared logic for faster and more predictable execution." },
+        { title: "Custom scope", text: "When the design needs a more specific composition, more content, or a distinct visual solution, we structure the task as custom work." },
+        { title: "Informational materials", text: "For menus and more complex brochures, we work with extra attention to structure, navigation, and reading flow." },
+        { title: "Why it matters", text: "A print or informational format is often the last place where the brand still needs to look as clear as it does online." },
+      ],
+      pricingTitle: "Starting ranges for graphic materials.",
+      pricingText:
+        "These are starting ranges for the most common print and informational formats. Final pricing depends on content, complexity, page count, adaptations, and whether the scope is template-based or custom.",
+      pricingGroups: [
+        {
+          title: "Print design services, template-based",
+          items: [
+            { title: "Single-sided business card", price: "24,99 € / BGN 48,88" },
+            { title: "Double-sided business card", price: "29,99 € / BGN 58,66" },
+            { title: "Single-sided gift card", price: "29,99 € / BGN 58,66" },
+            { title: "Double-sided gift card", price: "34,99 € / BGN 68,43" },
+            { title: "Single-page brochure / folded brochure / flyer", price: "39,99 € / BGN 78,21" },
+            { title: "Other (menus, informational brochures with several pages)", price: "69,99 € / BGN 136,89" },
+          ],
+        },
+        {
+          title: "Print design services, custom",
+          items: [
+            { title: "Single-sided business card", price: "49,99 € / BGN 97,77" },
+            { title: "Double-sided business card", price: "59,99 € / BGN 117,33" },
+            { title: "Single-sided gift card", price: "54,99 € / BGN 107,55" },
+            { title: "Double-sided gift card", price: "64,99 € / BGN 127,11" },
+            { title: "Single-page brochure / folded brochure / flyer", price: "79,99 € / BGN 156,45" },
+            { title: "Other (menus, informational brochures with several pages)", price: "119,99 € / BGN 234,68" },
+          ],
+        },
+      ],
+      pricingNote: "Print preparation, content, and page count directly affect the final scope.",
+      processTitle: "Process",
+      processSteps: [
+        { title: "Context", text: "We define the format, the content, the print environment, and whether the task fits a template-based framework or needs a separate solution." },
+        { title: "Organisation", text: "We organise composition, text, and visual weight so the material reads clearly from the first glance." },
+        { title: "Development", text: "We build the final design with attention to readability, print logic, and compatibility with the wider visual system of the brand." },
+        { title: "Delivery", text: "We deliver the final files in the right format for print or later use without technical chaos at the end of the project." },
+      ],
+      ctaTitle: "If the materials need to be ready for real use, start here.",
+      ctaText: "Send the required format, the content, the page count, and whether the task is template-based or custom. From there we align the scope.",
+      primaryCta: "Send design context",
+      secondaryCta: "Explore projects",
+    },
+    advertisingService: {
+      metaTitle: "Advertising",
+      metaDescription:
+        "Scope for advertising: video editing, video ads, logo and logotype animation, priority add-ons, white-label work, and licensing framework.",
+      title: "Advertising",
+      intro:
+        "We build advertising formats that lead to clear messaging and action: video editing, animation, adaptations, and additional rights based on real use.",
+      sections: [
+        { title: "Video ads with provided content", text: "We work on video editing and advertising projects when source footage already exists and the task is to organise it into a clear, working advertising format." },
+        { title: "Animation connected to the visual identity", text: "We animate logos and logotypes when the brand needs a more dynamic use across intros, outros, ads, or video environments." },
+        { title: "Based on a d . media identity", text: "When we animate a sign created by us, we already have a clear visual logic for movement, rhythm, and behaviour." },
+        { title: "With provided files", text: "When we work from externally created files, we first organise their technical usability and then define the animation scope." },
+        { title: "Priority and timing", text: "For fast, express, and super express requests, we apply a separate framework based on how much the agreed production time is reduced." },
+        { title: "Rights and additional charges", text: "When white-label work, on-site work with the client, or broader usage rights are needed, we structure that separately as part of the advertising scope." },
+      ],
+      pricingTitle: "Starting ranges for advertising formats.",
+      pricingText:
+        "These ranges cover advertising video editing, animation, add-ons, and usage rights. The final scope depends on duration, complexity, source files, and the intended mode of use.",
+      pricingGroups: [
+        {
+          title: "Video advertising services with provided content",
+          items: [
+            { title: "Video ad project / editing up to 1 minute", price: "0,29 € / BGN 0,57 per second of video content" },
+            { title: "Video ad project / editing over 1 minute", price: "0,49 € / BGN 0,96 per second of video content" },
+          ],
+        },
+        {
+          title: "Video animation services related to visual identity",
+          items: [
+            { title: "Logo and/or logotype animation for a d . media project up to 5 seconds", price: "49,99 € / BGN 97,77" },
+            { title: "Logo and/or logotype animation for a d . media project up to 10 seconds", price: "79,99 € / BGN 156,45" },
+            { title: "Logo and/or logotype animation for a d . media project over 10 seconds", price: "99,99 € / BGN 195,56" },
+            { title: "Each second after the tenth", price: "+4,99 € / +BGN 9,76" },
+            { title: "Logo and/or logotype animation with provided files up to 5 seconds", price: "69,99 € / BGN 136,89" },
+            { title: "Logo and/or logotype animation with provided files up to 10 seconds", price: "89,99 € / BGN 176,00" },
+            { title: "Logo and/or logotype animation with provided files over 10 seconds", price: "109,99 € / BGN 215,12" },
+            { title: "Each second after the tenth", price: "+5,99 € / +BGN 11,72" },
+          ],
+        },
+        {
+          title: "Additional charges and rights",
+          items: [
+            { title: "On-site work with the client", price: "+20%" },
+            { title: "Removing d . media branding (white-label)", price: "19,99 € / BGN 39,10" },
+            { title: "Fast order", price: "+25%" },
+            { title: "Express order", price: "+50%" },
+            { title: "Super express order", price: "+75%" },
+            { title: "Non-exclusive licence to use the created content for 1 year", price: "49,99 € / BGN 97,77" },
+            { title: "Exclusive licence to use the created content for 1 year", price: "99,99 € / BGN 195,56" },
+            { title: "Full transfer of project rights", price: "200% of the project value, but not less than 2799 € / BGN 5474,37" },
+          ],
+        },
+      ],
+      pricingNote: "Usage rights, priority level, and working mode are aligned around the specific advertising task.",
+      processTitle: "Process",
+      processSteps: [
+        { title: "Context", text: "We define the format, where it will be used, which files exist, and what timing is actually needed." },
+        { title: "Scope", text: "We organise duration, the type of animation or video editing, the required adaptations, and the usage-rights framework." },
+        { title: "Development", text: "We build the advertising material with a clear rhythm, clean visual logic, and control over the final perception." },
+        { title: "Delivery", text: "We deliver the final material in the agreed format with clarity on rights, usage period, and future applications." },
+      ],
+      ctaTitle: "If the advertising format needs to be clear before launch, start here.",
+      ctaText: "Send the type of advertising needed, which files exist, where it will be used, and the deadline. From there we align the real scope.",
+      primaryCta: "Send advertising context",
+      secondaryCta: "Explore projects",
+    },
+    additionalChargesRightsService: {
+      metaTitle: "Additional Charges and Rights",
+      metaDescription:
+        "Separate scope for additional charges, priority orders, white-label work, and usage rights for created content.",
+      title: "Additional Charges and Rights",
+      intro:
+        "When a project requires a faster timeline, a separate working mode, or specific usage rights, these frameworks are aligned separately from the core service.",
+      sections: [
+        { title: "What belongs here", text: "This is a separate scope for priority handling, white-label work, on-site client work, and licensing or legal terms around delivery of the created content." },
+        { title: "Priority orders", text: "When the timeline needs to be shortened, we apply a separate framework based on the level of acceleration and its impact on the working process." },
+        { title: "White-label and on-site work", text: "When the project needs to be delivered without d . media branding or requires physical work with the client on site, this is priced separately." },
+        { title: "Usage rights", text: "Not every service automatically includes extended or exclusive rights. When the project requires it, rights are aligned as a standalone scope." },
+        { title: "Full transfer", text: "A full transfer of rights is a significantly broader framework because it affects future use, control, and the underlying value of the project itself." },
+        { title: "Why it is separate", text: "These charges are not secondary details. They directly affect the timeline, working model, and the way the content may be used after delivery." },
+      ],
+      pricingTitle: "Starting ranges for additional charges and rights.",
+      pricingText:
+        "This page summarises the separate charges and rights frameworks that may be added to core services when the real project requires them.",
+      pricingGroups: [
+        {
+          title: "Additional charges on services",
+          items: [
+            { title: "On-site work with the client", price: "+20%" },
+            { title: "Removing d . media branding (white-label)", price: "19,99 € / BGN 39,10" },
+          ],
+        },
+        {
+          title: "Priority charges",
+          items: [
+            { title: "Fast order — reducing the agreed production time by 25%", price: "+25%" },
+            { title: "Express order — reducing the agreed production time by 50%", price: "+50%" },
+            { title: "Super express order — reducing the agreed production time by 75%", price: "+75%" },
+          ],
+        },
+        {
+          title: "Fees for acquiring usage rights to the created content",
+          items: [
+            { title: "Non-exclusive licence to use the created content for 1 year", price: "49,99 € / BGN 97,77" },
+            { title: "Exclusive licence to use the created content for 1 year", price: "99,99 € / BGN 195,56" },
+            { title: "Full transfer of project rights", price: "200% of the project value, but not less than 2799 € / BGN 5474,37" },
+          ],
+        },
+      ],
+      pricingNote: "These frameworks are added to the core service only when they are genuinely applicable to the project.",
+      processTitle: "Process",
+      processSteps: [
+        { title: "Clarification", text: "We define whether the project requires priority handling, white-label work, on-site work, or a specific usage licence." },
+        { title: "Alignment", text: "We include the additional framework in the offer so timing, pricing, and rights are clear before the project starts." },
+        { title: "Confirmation", text: "We confirm separately the terms that go beyond the standard service scope." },
+        { title: "Delivery", text: "At final delivery, the rights, limits, and additional terms remain clearly defined, without ambiguity after the project." },
+      ],
+      ctaTitle: "If the project needs a separate framework for timing or rights, start here.",
+      ctaText: "Send the core service and clarify whether there is an accelerated deadline, white-label work, or a specific rights requirement. From there we align the framework properly.",
+      primaryCta: "Send rights and timing context",
+      secondaryCta: "Explore projects",
+    },
     projects: {
       metaTitle: "Projects",
       metaDescription:
@@ -682,7 +1236,7 @@ const pageCopy = {
       secondaryCta: "Open the brand book",
     },
     contact: {
-      metaTitle: "Contact",
+      metaTitle: "Contacts",
       metaDescription:
         "Contact d . media about a new project in brand identity, content, web platforms, design, or advertising.",
       eyebrow: "contact",
@@ -696,7 +1250,7 @@ const pageCopy = {
         "We return with an assessment, scope, timeframe, pricing, or the need for a short clarification before the quote.",
       primaryCta: "Send project context",
       secondaryCta: "Explore services",
-      mainContact: "Contact",
+      mainContact: "Contacts",
       channels: "Channels",
     },
     terms: {

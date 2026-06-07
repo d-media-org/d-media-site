@@ -13,6 +13,21 @@ type Props = {
   description?: string;
   path?: string;
   structuredData?: unknown[];
+  socialImage?: string;
+  openGraphType?: string;
+  metaRobots?: string;
+  alternateLinks?: {
+    bg?: string | null;
+    en?: string | null;
+    xDefault?: string | null;
+    canonical?: string | null;
+  };
+  localeSwitcherItems?: {
+    locale: Locale;
+    label: string;
+    href: string;
+    isActive: boolean;
+  }[];
 };
 
 const {
@@ -21,13 +36,23 @@ const {
   description = "d . media",
   path = "/",
   structuredData = [],
+  socialImage = "https://www.d-media.org/social-preview-dmedia-v3.png",
+  openGraphType = "website",
+  metaRobots,
+  alternateLinks,
+  localeSwitcherItems: localeSwitcherItemsOverride,
 } = Astro.props;
 const siteContent = getSiteContent(locale);
 const ui = getUiCopy(locale);
 const alternateLocale = getAlternateLocale(locale);
 const alternateHref = localizeHref(alternateLocale, stripLocalePrefix(path));
 const localizedPath = localizeHref(locale, path);
-const localeSwitcherItems = getLocaleSwitcherItems(locale, path);
+const localeSwitcherItems = localeSwitcherItemsOverride ?? getLocaleSwitcherItems(locale, path);
+const canonicalHref = alternateLinks?.canonical ?? `https://www.d-media.org${localizedPath}`;
+const alternateBgHref = alternateLinks?.bg ?? `https://www.d-media.org${localizeHref("bg", path)}`;
+const alternateEnHref = alternateLinks?.en ?? `https://www.d-media.org${localizeHref("en", path)}`;
+const alternateXDefaultHref =
+  alternateLinks?.xDefault ?? `https://www.d-media.org${localizeHref("bg", path)}`;
 const [footerCopyrightBefore, footerCopyrightAfter = ""] =
   ui.footer.copyright.split("d . media");
 const isActiveHref = (href: string) =>
@@ -47,10 +72,11 @@ const schemaItems = [
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={`https://www.d-media.org${localizedPath}`} />
-    <link rel="alternate" hreflang="bg" href={`https://www.d-media.org${localizeHref("bg", path)}`} />
-    <link rel="alternate" hreflang="en" href={`https://www.d-media.org${localizeHref("en", path)}`} />
-    <link rel="alternate" hreflang="x-default" href={`https://www.d-media.org${localizeHref("bg", path)}`} />
+    {metaRobots ? <meta name="robots" content={metaRobots} /> : null}
+    <link rel="canonical" href={canonicalHref} />
+    {alternateBgHref ? <link rel="alternate" hreflang="bg" href={alternateBgHref} /> : null}
+    {alternateEnHref ? <link rel="alternate" hreflang="en" href={alternateEnHref} /> : null}
+    {alternateXDefaultHref ? <link rel="alternate" hreflang="x-default" href={alternateXDefaultHref} /> : null}
     <link rel="icon" type="image/png" sizes="16x16" href="/dmedia-favicon-v4-16.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/dmedia-favicon-v4-32.png" />
     <link rel="icon" href="/dmedia-favicon-v4.ico" />
@@ -58,16 +84,16 @@ const schemaItems = [
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="preload" href="/fonts/panton-subset/Panton-Regular.latin-cyrillic.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/panton-subset/Panton-Black.latin-cyrillic.woff2" as="font" type="font/woff2" crossorigin />
-    <meta property="og:type" content="website" />
+    <meta property="og:type" content={openGraphType} />
     <meta property="og:site_name" content="d . media" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:url" content={`https://www.d-media.org${localizedPath}`} />
-    <meta property="og:image" content="https://www.d-media.org/social-preview-dmedia-v3.png" />
+    <meta property="og:url" content={canonicalHref} />
+    <meta property="og:image" content={socialImage} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content="https://www.d-media.org/social-preview-dmedia-v3.png" />
+    <meta name="twitter:image" content={socialImage} />
     {schemaItems.map((item) => (
       <script type="application/ld+json" set:html={JSON.stringify(item)} />
     ))}

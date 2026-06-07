@@ -1,0 +1,11 @@
+---
+import ServiceDetailPage from "@/components/ServiceDetailPage.astro";
+import { type Locale } from "@/lib/i18n";
+import { getPageCopy } from "@/lib/page-copy";
+
+const locale: Locale = "en";
+const copy = getPageCopy(locale).graphicDesignService;
+const path = "/services/graphic-design";
+---
+
+<ServiceDetailPage locale={locale} path={path} copy={copy} ctaLocation="graphic_design_service_cta" />

@@ -17,9 +17,10 @@ const localizedSiteContent = {
     mainNavigation: [
       { href: "/", label: "Начало" },
       { href: "/projects", label: "Проекти" },
+      { href: "/blog", label: "Блог" },
       { href: "/services", label: "Услуги" },
       { href: "/about", label: "За бранда" },
-      { href: "/contact", label: "Контакт" },
+      { href: "/contact", label: "Контакти" },
     ],
     socials: {
       instagram: "Instagram",
@@ -36,6 +37,8 @@ const localizedSiteContent = {
         includes: "Лого, логотип, цветова рамка, типография и основни правила за приложение.",
         audience: "За брандове, които имат нужда от ясен облик в началото или след период на размиване, не от козметична промяна без система.",
         result: "Получаваш logo система, цветова рамка и базови правила за сайт, документи и реклама.",
+        detailHref: "/services/brand-identity",
+        detailLabel: "Виж обхвата за бранд идентичност",
       },
       {
         id: "content",
@@ -44,6 +47,8 @@ const localizedSiteContent = {
         includes: "Текстове, визии, корици, формати, адаптации, календар и публикуване за сайт, социални канали и кампании.",
         audience: "За брандове, които искат ясен изказ, постоянство и една визуална линия, не отделни несвързани публикации.",
         result: "Получаваш content пакет с работни визии, текстове и ясен ред за публикуване.",
+        detailHref: "/services/content-social-media",
+        detailLabel: "Виж обхвата за съдържание и социални медии",
       },
       {
         id: "web-design-development",
@@ -62,6 +67,8 @@ const localizedSiteContent = {
         includes: "Дигитални и печатни материали, корици, рекламни визии и формати за ежедневна употреба.",
         audience: "За брандове, които имат нужда от чисти решения за реална комуникация, не от случайни единични визии.",
         result: "Получаваш готови визии и файлове в точния формат за публикуване, печат или ежедневна употреба.",
+        detailHref: "/services/graphic-design",
+        detailLabel: "Виж обхвата за графичен дизайн",
       },
       {
         id: "advertising",
@@ -70,6 +77,18 @@ const localizedSiteContent = {
         includes: "Рекламни визии, послания, кампанийни формати и адаптации за различни канали.",
         audience: "За бизнеси, които искат по-ясна оферта и по-добър отклик, не шумна комуникация без посока.",
         result: "Получаваш кампанийна визия, адаптация и готовност за реално пускане.",
+        detailHref: "/services/advertising",
+        detailLabel: "Виж обхвата за реклама",
+      },
+      {
+        id: "additional-charges-rights",
+        title: "Допълнителни начисления и права",
+        text: "Приоритет, white-label, работа на място и права за използване, подредени като отделен обхват, когато проектът го изисква.",
+        includes: "Приоритетни начисления, white-label, работа с клиент на място и рамки за лицензиране или прехвърляне на права.",
+        audience: "За проекти, при които срокът, начинът на работа или правата за използване изискват отделна и ясна рамка.",
+        result: "Получаваш ясна допълнителна ценова и правна рамка около основната услуга, без неясноти в края на проекта.",
+        detailHref: "/services/additional-charges-rights",
+        detailLabel: "Виж допълнителните начисления и права",
       },
     ],
     coreProcess: [
@@ -127,9 +146,10 @@ const localizedSiteContent = {
     mainNavigation: [
       { href: "/", label: "Home" },
       { href: "/projects", label: "Projects" },
+      { href: "/blog", label: "Blog" },
       { href: "/services", label: "Services" },
       { href: "/about", label: "About" },
-      { href: "/contact", label: "Contact" },
+      { href: "/contact", label: "Contacts" },
     ],
     socials: {
       instagram: "Instagram",
@@ -146,6 +166,8 @@ const localizedSiteContent = {
         includes: "Logo, logotype, colour framework, typography, and core application rules.",
         audience: "For brands that need a clear visual direction from the start or after a period of drift, not a cosmetic change without a system.",
         result: "You get a logo system, colour framework, and core rules for website, documents, and advertising.",
+        detailHref: "/services/brand-identity",
+        detailLabel: "View the brand identity scope",
       },
       {
         id: "content",
@@ -154,6 +176,8 @@ const localizedSiteContent = {
         includes: "Copy, visuals, covers, formats, adaptations, planning, and publishing for websites, social channels, and campaigns.",
         audience: "For brands that need one voice, steady output, and one visual line, not disconnected standalone posts.",
         result: "You get a content package with working visuals, copy, and a clear publishing rhythm.",
+        detailHref: "/services/content-social-media",
+        detailLabel: "View the content and social media scope",
       },
       {
         id: "web-design-development",
@@ -172,6 +196,8 @@ const localizedSiteContent = {
         includes: "Digital and print materials, covers, campaign visuals, and day-to-day communication formats.",
         audience: "For brands that need clean solutions for real communication, not random one-off visuals.",
         result: "You get ready visuals and files in the right format for publishing, print, or day-to-day use.",
+        detailHref: "/services/graphic-design",
+        detailLabel: "View the graphic design scope",
       },
       {
         id: "advertising",
@@ -180,6 +206,18 @@ const localizedSiteContent = {
         includes: "Campaign visuals, messaging, advertising formats, and channel-specific adaptations.",
         audience: "For businesses that need a clearer offer and stronger response, not noisy communication without direction.",
         result: "You get a campaign visual, adaptation, and launch readiness.",
+        detailHref: "/services/advertising",
+        detailLabel: "View the advertising scope",
+      },
+      {
+        id: "additional-charges-rights",
+        title: "Additional Charges and Rights",
+        text: "Priority, white-label work, on-site work, and usage rights organised as a separate scope when the project requires it.",
+        includes: "Priority add-ons, white-label work, on-site client work, and licensing or rights-transfer frameworks.",
+        audience: "For projects where timing, working mode, or usage rights need a separate and explicit framework.",
+        result: "You get a clear additional pricing and rights layer around the core service, without ambiguity at the end of the project.",
+        detailHref: "/services/additional-charges-rights",
+        detailLabel: "View additional charges and rights",
       },
     ],
     coreProcess: [

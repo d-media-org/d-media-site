@@ -1,0 +1,199 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import {
+  formatBlogDate,
+  getBlogCategories,
+  getBlogCategoryLabel,
+  getBlogPostBySlug,
+  getPublishedBlogPosts,
+  getRelatedBlogPosts,
+  getBlogSocialImage,
+  getBlogPageCopy,
+} from "@/lib/blog";
+import { localizeHref, type Locale } from "@/lib/i18n";
+import { getBlogPostingSchema } from "@/lib/seo";
+import { getUiCopy } from "@/lib/ui-copy";
+
+const locale: Locale = "bg";
+const copy = getBlogPageCopy(locale);
+
+export function getStaticPaths() {
+  return getPublishedBlogPosts("bg").map((post) => ({
+    params: { slug: post.slug },
+  }));
+}
+
+const { slug } = Astro.params;
+
+if (!slug) {
+  throw new Error("Missing blog slug");
+}
+
+const post = getBlogPostBySlug(locale, slug);
+
+if (!post) {
+  throw new Error(`Unknown blog post slug: ${slug}`);
+}
+
+const categoryLabel = getBlogCategoryLabel(locale, post.category);
+const path = `/blog/${post.slug}`;
+const socialImage = getBlogSocialImage(post);
+const ui = getUiCopy(locale);
+const relatedArticles = getRelatedBlogPosts(locale, post);
+const localeSwitcherItems = [
+  {
+    locale: "bg" as const,
+    label: ui.localeLabel,
+    href: localizeHref("bg", path),
+    isActive: true,
+  },
+  {
+    locale: "en" as const,
+    label: "EN",
+    href: "/en/blog",
+    isActive: false,
+  },
+];
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Начало",
+      item: "https://www.d-media.org/",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Блог",
+      item: "https://www.d-media.org/blog",
+    },
+    {
+      "@type": "ListItem",
+      position: 3,
+      name: post.title,
+      item: `https://www.d-media.org${path}`,
+    },
+  ],
+};
+---
+
+<Layout
+  locale={locale}
+  title={`${post.metaTitle} | d . media`}
+  description={post.metaDescription}
+  path={path}
+  socialImage={socialImage}
+  openGraphType="article"
+  localeSwitcherItems={localeSwitcherItems}
+  alternateLinks={{
+    canonical: `https://www.d-media.org${path}`,
+    bg: `https://www.d-media.org${path}`,
+    en: null,
+    xDefault: `https://www.d-media.org${path}`,
+  }}
+  structuredData={[
+    breadcrumbSchema,
+    getBlogPostingSchema({
+      locale,
+      path,
+      headline: post.title,
+      description: post.metaDescription,
+      datePublished: post.datePublished,
+      dateModified: post.dateModified,
+      articleSection: categoryLabel,
+      keywords: post.keywords,
+      inLanguage: post.language,
+      image: socialImage,
+    }),
+  ]}
+>
+  <main class="site-shell" id="top">
+    <article class="section-grid">
+      <header class="section-heading page-intro">
+        <p class="eyebrow">{categoryLabel}</p>
+        <h1>{post.title}</h1>
+        <p class="page-text">{post.intro}</p>
+        <div class="blog-meta-row">
+          <p class="project-meta">{copy.authorLabel}: {post.author}</p>
+          <p class="project-meta"><time datetime={post.datePublished}>{formatBlogDate(locale, post.datePublished)}</time></p>
+          <p class="project-meta">{post.readingTime} минути четене</p>
+        </div>
+      </header>
+
+      <div class="split-content">
+        <div class="card text-card blog-article-content">
+          {post.sections.map((section) => (
+            <section class="blog-article-block">
+              <h2>{section.title}</h2>
+              {section.paragraphs.map((paragraph) => (
+                <p>{paragraph}</p>
+              ))}
+              {section.bullets ? (
+                <ul class="detail-list">
+                  {section.bullets.map((bullet) => (
+                    <li>{bullet}</li>
+                  ))}
+                </ul>
+              ) : null}
+            </section>
+          ))}
+
+          <div class="project-card-footer blog-back-link-row">
+            <a class="inline-link" href="/blog" data-blog-back>Назад към статиите</a>
+          </div>
+        </div>
+
+        <aside class="stacked-cards blog-article-actions">
+          <article class="card services-cta-card">
+            <div class="services-cta-copy">
+              <p class="eyebrow">{copy.articleFooterLabel}</p>
+              <h2>{post.ctaTitle}</h2>
+              <p class="page-text">{post.ctaText}</p>
+            </div>
+            <div class="hero-actions">
+              <a href={localizeHref(locale, post.ctaPrimaryHref)} class="button button-primary">
+                {post.ctaPrimaryLabel}
+              </a>
+              <a href={localizeHref(locale, post.ctaSecondaryHref)} class="button button-secondary">
+                {post.ctaSecondaryLabel}
+              </a>
+            </div>
+          </article>
+
+          {relatedArticles.length ? (
+            <article class="card package-card">
+              <h2>{copy.relatedArticlesTitle}</h2>
+              <div class="blog-related-list">
+                {relatedArticles.map((article) => (
+                  <a class="inline-link" href={localizeHref(locale, `/blog/${article.slug}`)}>{article.title}</a>
+                ))}
+              </div>
+            </article>
+          ) : null}
+        </aside>
+      </div>
+    </article>
+  </main>
+
+  <script is:inline>
+    const backButton = document.querySelector("[data-blog-back]");
+
+    backButton?.addEventListener("click", () => {
+      const referrer = document.referrer ? new URL(document.referrer) : null;
+      const sameOrigin = referrer?.origin === window.location.origin;
+      const fromBlog =
+        sameOrigin &&
+        (referrer.pathname === "/blog" || referrer.pathname.startsWith("/blog/"));
+
+      if (fromBlog && window.history.length > 1) {
+        window.history.back();
+        return;
+      }
+
+      window.location.href = "/blog";
+    });
+  </script>
+</Layout>

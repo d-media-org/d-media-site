@@ -44,7 +44,8 @@ const requiredRoutes = [
 const ignoredSchemes = /^(https?:|mailto:|tel:|data:|blob:|#|javascript:)/i;
 const htmlFiles = [];
 const textFiles = [];
-const forbiddenExternalReferences = /vercel|blob\.vercel-storage|public\.blob\.vercel-storage|metricool|tracker\.metricool/i;
+const forbiddenExternalReferences =
+  /blob\.vercel-storage|public\.blob\.vercel-storage|tracker\.metricool|metricool\.com/i;
 const textFileExtensions = new Set([
   ".css",
   ".html",

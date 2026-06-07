@@ -1,0 +1,11 @@
+---
+import ServiceDetailPage from "@/components/ServiceDetailPage.astro";
+import { type Locale } from "@/lib/i18n";
+import { getPageCopy } from "@/lib/page-copy";
+
+const locale: Locale = "en";
+const copy = getPageCopy(locale).additionalChargesRightsService;
+const path = "/services/additional-charges-rights";
+---
+
+<ServiceDetailPage locale={locale} path={path} copy={copy} ctaLocation="additional_charges_rights_service_cta" />

@@ -226,6 +226,64 @@ export function getServiceCatalogSchema(locale: Locale = "bg") {
   };
 }
 
+export function getBlogPostingSchema({
+  locale,
+  path,
+  headline,
+  description,
+  datePublished,
+  dateModified,
+  articleSection,
+  keywords,
+  inLanguage,
+  image = defaultSocialImage.url,
+}: {
+  locale: Locale;
+  path: string;
+  headline: string;
+  description: string;
+  datePublished: string;
+  dateModified: string;
+  articleSection: string;
+  keywords: string[];
+  inLanguage: string;
+  image?: string;
+}) {
+  const url = `${baseUrl}${localizeHref(locale, path)}`;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "@id": `${url}#blog-post`,
+    mainEntityOfPage: url,
+    headline,
+    description,
+    datePublished,
+    dateModified,
+    articleSection,
+    keywords,
+    inLanguage,
+    image: {
+      "@type": "ImageObject",
+      url: image,
+      width: defaultSocialImage.width,
+      height: defaultSocialImage.height,
+    },
+    author: {
+      "@id": `${baseUrl}/#organization`,
+      name: brandName,
+    },
+    publisher: {
+      "@id": `${baseUrl}/#organization`,
+      name: brandName,
+      logo: {
+        "@type": "ImageObject",
+        url: `${baseUrl}/dmedia-apple-touch-v4.png`,
+      },
+    },
+  };
+}
+
 export function getAlternateLinks(locale: Locale, path: string) {
   return {
     canonical: `${baseUrl}${localizeHref(locale, path)}`,

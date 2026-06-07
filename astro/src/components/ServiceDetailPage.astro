@@ -1,0 +1,160 @@
+---
+import BrandText from "@/components/BrandText.astro";
+import Layout from "@/layouts/Layout.astro";
+import { localizeHref, type Locale } from "@/lib/i18n";
+import { getBreadcrumbSchema } from "@/lib/seo";
+
+type ServiceSection = {
+  title: string;
+  text: string;
+};
+
+type ServicePricingItem = {
+  title: string;
+  price: string;
+};
+
+type ServicePricingGroup = {
+  title: string;
+  items: ServicePricingItem[];
+};
+
+type ServiceDetailCopy = {
+  metaTitle: string;
+  metaDescription: string;
+  title: string;
+  intro: string;
+  sections: ServiceSection[];
+  integrationsTitle?: string;
+  integrationsText?: string;
+  integrationGroups?: ServiceSection[];
+  pricingTitle: string;
+  pricingText: string;
+  pricingGroups: ServicePricingGroup[];
+  pricingNote: string;
+  processTitle: string;
+  processSteps: ServiceSection[];
+  ctaTitle: string;
+  ctaText: string;
+  primaryCta: string;
+  secondaryCta: string;
+};
+
+interface Props {
+  locale: Locale;
+  path: string;
+  copy: ServiceDetailCopy;
+  ctaLocation: string;
+}
+
+const { locale, path, copy, ctaLocation } = Astro.props;
+const backLabel = locale === "bg" ? "обратно към услугите" : "back to services";
+---
+
+<Layout
+  locale={locale}
+  title={`${copy.metaTitle} | d . media`}
+  description={copy.metaDescription}
+  path={path}
+  structuredData={[getBreadcrumbSchema({ locale, path, title: copy.metaTitle })]}
+>
+  <main class="site-shell services-page" id="top">
+    <section class="section-grid">
+      <div class="section-heading page-intro">
+        <h1>{copy.title}</h1>
+        <p class="page-text">
+          <BrandText text={copy.intro} />
+        </p>
+        <div class="project-card-footer">
+          <a class="inline-link" href={localizeHref(locale, "/services")}>{backLabel}</a>
+        </div>
+      </div>
+
+      <div class="showcase-grid service-card-grid">
+        {copy.sections.map((section) => (
+          <article class="card service-category-card">
+            <h2>{section.title}</h2>
+            <p><BrandText text={section.text} /></p>
+          </article>
+        ))}
+      </div>
+
+      {copy.integrationsTitle && copy.integrationsText && copy.integrationGroups?.length ? (
+        <>
+          <div class="section-heading page-subheading">
+            <h2>{copy.integrationsTitle}</h2>
+            <p class="page-text"><BrandText text={copy.integrationsText} /></p>
+          </div>
+          <div class="showcase-grid service-card-grid">
+            {copy.integrationGroups.map((group) => (
+              <article class="card service-category-card">
+                <h2>{group.title}</h2>
+                <p><BrandText text={group.text} /></p>
+              </article>
+            ))}
+          </div>
+        </>
+      ) : null}
+
+      <div class="section-heading page-subheading">
+        <h2>{copy.pricingTitle}</h2>
+        <p class="page-text"><BrandText text={copy.pricingText} /></p>
+        <p class="project-meta">{copy.pricingNote}</p>
+      </div>
+      {copy.pricingGroups.map((group) => (
+        <>
+          <div class="section-heading page-subheading">
+            <h2>{group.title}</h2>
+          </div>
+          <div class="showcase-grid project-reading-grid">
+            {group.items.map((item) => (
+              <article class="card package-card">
+                <h3>{item.title}</h3>
+                <p class="package-price">{item.price}</p>
+              </article>
+            ))}
+          </div>
+        </>
+      ))}
+
+      <div class="section-heading page-subheading">
+        <h2>{copy.processTitle}</h2>
+      </div>
+      <div class="process-timeline">
+        {copy.processSteps.map((step, index) => (
+          <article class="card process-step-card">
+            <span class="process-step-index">{String(index + 1).padStart(2, "0")}</span>
+            <h3>{step.title}</h3>
+            <p><BrandText text={step.text} /></p>
+          </article>
+        ))}
+      </div>
+
+      <article class="card services-cta-card">
+        <div class="services-cta-copy">
+          <h2>{copy.ctaTitle}</h2>
+          <p class="page-text">
+            <BrandText text={copy.ctaText} />
+          </p>
+        </div>
+        <div class="hero-actions">
+          <a
+            href={localizeHref(locale, "/contact")}
+            class="button button-primary"
+            data-ga-event="cta_start_project_click"
+            data-ga-location={ctaLocation}
+          >
+            {copy.primaryCta}
+          </a>
+          <a href={localizeHref(locale, "/projects")} class="button button-secondary">
+            {copy.secondaryCta}
+          </a>
+        </div>
+      </article>
+
+      <div class="project-card-footer">
+        <a class="inline-link" href={localizeHref(locale, "/services")}>{backLabel}</a>
+      </div>
+    </section>
+  </main>
+</Layout>
