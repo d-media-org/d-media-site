@@ -469,6 +469,13 @@
 
 Този раздел описва production deployment-ите, които са потвърдени през Vercel и са били alias-нати към `https://www.d-media.org`.
 
+### Archive status before Vercel cleanup
+
+- На `2026-06-08` е проверено през Vercel CLI, че scope `d-media` няма активни Vercel projects, domains или aliases.
+- DNS проверката показва, че `d-media.org` и `www.d-media.org` се обслужват през Cloudflare, като `www.d-media.org` сочи към `d-media-site.pages.dev`.
+- Списъкът по-долу остава като архив на старите Vercel production deployments и rollback reference след Cloudflare migration.
+- Локалните Vercel env ключове `BLOB_READ_WRITE_TOKEN`, `EDGE_CONFIG` и `VERCEL_OIDC_TOKEN` са премахнати от `.env.local`, защото активният Astro/Cloudflare сайт не ги използва.
+
 ### 2026-05-14
 
 #### `dpl_Ep3ssXaBNxD64Ab5GtaYRUbtWCYo`
