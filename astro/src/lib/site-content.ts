@@ -113,6 +113,33 @@ const localizedSiteContent = {
       "Фокусът е върху последователност, приложение и стойност, която остава след проекта.",
       "Резултатът е бранд, който изглежда събран, разпознаваем и готов за работа.",
     ],
+    testimonials: {
+      eyebrow: "отзиви",
+      title: "Какво казват клиентите за d . media.",
+      text: "Подбрани отзиви от реални клиенти, представени на ниво бранд.",
+      items: [
+        {
+          quote: "Професионално отношение и отлична изработка. Препоръчвам d . media.",
+          name: "Teodora Peneva",
+          source: "препоръка във Facebook",
+        },
+        {
+          quote: "Brilliant work. Highly recommend.",
+          name: "Hristo Kisyov",
+          source: "препоръка във Facebook",
+        },
+        {
+          quote: "С d . media се работи точно, бързо и с много добър усет към детайла.",
+          name: "Yana Dimova",
+          source: "препоръка във Facebook (откъс)",
+        },
+        {
+          quote: "Доволни сме от комуникацията, професионалното отношение и крайния резултат.",
+          name: "Tsvetina Asenov",
+          source: "препоръка във Facebook (откъс)",
+        },
+      ],
+    },
     termsSummary: [
       "Работата започва след потвърдена оферта или сключен договор.",
       "Специалните условия по конкретен проект имат предимство пред общата рамка.",
@@ -242,6 +269,33 @@ const localizedSiteContent = {
       "The focus is on consistency, application, and value that remains after the project.",
       "The result is a brand that feels cohesive, recognisable, and ready to work.",
     ],
+    testimonials: {
+      eyebrow: "client feedback",
+      title: "What clients say about d . media.",
+      text: "Selected feedback from real clients, presented at brand level.",
+      items: [
+        {
+          quote: "Professional attitude and excellent execution. We recommend d . media.",
+          name: "Teodora Peneva",
+          source: "Facebook recommendation",
+        },
+        {
+          quote: "Brilliant work. Highly recommend.",
+          name: "Hristo Kisyov",
+          source: "Facebook recommendation",
+        },
+        {
+          quote: "Working with d . media feels precise, fast, and carefully handled down to the details.",
+          name: "Yana Dimova",
+          source: "Facebook recommendation · excerpt",
+        },
+        {
+          quote: "We were very satisfied with the communication, the professional attitude, and the final result.",
+          name: "Tsvetina Asenov",
+          source: "Facebook recommendation · excerpt",
+        },
+      ],
+    },
     termsSummary: [
       "Work begins after a confirmed offer or a signed agreement.",
       "Specific project terms take precedence over the general framework.",

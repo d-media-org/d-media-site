@@ -19,6 +19,7 @@ const homepageServices = localizedContent.coreServices.map((service) => ({
 const featuredProjects = getFeaturedProjects(locale);
 const processSteps = localizedContent.coreProcess;
 const aboutSummary = localizedContent.aboutSummary;
+const testimonials = localizedContent.testimonials;
 ---
 
 <Layout locale={locale} title={`${copy.metaTitle} | d . media`} description={copy.metaDescription} path="/">
@@ -197,6 +198,25 @@ const aboutSummary = localizedContent.aboutSummary;
           </a>
         </div>
       </article>
+    </section>
+
+    <section class="section-grid home-section" id="testimonials">
+      <div class="section-heading page-intro-balanced">
+        <p class="eyebrow">{testimonials.eyebrow}</p>
+        <h2>{testimonials.title}</h2>
+        <p class="page-text">{testimonials.text}</p>
+      </div>
+      <div class="showcase-grid about-summary-grid">
+        {testimonials.items.map((item) => (
+          <article class="card text-card about-summary-card testimonial-card">
+            <p class="testimonial-quote">{item.quote}</p>
+            <div class="testimonial-attribution">
+              <p class="testimonial-name">{item.name}</p>
+              <p class="project-meta testimonial-source">{item.source}</p>
+            </div>
+          </article>
+        ))}
+      </div>
     </section>
 
     <section class="section-grid contact-section home-section" id="contact">
