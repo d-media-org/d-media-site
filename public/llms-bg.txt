@@ -6,9 +6,17 @@
 
 - Основен сайт: https://www.d-media.org/
 - Английска версия: https://www.d-media.org/en
+- Пълен AI-readable индекс: https://www.d-media.org/llms-full.txt
 - Услуги: https://www.d-media.org/services
+- Цени: https://www.d-media.org/pricing
+- Бранд идентичност: https://www.d-media.org/services/brand-identity
+- Създаване на съдържание: https://www.d-media.org/services/content-creation
+- Управление на социални медии: https://www.d-media.org/services/social-media-management
+- Графичен дизайн: https://www.d-media.org/services/graphic-design
+- Реклама: https://www.d-media.org/services/advertising
 - Уеб дизайн и разработка: https://www.d-media.org/services/web-design-development
 - Проекти: https://www.d-media.org/projects
+- Казуси: https://www.d-media.org/case-studies
 - Блог: https://www.d-media.org/blog
 - За бранда: https://www.d-media.org/about
 - Контакт: https://www.d-media.org/contact
@@ -18,7 +26,8 @@
 d . media работи в следните основни направления:
 
 - Бранд идентичност: лого, логотип, визуална система, цветова рамка, типография и основни правила за приложение.
-- Съдържание и социални медии: текстове, визии, корици, формати, адаптации, планиране и ритъм на публикуване.
+- Създаване на съдържание: текстове, визии, content серии, адаптации и работна структура.
+- Управление на социални медии: корици, социални формати, календарна логика, адаптации и ритъм на публикуване.
 - Уеб дизайн и дигитално присъствие: сайтове, лендинг страници, многоезични структури, интеграции и performance-first публикуване.
 - Графичен дизайн: дигитални и печатни материали, корици, рекламни визии и ежедневни комуникационни формати.
 - Реклама: кампанийни визии, послания, рекламни формати и адаптации за различни канали.

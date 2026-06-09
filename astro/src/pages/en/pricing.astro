@@ -1,0 +1,107 @@
+---
+import BrandText from "@/components/BrandText.astro";
+import Layout from "@/layouts/Layout.astro";
+import { localizeHref, type Locale } from "@/lib/i18n";
+import { getBreadcrumbSchema, getServiceCatalogSchema } from "@/lib/seo";
+
+const locale: Locale = "en";
+const pricingGroups = [
+  {
+    title: "Branding",
+    text: "Identity, mark, logotype, and core visual system.",
+    items: [
+      { title: "Logotype design", price: "from 149,99 € / BGN 293,35" },
+      { title: "Logo / brand mark", price: "from 199,99 € / BGN 391,15" },
+      { title: "Visual identity", price: "from 699,99 € / BGN 1369,06" },
+    ],
+  },
+  {
+    title: "Content & Social",
+    text: "Content, social formats, series, and working channel logic.",
+    items: [
+      { title: "Social format 1:1 or 9:16", price: "from 24,99 € / BGN 48,88" },
+      { title: "Facebook cover", price: "from 29,99 € / BGN 58,66" },
+      { title: "3x visual package", price: "from 69,99 € / BGN 136,89" },
+    ],
+  },
+  {
+    title: "Print & Digital Design",
+    text: "Print, digital, and informational materials for real use.",
+    items: [
+      { title: "Single-sided business card", price: "from 24,99 € / BGN 48,88" },
+      { title: "Flyer / brochure", price: "from 39,99 € / BGN 78,21" },
+      { title: "Menu or multipage material", price: "from 69,99 € / BGN 136,89" },
+    ],
+  },
+  {
+    title: "Web Design & Development",
+    text: "Websites, landing pages, platforms, integrations, and maintenance.",
+    items: [
+      { title: "Landing Page", price: "from 690 € / BGN 1 349" },
+      { title: "Portfolio website", price: "from 1 990 € / BGN 3 892" },
+      { title: "Corporate website", price: "from 2 490 € / BGN 4 870" },
+    ],
+  },
+  {
+    title: "Licensing & White-label",
+    text: "Rights, priority, white-label, and separate working modes.",
+    items: [
+      { title: "White-label execution / no author credit", price: "from 19,99 € / BGN 39,10" },
+      { title: "Non-exclusive usage licence", price: "from 49,99 € / BGN 97,77" },
+      { title: "Exclusive licence", price: "from 99,99 € / BGN 195,56" },
+      { title: "Full transfer of economic rights by individual agreement", price: "from 2799 € / BGN 5474,37" },
+      { title: "Priority timeline", price: "from +25%" },
+    ],
+  },
+];
+---
+
+<Layout
+  locale={locale}
+  title="Pricing | d . media"
+  description="Starting pricing ranges for brand identity, content, social media, design, web development, rights, and white-label services."
+  path="/pricing"
+  structuredData={[
+    getBreadcrumbSchema({ locale, path: "/pricing", title: "Pricing" }),
+    getServiceCatalogSchema(locale),
+  ]}
+>
+  <main class="site-shell services-page" id="top">
+    <section class="section-grid">
+      <div class="section-heading page-intro">
+        <h1>Pricing</h1>
+        <p class="page-text">
+          Starting ranges for core <BrandText text="d . media" /> services. Final scope is aligned around project scale, timing, formats, rights, and complexity.
+        </p>
+      </div>
+
+      {pricingGroups.map((group) => (
+        <>
+          <div class="section-heading page-subheading">
+            <h2>{group.title}</h2>
+            <p class="page-text">{group.text}</p>
+          </div>
+          <div class="showcase-grid project-reading-grid">
+            {group.items.map((item) => (
+              <article class="card package-card">
+                <h3>{item.title}</h3>
+                <p class="package-price">{item.price}</p>
+              </article>
+            ))}
+          </div>
+        </>
+      ))}
+
+      <article class="card services-cta-card">
+        <div class="services-cta-copy">
+          <h2>Pricing follows the real scope.</h2>
+          <p class="page-text">Send context, required formats, and timing. We will return a structured working range.</p>
+        </div>
+        <div class="hero-actions">
+          <a href={localizeHref(locale, "/contact")} class="button button-primary">Send project context</a>
+          <a href={localizeHref(locale, "/services")} class="button button-secondary">Explore services</a>
+        </div>
+      </article>
+    </section>
+  </main>
+</Layout>

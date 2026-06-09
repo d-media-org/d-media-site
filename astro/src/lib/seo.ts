@@ -18,7 +18,7 @@ export function getOrganizationSchema(locale: Locale = "bg") {
 
   return {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
+    "@type": ["Organization", "ProfessionalService"],
     "@id": organizationId,
     name: brandName,
     url: baseUrl,
@@ -221,6 +221,67 @@ export function getServiceCatalogSchema(locale: Locale = "bg") {
           name: "Bulgaria",
         },
         serviceType: service.title,
+      },
+    })),
+  };
+}
+
+export function getServicePageSchema({
+  locale,
+  path,
+  title,
+  description,
+}: {
+  locale: Locale;
+  path: string;
+  title: string;
+  description: string;
+}) {
+  const url = `${baseUrl}${localizeHref(locale, path)}`;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${url}#service`,
+    name: title,
+    description,
+    url,
+    provider: {
+      "@id": `${baseUrl}/#organization`,
+    },
+    areaServed: {
+      "@type": "Country",
+      name: "Bulgaria",
+    },
+    availableChannel: {
+      "@type": "ServiceChannel",
+      serviceUrl: url,
+    },
+    serviceType: title,
+  };
+}
+
+export function getFAQPageSchema({
+  locale,
+  path,
+  faqs,
+}: {
+  locale: Locale;
+  path: string;
+  faqs: { question: string; answer: string }[];
+}) {
+  const url = `${baseUrl}${localizeHref(locale, path)}`;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "@id": `${url}#faq`,
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
       },
     })),
   };

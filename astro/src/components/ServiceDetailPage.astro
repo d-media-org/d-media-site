@@ -2,7 +2,7 @@
 import BrandText from "@/components/BrandText.astro";
 import Layout from "@/layouts/Layout.astro";
 import { localizeHref, type Locale } from "@/lib/i18n";
-import { getBreadcrumbSchema } from "@/lib/seo";
+import { getBreadcrumbSchema, getFAQPageSchema, getServicePageSchema } from "@/lib/seo";
 
 type ServiceSection = {
   title: string;
@@ -34,6 +34,8 @@ type ServiceDetailCopy = {
   pricingNote: string;
   processTitle: string;
   processSteps: ServiceSection[];
+  faqs?: { question: string; answer: string }[];
+  relatedCaseStudies?: { title: string; href: string; text: string }[];
   ctaTitle: string;
   ctaText: string;
   primaryCta: string;
@@ -49,6 +51,76 @@ interface Props {
 
 const { locale, path, copy, ctaLocation } = Astro.props;
 const backLabel = locale === "bg" ? "обратно към услугите" : "back to services";
+const primarySection = copy.sections[0];
+const pricingPreview = copy.pricingGroups[0]?.items[0];
+const defaultFaqs =
+  locale === "bg"
+    ? [
+        {
+          question: `Как започва проект за ${copy.title.toLowerCase()}?`,
+          answer: `Започва с кратък контекст, цел, срок и налични материали. При ${copy.title.toLowerCase()} първо уточняваме какво трябва да се изгради и къде ще се използва.`,
+        },
+        {
+          question: "Как се определя началният обхват?",
+          answer: `Ориентирът започва от ${pricingPreview ? `${pricingPreview.title} (${pricingPreview.price})` : "първия работен пакет"}, но финалният обхват зависи от сложност, формати, срок и права за използване.`,
+        },
+        {
+          question: "Какво получава клиентът накрая?",
+          answer: `Предаваме готови материали според договорения обхват. ${primarySection ? `${primarySection.title}: ${primarySection.text}` : "Фокусът остава върху реална употреба, не върху декоративен резултат."}`,
+        },
+        {
+          question: "Колко време отнема изпълнението?",
+          answer: "Срокът зависи от обхват, обратна връзка, брой формати и нужните адаптации. Реалистичната времева рамка се уточнява преди старта.",
+        },
+        {
+          question: "Може ли услугата да бъде част от по-голям проект?",
+          answer: `${copy.title} може да бъде самостоятелен обхват или част от по-широка система за идентичност, съдържание, сайт, дизайн и реклама.`,
+        },
+        {
+          question: "Какво трябва да изпрати клиентът в началото?",
+          answer: "Нужни са кратък контекст, цел, срок, налични материали, среда на употреба и конкретни ограничения, ако вече има такива.",
+        },
+      ]
+    : [
+        {
+          question: `How does a ${copy.title.toLowerCase()} project start?`,
+          answer: `It starts with short context, goal, timing, and available materials. For ${copy.title.toLowerCase()}, we first define what needs to be built and where it will be used.`,
+        },
+        {
+          question: "How is the starting scope defined?",
+          answer: `The starting point is ${pricingPreview ? `${pricingPreview.title} (${pricingPreview.price})` : "the first working package"}, but final scope depends on complexity, formats, timing, and usage rights.`,
+        },
+        {
+          question: "What does the client receive at the end?",
+          answer: `We deliver final materials according to the agreed scope. ${primarySection ? `${primarySection.title}: ${primarySection.text}` : "The focus remains on real application, not decorative output."}`,
+        },
+        {
+          question: "How long does delivery take?",
+          answer: "Timing depends on scope, feedback, number of formats, and required adaptations. We define a realistic timeframe before the project starts.",
+        },
+        {
+          question: "Can this service be part of a larger project?",
+          answer: `${copy.title} can stand alone or become part of a wider system for identity, content, website, design, and advertising.`,
+        },
+        {
+          question: "What should the client send first?",
+          answer: "We need short context, goal, timing, available materials, usage environment, and any existing constraints.",
+        },
+      ];
+const faqs = copy.faqs ?? defaultFaqs;
+const relatedCaseStudies =
+  copy.relatedCaseStudies ??
+  (locale === "bg"
+    ? [
+        { title: "d . media", href: "/projects/d-media", text: "Собствена бранд и уеб система, изградена като работещ пример за подхода." },
+        { title: "Yanita", href: "/projects/yanita", text: "Визуална система и материали за реално приложение в комуникация." },
+        { title: "Support Account", href: "/projects/support-account", text: "Подредена идентичност и приложими файлове за дигитална среда." },
+      ]
+    : [
+        { title: "d . media", href: "/projects/d-media", text: "Own brand and web system built as a working example of the approach." },
+        { title: "Yanita", href: "/projects/yanita", text: "Visual system and materials prepared for real communication use." },
+        { title: "Support Account", href: "/projects/support-account", text: "Structured identity and usable files for a digital environment." },
+      ]);
 ---
 
 <Layout
@@ -56,7 +128,11 @@ const backLabel = locale === "bg" ? "обратно към услугите" : "
   title={`${copy.metaTitle} | d . media`}
   description={copy.metaDescription}
   path={path}
-  structuredData={[getBreadcrumbSchema({ locale, path, title: copy.metaTitle })]}
+  structuredData={[
+    getBreadcrumbSchema({ locale, path, title: copy.metaTitle }),
+    getServicePageSchema({ locale, path, title: copy.metaTitle, description: copy.metaDescription }),
+    getFAQPageSchema({ locale, path, faqs }),
+  ]}
 >
   <main class="site-shell services-page" id="top">
     <section class="section-grid">
@@ -67,6 +143,22 @@ const backLabel = locale === "bg" ? "обратно към услугите" : "
         </p>
         <div class="project-card-footer">
           <a class="inline-link" href={localizeHref(locale, "/services")}>{backLabel}</a>
+        </div>
+        <div class="hero-actions">
+          <a
+            href={localizeHref(locale, "/contact")}
+            class="button button-primary"
+            data-ga-event="cta_start_project_click"
+            data-ga-location={`${ctaLocation}_hero`}
+          >
+            {copy.primaryCta}
+          </a>
+          <a href={localizeHref(locale, "/pricing")} class="button button-secondary">
+            {locale === "bg" ? "Виж началните рамки" : "View starting ranges"}
+          </a>
+          <a href={localizeHref(locale, "/case-studies")} class="inline-link">
+            {locale === "bg" ? "Свързани казуси" : "Related case studies"}
+          </a>
         </div>
       </div>
 
@@ -126,6 +218,33 @@ const backLabel = locale === "bg" ? "обратно към услугите" : "
             <span class="process-step-index">{String(index + 1).padStart(2, "0")}</span>
             <h3>{step.title}</h3>
             <p><BrandText text={step.text} /></p>
+          </article>
+        ))}
+      </div>
+
+      <div class="section-heading page-subheading">
+        <h2>{locale === "bg" ? "Често задавани въпроси" : "FAQ"}</h2>
+      </div>
+      <div class="showcase-grid service-card-grid">
+        {faqs.map((faq) => (
+          <article class="card service-category-card">
+            <h2>{faq.question}</h2>
+            <p><BrandText text={faq.answer} /></p>
+          </article>
+        ))}
+      </div>
+
+      <div class="section-heading page-subheading">
+        <h2>{locale === "bg" ? "Свързани казуси" : "Related case studies"}</h2>
+      </div>
+      <div class="showcase-grid service-card-grid">
+        {relatedCaseStudies.map((caseStudy) => (
+          <article class="card service-category-card">
+            <h2>{caseStudy.title}</h2>
+            <p><BrandText text={caseStudy.text} /></p>
+            <a class="inline-link" href={localizeHref(locale, caseStudy.href)}>
+              {locale === "bg" ? "Виж казуса" : "View case study"}
+            </a>
           </article>
         ))}
       </div>

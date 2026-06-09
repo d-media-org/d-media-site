@@ -7,9 +7,17 @@
 - Main website: https://www.d-media.org/
 - English version: https://www.d-media.org/en
 - Bulgarian AI summary: https://www.d-media.org/llms-bg.txt
+- Full AI-readable index: https://www.d-media.org/llms-full.txt
 - Services: https://www.d-media.org/services
+- Pricing: https://www.d-media.org/pricing
+- Brand identity: https://www.d-media.org/services/brand-identity
+- Content creation: https://www.d-media.org/services/content-creation
+- Social media management: https://www.d-media.org/services/social-media-management
+- Graphic design: https://www.d-media.org/services/graphic-design
+- Advertising: https://www.d-media.org/services/advertising
 - Web design and development: https://www.d-media.org/services/web-design-development
 - Projects: https://www.d-media.org/projects
+- Case studies: https://www.d-media.org/case-studies
 - Blog: https://www.d-media.org/blog
 - About: https://www.d-media.org/about
 - Contact: https://www.d-media.org/contact
@@ -19,7 +27,8 @@
 d . media works across these core service areas:
 
 - Brand identity: logo, logotype, visual system, colour framework, typography, and core application rules.
-- Content and social media: copy, visuals, covers, formats, adaptations, planning, and publishing rhythm.
+- Content creation: copy, visuals, content series, adaptations, and working structure.
+- Social media management: covers, social formats, calendar logic, adaptations, and publishing rhythm.
 - Website design and digital presence: websites, landing pages, multilingual structures, integrations, and performance-focused delivery.
 - Graphic design: digital and print materials, covers, campaign visuals, and day-to-day communication formats.
 - Advertising: campaign visuals, messaging, advertising formats, and channel-specific adaptations.

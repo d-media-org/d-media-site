@@ -1,0 +1,46 @@
+---
+import ProjectCard from "@/components/ProjectCard.astro";
+import Layout from "@/layouts/Layout.astro";
+import { getFeaturedProjects } from "@/lib/featured-projects-static";
+import { localizeHref, type Locale } from "@/lib/i18n";
+import { getBreadcrumbSchema } from "@/lib/seo";
+
+const locale: Locale = "bg";
+const caseStudies = getFeaturedProjects(locale);
+---
+
+<Layout
+  locale={locale}
+  title="Казуси | d . media"
+  description="Подбрани казуси на d . media за бранд идентичност, уеб платформи, графичен дизайн, съдържание и реално приложение."
+  path="/case-studies"
+  structuredData={[getBreadcrumbSchema({ locale, path: "/case-studies", title: "Казуси" })]}
+>
+  <main class="site-shell" id="top">
+    <section class="section-grid">
+      <div class="section-heading page-intro">
+        <h1>Казуси</h1>
+        <p class="page-text">
+          Разширен поглед към проекти, в които идентичност, съдържание, дизайн, уеб структура и приложение работят като система.
+        </p>
+      </div>
+
+      <div class="showcase-grid projects-grid">
+        {caseStudies.map((project) => (
+          <ProjectCard project={project} locale={locale} />
+        ))}
+      </div>
+
+      <article class="card services-cta-card">
+        <div class="services-cta-copy">
+          <h2>Ако търсиш подобен обхват, започни с контекст.</h2>
+          <p class="page-text">Изпрати какво трябва да се изгради, за кого е и какъв резултат очакваш.</p>
+        </div>
+        <div class="hero-actions">
+          <a href={localizeHref(locale, "/contact")} class="button button-primary">Изпрати проектен контекст</a>
+          <a href={localizeHref(locale, "/services")} class="button button-secondary">Разгледай услугите</a>
+        </div>
+      </article>
+    </section>
+  </main>
+</Layout>

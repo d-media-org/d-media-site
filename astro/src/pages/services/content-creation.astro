@@ -1,0 +1,27 @@
+---
+import ServiceDetailPage from "@/components/ServiceDetailPage.astro";
+import { type Locale } from "@/lib/i18n";
+import { getPageCopy } from "@/lib/page-copy";
+
+const locale: Locale = "bg";
+const baseCopy = getPageCopy(locale).contentService;
+const copy = {
+  ...baseCopy,
+  metaTitle: "Създаване на съдържание",
+  metaDescription:
+    "Създаване на съдържание за брандове: текстове, визуални формати, серия от публикации, съдържателна структура и ясна комуникационна линия.",
+  title: "Създаване на съдържание",
+  intro:
+    "Създаваме съдържание, което подрежда послание, визуален ред и реална употреба в сайт, социални канали и кампании.",
+  pricingTitle: "Начални рамки за content обхват.",
+  pricingText:
+    "Content обхватът се подрежда според брой формати, текстова работа, визуална серия и нужната честота. Социалните визуални формати по-долу дават начална рамка за първи работен обхват.",
+  ctaTitle: "Ако съдържанието трябва да звучи и изглежда последователно, започни оттук.",
+  ctaText:
+    "Изпрати канали, теми, нужни формати, честота и налични материали. Оттам подреждаме съдържателния обхват.",
+  primaryCta: "Изпрати контекст за съдържание",
+};
+const path = "/services/content-creation";
+---
+
+<ServiceDetailPage locale={locale} path={path} copy={copy} ctaLocation="content_creation_service_cta" />

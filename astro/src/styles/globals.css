@@ -2685,16 +2685,16 @@ html[data-theme="dark"] .terms-full-shell {
   right: var(--space-24);
   bottom: var(--space-24);
   z-index: 80;
-  width: min(640px, calc(100vw - (var(--space-24) * 2)));
+  width: min(520px, calc(100vw - (var(--space-24) * 2)));
   margin-left: auto;
-  padding: var(--space-24);
+  padding: var(--space-20);
   border: 1px solid var(--line);
   border-radius: var(--radius-card);
   background: color-mix(in srgb, var(--background) 96%, transparent);
   box-shadow: var(--shadow-card);
   backdrop-filter: blur(16px);
   display: grid;
-  gap: var(--space-24);
+  gap: var(--space-16);
 }
 
 .consent-banner[hidden] {
@@ -2703,21 +2703,25 @@ html[data-theme="dark"] .terms-full-shell {
 
 .consent-banner-copy {
   display: grid;
-  gap: var(--space-16);
+  gap: var(--space-10);
 }
 
 .consent-banner-copy p {
   margin: 0;
   font-family: var(--font-panton-regular), sans-serif;
-  font-size: var(--type-body);
-  line-height: 1.6;
+  font-size: 15px;
+  line-height: 1.45;
   color: var(--text-soft);
 }
 
 .consent-banner-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-16);
+  gap: var(--space-12);
+}
+
+.consent-banner-actions .button {
+  min-height: 44px;
 }
 
 a[href]:not(.button):not(.site-brand a):not(.site-nav a):not(.site-mobile-panel a):not(.footer-brand-link):not(.footer-socials a):not(.floating-top):not(.showcase-link-card):not(.archive-project-card) {

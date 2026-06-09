@@ -1,0 +1,27 @@
+---
+import ServiceDetailPage from "@/components/ServiceDetailPage.astro";
+import { type Locale } from "@/lib/i18n";
+import { getPageCopy } from "@/lib/page-copy";
+
+const locale: Locale = "bg";
+const baseCopy = getPageCopy(locale).contentService;
+const copy = {
+  ...baseCopy,
+  metaTitle: "Управление на социални медии",
+  metaDescription:
+    "Управление на социални медии за брандове: визуална линия, формати, последователност, календар и работна структура за публикуване.",
+  title: "Управление на социални медии",
+  intro:
+    "Подреждаме социалното присъствие така, че каналите да имат ясна линия, повторяем визуален ред и съдържание, което не изглежда случайно.",
+  pricingTitle: "Начални рамки за социално присъствие.",
+  pricingText:
+    "Началните рамки покриват визуални формати и серии за социални мрежи. Планиране, календар и публикуване се уточняват според честота, обем и работен режим.",
+  ctaTitle: "Ако социалните канали трябва да работят като система, започни оттук.",
+  ctaText:
+    "Изпрати каналите, нужната честота, текущото състояние и формати. Оттам подреждаме реалния обхват за управление.",
+  primaryCta: "Изпрати контекст за месечна комуникация",
+};
+const path = "/services/social-media-management";
+---
+
+<ServiceDetailPage locale={locale} path={path} copy={copy} ctaLocation="social_media_management_service_cta" />

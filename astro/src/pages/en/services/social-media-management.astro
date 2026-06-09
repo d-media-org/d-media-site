@@ -1,0 +1,27 @@
+---
+import ServiceDetailPage from "@/components/ServiceDetailPage.astro";
+import { type Locale } from "@/lib/i18n";
+import { getPageCopy } from "@/lib/page-copy";
+
+const locale: Locale = "en";
+const baseCopy = getPageCopy(locale).contentService;
+const copy = {
+  ...baseCopy,
+  metaTitle: "Social Media Management",
+  metaDescription:
+    "Social media management for brands: visual line, formats, consistency, calendar logic, and a working publishing structure.",
+  title: "Social Media Management",
+  intro:
+    "We organise social presence so channels have a clear line, repeatable visual order, and content that does not feel random.",
+  pricingTitle: "Starting ranges for social presence.",
+  pricingText:
+    "Starting ranges cover visual formats and series for social channels. Planning, calendar, and publishing are aligned around frequency, volume, and working mode.",
+  ctaTitle: "If the social channels need to work as a system, start here.",
+  ctaText:
+    "Send the channels, required frequency, current state, and formats. From there we align the real management scope.",
+  primaryCta: "Send monthly communication context",
+};
+const path = "/services/social-media-management";
+---
+
+<ServiceDetailPage locale={locale} path={path} copy={copy} ctaLocation="social_media_management_service_cta" />

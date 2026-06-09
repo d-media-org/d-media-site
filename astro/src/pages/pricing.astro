@@ -1,0 +1,107 @@
+---
+import BrandText from "@/components/BrandText.astro";
+import Layout from "@/layouts/Layout.astro";
+import { localizeHref, type Locale } from "@/lib/i18n";
+import { getBreadcrumbSchema, getServiceCatalogSchema } from "@/lib/seo";
+
+const locale: Locale = "bg";
+const pricingGroups = [
+  {
+    title: "Branding",
+    text: "Идентичност, знак, логотип и базова визуална система.",
+    items: [
+      { title: "Дизайн на логотип", price: "от 149,99 € / 293,35 лв." },
+      { title: "Лого / брандмарк", price: "от 199,99 € / 391,15 лв." },
+      { title: "Визуална идентичност", price: "от 699,99 € / 1369,06 лв." },
+    ],
+  },
+  {
+    title: "Content & Social",
+    text: "Съдържание, социални формати, серии и работна логика за канали.",
+    items: [
+      { title: "Social формат 1:1 или 9:16", price: "от 24,99 € / 48,88 лв." },
+      { title: "Корица за Facebook", price: "от 29,99 € / 58,66 лв." },
+      { title: "Пакет 3x визии", price: "от 69,99 € / 136,89 лв." },
+    ],
+  },
+  {
+    title: "Print & Digital Design",
+    text: "Печатни, дигитални и информационни материали за реална употреба.",
+    items: [
+      { title: "Едностранна визитка", price: "от 24,99 € / 48,88 лв." },
+      { title: "Флаер / брошура", price: "от 39,99 € / 78,21 лв." },
+      { title: "Меню или многостраничен материал", price: "от 69,99 € / 136,89 лв." },
+    ],
+  },
+  {
+    title: "Web Design & Development",
+    text: "Сайтове, лендинг страници, платформи, интеграции и поддръжка.",
+    items: [
+      { title: "Landing Page", price: "от 690 € / 1 349 лв." },
+      { title: "Портфолио сайт", price: "от 1 990 € / 3 892 лв." },
+      { title: "Корпоративен уеб сайт", price: "от 2 490 € / 4 870 лв." },
+    ],
+  },
+  {
+    title: "Licensing & White-label",
+    text: "Права, приоритет, white-label и отделни работни режими.",
+    items: [
+      { title: "White-label изпълнение / без авторски кредит", price: "от 19,99 € / 39,10 лв." },
+      { title: "Неизключителен лиценз за използване", price: "от 49,99 € / 97,77 лв." },
+      { title: "Изключителен лиценз", price: "от 99,99 € / 195,56 лв." },
+      { title: "Пълно прехвърляне на имуществени права по индивидуално договаряне", price: "от 2799 € / 5474,37 лв." },
+      { title: "Приоритетен срок", price: "от +25%" },
+    ],
+  },
+];
+---
+
+<Layout
+  locale={locale}
+  title="Цени | d . media"
+  description="Начални ценови рамки за бранд идентичност, съдържание, социални медии, дизайн, уеб разработка, права и white-label услуги."
+  path="/pricing"
+  structuredData={[
+    getBreadcrumbSchema({ locale, path: "/pricing", title: "Цени" }),
+    getServiceCatalogSchema(locale),
+  ]}
+>
+  <main class="site-shell services-page" id="top">
+    <section class="section-grid">
+      <div class="section-heading page-intro">
+        <h1>Цени</h1>
+        <p class="page-text">
+          Начални рамки за основните услуги на <BrandText text="d . media" />. Финалната оферта се подрежда според обхват, срок, формати, права и сложност.
+        </p>
+      </div>
+
+      {pricingGroups.map((group) => (
+        <>
+          <div class="section-heading page-subheading">
+            <h2>{group.title}</h2>
+            <p class="page-text">{group.text}</p>
+          </div>
+          <div class="showcase-grid project-reading-grid">
+            {group.items.map((item) => (
+              <article class="card package-card">
+                <h3>{item.title}</h3>
+                <p class="package-price">{item.price}</p>
+              </article>
+            ))}
+          </div>
+        </>
+      ))}
+
+      <article class="card services-cta-card">
+        <div class="services-cta-copy">
+          <h2>Цената следва реалния обхват.</h2>
+          <p class="page-text">Изпрати контекст, нужните формати и срок. Ще върнем подредена рамка за работа.</p>
+        </div>
+        <div class="hero-actions">
+          <a href={localizeHref(locale, "/contact")} class="button button-primary">Изпрати проектен контекст</a>
+          <a href={localizeHref(locale, "/services")} class="button button-secondary">Разгледай услугите</a>
+        </div>
+      </article>
+    </section>
+  </main>
+</Layout>

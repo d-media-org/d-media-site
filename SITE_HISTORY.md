@@ -820,3 +820,49 @@
   - local `HEAD` = `ff0f2058b74c960d10cebac341ebc9242c23839e`
   - `origin/blog-services-live-sync` = `ff0f2058b74c960d10cebac341ebc9242c23839e`
 - Към този момент worktree е чист и без untracked временни файлове.
+
+### 2026-06-09 Content and SEO/GEO architecture expansion
+
+#### Service architecture
+- Основните услуги са разделени в по-ясна content структура:
+  - `Brand Identity`
+  - `Content Creation`
+  - `Social Media Management`
+  - `Graphic Design`
+  - `Advertising`
+  - `Web Design & Development`
+- Добавени са отделни BG/EN страници за:
+  - `/services/content-creation`
+  - `/services/social-media-management`
+- Service detail шаблонът е разширен с:
+  - FAQ блок
+  - свързани казуси
+  - `Service` structured data
+  - `FAQPage` structured data
+
+#### Pricing / Case Studies
+- Добавена е `/pricing` страница с card-based начални рамки по категории:
+  - Branding
+  - Content & Social
+  - Print & Digital Design
+  - Web Design & Development
+  - Licensing & White-label
+- Добавена е `/case-studies` структура, която използва подбраните реални проекти като разширен case-study вход.
+- Project detail страниците вече имат директен CTA към `/contact`, за да има ясен inquiry изход от всеки казус.
+
+#### SEO / GEO / AI-readable structure
+- `sitemap.xml` е обновен с новите BG/EN route-ове.
+- `llms.txt` и `llms-bg.txt` са обновени с новите service, pricing и case-study URL-и.
+- Запазени са:
+  - canonical
+  - hreflang
+  - robots.txt sitemap директива
+  - Article schema за blog публикациите
+  - CreativeWork schema за project detail страниците
+  - Organization/WebSite/WebPage базовите schema слоеве
+
+#### Validation
+- `npm run lint` минава успешно.
+- `npm run astro:build` минава успешно и генерира 108 страници.
+- `npm run astro:cf:validate` минава успешно.
+- Smoke check на mobile и desktop viewport за новите route-ове не показва хоризонтален overflow.

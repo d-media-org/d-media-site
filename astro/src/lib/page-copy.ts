@@ -39,7 +39,7 @@ const pageCopy = {
       primaryCta: "Изпрати проектно запитване",
       secondaryCta: "Разгледай услугите",
       servicesEyebrow: "услуги",
-      servicesTitle: "Пет основни решения. Един подреден обхват.",
+      servicesTitle: "Основни решения. Един подреден обхват.",
       servicesCta: "Изпрати кратък проектен контекст",
       pricingEyebrow: "начални рамки",
       pricingTitle: "Начални рамки за стартов обхват.",
@@ -469,13 +469,13 @@ const pageCopy = {
           title: "Допълнителни начисления и права",
           items: [
             { title: "Работа с клиент на място", price: "+20%" },
-            { title: "Премахване на брандирането от d . media (white-label)", price: "19,99 € / 39,10 лв." },
+            { title: "White-label изпълнение / без авторски кредит", price: "19,99 € / 39,10 лв." },
             { title: "Бърза поръчка", price: "+25%" },
             { title: "Експресна поръчка", price: "+50%" },
             { title: "Супер експресна поръчка", price: "+75%" },
             { title: "Неизключителен лиценз за използване на създаденото съдържание за срок от 1 година", price: "49,99 € / 97,77 лв." },
             { title: "Изключителен лиценз за използване на създаденото съдържание за срок от 1 година", price: "99,99 € / 195,56 лв." },
-            { title: "Пълно прехвърляне на правата за проекта", price: "200% от стойността на проекта, но не по-малко от 2799 € / 5474,37 лв." },
+            { title: "Пълно прехвърляне на имуществени права по индивидуално договаряне", price: "200% от стойността на проекта, но не по-малко от 2799 € / 5474,37 лв." },
           ],
         },
       ],
@@ -502,7 +502,7 @@ const pageCopy = {
       sections: [
         { title: "Какво влиза тук", text: "Това е отделен обхват за приоритет, white-label работа, работа с клиент на място и лицензионни или правни условия около предаването на създаденото съдържание." },
         { title: "Приоритетни поръчки", text: "Когато срокът трябва да бъде съкратен, начисляваме отделна рамка според степента на ускоряване и влиянието върху работния процес." },
-        { title: "White-label и присъствие на място", text: "Когато проектът трябва да бъде предаден без брандиране на d . media или изисква физическа работа с клиента на място, това се оценява отделно." },
+        { title: "White-label и присъствие на място", text: "Когато проектът трябва да бъде изпълнен без авторски кредит или изисква физическа работа с клиента на място, това се оценява отделно." },
         { title: "Права за използване", text: "Не всяка услуга автоматично включва разширен или изключителен лиценз. Когато проектът го изисква, правата се подреждат като самостоятелен обхват." },
         { title: "Пълно прехвърляне", text: "При пълно прехвърляне на права рамката е значително по-широка, защото засяга бъдещото използване, контрол и стойност на самия проект." },
         { title: "Защо е отделно", text: "Тези начисления не са второстепенен detail. Те влияят пряко върху срока, модела на работа и начина, по който съдържанието може да бъде използвано след предаването." },
@@ -515,7 +515,7 @@ const pageCopy = {
           title: "Допълнителни начисления върху услугите",
           items: [
             { title: "Работа с клиент на място", price: "+20%" },
-            { title: "Премахване на брандирането от d . media (white-label)", price: "19,99 € / 39,10 лв." },
+            { title: "White-label изпълнение / без авторски кредит", price: "19,99 € / 39,10 лв." },
           ],
         },
         {
@@ -527,11 +527,11 @@ const pageCopy = {
           ],
         },
         {
-          title: "Такси за придобиване правото на използване на създаденото съдържание",
+          title: "Лицензи за използване и имуществени права",
           items: [
             { title: "Неизключителен лиценз за използване на създаденото съдържание за срок от 1 година", price: "49,99 € / 97,77 лв." },
             { title: "Изключителен лиценз за използване на създаденото съдържание за срок от 1 година", price: "99,99 € / 195,56 лв." },
-            { title: "Пълно прехвърляне на правата за проекта", price: "200% от стойността на проекта, но не по-малко от 2799 € / 5474,37 лв." },
+            { title: "Пълно прехвърляне на имуществени права по индивидуално договаряне", price: "200% от стойността на проекта, но не по-малко от 2799 € / 5474,37 лв." },
           ],
         },
       ],
@@ -677,7 +677,7 @@ const pageCopy = {
       primaryCta: "Send a project inquiry",
       secondaryCta: "Explore services",
       servicesEyebrow: "services",
-      servicesTitle: "Five core solutions. One clear scope.",
+      servicesTitle: "Core solutions. One clear scope.",
       servicesCta: "Send short project context",
       pricingEyebrow: "starting ranges",
       pricingTitle: "Starting ranges for entry scope.",
@@ -1107,13 +1107,13 @@ const pageCopy = {
           title: "Additional charges and rights",
           items: [
             { title: "On-site work with the client", price: "+20%" },
-            { title: "Removing d . media branding (white-label)", price: "19,99 € / BGN 39,10" },
+            { title: "White-label execution / no author credit", price: "19,99 € / BGN 39,10" },
             { title: "Fast order", price: "+25%" },
             { title: "Express order", price: "+50%" },
             { title: "Super express order", price: "+75%" },
             { title: "Non-exclusive licence to use the created content for 1 year", price: "49,99 € / BGN 97,77" },
             { title: "Exclusive licence to use the created content for 1 year", price: "99,99 € / BGN 195,56" },
-            { title: "Full transfer of project rights", price: "200% of the project value, but not less than 2799 € / BGN 5474,37" },
+            { title: "Full transfer of economic rights by individual agreement", price: "200% of the project value, but not less than 2799 € / BGN 5474,37" },
           ],
         },
       ],
@@ -1140,7 +1140,7 @@ const pageCopy = {
       sections: [
         { title: "What belongs here", text: "This is a separate scope for priority handling, white-label work, on-site client work, and licensing or legal terms around delivery of the created content." },
         { title: "Priority orders", text: "When the timeline needs to be shortened, we apply a separate framework based on the level of acceleration and its impact on the working process." },
-        { title: "White-label and on-site work", text: "When the project needs to be delivered without d . media branding or requires physical work with the client on site, this is priced separately." },
+        { title: "White-label and on-site work", text: "When the project needs to be delivered without author credit or requires physical work with the client on site, this is priced separately." },
         { title: "Usage rights", text: "Not every service automatically includes extended or exclusive rights. When the project requires it, rights are aligned as a standalone scope." },
         { title: "Full transfer", text: "A full transfer of rights is a significantly broader framework because it affects future use, control, and the underlying value of the project itself." },
         { title: "Why it is separate", text: "These charges are not secondary details. They directly affect the timeline, working model, and the way the content may be used after delivery." },
@@ -1153,7 +1153,7 @@ const pageCopy = {
           title: "Additional charges on services",
           items: [
             { title: "On-site work with the client", price: "+20%" },
-            { title: "Removing d . media branding (white-label)", price: "19,99 € / BGN 39,10" },
+            { title: "White-label execution / no author credit", price: "19,99 € / BGN 39,10" },
           ],
         },
         {
@@ -1165,11 +1165,11 @@ const pageCopy = {
           ],
         },
         {
-          title: "Fees for acquiring usage rights to the created content",
+          title: "Usage licences and economic rights",
           items: [
             { title: "Non-exclusive licence to use the created content for 1 year", price: "49,99 € / BGN 97,77" },
             { title: "Exclusive licence to use the created content for 1 year", price: "99,99 € / BGN 195,56" },
-            { title: "Full transfer of project rights", price: "200% of the project value, but not less than 2799 € / BGN 5474,37" },
+            { title: "Full transfer of economic rights by individual agreement", price: "200% of the project value, but not less than 2799 € / BGN 5474,37" },
           ],
         },
       ],
