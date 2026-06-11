@@ -4,7 +4,7 @@ import Layout from "@/layouts/Layout.astro";
 import { localizeHref, type Locale } from "@/lib/i18n";
 import { getPrivacyPolicy } from "@/lib/legal-content";
 import { getPageCopy } from "@/lib/page-copy";
-import { contactEmail, contactPhone, getSiteContent } from "@/lib/site-content";
+import { getSiteContent } from "@/lib/site-content";
 
 const locale: Locale = "bg";
 const copy = getPageCopy(locale).privacy;
@@ -53,15 +53,7 @@ const formatSectionHeading = (id: string, title: string) => {
             <section class="privacy-section">
               {section.title ? <h3>{formatSectionHeading(section.id, section.title)}</h3> : null}
               {section.content?.map((paragraph) => (
-                paragraph === contactPhone ? null : (
-                  <p>
-                    {paragraph === contactEmail ? (
-                      <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
-                    ) : (
-                      <BrandText text={paragraph} />
-                    )}
-                  </p>
-                )
+                <p><BrandText text={paragraph} /></p>
               ))}
               {section.bullets ? (
                 <ul class="privacy-bullets">
@@ -70,6 +62,21 @@ const formatSectionHeading = (id: string, title: string) => {
                   ))}
                 </ul>
               ) : null}
+              {section.subsections?.map((subsection) => (
+                <section class="privacy-section">
+                  {subsection.title ? <h3>{subsection.id}. {subsection.title}</h3> : null}
+                  {subsection.content?.map((paragraph) => (
+                    <p><BrandText text={paragraph} /></p>
+                  ))}
+                  {subsection.bullets ? (
+                    <ul class="privacy-bullets">
+                      {subsection.bullets.map((bullet) => (
+                        <li><BrandText text={bullet} /></li>
+                      ))}
+                    </ul>
+                  ) : null}
+                </section>
+              ))}
               {section.tail?.map((paragraph) => (
                 <p><BrandText text={paragraph} /></p>
               ))}
