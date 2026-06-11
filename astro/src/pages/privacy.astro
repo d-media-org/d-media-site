@@ -1,20 +1,16 @@
 ---
 import BrandText from "@/components/BrandText.astro";
+import LegalSourceText from "@/components/LegalSourceText.astro";
+import privacyPolicyBg from "@/content/legal/privacy-bg.txt?raw";
 import Layout from "@/layouts/Layout.astro";
 import { localizeHref, type Locale } from "@/lib/i18n";
-import { getPrivacyPolicy } from "@/lib/legal-content";
 import { getPageCopy } from "@/lib/page-copy";
 import { getSiteContent } from "@/lib/site-content";
 
 const locale: Locale = "bg";
 const copy = getPageCopy(locale).privacy;
 const siteContent = getSiteContent(locale);
-const fullPolicySections = getPrivacyPolicy(locale);
 const backLabel = "обратно към контактите";
-const formatSectionHeading = (id: string, title: string) => {
-  const heading = `${id}. ${title}`;
-  return /^\d+$/.test(id) ? heading.toUpperCase() : heading;
-};
 ---
 
 <Layout locale={locale} title={`${copy.metaTitle} | d . media`} description={copy.metaDescription} path="/privacy">
@@ -48,53 +44,7 @@ const formatSectionHeading = (id: string, title: string) => {
       <details class="card privacy-details">
         <summary>{copy.full}</summary>
         <div class="privacy-details-copy">
-          <p>{copy.policyTitle}</p>
-          {fullPolicySections.map((section) => (
-            <section class="privacy-section">
-              {section.title ? <h3>{formatSectionHeading(section.id, section.title)}</h3> : null}
-              {section.blocks?.map((block) => (
-                block.type === "heading" ? (
-                  <h4 class="legal-subheading">{block.id}. {block.text}</h4>
-                ) : block.type === "list" ? (
-                  <ul class="privacy-bullets">
-                    {block.items.map((item) => (
-                      <li><BrandText text={item} /></li>
-                    ))}
-                  </ul>
-                ) : (
-                  <p><BrandText text={block.text} /></p>
-                )
-              ))}
-              {section.content?.map((paragraph) => (
-                <p><BrandText text={paragraph} /></p>
-              ))}
-              {section.bullets ? (
-                <ul class="privacy-bullets">
-                  {section.bullets.map((bullet) => (
-                    <li><BrandText text={bullet} /></li>
-                  ))}
-                </ul>
-              ) : null}
-              {section.subsections?.map((subsection) => (
-                <section class="privacy-section">
-                  {subsection.title ? <h3>{subsection.id}. {subsection.title}</h3> : null}
-                  {subsection.content?.map((paragraph) => (
-                    <p><BrandText text={paragraph} /></p>
-                  ))}
-                  {subsection.bullets ? (
-                    <ul class="privacy-bullets">
-                      {subsection.bullets.map((bullet) => (
-                        <li><BrandText text={bullet} /></li>
-                      ))}
-                    </ul>
-                  ) : null}
-                </section>
-              ))}
-              {section.tail?.map((paragraph) => (
-                <p><BrandText text={paragraph} /></p>
-              ))}
-            </section>
-          ))}
+          <LegalSourceText source={privacyPolicyBg} />
         </div>
       </details>
 

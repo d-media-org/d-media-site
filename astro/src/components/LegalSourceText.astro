@@ -1,0 +1,16 @@
+---
+interface Props {
+  source: string;
+}
+
+const { source } = Astro.props;
+const lines = source.split("\n");
+const isHeading = (line: string) => {
+  const trimmed = line.trim();
+  return /^\d+\.\s+[A-ZА-Я][A-ZА-Я\s(),/–-]+$/.test(trimmed);
+};
+---
+
+<pre class="legal-source">{lines.map((line, index) => (
+  <><span class:list={{ "legal-source-heading": isHeading(line) }}>{line}</span>{index < lines.length - 1 ? "\n" : ""}</>
+))}</pre>

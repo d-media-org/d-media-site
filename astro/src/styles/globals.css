@@ -2311,6 +2311,27 @@ img {
   border-top: 1px solid var(--line);
 }
 
+.legal-source {
+  margin: 0;
+  padding-top: var(--space-24);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-family: var(--font-panton-regular), sans-serif;
+  font-size: var(--type-body);
+  line-height: 1.6;
+  color: var(--text-soft);
+  text-align: left;
+  tab-size: 4;
+}
+
+.legal-source-heading {
+  font-family: var(--font-panton-semibold), sans-serif;
+  color: var(--foreground);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.12em;
+}
+
 .privacy-details-copy > p:first-child {
   padding-top: var(--space-24);
   font-family: var(--font-panton-semibold), sans-serif;
