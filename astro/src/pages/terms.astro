@@ -51,6 +51,19 @@ const backLabel = "обратно към контактите";
             {fullTermsSections.map((section) => (
               <section class="privacy-section">
                 {section.title ? <h3>{section.id}. {section.title}</h3> : null}
+                {section.blocks?.map((block) => (
+                  block.type === "heading" ? (
+                    <h4 class="legal-subheading">{block.id}. {block.text}</h4>
+                  ) : block.type === "list" ? (
+                    <ul class="privacy-bullets">
+                      {block.items.map((item) => (
+                        <li><BrandText text={item} /></li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p><BrandText text={block.text} /></p>
+                  )
+                ))}
                 {section.content?.map((paragraph) => (
                   <p><BrandText text={paragraph} /></p>
                 ))}

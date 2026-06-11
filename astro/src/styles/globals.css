@@ -2337,6 +2337,14 @@ img {
   line-height: 1.32;
 }
 
+.privacy-section .legal-subheading {
+  margin: var(--space-24) 0 var(--space-8);
+  font-family: var(--font-panton-semibold), sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+
 .privacy-bullets {
   display: grid;
   gap: var(--space-8);

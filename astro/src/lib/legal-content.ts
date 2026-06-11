@@ -9,73 +9,89 @@ type LegalNode = {
   bullets?: readonly string[];
   tail?: readonly string[];
   subsections?: readonly LegalNode[];
+  blocks?: readonly LegalBlock[];
 };
+
+export type LegalBlock =
+  | { type: "paragraph"; text: string }
+  | { type: "heading"; id: string; text: string }
+  | { type: "list"; items: readonly string[] };
 
 export type LegalSection = LegalNode;
 
 const parseLegalText = (source: string): LegalSection[] => {
-  const sections: Array<{
-    id: string;
-    title: string;
-    bullets: string[];
-    subsections: Array<{ id: string; title: string; bullets: string[] }>;
-  }> = [];
+  const lines = source.split(/\r?\n/).map((line) => line.replace(/\u2028|\u2029/g, ""));
+  const sections: Array<{ id: string; title: string; blocks: LegalBlock[] }> = [];
   let currentSection: (typeof sections)[number] | undefined;
-  let currentSubsection: (typeof sections)[number]["subsections"][number] | undefined;
+  let listItems: string[] = [];
 
-  for (const rawLine of source.split(/\r?\n/)) {
-    const line = rawLine.replace(/\u2028|\u2029/g, "").trim();
-    if (!line) continue;
+  const flushList = () => {
+    if (currentSection && listItems.length) {
+      currentSection.blocks.push({ type: "list", items: listItems });
+      listItems = [];
+    }
+  };
 
-    const sectionMatch = line.match(/^(\d+)\.\s+(.+)$/);
-    if (sectionMatch) {
-      currentSection = {
-        id: sectionMatch[1],
-        title: sectionMatch[2],
-        bullets: [],
-        subsections: [],
-      };
-      sections.push(currentSection);
-      currentSubsection = undefined;
+  for (let index = 0; index < lines.length; index += 1) {
+    const rawLine = lines[index];
+    const line = rawLine.trim();
+    if (!line) {
+      flushList();
       continue;
     }
 
-    const subsectionMatch = line.match(/^(\d+(?:\.\d+)+)\.\s+(.+)$/);
-    const subsectionTitle = subsectionMatch?.[2] ?? "";
-    const isHeading =
-      Boolean(subsectionMatch) &&
-      subsectionTitle.length <= 120 &&
-      !/[.:;!?]$/.test(subsectionTitle);
-
-    if (currentSection && subsectionMatch && isHeading) {
-      currentSubsection = {
-        id: subsectionMatch[1],
-        title: subsectionTitle,
-        bullets: [],
+    const sectionMatch = line.match(/^(\d+)\.\s+(.+)$/);
+    if (sectionMatch) {
+      flushList();
+      currentSection = {
+        id: sectionMatch[1],
+        title: sectionMatch[2],
+        blocks: [],
       };
-      currentSection.subsections.push(currentSubsection);
+      sections.push(currentSection);
       continue;
     }
 
     if (!currentSection) {
-      currentSection = { id: "0", title: "", bullets: [], subsections: [] };
+      currentSection = { id: "0", title: "", blocks: [] };
       sections.push(currentSection);
     }
 
-    (currentSubsection?.bullets ?? currentSection.bullets).push(line);
+    if (/^\s/.test(rawLine)) {
+      listItems.push(line);
+      continue;
+    }
+
+    flushList();
+    const clauseMatch = line.match(/^(\d+(?:\.\d+)+)\.\s+(.+)$/);
+    if (clauseMatch) {
+      const nextLine = lines.slice(index + 1).find((candidate) => candidate.trim());
+      const nextTrimmed = nextLine?.trim() ?? "";
+      const nextClauseId = nextTrimmed.match(/^(\d+(?:\.\d+)+)\.\s+/)?.[1];
+      const hasNestedClause = Boolean(nextClauseId?.startsWith(`${clauseMatch[1]}.`));
+      const introducesNamedList =
+        Boolean(nextLine && /^\s/.test(nextLine)) &&
+        clauseMatch[1].split(".").length >= 3 &&
+        clauseMatch[2].length <= 70;
+
+      if (hasNestedClause || introducesNamedList) {
+        currentSection.blocks.push({
+          type: "heading",
+          id: clauseMatch[1],
+          text: clauseMatch[2],
+        });
+        continue;
+      }
+    }
+
+    currentSection.blocks.push({ type: "paragraph", text: line });
   }
 
+  flushList();
   return sections.map((section) => ({
     id: section.id,
     title: section.title,
-    bullets: section.bullets.length ? section.bullets : undefined,
-    subsections: section.subsections.length
-      ? section.subsections.map((subsection) => ({
-          id: subsection.id,
-          title: subsection.title,
-          bullets: subsection.bullets.length ? subsection.bullets : undefined,
-        }))
-      : undefined,
+    blocks: section.blocks,
   }));
 };
 
