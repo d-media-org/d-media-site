@@ -55,7 +55,6 @@ const alternateXDefaultHref =
   alternateLinks?.xDefault ?? `https://www.d-media.org${localizeHref("bg", path)}`;
 const [footerCopyrightBefore, footerCopyrightAfter = ""] =
   ui.footer.copyright.split("d . media");
-const isContactRoute = stripLocalePrefix(path) === "/contact";
 const isActiveHref = (href: string) =>
   href === localizeHref(locale, "/") ? localizedPath === href : localizedPath.startsWith(href);
 const schemaItems = [
@@ -216,7 +215,7 @@ const schemaItems = [
         </button>
       </div>
     </div>
-    <footer class={`site-footer ${isContactRoute ? "site-footer-quiet-contact" : ""}`}>
+    <footer class="site-footer">
       <div class="site-footer-inner">
         <div class="footer-column footer-column-contact">
           <h2>{ui.footer.contact}</h2>

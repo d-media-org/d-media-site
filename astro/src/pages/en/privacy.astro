@@ -1,7 +1,7 @@
 ---
 import BrandText from "@/components/BrandText.astro";
 import Layout from "@/layouts/Layout.astro";
-import { localizeHref, type Locale } from "@/lib/i18n";
+import type { Locale } from "@/lib/i18n";
 import { getPrivacyPolicy } from "@/lib/legal-content";
 import { getPageCopy } from "@/lib/page-copy";
 import { contactEmail, contactPhone, getSiteContent } from "@/lib/site-content";
@@ -10,7 +10,6 @@ const locale: Locale = "en";
 const copy = getPageCopy(locale).privacy;
 const siteContent = getSiteContent(locale);
 const fullPolicySections = getPrivacyPolicy(locale);
-const backLabel = "back to contacts";
 const formatSectionHeading = (id: string, title: string) => {
   const heading = `${id}. ${title}`;
   return /^\d+$/.test(id) ? heading.toUpperCase() : heading;
@@ -23,9 +22,6 @@ const formatSectionHeading = (id: string, title: string) => {
       <div class="section-heading page-intro">
         <h1>{copy.title}</h1>
         <p class="page-text"><BrandText text={copy.text} /></p>
-        <div class="project-card-footer">
-          <a class="inline-link" href={localizeHref(locale, "/contact")}>{backLabel}</a>
-        </div>
       </div>
 
       <div class="card">
@@ -77,10 +73,6 @@ const formatSectionHeading = (id: string, title: string) => {
           ))}
         </div>
       </details>
-
-      <div class="project-card-footer">
-        <a class="inline-link" href={localizeHref(locale, "/contact")}>{backLabel}</a>
-      </div>
     </section>
   </main>
 </Layout>

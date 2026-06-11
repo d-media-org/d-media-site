@@ -2156,11 +2156,6 @@ img {
   margin-top: 0;
 }
 
-.site-footer-quiet-contact .footer-column-contact,
-.site-footer-quiet-contact .footer-column-socials {
-  display: none;
-}
-
 .site-footer-bottom {
   width: min(var(--container-max), 100%);
   margin: var(--space-24) auto 0;
