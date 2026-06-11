@@ -2325,9 +2325,19 @@ img {
 }
 
 .legal-source-heading {
+  display: inline-block;
+  width: 100%;
+  margin-top: var(--space-16);
   font-family: var(--font-panton-semibold), sans-serif;
   color: var(--foreground);
   text-transform: uppercase;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.14em;
+}
+
+.legal-source > .legal-source-heading:first-child {
+  margin-top: 0;
 }
 
 .privacy-details-copy > p:first-child {
