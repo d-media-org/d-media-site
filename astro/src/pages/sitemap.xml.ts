@@ -1,6 +1,7 @@
 import { localizeHref } from "@/lib/i18n";
 import { getPublishedBlogPosts } from "@/lib/blog";
 import { legacyProjectArchive } from "@/lib/legacy-project-archive";
+import { operationalPolicies } from "@/lib/operational-policies";
 import { projectPngArchive } from "@/lib/project-png-archive";
 
 const baseUrl = "https://www.d-media.org";
@@ -48,6 +49,10 @@ export function GET() {
     "/terms",
     "/privacy",
   ];
+  const policyPaths = [
+    "/legal/policies",
+    ...operationalPolicies.map((policy) => `/legal/policies/${policy.slug}`),
+  ];
   const blogEntries = getPublishedBlogPosts("bg").map((post) => ({
     path: `/blog/${post.slug}`,
     lastModified: post.dateModified,
@@ -60,6 +65,7 @@ export function GET() {
     ]),
     ...blogEntries.map((entry) => ({ path: localizeHref("bg", entry.path), lastModified: entry.lastModified })),
     ...projectPaths.flatMap((path) => [{ path: localizeHref("bg", path) }, { path: localizeHref("en", path) }]),
+    ...policyPaths.map((path) => ({ path })),
   ];
   const body = [
     '<?xml version="1.0" encoding="UTF-8"?>',

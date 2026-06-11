@@ -1,0 +1,81 @@
+---
+import BrandText from "@/components/BrandText.astro";
+import Layout from "@/layouts/Layout.astro";
+import { getOperationalPolicy } from "@/lib/operational-policies";
+import { baseUrl } from "@/lib/seo";
+
+interface Props {
+  slug: string;
+}
+
+const { slug } = Astro.props;
+const policy = getOperationalPolicy(slug);
+
+if (!policy) {
+  throw new Error(`Unknown operational policy: ${slug}`);
+}
+
+const path = `/legal/policies/${policy.slug}`;
+const canonical = `${baseUrl}${path}`;
+const localeSwitcherItems = [
+  { locale: "bg" as const, label: "BG", href: path, isActive: true },
+  { locale: "en" as const, label: "EN", href: "/en", isActive: false },
+];
+const breadcrumbs = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Начало", item: `${baseUrl}/` },
+    { "@type": "ListItem", position: 2, name: "Оперативни политики", item: `${baseUrl}/legal/policies` },
+    { "@type": "ListItem", position: 3, name: policy.title, item: canonical },
+  ],
+};
+---
+
+<Layout
+  locale="bg"
+  title={`${policy.title} | d . media`}
+  description={policy.description}
+  path={path}
+  structuredData={[breadcrumbs]}
+  alternateLinks={{ bg: canonical, en: null, xDefault: canonical, canonical }}
+  localeSwitcherItems={localeSwitcherItems}
+>
+  <main class="site-shell terms-page" id="top">
+    <section class="section-grid">
+      <nav class="project-card-footer" aria-label="Навигационна пътека">
+        <a class="inline-link" href="/legal/policies">Оперативни политики</a>
+      </nav>
+
+      <div class="section-heading page-intro">
+        <p class="eyebrow">Оперативна политика</p>
+        <h1>{policy.title}</h1>
+        <p class="page-text"><BrandText text={policy.intro} /></p>
+      </div>
+
+      <div class="terms-layout">
+        <div class="terms-short">
+          {policy.sections.map((section) => (
+            <section class="terms-block card terms-short-card">
+              <h2>{section.title}</h2>
+              {section.paragraphs?.map((paragraph) => (
+                <p><BrandText text={paragraph} /></p>
+              ))}
+              {section.bullets ? (
+                <ul class="terms-summary-list">
+                  {section.bullets.map((item) => (
+                    <li><BrandText text={item} /></li>
+                  ))}
+                </ul>
+              ) : null}
+            </section>
+          ))}
+        </div>
+      </div>
+
+      <div class="project-card-footer">
+        <a class="inline-link" href="/legal/policies">Обратно към оперативните политики</a>
+      </div>
+    </section>
+  </main>
+</Layout>

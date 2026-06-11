@@ -1,0 +1,47 @@
+---
+import BrandText from "@/components/BrandText.astro";
+import Layout from "@/layouts/Layout.astro";
+import { operationalPolicies } from "@/lib/operational-policies";
+import { baseUrl, getBreadcrumbSchema } from "@/lib/seo";
+
+const path = "/legal/policies";
+const title = "Оперативни политики";
+const description = "Оперативни политики на d . media за ревизии, работни файлове, проекти, поддръжка, AI, домейни, хостинг и предаване.";
+const canonical = `${baseUrl}${path}`;
+const localeSwitcherItems = [
+  { locale: "bg" as const, label: "BG", href: path, isActive: true },
+  { locale: "en" as const, label: "EN", href: "/en", isActive: false },
+];
+---
+
+<Layout
+  locale="bg"
+  title={`${title} | d . media`}
+  description={description}
+  path={path}
+  structuredData={[getBreadcrumbSchema({ locale: "bg", path, title })]}
+  alternateLinks={{ bg: canonical, en: null, xDefault: canonical, canonical }}
+  localeSwitcherItems={localeSwitcherItems}
+>
+  <main class="site-shell terms-page" id="top">
+    <section class="section-grid">
+      <div class="section-heading page-intro">
+        <p class="eyebrow">Правна и оперативна информация</p>
+        <h1>{title}</h1>
+        <p class="page-text"><BrandText text="Работни правила за конкретни ситуации по възлагане, изпълнение, предаване и поддръжка на проекти от d . media." /></p>
+      </div>
+
+      <div class="terms-summary-grid">
+        {operationalPolicies.map((policy) => (
+          <article class="terms-block card terms-short-card">
+            <h2>{policy.shortTitle}</h2>
+            <p><BrandText text={policy.intro} /></p>
+            <div class="project-card-footer">
+              <a class="inline-link" href={`/legal/policies/${policy.slug}`}>Прочети политиката</a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  </main>
+</Layout>
