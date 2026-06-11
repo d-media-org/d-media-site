@@ -26,7 +26,7 @@ const uiCopy = {
     consent: {
       ariaLabel: "Съгласие за анализ",
       eyebrow: "поверителност",
-      text: "Сайтът използва аналитични инструменти, за да измерва посещенията и поведението. Избери дали да ги разрешиш.",
+      text: "Аналитични инструменти се активират само след Вашето съгласие.",
       more: "Прочети повече",
       reject: "Откажи",
       accept: "Приеми",
@@ -69,7 +69,7 @@ const uiCopy = {
     consent: {
       ariaLabel: "Analytics consent",
       eyebrow: "privacy",
-      text: "This site uses analytics tools to measure visits and on-site behaviour. Choose whether to allow them.",
+      text: "Analytics tools are activated only after your consent.",
       more: "Read more",
       reject: "Decline",
       accept: "Accept",

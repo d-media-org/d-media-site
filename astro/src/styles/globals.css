@@ -2156,6 +2156,11 @@ img {
   margin-top: 0;
 }
 
+.site-footer-quiet-contact .footer-column-contact,
+.site-footer-quiet-contact .footer-column-socials {
+  display: none;
+}
+
 .site-footer-bottom {
   width: min(var(--container-max), 100%);
   margin: var(--space-24) auto 0;
@@ -2681,20 +2686,24 @@ html[data-theme="dark"] .terms-full-shell {
 
 .consent-banner {
   position: fixed;
-  left: var(--space-24);
   right: var(--space-24);
   bottom: var(--space-24);
   z-index: 80;
-  width: min(520px, calc(100vw - (var(--space-24) * 2)));
+  contain: none;
+  content-visibility: visible;
+  width: min(390px, calc(100vw - (var(--space-24) * 2)));
   margin-left: auto;
   padding: var(--space-20);
   border: 1px solid var(--line);
-  border-radius: var(--radius-card);
-  background: color-mix(in srgb, var(--background) 96%, transparent);
-  box-shadow: var(--shadow-card);
-  backdrop-filter: blur(16px);
+  border-radius: var(--space-24);
+  background: color-mix(in srgb, var(--background) 98%, transparent);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.09);
+  backdrop-filter: blur(10px);
   display: grid;
   gap: var(--space-16);
+  max-height: calc(100dvh - (var(--space-24) * 2));
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .consent-banner[hidden] {
@@ -2703,25 +2712,50 @@ html[data-theme="dark"] .terms-full-shell {
 
 .consent-banner-copy {
   display: grid;
-  gap: var(--space-10);
+  gap: var(--space-8);
+}
+
+.consent-banner-copy .eyebrow {
+  display: none;
 }
 
 .consent-banner-copy p {
   margin: 0;
   font-family: var(--font-panton-regular), sans-serif;
-  font-size: 15px;
-  line-height: 1.45;
+  font-size: 13px;
+  line-height: 1.48;
   color: var(--text-soft);
+}
+
+.consent-banner-copy a {
+  width: fit-content;
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-panton-regular), sans-serif;
+  font-size: 13px;
+  line-height: 1.3;
+  color: var(--foreground);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
 }
 
 .consent-banner-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-12);
+  gap: 10px;
+  align-items: center;
+  margin-top: var(--space-8);
 }
 
 .consent-banner-actions .button {
-  min-height: 44px;
+  width: auto;
+  min-height: 42px;
+  flex: 1 1 150px;
+  padding: 0 var(--space-16);
+  font-family: var(--font-panton-regular), sans-serif;
+  font-size: 13px;
+  letter-spacing: -0.01em;
 }
 
 a[href]:not(.button):not(.site-brand a):not(.site-nav a):not(.site-mobile-panel a):not(.footer-brand-link):not(.footer-socials a):not(.floating-top):not(.showcase-link-card):not(.archive-project-card) {
@@ -3526,40 +3560,42 @@ html[data-embedded-ios="true"] .gallery-lightbox {
   .consent-banner {
     left: var(--space-16);
     right: var(--space-16);
-    bottom: var(--space-8);
+    bottom: calc(12px + env(safe-area-inset-bottom));
     width: auto;
     max-width: calc(100vw - (var(--space-16) * 2));
-    padding: 12px;
-    gap: 10px;
+    max-height: min(42dvh, 320px);
+    padding: var(--space-16);
+    gap: 14px;
+    border-radius: var(--space-24);
   }
 
   .consent-banner-copy {
-    gap: 4px;
+    gap: var(--space-8);
   }
 
   .consent-banner-copy p {
     font-size: 13px;
-    line-height: 1.32;
-  }
-
-  .consent-banner-copy .eyebrow {
-    display: none;
+    line-height: 1.42;
   }
 
   .consent-banner-copy a {
-    font-size: 14px;
+    font-size: 13px;
   }
 
   .consent-banner-actions {
-    flex-direction: row;
-    flex-wrap: nowrap;
-    gap: 6px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 12px;
   }
 
   .consent-banner-actions .button {
+    width: 100%;
     min-height: 42px;
-    flex: 1 1 0;
+    padding: 0 12px;
+    flex: initial;
     min-width: 0;
+    white-space: nowrap;
   }
 
   .hero-panel {

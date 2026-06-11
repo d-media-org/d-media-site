@@ -21,6 +21,7 @@ const { project, locale, variant = "showcase" } = Astro.props;
 const ui = getUiCopy(locale);
 const isArchive = variant === "archive";
 const coverSrc = resolveAssetUrl(project.cover);
+const fileCountLabel = project.imageCount > 0 ? ui.fileCount(project.imageCount) : null;
 ---
 
 <a
@@ -44,7 +45,7 @@ const coverSrc = resolveAssetUrl(project.cover);
       {isArchive ? (
         <div class="project-card-footer">
           <span class="archive-category">{ui.fullArchive}</span>
-          <span class="archive-count">{ui.fileCount(project.imageCount)}</span>
+          {fileCountLabel ? <span class="archive-count">{fileCountLabel}</span> : null}
         </div>
       ) : null}
       <h3>{project.title}</h3>
@@ -53,7 +54,7 @@ const coverSrc = resolveAssetUrl(project.cover);
         <span class="project-link-hint">{ui.projectHint}</span>
       ) : (
         <div class="project-card-footer">
-          <span class="project-meta">{ui.fileCount(project.imageCount)}</span>
+          {fileCountLabel ? <span class="project-meta">{fileCountLabel}</span> : null}
           <span class="project-link-hint">{ui.projectHint}</span>
         </div>
       )}

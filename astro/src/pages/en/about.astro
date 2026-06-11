@@ -1,7 +1,6 @@
 ---
 import BrandText from "@/components/BrandText.astro";
 import Layout from "@/layouts/Layout.astro";
-import { resolveAssetUrl } from "@/lib/asset-url";
 import { localizeHref, type Locale } from "@/lib/i18n";
 import { getPageCopy } from "@/lib/page-copy";
 import { getSiteContent } from "@/lib/site-content";
@@ -11,14 +10,7 @@ const copy = getPageCopy(locale).about;
 const siteContent = getSiteContent(locale);
 const brandbookWebHref =
   locale === "en" ? "/brandbook_web_exact_en/index.html" : "/brandbook_web_exact/index.html";
-const brandbookPdfHref = resolveAssetUrl(
-  locale === "en"
-    ? "/assets/documents/d_media_professional_brandbook_new_en.pdf"
-    : "/assets/documents/d_media_professional_brandbook_new.pdf"
-);
 const brandbookOpenLabel = locale === "en" ? "Open brand book" : "Отвори брандбук";
-const brandbookDownloadLabel =
-  locale === "en" ? "Download brand book (PDF)" : "Свали брандбук (PDF)";
 const logoPackDownloadLabel =
   locale === "en" ? "Download brand logo and logotype" : "Свали лого и логотип на марката";
 ---
@@ -38,15 +30,17 @@ const logoPackDownloadLabel =
             </p>
           ))}
         </div>
+        <div class="card about-copy content-card-wide">
+          <p>
+            <BrandText text="d . media is an independent brand for visual identity, content, and digital presence. The approach combines design, structure, and practical application so each project can work across web, social media, print, and communication materials." />
+          </p>
+        </div>
         <div class="card package-card content-card-wide brandbook-card">
           <h2>{copy.brandbookTitle}</h2>
           <p>{copy.brandbookText}</p>
           <div class="hero-actions brandbook-actions">
             <a href={brandbookWebHref} target="_blank" rel="noreferrer" class="button button-secondary desktop-only">
               {brandbookOpenLabel}
-            </a>
-            <a href={brandbookPdfHref} class="button button-secondary" download>
-              {brandbookDownloadLabel}
             </a>
             <a href="/downloads/d-media-logo-pack.zip" class="button button-secondary" download>
               {logoPackDownloadLabel}

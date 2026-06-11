@@ -143,6 +143,9 @@ const relatedCaseStudies =
         </p>
         <div class="project-card-footer">
           <a class="inline-link" href={localizeHref(locale, "/services")}>{backLabel}</a>
+          <a class="inline-link" href={localizeHref(locale, "/case-studies")}>
+            {locale === "bg" ? "Свързани казуси" : "Related case studies"}
+          </a>
         </div>
         <div class="hero-actions">
           <a
@@ -155,9 +158,6 @@ const relatedCaseStudies =
           </a>
           <a href={localizeHref(locale, "/pricing")} class="button button-secondary">
             {locale === "bg" ? "Виж началните рамки" : "View starting ranges"}
-          </a>
-          <a href={localizeHref(locale, "/case-studies")} class="inline-link">
-            {locale === "bg" ? "Свързани казуси" : "Related case studies"}
           </a>
         </div>
       </div>

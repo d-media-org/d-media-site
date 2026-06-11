@@ -55,6 +55,7 @@ const alternateXDefaultHref =
   alternateLinks?.xDefault ?? `https://www.d-media.org${localizeHref("bg", path)}`;
 const [footerCopyrightBefore, footerCopyrightAfter = ""] =
   ui.footer.copyright.split("d . media");
+const isContactRoute = stripLocalePrefix(path) === "/contact";
 const isActiveHref = (href: string) =>
   href === localizeHref(locale, "/") ? localizedPath === href : localizedPath.startsWith(href);
 const schemaItems = [
@@ -200,7 +201,22 @@ const schemaItems = [
       </div>
     </header>
     <slot />
-    <footer class="site-footer">
+    <div class="consent-banner" role="dialog" aria-live="polite" aria-label={ui.consent.ariaLabel} hidden data-consent-banner>
+      <div class="consent-banner-copy">
+        <p class="eyebrow">{ui.consent.eyebrow}</p>
+        <p>{ui.consent.text}</p>
+        <a href={localizeHref(locale, "/privacy")}>{ui.consent.more}</a>
+      </div>
+      <div class="consent-banner-actions">
+        <button type="button" class="button button-secondary" data-consent-choice="rejected">
+          {ui.consent.reject}
+        </button>
+        <button type="button" class="button button-primary" data-consent-choice="accepted">
+          {ui.consent.accept}
+        </button>
+      </div>
+    </div>
+    <footer class={`site-footer ${isContactRoute ? "site-footer-quiet-contact" : ""}`}>
       <div class="site-footer-inner">
         <div class="footer-column footer-column-contact">
           <h2>{ui.footer.contact}</h2>
@@ -281,21 +297,6 @@ const schemaItems = [
       <span class="floating-top-label">{ui.footer.backToTop}</span>
       <span class="floating-top-arrow" aria-hidden="true">↑</span>
     </a>
-    <div class="consent-banner" role="dialog" aria-live="polite" aria-label={ui.consent.ariaLabel} hidden data-consent-banner>
-      <div class="consent-banner-copy">
-        <p class="eyebrow">{ui.consent.eyebrow}</p>
-        <p>{ui.consent.text}</p>
-        <a href={localizeHref(locale, "/privacy")}>{ui.consent.more}</a>
-      </div>
-      <div class="consent-banner-actions">
-        <button type="button" class="button button-secondary" data-consent-choice="rejected">
-          {ui.consent.reject}
-        </button>
-        <button type="button" class="button button-primary" data-consent-choice="accepted">
-          {ui.consent.accept}
-        </button>
-      </div>
-    </div>
     <script is:inline>
       (() => {
         const toggle = document.querySelector("[data-menu-toggle]");

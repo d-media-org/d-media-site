@@ -1,7 +1,6 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import {
-  formatBlogDate,
   getBlogCategories,
   getBlogPageCopy,
   getPublishedBlogPosts,
@@ -50,9 +49,7 @@ const posts = getPublishedBlogPosts(locale);
           <article class="card service-category-card" data-blog-card data-blog-category={post.category}>
             <div class="blog-meta-row">
               <p class="project-meta">{categories.find((category) => category.key === post.category)?.label}</p>
-              <p class="project-meta">
-                <time datetime={post.datePublished}>{formatBlogDate(locale, post.datePublished)}</time> · {post.readingTime} {copy.readTimeLabel}
-              </p>
+              <p class="project-meta">{post.readingTime} {copy.readTimeLabel}</p>
             </div>
             <h2>{post.title}</h2>
             <p>{post.excerpt}</p>
