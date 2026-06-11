@@ -7,7 +7,7 @@ const { source } = Astro.props;
 const lines = source.split("\n");
 const isHeading = (line: string) => {
   const trimmed = line.trim();
-  return /^\d+\.\s+[A-ZА-Я][A-ZА-Я\s(),/–-]+$/.test(trimmed);
+  return /^\d+\.\s+\S/.test(trimmed);
 };
 ---
 

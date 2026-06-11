@@ -2327,9 +2327,7 @@ img {
 .legal-source-heading {
   font-family: var(--font-panton-semibold), sans-serif;
   color: var(--foreground);
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.12em;
+  text-transform: uppercase;
 }
 
 .privacy-details-copy > p:first-child {
