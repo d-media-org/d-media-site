@@ -2689,16 +2689,13 @@ html[data-theme="dark"] .terms-full-shell {
   right: var(--space-24);
   bottom: var(--space-24);
   z-index: 80;
-  contain: none;
-  content-visibility: visible;
-  width: min(390px, calc(100vw - (var(--space-24) * 2)));
+  width: min(400px, calc(100vw - (var(--space-24) * 2)));
   margin-left: auto;
-  padding: var(--space-20);
+  padding: 20px;
   border: 1px solid var(--line);
   border-radius: var(--space-24);
-  background: color-mix(in srgb, var(--background) 98%, transparent);
-  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.09);
-  backdrop-filter: blur(10px);
+  background: var(--surface);
+  box-shadow: 0 20px 56px rgba(0, 0, 0, 0.12);
   display: grid;
   gap: var(--space-16);
   max-height: calc(100dvh - (var(--space-24) * 2));
@@ -2729,7 +2726,7 @@ html[data-theme="dark"] .terms-full-shell {
 
 .consent-banner-copy a {
   width: fit-content;
-  min-height: 36px;
+  min-height: 44px;
   display: inline-flex;
   align-items: center;
   font-family: var(--font-panton-regular), sans-serif;
@@ -2741,21 +2738,21 @@ html[data-theme="dark"] .terms-full-shell {
 }
 
 .consent-banner-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-8);
   margin-top: var(--space-8);
 }
 
 .consent-banner-actions .button {
-  width: auto;
-  min-height: 42px;
-  flex: 1 1 150px;
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
   padding: 0 var(--space-16);
   font-family: var(--font-panton-regular), sans-serif;
   font-size: 13px;
   letter-spacing: -0.01em;
+  white-space: nowrap;
 }
 
 a[href]:not(.button):not(.site-brand a):not(.site-nav a):not(.site-mobile-panel a):not(.footer-brand-link):not(.footer-socials a):not(.floating-top):not(.showcase-link-card):not(.archive-project-card) {
@@ -3563,9 +3560,9 @@ html[data-embedded-ios="true"] .gallery-lightbox {
     bottom: calc(12px + env(safe-area-inset-bottom));
     width: auto;
     max-width: calc(100vw - (var(--space-16) * 2));
-    max-height: min(42dvh, 320px);
+    max-height: min(48dvh, 360px);
     padding: var(--space-16);
-    gap: 14px;
+    gap: var(--space-16);
     border-radius: var(--space-24);
   }
 
@@ -3575,7 +3572,7 @@ html[data-embedded-ios="true"] .gallery-lightbox {
 
   .consent-banner-copy p {
     font-size: 13px;
-    line-height: 1.42;
+    line-height: 1.5;
   }
 
   .consent-banner-copy a {
@@ -3583,19 +3580,12 @@ html[data-embedded-ios="true"] .gallery-lightbox {
   }
 
   .consent-banner-actions {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-    margin-top: 12px;
+    margin-top: var(--space-8);
   }
 
   .consent-banner-actions .button {
-    width: 100%;
-    min-height: 42px;
-    padding: 0 12px;
-    flex: initial;
-    min-width: 0;
-    white-space: nowrap;
+    min-height: 44px;
+    padding: 0 var(--space-8);
   }
 
   .hero-panel {
