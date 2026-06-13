@@ -1,6 +1,7 @@
 ---
 import BrandText from "@/components/BrandText.astro";
 import Layout from "@/layouts/Layout.astro";
+import { getAuthorityServices } from "@/lib/authority-services";
 import { localizeHref, type Locale } from "@/lib/i18n";
 import { getBreadcrumbSchema, getFAQPageSchema, getServicePageSchema } from "@/lib/seo";
 
@@ -121,6 +122,9 @@ const relatedCaseStudies =
         { title: "Yanita", href: "/projects/yanita", text: "Visual system and materials prepared for real communication use." },
         { title: "Support Account", href: "/projects/support-account", text: "Structured identity and usable files for a digital environment." },
       ]);
+const relatedTechnicalServices = getAuthorityServices(locale).filter(
+  (service) => `/services/${service.slug}` !== path,
+);
 ---
 
 <Layout
@@ -241,6 +245,26 @@ const relatedCaseStudies =
             <p><BrandText text={caseStudy.text} /></p>
             <a class="inline-link" href={localizeHref(locale, caseStudy.href)}>
               {locale === "bg" ? "Виж казуса" : "View case study"}
+            </a>
+          </article>
+        ))}
+      </div>
+
+      <div class="section-heading page-subheading">
+        <h2>{locale === "bg" ? "Свързани дигитални специализации" : "Related digital specialisms"}</h2>
+        <p class="page-text">
+          {locale === "bg"
+            ? "Уеб дизайнът, разработката, техническото SEO, GEO, производителността и поддръжката работят като свързана система."
+            : "Web design, development, technical SEO, GEO, performance, and support work as a connected system."}
+        </p>
+      </div>
+      <div class="showcase-grid service-card-grid">
+        {relatedTechnicalServices.map((service) => (
+          <article class="card service-category-card">
+            <h2>{service.title}</h2>
+            <p>{service.metaDescription}</p>
+            <a class="inline-link" href={localizeHref(locale, `/services/${service.slug}`)}>
+              {locale === "bg" ? "Виж специализацията" : "View specialism"}
             </a>
           </article>
         ))}

@@ -2,6 +2,7 @@
 import Layout from "@/layouts/Layout.astro";
 import { type Locale } from "@/lib/i18n";
 import { getPageCopy } from "@/lib/page-copy";
+import { getBreadcrumbSchema } from "@/lib/seo";
 import { contactEmail, getSiteContent } from "@/lib/site-content";
 
 const locale: Locale = "bg";
@@ -9,7 +10,7 @@ const copy = getPageCopy(locale).contact;
 const siteContent = getSiteContent(locale);
 ---
 
-<Layout locale={locale} title={`${copy.metaTitle} | d . media`} description={copy.metaDescription} path="/contact">
+<Layout locale={locale} title={`${copy.metaTitle} | d . media`} description={copy.metaDescription} path="/contact" structuredData={[getBreadcrumbSchema({ locale, path: "/contact", title: copy.metaTitle })]}>
   <main class="site-shell" id="top">
     <section class="section-grid">
       <div class="section-heading page-intro">

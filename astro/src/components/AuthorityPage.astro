@@ -1,0 +1,30 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { localizeHref, type Locale } from "@/lib/i18n";
+import { getBreadcrumbSchema, getFAQPageSchema, getWebPageSchema } from "@/lib/seo";
+
+const { locale, page } = Astro.props as { locale: Locale; page: { slug: string; title: string; eyebrow: string; description: string; intro: string; sections: { title: string; text: string }[]; faqs?: { question: string; answer: string }[] } };
+const path = `/${page.slug}`;
+const schema = [getBreadcrumbSchema({ locale, path, title: page.title }), getWebPageSchema({ locale, path, title: page.title, description: page.description })];
+if (page.faqs?.length) schema.push(getFAQPageSchema({ locale, path, faqs: page.faqs }));
+---
+
+<Layout locale={locale} title={`${page.title} | d . media`} description={page.description} path={path} structuredData={schema}>
+  <main class="site-shell" id="top">
+    <section class="section-grid">
+      <div class="section-heading page-intro">
+        <p class="eyebrow">{page.eyebrow}</p>
+        <h1>{page.title}</h1>
+        <p class="page-text">{page.intro}</p>
+      </div>
+      <div class="showcase-grid service-card-grid">
+        {page.sections.map((section) => <article class="card service-category-card"><h2>{section.title}</h2><p>{section.text}</p></article>)}
+        {page.faqs?.map((faq) => <article class="card service-category-card"><h2>{faq.question}</h2><p>{faq.answer}</p></article>)}
+      </div>
+      <article class="card services-cta-card">
+        <div class="services-cta-copy"><h2>{locale === "bg" ? "Следваща стъпка" : "Next step"}</h2><p class="page-text">{locale === "bg" ? "Изпрати текущия контекст и резултата, който трябва да бъде постигнат." : "Send the current context and the outcome that needs to be achieved."}</p></div>
+        <div class="hero-actions"><a class="button button-primary" href={localizeHref(locale, "/contact")}>{locale === "bg" ? "Изпрати контекст" : "Send context"}</a><a class="button button-secondary" href={localizeHref(locale, "/services")}>{locale === "bg" ? "Разгледай услугите" : "Explore services"}</a></div>
+      </article>
+    </section>
+  </main>
+</Layout>

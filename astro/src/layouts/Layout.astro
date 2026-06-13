@@ -3,7 +3,7 @@ import "../styles/globals.css";
 
 import BrandAsset from "@/components/BrandAsset.astro";
 import { getAlternateLocale, localizeHref, stripLocalePrefix, type Locale } from "@/lib/i18n";
-import { getOrganizationSchema, getWebPageSchema, getWebsiteSchema } from "@/lib/seo";
+import { getAbsolutePageUrl, getOrganizationSchema, getWebPageSchema, getWebsiteSchema } from "@/lib/seo";
 import { contactEmail, getSiteContent } from "@/lib/site-content";
 import { getLocaleSwitcherItems, getUiCopy } from "@/lib/ui-copy";
 
@@ -36,7 +36,7 @@ const {
   description = "d . media",
   path = "/",
   structuredData = [],
-  socialImage = "https://www.d-media.org/social-preview-dmedia-v3.png",
+  socialImage = "https://www.d-media.org/social-preview-dmedia-v5.png",
   openGraphType = "website",
   metaRobots,
   alternateLinks,
@@ -48,11 +48,15 @@ const alternateLocale = getAlternateLocale(locale);
 const alternateHref = localizeHref(alternateLocale, stripLocalePrefix(path));
 const localizedPath = localizeHref(locale, path);
 const localeSwitcherItems = localeSwitcherItemsOverride ?? getLocaleSwitcherItems(locale, path);
-const canonicalHref = alternateLinks?.canonical ?? `https://www.d-media.org${localizedPath}`;
-const alternateBgHref = alternateLinks?.bg ?? `https://www.d-media.org${localizeHref("bg", path)}`;
-const alternateEnHref = alternateLinks?.en ?? `https://www.d-media.org${localizeHref("en", path)}`;
-const alternateXDefaultHref =
-  alternateLinks?.xDefault ?? `https://www.d-media.org${localizeHref("bg", path)}`;
+const resolveAlternateLink = (value: string | null | undefined, fallback: string) =>
+  value === undefined ? fallback : value;
+const canonicalHref = resolveAlternateLink(alternateLinks?.canonical, getAbsolutePageUrl(locale, path));
+const alternateBgHref = resolveAlternateLink(alternateLinks?.bg, getAbsolutePageUrl("bg", path));
+const alternateEnHref = resolveAlternateLink(alternateLinks?.en, getAbsolutePageUrl("en", path));
+const alternateXDefaultHref = resolveAlternateLink(
+  alternateLinks?.xDefault,
+  getAbsolutePageUrl("bg", path),
+);
 const [footerCopyrightBefore, footerCopyrightAfter = ""] =
   ui.footer.copyright.split("d . media");
 const isActiveHref = (href: string) =>
@@ -77,10 +81,11 @@ const schemaItems = [
     {alternateBgHref ? <link rel="alternate" hreflang="bg" href={alternateBgHref} /> : null}
     {alternateEnHref ? <link rel="alternate" hreflang="en" href={alternateEnHref} /> : null}
     {alternateXDefaultHref ? <link rel="alternate" hreflang="x-default" href={alternateXDefaultHref} /> : null}
-    <link rel="icon" type="image/png" sizes="16x16" href="/dmedia-favicon-v4-16.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/dmedia-favicon-v4-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/dmedia-favicon-v5-16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/dmedia-favicon-v5-32.png" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/dmedia-favicon-v5-48.png" />
     <link rel="icon" href="/dmedia-favicon-v4.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/dmedia-apple-touch-v4.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/dmedia-apple-touch-v5.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="preload" href="/fonts/panton-subset/Panton-Regular.latin-cyrillic.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/panton-subset/Panton-Black.latin-cyrillic.woff2" as="font" type="font/woff2" crossorigin />
@@ -259,7 +264,7 @@ const schemaItems = [
           <div class="footer-links footer-legal">
             <a href={localizeHref(locale, "/terms")}>{ui.footer.terms}</a>
             <a href={localizeHref(locale, "/privacy")}>{ui.footer.privacy}</a>
-            <a href="/legal/policies">{locale === "bg" ? "Политики" : "Policies"}</a>
+            <a href={localizeHref(locale, "/legal/policies")}>{locale === "bg" ? "Политики" : "Policies"}</a>
           </div>
         </div>
       </div>

@@ -12,8 +12,13 @@ export function GET() {
       theme_color: "#ffffff",
       icons: [
         {
-          src: "/dmedia-favicon-v4-32.png",
+          src: "/dmedia-favicon-v5-32.png",
           sizes: "32x32",
+          type: "image/png",
+        },
+        {
+          src: "/dmedia-favicon-v5-48.png",
+          sizes: "48x48",
           type: "image/png",
         },
         {

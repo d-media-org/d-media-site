@@ -54,7 +54,7 @@ const posts = getPublishedBlogPosts(locale);
             <h2>{post.title}</h2>
             <p>{post.excerpt}</p>
             <div class="project-card-footer">
-              <a class="inline-link" href={`/blog/${post.slug}`} data-blog-article-link>{copy.articleCta}</a>
+              <a class="inline-link" href={`/blog/${post.slug}/`} data-blog-article-link>{copy.articleCta}</a>
             </div>
           </article>
         ))}

@@ -5,9 +5,9 @@
 ## Официален сайт
 
 - Основен сайт: https://www.d-media.org/
-- Английска версия: https://www.d-media.org/en
+- Английска версия: https://www.d-media.org/en/
 - Пълен AI-readable индекс: https://www.d-media.org/llms-full.txt
-- Услуги: https://www.d-media.org/services
+- Услуги: https://www.d-media.org/services/
 - Цени: https://www.d-media.org/pricing
 - Бранд идентичност: https://www.d-media.org/services/brand-identity
 - Създаване на съдържание: https://www.d-media.org/services/content-creation
@@ -15,6 +15,12 @@
 - Графичен дизайн: https://www.d-media.org/services/graphic-design
 - Реклама: https://www.d-media.org/services/advertising
 - Уеб дизайн и разработка: https://www.d-media.org/services/web-design-development
+- Уеб дизайн: https://www.d-media.org/services/web-design/
+- Уеб разработка: https://www.d-media.org/services/web-development/
+- Техническо SEO: https://www.d-media.org/services/technical-seo/
+- GEO и AI видимост: https://www.d-media.org/services/geo/
+- Performance оптимизация: https://www.d-media.org/services/performance-optimization/
+- Техническа поддръжка: https://www.d-media.org/services/technical-support/
 - Проекти: https://www.d-media.org/projects
 - Казуси: https://www.d-media.org/case-studies
 - Блог: https://www.d-media.org/blog
@@ -32,6 +38,16 @@ d . media работи в следните основни направления
 - Графичен дизайн: дигитални и печатни материали, корици, рекламни визии и ежедневни комуникационни формати.
 - Реклама: кампанийни визии, послания, рекламни формати и адаптации за различни канали.
 - SEO и GEO основа: структура, metadata, schema, вътрешни връзки и AI-readable съдържателна организация.
+- Performance инженеринг: Core Web Vitals, assets, fonts, runtime, caching и mobile stability.
+- Техническа поддръжка: контролирани releases, updates, monitoring, incident response и SEO maintenance.
+
+## Методология и експертиза
+
+- Процес: https://www.d-media.org/our-process/
+- Методология: https://www.d-media.org/methodology/
+- Технологии: https://www.d-media.org/technologies/
+- Performance стандарт: https://www.d-media.org/performance/
+- Често задавани въпроси: https://www.d-media.org/faq/
 
 ## Блог и knowledge center
 

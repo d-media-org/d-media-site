@@ -4,8 +4,26 @@ import { contactEmail, getSiteContent } from "@/lib/site-content";
 
 export const baseUrl = "https://www.d-media.org";
 export const brandName = "d . media";
+
+export function normalizePagePath(path: string) {
+  const [pathname, suffix = ""] = path.split(/(?=[?#])/u, 2);
+
+  if (!pathname || pathname === "/") {
+    return `/${suffix}`;
+  }
+
+  return `${pathname.replace(/\/+$/u, "")}/${suffix}`;
+}
+
+export function getAbsolutePageUrl(locale: Locale, path: string) {
+  return `${baseUrl}${normalizePagePath(localizeHref(locale, path))}`;
+}
+
+export function getAbsolutePathUrl(path: string) {
+  return `${baseUrl}${normalizePagePath(path)}`;
+}
 export const defaultSocialImage = {
-  url: `${baseUrl}/social-preview-dmedia-v3.png`,
+  url: `${baseUrl}/social-preview-dmedia-v5.png`,
   width: 1200,
   height: 630,
   alt: brandName,
@@ -21,9 +39,15 @@ export function getOrganizationSchema(locale: Locale = "bg") {
     "@type": ["Organization", "ProfessionalService"],
     "@id": organizationId,
     name: brandName,
+    alternateName: ["d media", "d-media"],
     url: baseUrl,
-    logo: `${baseUrl}/dmedia-apple-touch-v4.png`,
-    image: `${baseUrl}/dmedia-apple-touch-v4.png`,
+    logo: {
+      "@type": "ImageObject",
+      url: `${baseUrl}/dmedia-search-logo-v5.png`,
+      width: 512,
+      height: 512,
+    },
+    image: `${baseUrl}/dmedia-search-logo-v5.png`,
     email: contactEmail,
     contactPoint: {
       "@type": "ContactPoint",
@@ -35,7 +59,7 @@ export function getOrganizationSchema(locale: Locale = "bg") {
     availableLanguage: locale,
     address: {
       "@type": "PostalAddress",
-      addressLocality: "София",
+      addressLocality: locale === "bg" ? "София" : "Sofia",
       addressRegion: "Sofia City Province",
       addressCountry: "BG",
     },
@@ -54,8 +78,9 @@ export function getWebsiteSchema(locale: Locale = "bg") {
     "@type": "WebSite",
     "@id": `${baseUrl}/#website`,
     name: brandName,
+    alternateName: ["d media", "d-media"],
     url: baseUrl,
-    inLanguage: locale,
+    inLanguage: ["bg-BG", "en-US"],
     description: seo.siteDescription,
     publisher: {
       "@id": `${baseUrl}/#organization`,
@@ -74,7 +99,7 @@ export function getWebPageSchema({
   title: string;
   description: string;
 }) {
-  const url = `${baseUrl}${localizeHref(locale, path)}`;
+  const url = getAbsolutePageUrl(locale, path);
 
   return {
     "@context": "https://schema.org",
@@ -111,13 +136,13 @@ export function getBreadcrumbSchema({
         "@type": "ListItem",
         position: 1,
         name: locale === "bg" ? "Начало" : "Home",
-        item: `${baseUrl}${localizeHref(locale, "/")}`,
+        item: getAbsolutePageUrl(locale, "/"),
       },
       {
         "@type": "ListItem",
         position: 2,
         name: title,
-        item: `${baseUrl}${localizeHref(locale, path)}`,
+        item: getAbsolutePageUrl(locale, path),
       },
     ],
   };
@@ -140,19 +165,19 @@ export function getProjectBreadcrumbSchema({
         "@type": "ListItem",
         position: 1,
         name: locale === "bg" ? "Начало" : "Home",
-        item: `${baseUrl}${localizeHref(locale, "/")}`,
+        item: getAbsolutePageUrl(locale, "/"),
       },
       {
         "@type": "ListItem",
         position: 2,
         name: locale === "bg" ? "Проекти" : "Projects",
-        item: `${baseUrl}${localizeHref(locale, "/projects")}`,
+        item: getAbsolutePageUrl(locale, "/projects"),
       },
       {
         "@type": "ListItem",
         position: 3,
         name: title,
-        item: `${baseUrl}${localizeHref(locale, `/projects/${slug}`)}`,
+        item: getAbsolutePageUrl(locale, `/projects/${slug}`),
       },
     ],
   };
@@ -176,11 +201,11 @@ export function getProjectCreativeWorkSchema({
   return {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
-    "@id": `${baseUrl}${localizeHref(locale, `/projects/${slug}`)}#creative-work`,
+    "@id": `${getAbsolutePageUrl(locale, `/projects/${slug}`)}#creative-work`,
     name: title,
     headline: title,
     description,
-    url: `${baseUrl}${localizeHref(locale, `/projects/${slug}`)}`,
+    url: getAbsolutePageUrl(locale, `/projects/${slug}`),
     image: {
       "@type": "ImageObject",
       url: image.startsWith("http") ? image : `${baseUrl}${image}`,
@@ -204,7 +229,7 @@ export function getServiceCatalogSchema(locale: Locale = "bg") {
     "@context": "https://schema.org",
     "@type": "OfferCatalog",
     name: locale === "bg" ? "Услуги на d . media" : "d . media services",
-    url: `${baseUrl}${localizeHref(locale, "/services")}`,
+    url: getAbsolutePageUrl(locale, "/services"),
     inLanguage: locale,
     itemListElement: siteContent.coreServices.map((service, index) => ({
       "@type": "Offer",
@@ -237,7 +262,7 @@ export function getServicePageSchema({
   title: string;
   description: string;
 }) {
-  const url = `${baseUrl}${localizeHref(locale, path)}`;
+  const url = getAbsolutePageUrl(locale, path);
 
   return {
     "@context": "https://schema.org",
@@ -270,7 +295,7 @@ export function getFAQPageSchema({
   path: string;
   faqs: { question: string; answer: string }[];
 }) {
-  const url = `${baseUrl}${localizeHref(locale, path)}`;
+  const url = getAbsolutePageUrl(locale, path);
 
   return {
     "@context": "https://schema.org",
@@ -310,7 +335,7 @@ export function getBlogPostingSchema({
   inLanguage: string;
   image?: string;
 }) {
-  const url = `${baseUrl}${localizeHref(locale, path)}`;
+  const url = getAbsolutePageUrl(locale, path);
 
   return {
     "@context": "https://schema.org",
@@ -347,9 +372,9 @@ export function getBlogPostingSchema({
 
 export function getAlternateLinks(locale: Locale, path: string) {
   return {
-    canonical: `${baseUrl}${localizeHref(locale, path)}`,
-    bg: `${baseUrl}${localizeHref("bg", path)}`,
-    en: `${baseUrl}${localizeHref("en", path)}`,
-    xDefault: `${baseUrl}${localizeHref(defaultLocale, path)}`,
+    canonical: getAbsolutePageUrl(locale, path),
+    bg: getAbsolutePageUrl("bg", path),
+    en: getAbsolutePageUrl("en", path),
+    xDefault: getAbsolutePageUrl(defaultLocale, path),
   };
 }

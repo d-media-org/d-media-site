@@ -1,0 +1,48 @@
+---
+import BrandText from "@/components/BrandText.astro";
+import Layout from "@/layouts/Layout.astro";
+import { localizeHref, type Locale } from "@/lib/i18n";
+import { getOperationalPolicies } from "@/lib/operational-policies";
+import { getAbsolutePageUrl, getBreadcrumbSchema } from "@/lib/seo";
+
+const locale: Locale = "en";
+const path = "/legal/policies";
+const title = "Operational Policies";
+const description = "d . media operational policies for revisions, working files, projects, support, AI, domains, hosting, refunds, and delivery.";
+const policies = getOperationalPolicies(locale);
+---
+
+<Layout
+  locale={locale}
+  title={`${title} | d . media`}
+  description={description}
+  path={path}
+  structuredData={[getBreadcrumbSchema({ locale, path, title })]}
+  alternateLinks={{
+    bg: getAbsolutePageUrl("bg", path),
+    en: getAbsolutePageUrl("en", path),
+    xDefault: getAbsolutePageUrl("bg", path),
+    canonical: getAbsolutePageUrl(locale, path),
+  }}
+>
+  <main class="site-shell terms-page" id="top">
+    <section class="section-grid">
+      <div class="section-heading page-intro">
+        <p class="eyebrow">Legal and operational information</p>
+        <h1>{title}</h1>
+        <p class="page-text"><BrandText text="Working rules for specific situations involving the commissioning, delivery, transfer, and support of d . media projects." /></p>
+      </div>
+      <div class="terms-summary-grid">
+        {policies.map((policy) => (
+          <article class="terms-block card terms-short-card">
+            <h2>{policy.shortTitle}</h2>
+            <p><BrandText text={policy.intro} /></p>
+            <div class="project-card-footer">
+              <a class="inline-link" href={localizeHref(locale, `/legal/policies/${policy.slug}`)}>Read the policy</a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  </main>
+</Layout>

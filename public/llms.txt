@@ -5,22 +5,29 @@
 ## Official website
 
 - Main website: https://www.d-media.org/
-- English version: https://www.d-media.org/en
+- English version: https://www.d-media.org/en/
 - Bulgarian AI summary: https://www.d-media.org/llms-bg.txt
 - Full AI-readable index: https://www.d-media.org/llms-full.txt
-- Services: https://www.d-media.org/services
-- Pricing: https://www.d-media.org/pricing
-- Brand identity: https://www.d-media.org/services/brand-identity
-- Content creation: https://www.d-media.org/services/content-creation
-- Social media management: https://www.d-media.org/services/social-media-management
-- Graphic design: https://www.d-media.org/services/graphic-design
-- Advertising: https://www.d-media.org/services/advertising
-- Web design and development: https://www.d-media.org/services/web-design-development
-- Projects: https://www.d-media.org/projects
-- Case studies: https://www.d-media.org/case-studies
-- Blog: https://www.d-media.org/blog
-- About: https://www.d-media.org/about
-- Contact: https://www.d-media.org/contact
+- Services: https://www.d-media.org/en/services/
+- Pricing: https://www.d-media.org/en/pricing/
+- Brand identity: https://www.d-media.org/en/services/brand-identity/
+- Content creation: https://www.d-media.org/en/services/content-creation/
+- Social media management: https://www.d-media.org/en/services/social-media-management/
+- Graphic design: https://www.d-media.org/en/services/graphic-design/
+- Advertising: https://www.d-media.org/en/services/advertising/
+- Web design and development: https://www.d-media.org/en/services/web-design-development/
+- Web design: https://www.d-media.org/en/services/web-design/
+- Web development: https://www.d-media.org/en/services/web-development/
+- Technical SEO: https://www.d-media.org/en/services/technical-seo/
+- GEO and AI visibility: https://www.d-media.org/en/services/geo/
+- Performance optimization: https://www.d-media.org/en/services/performance-optimization/
+- Technical support: https://www.d-media.org/en/services/technical-support/
+- Projects: https://www.d-media.org/en/projects/
+- Case studies: https://www.d-media.org/en/case-studies/
+- Blog: https://www.d-media.org/en/blog/
+- About: https://www.d-media.org/en/about/
+- Contact: https://www.d-media.org/en/contact/
+- Operational policies: https://www.d-media.org/en/legal/policies/
 
 ## What d . media does
 
@@ -33,10 +40,12 @@ d . media works across these core service areas:
 - Graphic design: digital and print materials, covers, campaign visuals, and day-to-day communication formats.
 - Advertising: campaign visuals, messaging, advertising formats, and channel-specific adaptations.
 - SEO and GEO foundations: structure, metadata, schema, internal linking, and AI-readable content organisation.
+- Performance engineering: Core Web Vitals, assets, fonts, runtime, caching, and mobile stability.
+- Technical support: controlled releases, updates, monitoring, incident response, and SEO maintenance.
 
 ## Blog and knowledge center
 
-- Main blog index: https://www.d-media.org/blog
+- Main blog index: https://www.d-media.org/en/blog/
 - Core categories: brand identity, graphic design, social media, content, web and digital presence, AI and design, SEO and GEO, case studies
 - Featured knowledge area: GEO / AI-ready content and website structure
 

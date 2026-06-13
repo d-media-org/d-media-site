@@ -234,6 +234,134 @@ export const operationalPolicies: OperationalPolicy[] = [
   },
 ];
 
-export function getOperationalPolicy(slug: string) {
-  return operationalPolicies.find((policy) => policy.slug === slug);
+export const operationalPoliciesEn: OperationalPolicy[] = [
+  {
+    slug: "revisions",
+    title: "Corrections and Revisions Policy",
+    shortTitle: "Corrections and revisions",
+    description: "d . media rules for submitting, defining, and completing corrections and revisions during active projects.",
+    intro: "This policy defines how corrections are requested, consolidated, and completed during the working process.",
+    sections: [
+      { title: "Submitting corrections", paragraphs: ["Corrections must be submitted in writing and consolidated by the designated contact person. One clear and non-conflicting list is accepted for each working cycle."] },
+      { title: "Revision scope", paragraphs: ["A revision is a change within the approved concept and agreed scope. A new concept, format, brief, or return to a rejected option is assessed separately."] },
+      { title: "Timing and additional work", paragraphs: ["The correction period begins after a complete list is received. Work beyond the agreed number of revisions or scope proceeds after additional timing and price are confirmed."] },
+    ],
+  },
+  {
+    slug: "frozen-projects",
+    title: "Frozen Projects Policy",
+    shortTitle: "Frozen projects",
+    description: "Conditions for pausing, retaining, and resuming frozen projects at d . media.",
+    intro: "A project may be temporarily frozen when work cannot continue because required materials, feedback, approval, payment, or another action is missing.",
+    sections: [
+      { title: "When a project is frozen", paragraphs: ["A project may be frozen following a written request or when required information, materials, payment, or a decision is not provided within the agreed period."] },
+      { title: "Frozen period", paragraphs: ["During the frozen period, the working schedule and reserved capacity are released. The original deadlines no longer apply."] },
+      { title: "Resuming work", paragraphs: ["Work resumes after all required materials are received and a new schedule is confirmed. Resumption depends on current capacity and may require an updated scope or price."] },
+    ],
+  },
+  {
+    slug: "abandoned-projects",
+    title: "Abandoned Projects Policy",
+    shortTitle: "Abandoned projects",
+    description: "Rules for projects without feedback, action, or resumption over an extended period.",
+    intro: "This policy governs the closure of projects where the communication or action required to continue has been absent for an extended period.",
+    sections: [
+      { title: "Abandoned status", paragraphs: ["A project may be considered abandoned when feedback, materials, approval, or payment remain unavailable after a reminder and no frozen period has been agreed."] },
+      { title: "Closure", paragraphs: ["When a project is abandoned, d . media may stop work, close the schedule, and archive or delete project materials under the applicable agreed terms."] },
+      { title: "New engagement", paragraphs: ["Restarting an abandoned project is treated as a new engagement. Available materials, scope, timing, and price are assessed again."] },
+    ],
+  },
+  {
+    slug: "working-files",
+    title: "Working Files Policy",
+    shortTitle: "Working files",
+    description: "Scope, delivery, and retention of working and source files for d . media projects.",
+    intro: "This policy distinguishes final files intended for use from the working resources used to create the project.",
+    sections: [
+      { title: "What working files include", paragraphs: ["Working files include source documents, layers, components, libraries, source code, settings, drafts, unselected options, and other production materials."] },
+      { title: "Delivery", paragraphs: ["Working files are not part of standard delivery unless expressly included in an offer or agreement. Their delivery may require additional preparation, licensing, and fees."] },
+      { title: "Compatibility and archive", paragraphs: ["d . media does not guarantee compatibility with future software versions or third-party resources. Retention depends on the project and does not constitute indefinite archiving."] },
+    ],
+  },
+  {
+    slug: "priority-projects",
+    title: "Priority Projects Policy",
+    shortTitle: "Priority projects",
+    description: "Conditions for priority, express, and super-express project delivery by d . media.",
+    intro: "Priority work is accepted only after the real scope, available capacity, and ability to deliver reliably have been reviewed.",
+    sections: [
+      { title: "Priority modes", bullets: ["Fast order: agreed delivery time reduced by 25%, with a +25% charge.", "Express order: agreed delivery time reduced by 50%, with a +50% charge.", "Super-express order: agreed delivery time reduced by 75%, with a +75% charge."] },
+      { title: "Confirmation", paragraphs: ["A priority mode becomes active only after written confirmation from d . media. Short notice does not automatically create an obligation for urgent delivery."] },
+      { title: "Dependencies", paragraphs: ["Timing depends on prompt delivery of materials, feedback, and approvals. Delays in these dependencies may change the agreed schedule."] },
+    ],
+  },
+  {
+    slug: "domains-hosting",
+    title: "Domains and Hosting Policy",
+    shortTitle: "Domains and hosting",
+    description: "Responsibilities and workflow for domain and hosting registration, configuration, and management.",
+    intro: "Domains and hosting are third-party services and are managed separately from the design and development of a web project.",
+    sections: [
+      { title: "Ownership and access", paragraphs: ["Where possible, the domain and hosting account are registered in the client’s name and with the client’s details. The client is responsible for access, renewal, and current payment information."] },
+      { title: "Configuration and management", paragraphs: ["d . media may assist with selection, configuration, DNS settings, migration, and service connections within the agreed technical scope."] },
+      { title: "Third-party providers", paragraphs: ["d . media does not control outages, changes in terms, prices, restrictions, or loss of service caused by external providers. Domain, hosting, and paid integration costs are excluded unless stated otherwise."] },
+    ],
+  },
+  {
+    slug: "support",
+    title: "Technical Support Policy",
+    shortTitle: "Technical support",
+    description: "Scope, priority, and conditions for technical support of web projects by d . media.",
+    intro: "Technical support is provided as a separate one-off or subscription service with a scope defined in advance.",
+    sections: [
+      { title: "What support may include", bullets: ["Monitoring and technical checks.", "Updates and corrections.", "Content and integration maintenance.", "Analysis and resolution of reported issues."] },
+      { title: "What is not automatically included", paragraphs: ["New functionality, redesign, recovery after third-party intervention, external provider issues, and work beyond the agreed scope are assessed separately."] },
+      { title: "Response and priority", paragraphs: ["Response time depends on the agreed support level, issue severity, and available access. Response means the start of investigation, not a guaranteed final resolution time."] },
+    ],
+  },
+  {
+    slug: "ai-policy",
+    title: "AI Use Policy",
+    shortTitle: "AI use",
+    description: "Principles for controlled use of AI tools in d . media workflows.",
+    intro: "AI tools may support parts of the work, but they do not replace professional judgement, control, or responsibility for the final result.",
+    sections: [
+      { title: "Permitted use", paragraphs: ["AI may be used for research, analysis, ideation, processing, automation, text, images, code, and other supporting tasks when appropriate for the project."] },
+      { title: "Review and control", paragraphs: ["AI-assisted content is reviewed and assessed before delivery. d . media determines when such tools are appropriate and what verification is required."] },
+      { title: "Data and limitations", paragraphs: ["Confidential or sensitive information is not submitted to an AI service without a valid basis and suitable controls. Outputs may contain inaccuracies or limitations and are not accepted without professional review."] },
+    ],
+  },
+  {
+    slug: "refunds",
+    title: "Refund Policy",
+    shortTitle: "Refunds",
+    description: "Conditions for reviewing refund requests for amounts paid for d . media services.",
+    intro: "Refund requests are reviewed according to the project stage, completed work, committed costs, and the specific agreement.",
+    sections: [
+      { title: "Before work begins", paragraphs: ["When work has not started and no non-refundable costs have been incurred, the request is reviewed under the confirmed offer, agreement, and applicable rules."] },
+      { title: "After work begins", paragraphs: ["Completed work, reserved capacity, purchased licences, and third-party costs are not automatically refundable. Any amount due is determined according to the work actually completed."] },
+      { title: "Review process", paragraphs: ["The request must be submitted in writing with a project reference or description and the reason for the request. d . media then provides a written response and the applicable financial settlement."] },
+    ],
+  },
+  {
+    slug: "project-delivery",
+    title: "Project Delivery and Acceptance Record",
+    shortTitle: "Project delivery",
+    description: "Workflow for delivering, checking, and accepting final materials and projects from d . media.",
+    intro: "The record describes the information accompanying a completed project and the method used to confirm acceptance.",
+    sections: [
+      { title: "Project details", bullets: ["Project name and reference.", "Parties and contact persons.", "Agreed scope and delivered outputs.", "Delivery format and channel.", "Delivery date."] },
+      { title: "Review and acceptance", paragraphs: ["The client checks the delivered files and reports specific discrepancies within the agreed period. Without an objection, the project is considered accepted under the applicable agreed terms."] },
+      { title: "Rights, access, and follow-up", paragraphs: ["The record may identify provided licences, working files, access details, instructions, remaining obligations, and agreed support. Delivery does not automatically extend the agreed rights."] },
+      { title: "Confirmation", paragraphs: ["Acceptance may be confirmed by signature, electronic statement, or another method agreed in advance."] },
+    ],
+  },
+];
+
+export function getOperationalPolicies(locale: "bg" | "en") {
+  return locale === "bg" ? operationalPolicies : operationalPoliciesEn;
+}
+
+export function getOperationalPolicy(slug: string, locale: "bg" | "en" = "bg") {
+  return getOperationalPolicies(locale).find((policy) => policy.slug === slug);
 }

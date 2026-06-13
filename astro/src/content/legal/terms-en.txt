@@ -1,0 +1,894 @@
+1. SUBJECT AND SCOPE
+1.1. By initiating pre-contractual and/or contractual relations, the Client declares that he is familiar with and accepts these terms and conditions.
+1.2. The terms apply to all services of the Contractor.
+1.3. These Terms are binding on the Contractor and the Client.
+1.4. In case of conflict with special conditions, the latter take precedence.
+1.5. A confirmed offer has the force of a contract when it contains clearly defined parameters and express agreement.
+1.6. d . media has the right to refuse service or fulfillment of a request, offer or service at its own discretion, providing the reasons for the refusal to the Customer.
+1.7. d . media has the right to refuse the performance of services containing materials or content that are contrary to the law, good morals, public order or professional ethics.
+1.8. The documents (offers, invoices, contracts, annexes, preliminary calculations and other documents) are part of the contractual relationship between the parties.
+1.9. These Terms apply regardless of whether the services are provided through a contract, offer, e-mail, contact form, social network or other communication channel.
+1.10. Set out in these Terms:
+    Price list of services,
+    Service Agreement,
+    Annex,
+    preliminary calculation,
+    Invoice for services rendered,
+    Privacy Policy
+are attached as appendices (samples) at the end of the document. An exception is the Price List of the services, which contains the current prices of the services.
+1.11. d . media engages in branding, content creation, social media management, graphic design, advertising, web design, web development, SEO, GEO and AI SEO optimization and related activities.
+1.12. All services are provided in accordance with current Bulgarian and European legislation.
+
+2. DEFINITIONS
+2.1. In applying and interpreting these Terms and Conditions, the terms and expressions used shall have the following meaning:
+    "d . media" - trade name of the Contractor;
+    "Client" - any natural or legal person entered into a contractual relationship;
+    "Materials" - all graphic, text, audio, video, software, marketing and other materials created, processed, provided or used;
+    "Services" - all services provided;
+    "Service Agreement" - a signed contract or an expressly confirmed offer;
+    "Price list" - an up-to-date list of services and prices;
+    "Project" - any assigned work or set of activities;
+    "Work files" - the files used to create and edit the project;
+    "Final files" - the files intended for use by the Customer;
+    "White-label implementation" - provision of a project without designating d . media as an executor;
+    "License to use" - right to use a created project according to the agreed terms;
+    "Third Party Services" - services provided by external providers;
+    "AI tools" - software systems using artificial intelligence technologies to support the work process.
+
+3. AWARD AND CONCLUSION OF CONTRACTS
+3.1. The award is made by contract or confirmed offer.
+3.2. Offers are sent in writing or by e-mail.
+3.3. Confirmation creates contractual binding.
+3.4. Communication may be done electronically.
+3.5. An electronic statement is considered valid unless proven otherwise.
+3.6. All parameters are agreed in writing.
+3.7. Correspondence by e-mail is considered a contract only if it contains clear consent and parameters.
+3.8. The customer is responsible for the accuracy and legality of the information provided.
+3.9. d . media has the right to request additional information when it is necessary to perform the services.
+3.10. Making a payment under an offer may be considered acceptance of the offer and assignment of the service.
+
+4. AGREEMENT FOR SERVICES, ANNEXES AND APPLICATIONS
+4.1. The contract takes precedence.
+4.2. It can be paper or digital.
+4.3. Validity – signature or express confirmation.
+4.4. Annexes are created upon changes.
+4.5. If an annex is not possible, a new contract is drawn up.
+4.6. The attachments are part of the contract.
+4.7. All terms of reference, quotations, specifications and attachments are considered an integral part of the contract.
+4.8. In case of conflict between the applications and the contract, the contract prevails.
+
+5. GENERAL DEFINITIONS OF SERVICES
+5.1. Template services
+5.1.1. Template Services are services whose content and appearance are pre-designed by d . media.
+5.1.2. The customer may make limited changes to the content, texts, images, colors or other elements according to the predetermined possibilities.
+5.1.3. The scope of permissible changes is determined by d . media or agreed in advance between the parties.
+5.1.4. Template services are provided for faster turnaround and lower final cost.
+
+5.2. Custom services
+5.2.1. Bespoke services are services developed individually according to the needs of the Client.
+5.2.2. The content, structure, vision, functionality and other parameters are determined based on a task provided by the Client.
+5.2.3. Bespoke services may include research, concept, development, testing, implementation and support.
+5.2.4. Unless otherwise agreed, all bespoke services are deemed to be uniquely developed for the particular project.
+
+5.3. White-label execution
+5.3.1. White-label the performance represents the provision of a project without designating d . media as its executor.
+5.3.2. White-label performance is provided only after an express agreement between the parties.
+5.3.3. In the absence of such an agreement, d . media has the right to indicate his authorship of the project.
+5.3.4. White-label performance does not constitute an automatic transfer of copyright.
+
+5.4. Licenses to Use
+5.4.1. Unless otherwise agreed, all projects are provided with a non-exclusive license to use.
+5.4.2. An exclusive license is granted only by express agreement between the parties.
+5.4.3. Full transfer of property copyrights is made only through a separate written agreement.
+5.4.4. Licenses apply only to the end result, unless otherwise agreed.
+5.4.5. The working files are not part of the license unless specifically included.
+
+5.5. Working files
+5.5.1. Work files are all files used in creating and editing the project.
+5.5.2. Work files may include source files, layers, libraries, resources, design systems, source code, and other materials.
+5.5.3. Work files remain the property of d . media unless otherwise agreed.
+5.5.4. Provision of work files may be subject to an additional fee.
+
+5.6. Final files
+5.6.1. Final files are the files intended for use by the Client.
+5.6.2. Final file formats are defined in advance between the parties.
+5.6.3. In the absence of an agreement, d . media provides the files in a format considered standard for the relevant service.
+5.6.4. After delivery of the final files, the Client is responsible for their storage.
+
+5.7. Third Party Services
+5.7.1. To perform certain services, d . media may use third-party services.
+5.7.2. Such services may include hosting, domains, cloud services, advertising platforms, payment systems, analytics systems, AI services and others.
+5.7.3. The costs of such services are not included in the project price, unless otherwise agreed.
+5.7.4. d . media is not responsible for any interruption, limitation or change in third party services.
+
+5.8. AI tools
+5.8.1. d . media has the right to use AI tools when performing the assigned services.
+5.8.2. AI tools can be used for analysis, research, generating ideas, text, images, code, automation or other activities.
+5.8.3. The use of AI tools does not change the contractual relationship between the parties.
+5.8.4. The final result is reviewed and approved by d . media before it is provided to the Client.
+
+5.9. Deadlines for implementation
+5.9.1. The terms are defined in the Service Agreement, offer or other written agreement.
+5.9.2. The terms begin to run after the provision of the necessary materials and information by the Client.
+5.9.3. A delay on the part of the Client leads to a corresponding extension of the deadlines.
+5.9.4. d . media has the right to change the performance schedule if objectively necessary.
+
+5.10. Transfer of projects
+5.10.1. Projects are considered submitted once they are sent via e-mail, cloud service, file sharing system or other agreed channel.
+5.10.2. In the absence of objection from the Client within 3 working days, the project is considered accepted.
+5.10.3. After acceptance of the design, any subsequent changes may be subject to an additional fee.
+5.10.4. d . media has the right to archive or delete the project files after a reasonable period of time after the completion of the project.
+
+6. service categories
+6.1. Services for the design of graphic projects for printing
+6.1.1. Print graphic design services are the creation, editing or adaptation of graphic materials intended for physical printing.
+6.1.2. Services can be performed both according to a template and to order.
+6.1.3. The final files are provided in a format suitable for printing and according to the technical requirements of the relevant printing process.
+
+6.2. Design services of graphic projects for presence in social networks
+6.2.1. The Services are the creation, editing or adaptation of graphic materials for use in social networks and digital platforms.
+6.2.2. Services can be performed both according to a template and to order.
+6.2.3. The projects comply with the technical requirements of the respective platform at the time of construction.
+
+6.3. Visual identity services
+6.3.1. Services are the creation or development of the visual representation of an individual, organization, company, product, service or brand.
+6.3.2. Services may include creating a logo, logotype, visual identity, design system, brand book and other identification elements.
+6.3.3. Unless otherwise agreed, all concepts not selected by the Client remain the property of d . media.
+
+6.4. Content creation services
+6.4.1. The Services are the creation, editing, adaptation or optimization of content for print, digital or other communication channels.
+6.4.2. Content can be text, graphics, audio, video or a combination.
+6.4.3. Unless otherwise agreed, d . media is not responsible for the factual accuracy of information provided by the Client.
+
+6.5. Social network management services
+6.5.1. The services are planning, publishing, management and optimization of the Customer's presence in social networks.
+6.5.2. Services may include content creation, publishing, analysis, consulting and audience communication.
+6.5.3. d . media is not responsible for actions of the platforms, including restrictions, sanctions, blocking of accounts or changes in algorithms.
+
+6.6. Advertising services
+6.6.1. The Services are the creation, management, optimization or analysis of advertising materials and advertising campaigns.
+6.6.2. Advertising budgets are not included in the price of services, unless otherwise agreed.
+6.6.3. d . media does not guarantee specific results from advertising campaigns.
+
+6.7. Video editing and video animation services
+6.7.1. The Services constitute the creation, editing, processing or animation of video content.
+6.7.2. Services may include editing, color corrections, sound processing, animation of graphic elements, intros, outros and other activities.
+6.7.3. Duration, complexity and resources used can affect the final cost and lead time.
+
+6.8. Web design services
+6.8.1. Services are creation of the visual concept, structure, navigation and user experience of a website, online store or digital platform.
+6.8.2. Web design does not include automatic programming, development or maintenance, unless otherwise agreed.
+6.8.3. The approved design is considered the basis of subsequent development.
+
+6.9. Web development services
+6.9.1. Services are the creation, implementation, configuration, migration, maintenance or development of websites, online stores and digital platforms.
+6.9.2. Unless otherwise agreed, the costs of domains, hosting, external services, paid integrations and licenses are not included in the price.
+6.9.3. d . media is not responsible for future changes in third-party systems and services.
+
+6.10. SEO optimization services
+6.10.1. The Services are activities to improve the visibility of websites in Internet search engines.
+6.10.2. Services may include technical analysis, content optimization, structure, metadata and other activities.
+6.10.3. d . media does not guarantee specific positions in search engines.
+
+6.11. GEO optimization services
+6.11.1. The Services are content and structure optimization activities for use by generative search engines and artificial intelligence systems.
+6.11.2. GEO optimization may include structured data, semantic links, machine-readable content, and other specialized activities.
+6.11.3. d . media does not guarantee inclusion in answers of specific AI systems.
+
+6.12. AI SEO optimization services
+6.12.1. The Services are optimization of content, data and structures for use by language models and AI platforms.
+6.12.2. Services may include citation analysis, entity optimization, schema implementation and other specialized activities.
+6.12.3. d . media does not guarantee specific visibility in AI systems.
+
+6.13. Technical support services
+6.13.1. The Services are monitoring, updating, correcting, maintaining and developing existing projects.
+6.13.2. Support can be one-time or subscription.
+6.13.3. The scope of support is determined individually for each project.
+
+6.14. Consulting services
+6.14.1. Consulting services are the provision of analyses, recommendations, expert opinions and professional advice.
+6.14.2. The Advisory Services do not constitute legal, accounting, financial or tax advice unless expressly stated otherwise.
+6.14.3. The client is responsible for the decisions they make based on the advice provided.
+
+7. extended service definitions
+7.1. Services for the design of graphic projects for printing
+7.1.1. One-sided business card
+A one-sided business card is a graphic design for personal or business use, containing information on only one side of the medium.
+7.1.2. Double sided business card
+A double-sided business card is a graphic design for personal or business use, containing information on both sides of the carrier.
+7.1.3. One-sided voucher (Gift Card)
+It is a graphic design for a gift voucher, coupon, gift card or discount card with a design on one side only.
+7.1.4. Double-sided voucher (Gift Card)
+It is a graphic design for a gift voucher, coupon, gift card or discount card with a design on both sides.
+7.1.5. Flyer
+It is a single sheet of advertising or informational material intended for distribution in printed form.
+7.1.6. Brochure
+It is informational or advertising material that can be single-sided, double-sided, folded or multi-sided.
+7.1.7. Menu
+Represents a graphic project for a restaurant, establishment, hotel, event or other activity requiring presentation of products, services or prices.
+7.1.8. An invitation
+It represents a graphic project for an event, celebration, conference, seminar or other event.
+7.1.9. Certificate
+Represents a graphic design for a certificate, diploma, certificate or other official document.
+7.1.10. Poster
+Represents a graphic project for advertising, information or public purposes, intended for printing in a format chosen by the Client.
+7.1.11. Print banner
+It is a graphic design for large format printing intended for indoor or outdoor use.
+7.1.12. Catalogue
+It is a multi-page printed material for presenting products, services, activities or a portfolio.
+7.1.13. A folder
+It represents a graphic project for a company or advertising folder.
+7.1.14. Other printed materials
+All other print projects fall into this category, including labels, packaging, stickers, billboards, calendars, notebooks and other similar materials.
+
+7.2. Design services of graphic projects for presence in social networks
+7.2.1. Facebook page cover
+It is a graphic project that complies with Facebook's technical requirements for business pages.
+7.2.2. Facebook group cover
+It is a graphic project that complies with Facebook's technical requirements for groups.
+7.2.3. Facebook event cover
+It is a graphic project for events organized through Facebook.
+7.2.4. Publication in 1:1 aspect
+It is a graphic project in a square format, suitable for social media posts.
+7.2.5. Publication in aspect 4:5
+It is a vertical graphic project optimized for mobile devices and social networks.
+7.2.6. Publication in aspect 16:9
+It is a horizontal graphic project for publications, presentations and digital channels.
+7.2.7. Story in aspect 9:16
+It is a graphic project for Facebook Stories, Instagram Stories, TikTok Stories and other vertical formats.
+7.2.8. Reel Cover
+It is a cover for video content on Instagram Reels, Facebook Reels, TikTok or similar platforms.
+7.2.9. Thumbnail for YouTube
+It is a graphic project for the visual presentation of video content on YouTube.
+7.2.10. YouTube Banner
+It is a graphic project for a YouTube channel cover.
+7.2.11. LinkedIn Banner
+Represents a graphic project for a personal or company profile on LinkedIn.
+7.2.12. X (Twitter) Banner
+Represents a profile graphic project on the X platform.
+7.2.13. TikTok Cover
+Represents a graphic project for presence and visual identity on TikTok.
+7.2.14. Social networking pack
+It is a combination of several graphic projects for different social platforms at a bundle price.
+7.2.15. Other digital materials
+This category includes all graphic materials intended for use on the Internet, mobile applications or digital platforms.
+
+7.3. Visual identity services
+7.3.1. Logo design
+It is the creation of an identification mark constructed entirely or mainly through a typographical solution using a name, designation, initials or other textual content.
+7.3.2. Logo design
+It is the creation of a graphic symbol, sign, emblem, pictogram or other visual element used to identify an individual, organization, product, service or brand.
+7.3.3. Logo design and logotype
+It is a combined system, including a graphic sign and typographic writing, which can be used both together and separately.
+7.3.4. Redesign of an existing logo or logotype
+It represents a renewal, modernization or adaptation of an already existing visual identity.
+7.3.5. Vectorization of a raster logo and/or logotype
+It represents the conversion of a raster graphic file to a vector format for scalability, higher quality and professional use.
+7.3.6. Restoring a logo or logotype
+Represents the recreation of an existing visual identity in the absence of the original files or in the need of a technical correction.
+7.3.7. Visual identity
+It is a system of visual elements used to recognize and represent an individual, organization, company, product or service.
+7.3.8. Visual identity may include:
+ logo;
+ logotype;
+ color system;
+ typographical system;
+ graphic elements;
+ icons;
+ visual templates;
+ terms of use;
+ other identification elements.
+7.3.9. Brand identity
+It is a complete system for brand positioning and presentation, including visual, communication and strategic elements.
+7.3.10. Brand identity can include:
+ visual identity;
+ positioning;
+ communication style;
+ tone of communication;
+ content structure;
+ core messages;
+ marketing guidelines;
+ other elements related to brand development.
+7.3.11. Brandbook
+It is a document describing the rules for using the visual and brand identity.
+7.3.12. The brandbook may include:
+basic versions of the logo;
+color system;
+typography;
+terms of use;
+safety zones;
+prohibited uses;
+application examples;
+communication guidelines;
+other identity handling rules.
+7.3.13. Design system
+It is a set of standards, components, rules and visual elements used to create and maintain a consistent digital environment.
+7.3.14. The design system may include:
+ colors;
+ typography;
+ components;
+ buttons;
+ icons;
+ distances;
+ networks;
+ interactive elements;
+ other user interface elements.
+7.3.15. Iconographic system
+It is the creation of a set of icons for use in websites, applications, presentations or other projects.
+7.3.16. Corporate identity
+It is a set of visual and communication elements used to represent an organization or company.
+7.3.17. Company documentation
+Represents the creation of elements such as letterheads, signatures, company documents, presentations and other materials related to corporate identity.
+7.3.18. d . media is entitled to offer visual identity services both as stand-alone services and as part of larger projects or package solutions.
+
+7.4. Content creation services
+7.4.1. Creating textual content
+Represents the creation of original texts for print, digital or other communication channels.
+7.4.2. Copywriting
+It represents the creation of texts for advertising, marketing, informational or commercial purposes.
+7.4.3. Content editing
+It represents a correction, improvement, adaptation or restructuring of existing texts.
+7.4.4. Blog article
+It is an authored text intended for publication in a blog, website or news section.
+7.4.5. Case Study
+It represents a structured description of a realized project, service, process or result.
+7.4.6. FAQ content
+Represents creation of frequently asked questions and answers sections.
+7.4.7. SEO content
+It represents creating content optimized for internet search engines.
+7.4.8. GEO content
+Represents content creation optimized for generative search engines and AI systems.
+7.4.9. AI SEO content
+It represents content created and structured for better processing by language models and artificial intelligence systems.
+7.4.10. Content for social networks
+Represents the creation of texts, posts, descriptions, scripts and other materials for social platforms.
+7.4.11. Product and Service Descriptions
+Represents the creation or editing of content for product catalogs, online stores and corporate websites.
+7.4.12. d . media is not responsible for the factual accuracy of information provided by the Client and used in the creation of content.
+
+7.5. Social network management services
+7.5.1. Management of social networks
+Represents planning, organizing, publishing, monitoring and optimizing the presence of the Client in social networks.
+7.5.2. Social media management can include:
+ content creation;
+ graphic design;
+ copywriting;
+ posting content;
+ publication planning;
+ communication with the audience;
+ comment moderation;
+ analysis of results;
+ preparation of reports;
+ consultations;
+ other related activities.
+7.5.3. Manage Facebook
+It represents the management of pages, groups, events and other assets on the Facebook platform.
+7.5.4. Manage Instagram
+It represents the management of profiles, posts, Stories, Reels and other functionalities of the platform.
+7.5.5. Manage Threads
+Represents the creation, publishing and management of content on the Threads platform.
+7.5.6. Manage LinkedIn
+Represents the management of personal and corporate profiles on the LinkedIn platform.
+7.5.7. Manage X
+Represents profile and content management on the X platform.
+7.5.8. Managing TikTok
+Represents management of profiles and video content on the TikTok platform.
+7.5.9. Manage YouTube
+It represents the management of channels, posts, descriptions, playlists and other content on the YouTube platform.
+7.5.10. Analysis and reporting
+Represents the collection, processing and presentation of information for the development of profiles, campaigns and content.
+7.5.11. d . media is not responsible for algorithm changes, platform restrictions, reduction of organic reach, blocking of profiles or other actions of the relevant social networks.
+7.5.12. d . media does not guarantee any specific number of followers, likes, comments, views, shares or other metrics.
+
+7.6. Advertising services
+7.6.1. Advertising strategy
+It represents analysis, planning and structuring of advertising activities according to the Client's goals.
+7.6.2. Advertising concept
+It is the development of an idea, message, vision or line of communication for advertising purposes.
+7.6.3. Advertising visions
+Represents the creation of graphic materials for advertising campaigns.
+7.6.4. Advertising texts
+Represents the creation of advertising messages, slogans, titles, descriptions and other communication elements.
+7.6.5. Advertising campaigns
+Represents the planning, construction, management and optimization of advertising campaigns.
+7.6.6. Remarketing
+Represents the creation and management of campaigns aimed at users who have already interacted with the brand.
+7.6.7. Analysis of advertising campaigns
+It represents an analysis of results, indicators and effectiveness of advertising activities.
+7.6.8. Advertising budgets are not included in the price of the services, unless expressly stated otherwise.
+7.6.9. Advertising platform costs are paid separately from d . media's remuneration.
+7.6.10. d . media does not guarantee specific results from advertising campaigns, including sales, enquiries, visits, conversions or return on investment.
+
+7.7. Video editing and video animation services
+7.7.1. Video processing
+Represents editing, processing, assembly and finalization of submitted video content.
+7.7.2. Video montage
+Represents the arrangement, editing and structuring of video material into a finished video product.
+7.7.3. Color corrections
+Represents processing and color correction of video content.
+7.7.4. Sound processing
+Represents the processing, correction and enhancement of audio content.
+7.7.5. Video for social networks
+Represents video content created or adapted for specific social platforms.
+7.7.6. Promotional video
+Represents video content for advertising or marketing purposes.
+7.7.7. Corporate video
+It is video content to introduce a company, organization, product or service.
+7.7.8. Video animation
+Represents the creation of animated visuals and video content.
+7.7.9. Logo animation
+Represents the animation of an existing or newly created logo.
+7.7.10. Logo animation
+Represents the animation of an existing or newly created logo.
+7.7.11. Intro
+Represents a short video animation to start video content.
+7.7.12. Outro
+Represents a short video animation to end video content.
+7.7.13. Motion Graphics
+Represents the creation of animated graphic elements for video content.
+7.7.14. Duration, complexity and resources used can affect the final price and lead time.
+7.7.15. d . media is not responsible for the copyright of video, audio or other materials provided by the Customer.
+
+7.8. Web design services
+7.8.1. Web design
+It is designing the visual appearance, structure, user experience and interface of a website, online store or digital platform.
+7.8.2. Landing Page
+It is a one-page website created for a specific marketing, advertising or informational purpose.
+7.8.3. Portfolio website
+It is a website for presenting an individual, specialist, creator, studio or organization.
+7.8.4. Corporate website
+It is a website to present a company, organization, institution, product or service.
+7.8.5. Online store
+It is a website designed to present and sell products or services via the Internet.
+7.8.6. Premium digital platform
+It is a complex digital system, including advanced functionalities, integrations, automations and customized solutions.
+7.8.7. Website redesign
+It is an update to the visual appearance, structure, functionality or user experience of an existing website.
+7.8.8. UX design
+It represents designing the user experience to improve the usability and effectiveness of the digital product.
+7.8.9. UI design
+Represents the design of the visual interface of a digital product.
+7.8.10. Prototyping
+Represents the creation of conceptual or interactive models of a future digital product.
+7.8.11. Unless otherwise agreed, web design services do not include development, implementation, hosting or technical support.
+
+7.9. Web development services
+7.9.1. Web development
+Represents the creation, programming, implementation, configuration, development or maintenance of websites and digital platforms.
+7.9.2. Front-End Development
+Represents development of the user part of a website or application.
+7.9.3. Back-End Development
+It represents the development of the server side of a website or application.
+7.9.4. Development of an online store
+Represents the creation or development of an online sales system.
+7.9.5. Website migration
+Represents moving a website between different systems, platforms or providers.
+7.9.6. Online store migration
+Represents moving an online store between different systems or platforms.
+7.9.7. Integration of payment systems
+Represents the connection of a website or online store with payment providers.
+7.9.8. CRM integration
+It represents the connection of a digital product with a customer relationship management system.
+7.9.9. Reservation system
+Represents the implementation of functionality for managing reservations, bookings or requests.
+7.9.10. Marketing automation
+Represents the implementation of automated processes for marketing and communication.
+7.9.11. Integration of external systems
+Represents the connection of a website, online store or digital platform with external services, platforms, API interfaces, cloud solutions, e-commerce systems, CRM systems, marketing automation and other technological solutions.
+
+7.9.12 Unless otherwise agreed, domains, hosting services, external licenses, paid extensions and third party services are not included in the project price.
+7.9.13. d . media is not responsible for future changes in third party systems, platforms or services.
+
+7.10. SEO optimization services
+7.10.1. SEO audit
+It is an analysis of the current state of a website from the point of view of Internet search engine optimization.
+7.10.2. Technical SEO optimization
+Represents activities to improve the technical characteristics of a website.
+7.10.3. On-Page SEO
+Represents optimization of content, structure, metadata and other internal elements.
+7.10.4. Semantic optimization
+It represents an optimization of the content and structure with a view to better thematic coverage.
+7.10.5. Schema Markup implementation
+It represents the implementation of structured data for better machine readability of content.
+7.10.6. SEO strategy
+It represents the development of a long-term plan to improve the visibility of a website.
+7.10.7. d . media does not guarantee specific positions in Internet search engines.
+
+7.11. GEO optimization services
+7.11.1. GEO audit
+It is an analysis of the readiness of a website for use by generative search engines and AI systems.
+7.11.2. GEO strategy
+Represents planning activities to improve visibility in generative environments.
+7.11.3. GEO content
+Represents the creation or optimization of content for generative systems.
+7.11.4. Entity Optimization
+It represents building and optimization of connections between brands, services, persons and other objects.
+7.11.5. Machine-Readable Optimization
+Represents content and structure optimization for better machining.
+7.11.6. d . media does not guarantee inclusion in the results of specific AI systems or generative search engines.
+
+7.12. AI SEO optimization services
+7.12.1. AI SEO audit
+It presents an analysis of content and website readiness for use by AI systems.
+7.12.2. AI Citability Optimization
+Represents activities to increase the likelihood that a given brand, service or content will be cited by AI systems.
+7.12.3. AI Content Structuring
+It represents the structuring of content for better understanding by language patterns.
+7.12.4. AI Knowledge Optimization
+Represents content optimization to build a clearer presence in AI environments.
+7.12.5. d . media does not guarantee specific results in artificial intelligence systems.
+
+7.13. Technical support services
+7.13.1. One-time technical support
+It represents the performance of specific technical activities on an already existing project.
+7.13.2. Subscription technical support
+Represents the provision of ongoing maintenance for a periodic fee.
+7.13.3. Advanced technical support
+Represents support with increased service coverage.
+7.13.4. Priority technical support
+It represents priority service support.
+7.13.5. Technical support may include:
+ updates;
+ surveillance;
+ corrections;
+ archiving;
+ optimization;
+ consultations;
+ other technical activities.
+7.13.6. The specific scope of technical support is determined between the parties on a project-by-project basis.
+
+8. TECHNICAL SPECIFICATIONS OF THE SERVICES
+8.1. General technical conditions
+8.1.1. d . media uses professional software, hardware and work processes when performing the assigned services.
+8.1.2. Unless otherwise agreed, all projects are provided in file formats considered standard for the relevant service.
+8.1.3. d . media has the right to choose the technologies, software products, platforms and work processes used, when this does not conflict with the agreed parameters.
+8.1.4. d . media has the right to replace the used software, technologies or services with other equivalent solutions without prior notification, when this does not negatively affect the final result.
+8.1.5. Unless otherwise agreed, work files are not provided to the Client.
+
+8.2. Technical specifications for graphic design
+8.2.1. Graphic design services for print projects can be produced using professional graphics software.
+8.2.2. Unless otherwise agreed, printable files are provided in formats such as:
+ PDF;
+ AI;
+ EPS;
+ SVG;
+ TIFF;
+ PNG;
+ other suitable formats.
+8.2.3. Unless otherwise agreed, print files are prepared in the CMYK color model.
+8.2.4. Unless otherwise agreed, graphic materials for printing are prepared at a resolution suitable for professional printing.
+8.2.5. d . media is not responsible for differences in color reproduction between different devices, displays, printers or printers.
+
+8.3. Technical specifications for digital graphic materials
+8.3.1. Digital graphic materials can be provided in formats such as:
+ PNG;
+ JPG;
+ JPEG;
+ WEBP;
+ SVG;
+ PDF;
+ other suitable formats.
+8.3.2. Unless otherwise agreed, digital graphic materials are prepared in the RGB color model.
+8.3.3. Dimensions and proportions are determined according to the technical requirements of the respective platform at the time of production.
+8.3.4. d . media is not responsible for future changes in the technical requirements of external platforms.
+
+8.4. Technical specifications for visual identity
+8.4.1. Logos and logotypes are created in vector format when applicable.
+8.4.2. Unless otherwise agreed, the final package may include:
+ color versions;
+ black and white versions;
+ monochrome versions;
+ light background versions;
+ dark background versions.
+8.4.3. The number of files and variants provided is determined by the specific service.
+
+8.5. Technical specifications for video content
+8.5.1. Video materials can be provided in formats such as:
+ MP4;
+ MOV;
+ M4V;
+ other suitable formats.
+8.5.2. The resolution is determined according to the needs of the project and the capabilities of the source materials provided.
+8.5.3. Unless otherwise agreed, working design files are not provided.
+8.5.4. Use of licensed audio, video or graphic resources may be subject to additional charges.
+
+8.6. Technical specifications for web projects
+8.6.1. Web projects can be developed using various technologies, programming languages, content management systems, static site generators, e-commerce platforms, and other solutions.
+8.6.2. The specific technology stack is determined by d . media or by mutual agreement between the parties.
+8.6.3. Unless otherwise agreed, access to servers, administrative panels, hosting services and other systems is provided after the completion of the project.
+8.6.4. d . media is not responsible for problems caused by subsequent changes made by the Customer or third parties.
+8.6.5. d . media is not responsible for interruptions, limitations or changes in services of external providers.
+8.6.6. Unless otherwise agreed, backups are kept for a limited period after the project is completed.
+
+8.7. Technical specifications for SEO, GEO and AI SEO services
+8.7.1. SEO, GEO and AI SEO services are performed according to good practices and available technological capabilities at the time of execution.
+8.7.2. d . media does not control the algorithms of internet search engines, AI systems or other external platforms.
+8.7.3. d . media does not guarantee specific positions, rankings, citations or results.
+8.7.4. All analyses, forecasts and recommendations represent professional judgment at the time of their preparation.
+
+8.8. Use of third-party resources
+8.8.1. If necessary, d . media may use licensed images, fonts, icons, video materials, audio resources, program libraries, external services or other resources.
+8.8.2. Where the use of such resources requires the purchase of a license, the corresponding cost shall be borne by the Customer, unless otherwise agreed.
+8.8.3. d . media is not responsible for subsequent changes to third party license terms.
+8.8.4. The customer is obliged to comply with all license restrictions related to the used resources.
+
+9. RIGHTS AND OBLIGATIONS OF THE PARTIES
+9.1. Rights to d . media:
+9.1.1. To require the Client to provide the necessary materials, information and assistance.
+9.1.2. To determine the organization of the work process and the technologies used.
+9.1.3. To require timely feedback from the Client.
+9.1.4. To use subcontractors when necessary for the execution of the project.
+9.1.5. To suspend work on a project in the event of non-fulfillment of financial obligations by the Client.
+9.1.6. To refuse implementation of projects that contradict the legislation or good morals.
+9.1.7. To consider the project as accepted under the conditions specified in these General Terms and Conditions.
+9.1.8. To use the completed projects as part of its portfolio, unless White-label execution or other restriction is agreed.
+9.1.9. To indicate his authorship on created projects, unless otherwise agreed.
+9.1.10. To refuse to provide working files when this is not included in the particular service.
+9.1.11. To determine the internal organization of project implementation without the need for approval from the Client.
+9.1.12. To offer alternative solutions when they are in the interest of the project or the Client.
+9.1.13. To require confirmation of intermediate stages when this is necessary for the implementation of the project.
+9.1.14. To stop the implementation of a project in the absence of communication from the Client for a period of more than 30 calendar days.
+9.1.15. To consider a project temporarily frozen in the absence of communication from the Client for a period of more than 30 calendar days.
+9.1.16. To update these General Terms and Conditions, the Privacy Policy and its internal rules in accordance with current legislation.
+
+9.2. Duties of d . media:
+9.2.1. To perform the assigned work in good faith and professionally.
+9.2.2. To perform the services according to the agreed parameters.
+9.2.3. To use professional means and methods to perform the assigned services.
+9.2.4. To store the provided information in compliance with the applicable legislation.
+9.2.5. To notify the Client in the event of circumstances that may have a significant impact on the project.
+9.2.6. To provide information on the status of the project upon request by the Client.
+9.2.7. To eliminate identified deficiencies when they are the result of actions or inactions of d . media.
+9.2.8. To maintain the confidentiality of information received in connection with the project.
+9.2.9. To comply with the applicable legislation when performing the assigned services.
+
+9.3. Customer Rights:
+9.3.1. To receive the services according to the agreed parameters.
+9.3.2. To receive information about the implementation of the project.
+9.3.3. To make reasonable requests for corrections according to the scope of the contracted service.
+9.3.4. To receive the final files and materials included in the relevant service.
+9.3.5. To demand the elimination of defects when they are the result of actions or omissions of d . media.
+9.3.6. To terminate contractual relations under the conditions provided for in this document or in the specific contract.
+9.3.7. To receive invoices, reports and other documents when applicable.
+
+9.4. Obligations of the Client:
+9.4.1. To provide true, current and complete information.
+9.4.2. To provide all necessary materials for the implementation of the project.
+9.4.3. To provide the necessary assistance for the performance of the services.
+9.4.4. To provide timely feedback.
+9.4.5. To comply with the agreed deadlines for providing information, materials and approvals.
+9.4.6. To pay the remuneration within the agreed terms.
+9.4.7. To have the necessary rights to use all materials provided.
+9.4.8. To indemnify d . media for claims of third parties related to materials provided by the Client.
+9.4.9. Not to use the projects outside the scope of the acquired license.
+9.4.10. Not to remove authorship designations when such are part of the project and White-label performance is not agreed upon.
+9.4.11. To review the materials provided within a reasonable time after receiving them.
+9.4.12. The lack of objection within 3 working days after providing a project, correction or final files is considered acceptance at the relevant stage.
+
+10. TERMS, PRICES AND PAYMENTS
+10.1. Deadlines
+10.1.1. Implementation deadlines are determined individually for each project.
+10.1.2. The terms begin to run after the provision of all necessary materials and information by the Client.
+10.1.3. In case of delay on the part of the Client, the deadlines are extended by the corresponding period of delay.
+10.1.4. d . media has the right to change the performance schedule in the presence of objective reasons.
+10.1.5. Intermediate terms can be determined in stages depending on the development of the project.
+10.1.6. Times are considered indicative unless otherwise agreed.
+
+10.2. Prices
+10.2.1. All services are provided according to the current Price List at the time of assignment.
+10.2.2. Individual offers take precedence over the general Price List.
+10.2.3. All prices are negotiated in Euros (€), unless otherwise agreed.
+10.2.4. For informational purposes, prices may also be indicated in BGN equivalents according to the current legislation.
+10.2.5. Prices do not include costs for external services, licenses, domains, hosting, advertising budgets, paid resources or other costs, unless otherwise agreed.
+10.2.6. d . media has the right to update the Price List at any time, and the updates do not affect already awarded and confirmed projects.
+
+10.3. Payments
+10.3.1. Payment is made in the manner specified in the invoice, contract or offer.
+10.3.2. Payment can be made by bank transfer, payment system or other agreed method.
+10.3.3. d . media has the right to require advance payment.
+10.3.4. Unless otherwise agreed, work on the project begins after receipt of the agreed advance payment.
+10.3.5. For larger projects, the payment can be divided into stages.
+10.3.6. d . media has the right to suspend work on the project in case of late payment.
+10.3.7. All bank charges and payment costs are for the account of the Customer, unless otherwise agreed.
+10.3.8. In case of unpaid debts, d . media has the right to refuse the provision of files, access, materials or services until they are paid in full.
+
+11. materials, content and intellectual property
+1.1. General conditions
+11.1.1. d . media performs the assigned services with its own technical means, knowledge, skills, methodologies and work processes, unless otherwise agreed.
+11.1.2. All concepts, proposals, sketches, variants, ideas, strategies, visual solutions, work files and other materials created in the course of work constitute the intellectual property of d . media, unless otherwise agreed.
+11.1.3. Providing a project, file, design, code or other content does not automatically transfer copyright.
+11.1.4. The customer acquires only the rights that are expressly agreed between the parties.
+
+11.2. Materials provided by the Client
+11.2.1. The customer is fully responsible for all materials they provide to d . media.
+11.2.2. The customer declares that he has the necessary rights to use all materials provided.
+11.2.3. The customer bears full responsibility for infringement of copyrights, trademarks, industrial property or other rights of third parties in connection with provided materials.
+11.2.4. d . media is not obliged to carry out a legal review of the materials provided.
+11.2.5. In the event of claims from third parties, the Customer is obliged to indemnify d . media for all incurred damages, costs and claims.
+
+11.3. Materials created by d . media
+11.3.1. All projects, designs, texts, strategies, concepts, structures, visual solutions, code, documentation and other materials created by d . media constitute protected objects of intellectual property.
+11.3.2. Copyright arises automatically from the moment of creation of the relevant material.
+11.3.3. Unless otherwise agreed, d . media reserves all proprietary and non-property rights in the materials created.
+11.3.4. Unselected concepts, variants and proposals remain the exclusive property of d . media.
+
+11.4. Licensing
+11.4.1. Unless otherwise agreed, all services are provided with a non-exclusive license to use.
+11.4.2. The non-exclusive license gives the Client the right to use the project for his own needs according to its purpose.
+11.4.3. An exclusive license is granted only by express written agreement between the parties.
+11.4.4. Full transfer of property copyrights is done only through a separate contract or annex.
+11.4.5. In the absence of an express written agreement, all rights remain the property of d . media.
+
+11.5. Restrictions on Use
+11.5.1. The customer has no right to resell, assign or license the project to third parties outside of the rights granted to him.
+11.5.2. The client has no right to present the project as his own work of authorship when this contradicts the acquired license.
+11.5.3. The customer has no right to use the projects outside the scope of the license granted.
+11.5.4. The customer may not use unused concepts, variants and proposals without express written permission.
+
+11.6. Portfolio and public presentation
+11.6.1. Unless otherwise agreed, d . media has the right to use the executed projects for:
+ portfolio;
+ marketing;
+ advertising;
+ case studies;
+ presentations;
+ social networks;
+ website;
+ competitions and professional participations.
+11.6.2. This right applies to both completed and partially displayed designs.
+11.6.3. Restrictions may be negotiated by separate agreement.
+
+11.7. White-label execution
+11.7.1. In case of White-label performance, d . media refuses to be publicly designated as the contractor for the specific project.
+11.7.2. White-label performance does not constitute an automatic transfer of copyright.
+11.7.3. White-label the performance is provided for an additional fee according to the current Price List or an individual contract.
+
+12. liability and penalties
+12.1. Responsibility of the parties
+12.1.1. Each party is responsible for failure to fulfill its obligations under these General Terms and Conditions and the specific agreements between the parties.
+12.1.2. Neither party shall be liable for damages caused by circumstances beyond its reasonable control.
+
+12.2. Penalties for delay by d . media
+12.2.1. In case of culpable delay in performance, d . media owes a penalty of 1% of the value of the specific service for each day overdue.
+12.2.2. The total amount of the penalty cannot exceed 20% of the value of the specific service.
+
+12.3. Penalties in case of delay on the part of the Client
+12.3.1. In case of delay in payment, the Customer owes a penalty in the amount of 0.5% of the overdue amount for each day of delay.
+12.3.2. The total amount of the penalty cannot exceed the amount of the remuneration due.
+12.3.3. d . media has the right to suspend work on the project until the amounts due are paid in full.
+
+12.4. Termination at Customer's fault
+12.4.1. In case of rejection of a project after the start of work, the Client owes payment for all activities carried out to date.
+12.4.2. When the exact amount of work performed cannot be determined, d . media has the right to calculate the remuneration based on the actual time and resources invested.
+
+12.5. Limitation of Liability
+12.5.1. d . media is not responsible for:
+ loss of profit;
+ lost profits;
+ indirect damages;
+ consequential damages;
+ reputational damage;
+ reduced sales;
+ reduced attendance;
+ loss of positions in search engines;
+ reduced engagement in social networks.
+12.5.2. d . media's maximum liability under a particular project may not exceed the value of the remuneration received under it.
+12.5.3. d . media is not responsible for decisions made by the Client based on any advice, analysis or recommendations provided.
+12.5.4. d . media is not responsible for the acts, omissions or technical problems of third parties.
+
+13. LIMITATION OF LIABILITY (FORCE MAJEURE)
+
+13.1. Force majeure
+13.1.1. Force majeure is any unforeseeable, extraordinary and insurmountable event that occurred after the conclusion of the contractual relationship and regardless of the will of the parties.
+13.1.2. Circumstances of force majeure can be considered:
+ natural disasters;
+ earthquakes;
+ floods;
+ fires;
+ wars;
+ military action;
+ acts of terrorism;
+ civil unrest;
+ strikes;
+ epidemics;
+ pandemics;
+ cyber attacks;
+ mass disruptions of communication services;
+ mass blackouts;
+ actions of government bodies;
+ legislative changes;
+ other circumstances beyond the reasonable control of the parties.
+13.1.3. The party affected by force majeure is obliged to notify the other party within a reasonable period of time after becoming aware of it.
+13.1.4. During the effect of the force majeure circumstance, the performance of the affected obligations is suspended.
+13.1.5. After the termination of the force majeure circumstance, the performance of obligations resumes.
+13.1.6. d . media shall not be liable for any delay or impossibility of performance caused by force majeure.
+13.1.7. d . media is not responsible for damage, loss of data or interruption of services caused by force majeure or actions of third parties.
+
+13.2. External suppliers and services
+13.2.1. d . media is not responsible for malfunctions, limitations or termination of services provided by external providers.
+13.2.2. d . media is not responsible for changes in terms, policies or technical features of external platforms.
+13.2.3. d . media is not responsible for the suspension, restriction or termination of accounts by external platforms.
+
+14. TERM AND TERMINATION OF AGREEMENT
+
+14.1. Term of the contract
+14.1.1. The term of the contract is determined between the parties and is specified in the specific contract, offer or other written agreement.
+14.1.2. In the absence of an explicitly defined term, the contract is considered effective until the obligations of the parties are fulfilled.
+
+14.2. Termination of the contract
+14.2.1. The contract is terminated:
+ with its implementation;
+ by mutual written agreement;
+ in accordance with these General Terms and Conditions;
+ by virtue of law;
+ in other stipulated cases.
+14.2.2. Each of the parties has the right to terminate the contract in case of material non-performance by the other party.
+14.2.3. d . media has the right to unilaterally terminate the contract without notice if:
+ providing false information;
+ breaking the law;
+ misuse of services;
+ abusive, aggressive or threatening behaviour;
+ non-fulfillment of financial obligations;
+ other material violations.
+14.2.4. The customer has the right to terminate the contract in the event of substantial culpable non-performance on the part of d . media.
+14.2.5. Termination of the contract does not release the parties from obligations that arose before its termination.
+
+14.3. Consequences of Termination
+14.3.1. Upon termination, the Client owes payment for all activities performed to date.
+14.3.2. d . media has the right to retain undelivered materials pending final settlement of the financial relationship.
+14.3.3. After termination of the contract, all granted licenses remain in force according to the agreed terms.
+
+15. CONFIDENTIALITY
+
+15.1. Confidential Information
+15.1.1. Any information received in connection with the performance of the services, regardless of its medium or form, is considered confidential.
+15.1.2. Confidential information may include:
+ trade secrets;
+ business plans;
+ marketing strategies;
+ financial information;
+ technical information;
+ customer data;
+ price conditions;
+ internal documentation;
+ know-how;
+ other non-public information.
+
+15.2. Obligations of the parties
+15.2.1. The parties undertake to use the confidential information only for the purposes of fulfilling contractual relations.
+15.2.2. The parties undertake not to disclose confidential information to third parties without prior consent.
+15.2.3. The parties are required to take reasonable measures to protect confidential information.
+
+15.3. Exceptions
+15.3.1. It is not considered confidential information that:
+is publicly available;
+was obtained lawfully from a third party;
+subject to disclosure by law;
+was known to the recipient prior to receipt.
+
+15.4. Term of confidentiality
+15.4.1. The obligations of confidentiality remain in force even after the termination of the contractual relationship.
+15.4.2. Unless otherwise agreed, the confidentiality obligations remain in force for a period of 5 years after the termination of the relationship between the parties.
+
+16. ADDITIONAL PROVISIONS
+
+16.1. All changes and additions to a specific project can be agreed between the parties in writing.
+16.2. Individual agreements take precedence over these General Terms and Conditions regarding the specific project.
+16.3. If a separate provision of these General Terms and Conditions is declared invalid, this does not affect the validity of the remaining provisions.
+16.4. Section headings are used for convenience only and do not affect the interpretation of the document.
+16.5. d . media's failure to exercise a right does not constitute a waiver of that right.
+16.6. All notifications between the parties may be made through:
+ e-mail;
+ courier;
+ postal service;
+ electronic platforms;
+ other written communication channels.
+16.7. For unsettled cases, the current legislation of the Republic of Bulgaria is applied.
+
+17. GOVERNING LAW AND DISPUTES
+
+17.1. These General Terms and Conditions are regulated and interpreted according to the legislation of the Republic of Bulgaria.
+17.2. All disputes between the parties shall be resolved first through negotiations and good faith attempts to reach an agreement.
+17.3. In case of impossibility of voluntary settlement, the dispute shall be decided by the competent Bulgarian court.
+17.4. The court at the seat or permanent address of the Contractor is competent, unless the applicable legislation provides otherwise.
+17.5. These General Terms and Conditions enter into force from the date of their publication or from the date specified in a specific contract between the parties.

@@ -1,0 +1,13 @@
+---
+import ServiceDetailPage from "@/components/ServiceDetailPage.astro";
+import { getAuthorityServices } from "@/lib/authority-services";
+
+export function getStaticPaths() {
+  return getAuthorityServices("en").map((service) => ({ params: { slug: service.slug }, props: { service } }));
+}
+
+const { service } = Astro.props;
+const path = `/services/${service.slug}`;
+---
+
+<ServiceDetailPage locale="en" path={path} copy={service} ctaLocation={`${service.slug}_service_cta`} />

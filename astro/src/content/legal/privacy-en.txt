@@ -1,0 +1,261 @@
+d . media carries out its activities in accordance with Regulation (EU) 2016/679 (GDPR), the Personal Data Protection Act and applicable European and Bulgarian legislation.
+This Privacy Policy governs the manner in which d . media collects, processes, stores, uses and protects the personal data of its customers, partners, suppliers, website visitors and other persons with whom it conducts business.
+
+1. ADMINISTRATOR OF PERSONAL DATA
+Personal data administrator:
+d . media
+0892 494 495
+contact@d-media.org
+
+2. TYPES OF PERSONAL DATA PROCESSED
+
+2.1. d . media may process the following categories of personal data:
+2.1.1. Physical Identity Data:
+ name;
+ last name;
+ last name;
+ address;
+ telephone number;
+ other information necessary for identification.
+2.1.2. Contact details:
+ e-mail;
+ telephone number;
+ mailing address;
+ profiles in social networks;
+ other communication data.
+2.1.3. Financial data:
+ IBAN;
+ bank information;
+ invoice data;
+ payment data;
+ other information necessary to fulfill financial obligations.
+2.1.4. Contractual relationship data:
+ contracts;
+ offers;
+ annexes;
+ invoices;
+ payment documents;
+ correspondence;
+ information about assigned services.
+2.1.5. Website Usage Data:
+ IP address;
+ browser;
+ operating system;
+ language settings;
+ device;
+ cookies;
+ other technical information.
+2.1.6. Account and profile data:
+ social network accounts;
+ usernames;
+ publicly available information;
+ profile identifiers.
+2.1.7. Communication data:
+ e-mail;
+ messages;
+ inquiries;
+ files;
+ materials provided;
+ other correspondence.
+
+3. SOURCES OF COLLECTION OF PERSONAL DATA
+
+3.1. Personal data may be collected directly from the data subject.
+
+3.2. Personal data can be obtained through:
+ websites;
+ contact forms;
+ e-mail;
+ telephone calls;
+ social networks;
+ chat platforms;
+ video conferencing platforms;
+ other means of communication.
+
+3.3. Data may be received through payment service providers.
+
+3.4. Data may be obtained through external platforms used to perform the Services.
+
+3.5. Data may be obtained through partners or representatives of the Client when this is necessary for the performance of the services.
+
+4. PROCESSING OF SPECIAL CATEGORIES OF PERSONAL DATA
+
+4.1. d . media does not process special categories of personal data within the meaning of Regulation (EU) 2016/679, unless this is expressly required by law.
+
+4.2. If, during the performance of a specific service, it becomes necessary to process special categories of personal data, this will only be done if there is a valid legal basis.
+
+5. PURPOSES FOR THE PROCESSING OF PERSONAL DATA
+
+5.1. Personal data may be processed for the following purposes:
+5.1.1. Provision of information and assistance.
+5.1.2. Preparation of offers.
+5.1.3. Preparation and execution of contracts.
+5.1.4. Provision of services.
+5.1.5. Issuance of accounting documents.
+5.1.6. Communicating with Customers.
+5.1.7. Compliance with legal obligations.
+5.1.8. Improving the quality of services.
+5.1.9. Provision of technical support.
+5.1.10. Preparation of analyzes and reports.
+5.1.11. Ensuring information security.
+5.1.12. Prevention of abuse and fraud.
+5.1.13. Protection of the legitimate interests of d . media.
+5.1.14. Sending Service Information when permitted under applicable law.
+5.1.15. Managing relationships with customers, partners and suppliers.
+
+6. LEGAL GROUNDS FOR PROCESSING
+
+6.1. Personal data may be processed on one or more of the following grounds:
+6.1.1. Contract performance.
+6.1.2. Taking action at the request of the entity before entering into a contract.
+6.1.3. Compliance with legal obligation.
+6.1.4. Protection of legitimate interests of d . media.
+6.1.5. Express consent of the data subject.
+6.1.6. Other grounds provided for in applicable legislation.
+
+7. PERIODS OF STORAGE OF PERSONAL DATA
+
+7.1. Personal data is stored only for the period necessary to achieve the respective purpose.
+
+7.2. The main storage periods are:
+7.2.1. Data on contracts and services - up to 5 years after the end of the relationship.
+7.2.2. Accounting documents - 10 years.
+7.2.3. Correspondence - up to 1 year after the end of the communication.
+7.2.4. Data for marketing messages - until consent is withdrawn.
+7.2.5. Data for partners and suppliers - up to 5 years after the end of the relationship.
+7.2.6. Consent data – until consent is withdrawn and for 2 years thereafter for evidentiary purposes.
+
+7.3. After the expiration of the relevant terms, the data is deleted or anonymized.
+
+8. DELETE AND ANONYMIZE DATA
+
+8.1. Deletion is the permanent removal of personal data.
+
+8.2. Methods used may include:
+ logical deletion;
+ physical destruction;
+ secure deletion from digital media;
+ deletion from archives after the expiration of the applicable terms.
+
+8.3. Anonymization is the processing of data in a way that does not allow identification of a specific natural person.
+
+8.4. After anonymization, the information ceases to be personal data within the meaning of the applicable legislation.
+
+9. SHARING OF PERSONAL DATA
+
+9.1. d . media does not sell, rent or provide personal data to third parties outside of the cases provided for in this Policy or in applicable legislation.
+
+9.2. Personal data may be provided to:
+9.2.1. Government authorities, courts, regulators and other competent institutions when required by law.
+9.2.2. Accountants, lawyers, auditors and professional consultants when necessary to fulfill legal or contractual obligations.
+9.2.3. Payment service providers.
+9.2.4. Hosting providers.
+9.2.5. Cloud service providers.
+9.2.6. Communication Service Providers.
+9.2.7. Analytics Service Providers.
+9.2.8. Marketing Service Providers.
+9.2.9. Subcontractors involved in the implementation of a specific project.
+
+9.3. The provision of data is carried out only in the volume necessary to fulfill the respective purpose.
+
+9.4. Where required by law, d . media will inform the data subject about the provision of his data.
+
+9.5. When using external providers, d . media makes reasonable efforts to work with organizations that implement appropriate measures to protect personal data.
+
+10. PROTECTION OF PERSONAL DATA
+
+10.1. d . media implements technical and organizational measures to protect personal data from:
+ unauthorized access;
+ loss;
+ destruction;
+ wrongful alteration;
+ distribution;
+ unauthorized processing.
+
+10.2. Measures applied may include:
+10.2.1. Access control.
+10.2.2. Data encryption.
+10.2.3. Backing up information.
+10.2.4. Network infrastructure protection.
+10.2.5. Protection of end devices.
+10.2.6. Limiting access to information only to persons for whom it is necessary.
+10.2.7. Use of means of authentication and identification.
+10.2.8. Periodic review of security measures.
+
+10.3. Regardless of the measures taken, no system can guarantee absolute security.
+
+10.4. Upon detection of a security breach, d . media takes action in accordance with the applicable legislation.
+
+11. AUTOMATED DECISION MAKING
+
+11.1. d . media does not perform automated decision-making that gives rise to legal consequences for data subjects.
+
+11.2. d . media does not perform profiling within the meaning of Regulation (EU) 2016/679, unless this is explicitly stated and a valid legal basis exists.
+
+12. RIGHTS OF DATA SUBJECTS
+
+12.1. Every data subject has the right to receive information about the processing of his personal data.
+
+12.2. Every data subject has the right of access to the personal data processed.
+
+12.3. Every data subject has the right to request the correction of inaccurate or incomplete data.
+
+12.4. Every data subject has the right to request the erasure of his personal data when the legal prerequisites for this are met.
+
+12.5. Every data subject has the right to request restriction of processing.
+
+12.6. Every data subject has the right to object to the processing of his personal data.
+
+12.7. Every data subject has the right to data portability.
+
+12.8. Any data subject has the right to withdraw consent at any time.
+
+12.9. The withdrawal of consent does not affect the lawfulness of the processing carried out before its withdrawal.
+
+12.10. Every data subject has the right to file a complaint with the Commission for Personal Data Protection.
+
+12.11. Claims under this section may be made by written notice to d . media.
+
+13. COOKIES
+
+13.1. d . media websites may use cookies and similar technologies.
+
+13.2. Cookies are small text files that are stored on the user's device.
+
+13.3. Cookies can be used to:
+13.3.1. Ensuring the normal operation of the website.
+13.3.2. Website usage analysis.
+13.3.3. Improving user experience.
+13.3.4. Remembering user preferences.
+13.3.5. Statistical purposes.
+13.3.6. Marketing purposes where permitted by law.
+
+13.4. The user can limit or delete cookies through the settings of the browser used.
+
+13.5. Restricting certain cookies may limit the functionality of the website.
+
+13.6. If necessary, d . media may use a cookie consent management mechanism.
+
+14. INFORMED CONSENT
+
+14.1. By initiating pre-contractual relations, sending an inquiry, requesting a service or concluding a contract, the data subject confirms that he is familiar with this Privacy Policy.
+
+14.2. When data processing is based on consent, it is considered to be voluntarily provided.
+
+14.3. The data subject has the right to withdraw consent at any time.
+
+14.4. The withdrawal of consent does not affect the processing carried out before its withdrawal.
+
+15. CONTACT ABOUT PERSONAL DATA
+
+15.1. All questions, requests and notifications related to the processing of personal data can be addressed to:
+
+d . media
+Sofia, Bulgaria
+Phone: 0892 494 495
+E-mail: contact@d-media.org
+Website: d-media.org
+
+15.2. d . media considers the requests received within the time limits provided by the applicable legislation.
+
+15.3. This Privacy Policy is an integral part of the General Terms and Conditions of Service of d . media.

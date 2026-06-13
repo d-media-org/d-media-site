@@ -33,12 +33,20 @@ export function stripLocalePrefix(pathname: string) {
 }
 
 export function localizeHref(locale: Locale, pathname: string) {
+  const withTrailingSlash = (value: string) => {
+    if (value === "/" || value.endsWith("/") || /[?#]/u.test(value)) {
+      return value;
+    }
+
+    return `${value}/`;
+  };
+
   if (locale === defaultLocale) {
-    return pathname === "/en" ? "/" : stripLocalePrefix(pathname);
+    return withTrailingSlash(pathname === "/en" ? "/" : stripLocalePrefix(pathname));
   }
 
   const normalized = pathname === "/" ? "" : stripLocalePrefix(pathname);
-  return `/en${normalized}`;
+  return withTrailingSlash(`/en${normalized}`);
 }
 
 export function getAlternateLocale(locale: Locale): Locale {

@@ -10,7 +10,7 @@ import {
   getBlogSocialImage,
 } from "@/lib/blog";
 import { localizeHref, type Locale } from "@/lib/i18n";
-import { getBlogPostingSchema } from "@/lib/seo";
+import { getAbsolutePageUrl, getBlogPostingSchema } from "@/lib/seo";
 import { getUiCopy } from "@/lib/ui-copy";
 
 const locale: Locale = "bg";
@@ -70,19 +70,19 @@ const breadcrumbSchema = {
       "@type": "ListItem",
       position: 1,
       name: "Начало",
-      item: "https://www.d-media.org/",
+      item: getAbsolutePageUrl(locale, "/"),
     },
     {
       "@type": "ListItem",
       position: 2,
       name: "Draft статии",
-      item: "https://www.d-media.org/blog/drafts",
+      item: getAbsolutePageUrl(locale, "/blog/drafts"),
     },
     {
       "@type": "ListItem",
       position: 3,
       name: post.title,
-      item: `https://www.d-media.org${path}`,
+      item: getAbsolutePageUrl(locale, path),
     },
   ],
 };

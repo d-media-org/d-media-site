@@ -11,7 +11,7 @@ import {
   getBlogPageCopy,
 } from "@/lib/blog";
 import { localizeHref, type Locale } from "@/lib/i18n";
-import { getBlogPostingSchema } from "@/lib/seo";
+import { getAbsolutePageUrl, getBlogPostingSchema, getFAQPageSchema } from "@/lib/seo";
 import { getUiCopy } from "@/lib/ui-copy";
 
 const locale: Locale = "bg";
@@ -50,7 +50,7 @@ const localeSwitcherItems = [
   {
     locale: "en" as const,
     label: "EN",
-    href: "/en/blog",
+    href: localizeHref("en", path),
     isActive: false,
   },
 ];
@@ -62,19 +62,19 @@ const breadcrumbSchema = {
       "@type": "ListItem",
       position: 1,
       name: "Начало",
-      item: "https://www.d-media.org/",
+      item: getAbsolutePageUrl(locale, "/"),
     },
     {
       "@type": "ListItem",
       position: 2,
       name: "Блог",
-      item: "https://www.d-media.org/blog",
+      item: getAbsolutePageUrl(locale, "/blog"),
     },
     {
       "@type": "ListItem",
       position: 3,
       name: post.title,
-      item: `https://www.d-media.org${path}`,
+      item: getAbsolutePageUrl(locale, path),
     },
   ],
 };
@@ -89,10 +89,10 @@ const breadcrumbSchema = {
   openGraphType="article"
   localeSwitcherItems={localeSwitcherItems}
   alternateLinks={{
-    canonical: `https://www.d-media.org${path}`,
-    bg: `https://www.d-media.org${path}`,
-    en: null,
-    xDefault: `https://www.d-media.org${path}`,
+    canonical: getAbsolutePageUrl(locale, path),
+    bg: getAbsolutePageUrl(locale, path),
+    en: getAbsolutePageUrl("en", path),
+    xDefault: getAbsolutePageUrl(locale, path),
   }}
   structuredData={[
     breadcrumbSchema,
@@ -108,6 +108,7 @@ const breadcrumbSchema = {
       inLanguage: post.language,
       image: socialImage,
     }),
+    ...(post.faqs?.length ? [getFAQPageSchema({ locale, path, faqs: post.faqs })] : []),
   ]}
 >
   <main class="site-shell" id="top">
@@ -141,8 +142,17 @@ const breadcrumbSchema = {
             </section>
           ))}
 
+          {post.faqs?.length ? (
+            <section class="blog-article-block">
+              <h2>Често задавани въпроси</h2>
+              {post.faqs.map((faq) => (
+                <div class="blog-article-block"><h3>{faq.question}</h3><p>{faq.answer}</p></div>
+              ))}
+            </section>
+          ) : null}
+
           <div class="project-card-footer blog-back-link-row">
-            <a class="inline-link" href="/blog" data-blog-back>Назад към статиите</a>
+            <a class="inline-link" href="/blog/" data-blog-back>Назад към статиите</a>
           </div>
         </div>
 

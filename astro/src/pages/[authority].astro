@@ -1,0 +1,7 @@
+---
+import AuthorityPage from "@/components/AuthorityPage.astro";
+import { getAuthorityPages } from "@/lib/authority-pages";
+export function getStaticPaths() { return getAuthorityPages("bg").map((page) => ({ params: { authority: page.slug }, props: { page } })); }
+const { page } = Astro.props;
+---
+<AuthorityPage locale="bg" page={page} />

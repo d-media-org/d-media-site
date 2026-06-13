@@ -1,12 +1,13 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import { getBlogCategories, getBlogPageCopy } from "@/lib/blog";
-import { type Locale } from "@/lib/i18n";
+import { getBlogCategories, getBlogPageCopy, getPublishedBlogPosts } from "@/lib/blog";
+import { localizeHref, type Locale } from "@/lib/i18n";
 import { getBreadcrumbSchema } from "@/lib/seo";
 
 const locale: Locale = "en";
 const copy = getBlogPageCopy(locale);
 const categories = getBlogCategories(locale);
+const posts = getPublishedBlogPosts(locale);
 ---
 
 <Layout
@@ -25,18 +26,63 @@ const categories = getBlogCategories(locale);
         <p class="page-text">{copy.intro}</p>
       </div>
 
+      <article class="card services-cta-card">
+        <div class="services-cta-copy">
+          <h2>{copy.knowledgeTitle}</h2>
+          <p class="page-text">{copy.knowledgeText}</p>
+        </div>
+      </article>
+
       <div class="blog-filters" aria-label={copy.filtersLabel}>
+        <button type="button" class="tag-pill" data-blog-filter="all" aria-pressed="true">{copy.allLabel}</button>
         {categories.map((category) => (
-          <span class="tag-pill">{category.label}</span>
+          <button type="button" class="tag-pill" data-blog-filter={category.key} aria-pressed="false">{category.label}</button>
         ))}
       </div>
 
-      <article class="card services-cta-card">
-        <div class="services-cta-copy">
-          <h2>{copy.emptyTitle}</h2>
-          <p class="page-text">{copy.emptyText}</p>
-        </div>
-      </article>
+      <div id="all" class="project-grid">
+        {posts.map((post) => (
+          <article class="card service-category-card" data-blog-card data-blog-category={post.category}>
+            <div class="blog-meta-row">
+              <p class="project-meta">{categories.find((category) => category.key === post.category)?.label}</p>
+              <p class="project-meta">{post.readingTime} {copy.readTimeLabel}</p>
+            </div>
+            <h2>{post.title}</h2>
+            <p>{post.excerpt}</p>
+            <div class="project-card-footer">
+              <a class="inline-link" href={localizeHref(locale, `/blog/${post.slug}`)} data-blog-article-link>{copy.articleCta}</a>
+            </div>
+          </article>
+        ))}
+      </div>
     </section>
   </main>
+
+  <script is:inline>
+    const blogFilterKey = "dmedia:blog-filter:en";
+    const controls = Array.from(document.querySelectorAll("[data-blog-filter]"));
+    const validFilters = ["all", ...controls.map((item) => item.getAttribute("data-blog-filter")).filter(Boolean)];
+    const requestedFilter = () => {
+      const hash = window.location.hash.replace("#", "");
+      if (hash && validFilters.includes(hash)) return hash;
+      const stored = sessionStorage.getItem(blogFilterKey);
+      return stored && validFilters.includes(stored) ? stored : "all";
+    };
+    const applyFilter = (filter) => {
+      document.querySelectorAll("[data-blog-card]").forEach((card) => {
+        const visible = filter === "all" || card.getAttribute("data-blog-category") === filter;
+        card.toggleAttribute("hidden", !visible);
+        card.setAttribute("aria-hidden", visible ? "false" : "true");
+      });
+      controls.forEach((control) => control.setAttribute("aria-pressed", control.getAttribute("data-blog-filter") === filter ? "true" : "false"));
+      sessionStorage.setItem(blogFilterKey, filter);
+      window.history.replaceState(null, "", `${window.location.pathname}${filter === "all" ? "" : `#${filter}`}`);
+    };
+    applyFilter(requestedFilter());
+    document.addEventListener("click", (event) => {
+      const control = event.target instanceof Element ? event.target.closest("[data-blog-filter]") : null;
+      if (control instanceof HTMLElement) applyFilter(control.getAttribute("data-blog-filter") || "all");
+    });
+    window.addEventListener("hashchange", () => applyFilter(requestedFilter()));
+  </script>
 </Layout>

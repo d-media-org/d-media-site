@@ -4,7 +4,6 @@ export function GET() {
       "User-agent: *",
       "Allow: /",
       "Sitemap: https://www.d-media.org/sitemap.xml",
-      "Host: https://www.d-media.org",
       "",
     ].join("\n"),
     {

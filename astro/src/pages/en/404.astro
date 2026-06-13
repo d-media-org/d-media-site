@@ -5,13 +5,22 @@ import { getUiCopy } from "@/lib/ui-copy";
 const ui = getUiCopy("en");
 ---
 
-<Layout locale="en" title={`${ui.notFound.title} | d . media`} description={ui.notFound.title} path="/404">
+<Layout
+  locale="en"
+  title={`${ui.notFound.title} | d . media`}
+  description={ui.notFound.title}
+  path="/404"
+  localeSwitcherItems={[
+    { locale: "bg", label: "BG", href: "/", isActive: false },
+    { locale: "en", label: "EN", href: "/en/", isActive: true },
+  ]}
+>
   <main class="site-shell">
     <section class="section-grid">
       <div class="section-heading page-intro">
         <p class="eyebrow">{ui.notFound.eyebrow}</p>
         <h1>{ui.notFound.title}</h1>
-        <a href="/en" class="button button-primary">{ui.notFound.home}</a>
+        <a href="/en/" class="button button-primary">{ui.notFound.home}</a>
       </div>
     </section>
   </main>

@@ -1,10 +1,11 @@
 import { localizeHref } from "@/lib/i18n";
+import { authorityServiceSlugs } from "@/lib/authority-services";
+import { authorityPageSlugs } from "@/lib/authority-pages";
 import { getPublishedBlogPosts } from "@/lib/blog";
 import { legacyProjectArchive } from "@/lib/legacy-project-archive";
 import { operationalPolicies } from "@/lib/operational-policies";
 import { projectPngArchive } from "@/lib/project-png-archive";
-
-const baseUrl = "https://www.d-media.org";
+import { getAbsolutePathUrl } from "@/lib/seo";
 
 function sitemapEntry(path: string, lastModified?: string) {
   const priority =
@@ -19,7 +20,7 @@ function sitemapEntry(path: string, lastModified?: string) {
 
   return [
     "<url>",
-    `<loc>${baseUrl}${path}</loc>`,
+    `<loc>${getAbsolutePathUrl(path)}</loc>`,
     lastModified ? `<lastmod>${lastModified}</lastmod>` : "",
     `<changefreq>${changeFrequency}</changefreq>`,
     `<priority>${priority}</priority>`,
@@ -43,29 +44,36 @@ export function GET() {
     "/services/advertising",
     "/services/additional-charges-rights",
     "/services/web-design-development",
+    ...authorityServiceSlugs.map((slug) => `/services/${slug}`),
     "/pricing",
     "/about",
     "/contact",
     "/terms",
     "/privacy",
+    ...authorityPageSlugs.map((slug) => `/${slug}`),
   ];
   const policyPaths = [
     "/legal/policies",
     ...operationalPolicies.map((policy) => `/legal/policies/${policy.slug}`),
   ];
-  const blogEntries = getPublishedBlogPosts("bg").map((post) => ({
-    path: `/blog/${post.slug}`,
-    lastModified: post.dateModified,
-  }));
+  const blogEntries = (["bg", "en"] as const).flatMap((locale) =>
+    getPublishedBlogPosts(locale).map((post) => ({
+      path: localizeHref(locale, `/blog/${post.slug}`),
+      lastModified: post.dateModified,
+    })),
+  );
   const projectPaths = allProjects.map((project) => `/projects/${project.slug}`);
   const localizedEntries = [
     ...basePaths.flatMap((path) => [
       { path: localizeHref("bg", path || "/") },
       { path: localizeHref("en", path || "/") },
     ]),
-    ...blogEntries.map((entry) => ({ path: localizeHref("bg", entry.path), lastModified: entry.lastModified })),
+    ...blogEntries,
     ...projectPaths.flatMap((path) => [{ path: localizeHref("bg", path) }, { path: localizeHref("en", path) }]),
-    ...policyPaths.map((path) => ({ path })),
+    ...policyPaths.flatMap((path) => [
+      { path: localizeHref("bg", path) },
+      { path: localizeHref("en", path) },
+    ]),
   ];
   const body = [
     '<?xml version="1.0" encoding="UTF-8"?>',

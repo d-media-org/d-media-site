@@ -40,6 +40,8 @@
 
 /brandbook_web_exact/*
   Cache-Control: public, max-age=31536000, immutable
+  X-Robots-Tag: noindex, follow
 
 /brandbook_web_exact_en/*
   Cache-Control: public, max-age=31536000, immutable
+  X-Robots-Tag: noindex, follow

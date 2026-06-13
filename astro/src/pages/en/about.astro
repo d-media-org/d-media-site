@@ -3,6 +3,7 @@ import BrandText from "@/components/BrandText.astro";
 import Layout from "@/layouts/Layout.astro";
 import { localizeHref, type Locale } from "@/lib/i18n";
 import { getPageCopy } from "@/lib/page-copy";
+import { getBreadcrumbSchema } from "@/lib/seo";
 import { getSiteContent } from "@/lib/site-content";
 
 const locale: Locale = "en";
@@ -15,7 +16,7 @@ const logoPackDownloadLabel =
   locale === "en" ? "Download brand logo and logotype" : "Свали лого и логотип на марката";
 ---
 
-<Layout locale={locale} title={`${copy.metaTitle} | d . media`} description={copy.metaDescription} path="/about">
+<Layout locale={locale} title={`${copy.metaTitle} | d . media`} description={copy.metaDescription} path="/about" structuredData={[getBreadcrumbSchema({ locale, path: "/about", title: copy.metaTitle })]}>
   <main class="site-shell" id="top">
     <section class="section-grid">
       <div class="section-heading page-intro">
@@ -45,6 +46,17 @@ const logoPackDownloadLabel =
             <a href="/downloads/d-media-logo-pack.zip" class="button button-secondary" download>
               {logoPackDownloadLabel}
             </a>
+          </div>
+        </div>
+        <div class="card about-copy content-card-wide">
+          <h2>How we work</h2>
+          <p>The process, methodology, technology choices, and performance standard show how creative and digital work operate as one system.</p>
+          <div class="blog-related-list">
+            <a class="inline-link" href="/en/our-process/">Process</a>
+            <a class="inline-link" href="/en/methodology/">Methodology</a>
+            <a class="inline-link" href="/en/technologies/">Technologies</a>
+            <a class="inline-link" href="/en/performance/">Performance standard</a>
+            <a class="inline-link" href="/en/faq/">Frequently asked questions</a>
           </div>
         </div>
       </div>

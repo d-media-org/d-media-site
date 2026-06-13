@@ -1,5 +1,7 @@
-import { localizeHref, type Locale } from "@/lib/i18n";
-import { baseUrl, defaultSocialImage } from "@/lib/seo";
+import { type Locale } from "@/lib/i18n";
+import { defaultSocialImage, getAbsolutePageUrl } from "@/lib/seo";
+import { publishedEnPosts } from "@/lib/blog-en";
+import { getAuthorityArticles } from "@/lib/authority-articles";
 
 export type BlogCategoryKey =
   | "brand-identity"
@@ -44,6 +46,7 @@ export type BlogPost = {
   relatedPosts: string[];
   ogImage?: string;
   sections: BlogSection[];
+  faqs?: { question: string; answer: string }[];
   relatedLinks: BlogLink[];
   ctaTitle: string;
   ctaText: string;
@@ -121,9 +124,8 @@ const blogPageCopy = {
     readTimeLabel: "min read",
     authorLabel: "author",
     zeroPostsLabel: "This category is being prepared",
-    emptyTitle: "The English editorial layer is being prepared separately.",
-    emptyText:
-      "The structure is ready for English articles. The Bulgarian knowledge center is published first, and the full English versions follow after that.",
+    emptyTitle: "No articles are published in this category yet.",
+    emptyText: "Choose another category or return to all articles.",
     relatedArticlesTitle: "Related articles",
     relatedLinksTitle: "Internal links",
     articleFooterLabel: "next step",
@@ -755,6 +757,38 @@ const publishedBgPosts: readonly BlogPost[] = [
     ctaText:
       "Ако проектът включва дизайн с AI инструменти, изпрати контекст и ще подредим по-сигурен и по-ясен работен модел.",
   }),
+  {
+    ...createScaffoldPost({
+      slug: "zashto-prekaleno-shodniyat-domain-e-problem",
+      category: "web-presence",
+      title: "Защо прекалено сходният домейн обърква потребителя",
+      excerpt:
+        "Как изборът на домейн, който прилича на няколко вече съществуващи адреса, отслабва запомнянето, доверието и директния достъп до бранда.",
+      intro:
+        "Свободният домейн не е непременно добър домейн. Когато името се различава минимално от няколко вече използвани адреса, потребителят трябва да помни правописна подробност вместо самия бранд.",
+      metaDescription:
+        "Защо прекалено сходните домейни объркват потребителите, разпиляват директния трафик и отслабват разпознаваемостта на бранда.",
+      tags: ["домейн", "бранд", "уеб присъствие", "разпознаваемост", "UX"],
+      relatedPosts: [
+        "brand-identichnost-sreshtu-logo",
+        "kak-se-izgrazhda-posledovatelno-digitalno-prisastvie",
+        "nai-chestite-seo-greshki-na-malkite-firmeni-saitove",
+      ],
+      relatedLinks: [
+        { href: "/services/web-design", label: "Виж услугата за уеб дизайн" },
+        { href: "/services/brand-identity", label: "Виж услугата за бранд идентичност" },
+        { href: "/contact", label: "Изпрати контекст за уеб проект" },
+      ],
+      ctaTitle: "Добрият домейн намалява нуждата от обяснение.",
+      ctaText:
+        "Ако подготвяш нов бранд или сайт, можем да проверим дали името, домейнът и дигиталната архитектура работят като една ясна система.",
+      ctaPrimaryLabel: "Изпрати контекст за уеб проект",
+      ctaSecondaryLabel: "Разгледай уеб услугите",
+      ctaSecondaryHref: "/services/web-design",
+    }),
+    datePublished: "2026-06-13",
+    dateModified: "2026-06-13",
+  },
 ] as const;
 
 const draftCaseStudies: readonly BlogPost[] = [
@@ -865,6 +899,70 @@ const draftCaseStudies: readonly BlogPost[] = [
 ] as const;
 
 const postSectionOverrides: Record<string, BlogSection[]> = {
+  "zashto-prekaleno-shodniyat-domain-e-problem": [
+    {
+      title: "Домейнът е част от бранд системата",
+      paragraphs: [
+        "Домейнът не е само технически адрес. Той се произнася, изписва, запомня, предава устно и се използва във визитки, реклами, социални профили, документи и търсачки. Затова изборът му е част от идентичността и потребителското преживяване.",
+        "Когато адресът е ясен и отличим, човек може да го възстанови по памет. Когато е близък до няколко други домейна, всяко посещение се превръща в проверка на правопис, окончание или форма на думата.",
+      ],
+    },
+    {
+      title: "Проблемът не е само в сходното име",
+      paragraphs: [
+        "Представете си пазар, в който вече съществуват няколко домейна с почти еднакъв корен, различаващи се само по число, членуване, множествено число, тире или домейн разширение. Добавянето на още една минимална вариация не създава автоматично отличимост.",
+        "Потребителят може да запомни общата дума, но не и точната версия. Така част от директния трафик отива към друг адрес, препоръките се предават неточно, а рекламата трябва постоянно да компенсира слабата разпознаваемост.",
+      ],
+    },
+    {
+      title: "Какво реално се обърква",
+      paragraphs: [
+        "Объркването се появява в моменти, в които няма активен линк: при устна препоръка, радио или видео реклама, разговор по телефон, запомнена публикация или повторно посещение след време.",
+      ],
+      bullets: [
+        "Посетителят отваря конкурентен или несвързан сайт.",
+        "Имейл може да бъде изпратен към грешен домейн.",
+        "Брандът губи директен трафик и разчита повече на платени канали.",
+        "Търсенето по име показва няколко сходни резултата без ясна визуална разлика.",
+        "Препоръките между хората стават по-трудни за предаване точно.",
+      ],
+    },
+    {
+      title: "Свободен не означава стратегически подходящ",
+      paragraphs: [
+        "Честа грешка е изборът да започне и да приключи с въпроса дали конкретният домейн е свободен. Това е техническа проверка, но не и бранд решение.",
+        "По-важният въпрос е дали адресът може да бъде разпознат без допълнително уточнение. Ако всеки път трябва да се обяснява коя буква, кое окончание или кое разширение да бъде използвано, домейнът създава постоянно комуникационно триене.",
+      ],
+    },
+    {
+      title: "Как оценяваме един домейн",
+      paragraphs: [
+        "Преди регистрация проверяваме не само наличността, а цялата среда около името. Търсим сходни домейни, компании, търговски марки, социални профили и резултати в търсачките. След това проверяваме как адресът звучи на глас и дали може да бъде изписан правилно след еднократно чуване.",
+      ],
+      bullets: [
+        "Кратък ли е и лесен ли е за произнасяне?",
+        "Има ли само един естествен начин за изписване?",
+        "Различава ли се ясно от активните домейни в същия сектор?",
+        "Работи ли без тирета, обяснения и необичайни съкращения?",
+        "Подходящ ли е за професионален имейл и международна употреба?",
+        "Може ли да остане валиден, ако бизнесът разшири услугите си?",
+      ],
+    },
+    {
+      title: "SEO не поправя слабата отличимост",
+      paragraphs: [
+        "Добрата техническа SEO основа може да помогне на сайта да бъде обхождан и разбран, но не може да премахне човешкото объркване между почти еднакви имена. Търсачката може да покаже правилния резултат, но потребителят все още трябва да разпознае кой от тях търси.",
+        "Затова домейнът, името на бранда, заглавията на страниците, визуалната идентичност и публичните профили трябва да подават един и същ последователен сигнал.",
+      ],
+    },
+    {
+      title: "Кога е по-добре да се потърси друго име",
+      paragraphs: [
+        "Ако най-естественият домейн е зает и около него вече има няколко активни сходни адреса, понякога по-силното решение е ново, по-отличимо име. Добавянето на още една буква или наставка изглежда като малък компромис при регистрацията, но може да се превърне в постоянен разход за комуникация.",
+        "По-добрият домейн не е този, който просто е наличен. Той е този, който потребителят разпознава, запомня и отваря правилно без допълнителни инструкции.",
+      ],
+    },
+  ],
   "kak-izgradihme-vizualnata-identichnost-na-d-media": [
     {
       title: "От какво тръгнахме",
@@ -1559,8 +1657,8 @@ function calculateReadingTime(post: Pick<BlogPost, "title" | "excerpt" | "intro"
 }
 
 const localizedBlogPosts = {
-  bg: [...publishedBgPosts.map(withSectionOverrides), ...draftCaseStudies.map(withSectionOverrides)],
-  en: [] as BlogPost[],
+  bg: [...publishedBgPosts.map(withSectionOverrides), ...getAuthorityArticles("bg"), ...draftCaseStudies.map(withSectionOverrides)],
+  en: [...publishedEnPosts, ...getAuthorityArticles("en")],
 } as const satisfies Record<Locale, readonly BlogPost[]>;
 
 export function getBlogPageCopy(locale: Locale) {
@@ -1609,11 +1707,11 @@ export function getRelatedBlogPosts(locale: Locale, post: BlogPost) {
 }
 
 export function getBlogPostUrl(locale: Locale, slug: string) {
-  return `${baseUrl}${localizeHref(locale, `/blog/${slug}`)}`;
+  return getAbsolutePageUrl(locale, `/blog/${slug}`);
 }
 
 export function getBlogIndexUrl(locale: Locale) {
-  return `${baseUrl}${localizeHref(locale, "/blog")}`;
+  return getAbsolutePageUrl(locale, "/blog");
 }
 
 export function formatBlogDate(locale: Locale, value: string) {

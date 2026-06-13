@@ -1,19 +1,15 @@
 ---
 import BrandText from "@/components/BrandText.astro";
+import LegalSourceText from "@/components/LegalSourceText.astro";
 import Layout from "@/layouts/Layout.astro";
-import type { Locale } from "@/lib/i18n";
-import { getPrivacyPolicy } from "@/lib/legal-content";
+import { localizeHref, type Locale } from "@/lib/i18n";
 import { getPageCopy } from "@/lib/page-copy";
-import { contactEmail, contactPhone, getSiteContent } from "@/lib/site-content";
+import { getSiteContent } from "@/lib/site-content";
+import privacyPolicyEn from "@/content/legal/privacy-en.txt?raw";
 
 const locale: Locale = "en";
 const copy = getPageCopy(locale).privacy;
 const siteContent = getSiteContent(locale);
-const fullPolicySections = getPrivacyPolicy(locale);
-const formatSectionHeading = (id: string, title: string) => {
-  const heading = `${id}. ${title}`;
-  return /^\d+$/.test(id) ? heading.toUpperCase() : heading;
-};
 ---
 
 <Layout locale={locale} title={`${copy.metaTitle} | d . media`} description={copy.metaDescription} path="/privacy">
@@ -45,34 +41,13 @@ const formatSectionHeading = (id: string, title: string) => {
         <summary>{copy.full}</summary>
         <div class="privacy-details-copy">
           <p>{copy.policyTitle}</p>
-          {fullPolicySections.map((section) => (
-            <section class="privacy-section">
-              {section.title ? <h3>{formatSectionHeading(section.id, section.title)}</h3> : null}
-              {section.content?.map((paragraph) => (
-                paragraph === contactPhone ? null : (
-                  <p>
-                    {paragraph === contactEmail ? (
-                      <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
-                    ) : (
-                      <BrandText text={paragraph} />
-                    )}
-                  </p>
-                )
-              ))}
-              {section.bullets ? (
-                <ul class="privacy-bullets">
-                  {section.bullets.map((bullet) => (
-                    <li><BrandText text={bullet} /></li>
-                  ))}
-                </ul>
-              ) : null}
-              {section.tail?.map((paragraph) => (
-                <p><BrandText text={paragraph} /></p>
-              ))}
-            </section>
-          ))}
+          <LegalSourceText source={privacyPolicyEn} />
         </div>
       </details>
+
+      <div class="project-card-footer">
+        <a class="inline-link" href={localizeHref(locale, "/legal/policies")}>Operational policies</a>
+      </div>
     </section>
   </main>
 </Layout>
