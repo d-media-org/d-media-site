@@ -80,6 +80,9 @@
   --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.04);
   --shadow-card-hover: 0 16px 40px rgba(0, 0, 0, 0.06);
   --transition-base: 240ms ease;
+  --motion-duration: 240ms;
+  --motion-easing: ease-out;
+  --motion-distance: 12px;
   --type-h1: clamp(34px, 4.2vw, 62px);
   --type-h2: clamp(28px, 3vw, 40px);
   --type-h3: 20px;
@@ -119,6 +122,25 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.motion-ready .motion-reveal {
+  opacity: 0;
+  transform: translateY(var(--motion-distance));
+  transition:
+    opacity var(--motion-duration) var(--motion-easing),
+    transform var(--motion-duration) var(--motion-easing),
+    border-color var(--transition-base),
+    box-shadow var(--transition-base),
+    background-color var(--transition-base);
+  transition-delay: var(--motion-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.motion-ready .motion-reveal.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+  will-change: auto;
 }
 
 :where(h1, h2, h3, h4, h5, h6, p, ul, ol, figure, blockquote) {
@@ -1207,7 +1229,33 @@ img {
 .services-cta-card:hover {
   border-color: var(--line-strong);
   box-shadow: var(--shadow-card-hover);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .motion-ready .motion-reveal,
+  .motion-ready .motion-reveal.is-revealed {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    transition-delay: 0ms;
+    will-change: auto;
+  }
+
+  .button,
+  .card,
+  .showcase-link-card,
+  .archive-project-card,
+  .site-mobile-panel,
+  .site-menu-toggle span,
+  .floating-top,
+  a[href] {
+    transition-duration: 1ms;
+  }
 }
 
 .service-category-card:hover h2,

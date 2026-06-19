@@ -123,6 +123,9 @@ const schemaItems = [
         applyTheme();
       })();
     </script>
+    <script is:inline>
+      document.documentElement.classList.add("motion-ready");
+    </script>
   </head>
   <body>
     <header class="site-header">
@@ -302,6 +305,57 @@ const schemaItems = [
       <span class="floating-top-label">{ui.footer.backToTop}</span>
       <span class="floating-top-arrow" aria-hidden="true">↑</span>
     </a>
+    <script is:inline>
+      (() => {
+        const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+        const selectors = [
+          "main .section-heading",
+          "main .section-actions",
+          "main .card",
+          "main .archive-summary",
+        ];
+        const candidates = Array.from(document.querySelectorAll(selectors.join(",")))
+          .filter((element) => !element.closest("[data-consent-banner], .gallery-lightbox"));
+        const candidateSet = new Set(candidates);
+        const elements = candidates.filter((element) => {
+          let parent = element.parentElement;
+          while (parent) {
+            if (candidateSet.has(parent)) return false;
+            parent = parent.parentElement;
+          }
+          return true;
+        });
+
+        if (!elements.length) return;
+
+        elements.forEach((element) => {
+          element.classList.add("motion-reveal");
+          const siblings = element.parentElement
+            ? elements.filter((candidate) => candidate.parentElement === element.parentElement)
+            : [];
+          const index = Math.max(0, siblings.indexOf(element));
+          element.style.setProperty("--motion-delay", `${Math.min(index * 40, 80)}ms`);
+        });
+
+        if (reducedMotion.matches || !("IntersectionObserver" in window)) {
+          elements.forEach((element) => element.classList.add("is-revealed"));
+          return;
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add("is-revealed");
+            observer.unobserve(entry.target);
+          });
+        }, {
+          rootMargin: "0px 0px -6% 0px",
+          threshold: 0.08,
+        });
+
+        elements.forEach((element) => observer.observe(element));
+      })();
+    </script>
     <script is:inline>
       (() => {
         const toggle = document.querySelector("[data-menu-toggle]");
