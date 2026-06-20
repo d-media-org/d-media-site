@@ -12,19 +12,22 @@ export function GET() {
       theme_color: "#ffffff",
       icons: [
         {
-          src: "/dmedia-favicon-v5-32.png",
-          sizes: "32x32",
+          src: "/dmedia-pwa-v6-192.png",
+          sizes: "192x192",
           type: "image/png",
+          purpose: "any",
         },
         {
-          src: "/dmedia-favicon-v5-48.png",
-          sizes: "48x48",
+          src: "/dmedia-pwa-v6-512.png",
+          sizes: "512x512",
           type: "image/png",
+          purpose: "any",
         },
         {
-          src: "/dmedia-apple-touch-v4.png",
-          sizes: "180x180",
+          src: "/dmedia-pwa-maskable-v6-512.png",
+          sizes: "512x512",
           type: "image/png",
+          purpose: "maskable",
         },
       ],
     }),

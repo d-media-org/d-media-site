@@ -43,11 +43,11 @@ export function getOrganizationSchema(locale: Locale = "bg") {
     url: baseUrl,
     logo: {
       "@type": "ImageObject",
-      url: `${baseUrl}/dmedia-search-logo-v5.png`,
+      url: `${baseUrl}/dmedia-search-logo-v6.png`,
       width: 512,
       height: 512,
     },
-    image: `${baseUrl}/dmedia-search-logo-v5.png`,
+    image: `${baseUrl}/dmedia-search-logo-v6.png`,
     email: contactEmail,
     contactPoint: {
       "@type": "ContactPoint",
@@ -364,7 +364,9 @@ export function getBlogPostingSchema({
       name: brandName,
       logo: {
         "@type": "ImageObject",
-        url: `${baseUrl}/dmedia-apple-touch-v4.png`,
+        url: `${baseUrl}/dmedia-search-logo-v6.png`,
+        width: 512,
+        height: 512,
       },
     },
   };
