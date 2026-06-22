@@ -170,3 +170,4 @@
 - Добавен е идемпотентен Brevo setup за CRM папка, три отделни списъка и contact attributes.
 - Контактните запитвания вече имат подготвен create/update поток към Website Leads, без автоматично newsletter записване.
 - D1, Turnstile и transactional email потокът са запазени; dry-run, ESLint и mock validation са успешни.
+- Временна Brevo CRM грешка не прекъсва D1 записа и изпращането на transactional имейлите.

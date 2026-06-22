@@ -218,7 +218,11 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
         },
       },
     );
+  } catch (error) {
+    console.error("Contact inquiry Brevo CRM synchronization failed", error);
+  }
 
+  try {
     const internalEmail = buildInternalInquiryEmail(record as InquiryEmailRecord);
     const clientEmail = buildClientConfirmationEmail(name);
     await sendEmail(env, {

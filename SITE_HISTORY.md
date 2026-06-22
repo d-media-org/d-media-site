@@ -210,6 +210,7 @@
 - Contact Worker потокът е разширен с create/update на Brevo contact и добавяне единствено към Website Leads.
 - Запитванията не се добавят към Newsletter Subscribers и Clients; тези списъци остават отделни до изрично съгласие или клиентски статус.
 - D1 записът, Turnstile проверката и transactional email изпращането са запазени.
+- CRM синхронизацията е изолирана от email/D1 потока, за да не прекъсва формуляра при временна Brevo CRM грешка.
 - Засегнати файлове: `scripts/setup-brevo.mjs`, `astro/src/lib/brevo-contacts.ts` и `astro/functions/api/contact.ts`.
 - Причина: синхронизиране на контактния workflow с Brevo CRM без автоматично newsletter записване.
 - Проверки: ESLint, безопасен dry-run и mock validation на Brevo contact payload — успешни.
