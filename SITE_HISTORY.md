@@ -183,4 +183,5 @@
 - Запазени са Cloudflare Turnstile проверката, D1 съхранението, ограничаването на честотата и съществуващият интерфейс на формата.
 - Brevo изпраща служебно известие до `contact@d-media.org` и автоматично потвърждение до подателя.
 - D1 статусът се променя на `received_email_sent` само след успешно изпращане на двете писма.
-- Проверки: lint, Astro build, Cloudflare validation, production API и реален submission flow.
+- Проверки: lint, Astro build и Cloudflare validation са преминали успешно.
+- Реален production submission е потвърден на 22 юни 2026: запитването е записано в D1 със статус `received_email_sent`, служебното писмо е получено на `contact@d-media.org`, а автоматичното потвърждение е получено от подателя.
