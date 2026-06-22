@@ -2,10 +2,13 @@ import {
   clampText,
   contactFieldLimits,
   contactServices,
-  escapeHtml,
-  formatField,
   isValidEmail,
 } from "../../src/lib/contact-inquiry.ts";
+import {
+  buildClientConfirmationEmail,
+  buildInternalInquiryEmail,
+  type InquiryEmailRecord,
+} from "../../src/lib/contact-email-templates.ts";
 import { contactEmail } from "../../src/lib/site-content.ts";
 
 const budgetOptions = new Set([
@@ -60,41 +63,6 @@ function prefersHtml(request: Request) {
 
 function clean(value: FormDataEntryValue | null, maxLength: number) {
   return clampText(typeof value === "string" ? value : "", maxLength);
-}
-
-function buildMessageText(record: Record<string, string>) {
-  return [
-    `Дата и час: ${record.created_at}`,
-    `Име: ${record.name}`,
-    `E-mail: ${record.email}`,
-    `Фирма: ${record.company}`,
-    `Услуга: ${record.service}`,
-    `Бюджет: ${record.budget}`,
-    `Срок: ${record.deadline}`,
-    `Сайт: ${record.website}`,
-    `Съобщение: ${record.message}`,
-    `Допълнителна информация: ${record.additional_information}`,
-    `Държава по IP: ${record.ip_country}`,
-    `IP адрес: ${record.ip_address}`,
-  ].join("\n");
-}
-
-function buildMessageHtml(record: Record<string, string>) {
-  const rows = [
-    ["Дата и час", record.created_at],
-    ["Име", record.name],
-    ["E-mail", record.email],
-    ["Фирма", record.company],
-    ["Услуга", record.service],
-    ["Бюджет", record.budget],
-    ["Срок", record.deadline],
-    ["Сайт", record.website],
-    ["Съобщение", record.message],
-    ["Допълнителна информация", record.additional_information],
-    ["Държава по IP", record.ip_country],
-    ["IP адрес", record.ip_address],
-  ];
-  return `<!doctype html><html lang="bg"><body style="font-family:Arial,sans-serif;color:#111;line-height:1.5"><h1>Проектно запитване</h1><table cellspacing="0" cellpadding="8" style="border-collapse:collapse">${rows.map(([label, value]) => `<tr><th align="left" valign="top" style="border-bottom:1px solid #ddd">${escapeHtml(label)}</th><td style="border-bottom:1px solid #ddd">${escapeHtml(formatField(value))}</td></tr>`).join("")}</table></body></html>`;
 }
 
 async function verifyTurnstile(env: Env, token: string, ip?: string) {
@@ -192,6 +160,7 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
     website,
     message,
     additional_information: additionalInformation,
+    source_page: request.headers.get("referer") ?? new URL(request.url).origin + (locale === "en" ? "/en/contact/" : "/contact/"),
     ip_address: ipAddress,
     ip_country: ipCountry,
     user_agent: userAgent,
@@ -228,25 +197,17 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
   }
 
   try {
+    const internalEmail = buildInternalInquiryEmail(record as InquiryEmailRecord);
+    const clientEmail = buildClientConfirmationEmail(name);
     await sendEmail(env, {
       to: [{ email: contactEmail, name: "d . media" }],
       replyTo: { email, name },
-      subject: `Ново проектно запитване: ${service} — ${name}`,
-      textContent: buildMessageText(record),
-      htmlContent: buildMessageHtml(record),
+      ...internalEmail,
     });
     await sendEmail(env, {
       to: [{ email, name }],
       replyTo: { email: contactEmail, name: "d . media" },
-      subject: locale === "bg" ? "Получихме твоето запитване" : "We received your inquiry",
-      textContent:
-        locale === "bg"
-          ? "Благодарим за запитването.\n\nПолучихме съобщението ти и ще го прегледаме възможно най-скоро.\n\nТова е автоматично потвърждение."
-          : "Thank you for your inquiry.\n\nWe have received your message and will review it as soon as possible.\n\nThis is an automated confirmation.",
-      htmlContent:
-        locale === "bg"
-          ? "<p>Благодарим за запитването.</p><p>Получихме съобщението ти и ще го прегледаме възможно най-скоро.</p><p>Това е автоматично потвърждение.</p>"
-          : "<p>Thank you for your inquiry.</p><p>We have received your message and will review it as soon as possible.</p><p>This is an automated confirmation.</p>",
+      ...clientEmail,
     });
     await env.d_media_inquiries.prepare("UPDATE inquiries SET status = ?1 WHERE id = ?2").bind("received_email_sent", record.id).run();
   } catch (error) {
