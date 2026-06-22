@@ -1,0 +1,56 @@
+---
+import Layout from "@/layouts/Layout.astro";
+
+const sections = [
+  ["Repository and deployment identity", "The project began as a Next.js repository and was initially connected to Vercel. Its production architecture later moved to Astro and Cloudflare Pages."],
+  ["Project foundation", "The first implementation established the core company pages, global layout, SEO foundation, sitemap, robots rules, manifest, social previews, brand assets, and project archives."],
+  ["First complete website", "The initial production website evolved through repeated improvements to project presentation, service and contact flows, mobile rhythm, typography, covers, and marketing hierarchy."],
+  ["Image and cover system", "Project covers, transparent identity files, mockups, social previews, and responsive image presentation were refined through several focused iterations."],
+  ["Archive and asset discipline", "Large project archives were optimized for web delivery, while priority assets and browser-facing derivatives were progressively reduced and stabilized."],
+  ["SEO, GEO, and performance", "The platform added stronger metadata, structured data, internal architecture, GEO-oriented content, Core Web Vitals work, accessibility checks, and production hardening."],
+  ["Astro and Cloudflare migration", "The active website was rebuilt as a static Astro site and deployed through Cloudflare Pages with preview and production workflows, local assets, redirects, headers, and route validation."],
+  ["Blog and service architecture", "A bilingual knowledge base, service detail pages, pricing, case studies, operational policies, and clearer navigation exits expanded the website beyond a portfolio."],
+  ["Portfolio and motion archive", "The d . media case study now includes selected identity applications and an archive of 155 optimized logo intro and animation variants with poster frames and deferred loading."],
+  ["AI readiness", "The website includes a concise llms.txt, an active Content-Signal policy, schema and canonical controls, and repository-level Markdown content negotiation for primary public pages."],
+  ["Current direction", "d-media.org operates as a working example of the studio’s approach: brand identity, content, project evidence, technical architecture, performance, and ongoing documentation in one maintained system."],
+] as const;
+---
+
+<Layout
+  locale="en"
+  title="Site history | d . media"
+  description="A concise history of d . media, from the original website to the current Astro and Cloudflare Pages architecture."
+  path="/site-history"
+>
+  <main class="site-shell history-page" id="top">
+    <section class="section-grid">
+      <header class="section-heading page-intro">
+        <h1>Site history</h1>
+        <p class="page-text">
+          A traceable overview of the decisions, migrations, content systems, and technical development behind d . media.
+        </p>
+        <p class="page-text history-version-switch">
+          <a class="inline-link is-active" href="/en/site-history/">Summary version</a>
+          <a class="inline-link" href="/en/site-history/daily/">Daily version</a>
+        </p>
+      </header>
+
+      <nav class="card history-index history-index-static" aria-label="Contents">
+        <ul>
+          {sections.map(([title], index) => (
+            <li><a href={`#stage-${index + 1}`}>{title}</a></li>
+          ))}
+        </ul>
+      </nav>
+
+      <article class="card text-card history-content is-revealed">
+        {sections.map(([title, text], index) => (
+          <section class="history-stage">
+            <h2 id={`stage-${index + 1}`}>{title}</h2>
+            <p>{text}</p>
+          </section>
+        ))}
+      </article>
+    </section>
+  </main>
+</Layout>

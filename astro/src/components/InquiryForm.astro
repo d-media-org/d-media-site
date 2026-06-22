@@ -1,0 +1,249 @@
+---
+import {
+  contactBudgetLabelsBg,
+  contactBudgets,
+  contactFieldLimits,
+  contactServiceLabelsBg,
+  contactServices,
+} from "@/lib/contact-inquiry";
+
+type Props = { locale: "bg" | "en" };
+const { locale } = Astro.props as Props;
+const isBg = locale === "bg";
+const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? "0x4AAAAAADpL5PXvzZD7h9GA";
+
+const copy = isBg
+  ? {
+      title: "Проектно запитване",
+      intro: "Изпрати кратък контекст и ще върнем яснота за обхват, срок и следваща стъпка.",
+      formTitle: "Изпрати запитване",
+      name: "Име",
+      email: "E-mail",
+      company: "Фирма",
+      service: "Услуга",
+      message: "Съобщение",
+      budget: "Ориентировъчен бюджет",
+      deadline: "Желан срок",
+      website: "Съществуващ сайт",
+      additional: "Допълнителна информация",
+      consent: "Съгласявам се информацията ми да бъде използвана за отговор на моето запитване.",
+      submit: "Изпрати запитване",
+      success: "Запитването е изпратено успешно. Ще върнем отговор възможно най-скоро.",
+      error: "Възникна грешка. Моля, провери полетата и опитай отново.",
+      turnstileError: "Потвърждението против спам не е завършено.",
+      required: "задължително поле",
+      requiredLegend: "Полетата, отбелязани със звездичка, са задължителни.",
+      loading: "Изпращане…",
+      validationRequired: "Моля, попълни това поле.",
+      validationEmail: "Моля, въведи валиден e-mail адрес.",
+      validationWebsite: "Моля, въведи пълен адрес, започващ с https://.",
+      validationConsent: "Необходимо е съгласие, за да изпратиш запитването.",
+      optional: "по избор",
+      messageHint: "Разкажи накратко какъв е проектът и какъв резултат очакваш.",
+      privacyLink: "/privacy/",
+      privacyText: "За защита на данните",
+    }
+  : {
+      title: "Project inquiry",
+      intro: "Send brief context and we will return with scope, timing, and the next step.",
+      formTitle: "Send inquiry",
+      name: "Name",
+      email: "Email",
+      company: "Company",
+      service: "Service",
+      message: "Message",
+      budget: "Estimated Budget",
+      deadline: "Desired Deadline",
+      website: "Existing Website",
+      additional: "Additional Information",
+      consent: "I agree that my information may be used for the purpose of responding to my inquiry.",
+      submit: "Send inquiry",
+      success: "The inquiry was sent successfully. We will reply as soon as possible.",
+      error: "An error occurred. Please review the fields and try again.",
+      turnstileError: "The anti-spam confirmation is incomplete.",
+      required: "required field",
+      requiredLegend: "Fields marked with an asterisk are required.",
+      loading: "Sending…",
+      validationRequired: "Please complete this field.",
+      validationEmail: "Please enter a valid email address.",
+      validationWebsite: "Please enter a complete address beginning with https://.",
+      validationConsent: "Consent is required to send the inquiry.",
+      optional: "optional",
+      messageHint: "Briefly describe the project and the result you want.",
+      privacyLink: "/en/privacy/",
+      privacyText: "Data protection",
+    };
+---
+
+<section class="card inquiry-card" aria-labelledby="inquiry-form-title">
+  <div class="inquiry-card-header">
+    <p class="eyebrow">{copy.title}</p>
+    <h2 id="inquiry-form-title">{copy.formTitle}</h2>
+    <p class="page-text">{copy.intro}</p>
+    <p class="form-required-note"><span aria-hidden="true">*</span> {copy.requiredLegend}</p>
+  </div>
+
+  <form
+    class="inquiry-form"
+    method="post"
+    action="/api/contact"
+    data-inquiry-form
+    data-success-message={copy.success}
+    data-error-message={copy.error}
+    data-turnstile-error={copy.turnstileError}
+    data-loading-message={copy.loading}
+    data-validation-required={copy.validationRequired}
+    data-validation-email={copy.validationEmail}
+    data-validation-website={copy.validationWebsite}
+    data-validation-consent={copy.validationConsent}
+  >
+    <div class="form-grid">
+      <label class="field">
+        <span class="field-label">{copy.name} <span class="field-required" aria-label={copy.required}>*</span></span>
+        <input name="name" type="text" autocomplete="name" maxlength={contactFieldLimits.name} required />
+      </label>
+
+      <label class="field">
+        <span class="field-label">{copy.email} <span class="field-required" aria-label={copy.required}>*</span></span>
+        <input name="email" type="email" autocomplete="email" maxlength={contactFieldLimits.email} required />
+      </label>
+
+      <label class="field">
+        <span class="field-label">{copy.company} <span class="field-meta">{copy.optional}</span></span>
+        <input name="company" type="text" autocomplete="organization" maxlength={contactFieldLimits.company} />
+      </label>
+
+      <label class="field">
+        <span class="field-label">{copy.service} <span class="field-required" aria-label={copy.required}>*</span></span>
+        <select name="service" required>
+          <option value="">{isBg ? "Избери услуга" : "Select service"}</option>
+          {contactServices.map((service) => <option value={service}>{isBg ? contactServiceLabelsBg[service] : service}</option>)}
+        </select>
+      </label>
+
+      <label class="field field-full">
+        <span class="field-label">{copy.message} <span class="field-required" aria-label={copy.required}>*</span></span>
+        <textarea name="message" rows="6" maxlength={contactFieldLimits.message} required></textarea>
+        <span class="field-hint">{copy.messageHint}</span>
+      </label>
+
+      <details class="brief-details">
+        <summary>{isBg ? "Проектен бриф" : "Project brief"}</summary>
+        <div class="brief-grid">
+          <label class="field">
+            <span class="field-label">{copy.budget}</span>
+            <select name="budget">
+              <option value="">{isBg ? "Избери бюджет" : "Select budget"}</option>
+              {contactBudgets.map((budget) => <option value={budget}>{isBg ? contactBudgetLabelsBg[budget] : budget}</option>)}
+            </select>
+          </label>
+          <label class="field">
+            <span class="field-label">{copy.deadline}</span>
+            <input name="deadline" type="text" maxlength={contactFieldLimits.deadline} placeholder={isBg ? "например: края на юли" : "for example: end of July"} />
+          </label>
+          <label class="field">
+            <span class="field-label">{copy.website}</span>
+            <input name="website" type="url" inputmode="url" maxlength={contactFieldLimits.website} placeholder="https://..." />
+          </label>
+          <label class="field field-full">
+            <span class="field-label">{copy.additional}</span>
+            <textarea name="additionalInformation" rows="4" maxlength={contactFieldLimits.additionalInformation}></textarea>
+          </label>
+        </div>
+      </details>
+
+      <label class="field field-consent">
+        <input name="gdprConsent" type="checkbox" value="yes" required />
+        <span>{copy.consent} <span class="field-required" aria-label={copy.required}>*</span></span>
+      </label>
+
+      <div class="turnstile-wrap">
+        {siteKey ? <div class="cf-turnstile" data-sitekey={siteKey} data-theme="light"></div> : null}
+      </div>
+
+      <input name="honeypot" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" class="inquiry-honeypot" />
+      <input name="locale" type="hidden" value={locale} />
+
+      <div class="form-actions">
+        <button type="submit" class="button button-primary" data-submit-button data-default-label={copy.submit}>{copy.submit}</button>
+        <p class="form-note">
+          <a class="inline-link" href={copy.privacyLink}>{copy.privacyText}</a>
+        </p>
+      </div>
+
+      <p class="form-status" role="status" aria-live="polite" data-form-status></p>
+    </div>
+  </form>
+</section>
+
+{siteKey ? <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script> : null}
+<script is:inline>
+  (() => {
+    const form = document.querySelector("[data-inquiry-form]");
+    if (!form) return;
+    const status = form.querySelector("[data-form-status]");
+    const submitButton = form.querySelector("[data-submit-button]");
+    const setStatus = (message, isError = false) => {
+      if (!status) return;
+      status.textContent = message;
+      status.dataset.state = isError ? "error" : "success";
+    };
+    const setBusy = (busy) => {
+      if (submitButton) {
+        submitButton.disabled = busy;
+        submitButton.textContent = busy
+          ? form.dataset.loadingMessage || submitButton.dataset.defaultLabel
+          : submitButton.dataset.defaultLabel;
+      }
+      form.dataset.busy = busy ? "true" : "false";
+    };
+    const validationMessage = (control) => {
+      if (control.name === "gdprConsent") return form.dataset.validationConsent || "";
+      if (control.validity.typeMismatch && control.name === "email") return form.dataset.validationEmail || "";
+      if (control.validity.typeMismatch && control.name === "website") return form.dataset.validationWebsite || "";
+      return form.dataset.validationRequired || "";
+    };
+    form.querySelectorAll("input, select, textarea").forEach((control) => {
+      control.addEventListener("invalid", () => control.setCustomValidity(validationMessage(control)));
+      control.addEventListener("input", () => control.setCustomValidity(""));
+      control.addEventListener("change", () => control.setCustomValidity(""));
+    });
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("sent") === "1") {
+      setStatus(form.dataset.successMessage || "", false);
+    }
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      if (form.dataset.busy === "true") return;
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+      setBusy(true);
+      setStatus("");
+      const data = new FormData(form);
+      if (!data.get("cf-turnstile-response")) {
+        setStatus(form.dataset.turnstileError || "", true);
+        setBusy(false);
+        return;
+      }
+      try {
+        const response = await fetch(form.action, { method: "POST", headers: { Accept: "application/json" }, body: data });
+        const payload = await response.json().catch(() => null);
+        if (!response.ok || !payload?.ok) {
+          setStatus(payload?.error || form.dataset.errorMessage || "", true);
+          if (window.turnstile?.reset) window.turnstile.reset();
+          return;
+        }
+        form.reset();
+        setStatus(form.dataset.successMessage || "", false);
+        if (window.turnstile?.reset) window.turnstile.reset();
+      } catch {
+        setStatus(form.dataset.errorMessage || "", true);
+        if (window.turnstile?.reset) window.turnstile.reset();
+      } finally {
+        setBusy(false);
+      }
+    });
+  })();
+</script>

@@ -1,3 +1,8 @@
 name = "d-media"
 pages_build_output_dir = "dist"
 compatibility_date = "2026-06-06"
+
+[[d1_databases]]
+binding = "d_media_inquiries"
+database_name = "d_media_inquiries"
+database_id = "004133ab-c960-4dfa-9177-38fd4baccb28"
