@@ -9,6 +9,7 @@ import {
   buildInternalInquiryEmail,
   type InquiryEmailRecord,
 } from "../../src/lib/contact-email-templates.ts";
+import { upsertWebsiteLead } from "../../src/lib/brevo-contacts.ts";
 import { contactEmail } from "../../src/lib/site-content.ts";
 
 const budgetOptions = new Set([
@@ -197,6 +198,27 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
   }
 
   try {
+    await upsertWebsiteLead(
+      {
+        apiKey: env.BREVO_API_KEY,
+        websiteLeadsListId: env.BREVO_WEBSITE_LEADS_LIST_ID,
+      },
+      {
+        email,
+        attributes: {
+          COMPANY: company || undefined,
+          SERVICE: service,
+          SOURCE: "d-media.org contact form",
+          WEBSITE: website || undefined,
+          BUDGET: budget || undefined,
+          DEADLINE: deadline || undefined,
+          LANGUAGE: locale,
+          CONSENT_SOURCE: "d-media.org contact form GDPR consent",
+          CONSENT_TIMESTAMP: record.created_at,
+        },
+      },
+    );
+
     const internalEmail = buildInternalInquiryEmail(record as InquiryEmailRecord);
     const clientEmail = buildClientConfirmationEmail(name);
     await sendEmail(env, {
@@ -227,4 +249,5 @@ interface Env {
   d_media_inquiries: D1Database;
   TURNSTILE_SECRET_KEY: string;
   BREVO_API_KEY: string;
+  BREVO_WEBSITE_LEADS_LIST_ID?: string;
 }

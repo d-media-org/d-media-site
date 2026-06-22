@@ -167,3 +167,6 @@
 - Transactional email шаблоните са редизайнирани след пълен одит на визуалната система на сайта.
 - Добавено е официалното d . media лого при запазени пропорции и е премахната generic card рамката.
 - Прецизирани са editorial hierarchy, spacing, monochrome palette и Panton-first fallback типографията.
+- Добавен е идемпотентен Brevo setup за CRM папка, три отделни списъка и contact attributes.
+- Контактните запитвания вече имат подготвен create/update поток към Website Leads, без автоматично newsletter записване.
+- D1, Turnstile и transactional email потокът са запазени; dry-run, ESLint и mock validation са успешни.

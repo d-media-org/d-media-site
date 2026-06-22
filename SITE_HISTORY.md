@@ -203,3 +203,13 @@
 - Премахната е generic bordered card рамката и е намалена визуалната тежест.
 - Добавена е точната Panton-first fallback стратегия без вграждане или външно зареждане на лицензирани шрифтове.
 - Генерирани са desktop и mobile preview варианти и са проверени branding, spacing, hierarchy, fallback typography и четимост.
+
+### 22 юни 2026 — Brevo CRM структура за запитванията
+
+- Добавен е идемпотентен Brevo setup скрипт за папка, списъците Website Leads, Newsletter Subscribers и Clients и необходимите contact attributes.
+- Contact Worker потокът е разширен с create/update на Brevo contact и добавяне единствено към Website Leads.
+- Запитванията не се добавят към Newsletter Subscribers и Clients; тези списъци остават отделни до изрично съгласие или клиентски статус.
+- D1 записът, Turnstile проверката и transactional email изпращането са запазени.
+- Засегнати файлове: `scripts/setup-brevo.mjs`, `astro/src/lib/brevo-contacts.ts` и `astro/functions/api/contact.ts`.
+- Причина: синхронизиране на контактния workflow с Brevo CRM без автоматично newsletter записване.
+- Проверки: ESLint, безопасен dry-run и mock validation на Brevo contact payload — успешни.
