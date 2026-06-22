@@ -5,15 +5,23 @@ const bg = locale === "bg";
 ---
 
 <section class="estimator-shell" data-estimator data-locale={locale}>
+  <nav class="estimator-step-nav" aria-label={bg ? "Стъпки на конфигуратора" : "Estimator steps"} data-step-nav>
+    <span data-nav-step="1"><b>01</b> {bg ? "Услуги" : "Services"}</span>
+    <span data-nav-step="2"><b>02</b> {bg ? "Обхват" : "Scope"}</span>
+    <span data-nav-step="3"><b>03</b> {bg ? "Сложност" : "Complexity"}</span>
+    <span data-nav-step="4"><b>04</b> {bg ? "Срок" : "Timeline"}</span>
+    <span data-nav-step="5"><b>05</b> {bg ? "Резултат" : "Result"}</span>
+  </nav>
   <div class="estimator-progress" aria-label={bg ? "Напредък" : "Progress"}>
     <span data-progress-text>{bg ? "Стъпка 1 от 5" : "Step 1 of 5"}</span>
     <span class="estimator-progress-line"><i data-progress-bar></i></span>
   </div>
 
+  <div class="estimator-workspace">
   <form class="estimator-form" data-estimator-form>
     <fieldset class="estimator-step" data-step="1">
       <legend>{bg ? "Какво Ви е необходимо?" : "What do you need?"}</legend>
-      <p>{bg ? "Изберете една или повече посоки. Следващата стъпка ще се адаптира към избраното." : "Select one or more directions. The next step will adapt to your selection."}</p>
+      <p>{bg ? "Изберете една или повече услуги. Конфигураторът ще комбинира избраните услуги и ще изчисли ориентировъчен диапазон за инвестицията и срока на проекта." : "Select one or more services. The configurator will combine them and calculate an indicative investment and timeline range."}</p>
       <div class="estimator-options" data-primary-options></div>
     </fieldset>
 
@@ -68,11 +76,28 @@ const bg = locale === "bg";
       <div><h3>{bg ? "Типични резултати" : "Typical Deliverables"}</h3><ul data-result-deliverables></ul></div>
     </div>
     <p class="estimator-disclaimer">{bg ? "Този ориентир е само индикативен. Финалната цена зависи от проектния обхват, готовността на съдържанието, интеграциите и техническите изисквания." : "This estimate is indicative only. Final pricing depends on project scope, content readiness, integrations and technical requirements."}</p>
+    <p class="estimator-next-explanation">{bg ? "След изпращане на запитването избраните параметри ще бъдат добавени автоматично към заявката, което ще ни помогне да подготвим по-точна оценка." : "After you submit the inquiry, the selected parameters will be added automatically, helping us prepare a more accurate assessment."}</p>
     <div class="hero-actions">
       <a class="button button-primary" data-review-link href={bg ? "/contact/" : "/en/contact/"}>{bg ? "Заявете преглед на проекта" : "Request Project Review"}</a>
       <button type="button" class="button button-secondary" data-restart>{bg ? "Промени избора" : "Change selection"}</button>
     </div>
   </section>
+  <aside class="estimator-summary" data-summary>
+    <button type="button" class="estimator-summary-toggle" data-summary-toggle aria-expanded="true">
+      <span>{bg ? "Вашият проект" : "Your project"}</span><span aria-hidden="true">⌄</span>
+    </button>
+    <div data-summary-content>
+      <dl>
+        <div><dt>{bg ? "Услуги" : "Services"}</dt><dd data-summary-services>{bg ? "Няма избрани" : "None selected"}</dd></div>
+        <div><dt>{bg ? "Сложност" : "Complexity"}</dt><dd data-summary-complexity>—</dd></div>
+        <div><dt>{bg ? "Срок" : "Timeline"}</dt><dd data-summary-timeline>—</dd></div>
+        <div><dt>{bg ? "Ориентир" : "Estimate"}</dt><dd data-summary-range>—</dd></div>
+        <div><dt>{bg ? "Мащаб" : "Scale"}</dt><dd data-summary-scale>●○○○ {bg ? "Малък" : "Small"}</dd></div>
+      </dl>
+      <p>{bg ? "Ориентирът се обновява след всеки избор." : "The estimate updates after every selection."}</p>
+    </div>
+  </aside>
+  </div>
 </section>
 
 <script is:inline>
@@ -141,6 +166,24 @@ const bg = locale === "bg";
     root.querySelector("[data-additional-options]").innerHTML=extras.map(x=>option("additional",x[0],x[1])).join("");
     const track=(name,detail={})=>{ window.dataLayer=window.dataLayer||[]; window.dataLayer.push({event:name,...detail}); window.dispatchEvent(new CustomEvent(name,{detail})); };
     const selected=(name)=>[...form.querySelectorAll(`[name="${name}"]:checked`)].map(x=>x.value);
+    const updateSummary=()=>{
+      const chosen=selected("service").map(id=>services.find(s=>s.id===id)?.label).filter(Boolean);
+      const complexityChoice=complexity.find(x=>x[0]===selected("complexity")[0]);
+      const timelineChoice=timelines.find(x=>x[0]===selected("timeline")[0]);
+      root.querySelector("[data-summary-services]").textContent=chosen.join(", ")||(bg?"Няма избрани":"None selected");
+      root.querySelector("[data-summary-complexity]").textContent=complexityChoice?.[1]||"—";
+      root.querySelector("[data-summary-timeline]").textContent=timelineChoice?.[1]||"—";
+      const points=Math.min(4,Math.max(1,chosen.length+(complexityChoice?.[0]==="advanced"?1:complexityChoice?.[0]==="enterprise"?2:0)));
+      const scaleLabels=bg?["Малък","Среден","Голям","Комплексен"]:["Small","Medium","Large","Complex"];
+      root.querySelector("[data-summary-scale]").textContent=`${"●".repeat(points)}${"○".repeat(4-points)} ${scaleLabels[points-1]}`;
+      const scopeRows=selected("service").map(id=>{const s=services.find(x=>x.id===id);const scope=s?.scopes.find(x=>x[0]===selected(`scope-${id}`)[0]);return scope?{s,scope}:null;}).filter(Boolean);
+      if(scopeRows.length){
+        const multiplier=complexityChoice?.[2]||1;
+        const min=Math.round(scopeRows.reduce((n,x)=>n+x.scope[2],0)*multiplier/50)*50;
+        const max=Math.round(scopeRows.reduce((n,x)=>n+x.scope[3],0)*multiplier/50)*50;
+        root.querySelector("[data-summary-range]").textContent=`€${min.toLocaleString(bg?"bg-BG":"en-GB")} – €${max.toLocaleString(bg?"bg-BG":"en-GB")}`;
+      } else root.querySelector("[data-summary-range]").textContent="—";
+    };
     const renderScopes=()=>{
       root.querySelector("[data-scope-options]").innerHTML=selected("service").map(id=>{
         const service=services.find(s=>s.id===id);
@@ -153,6 +196,10 @@ const bg = locale === "bg";
       root.querySelector("[data-next]").textContent=step===5?(bg?"Виж ориентировъчната рамка":"View Estimate"):(bg?"Продължи":"Continue");
       root.querySelector("[data-progress-text]").textContent=bg?`Стъпка ${step} от 5`:`Step ${step} of 5`;
       root.querySelector("[data-progress-bar]").style.width=`${step*20}%`;
+      root.querySelectorAll("[data-nav-step]").forEach(el=>{
+        const number=Number(el.dataset.navStep);
+        el.dataset.state=number===step?"current":number<step?"complete":"future";
+      });
       root.querySelector("[data-estimator-error]").textContent="";
       root.querySelector(`[data-step="${step}"]`).focus?.();
     };
@@ -198,6 +245,12 @@ const bg = locale === "bg";
     });
     root.querySelector("[data-prev]").addEventListener("click",()=>showStep(state.step-1));
     root.querySelector("[data-restart]").addEventListener("click",()=>{root.querySelector("[data-estimator-result]").hidden=true;form.hidden=false;showStep(1);});
-    showStep(1);
+    form.addEventListener("change",updateSummary);
+    root.querySelector("[data-summary-toggle]").addEventListener("click",event=>{
+      const button=event.currentTarget; const content=root.querySelector("[data-summary-content]");
+      const expanded=button.getAttribute("aria-expanded")==="true";
+      button.setAttribute("aria-expanded",String(!expanded)); content.hidden=expanded;
+    });
+    showStep(1); updateSummary();
   })();
 </script>

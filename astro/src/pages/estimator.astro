@@ -3,9 +3,9 @@ import Layout from "@/layouts/Layout.astro";
 import ProjectEstimator from "@/components/ProjectEstimator.astro";
 import { getBreadcrumbSchema } from "@/lib/seo";
 ---
-<Layout locale="bg" title="Проектен ориентир | d . media" description="Изградете индикативна рамка за инвестиция, срок и препоръчан обхват според целите и изискванията на проекта." path="/estimator" structuredData={[getBreadcrumbSchema({locale:"bg",path:"/estimator",title:"Проектен ориентир"})]}>
+<Layout locale="bg" title="Оценка на проект | d . media" description="Получете ориентировъчна оценка за инвестицията, обхвата и срока на Вашия проект." path="/estimator" structuredData={[getBreadcrumbSchema({locale:"bg",path:"/estimator",title:"Оценка на проект"})]}>
   <main class="site-shell estimator-page" id="top"><section class="section-grid">
-    <div class="section-heading page-intro"><p class="eyebrow">проектен ориентир</p><h1>Project Estimator</h1><p class="page-text">Изградете индикативна рамка за проекта според целите, обхвата и изискванията.</p><div class="hero-actions"><a href="#estimator" class="button button-primary">Започнете</a></div></div>
+    <div class="section-heading page-intro"><p class="eyebrow">конфигуратор на проект</p><h1>Оценка на проект</h1><p class="page-text">Получете ориентировъчна оценка за инвестицията, обхвата и срока на Вашия проект.</p><div class="hero-actions"><a href="#estimator" class="button button-primary">Започнете</a></div></div>
     <div id="estimator"><ProjectEstimator locale="bg" /></div>
   </section></main>
 </Layout>

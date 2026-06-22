@@ -19,7 +19,7 @@ const localizedSiteContent = {
       { href: "/services", label: "Услуги" },
       { href: "/projects", label: "Проекти" },
       { href: "/pricing", label: "Цени" },
-      { href: "/estimator", label: "Ориентир" },
+      { href: "/estimator", label: "Оценка на проект" },
       { href: "/blog", label: "Блог" },
       { href: "/about", label: "За бранда" },
       { href: "/contact", label: "Контакти" },

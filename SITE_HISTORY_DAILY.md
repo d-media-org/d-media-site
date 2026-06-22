@@ -177,3 +177,6 @@
 - Добавени са pricing и timeline engines, complexity/rush логика, комбинирани проекти и предупреждения за нереалистичен срок.
 - Estimator резултатът се прехвърля към контактния формуляр и Brevo CRM без newsletter записване.
 - Добавени са navigation, SEO metadata, schema и analytics събития за estimator flow.
+- Project Estimator е преименуван на „Оценка на проект“ в българската версия.
+- Добавени са step navigation, checkmark selected states, live summary и project scale indicator.
+- Добавени са ясни инструкции преди първия избор и обяснение за автоматичното прехвърляне към запитването.

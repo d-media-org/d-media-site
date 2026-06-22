@@ -228,3 +228,11 @@
 - Добавени са navigation, canonical, Open Graph, metadata и breadcrumb schema за `/estimator/` и `/en/estimator/`.
 - Засегнати са estimator страниците и компонентът, navigation, контактният формуляр и Worker, Brevo setup и глобалните стилове.
 - Проверки: ESLint, Astro/Cloudflare validation, desktop interaction flow, динамични sub-options, комбинирана timeline логика и contact prefill.
+
+### 23 юни 2026 — UX подобрение на Project Estimator
+
+- Българското име на страницата и навигацията е променено на „Оценка на проект“, а вътрешното име е „Конфигуратор на проект“.
+- Добавени са постоянно step navigation, отчетливо selected състояние с checkmark и live project summary.
+- Summary панелът показва услуги, сложност, срок, текущ диапазон и автоматичен индикатор за мащаба на проекта.
+- Добавени са контекстуални инструкции преди първия избор и обяснение как estimator данните се прехвърлят към запитването.
+- Desktop summary е sticky, а mobile вариантът е collapsible и не създава хоризонтално преливане.
