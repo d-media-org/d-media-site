@@ -214,3 +214,6 @@
 - Засегнати файлове: `scripts/setup-brevo.mjs`, `astro/src/lib/brevo-contacts.ts` и `astro/functions/api/contact.ts`.
 - Причина: синхронизиране на контактния workflow с Brevo CRM без автоматично newsletter записване.
 - Проверки: ESLint, безопасен dry-run и mock validation на Brevo contact payload — успешни.
+- Brevo setup е изпълнен успешно: папка `d . media Website`, Website Leads ID 6, Newsletter Subscribers ID 7 и Clients ID 8.
+- Всички девет contact attributes са създадени, а sender адресите `contact@d-media.org`, `newsletter@d-media.org` и `noreply@d-media.org` са потвърдени като активни.
+- List ID стойностите са добавени към production Cloudflare Pages конфигурацията.

@@ -171,3 +171,5 @@
 - Контактните запитвания вече имат подготвен create/update поток към Website Leads, без автоматично newsletter записване.
 - D1, Turnstile и transactional email потокът са запазени; dry-run, ESLint и mock validation са успешни.
 - Временна Brevo CRM грешка не прекъсва D1 записа и изпращането на transactional имейлите.
+- Brevo CRM setup е изпълнен: създадени са папката, трите списъка и деветте атрибута; sender адресите са активни.
+- Brevo list ID стойностите са добавени към production Cloudflare Pages конфигурацията.
