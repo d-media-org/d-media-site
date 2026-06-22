@@ -1,5 +1,6 @@
 ---
 import BrandText from "@/components/BrandText.astro";
+import MotionArchiveSections from "@/components/MotionArchiveSections.astro";
 import Layout from "@/layouts/Layout.astro";
 import { getResolvedAllProjectsArchive } from "@/lib/asset-url";
 import { localizeHref, type Locale } from "@/lib/i18n";
@@ -21,6 +22,7 @@ const copy = getPageCopy(locale).projectDetail;
 const siteContent = getSiteContent(locale);
 const ui = getUiCopy(locale);
 const caseStudySections = "caseStudySections" in project ? project.caseStudySections : [];
+const projectVideos = "videos" in project ? project.videos : [];
 const projectHeroImage = "detailCover" in project ? project.detailCover : project.cover;
 const hasProjectFiles = project.images.length > 0;
 const formatFileCount = (count: number) =>
@@ -105,6 +107,13 @@ const relatedServices = relatedServiceIds
               </div>
             </div>
           ) : null}
+          {project.slug === "d-media" ? (
+            <div class="case-study-section">
+              <span class="case-study-label">Развитие</span>
+              <p>Виж хронологията на решенията, миграциите и системните подобрения по сайта.</p>
+              <a class="inline-link" href="/site-history/">История на сайта</a>
+            </div>
+          ) : null}
           <div class="project-card-footer">
             <span class="project-meta">{copy.meta}</span>
             <a class="inline-link" href={localizeHref(locale, "/projects")}>{copy.back}</a>
@@ -129,6 +138,27 @@ const relatedServices = relatedServiceIds
                   <img src={image.src} alt={image.label ?? project.title} decoding="async" />
                 </div>
               </a>
+            ))}
+          </div>
+        </>
+      ) : null}
+
+      {project.slug === "d-media" ? <MotionArchiveSections locale={locale} /> : null}
+
+      {projectVideos.length ? (
+        <>
+          <div class="section-heading page-subheading">
+            <h2>Motion приложение</h2>
+          </div>
+          <div class="mockup-grid projects-gallery">
+            {projectVideos.map((video: { src: string; label: string }) => (
+              <article class="card mockup-card project-png-card">
+                <div class="mockup-image">
+                  <video controls playsinline preload="metadata" aria-label={video.label}>
+                    <source src={video.src} type="video/mp4" />
+                  </video>
+                </div>
+              </article>
             ))}
           </div>
         </>

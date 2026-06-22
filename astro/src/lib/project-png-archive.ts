@@ -31,10 +31,27 @@ export const projectPngArchive = [
   {
     "slug": "d-media",
     "title": "d . media",
-    "imageCount": 0,
+    "imageCount": 4,
     "cover": "/assets/brand/ONLY-logotype.png",
     "detailCover": "/downloads/brand-assets/d . media logotype_transparent.png",
-    "images": [],
+    "images": [
+      {
+        "src": "/optimized-assets/project-web/d-media/business-card-mockup.jpg",
+        "label": "d . media — business card identity application"
+      },
+      {
+        "src": "/optimized-assets/project-web/d-media/linkedin-cover.jpg",
+        "label": "d . media — LinkedIn cover"
+      },
+      {
+        "src": "/optimized-assets/project-web/d-media/youtube-cover.jpg",
+        "label": "d . media — YouTube cover"
+      },
+      {
+        "src": "/optimized-assets/project-web/d-media/instagram-pinned-cover.jpg",
+        "label": "d . media — pinned social cover"
+      }
+    ],
     "featured": true,
     "priority": 0,
     "summary": "Собствената платформа на d . media, изградена като бърз, многоезичен и поддържим сайт с ясна SEO/GEO основа.",
@@ -42,7 +59,8 @@ export const projectPngArchive = [
     "focus": [
       "100 Performance, 100 Accessibility, 100 Best Practices и 100 SEO в Lighthouse",
       "Миграция към Astro и Cloudflare Pages",
-      "SEO, GEO и multilingual архитектура за реална употреба"
+      "SEO, GEO и multilingual архитектура за реална употреба",
+      "Реални brand applications и архив от 155 motion варианта"
     ],
     "caseStudySections": [
       {
@@ -71,7 +89,7 @@ export const projectPngArchive = [
       },
       {
         "title": "SEO и GEO готовност",
-        "text": "Метаданни, canonical, hreflang, sitemap, schema, social preview и llms файлове са подредени за search, AI search и реална индексация."
+        "text": "Метаданни, canonical, hreflang, sitemap, schema, social preview и llms файлове са подредени за search, AI search и реална индексация. Добавени са активна Content-Signal политика и Markdown content negotiation за основните публични страници."
       },
       {
         "title": "Визуална система",
@@ -82,8 +100,12 @@ export const projectPngArchive = [
         "text": "Проектният архив премина през оптимизация на PNG файлове, bounded web derivatives, portrait/landscape логика за mockup секции и специални итерации за iPhone/Safari стабилност."
       },
       {
+        "title": "Motion система",
+        "text": "Казусът включва архив от 155 оптимизирани logo intro и animation варианта с poster кадри и отложено зареждане, така че motion разработката остава достъпна без да натоварва първоначалното отваряне на страницата."
+      },
+      {
         "title": "Резултат",
-        "text": "d-media.org работи като собствен работен пример: бранд система, съдържание, проектен архив и уеб платформа, изградени по същия стандарт, който предлагаме."
+        "text": "d-media.org работи като собствен работен пример: бранд система, реални приложения, съдържание, проектен и motion архив и уеб платформа, изградени по същия стандарт, който предлагаме."
       }
     ]
   },
@@ -143,6 +165,26 @@ export const projectPngArchive = [
       "Оригинален прозрачен логотип",
       "Българска версия на логотипа",
       "Прозрачен logo вариант за директно приложение"
+    ],
+    "videos": [
+      {
+        "src": "/optimized-assets/project-media/support-account-logo-animation.mp4",
+        "label": "Анимация на знака Support Account"
+      }
+    ],
+    "caseStudySections": [
+      {
+        "title": "Задача",
+        "text": "Идентичността трябваше да изгради професионално присъствие за счетоводна дейност и да остане ясна в корпоративни, печатни и дигитални приложения."
+      },
+      {
+        "title": "Система",
+        "text": "Разработени са знак, оригинален и български логотип, визитни приложения и motion вариант, които работят като последователна визуална система."
+      },
+      {
+        "title": "Резултат",
+        "text": "Брандът получава разпознаваем и спокоен облик, приложим както в ежедневна бизнес комуникация, така и в кратки дигитални формати."
+      }
     ]
   },
   {
@@ -189,8 +231,8 @@ export const projectPngArchive = [
         "label": "AneliArt_logo @ white_transparent.png"
       }
     ],
-    "featured": false,
-    "priority": 999,
+    "featured": true,
+    "priority": 4,
     "summary": "Авторски знак с чист силует и подредени прозрачни версии за различен фон.",
     "context": "Архивът вече държи основния знак в прозрачна, черна и бяла версия, вместо единичен export.",
     "focus": [
@@ -226,6 +268,20 @@ export const projectPngArchive = [
       "Комбиниран прозрачен знак",
       "Прозрачен логотип",
       "Прозрачен logo знак"
+    ],
+    "caseStudySections": [
+      {
+        "title": "Задача",
+        "text": "Фотографската идентичност трябваше да носи авторски характер, без да конкурира самите изображения и работата на фотографа."
+      },
+      {
+        "title": "Подход",
+        "text": "Системата е сведена до комбиниран знак, самостоятелен логотип и отделен символ, за да работи еднакво добре върху кадри, корици и motion материали."
+      },
+      {
+        "title": "Резултат",
+        "text": "Получен е чист визуален подпис с достатъчно гъвкавост за портфолио, социални канали и видео представяне."
+      }
     ]
   },
   {
@@ -724,6 +780,7 @@ const localizedProjectCopy = {
         "100 Performance, 100 Accessibility, 100 Best Practices, and 100 SEO in Lighthouse",
         "Migration to Astro and Cloudflare Pages",
         "SEO, GEO, and multilingual architecture for real use",
+        "Real brand applications and an archive of 155 motion variants",
       ],
       caseStudySections: [
         {
@@ -752,7 +809,7 @@ const localizedProjectCopy = {
         },
         {
           title: "SEO and GEO readiness",
-          text: "Metadata, canonical, hreflang, sitemap, schema, social preview, and llms files are structured for search, AI search, and real indexing.",
+          text: "Metadata, canonical, hreflang, sitemap, schema, social preview, and llms files are structured for search, AI search, and real indexing. An active Content-Signal policy and Markdown content negotiation were added for the primary public pages.",
         },
         {
           title: "Visual System",
@@ -763,8 +820,12 @@ const localizedProjectCopy = {
           text: "The project archive went through PNG optimisation, bounded web derivatives, portrait/landscape logic for mockup sections, and dedicated iPhone/Safari stability iterations.",
         },
         {
+          title: "Motion system",
+          text: "The case study includes an archive of 155 optimized logo intro and animation variants with poster frames and deferred loading, keeping the motion development accessible without weighing down the initial page load.",
+        },
+        {
           title: "Results",
-          text: "d-media.org works as its own case study: brand system, content, project archive, and web platform built on the same standards we offer.",
+          text: "d-media.org works as its own case study: a brand system, real applications, content, project and motion archives, and a web platform built on the same standards we offer.",
         },
       ],
     },
@@ -775,6 +836,20 @@ const localizedProjectCopy = {
         "Original transparent logotype",
         "Bulgarian logotype version",
         "Transparent logo version for direct application",
+      ],
+      caseStudySections: [
+        {
+          title: "Brief",
+          text: "The identity had to establish a professional presence for an accounting business and remain clear across corporate, print, and digital applications.",
+        },
+        {
+          title: "System",
+          text: "The work includes a mark, original and Bulgarian logotypes, business-card applications, and a motion version built as one consistent visual system.",
+        },
+        {
+          title: "Result",
+          text: "The brand gains a recognisable, calm presence suited to daily business communication and short digital formats.",
+        },
       ],
     },
     "support-account-group": {
@@ -811,6 +886,20 @@ const localizedProjectCopy = {
         "Combined transparent mark",
         "Transparent logotype",
         "Transparent logo sign",
+      ],
+      caseStudySections: [
+        {
+          title: "Brief",
+          text: "The photography identity needed an authorial character without competing with the images or the photographer’s work.",
+        },
+        {
+          title: "Approach",
+          text: "The system uses a combined mark, a standalone logotype, and a separate symbol so it can work across photographs, covers, and motion materials.",
+        },
+        {
+          title: "Result",
+          text: "The outcome is a clean visual signature with enough flexibility for a portfolio, social channels, and video presentation.",
+        },
       ],
     },
     diana: {

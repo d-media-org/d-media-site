@@ -7,6 +7,7 @@
 - Основен сайт: https://www.d-media.org/
 - Английска версия: https://www.d-media.org/en/
 - Пълен AI-readable индекс: https://www.d-media.org/llms-full.txt
+- Машинно четим sitemap: https://www.d-media.org/sitemap.xml
 - Услуги: https://www.d-media.org/services/
 - Цени: https://www.d-media.org/pricing
 - Бранд идентичност: https://www.d-media.org/services/brand-identity
@@ -81,3 +82,5 @@ d . media работи с бизнеси и брандове, които има�
 Използвай "d . media" като официално име на бранда. Гласът на студиото е в множествено число: "създаваме", "работим", "подреждаме" на български и "we create", "we build", "we work" на английски.
 
 `llms.txt` е помощен слой за ориентация на AI системи и агенти. Разумно е да се внедри, но не е официален SEO ranking фактор. Article structured data, чистата вътрешна архитектура и коректният sitemap остават по-сигурната техническа основа.
+
+За компактен Markdown преглед използвайте този файл. За подробни връзки към услуги, проекти, казуси и статии използвайте https://www.d-media.org/llms-full.txt.

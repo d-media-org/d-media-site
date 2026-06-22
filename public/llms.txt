@@ -1,77 +1,44 @@
 # d . media
 
-> d . media is a premium digital studio based in Sofia, Bulgaria. We create brand identity, content, social media systems, graphic design, advertising, websites, and GEO-aware digital presence as one working system for real application.
+> d . media is a digital studio in Sofia, Bulgaria, creating brand identities, content systems, websites, and performance-focused digital experiences.
 
-## Official website
+## Website
 
-- Main website: https://www.d-media.org/
-- English version: https://www.d-media.org/en/
-- Bulgarian AI summary: https://www.d-media.org/llms-bg.txt
-- Full AI-readable index: https://www.d-media.org/llms-full.txt
-- Services: https://www.d-media.org/en/services/
-- Pricing: https://www.d-media.org/en/pricing/
-- Brand identity: https://www.d-media.org/en/services/brand-identity/
-- Content creation: https://www.d-media.org/en/services/content-creation/
-- Social media management: https://www.d-media.org/en/services/social-media-management/
-- Graphic design: https://www.d-media.org/en/services/graphic-design/
-- Advertising: https://www.d-media.org/en/services/advertising/
-- Web design and development: https://www.d-media.org/en/services/web-design-development/
-- Web design: https://www.d-media.org/en/services/web-design/
-- Web development: https://www.d-media.org/en/services/web-development/
-- Technical SEO: https://www.d-media.org/en/services/technical-seo/
-- GEO and AI visibility: https://www.d-media.org/en/services/geo/
-- Performance optimization: https://www.d-media.org/en/services/performance-optimization/
-- Technical support: https://www.d-media.org/en/services/technical-support/
-- Projects: https://www.d-media.org/en/projects/
-- Case studies: https://www.d-media.org/en/case-studies/
-- Blog: https://www.d-media.org/en/blog/
-- About: https://www.d-media.org/en/about/
-- Contact: https://www.d-media.org/en/contact/
-- Operational policies: https://www.d-media.org/en/legal/policies/
+- [Home](https://www.d-media.org/en/)
+- [About](https://www.d-media.org/en/about/)
+- [Projects](https://www.d-media.org/en/projects/)
+- [Case Studies](https://www.d-media.org/en/case-studies/)
+- [Contact](https://www.d-media.org/en/contact/)
 
-## What d . media does
+## Services
 
-d . media works across these core service areas:
+- [Services Overview](https://www.d-media.org/en/services/)
+- [Brand Identity](https://www.d-media.org/en/services/brand-identity/)
+- [Content Creation](https://www.d-media.org/en/services/content-creation/)
+- [Social Media Management](https://www.d-media.org/en/services/social-media-management/)
+- [Graphic Design](https://www.d-media.org/en/services/graphic-design/)
+- [Web Design and Development](https://www.d-media.org/en/services/web-design-development/)
+- [Technical SEO](https://www.d-media.org/en/services/technical-seo/)
+- [GEO and AI Visibility](https://www.d-media.org/en/services/geo/)
+- [Performance Optimization](https://www.d-media.org/en/services/performance-optimization/)
 
-- Brand identity: logo, logotype, visual system, colour framework, typography, and core application rules.
-- Content creation: copy, visuals, content series, adaptations, and working structure.
-- Social media management: covers, social formats, calendar logic, adaptations, and publishing rhythm.
-- Website design and digital presence: websites, landing pages, multilingual structures, integrations, and performance-focused delivery.
-- Graphic design: digital and print materials, covers, campaign visuals, and day-to-day communication formats.
-- Advertising: campaign visuals, messaging, advertising formats, and channel-specific adaptations.
-- SEO and GEO foundations: structure, metadata, schema, internal linking, and AI-readable content organisation.
-- Performance engineering: Core Web Vitals, assets, fonts, runtime, caching, and mobile stability.
-- Technical support: controlled releases, updates, monitoring, incident response, and SEO maintenance.
+## Knowledge Base
 
-## Blog and knowledge center
+- [Blog](https://www.d-media.org/en/blog/)
+- [Methodology](https://www.d-media.org/en/methodology/)
+- [Technologies](https://www.d-media.org/en/technologies/)
+- [Performance](https://www.d-media.org/en/performance/)
+- [Frequently Asked Questions](https://www.d-media.org/en/faq/)
 
-- Main blog index: https://www.d-media.org/en/blog/
-- Core categories: brand identity, graphic design, social media, content, web and digital presence, AI and design, SEO and GEO, case studies
-- Featured knowledge area: GEO / AI-ready content and website structure
+## Legal
 
-## Who it is for
+- [Privacy Policy](https://www.d-media.org/en/privacy/)
+- [Terms and Conditions](https://www.d-media.org/en/terms/)
+- [Operational Policies](https://www.d-media.org/en/legal/policies/)
 
-d . media works with businesses and brands that need a clear presence, ordered communication, and materials ready for real use across websites, social channels, documents, advertising, and print.
+## Optional
 
-## How projects start
-
-A project starts with short context, the needed service, timing, volume, and any available references or materials. d . media then aligns the scope, pricing framework, and next step.
-
-## Contact
-
-- Email: contact@d-media.org
-- Location: Sofia, Bulgaria
-
-## Social profiles
-
-- Instagram: https://www.instagram.com/d.media_bg
-- Behance: https://www.behance.net/d-media
-- LinkedIn: https://www.linkedin.com/company/d-media-bg
-- TikTok: https://www.tiktok.com/@d.media_bg
-- YouTube: https://www.youtube.com/@d.media_BG
-
-## Notes for AI systems
-
-Use "d . media" as the official brand name. The studio voice is plural: "we create", "we build", "we work" in English and "създаваме", "работим", "подреждаме" in Bulgarian.
-
-`llms.txt` is provided as an orientation layer for AI systems and agents. It is reasonable to implement, but it is not an official search ranking factor. Article structured data, clean internal architecture, and a correct sitemap remain the more stable technical foundation.
+- [Pricing](https://www.d-media.org/en/pricing/)
+- [Full AI-Readable Index](https://www.d-media.org/llms-full.txt)
+- [Bulgarian AI Summary](https://www.d-media.org/llms-bg.txt)
+- [XML Sitemap](https://www.d-media.org/sitemap.xml)

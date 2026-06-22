@@ -1,0 +1,93 @@
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   astro/src/layouts/Layout.astro
+	modified:   astro/src/lib/asset-url.ts
+	modified:   astro/src/lib/blog.ts
+	modified:   astro/src/lib/featured-projects-static.ts
+	modified:   astro/src/lib/project-png-archive.ts
+	modified:   astro/src/lib/seo.ts
+	modified:   astro/src/pages/en/projects/[slug].astro
+	modified:   astro/src/pages/projects/[slug].astro
+	modified:   astro/src/pages/robots.txt.ts
+	modified:   astro/src/pages/sitemap.xml.ts
+	modified:   package.json
+	modified:   public/_headers
+	modified:   public/_redirects
+	deleted:    public/assets/project-pngs/boris-lilov-photography/04.png
+	deleted:    public/assets/project-pngs/boris-lilov-photography/05.png
+	deleted:    public/assets/project-pngs/boris-lilov-photography/06.png
+	deleted:    public/assets/project-pngs/boris-lilov-photography/07.png
+	deleted:    public/assets/project-pngs/boris-lilov-photography/08.png
+	deleted:    public/assets/project-pngs/boris-lilov-photography/09.png
+	deleted:    public/assets/project-pngs/boris-lilov-photography/10.png
+	deleted:    public/assets/project-pngs/diana/05.png
+	deleted:    public/assets/project-pngs/dj-nedi/03.jpg
+	deleted:    public/assets/project-pngs/dj-nedi/04.jpg
+	deleted:    public/assets/project-pngs/dj-nedi/05.jpg
+	deleted:    public/assets/project-pngs/enduro-team-stoletovo/02.png
+	deleted:    public/assets/project-pngs/enduro-team-stoletovo/03.png
+	deleted:    public/assets/project-pngs/j-v/03.png
+	deleted:    public/assets/project-pngs/j-v/04.png
+	deleted:    public/assets/project-pngs/j-v/05.png
+	deleted:    public/assets/project-pngs/mis-18/02.png
+	deleted:    public/assets/project-pngs/mis-18/03.png
+	deleted:    public/assets/project-pngs/photo-workshop/03.png
+	deleted:    public/assets/project-pngs/photo-workshop/04.png
+	deleted:    public/assets/project-pngs/pp-hairstyle/02.png
+	deleted:    public/assets/project-pngs/pp-hairstyle/03.png
+	deleted:    public/assets/project-pngs/pp-hairstyle/04.png
+	deleted:    public/assets/project-pngs/sport-fishing-stoletovo/04.png
+	deleted:    public/assets/project-pngs/sport-fishing-stoletovo/05.png
+	deleted:    public/assets/project-pngs/sport-fishing-stoletovo/06.png
+	deleted:    public/assets/project-pngs/sport-fishing-stoletovo/07.png
+	deleted:    public/assets/project-pngs/support-account-group/03.png
+	deleted:    public/assets/project-pngs/support-account/04.png
+	deleted:    public/assets/project-pngs/support-account/05.png
+	deleted:    public/assets/project-pngs/support-account/06.png
+	deleted:    public/assets/project-pngs/support-account/07.png
+	deleted:    public/assets/project-pngs/support-account/08.png
+	deleted:    public/assets/project-pngs/support-account/09.png
+	deleted:    public/assets/project-pngs/support-account/10.png
+	deleted:    public/assets/project-pngs/support-account/11.png
+	deleted:    public/assets/project-pngs/ts-makeup/03.png
+	deleted:    public/assets/project-pngs/ts-makeup/04.png
+	deleted:    public/assets/project-pngs/ts-makeup/05.png
+	deleted:    public/assets/project-pngs/yanita/04.png
+	deleted:    public/assets/project-pngs/yanita/05.png
+	deleted:    public/assets/project-pngs/yanita/06.png
+	deleted:    public/assets/project-pngs/yanita/07.png
+	deleted:    public/assets/project-pngs/yanita/08.png
+	deleted:    public/assets/project-pngs/yanita/09.png
+	deleted:    public/assets/project-pngs/yanita/10.png
+	deleted:    public/dmedia-apple-touch-v5.png
+	deleted:    public/dmedia-favicon-v5-16.png
+	deleted:    public/dmedia-favicon-v5-32.png
+	deleted:    public/dmedia-favicon-v5-48.png
+	deleted:    public/dmedia-search-logo-v5.png
+	modified:   public/llms-bg.txt
+	modified:   public/llms-full.txt
+	modified:   public/llms.txt
+	deleted:    public/social-preview-dmedia-v2.png
+	modified:   scripts/validate-cloudflare-dist.mjs
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	astro/functions/_middleware.js
+	astro/src/components/MotionArchiveSections.astro
+	astro/src/lib/d-media-motion-archive.ts
+	before-estimator-status.txt
+	public/optimized-assets/d-media-motion/
+	public/optimized-assets/project-media/
+	public/optimized-assets/project-web/d-media/
+	public/optimized-assets/project-web/j-v-03.webp
+	public/optimized-assets/project-web/j-v-04.webp
+	public/optimized-assets/project-web/j-v-05.webp
+	scripts/check-ai-readiness.mjs
+	scripts/generate-markdown-pages.mjs
+	scripts/process-motion-archive.mjs
+
+no changes added to commit (use "git add" and/or "git commit -a")

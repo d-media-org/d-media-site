@@ -74,6 +74,10 @@ export function GET() {
       { path: localizeHref("bg", path) },
       { path: localizeHref("en", path) },
     ]),
+    { path: "/site-history" },
+    { path: "/site-history/daily" },
+    { path: "/en/site-history" },
+    { path: "/en/site-history/daily" },
   ];
   const body = [
     '<?xml version="1.0" encoding="UTF-8"?>',

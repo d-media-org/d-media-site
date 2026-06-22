@@ -1,5 +1,9 @@
 /index.html / 301
 /en/index.html /en/ 301
+/projects/d-media/motion /projects/d-media/ 301
+/projects/d-media/motion/ /projects/d-media/ 301
+/en/projects/d-media/motion /en/projects/d-media/ 301
+/en/projects/d-media/motion/ /en/projects/d-media/ 301
 /bg / 301
 /bg/* /:splat 301
 /brandbook /brandbook_web_exact/index.html 302
