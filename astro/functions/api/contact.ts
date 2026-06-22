@@ -29,6 +29,7 @@ const messages = {
     rateLimited: "Изпратени са твърде много запитвания. Опитай отново по-късно.",
     turnstileFailed: "Потвърждението против спам е неуспешно. Опитай отново.",
     serverError: "Запитването не можа да бъде записано. Опитай отново.",
+    emailError: "Запитването е записано, но потвърждението не можа да бъде изпратено. Опитай отново по-късно.",
   },
   en: {
     invalidForm: "The form could not be processed.",
@@ -41,6 +42,7 @@ const messages = {
     rateLimited: "Too many inquiries were submitted. Please try again later.",
     turnstileFailed: "The anti-spam verification failed. Please try again.",
     serverError: "The inquiry could not be saved. Please try again.",
+    emailError: "The inquiry was saved, but the confirmation email could not be sent. Please try again later.",
   },
 } as const;
 
@@ -104,13 +106,32 @@ async function verifyTurnstile(env: Env, token: string, ip?: string) {
   return result.success === true;
 }
 
-async function sendEmail(env: Env, payload: { to: string | string[]; subject: string; text: string; html: string }) {
-  const response = await fetch(`https://api.cloudflare.com/client/v4/accounts/${env.CF_ACCOUNT_ID}/email/sending/send`, {
+async function sendEmail(
+  env: Env,
+  payload: {
+    to: { email: string; name?: string }[];
+    subject: string;
+    textContent: string;
+    htmlContent: string;
+    replyTo?: { email: string; name?: string };
+  },
+) {
+  const response = await fetch("https://api.brevo.com/v3/smtp/email", {
     method: "POST",
-    headers: { Authorization: `Bearer ${env.CF_EMAIL_API_TOKEN}`, "Content-Type": "application/json" },
-    body: JSON.stringify({ from: { address: env.EMAIL_FROM, name: "d . media" }, ...payload }),
+    headers: {
+      accept: "application/json",
+      "api-key": env.BREVO_API_KEY,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      sender: { email: contactEmail, name: "d . media" },
+      ...payload,
+    }),
   });
-  if (!response.ok) throw new Error(await response.text());
+  if (!response.ok) {
+    const detail = await response.text();
+    throw new Error(`Brevo API returned ${response.status}: ${detail}`);
+  }
 }
 
 export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
@@ -208,26 +229,29 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
 
   try {
     await sendEmail(env, {
-      to: contactEmail,
+      to: [{ email: contactEmail, name: "d . media" }],
+      replyTo: { email, name },
       subject: `Ново проектно запитване: ${service} — ${name}`,
-      text: buildMessageText(record),
-      html: buildMessageHtml(record),
+      textContent: buildMessageText(record),
+      htmlContent: buildMessageHtml(record),
     });
     await sendEmail(env, {
-      to: email,
+      to: [{ email, name }],
+      replyTo: { email: contactEmail, name: "d . media" },
       subject: locale === "bg" ? "Получихме твоето запитване" : "We received your inquiry",
-      text:
+      textContent:
         locale === "bg"
           ? "Благодарим за запитването.\n\nПолучихме съобщението ти и ще го прегледаме възможно най-скоро.\n\nТова е автоматично потвърждение."
           : "Thank you for your inquiry.\n\nWe have received your message and will review it as soon as possible.\n\nThis is an automated confirmation.",
-      html:
+      htmlContent:
         locale === "bg"
           ? "<p>Благодарим за запитването.</p><p>Получихме съобщението ти и ще го прегледаме възможно най-скоро.</p><p>Това е автоматично потвърждение.</p>"
           : "<p>Thank you for your inquiry.</p><p>We have received your message and will review it as soon as possible.</p><p>This is an automated confirmation.</p>",
     });
     await env.d_media_inquiries.prepare("UPDATE inquiries SET status = ?1 WHERE id = ?2").bind("received_email_sent", record.id).run();
   } catch (error) {
-    console.error("Contact inquiry email delivery pending", error);
+    console.error("Contact inquiry Brevo delivery failed", error);
+    return json({ ok: false, error: copy.emailError }, { status: 502 });
   }
 
   if (prefersHtml(request)) {
@@ -241,7 +265,5 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
 interface Env {
   d_media_inquiries: D1Database;
   TURNSTILE_SECRET_KEY: string;
-  CF_ACCOUNT_ID: string;
-  CF_EMAIL_API_TOKEN: string;
-  EMAIL_FROM: string;
+  BREVO_API_KEY: string;
 }
