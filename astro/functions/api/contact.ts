@@ -124,6 +124,10 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
   const additionalInformation = clean(formData.get("additionalInformation"), contactFieldLimits.additionalInformation);
   const gdprConsent = clean(formData.get("gdprConsent"), 5);
   const turnstileToken = clean(formData.get("cf-turnstile-response"), 4096);
+  const projectScope = clean(formData.get("projectScope"), 1000);
+  const complexity = clean(formData.get("complexity"), 100);
+  const projectTimeline = clean(formData.get("projectTimeline"), 100);
+  const estimatedRange = clean(formData.get("estimatedRange"), 100);
 
   if (!name || !email || !service || !message || !gdprConsent || !turnstileToken) {
     return json({ ok: false, error: copy.missingFields }, { status: 400 });
@@ -215,6 +219,10 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
           LANGUAGE: locale,
           CONSENT_SOURCE: "d-media.org contact form GDPR consent",
           CONSENT_TIMESTAMP: record.created_at,
+          PROJECT_SCOPE: projectScope || undefined,
+          COMPLEXITY: complexity || undefined,
+          TIMELINE: projectTimeline || undefined,
+          ESTIMATED_RANGE: estimatedRange || undefined,
         },
       },
     );

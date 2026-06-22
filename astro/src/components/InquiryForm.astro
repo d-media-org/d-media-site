@@ -11,6 +11,14 @@ type Props = { locale: "bg" | "en" };
 const { locale } = Astro.props as Props;
 const isBg = locale === "bg";
 const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? "0x4AAAAAADpL5PXvzZD7h9GA";
+const estimator = Astro.url.searchParams.get("estimator") === "1";
+const estimatorData = {
+  services: Astro.url.searchParams.get("services") ?? "",
+  scope: Astro.url.searchParams.get("scope") ?? "",
+  complexity: Astro.url.searchParams.get("complexity") ?? "",
+  timeline: Astro.url.searchParams.get("timeline") ?? "",
+  estimatedRange: Astro.url.searchParams.get("estimatedRange") ?? "",
+};
 
 const copy = isBg
   ? {
@@ -123,7 +131,7 @@ const copy = isBg
 
       <label class="field field-full">
         <span class="field-label">{copy.message} <span class="field-required" aria-label={copy.required}>*</span></span>
-        <textarea name="message" rows="6" maxlength={contactFieldLimits.message} required></textarea>
+        <textarea name="message" rows="6" maxlength={contactFieldLimits.message} required>{estimator ? (isBg ? `Проектен ориентир:\nУслуги: ${estimatorData.services}\nОбхват: ${estimatorData.scope}\nСложност: ${estimatorData.complexity}\nСрок: ${estimatorData.timeline}\nОриентировъчна инвестиция: ${estimatorData.estimatedRange}` : `Project estimate:\nServices: ${estimatorData.services}\nScope: ${estimatorData.scope}\nComplexity: ${estimatorData.complexity}\nTimeline: ${estimatorData.timeline}\nEstimated investment: ${estimatorData.estimatedRange}`) : ""}</textarea>
         <span class="field-hint">{copy.messageHint}</span>
       </label>
 
@@ -163,6 +171,10 @@ const copy = isBg
 
       <input name="honeypot" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" class="inquiry-honeypot" />
       <input name="locale" type="hidden" value={locale} />
+      <input name="projectScope" type="hidden" value={estimatorData.scope} />
+      <input name="complexity" type="hidden" value={estimatorData.complexity} />
+      <input name="projectTimeline" type="hidden" value={estimatorData.timeline} />
+      <input name="estimatedRange" type="hidden" value={estimatorData.estimatedRange} />
 
       <div class="form-actions">
         <button type="submit" class="button button-primary" data-submit-button data-default-label={copy.submit}>{copy.submit}</button>
@@ -209,6 +221,28 @@ const copy = isBg
       control.addEventListener("change", () => control.setCustomValidity(""));
     });
     const params = new URLSearchParams(window.location.search);
+    if (params.get("estimator") === "1") {
+      const services = params.get("services") || "";
+      const scope = params.get("scope") || "";
+      const complexity = params.get("complexity") || "";
+      const timeline = params.get("timeline") || "";
+      const estimatedRange = params.get("estimatedRange") || "";
+      const message = form.querySelector('[name="message"]');
+      const projectScope = form.querySelector('[name="projectScope"]');
+      const complexityField = form.querySelector('[name="complexity"]');
+      const projectTimeline = form.querySelector('[name="projectTimeline"]');
+      const estimatedRangeField = form.querySelector('[name="estimatedRange"]');
+      const isEnglish = form.querySelector('[name="locale"]')?.value === "en";
+      if (message) {
+        message.value = isEnglish
+          ? `Project estimate:\nServices: ${services}\nScope: ${scope}\nComplexity: ${complexity}\nTimeline: ${timeline}\nEstimated investment: ${estimatedRange}`
+          : `Проектен ориентир:\nУслуги: ${services}\nОбхват: ${scope}\nСложност: ${complexity}\nСрок: ${timeline}\nОриентировъчна инвестиция: ${estimatedRange}`;
+      }
+      if (projectScope) projectScope.value = scope;
+      if (complexityField) complexityField.value = complexity;
+      if (projectTimeline) projectTimeline.value = timeline;
+      if (estimatedRangeField) estimatedRangeField.value = estimatedRange;
+    }
     if (params.get("sent") === "1") {
       setStatus(form.dataset.successMessage || "", false);
     }
@@ -237,6 +271,10 @@ const copy = isBg
         }
         form.reset();
         setStatus(form.dataset.successMessage || "", false);
+        if (new URLSearchParams(window.location.search).get("estimator") === "1") {
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({ event: "inquiry_submitted", source: "estimator" });
+        }
         if (window.turnstile?.reset) window.turnstile.reset();
       } catch {
         setStatus(form.dataset.errorMessage || "", true);

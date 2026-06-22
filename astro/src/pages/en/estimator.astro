@@ -1,0 +1,11 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import ProjectEstimator from "@/components/ProjectEstimator.astro";
+import { getBreadcrumbSchema } from "@/lib/seo";
+---
+<Layout locale="en" title="Project Estimator | d . media" description="Build an indicative project estimate based on your goals, scope and requirements." path="/estimator" structuredData={[getBreadcrumbSchema({locale:"en",path:"/estimator",title:"Project Estimator"})]}>
+  <main class="site-shell estimator-page" id="top"><section class="section-grid">
+    <div class="section-heading page-intro"><p class="eyebrow">project estimator</p><h1>Project Estimator</h1><p class="page-text">Build an indicative project estimate based on your goals, scope and requirements.</p><div class="hero-actions"><a href="#estimator" class="button button-primary">Start Estimation</a></div></div>
+    <div id="estimator"><ProjectEstimator locale="en" /></div>
+  </section></main>
+</Layout>

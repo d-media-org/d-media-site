@@ -217,3 +217,14 @@
 - Brevo setup е изпълнен успешно: папка `d . media Website`, Website Leads ID 6, Newsletter Subscribers ID 7 и Clients ID 8.
 - Всички девет contact attributes са създадени, а sender адресите `contact@d-media.org`, `newsletter@d-media.org` и `noreply@d-media.org` са потвърдени като активни.
 - List ID стойностите са добавени към production Cloudflare Pages конфигурацията.
+
+### 22 юни 2026 — Project Estimator
+
+- Добавен е огледален български и английски многостъпков Project Estimator като консултативен инструмент, а не като фиксиран калкулатор или оферта.
+- Ценовият engine използва публикуваните начални рамки на сайта, complexity modifiers, rush логика и отделен timeline engine за комбинирани проекти.
+- Резултатът показва диапазон за инвестиция, срок, избрани услуги, препоръчан обхват, типични deliverables и предупреждение при нереалистичен срок.
+- Estimator контекстът се прехвърля към контактния формуляр и към Brevo атрибутите `PROJECT_SCOPE`, `COMPLEXITY`, `TIMELINE` и `ESTIMATED_RANGE`.
+- Добавени са analytics събития `estimator_started`, `step_completed`, `estimator_completed` и `inquiry_submitted`, използващи наличния `dataLayer` договор.
+- Добавени са navigation, canonical, Open Graph, metadata и breadcrumb schema за `/estimator/` и `/en/estimator/`.
+- Засегнати са estimator страниците и компонентът, navigation, контактният формуляр и Worker, Brevo setup и глобалните стилове.
+- Проверки: ESLint, Astro/Cloudflare validation, desktop interaction flow, динамични sub-options, комбинирана timeline логика и contact prefill.

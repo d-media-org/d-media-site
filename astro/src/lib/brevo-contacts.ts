@@ -8,6 +8,10 @@ export type BrevoContactAttributes = {
   LANGUAGE: string;
   CONSENT_SOURCE: string;
   CONSENT_TIMESTAMP: string;
+  PROJECT_SCOPE?: string;
+  COMPLEXITY?: string;
+  TIMELINE?: string;
+  ESTIMATED_RANGE?: string;
 };
 
 type BrevoList = {

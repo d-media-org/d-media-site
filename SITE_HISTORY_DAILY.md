@@ -173,3 +173,7 @@
 - Временна Brevo CRM грешка не прекъсва D1 записа и изпращането на transactional имейлите.
 - Brevo CRM setup е изпълнен: създадени са папката, трите списъка и деветте атрибута; sender адресите са активни.
 - Brevo list ID стойностите са добавени към production Cloudflare Pages конфигурацията.
+- Добавен е Project Estimator на български и английски с петстъпков консултативен flow.
+- Добавени са pricing и timeline engines, complexity/rush логика, комбинирани проекти и предупреждения за нереалистичен срок.
+- Estimator резултатът се прехвърля към контактния формуляр и Brevo CRM без newsletter записване.
+- Добавени са navigation, SEO metadata, schema и analytics събития за estimator flow.

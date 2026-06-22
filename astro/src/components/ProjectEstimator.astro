@@ -1,0 +1,203 @@
+---
+type Props = { locale: "bg" | "en" };
+const { locale } = Astro.props;
+const bg = locale === "bg";
+---
+
+<section class="estimator-shell" data-estimator data-locale={locale}>
+  <div class="estimator-progress" aria-label={bg ? "Напредък" : "Progress"}>
+    <span data-progress-text>{bg ? "Стъпка 1 от 5" : "Step 1 of 5"}</span>
+    <span class="estimator-progress-line"><i data-progress-bar></i></span>
+  </div>
+
+  <form class="estimator-form" data-estimator-form>
+    <fieldset class="estimator-step" data-step="1">
+      <legend>{bg ? "Какво Ви е необходимо?" : "What do you need?"}</legend>
+      <p>{bg ? "Изберете една или повече посоки. Следващата стъпка ще се адаптира към избраното." : "Select one or more directions. The next step will adapt to your selection."}</p>
+      <div class="estimator-options" data-primary-options></div>
+    </fieldset>
+
+    <fieldset class="estimator-step" data-step="2" hidden>
+      <legend>{bg ? "Уточнете обхвата" : "Define the scope"}</legend>
+      <p>{bg ? "Изберете най-близкия до нуждите Ви стартов обхват." : "Choose the starting scope closest to your requirements."}</p>
+      <div data-scope-options></div>
+    </fieldset>
+
+    <fieldset class="estimator-step" data-step="3" hidden>
+      <legend>{bg ? "Сложност на проекта" : "Project complexity"}</legend>
+      <p>{bg ? "Оценете броя зависимости, варианти, страници и участници в процеса." : "Consider the number of dependencies, variants, pages, and stakeholders."}</p>
+      <div class="estimator-options" data-complexity-options></div>
+    </fieldset>
+
+    <fieldset class="estimator-step" data-step="4" hidden>
+      <legend>{bg ? "Желан срок" : "Desired timeline"}</legend>
+      <p>{bg ? "Срокът се проверява спрямо реалния обхват, а не спрямо бюджета." : "Timing is assessed against the actual scope, not the budget."}</p>
+      <div class="estimator-options" data-timeline-options></div>
+    </fieldset>
+
+    <fieldset class="estimator-step" data-step="5" hidden>
+      <legend>{bg ? "Допълнителни услуги" : "Additional services"}</legend>
+      <p>{bg ? "Добавете само системите, които проектът действително изисква." : "Add only the systems the project genuinely requires."}</p>
+      <div class="estimator-options" data-additional-options></div>
+    </fieldset>
+
+    <div class="estimator-actions">
+      <button type="button" class="button button-secondary" data-prev hidden>{bg ? "Назад" : "Back"}</button>
+      <button type="button" class="button button-primary" data-next>{bg ? "Продължи" : "Continue"}</button>
+      <p class="estimator-error" data-estimator-error role="alert"></p>
+    </div>
+  </form>
+
+  <section class="estimator-result" data-estimator-result hidden aria-live="polite">
+    <p class="eyebrow">{bg ? "индикативна рамка" : "indicative framework"}</p>
+    <h2>{bg ? "Ориентир за проекта" : "Project estimate"}</h2>
+    <div class="estimator-result-metrics">
+      <div>
+        <span>{bg ? "Ориентировъчна инвестиция" : "Estimated Investment"}</span>
+        <strong data-result-price></strong>
+      </div>
+      <div>
+        <span>{bg ? "Ориентировъчен срок" : "Estimated Timeline"}</span>
+        <strong data-result-timeline></strong>
+      </div>
+    </div>
+    <p class="estimator-warning" data-result-warning hidden></p>
+    <div class="estimator-result-grid">
+      <div><h3>{bg ? "Избрани услуги" : "Selected Services"}</h3><ul data-result-services></ul></div>
+      <div><h3>{bg ? "Препоръчан обхват" : "Recommended Scope"}</h3><ul data-result-scope></ul></div>
+      <div><h3>{bg ? "Типични резултати" : "Typical Deliverables"}</h3><ul data-result-deliverables></ul></div>
+    </div>
+    <p class="estimator-disclaimer">{bg ? "Този ориентир е само индикативен. Финалната цена зависи от проектния обхват, готовността на съдържанието, интеграциите и техническите изисквания." : "This estimate is indicative only. Final pricing depends on project scope, content readiness, integrations and technical requirements."}</p>
+    <div class="hero-actions">
+      <a class="button button-primary" data-review-link href={bg ? "/contact/" : "/en/contact/"}>{bg ? "Заявете преглед на проекта" : "Request Project Review"}</a>
+      <button type="button" class="button button-secondary" data-restart>{bg ? "Промени избора" : "Change selection"}</button>
+    </div>
+  </section>
+</section>
+
+<script is:inline>
+  (() => {
+    const root = document.querySelector("[data-estimator]");
+    if (!root) return;
+    const bg = root.dataset.locale === "bg";
+    const services = [
+      { id:"brand", label:bg?"Бранд идентичност":"Brand Identity", scopes:[
+        ["logotype",bg?"Логотип":"Logotype",150,260,1,2,[bg?"Логотип и работни файлове":"Logotype and working files"]],
+        ["mark",bg?"Лого / брандмарк":"Logo Mark",200,340,1,2,[bg?"Основен знак и варианти":"Primary mark and variants"]],
+        ["logo",bg?"Лого + логотип":"Logo + Logotype",300,520,2,3,[bg?"Знак, логотип и композиции":"Mark, logotype and lockups"]],
+        ["identity",bg?"Визуална идентичност":"Visual Identity",700,1400,3,5,[bg?"Лого система, цветове, типография и базови правила":"Logo system, colour, typography and core rules"]]
+      ]},
+      { id:"graphic", label:bg?"Графичен дизайн":"Graphic Design", scopes:[
+        ["single",bg?"Единичен материал":"Single Asset",25,80,1,1,[bg?"Готов файл за избрания формат":"Production-ready selected format"]],
+        ["small",bg?"Малка кампания":"Small Campaign",70,240,1,2,[bg?"Серия от основни визии и адаптации":"Core visual series and adaptations"]],
+        ["large",bg?"Голяма кампания":"Large Campaign",250,700,2,4,[bg?"Кампанийна система и набор адаптации":"Campaign system and adaptation set"]]
+      ]},
+      { id:"content", label:bg?"Създаване на съдържание":"Content Creation", scopes:[
+        ["basic",bg?"Базов":"Basic",50,180,1,2,[bg?"Основни текстови или визуални формати":"Core copy or visual formats"]],
+        ["standard",bg?"Стандартен":"Standard",180,450,2,4,[bg?"Съдържателна линия и серия формати":"Content direction and format series"]],
+        ["extended",bg?"Разширен":"Extended",450,900,3,6,[bg?"Система за съдържание и адаптации":"Content system and adaptations"]]
+      ]},
+      { id:"social", label:bg?"Управление на социални медии":"Social Media Management", scopes:[
+        ["starter",bg?"Старт":"Starter",100,250,1,2,[bg?"Канална рамка и стартови формати":"Channel framework and starter formats"]],
+        ["growth",bg?"Развитие":"Growth",250,600,2,4,[bg?"Календарна логика, формати и ритъм":"Calendar logic, formats and cadence"]],
+        ["full",bg?"Пълно управление":"Full Management",600,1200,3,5,[bg?"Оперативна система за управление":"Operational management system"]]
+      ]},
+      { id:"web", label:bg?"Уеб дизайн и разработка":"Web Design & Development", scopes:[
+        ["landing",bg?"Landing Page":"Landing Page",690,1200,2,4,[bg?"Структура, дизайн, разработка и SEO основа":"Structure, design, development and SEO foundation"]],
+        ["portfolio",bg?"Портфолио сайт":"Portfolio Website",1990,2900,4,6,[bg?"Портфолио система, проекти и responsive разработка":"Portfolio system, projects and responsive build"]],
+        ["corporate",bg?"Корпоративен сайт":"Corporate Website",2490,3900,5,8,[bg?"Информационна архитектура, шаблони и интеграции":"Information architecture, templates and integrations"]],
+        ["store",bg?"Онлайн магазин":"Online Store",3200,5200,7,10,[bg?"Каталог, checkout, плащания и оперативни потоци":"Catalogue, checkout, payments and operations"]],
+        ["platform",bg?"Премиум дигитална платформа":"Premium Digital Platform",4990,8500,10,16,[bg?"Персонализирана архитектура, системи и QA":"Custom architecture, systems and QA"]]
+      ]},
+      { id:"seo", label:bg?"SEO / GEO / AI видимост":"SEO / GEO / AI Visibility", scopes:[
+        ["technical",bg?"Техническо SEO":"Technical SEO",250,600,1,2,[bg?"Технически одит и приоритетен план":"Technical audit and priority plan"]],
+        ["geo","GEO",300,750,2,4,[bg?"Entity и content архитектура":"Entity and content architecture"]],
+        ["ai",bg?"AI видимост":"AI Visibility",300,750,2,4,[bg?"AI-readiness и machine-readable сигнали":"AI-readiness and machine-readable signals"]],
+        ["complete",bg?"Пълен пакет":"Complete Package",700,1500,3,6,[bg?"SEO, GEO и AI visibility система":"SEO, GEO and AI visibility system"]]
+      ]},
+      { id:"support", label:bg?"Техническа поддръжка":"Technical Support", scopes:[
+        ["standard",bg?"Стандартна":"Standard",49,99,1,2,[bg?"Контролиран maintenance обхват":"Controlled maintenance scope"]],
+        ["extended",bg?"Разширена":"Extended",99,199,2,3,[bg?"Maintenance, наблюдение и промени":"Maintenance, monitoring and changes"]],
+        ["priority",bg?"Приоритетна":"Priority",199,390,2,4,[bg?"Приоритетна реакция и release контрол":"Priority response and release control"]]
+      ]}
+    ];
+    const complexity = [["simple",bg?"Опростен":"Simple",1],["standard",bg?"Стандартен":"Standard",1.15],["advanced",bg?"Разширен":"Advanced",1.35],["enterprise","Enterprise",1.6]];
+    const timelines = [["no-rush",bg?"Без спешност":"No Rush",1],["2-3-months",bg?"2–3 месеца":"2–3 Months",12],["1-month",bg?"1 месец":"1 Month",4],["2-weeks",bg?"2 седмици":"2 Weeks",2],["urgent",bg?"Спешно":"Urgent",1]];
+    const extras = [
+      ["crm",bg?"CRM интеграция":"CRM Integration",390,[bg?"CRM свързване и field mapping":"CRM connection and field mapping"]],
+      ["booking",bg?"Система за резервации":"Booking System",390,[bg?"Booking flow и известия":"Booking flow and notifications"]],
+      ["automation",bg?"Маркетинг автоматизация":"Marketing Automation",290,[bg?"Автоматизирани комуникационни потоци":"Automated communication flows"]],
+      ["shopify","Shopify Integration",490,[bg?"Shopify свързване и QA":"Shopify connection and QA"]],
+      ["migration",bg?"Миграция на сайт":"Website Migration",290,[bg?"Контролирана миграция и redirects":"Controlled migration and redirects"]],
+      ["store-migration",bg?"Миграция на онлайн магазин":"Online Store Migration",990,[bg?"Миграция на каталог и commerce данни":"Catalogue and commerce data migration"]],
+      ["support",bg?"Текуща поддръжка":"Ongoing Support",99,[bg?"План за поддръжка след публикуване":"Post-launch maintenance plan"]]
+    ];
+    const state={step:1};
+    const form=root.querySelector("[data-estimator-form]");
+    const option=(name,value,label,type="checkbox")=>`<label class="estimator-option"><input type="${type}" name="${name}" value="${value}"><span>${label}</span></label>`;
+    root.querySelector("[data-primary-options]").innerHTML=services.map(s=>option("service",s.id,s.label)).join("");
+    root.querySelector("[data-complexity-options]").innerHTML=complexity.map(x=>option("complexity",x[0],x[1],"radio")).join("");
+    root.querySelector("[data-timeline-options]").innerHTML=timelines.map(x=>option("timeline",x[0],x[1],"radio")).join("");
+    root.querySelector("[data-additional-options]").innerHTML=extras.map(x=>option("additional",x[0],x[1])).join("");
+    const track=(name,detail={})=>{ window.dataLayer=window.dataLayer||[]; window.dataLayer.push({event:name,...detail}); window.dispatchEvent(new CustomEvent(name,{detail})); };
+    const selected=(name)=>[...form.querySelectorAll(`[name="${name}"]:checked`)].map(x=>x.value);
+    const renderScopes=()=>{
+      root.querySelector("[data-scope-options]").innerHTML=selected("service").map(id=>{
+        const service=services.find(s=>s.id===id);
+        return `<div class="estimator-scope-group"><h3>${service.label}</h3><div class="estimator-options">${service.scopes.map(x=>option(`scope-${id}`,x[0],x[1],"radio")).join("")}</div></div>`;
+      }).join("");
+    };
+    const showStep=(step)=>{
+      state.step=step; root.querySelectorAll("[data-step]").forEach(el=>el.hidden=Number(el.dataset.step)!==step);
+      root.querySelector("[data-prev]").hidden=step===1;
+      root.querySelector("[data-next]").textContent=step===5?(bg?"Виж ориентировъчната рамка":"View Estimate"):(bg?"Продължи":"Continue");
+      root.querySelector("[data-progress-text]").textContent=bg?`Стъпка ${step} от 5`:`Step ${step} of 5`;
+      root.querySelector("[data-progress-bar]").style.width=`${step*20}%`;
+      root.querySelector("[data-estimator-error]").textContent="";
+      root.querySelector(`[data-step="${step}"]`).focus?.();
+    };
+    const valid=()=>{
+      if(state.step===1 && !selected("service").length) return false;
+      if(state.step===2 && selected("service").some(id=>!selected(`scope-${id}`).length)) return false;
+      if(state.step===3 && !selected("complexity").length) return false;
+      if(state.step===4 && !selected("timeline").length) return false;
+      return true;
+    };
+    const result=()=>{
+      const scopeRows=selected("service").map(id=>{const s=services.find(x=>x.id===id); return {service:s,scope:s.scopes.find(x=>x[0]===selected(`scope-${id}`)[0])};});
+      const cm=complexity.find(x=>x[0]===selected("complexity")[0])||complexity[1];
+      const ex=selected("additional").map(id=>extras.find(x=>x[0]===id));
+      const baseMin=scopeRows.reduce((n,x)=>n+x.scope[2],0)+ex.reduce((n,x)=>n+x[2],0);
+      const baseMax=scopeRows.reduce((n,x)=>n+x.scope[3],0)+ex.reduce((n,x)=>n+Math.round(x[2]*1.25),0);
+      const rush=selected("timeline")[0]==="2-weeks"?1.25:selected("timeline")[0]==="urgent"?1.5:1;
+      const min=Math.round(baseMin*cm[2]*rush/50)*50, max=Math.round(baseMax*cm[2]*rush/50)*50;
+      const ranges=scopeRows.map(x=>[x.scope[4],x.scope[5]]).sort((a,b)=>b[1]-a[1]);
+      const weeksMin=Math.max(1,Math.ceil((ranges[0]?.[0]||1)+(ranges.slice(1).reduce((n,x)=>n+x[0],0)*.4)));
+      const weeksMax=Math.max(2,Math.ceil((ranges[0]?.[1]||2)+(ranges.slice(1).reduce((n,x)=>n+x[1],0)*.55)));
+      const requested=timelines.find(x=>x[0]===selected("timeline")[0]);
+      const unrealistic=requested&&typeof requested[2]==="number"&&requested[2]<weeksMin;
+      const format=n=>new Intl.NumberFormat(bg?"bg-BG":"en-GB",{maximumFractionDigits:0}).format(n);
+      const range=`€${format(min)} – €${format(max)}`, duration=`${weeksMin}–${weeksMax} ${bg?"седмици":"weeks"}`;
+      root.querySelector("[data-result-price]").textContent=range; root.querySelector("[data-result-timeline]").textContent=duration;
+      const fill=(sel,items)=>root.querySelector(sel).innerHTML=items.map(x=>`<li>${x}</li>`).join("");
+      fill("[data-result-services]",scopeRows.map(x=>x.service.label));
+      fill("[data-result-scope]",[...scopeRows.map(x=>x.scope[1]),...ex.map(x=>x[1])]);
+      fill("[data-result-deliverables]",[...scopeRows.flatMap(x=>x.scope[6]),...ex.flatMap(x=>x[3])]);
+      const warning=root.querySelector("[data-result-warning]"); warning.hidden=!unrealistic; warning.textContent=bg?"Избраното очакване за срок не е реалистично за този обхват. Може да е необходимо поетапно изпълнение.":"The selected delivery expectation is not realistic for the chosen scope. A phased implementation may be required.";
+      const params=new URLSearchParams({estimator:"1",services:scopeRows.map(x=>x.service.label).join(", "),scope:[...scopeRows.map(x=>x.scope[1]),...ex.map(x=>x[1])].join(", "),complexity:cm[1],timeline:duration,estimatedRange:range});
+      root.querySelector("[data-review-link]").href=`${bg?"/contact/":"/en/contact/"}?${params}`;
+      form.hidden=true; root.querySelector("[data-estimator-result]").hidden=false;
+      track("estimator_completed",{estimated_range:range,estimated_timeline:duration});
+      root.querySelector("[data-estimator-result]").scrollIntoView({behavior:"smooth",block:"start"});
+    };
+    root.querySelector("[data-next]").addEventListener("click",()=>{
+      if(!valid()){root.querySelector("[data-estimator-error]").textContent=bg?"Изберете поне една възможност, за да продължите.":"Select at least one option to continue.";return;}
+      if(state.step===1){renderScopes();track("estimator_started");}
+      track("step_completed",{step:state.step});
+      state.step===5?result():showStep(state.step+1);
+    });
+    root.querySelector("[data-prev]").addEventListener("click",()=>showStep(state.step-1));
+    root.querySelector("[data-restart]").addEventListener("click",()=>{root.querySelector("[data-estimator-result]").hidden=true;form.hidden=false;showStep(1);});
+    showStep(1);
+  })();
+</script>

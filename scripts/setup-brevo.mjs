@@ -21,6 +21,10 @@ const requiredAttributes = [
   ["LANGUAGE", "text"],
   ["CONSENT_SOURCE", "text"],
   ["CONSENT_TIMESTAMP", "text"],
+  ["PROJECT_SCOPE", "text"],
+  ["COMPLEXITY", "text"],
+  ["TIMELINE", "text"],
+  ["ESTIMATED_RANGE", "text"],
 ];
 
 async function request(path, init = {}) {
