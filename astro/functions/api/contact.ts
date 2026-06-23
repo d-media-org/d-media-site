@@ -128,6 +128,13 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
   const complexity = clean(formData.get("complexity"), 100);
   const projectTimeline = clean(formData.get("projectTimeline"), 100);
   const estimatedRange = clean(formData.get("estimatedRange"), 100);
+  const services = clean(formData.get("services"), 1000);
+  const goal = clean(formData.get("goal"), 200);
+  const readinessScore = clean(formData.get("readinessScore"), 10);
+  const leadScore = clean(formData.get("leadScore"), 10);
+  const confidence = clean(formData.get("confidence"), 20);
+  const recommendations = clean(formData.get("recommendations"), 1000);
+  const projectBrief = clean(formData.get("projectBrief"), contactFieldLimits.projectBrief);
 
   if (!name || !email || !service || !message || !gdprConsent || !turnstileToken) {
     return json({ ok: false, error: copy.missingFields }, { status: 400 });
@@ -159,7 +166,7 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
     name,
     email,
     company,
-    service,
+    service: services ? services.replace(/\|/g, ", ") : service,
     budget,
     deadline,
     website,
@@ -211,7 +218,8 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
         email,
         attributes: {
           COMPANY: company || undefined,
-          SERVICE: service,
+          SERVICE: services ? services.replace(/\|/g, ", ") : service,
+          SERVICES: services || service,
           SOURCE: "d-media.org contact form",
           WEBSITE: website || undefined,
           BUDGET: budget || undefined,
@@ -223,6 +231,12 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
           COMPLEXITY: complexity || undefined,
           TIMELINE: projectTimeline || undefined,
           ESTIMATED_RANGE: estimatedRange || undefined,
+          GOAL: goal || undefined,
+          READINESS_SCORE: readinessScore || undefined,
+          LEAD_SCORE: leadScore || undefined,
+          CONFIDENCE: confidence || undefined,
+          RECOMMENDATIONS: recommendations || undefined,
+          PROJECT_BRIEF: projectBrief || undefined,
         },
       },
     );

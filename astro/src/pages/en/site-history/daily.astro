@@ -2,50 +2,33 @@
 import Layout from "@/layouts/Layout.astro";
 
 const sections = [
-  ["2026-03-01", "Built the first version of the site with the core pages, visual system, typography, brand assets, project archives, and initial SEO setup."],
-  ["2026-03-18", "Expanded the portfolio with more projects, archive assets, mockups, and improved project presentation."],
-  ["2026-04-05", "Refined hierarchy, CTA flow, typography, spacing, and small-screen behavior across the key pages."],
-  ["2026-04-19", "Improved the social preview, favicon set, and brand asset consistency across the site."],
-  ["2026-05-03", "Expanded metadata, canonical and hreflang handling, structured data, internal linking, and AI-search architecture."],
-  ["2026-05-16", "Optimized priority assets, caching, build checks, and overall performance stability."],
-  ["2026-05-29", "Migrated the site to Astro and simplified the runtime while keeping the site static and predictable."],
-  ["2026-06-02", "Moved publishing to Cloudflare Pages and added the preview/live workflow plus edge-specific behavior."],
-  ["2026-06-06", "Expanded the blog and knowledge base with bilingual content, filters, related articles, and draft separation."],
-  ["2026-06-08", "Split services into dedicated detail pages and added pricing, FAQ blocks, structured data, and stronger CTAs."],
-  ["2026-06-10", "Selected the strongest case studies and improved project covers, gallery behavior, and identity applications."],
-  ["2026-06-12", "Added the motion archive with 155 optimized intro variants and poster previews."],
-  ["2026-06-15", "Reworked llms.txt into a compact Markdown file with only public, indexable pages."],
-  ["2026-06-18", "Added Content-Signal support and Markdown negotiation for primary public pages."],
-  ["2026-06-19", "Published the public site history page and kept it focused on real product changes only."],
-  ["2026-06-20", "Added the daily version of the site history, linked it with the summary version, and marked the active state."],
-  ["2026-06-21", "Improved the accessibility of the footer history link and verified the fix live."],
-  ["2026-06-22", "Expanded the daily history into a full chronology from the first day and removed the table of contents from the daily view."],
+  ["March 2026", "Published the first complete website, then expanded its project presentation, bilingual structure, visual hierarchy, and mobile behavior."],
+  ["April 2026", "Improved navigation, brand consistency, image presentation, and the overall rhythm of the primary public pages."],
+  ["May 2026", "Expanded service content, search architecture, internal navigation, accessibility, performance, and platform stability."],
+  ["June 2026", "Moved the production website to Astro and Cloudflare Pages; published the bilingual knowledge base, detailed services, pricing, case studies, protected inquiry system, and project estimation experience."],
 ] as const;
 ---
 
 <Layout
   locale="en"
   title="Full site history | d . media"
-  description="A complete log of d . media changes, grouped by date."
+  description="A chronological record of substantial changes published on d . media."
   path="/site-history/daily"
 >
   <main class="site-shell history-page" id="top">
     <section class="section-grid">
       <header class="section-heading page-intro">
         <h1>Site history</h1>
-        <p class="page-text">
-          The <a class="inline-link" href="/en/site-history/">summary version</a> remains the overview, while this page keeps the short daily log.
-        </p>
+        <p class="page-text">This view contains only substantial changes confirmed on the production website.</p>
         <p class="page-text history-version-switch">
           <a class="inline-link" href="/en/site-history/">Summary version</a>
           <a class="inline-link is-active" href="/en/site-history/daily/">Full version</a>
         </p>
       </header>
-
       <article class="card text-card history-content is-revealed">
-        {sections.map(([date, text], index) => (
+        {sections.map(([period, text], index) => (
           <section class="history-stage">
-            <h2 id={`day-${index + 1}`}>{date}</h2>
+            <h2 id={`period-${index + 1}`}>{period}</h2>
             <p>{text}</p>
           </section>
         ))}

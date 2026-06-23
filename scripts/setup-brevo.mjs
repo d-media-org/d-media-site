@@ -14,6 +14,7 @@ const folderName = "d . media Website";
 const requiredAttributes = [
   ["COMPANY", "text"],
   ["SERVICE", "text"],
+  ["SERVICES", "text"],
   ["SOURCE", "text"],
   ["WEBSITE", "text"],
   ["BUDGET", "text"],
@@ -25,6 +26,12 @@ const requiredAttributes = [
   ["COMPLEXITY", "text"],
   ["TIMELINE", "text"],
   ["ESTIMATED_RANGE", "text"],
+  ["GOAL", "text"],
+  ["READINESS_SCORE", "text"],
+  ["LEAD_SCORE", "text"],
+  ["CONFIDENCE", "text"],
+  ["RECOMMENDATIONS", "text"],
+  ["PROJECT_BRIEF", "text"],
 ];
 
 async function request(path, init = {}) {

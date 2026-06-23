@@ -1,6 +1,7 @@
 export type BrevoContactAttributes = {
   COMPANY?: string;
   SERVICE?: string;
+  SERVICES?: string;
   SOURCE: string;
   WEBSITE?: string;
   BUDGET?: string;
@@ -12,6 +13,12 @@ export type BrevoContactAttributes = {
   COMPLEXITY?: string;
   TIMELINE?: string;
   ESTIMATED_RANGE?: string;
+  GOAL?: string;
+  READINESS_SCORE?: string;
+  LEAD_SCORE?: string;
+  CONFIDENCE?: string;
+  RECOMMENDATIONS?: string;
+  PROJECT_BRIEF?: string;
 };
 
 type BrevoList = {
