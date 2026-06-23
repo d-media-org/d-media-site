@@ -389,14 +389,83 @@
   display: none;
 }
 
-.brief-lock-note {
-  margin: 0 0 20px;
+.estimator-form-explanation {
+  margin: var(--space-8) 0 0;
+  padding: var(--space-16) var(--space-20);
+  border-left: 2px solid var(--foreground);
+  background: var(--surface-soft);
+  color: var(--text-soft);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.generated-brief {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: var(--space-20);
+  padding: var(--space-24);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  background: color-mix(in srgb, var(--surface-soft) 72%, var(--surface));
+}
+
+.generated-brief-header {
+  display: grid;
+  gap: var(--space-8);
+}
+
+.generated-brief-header h3,
+.generated-brief-header p,
+.generated-brief-list {
+  margin: 0;
+}
+
+.generated-brief-header h3 {
+  font-family: var(--font-panton-semibold), sans-serif;
+  font-size: 1.1rem;
+}
+
+.generated-brief-header p,
+.generated-brief-list dd {
   color: var(--text-soft);
   line-height: 1.55;
 }
 
-.estimator-brief {
+.generated-brief-header p {
+  font-size: var(--type-small);
+}
+
+.generated-brief-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 var(--space-24);
+}
+
+.generated-brief-list div {
+  min-width: 0;
+  padding: var(--space-16) 0;
+  border-top: 1px solid var(--line);
+}
+
+.generated-brief-list dt {
+  margin-bottom: 6px;
+  color: var(--text-faint);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.generated-brief-list dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.generated-brief-list .generated-brief-wide {
   grid-column: 1 / -1;
+}
+
+.estimator-additional-field {
+  margin-top: var(--space-8);
 }
 
 @media (max-width: 720px) {
@@ -2860,12 +2929,17 @@ img {
   gap: var(--space-32);
   padding: var(--card-pad);
   max-width: 920px;
+  width: 100%;
 }
 
 .inquiry-card-header {
   display: grid;
   gap: var(--space-8);
   max-width: 60ch;
+}
+
+#inquiry-form-title {
+  scroll-margin-top: 132px;
 }
 
 .inquiry-form {
@@ -2921,6 +2995,7 @@ img {
   border-radius: var(--radius-card);
   padding: 14px var(--space-16);
   min-height: 48px;
+  font: inherit;
   transition:
     border-color var(--transition-base),
     background-color var(--transition-base),
@@ -2930,6 +3005,10 @@ img {
 .field textarea {
   resize: vertical;
   min-height: 140px;
+}
+
+.estimator-additional-field textarea {
+  min-height: 160px;
 }
 
 .field input:focus-visible,
@@ -2986,6 +3065,7 @@ img {
 .turnstile-wrap {
   grid-column: 1 / -1;
   min-height: 65px;
+  overflow: hidden;
 }
 
 .inquiry-honeypot {
@@ -3021,11 +3101,71 @@ img {
 
 @media (max-width: 720px) {
   .inquiry-card {
-    padding: var(--space-24);
+    gap: var(--space-24);
+    padding: 20px;
   }
 
   .form-grid {
     grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+  }
+
+  .inquiry-card-header {
+    gap: 10px;
+  }
+
+  .generated-brief {
+    gap: var(--space-16);
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+  .generated-brief-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .generated-brief-list .generated-brief-wide {
+    grid-column: auto;
+  }
+
+  .field input,
+  .field select,
+  .field textarea {
+    border-radius: 18px;
+  }
+
+  .field textarea,
+  .estimator-additional-field textarea {
+    min-height: 132px;
+  }
+
+  .field-consent {
+    gap: 10px;
+    font-size: 0.92rem;
+    line-height: 1.5;
+  }
+
+  .turnstile-wrap {
+    max-width: 100%;
+  }
+
+  .form-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .form-actions .button {
+    width: 100%;
+  }
+
+  .form-note {
+    margin: 0;
+    text-align: center;
+  }
+
+  .form-status {
+    padding: 0;
   }
 }
 
