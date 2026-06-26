@@ -360,7 +360,8 @@ const schemaItems = [
           "main .archive-summary",
         ];
         const candidates = Array.from(document.querySelectorAll(selectors.join(",")))
-          .filter((element) => !element.closest("[data-consent-banner], .gallery-lightbox"));
+          .filter((element) => !element.closest("[data-consent-banner], .gallery-lightbox"))
+          .filter((element) => !element.matches(".inquiry-card"));
         const candidateSet = new Set(candidates);
         const elements = candidates.filter((element) => {
           let parent = element.parentElement;
@@ -399,6 +400,13 @@ const schemaItems = [
         });
 
         elements.forEach((element) => observer.observe(element));
+        window.setTimeout(() => {
+          elements.forEach((element) => {
+            if (element.classList.contains("is-revealed")) return;
+            element.classList.add("is-revealed");
+            observer.unobserve(element);
+          });
+        }, 1600);
       })();
     </script>
     <script is:inline>
