@@ -17,6 +17,10 @@
 /robots.txt
   Cache-Control: public, max-age=0, must-revalidate
 
+/markdown-pages/*
+  Cache-Control: public, max-age=0, must-revalidate
+  X-Robots-Tag: noindex, nofollow
+
 /sitemap.xml
   Cache-Control: public, max-age=0, must-revalidate
 

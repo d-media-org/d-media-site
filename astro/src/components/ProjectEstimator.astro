@@ -16,36 +16,54 @@ const bg = locale === "bg";
     <span data-progress-text>{bg ? "Стъпка 1 от 5" : "Step 1 of 5"}</span>
     <span class="estimator-progress-line"><i data-progress-bar></i></span>
   </div>
+  <div class="estimator-intro">
+    <p>{bg ? "Отговорите Ви ще се използват за автоматично подготвяне на описание на проекта. В края ще получите ориентировъчна рамка за обхват, инвестиция и следваща стъпка." : "Your answers will be used to automatically prepare a project brief. At the end, you will receive an indicative framework for scope, investment, and next step."}</p>
+    <p>{bg ? "Това е консултативен ориентир, не автоматична обвързваща оферта." : "This is a consultative guide, not an automatic binding quote."}</p>
+  </div>
 
   <div class="estimator-workspace">
   <form class="estimator-form" data-estimator-form>
     <fieldset class="estimator-step" data-step="1">
       <legend>{bg ? "Какво Ви е необходимо?" : "What do you need?"}</legend>
-      <p>{bg ? "Изберете една или повече услуги. Конфигураторът ще комбинира избраните услуги и ще изчисли ориентировъчен диапазон за инвестицията и срока на проекта." : "Select one or more services. The configurator will combine them and calculate an indicative investment and timeline range."}</p>
+      <p>{bg ? "Изберете една основна цел и всички услуги, които очаквате да са част от проекта. Това оформя началното описание на проекта и показва дали има важни зависимости за обсъждане." : "Choose one primary objective and every service you expect to be part of the project. This shapes the initial brief and reveals important dependencies to discuss."}</p>
+      <div class="estimator-question-group">
+        <h3>{bg ? "Основна цел" : "Primary objective"}</h3>
+        <div class="estimator-options" data-goal-options></div>
+      </div>
+      <div class="estimator-question-group">
+        <h3>{bg ? "Необходими услуги" : "Required services"}</h3>
       <div class="estimator-options" data-primary-options></div>
+      </div>
     </fieldset>
 
     <fieldset class="estimator-step" data-step="2" hidden>
       <legend>{bg ? "Уточнете обхвата" : "Define the scope"}</legend>
-      <p>{bg ? "Изберете най-близкия до нуждите Ви стартов обхват." : "Choose the starting scope closest to your requirements."}</p>
+      <p>{bg ? "За всяка избрана услуга посочете един най-близък стартов обхват. Следващата стъпка ще уточни сложността и зависимостите." : "For each selected service, choose one closest starting scope. The next step will clarify complexity and dependencies."}</p>
       <div data-scope-options></div>
     </fieldset>
 
     <fieldset class="estimator-step" data-step="3" hidden>
       <legend>{bg ? "Сложност на проекта" : "Project complexity"}</legend>
-      <p>{bg ? "Оценете броя зависимости, варианти, страници и участници в процеса." : "Consider the number of dependencies, variants, pages, and stakeholders."}</p>
+      <p>{bg ? "Изберете една рамка за сложност според броя зависимости, варианти, страници, интеграции и участници. Това влияе върху увереността на оценката." : "Choose one complexity level based on dependencies, variants, pages, integrations, and stakeholders. This affects estimate confidence."}</p>
       <div class="estimator-options" data-complexity-options></div>
     </fieldset>
 
     <fieldset class="estimator-step" data-step="4" hidden>
       <legend>{bg ? "Желан срок" : "Desired timeline"}</legend>
-      <p>{bg ? "Срокът се проверява спрямо реалния обхват, а не спрямо бюджета." : "Timing is assessed against the actual scope, not the budget."}</p>
+      <p>{bg ? "Изберете един желан срок и един ориентировъчен бюджет. Комбинацията показва дали обхватът е реалистичен или е нужен поетапен старт." : "Choose one desired timeline and one indicative budget. The combination shows whether the scope is realistic or needs a phased start."}</p>
+      <div class="estimator-question-group">
+        <h3>{bg ? "Желан срок" : "Desired timeline"}</h3>
       <div class="estimator-options" data-timeline-options></div>
+      </div>
+      <div class="estimator-question-group">
+        <h3>{bg ? "Ориентировъчен бюджет" : "Indicative budget"}</h3>
+        <div class="estimator-options" data-budget-options></div>
+      </div>
     </fieldset>
 
     <fieldset class="estimator-step" data-step="5" hidden>
       <legend>{bg ? "Допълнителни услуги" : "Additional services"}</legend>
-      <p>{bg ? "Добавете само системите, които проектът действително изисква." : "Add only the systems the project genuinely requires."}</p>
+      <p>{bg ? "Изберете допълнителните системи, които проектът действително изисква. Може да оставите стъпката без избор и да видите рамката." : "Select the additional systems the project genuinely requires. You can leave this step empty and view the framework."}</p>
       <div class="estimator-options" data-additional-options></div>
     </fieldset>
 
@@ -58,7 +76,29 @@ const bg = locale === "bg";
 
   <section class="estimator-result" data-estimator-result hidden aria-live="polite">
     <p class="eyebrow">{bg ? "индикативна рамка" : "indicative framework"}</p>
-    <h2>{bg ? "Ориентир за проекта" : "Project estimate"}</h2>
+    <h2>{bg ? "Ориентировъчна оценка за проекта" : "Project estimate"}</h2>
+    <div class="estimator-result-lead">
+      <div>
+        <span>{bg ? "Препоръчителен подход" : "Recommended approach"}</span>
+        <strong data-result-approach></strong>
+        <p data-result-recommendations></p>
+      </div>
+      <div>
+        <span>{bg ? "Следваща стъпка" : "Next step"}</span>
+        <strong data-result-next-step></strong>
+        <p data-result-next-note></p>
+      </div>
+    </div>
+    <div class="estimator-consultation-grid">
+      <div>
+        <span>{bg ? "Какво включва избраният обхват" : "What the selected scope includes"}</span>
+        <ul data-result-scope></ul>
+      </div>
+      <div>
+        <span>{bg ? "Очакван резултат" : "Expected result"}</span>
+        <p data-result-outcomes></p>
+      </div>
+    </div>
     <div class="estimator-result-metrics">
       <div>
         <span>{bg ? "Ориентировъчна инвестиция" : "Estimated Investment"}</span>
@@ -69,11 +109,16 @@ const bg = locale === "bg";
         <strong data-result-timeline></strong>
       </div>
     </div>
+    <div class="estimator-score-grid">
+      <div><span>{bg ? "Готовност" : "Readiness"}</span><strong data-result-readiness></strong><p data-result-readiness-note></p></div>
+      <div><span>{bg ? "Увереност" : "Confidence"}</span><strong data-result-confidence></strong><p data-result-confidence-note></p></div>
+      <div><span>{bg ? "Квалификация" : "Qualification"}</span><strong data-result-lead-score></strong><p>{bg ? "Вътрешен ориентир за следващата стъпка." : "Internal guide for the next step."}</p></div>
+    </div>
     <p class="estimator-warning" data-result-warning hidden></p>
     <div class="estimator-result-grid">
       <div><h3>{bg ? "Избрани услуги" : "Selected Services"}</h3><ul data-result-services></ul></div>
-      <div><h3>{bg ? "Препоръчан обхват" : "Recommended Scope"}</h3><ul data-result-scope></ul></div>
       <div><h3>{bg ? "Типични резултати" : "Typical Deliverables"}</h3><ul data-result-deliverables></ul></div>
+      <div><h3>{bg ? "Готовност за старт" : "Start readiness"}</h3><p data-result-start-note></p></div>
     </div>
     <p class="estimator-disclaimer">{bg ? "Този ориентир е само индикативен. Финалната цена зависи от проектния обхват, готовността на съдържанието, интеграциите и техническите изисквания." : "This estimate is indicative only. Final pricing depends on project scope, content readiness, integrations and technical requirements."}</p>
     <p class="estimator-next-explanation">{bg ? "След изпращане на запитването избраните параметри ще бъдат добавени автоматично към заявката, което ще ни помогне да подготвим по-точна оценка." : "After you submit the inquiry, the selected parameters will be added automatically, helping us prepare a more accurate assessment."}</p>
@@ -91,10 +136,11 @@ const bg = locale === "bg";
         <div><dt>{bg ? "Услуги" : "Services"}</dt><dd data-summary-services>{bg ? "Няма избрани" : "None selected"}</dd></div>
         <div><dt>{bg ? "Сложност" : "Complexity"}</dt><dd data-summary-complexity>—</dd></div>
         <div><dt>{bg ? "Срок" : "Timeline"}</dt><dd data-summary-timeline>—</dd></div>
-        <div><dt>{bg ? "Ориентир" : "Estimate"}</dt><dd data-summary-range>—</dd></div>
+        <div><dt>{bg ? "Бюджет" : "Budget"}</dt><dd data-summary-budget>—</dd></div>
+        <div><dt>{bg ? "Ориентировъчна оценка" : "Estimate"}</dt><dd data-summary-range>—</dd></div>
         <div><dt>{bg ? "Мащаб" : "Scale"}</dt><dd data-summary-scale>●○○○ {bg ? "Малък" : "Small"}</dd></div>
       </dl>
-      <p>{bg ? "Ориентирът се обновява след всеки избор." : "The estimate updates after every selection."}</p>
+      <p>{bg ? "Ориентировъчната оценка се обновява след всеки избор." : "The estimate updates after every selection."}</p>
     </div>
   </aside>
   </div>
@@ -128,17 +174,17 @@ const bg = locale === "bg";
         ["full",bg?"Пълно управление":"Full Management",600,1200,3,5,[bg?"Оперативна система за управление":"Operational management system"]]
       ]},
       { id:"web", label:bg?"Уеб дизайн и разработка":"Web Design & Development", scopes:[
-        ["landing",bg?"Landing Page":"Landing Page",690,1200,2,4,[bg?"Структура, дизайн, разработка и SEO основа":"Structure, design, development and SEO foundation"]],
-        ["portfolio",bg?"Портфолио сайт":"Portfolio Website",1990,2900,4,6,[bg?"Портфолио система, проекти и responsive разработка":"Portfolio system, projects and responsive build"]],
+        ["landing",bg?"Страница за кампания или услуга":"Landing Page",690,1200,2,4,[bg?"Структура, дизайн, разработка и SEO основа":"Structure, design, development and SEO foundation"]],
+        ["portfolio",bg?"Портфолио сайт":"Portfolio Website",1990,2900,4,6,[bg?"Портфолио система, проекти и адаптивна разработка":"Portfolio system, projects and responsive build"]],
         ["corporate",bg?"Корпоративен сайт":"Corporate Website",2490,3900,5,8,[bg?"Информационна архитектура, шаблони и интеграции":"Information architecture, templates and integrations"]],
         ["store",bg?"Онлайн магазин":"Online Store",3200,5200,7,10,[bg?"Каталог, checkout, плащания и оперативни потоци":"Catalogue, checkout, payments and operations"]],
-        ["platform",bg?"Премиум дигитална платформа":"Premium Digital Platform",4990,8500,10,16,[bg?"Персонализирана архитектура, системи и QA":"Custom architecture, systems and QA"]]
+        ["platform",bg?"Премиум дигитална платформа":"Premium Digital Platform",4990,8500,10,16,[bg?"Персонализирана структура, системи и проверка преди публикуване":"Custom architecture, systems and QA"]]
       ]},
-      { id:"seo", label:bg?"SEO / GEO / AI видимост":"SEO / GEO / AI Visibility", scopes:[
+      { id:"seo", label:bg?"SEO и видимост в AI търсене":"SEO / GEO / AI Visibility", scopes:[
         ["technical",bg?"Техническо SEO":"Technical SEO",250,600,1,2,[bg?"Технически одит и приоритетен план":"Technical audit and priority plan"]],
-        ["geo","GEO",300,750,2,4,[bg?"Entity и content архитектура":"Entity and content architecture"]],
-        ["ai",bg?"AI видимост":"AI Visibility",300,750,2,4,[bg?"AI-readiness и machine-readable сигнали":"AI-readiness and machine-readable signals"]],
-        ["complete",bg?"Пълен пакет":"Complete Package",700,1500,3,6,[bg?"SEO, GEO и AI visibility система":"SEO, GEO and AI visibility system"]]
+        ["geo",bg?"Видимост в AI търсене":"GEO",300,750,2,4,[bg?"Информационна структура и съдържание за AI търсене":"Entity and content architecture"]],
+        ["ai",bg?"Готовност за AI търсене":"AI Visibility",300,750,2,4,[bg?"Машинночетими сигнали и ясни описания":"AI-readiness and machine-readable signals"]],
+        ["complete",bg?"Пълен пакет":"Complete Package",700,1500,3,6,[bg?"SEO и система за видимост в AI търсене":"SEO, GEO and AI visibility system"]]
       ]},
       { id:"support", label:bg?"Техническа поддръжка":"Technical Support", scopes:[
         ["standard",bg?"Стандартна":"Standard",49,99,1,2,[bg?"Контролиран maintenance обхват":"Controlled maintenance scope"]],
@@ -146,23 +192,44 @@ const bg = locale === "bg";
         ["priority",bg?"Приоритетна":"Priority",199,390,2,4,[bg?"Приоритетна реакция и release контрол":"Priority response and release control"]]
       ]}
     ];
+    const goals = [
+      ["new-brand",bg?"Нов бранд":"New Brand",["brand"]],
+      ["rebrand",bg?"Ребрандинг":"Rebranding",["brand","graphic"]],
+      ["website",bg?"Нов уебсайт":"New Website",["web","seo"]],
+      ["store",bg?"Онлайн магазин":"Online Store",["web","seo"]],
+      ["leads",bg?"Повече запитвания":"More Enquiries",["web","seo","content"]],
+      ["visibility",bg?"По-добра видимост":"Better Visibility",["seo","content"]],
+      ["presence",bg?"Цялостно дигитално присъствие":"Complete Digital Presence",["brand","web","seo"]],
+      ["unsure",bg?"Не съм сигурен":"Not Sure Yet",[]]
+    ];
     const complexity = [["simple",bg?"Опростен":"Simple",1],["standard",bg?"Стандартен":"Standard",1.15],["advanced",bg?"Разширен":"Advanced",1.35],["enterprise","Enterprise",1.6]];
     const timelines = [["no-rush",bg?"Без спешност":"No Rush",null],["2-3-months",bg?"2–3 месеца":"2–3 Months",12],["1-month",bg?"1 месец":"1 Month",4],["2-weeks",bg?"2 седмици":"2 Weeks",2],["urgent",bg?"Спешно":"Urgent",1]];
+    const budgets = [
+      ["under-1000",bg?"Под 1 000 €":"Under €1,000",0,1000],
+      ["1000-3000","€1,000–€3,000",1000,3000],
+      ["3000-5000","€3,000–€5,000",3000,5000],
+      ["5000-10000","€5,000–€10,000",5000,10000],
+      ["over-10000",bg?"Над 10 000 €":"Over €10,000",10000,Infinity],
+      ["unsure",bg?"Не съм сигурен":"Not Sure Yet",0,Infinity]
+    ];
     const extras = [
-      ["crm",bg?"CRM интеграция":"CRM Integration",390,[bg?"CRM свързване и field mapping":"CRM connection and field mapping"]],
-      ["booking",bg?"Система за резервации":"Booking System",390,[bg?"Booking flow и известия":"Booking flow and notifications"]],
-      ["automation",bg?"Маркетинг автоматизация":"Marketing Automation",290,[bg?"Автоматизирани комуникационни потоци":"Automated communication flows"]],
-      ["shopify","Shopify Integration",490,[bg?"Shopify свързване и QA":"Shopify connection and QA"]],
-      ["migration",bg?"Миграция на сайт":"Website Migration",290,[bg?"Контролирана миграция и redirects":"Controlled migration and redirects"]],
-      ["store-migration",bg?"Миграция на онлайн магазин":"Online Store Migration",990,[bg?"Миграция на каталог и commerce данни":"Catalogue and commerce data migration"]],
+      ["crm",bg?"Свързване със система за клиенти":"CRM Integration",390,[bg?"Свързване с CRM и подреждане на полетата":"CRM connection and field mapping"]],
+      ["booking",bg?"Система за резервации":"Booking System",390,[bg?"Процес за резервации и известия":"Booking flow and notifications"]],
+      ["automation",bg?"Автоматизация на маркетингови действия":"Marketing Automation",290,[bg?"Автоматизирани комуникационни потоци":"Automated communication flows"]],
+      ["shopify",bg?"Свързване със Shopify":"Shopify Integration",490,[bg?"Shopify свързване и проверка преди публикуване":"Shopify connection and QA"]],
+      ["migration",bg?"Миграция на сайт":"Website Migration",290,[bg?"Контролирано преместване и пренасочвания":"Controlled migration and redirects"]],
+      ["store-migration",bg?"Миграция на онлайн магазин":"Online Store Migration",990,[bg?"Миграция на каталог и данни за продажби":"Catalogue and commerce data migration"]],
       ["support",bg?"Текуща поддръжка":"Ongoing Support",99,[bg?"План за поддръжка след публикуване":"Post-launch maintenance plan"]]
     ];
     const state={step:1};
+    const storageKey=`d-media-estimator-${bg?"bg":"en"}`;
     const form=root.querySelector("[data-estimator-form]");
     const option=(name,value,label,type="checkbox")=>`<label class="estimator-option"><input type="${type}" name="${name}" value="${value}"><span>${label}</span></label>`;
+    root.querySelector("[data-goal-options]").innerHTML=goals.map(x=>option("goal",x[0],x[1],"radio")).join("");
     root.querySelector("[data-primary-options]").innerHTML=services.map(s=>option("service",s.id,s.label)).join("");
     root.querySelector("[data-complexity-options]").innerHTML=complexity.map(x=>option("complexity",x[0],x[1],"radio")).join("");
     root.querySelector("[data-timeline-options]").innerHTML=timelines.map(x=>option("timeline",x[0],x[1],"radio")).join("");
+    root.querySelector("[data-budget-options]").innerHTML=budgets.map(x=>option("budget",x[0],x[1],"radio")).join("");
     root.querySelector("[data-additional-options]").innerHTML=extras.map(x=>option("additional",x[0],x[1])).join("");
     const track=(name,detail={})=>{ window.dataLayer=window.dataLayer||[]; window.dataLayer.push({event:name,...detail}); window.dispatchEvent(new CustomEvent(name,{detail})); };
     const selected=(name)=>[...form.querySelectorAll(`[name="${name}"]:checked`)].map(x=>x.value);
@@ -170,9 +237,11 @@ const bg = locale === "bg";
       const chosen=selected("service").map(id=>services.find(s=>s.id===id)?.label).filter(Boolean);
       const complexityChoice=complexity.find(x=>x[0]===selected("complexity")[0]);
       const timelineChoice=timelines.find(x=>x[0]===selected("timeline")[0]);
+      const budgetChoice=budgets.find(x=>x[0]===selected("budget")[0]);
       root.querySelector("[data-summary-services]").textContent=chosen.join(", ")||(bg?"Няма избрани":"None selected");
       root.querySelector("[data-summary-complexity]").textContent=complexityChoice?.[1]||"—";
       root.querySelector("[data-summary-timeline]").textContent=timelineChoice?.[1]||"—";
+      root.querySelector("[data-summary-budget]").textContent=budgetChoice?.[1]||"—";
       const points=Math.min(4,Math.max(1,chosen.length+(complexityChoice?.[0]==="advanced"?1:complexityChoice?.[0]==="enterprise"?2:0)));
       const scaleLabels=bg?["Малък","Среден","Голям","Комплексен"]:["Small","Medium","Large","Complex"];
       root.querySelector("[data-summary-scale]").textContent=`${"●".repeat(points)}${"○".repeat(4-points)} ${scaleLabels[points-1]}`;
@@ -207,10 +276,10 @@ const bg = locale === "bg";
       if(shouldScroll) scrollToSection(root.querySelector(`[data-step="${step}"]`));
     };
     const valid=()=>{
-      if(state.step===1 && !selected("service").length) return false;
+      if(state.step===1 && (!selected("goal").length || !selected("service").length)) return false;
       if(state.step===2 && selected("service").some(id=>!selected(`scope-${id}`).length)) return false;
       if(state.step===3 && !selected("complexity").length) return false;
-      if(state.step===4 && !selected("timeline").length) return false;
+      if(state.step===4 && (!selected("timeline").length || !selected("budget").length)) return false;
       return true;
     };
     const result=()=>{
@@ -225,34 +294,97 @@ const bg = locale === "bg";
       const weeksMin=Math.max(1,Math.ceil((ranges[0]?.[0]||1)+(ranges.slice(1).reduce((n,x)=>n+x[0],0)*.4)));
       const weeksMax=Math.max(2,Math.ceil((ranges[0]?.[1]||2)+(ranges.slice(1).reduce((n,x)=>n+x[1],0)*.55)));
       const requested=timelines.find(x=>x[0]===selected("timeline")[0]);
+      const goal=goals.find(x=>x[0]===selected("goal")[0])||goals[7];
+      const budget=budgets.find(x=>x[0]===selected("budget")[0])||budgets[5];
       const unrealistic=requested&&typeof requested[2]==="number"&&(weeksMin-requested[2]>=2);
       const format=n=>new Intl.NumberFormat(bg?"bg-BG":"en-GB",{maximumFractionDigits:0}).format(n);
       const range=`€${format(min)} – €${format(max)}`, duration=`${weeksMin}–${weeksMax} ${bg?"седмици":"weeks"}`;
-      root.querySelector("[data-result-price]").textContent=range; root.querySelector("[data-result-timeline]").textContent=duration;
+      const selectedIds=scopeRows.map(x=>x.service.id);
+      const recommendedIds=goal[2].filter(id=>!selectedIds.includes(id));
+      if(selectedIds.includes("web")&&!selectedIds.includes("seo")&&!recommendedIds.includes("seo")) recommendedIds.push("seo");
+      const recommendations=recommendedIds.map(id=>services.find(service=>service.id===id)?.label).filter(Boolean);
+      const readinessMissing=[];
+      if(selected("goal")[0]==="unsure") readinessMissing.push(bg?"ясно формулирана основна цел":"a clearly defined primary objective");
+      if(selected("budget")[0]==="unsure") readinessMissing.push(bg?"ориентировъчен бюджет":"an indicative budget");
+      if(selected("timeline")[0]==="no-rush") readinessMissing.push(bg?"предпочитан стартов период":"a preferred start period");
+      if(recommendations.length) readinessMissing.push(bg?`решение за ${recommendations.join(", ")}`:`a decision on ${recommendations.join(", ")}`);
+      const readiness=Math.max(1,4-Math.min(3,readinessMissing.length));
+      let leadScore=25+(selectedIds.length*8)+(ex.length*4)+(cm[0]==="advanced"?12:cm[0]==="enterprise"?18:6);
+      if(selected("budget")[0]!=="unsure") leadScore+=10;
+      if(selected("goal")[0]!=="unsure") leadScore+=8;
+      leadScore=Math.min(100,leadScore);
+      const budgetConflict=budget[0]!=="unsure"&&max>budget[3]*1.25;
+      const lowConfidence=cm[0]==="enterprise"||selectedIds.includes("web")&&scopeRows.some(x=>x.scope[0]==="platform")||budgetConflict&&unrealistic;
+      const mediumConfidence=!lowConfidence&&(budget[0]==="unsure"||selected("goal")[0]==="unsure"||recommendations.length>1);
+      const confidence=lowConfidence?"low":mediumConfidence?"medium":"high";
+      const confidenceLabel=confidence==="high"?(bg?"Висока":"High"):confidence==="medium"?(bg?"Средна":"Medium"):(bg?"Ниска":"Low");
+      const approach=lowConfidence?(bg?"Комплексен проект":"Complex project"):recommendations.length?(bg?"Поетапен старт":"Phased start"):(bg?"Директно уточняване на обхвата":"Direct scope alignment");
+      const approachNote=lowConfidence?(bg?"Изисква индивидуална преценка преди конкретна ценова рамка.":"An individual assessment is required before a specific pricing framework."):recommendations.length?(bg?"Препоръчваме да уточним зависимостите преди финален стартов план.":"We recommend clarifying dependencies before the final starting plan."):(bg?"Избраният обхват е последователен и може да премине към кратко уточняване.":"The selected scope is coherent and can move into a short alignment step.");
+      const outcomes=[...scopeRows.flatMap(x=>x.scope[6]),...ex.flatMap(x=>x[3])];
+      root.querySelector("[data-result-price]").textContent=lowConfidence?(bg?"Изисква индивидуална преценка":"Requires individual assessment"):range;
+      root.querySelector("[data-result-timeline]").textContent=duration;
+      root.querySelector("[data-result-approach]").textContent=approach;
+      root.querySelector("[data-result-recommendations]").textContent=recommendations.length?(bg?`${approachNote} Препоръчваме да обсъдим и: ${recommendations.join(", ")}.`:`${approachNote} We also recommend discussing: ${recommendations.join(", ")}.`):approachNote;
+      root.querySelector("[data-result-outcomes]").textContent=outcomes.join(" · ");
+      root.querySelector("[data-result-next-step]").textContent=bg?"Подготовка на персонализирана оценка":"Prepare a personalised assessment";
+      root.querySelector("[data-result-next-note]").textContent=bg?"Изпратете описанието на проекта от следващия екран, за да уточним липсващите детайли и реалния стартов ред.":"Send the brief on the next screen so we can clarify missing details and the actual starting sequence.";
+      root.querySelector("[data-result-readiness]").textContent=`${"●".repeat(readiness)}${"○".repeat(4-readiness)}`;
+      root.querySelector("[data-result-readiness-note]").textContent=readinessMissing.length?(bg?`За по-точен старт липсва: ${readinessMissing.join(", ")}.`:`For a more precise start, clarify: ${readinessMissing.join(", ")}.`):(bg?"Основните предпоставки за старт са налични.":"The core prerequisites for starting are available.");
+      root.querySelector("[data-result-start-note]").textContent=readinessMissing.length?(bg?`Преди старт е добре да уточним: ${readinessMissing.join(", ")}.`:`Before starting, we should clarify: ${readinessMissing.join(", ")}.`):(bg?"Има достатъчно яснота за следваща консултативна стъпка.":"There is enough clarity for the next consultative step.");
+      root.querySelector("[data-result-confidence]").textContent=confidenceLabel;
+      root.querySelector("[data-result-confidence-note]").textContent=confidence==="high"?(bg?"Обхватът, срокът и бюджетът дават надеждна ориентировъчна рамка.":"Scope, timeline and budget support a reliable indicative framework."):confidence==="medium"?(bg?"Диапазонът е умишлено по-широк и е препоръчителна кратка консултация.":"The range is intentionally wider and a short consultation is recommended."):(bg?"Не показваме подвеждаща конкретна цена при тази комбинация.":"We do not show a misleading specific price for this combination.");
+      root.querySelector("[data-result-lead-score]").textContent=`${leadScore}/100`;
       const fill=(sel,items)=>root.querySelector(sel).innerHTML=items.map(x=>`<li>${x}</li>`).join("");
       fill("[data-result-services]",scopeRows.map(x=>x.service.label));
       fill("[data-result-scope]",[...scopeRows.map(x=>x.scope[1]),...ex.map(x=>x[1])]);
-      fill("[data-result-deliverables]",[...scopeRows.flatMap(x=>x.scope[6]),...ex.flatMap(x=>x[3])]);
+      fill("[data-result-deliverables]",outcomes);
       const warning=root.querySelector("[data-result-warning]"); warning.hidden=!unrealistic; warning.textContent=bg?"Избраният срок може да изисква поетапна реализация или прецизиране на обхвата на проекта.":"The selected timeline may require phased delivery or refinement of the project scope.";
-      const params=new URLSearchParams({estimator:"1",services:scopeRows.map(x=>x.service.label).join(", "),scope:scopeRows.map(x=>x.scope[1]).join(", "),complexity:cm[1],timeline:requested?.[1]||"",estimatedRange:range,extras:ex.map(x=>x[1]).join(", ")});
+      const brief=[
+        `${bg?"Тип проект":"Project type"}: ${goal[1]}`,
+        `${bg?"Цели":"Objectives"}: ${goal[1]}`,
+        `${bg?"Избрани услуги":"Selected services"}: ${scopeRows.map(x=>x.service.label).join(", ")}`,
+        `${bg?"Обхват":"Scope"}: ${scopeRows.map(x=>x.scope[1]).join(", ")}`,
+        `${bg?"Срок":"Timeline"}: ${requested?.[1]||"—"}`,
+        `${bg?"Бюджет":"Budget"}: ${budget[1]}`,
+        `${bg?"Препоръки":"Recommendations"}: ${recommendations.join(", ")||(bg?"Няма задължителни допълнения":"No mandatory additions")}`,
+        `${bg?"Препоръчителен подход":"Recommended approach"}: ${approach} — ${approachNote}`
+      ].join("\n\n");
+      const serviceValues={brand:"Brand Identity",graphic:"Graphic Design",content:"Content Creation",social:"Social Media Management",web:"Web Design & Development",seo:"SEO / GEO / AI Visibility",support:"Technical Support"};
+      const params=new URLSearchParams({estimator:"1",goal:goal[1],services:scopeRows.map(x=>x.service.label).join(", "),serviceValues:scopeRows.map(x=>serviceValues[x.service.id]).join("|"),scope:scopeRows.map(x=>x.scope[1]).join(", "),complexity:cm[1],timeline:requested?.[1]||"",budget:budget[1],estimatedRange:lowConfidence?"":range,extras:ex.map(x=>x[1]).join(", "),recommendations:recommendations.join(", "),readinessScore:String(readiness),leadScore:String(leadScore),confidence,brief});
       root.querySelector("[data-review-link]").href=`${bg?"/contact/":"/en/contact/"}?${params}#inquiry-form-title`;
       form.hidden=true;
       const resultSection=root.querySelector("[data-estimator-result]");
       resultSection.hidden=false;
       resultSection.classList.add("is-ready");
       window.setTimeout(()=>resultSection.classList.remove("is-ready"),1400);
-      track("estimator_completed",{estimated_range:range,estimated_timeline:duration});
+      try{localStorage.removeItem(storageKey);}catch{}
+      track("estimator_completed",{estimated_range:lowConfidence?"individual":range,estimated_timeline:duration,confidence,readiness_score:readiness,lead_score:leadScore});
       scrollToSection(resultSection);
     };
     root.querySelector("[data-next]").addEventListener("click",()=>{
-      if(!valid()){root.querySelector("[data-estimator-error]").textContent=bg?"Изберете поне една възможност, за да продължите.":"Select at least one option to continue.";return;}
+      if(!valid()){root.querySelector("[data-estimator-error]").textContent=bg?"Завършете всички избори в тази стъпка, за да продължите.":"Complete all choices in this step to continue.";return;}
       if(state.step===1){renderScopes();track("estimator_started");}
       track("step_completed",{step:state.step});
       state.step===5?result():showStep(state.step+1);
     });
     root.querySelector("[data-prev]").addEventListener("click",()=>showStep(state.step-1));
     root.querySelector("[data-restart]").addEventListener("click",()=>{root.querySelector("[data-estimator-result]").hidden=true;form.hidden=false;showStep(1);});
-    form.addEventListener("change",updateSummary);
+    const saveProgress=()=>{
+      try{
+        localStorage.setItem(storageKey,JSON.stringify({step:state.step,values:[...new FormData(form).entries()]}));
+      }catch{}
+    };
+    const restoreProgress=()=>{
+      try{
+        const saved=JSON.parse(localStorage.getItem(storageKey)||"null");
+        if(!saved?.values) return;
+        saved.values.forEach(([name,value])=>{const control=form.querySelector(`[name="${CSS.escape(name)}"][value="${CSS.escape(value)}"]`);if(control) control.checked=true;});
+        if(selected("service").length) renderScopes();
+        saved.values.forEach(([name,value])=>{const control=form.querySelector(`[name="${CSS.escape(name)}"][value="${CSS.escape(value)}"]`);if(control) control.checked=true;});
+        updateSummary();
+      }catch{}
+    };
+    form.addEventListener("change",()=>{updateSummary();saveProgress();});
     root.querySelectorAll("[data-nav-step]").forEach(button=>button.addEventListener("click",()=>{
       const target=Number(button.dataset.navStep);
       if(target<state.step){showStep(target);updateSummary();}
@@ -263,6 +395,6 @@ const bg = locale === "bg";
       const expanded=button.getAttribute("aria-expanded")==="true";
       button.setAttribute("aria-expanded",String(!expanded)); content.hidden=expanded;
     });
-    showStep(1,false); updateSummary();
+    showStep(1,false); restoreProgress(); updateSummary();
   })();
 </script>

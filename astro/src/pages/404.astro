@@ -8,7 +8,7 @@ const ui = getUiCopy("bg");
 <Layout
   locale="bg"
   title={`${ui.notFound.title} | d . media`}
-  description={ui.notFound.title}
+  description="Страницата не е налична. Върнете се към началната страница на d . media."
   path="/404"
   localeSwitcherItems={[
     { locale: "bg", label: "BG", href: "/", isActive: true },
@@ -20,6 +20,7 @@ const ui = getUiCopy("bg");
       <div class="section-heading page-intro">
         <p class="eyebrow">{ui.notFound.eyebrow}</p>
         <h1>{ui.notFound.title}</h1>
+        <p class="page-text">Адресът може да е променен или страницата вече да не е публична.</p>
         <a href="/" class="button button-primary">{ui.notFound.home}</a>
       </div>
     </section>

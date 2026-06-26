@@ -8,6 +8,8 @@ const requiredFiles = [
   "404.html",
   "index.html",
   "robots.txt",
+  "llms.txt",
+  "markdown-pages/index.md",
   "sitemap.xml",
   "manifest.webmanifest",
   "favicon.ico",

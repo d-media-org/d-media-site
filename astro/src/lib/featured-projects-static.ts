@@ -6,7 +6,7 @@ export const featuredProjectSlugs = [
   "yanita",
   "support-account",
   "support-account-group",
-  "dj-nedi",
+  "boris-lilov-photography",
 ] as const;
 
 export function getFeaturedProjectSlugs() {

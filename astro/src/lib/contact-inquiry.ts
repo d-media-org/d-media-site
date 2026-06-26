@@ -46,6 +46,7 @@ export const contactFieldLimits = {
   website: 300,
   deadline: 120,
   additionalInformation: 2000,
+  projectBrief: 6000,
 } as const;
 
 export function cleanText(value: string) {

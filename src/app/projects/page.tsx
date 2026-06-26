@@ -26,7 +26,7 @@ export async function ProjectsPageView({ locale = "bg" }: { locale?: Locale }) {
   const legacyMockupCollections = getResolvedLegacyMockupCollections(locale);
   const featuredProjectSlugs = await getFeaturedProjectSlugs();
   const archiveProjects = resolvedProjectPngArchive.filter(
-    (project) => !featuredProjectSlugs.includes(project.slug),
+    (project) => !featuredProjectSlugs.includes(project.slug as (typeof featuredProjectSlugs)[number]),
   );
   const pageSchema = getWebPageSchema({
     locale,

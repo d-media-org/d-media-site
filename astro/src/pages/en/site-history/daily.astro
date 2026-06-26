@@ -2,31 +2,32 @@
 import Layout from "@/layouts/Layout.astro";
 
 const sections = [
-  ["2026-03-01", "Built the first version of the site with the core pages, visual system, typography, brand assets, project archives, and initial SEO setup."],
-  ["2026-03-18", "Expanded the portfolio with more projects, archive assets, mockups, and improved project presentation."],
-  ["2026-04-05", "Refined hierarchy, CTA flow, typography, spacing, and small-screen behavior across the key pages."],
-  ["2026-04-19", "Improved the social preview, favicon set, and brand asset consistency across the site."],
-  ["2026-05-03", "Expanded metadata, canonical and hreflang handling, structured data, internal linking, and AI-search architecture."],
-  ["2026-05-16", "Optimized priority assets, caching, build checks, and overall performance stability."],
-  ["2026-05-29", "Migrated the site to Astro and simplified the runtime while keeping the site static and predictable."],
-  ["2026-06-02", "Moved publishing to Cloudflare Pages and added the preview/live workflow plus edge-specific behavior."],
-  ["2026-06-06", "Expanded the blog and knowledge base with bilingual content, filters, related articles, and draft separation."],
-  ["2026-06-08", "Split services into dedicated detail pages and added pricing, FAQ blocks, structured data, and stronger CTAs."],
-  ["2026-06-10", "Selected the strongest case studies and improved project covers, gallery behavior, and identity applications."],
-  ["2026-06-12", "Added the motion archive with 155 optimized intro variants and poster previews."],
-  ["2026-06-15", "Reworked llms.txt into a compact Markdown file with only public, indexable pages."],
-  ["2026-06-18", "Added Content-Signal support and Markdown negotiation for primary public pages."],
-  ["2026-06-19", "Published the public site history page and kept it focused on real product changes only."],
-  ["2026-06-20", "Added the daily version of the site history, linked it with the summary version, and marked the active state."],
-  ["2026-06-21", "Improved the accessibility of the footer history link and verified the fix live."],
-  ["2026-06-22", "Expanded the daily history into a full chronology from the first day and removed the table of contents from the daily view."],
+  ["2026-03-01", "Published the first complete website with the core pages, visual system, typography, brand assets, project archive, and initial search foundation."],
+  ["2026-03-18", "Expanded the portfolio with more projects, archive material, mockups, improved covers, and lighter web presentation."],
+  ["2026-04-05", "Refined hierarchy, CTA flow, typography, spacing, mobile behavior, and Safari and iPhone stability."],
+  ["2026-04-19", "Improved social previews, favicon and application identity, and brand consistency across public surfaces."],
+  ["2026-05-03", "Expanded metadata, canonical and language handling, structured data, internal linking, and search and AI-search architecture."],
+  ["2026-05-16", "Optimized priority images, fonts, caching, preloading, accessibility, and performance stability."],
+  ["2026-05-29", "Migrated the production site to Astro, reduced runtime weight, and synchronized the Bulgarian and English structures."],
+  ["2026-06-02", "Moved publishing to Cloudflare Pages and added separate preview and live workflows, security controls, caching, and edge behavior."],
+  ["2026-06-06", "Published the bilingual blog and knowledge center with categories, related reading, and clear separation of draft content."],
+  ["2026-06-08", "Split services into dedicated pages and added starting pricing ranges, FAQs, related case studies, and clearer inquiry paths."],
+  ["2026-06-10", "Curated the strongest case studies and improved project covers, galleries, format handling, and identity applications."],
+  ["2026-06-12", "Published the motion archive with 155 optimized intro variants, poster previews, and deferred loading."],
+  ["2026-06-15", "Refined the machine-readable public representation to include only primary public and indexable pages."],
+  ["2026-06-18", "Added Content-Signal controls and Markdown negotiation for primary public pages."],
+  ["2026-06-19", "Published the bilingual site history focused on factual design, content, project, and platform changes."],
+  ["2026-06-20", "Added the full chronological history view and connected it with the summary view."],
+  ["2026-06-21", "Improved the accessibility, touch target, and contrast of the footer history link."],
+  ["2026-06-22", "Expanded the full history from the first day; published the protected inquiry flow, Brevo email delivery and CRM synchronization, and the bilingual Project Estimator."],
+  ["2026-06-23", "Expanded estimator discovery and qualification, improved its contact handoff, displayed the generated brief as a readable summary, refined mobile form layout, and restored daily history granularity."],
 ] as const;
 ---
 
 <Layout
   locale="en"
   title="Full site history | d . media"
-  description="A complete log of d . media changes, grouped by date."
+  description="A complete chronological record of substantial changes published on d . media."
   path="/site-history/daily"
 >
   <main class="site-shell history-page" id="top">
@@ -34,14 +35,13 @@ const sections = [
       <header class="section-heading page-intro">
         <h1>Site history</h1>
         <p class="page-text">
-          The <a class="inline-link" href="/en/site-history/">summary version</a> remains the overview, while this page keeps the short daily log.
+          The <a class="inline-link" href="/en/site-history/">summary version</a> provides the overview, while this page preserves the dated chronology.
         </p>
         <p class="page-text history-version-switch">
           <a class="inline-link" href="/en/site-history/">Summary version</a>
           <a class="inline-link is-active" href="/en/site-history/daily/">Full version</a>
         </p>
       </header>
-
       <article class="card text-card history-content is-revealed">
         {sections.map(([date, text], index) => (
           <section class="history-stage">

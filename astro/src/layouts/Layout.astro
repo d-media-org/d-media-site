@@ -288,24 +288,68 @@ const schemaItems = [
             <span class="sr-only">{ui.footer.themeDark}</span>
           </button>
         </div>
-        <a href={localizeHref(locale, "/")} class="footer-brand-link footer-brand-link-logo footer-brand-bottom" aria-label={ui.footer.backToStart}>
-          <div class="brand-image brand-image-brandmark footer-brandmark footer-brandmark-only">
-            <BrandAsset
-              lightSrc="/assets/brand/ONLY-brandmark.png"
-              alt="d . media"
-              width={48}
-              height={48}
-              loading="lazy"
-              fetchPriority="low"
-            />
-          </div>
-        </a>
+        <div class="footer-history-entry">
+          <a href={localizeHref(locale, "/")} class="footer-brand-link footer-brand-link-logo footer-brand-bottom" aria-label={ui.footer.backToStart}>
+            <div class="brand-image brand-image-brandmark footer-brandmark footer-brandmark-only">
+              <BrandAsset
+                lightSrc="/assets/brand/ONLY-brandmark.png"
+                alt="d . media"
+                width={48}
+                height={48}
+                loading="lazy"
+                fetchPriority="low"
+              />
+            </div>
+          </a>
+          <a class="footer-history-link" href={localizeHref(locale, "/site-history")}>
+            {locale === "bg" ? "История на сайта" : "Site history"}
+          </a>
+        </div>
       </div>
     </footer>
     <a class="floating-top is-hidden" href="#top" aria-label={ui.footer.backToTop} data-floating-top>
       <span class="floating-top-label">{ui.footer.backToTop}</span>
       <span class="floating-top-arrow" aria-hidden="true">↑</span>
     </a>
+    <script is:inline>
+      (() => {
+        const brand = "d . media";
+        const excluded = new Set(["SCRIPT", "STYLE", "NOSCRIPT", "TEXTAREA", "OPTION", "CODE", "PRE", "SVG"]);
+        const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+        const textNodes = [];
+
+        while (walker.nextNode()) {
+          const node = walker.currentNode;
+          const parent = node.parentElement;
+          if (
+            !parent ||
+            excluded.has(parent.tagName) ||
+            parent.closest(".brand-name, script, style, noscript, textarea, option, code, pre, svg") ||
+            !node.nodeValue?.includes(brand)
+          ) {
+            continue;
+          }
+          textNodes.push(node);
+        }
+
+        textNodes.forEach((node) => {
+          const parts = node.nodeValue.split(brand);
+          const fragment = document.createDocumentFragment();
+
+          parts.forEach((part, index) => {
+            if (part) fragment.append(document.createTextNode(part));
+            if (index < parts.length - 1) {
+              const span = document.createElement("span");
+              span.className = "brand-name";
+              span.textContent = brand;
+              fragment.append(span);
+            }
+          });
+
+          node.replaceWith(fragment);
+        });
+      })();
+    </script>
     <script is:inline>
       (() => {
         const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");

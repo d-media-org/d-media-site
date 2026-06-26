@@ -55,8 +55,11 @@ export function getOrganizationSchema(locale: Locale = "bg") {
       email: contactEmail,
       availableLanguage: ["bg", "en"],
     },
-    areaServed: "BG",
-    availableLanguage: locale,
+    areaServed: {
+      "@type": "Country",
+      name: "Bulgaria",
+    },
+    knowsLanguage: ["bg", "en"],
     address: {
       "@type": "PostalAddress",
       addressLocality: locale === "bg" ? "София" : "Sofia",
@@ -64,8 +67,10 @@ export function getOrganizationSchema(locale: Locale = "bg") {
       addressCountry: "BG",
     },
     sameAs: siteContent.socials.map((social) => social.href),
-    serviceType: siteContent.coreServices.map((service) => service.title),
     knowsAbout: seo.siteKeywords,
+    hasOfferCatalog: {
+      "@id": `${getAbsolutePageUrl(locale, "/services")}#catalog`,
+    },
     description: seo.siteDescription,
   };
 }
@@ -228,6 +233,7 @@ export function getServiceCatalogSchema(locale: Locale = "bg") {
   return {
     "@context": "https://schema.org",
     "@type": "OfferCatalog",
+    "@id": `${getAbsolutePageUrl(locale, "/services")}#catalog`,
     name: locale === "bg" ? "Услуги на d . media" : "d . media services",
     url: getAbsolutePageUrl(locale, "/services"),
     inLanguage: locale,

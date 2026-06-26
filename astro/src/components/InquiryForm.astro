@@ -14,17 +14,27 @@ const siteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? "0x4AAAAAADpL5PXvzZ
 const estimator = Astro.url.searchParams.get("estimator") === "1";
 const estimatorData = {
   services: Astro.url.searchParams.get("services") ?? "",
+  serviceValues: Astro.url.searchParams.get("serviceValues") ?? "",
+  goal: Astro.url.searchParams.get("goal") ?? "",
   scope: Astro.url.searchParams.get("scope") ?? "",
   complexity: Astro.url.searchParams.get("complexity") ?? "",
   timeline: Astro.url.searchParams.get("timeline") ?? "",
   estimatedRange: Astro.url.searchParams.get("estimatedRange") ?? "",
   extras: Astro.url.searchParams.get("extras") ?? "",
+  budget: Astro.url.searchParams.get("budget") ?? "",
+  recommendations: Astro.url.searchParams.get("recommendations") ?? "",
+  readinessScore: Astro.url.searchParams.get("readinessScore") ?? "",
+  leadScore: Astro.url.searchParams.get("leadScore") ?? "",
+  confidence: Astro.url.searchParams.get("confidence") ?? "",
+  brief: Astro.url.searchParams.get("brief") ?? "",
 };
 
 const copy = isBg
   ? {
       title: "Проектно запитване",
-      intro: "Изпрати кратък контекст и ще върнем яснота за обхват, срок и следваща стъпка.",
+      intro: estimator
+        ? "Описанието на проекта е подготвено. Остава само да добавите контакт и специфични уточнения."
+        : "Изпрати кратък контекст и ще върнем яснота за обхват, срок и следваща стъпка.",
       formTitle: "Изпрати запитване",
       name: "Име",
       email: "E-mail",
@@ -49,12 +59,19 @@ const copy = isBg
       validationConsent: "Необходимо е съгласие, за да изпратиш запитването.",
       optional: "по избор",
       messageHint: "Разкажи накратко какъв е проектът и какъв резултат очакваш.",
+      estimatorExplanation:
+        "Избраните параметри вече са добавени към описанието на проекта. Попълнете име, имейл и допълнителна информация, ако има специфични изисквания, които искате да уточните.",
+      generatedBrief: "Подготвено описание на проекта",
+      generatedBriefNote: "Това обобщение ще бъде изпратено автоматично със запитването.",
+      additionalHint: "Добавете само контекст, който не присъства в подготвеното описание на проекта.",
       privacyLink: "/privacy/",
       privacyText: "За защита на данните",
     }
   : {
       title: "Project inquiry",
-      intro: "Send brief context and we will return with scope, timing, and the next step.",
+      intro: estimator
+        ? "The project brief is prepared. Add your contact details and any specific clarifications."
+        : "Send brief context and we will return with scope, timing, and the next step.",
       formTitle: "Send inquiry",
       name: "Name",
       email: "Email",
@@ -79,16 +96,22 @@ const copy = isBg
       validationConsent: "Consent is required to send the inquiry.",
       optional: "optional",
       messageHint: "Briefly describe the project and the result you want.",
+      estimatorExplanation:
+        "Your selected parameters have already been added to the project brief. Add your name, email, and any additional context or specific requirements you would like to clarify.",
+      generatedBrief: "Generated project brief",
+      generatedBriefNote: "This summary will be sent automatically with your inquiry.",
+      additionalHint: "Add only context that is not already included in the generated brief.",
       privacyLink: "/en/privacy/",
       privacyText: "Data protection",
     };
 ---
 
-<section class="card inquiry-card" aria-labelledby="inquiry-form-title">
+<section class:list={["card", "inquiry-card", { "inquiry-card-estimator": estimator }]} aria-labelledby="inquiry-form-title">
   <div class="inquiry-card-header">
     <p class="eyebrow">{copy.title}</p>
     <h2 id="inquiry-form-title">{copy.formTitle}</h2>
     <p class="page-text">{copy.intro}</p>
+    <p class="estimator-form-explanation" data-estimator-only hidden>{copy.estimatorExplanation}</p>
     <p class="form-required-note"><span aria-hidden="true">*</span> {copy.requiredLegend}</p>
   </div>
 
@@ -117,32 +140,47 @@ const copy = isBg
         <input name="email" type="email" autocomplete="email" maxlength={contactFieldLimits.email} required />
       </label>
 
-      <label class="field">
+      <label class:list={["field", { "estimator-locked-field": estimator }]}>
         <span class="field-label">{copy.company} <span class="field-meta">{copy.optional}</span></span>
         <input name="company" type="text" autocomplete="organization" maxlength={contactFieldLimits.company} />
       </label>
 
-      <label class="field">
+      <label class:list={["field", { "estimator-locked-field": estimator }]}>
         <span class="field-label">{copy.service} <span class="field-required" aria-label={copy.required}>*</span></span>
         <select name="service" required>
-          <option value="">{isBg ? "Избери услуга" : "Select service"}</option>
+          <option value="">{isBg ? "Изберете услуга" : "Select service"}</option>
           {contactServices.map((service) => <option value={service}>{isBg ? contactServiceLabelsBg[service] : service}</option>)}
         </select>
       </label>
 
-      <label class="field field-full">
+      <label class:list={["field", "field-full", { "estimator-locked-field": estimator }]}>
         <span class="field-label">{copy.message} <span class="field-required" aria-label={copy.required}>*</span></span>
         <textarea name="message" rows="6" maxlength={contactFieldLimits.message} required>{estimator ? (isBg ? `Проектен ориентир:\nУслуги: ${estimatorData.services}\nОбхват: ${estimatorData.scope}\nСложност: ${estimatorData.complexity}\nСрок: ${estimatorData.timeline}\nОриентировъчна инвестиция: ${estimatorData.estimatedRange}` : `Project estimate:\nServices: ${estimatorData.services}\nScope: ${estimatorData.scope}\nComplexity: ${estimatorData.complexity}\nTimeline: ${estimatorData.timeline}\nEstimated investment: ${estimatorData.estimatedRange}`) : ""}</textarea>
         <span class="field-hint">{copy.messageHint}</span>
       </label>
 
-      <details class="brief-details">
-        <summary>{isBg ? "Проектен бриф" : "Project brief"}</summary>
+        <section class="generated-brief" aria-labelledby="generated-brief-title" data-estimator-only hidden>
+          <div class="generated-brief-header">
+            <h3 id="generated-brief-title">{copy.generatedBrief}</h3>
+            <p>{copy.generatedBriefNote}</p>
+          </div>
+          <dl class="generated-brief-list">
+            <div><dt>{isBg ? "Тип проект" : "Project type"}</dt><dd data-brief-goal>—</dd></div>
+            <div><dt>{isBg ? "Услуги" : "Services"}</dt><dd data-brief-services>—</dd></div>
+            <div><dt>{isBg ? "Обхват" : "Scope"}</dt><dd data-brief-scope>—</dd></div>
+            <div><dt>{isBg ? "Срок" : "Timeline"}</dt><dd data-brief-timeline>—</dd></div>
+            <div><dt>{isBg ? "Бюджет" : "Budget"}</dt><dd data-brief-budget>—</dd></div>
+            <div><dt>{isBg ? "Ориентировъчна оценка" : "Estimate"}</dt><dd data-brief-estimate>—</dd></div>
+            <div class="generated-brief-wide" data-brief-recommendations-row hidden><dt>{isBg ? "Препоръки" : "Recommendations"}</dt><dd data-brief-recommendations></dd></div>
+          </dl>
+        </section>
+      <details class="brief-details" data-standard-brief>
+        <summary>{isBg ? "Описание на проекта" : "Project brief"}</summary>
         <div class="brief-grid">
           <label class="field">
             <span class="field-label">{copy.budget}</span>
             <select name="budget">
-              <option value="">{isBg ? "Избери бюджет" : "Select budget"}</option>
+              <option value="">{isBg ? "Изберете бюджет" : "Select budget"}</option>
               {contactBudgets.map((budget) => <option value={budget}>{isBg ? contactBudgetLabelsBg[budget] : budget}</option>)}
             </select>
           </label>
@@ -161,6 +199,12 @@ const copy = isBg
         </div>
       </details>
 
+        <label class="field field-full estimator-additional-field" data-estimator-only hidden>
+          <span class="field-label">{copy.additional} <span class="field-meta">{copy.optional}</span></span>
+          <textarea name="additionalInformation" rows="5" maxlength={contactFieldLimits.additionalInformation}></textarea>
+          <span class="field-hint">{copy.additionalHint}</span>
+        </label>
+
       <label class="field field-consent">
         <input name="gdprConsent" type="checkbox" value="yes" required />
         <span>{copy.consent} <span class="field-required" aria-label={copy.required}>*</span></span>
@@ -173,9 +217,17 @@ const copy = isBg
       <input name="honeypot" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" class="inquiry-honeypot" />
       <input name="locale" type="hidden" value={locale} />
       <input name="projectScope" type="hidden" value={estimatorData.scope} />
+      <input name="services" type="hidden" value={estimatorData.serviceValues} />
+      <input name="goal" type="hidden" value={estimatorData.goal} />
       <input name="complexity" type="hidden" value={estimatorData.complexity} />
       <input name="projectTimeline" type="hidden" value={estimatorData.timeline} />
       <input name="estimatedRange" type="hidden" value={estimatorData.estimatedRange} />
+      <input name="budget" type="hidden" value="" data-estimator-budget disabled />
+      <input name="readinessScore" type="hidden" value={estimatorData.readinessScore} />
+      <input name="leadScore" type="hidden" value={estimatorData.leadScore} />
+      <input name="confidence" type="hidden" value={estimatorData.confidence} />
+      <input name="recommendations" type="hidden" value={estimatorData.recommendations} />
+      <input name="projectBrief" type="hidden" value={estimatorData.brief} />
 
       <div class="form-actions">
         <button type="submit" class="button button-primary" data-submit-button data-default-label={copy.submit}>{copy.submit}</button>
@@ -194,6 +246,7 @@ const copy = isBg
   (() => {
     const form = document.querySelector("[data-inquiry-form]");
     if (!form) return;
+    const card = form.closest(".inquiry-card");
     const status = form.querySelector("[data-form-status]");
     const submitButton = form.querySelector("[data-submit-button]");
     const setStatus = (message, isError = false) => {
@@ -223,27 +276,105 @@ const copy = isBg
     });
     const params = new URLSearchParams(window.location.search);
     if (params.get("estimator") === "1") {
+      (card || form).querySelectorAll("[data-estimator-only]").forEach((element) => {
+        element.hidden = false;
+      });
+      const standardBrief = form.querySelector("[data-standard-brief]");
+      if (standardBrief) {
+        standardBrief.hidden = true;
+        standardBrief.querySelectorAll("input, select, textarea").forEach((control) => {
+          control.disabled = true;
+        });
+      }
+      form.querySelector('[name="company"]')?.closest(".field")?.classList.add("estimator-locked-field");
+      form.querySelector('[name="service"]')?.closest(".field")?.classList.add("estimator-locked-field");
+      form.querySelector('[name="message"]')?.closest(".field")?.classList.add("estimator-locked-field");
+      form.querySelector('[name="budget"]')?.closest(".field")?.classList.add("estimator-locked-field");
+      form.querySelector('[name="deadline"]')?.closest(".field")?.classList.add("estimator-locked-field");
+      form.querySelector('[name="website"]')?.closest(".field")?.classList.add("estimator-locked-field");
       const services = params.get("services") || "";
+      const serviceValues = params.get("serviceValues") || "";
       const scope = params.get("scope") || "";
       const complexity = params.get("complexity") || "";
       const timeline = params.get("timeline") || "";
       const estimatedRange = params.get("estimatedRange") || "";
       const extras = params.get("extras") || "";
+      const goal = params.get("goal") || "";
+      const budget = params.get("budget") || "";
+      const recommendations = params.get("recommendations") || "";
+      const brief = params.get("brief") || "";
       const message = form.querySelector('[name="message"]');
       const projectScope = form.querySelector('[name="projectScope"]');
       const complexityField = form.querySelector('[name="complexity"]');
       const projectTimeline = form.querySelector('[name="projectTimeline"]');
       const estimatedRangeField = form.querySelector('[name="estimatedRange"]');
+      const servicesField = form.querySelector('[name="services"]');
+      const goalField = form.querySelector('[name="goal"]');
+      const readinessField = form.querySelector('[name="readinessScore"]');
+      const leadField = form.querySelector('[name="leadScore"]');
+      const confidenceField = form.querySelector('[name="confidence"]');
+      const recommendationsField = form.querySelector('[name="recommendations"]');
+      const projectBriefField = form.querySelector('[name="projectBrief"]');
+      const serviceField = form.querySelector('[name="service"]');
+      const budgetField = form.querySelector('[name="budget"]');
+      const estimatorBudgetField = form.querySelector("[data-estimator-budget]");
       const isEnglish = form.querySelector('[name="locale"]')?.value === "en";
+      const setBriefValue = (selector, value) => {
+        const element = form.querySelector(selector);
+        if (element) element.textContent = value || "—";
+      };
+      setBriefValue("[data-brief-goal]", goal);
+      setBriefValue("[data-brief-services]", services);
+      setBriefValue("[data-brief-scope]", scope);
+      setBriefValue("[data-brief-timeline]", timeline);
+      setBriefValue("[data-brief-budget]", budget);
+      setBriefValue("[data-brief-estimate]", estimatedRange || (isEnglish ? "Individual assessment" : "Индивидуална преценка"));
+      if (recommendations) {
+        const recommendationRow = form.querySelector("[data-brief-recommendations-row]");
+        if (recommendationRow) recommendationRow.hidden = false;
+        setBriefValue("[data-brief-recommendations]", recommendations);
+      }
       if (message) {
-        message.value = isEnglish
-          ? `Project type:\n${services}\n\nScope:\n${scope}\n\nComplexity:\n${complexity}\n\nDesired timeline:\n${timeline}\n\nEstimated investment:\n${estimatedRange}\n\nAdditional services:\n${extras || "None"}\n\nAutomatically generated by Project Estimator.`
-          : `Тип проект:\n${services}\n\nОбхват:\n${scope}\n\nСложност:\n${complexity}\n\nЖелан срок:\n${timeline}\n\nОриентировъчна инвестиция:\n${estimatedRange}\n\nДопълнителни услуги:\n${extras || "Няма избрани"}\n\nАвтоматично генерирано от Конфигуратор на проект.`;
+        message.value = brief || (isEnglish
+          ? `Project type: ${goal}\n\nSelected services: ${services}\n\nScope: ${scope}\n\nTimeline: ${timeline}\n\nBudget: ${budget}\n\nRecommendations: ${recommendations || "None"}`
+          : `Тип проект: ${goal}\n\nИзбрани услуги: ${services}\n\nОбхват: ${scope}\n\nСрок: ${timeline}\n\nБюджет: ${budget}\n\nПрепоръки: ${recommendations || "Няма"}`);
+      }
+      if (serviceField && serviceValues) serviceField.value = serviceValues.split("|")[0] || "Other";
+      if (budgetField && budget) {
+        const budgetOption = [...budgetField.options].find((option) => option.textContent?.trim() === budget);
+        if (budgetOption) budgetField.value = budgetOption.value;
+      }
+      if (estimatorBudgetField) {
+        const matchedBudget = [...(budgetField?.options || [])].find((option) => option.textContent?.trim() === budget);
+        const normalizedBudget =
+          matchedBudget?.value ||
+          (budget.includes("1,000") && budget.includes("3,000")
+            ? "€1,000–€3,000"
+            : budget.includes("3,000") && budget.includes("5,000")
+              ? "€3,000–€5,000"
+              : budget.includes("5,000") && budget.includes("10,000")
+                ? "€5,000–€10,000"
+                : budget.includes("Под") || budget.includes("Under")
+                  ? "Under €1,000"
+                  : budget.includes("Над") || budget.includes("Over")
+                    ? "Over €10,000"
+                    : budget.includes("сигурен") || budget.includes("Sure")
+                      ? "Not Sure Yet"
+                      : "");
+        estimatorBudgetField.value = normalizedBudget;
+        estimatorBudgetField.disabled = false;
       }
       if (projectScope) projectScope.value = scope;
       if (complexityField) complexityField.value = complexity;
       if (projectTimeline) projectTimeline.value = timeline;
       if (estimatedRangeField) estimatedRangeField.value = estimatedRange;
+      if (servicesField) servicesField.value = serviceValues;
+      if (goalField) goalField.value = goal;
+      if (readinessField) readinessField.value = params.get("readinessScore") || "";
+      if (leadField) leadField.value = params.get("leadScore") || "";
+      if (confidenceField) confidenceField.value = params.get("confidence") || "";
+      if (recommendationsField) recommendationsField.value = recommendations;
+      if (projectBriefField) projectBriefField.value = brief;
       window.requestAnimationFrame(() => {
         document.getElementById("inquiry-form-title")?.scrollIntoView({ behavior: "smooth", block: "start" });
         const firstField = form.querySelector('input[name="name"]');
@@ -253,6 +384,13 @@ const copy = isBg
     if (params.get("sent") === "1") {
       setStatus(form.dataset.successMessage || "", false);
     }
+    let formStarted = false;
+    form.addEventListener("focusin", () => {
+      if (formStarted) return;
+      formStarted = true;
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: "contact_started", source: params.get("estimator") === "1" ? "estimator" : "contact" });
+    });
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
       if (form.dataset.busy === "true") return;
@@ -280,7 +418,7 @@ const copy = isBg
         setStatus(form.dataset.successMessage || "", false);
         if (new URLSearchParams(window.location.search).get("estimator") === "1") {
           window.dataLayer = window.dataLayer || [];
-          window.dataLayer.push({ event: "inquiry_submitted", source: "estimator" });
+          window.dataLayer.push({ event: "contact_submitted", source: "estimator" });
         }
         if (window.turnstile?.reset) window.turnstile.reset();
       } catch {
