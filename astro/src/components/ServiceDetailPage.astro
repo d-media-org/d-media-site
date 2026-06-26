@@ -63,7 +63,7 @@ const defaultFaqs =
         },
         {
           question: "Как се определя началният обхват?",
-          answer: `Ориентирът започва от ${pricingPreview ? `${pricingPreview.title} (${pricingPreview.price})` : "първия работен пакет"}, но финалният обхват зависи от сложност, формати, срок и права за използване.`,
+          answer: `Началната рамка започва от ${pricingPreview ? `${pricingPreview.title} (${pricingPreview.price})` : "първия работен пакет"}, но финалният обхват зависи от сложност, формати, срок и права за използване.`,
         },
         {
           question: "Какво получава клиентът накрая?",
@@ -113,7 +113,7 @@ const relatedCaseStudies =
   copy.relatedCaseStudies ??
   (locale === "bg"
     ? [
-        { title: "d . media", href: "/projects/d-media", text: "Собствена бранд и уеб система, изградена като работещ пример за подхода." },
+        { title: "d . media", href: "/projects/d-media", text: "Собствена брандова и уеб система, изградена като работещ пример за подхода." },
         { title: "Yanita", href: "/projects/yanita", text: "Визуална система и материали за реално приложение в комуникация." },
         { title: "Support Account", href: "/projects/support-account", text: "Подредена идентичност и приложими файлове за дигитална среда." },
       ]
@@ -254,7 +254,7 @@ const relatedTechnicalServices = getAuthorityServices(locale).filter(
         <h2>{locale === "bg" ? "Свързани дигитални специализации" : "Related digital specialisms"}</h2>
         <p class="page-text">
           {locale === "bg"
-            ? "Уеб дизайнът, разработката, техническото SEO, GEO, производителността и поддръжката работят като свързана система."
+            ? "Уеб дизайнът, разработката, техническото SEO, видимостта в AI търсене, скоростта и поддръжката работят като свързана система."
             : "Web design, development, technical SEO, GEO, performance, and support work as a connected system."}
         </p>
       </div>

@@ -16,12 +16,16 @@ const bg = locale === "bg";
     <span data-progress-text>{bg ? "Стъпка 1 от 5" : "Step 1 of 5"}</span>
     <span class="estimator-progress-line"><i data-progress-bar></i></span>
   </div>
+  <div class="estimator-intro">
+    <p>{bg ? "Отговорите Ви ще се използват за автоматично подготвяне на описание на проекта. В края ще получите ориентировъчна рамка за обхват, инвестиция и следваща стъпка." : "Your answers will be used to automatically prepare a project brief. At the end, you will receive an indicative framework for scope, investment, and next step."}</p>
+    <p>{bg ? "Това е консултативен ориентир, не автоматична обвързваща оферта." : "This is a consultative guide, not an automatic binding quote."}</p>
+  </div>
 
   <div class="estimator-workspace">
   <form class="estimator-form" data-estimator-form>
     <fieldset class="estimator-step" data-step="1">
       <legend>{bg ? "Какво Ви е необходимо?" : "What do you need?"}</legend>
-      <p>{bg ? "Първо посочете основната цел, след това изберете една или повече услуги. Целта ни помага да предложим липсващи зависимости, без да променяме избора Ви." : "First choose the primary objective, then select one or more services. The objective helps us suggest missing dependencies without changing your selection."}</p>
+      <p>{bg ? "Изберете една основна цел и всички услуги, които очаквате да са част от проекта. Това оформя началното описание на проекта и показва дали има важни зависимости за обсъждане." : "Choose one primary objective and every service you expect to be part of the project. This shapes the initial brief and reveals important dependencies to discuss."}</p>
       <div class="estimator-question-group">
         <h3>{bg ? "Основна цел" : "Primary objective"}</h3>
         <div class="estimator-options" data-goal-options></div>
@@ -34,19 +38,19 @@ const bg = locale === "bg";
 
     <fieldset class="estimator-step" data-step="2" hidden>
       <legend>{bg ? "Уточнете обхвата" : "Define the scope"}</legend>
-      <p>{bg ? "Изберете най-близкия до нуждите Ви стартов обхват." : "Choose the starting scope closest to your requirements."}</p>
+      <p>{bg ? "За всяка избрана услуга посочете един най-близък стартов обхват. Следващата стъпка ще уточни сложността и зависимостите." : "For each selected service, choose one closest starting scope. The next step will clarify complexity and dependencies."}</p>
       <div data-scope-options></div>
     </fieldset>
 
     <fieldset class="estimator-step" data-step="3" hidden>
       <legend>{bg ? "Сложност на проекта" : "Project complexity"}</legend>
-      <p>{bg ? "Оценете броя зависимости, варианти, страници и участници в процеса." : "Consider the number of dependencies, variants, pages, and stakeholders."}</p>
+      <p>{bg ? "Изберете една рамка за сложност според броя зависимости, варианти, страници, интеграции и участници. Това влияе върху увереността на оценката." : "Choose one complexity level based on dependencies, variants, pages, integrations, and stakeholders. This affects estimate confidence."}</p>
       <div class="estimator-options" data-complexity-options></div>
     </fieldset>
 
     <fieldset class="estimator-step" data-step="4" hidden>
       <legend>{bg ? "Желан срок" : "Desired timeline"}</legend>
-      <p>{bg ? "Срокът се проверява спрямо реалния обхват, а бюджетът показва дали избраната рамка е реалистична. И двете се използват за увереността на оценката." : "Timing is assessed against the actual scope, while budget shows whether the selected framework is realistic. Both inform estimate confidence."}</p>
+      <p>{bg ? "Изберете един желан срок и един ориентировъчен бюджет. Комбинацията показва дали обхватът е реалистичен или е нужен поетапен старт." : "Choose one desired timeline and one indicative budget. The combination shows whether the scope is realistic or needs a phased start."}</p>
       <div class="estimator-question-group">
         <h3>{bg ? "Желан срок" : "Desired timeline"}</h3>
       <div class="estimator-options" data-timeline-options></div>
@@ -59,7 +63,7 @@ const bg = locale === "bg";
 
     <fieldset class="estimator-step" data-step="5" hidden>
       <legend>{bg ? "Допълнителни услуги" : "Additional services"}</legend>
-      <p>{bg ? "Добавете само системите, които проектът действително изисква." : "Add only the systems the project genuinely requires."}</p>
+      <p>{bg ? "Изберете допълнителните системи, които проектът действително изисква. Може да оставите стъпката без избор и да видите рамката." : "Select the additional systems the project genuinely requires. You can leave this step empty and view the framework."}</p>
       <div class="estimator-options" data-additional-options></div>
     </fieldset>
 
@@ -72,7 +76,7 @@ const bg = locale === "bg";
 
   <section class="estimator-result" data-estimator-result hidden aria-live="polite">
     <p class="eyebrow">{bg ? "индикативна рамка" : "indicative framework"}</p>
-    <h2>{bg ? "Ориентир за проекта" : "Project estimate"}</h2>
+    <h2>{bg ? "Ориентировъчна оценка за проекта" : "Project estimate"}</h2>
     <div class="estimator-result-lead">
       <div>
         <span>{bg ? "Препоръчителен подход" : "Recommended approach"}</span>
@@ -80,7 +84,18 @@ const bg = locale === "bg";
         <p data-result-recommendations></p>
       </div>
       <div>
-        <span>{bg ? "Очаквани резултати" : "Expected outcomes"}</span>
+        <span>{bg ? "Следваща стъпка" : "Next step"}</span>
+        <strong data-result-next-step></strong>
+        <p data-result-next-note></p>
+      </div>
+    </div>
+    <div class="estimator-consultation-grid">
+      <div>
+        <span>{bg ? "Какво включва избраният обхват" : "What the selected scope includes"}</span>
+        <ul data-result-scope></ul>
+      </div>
+      <div>
+        <span>{bg ? "Очакван резултат" : "Expected result"}</span>
         <p data-result-outcomes></p>
       </div>
     </div>
@@ -102,8 +117,8 @@ const bg = locale === "bg";
     <p class="estimator-warning" data-result-warning hidden></p>
     <div class="estimator-result-grid">
       <div><h3>{bg ? "Избрани услуги" : "Selected Services"}</h3><ul data-result-services></ul></div>
-      <div><h3>{bg ? "Препоръчан обхват" : "Recommended Scope"}</h3><ul data-result-scope></ul></div>
       <div><h3>{bg ? "Типични резултати" : "Typical Deliverables"}</h3><ul data-result-deliverables></ul></div>
+      <div><h3>{bg ? "Готовност за старт" : "Start readiness"}</h3><p data-result-start-note></p></div>
     </div>
     <p class="estimator-disclaimer">{bg ? "Този ориентир е само индикативен. Финалната цена зависи от проектния обхват, готовността на съдържанието, интеграциите и техническите изисквания." : "This estimate is indicative only. Final pricing depends on project scope, content readiness, integrations and technical requirements."}</p>
     <p class="estimator-next-explanation">{bg ? "След изпращане на запитването избраните параметри ще бъдат добавени автоматично към заявката, което ще ни помогне да подготвим по-точна оценка." : "After you submit the inquiry, the selected parameters will be added automatically, helping us prepare a more accurate assessment."}</p>
@@ -122,10 +137,10 @@ const bg = locale === "bg";
         <div><dt>{bg ? "Сложност" : "Complexity"}</dt><dd data-summary-complexity>—</dd></div>
         <div><dt>{bg ? "Срок" : "Timeline"}</dt><dd data-summary-timeline>—</dd></div>
         <div><dt>{bg ? "Бюджет" : "Budget"}</dt><dd data-summary-budget>—</dd></div>
-        <div><dt>{bg ? "Ориентир" : "Estimate"}</dt><dd data-summary-range>—</dd></div>
+        <div><dt>{bg ? "Ориентировъчна оценка" : "Estimate"}</dt><dd data-summary-range>—</dd></div>
         <div><dt>{bg ? "Мащаб" : "Scale"}</dt><dd data-summary-scale>●○○○ {bg ? "Малък" : "Small"}</dd></div>
       </dl>
-      <p>{bg ? "Ориентирът се обновява след всеки избор." : "The estimate updates after every selection."}</p>
+      <p>{bg ? "Ориентировъчната оценка се обновява след всеки избор." : "The estimate updates after every selection."}</p>
     </div>
   </aside>
   </div>
@@ -159,17 +174,17 @@ const bg = locale === "bg";
         ["full",bg?"Пълно управление":"Full Management",600,1200,3,5,[bg?"Оперативна система за управление":"Operational management system"]]
       ]},
       { id:"web", label:bg?"Уеб дизайн и разработка":"Web Design & Development", scopes:[
-        ["landing",bg?"Landing Page":"Landing Page",690,1200,2,4,[bg?"Структура, дизайн, разработка и SEO основа":"Structure, design, development and SEO foundation"]],
-        ["portfolio",bg?"Портфолио сайт":"Portfolio Website",1990,2900,4,6,[bg?"Портфолио система, проекти и responsive разработка":"Portfolio system, projects and responsive build"]],
+        ["landing",bg?"Страница за кампания или услуга":"Landing Page",690,1200,2,4,[bg?"Структура, дизайн, разработка и SEO основа":"Structure, design, development and SEO foundation"]],
+        ["portfolio",bg?"Портфолио сайт":"Portfolio Website",1990,2900,4,6,[bg?"Портфолио система, проекти и адаптивна разработка":"Portfolio system, projects and responsive build"]],
         ["corporate",bg?"Корпоративен сайт":"Corporate Website",2490,3900,5,8,[bg?"Информационна архитектура, шаблони и интеграции":"Information architecture, templates and integrations"]],
         ["store",bg?"Онлайн магазин":"Online Store",3200,5200,7,10,[bg?"Каталог, checkout, плащания и оперативни потоци":"Catalogue, checkout, payments and operations"]],
-        ["platform",bg?"Премиум дигитална платформа":"Premium Digital Platform",4990,8500,10,16,[bg?"Персонализирана архитектура, системи и QA":"Custom architecture, systems and QA"]]
+        ["platform",bg?"Премиум дигитална платформа":"Premium Digital Platform",4990,8500,10,16,[bg?"Персонализирана структура, системи и проверка преди публикуване":"Custom architecture, systems and QA"]]
       ]},
-      { id:"seo", label:bg?"SEO / GEO / AI видимост":"SEO / GEO / AI Visibility", scopes:[
+      { id:"seo", label:bg?"SEO и видимост в AI търсене":"SEO / GEO / AI Visibility", scopes:[
         ["technical",bg?"Техническо SEO":"Technical SEO",250,600,1,2,[bg?"Технически одит и приоритетен план":"Technical audit and priority plan"]],
-        ["geo","GEO",300,750,2,4,[bg?"Entity и content архитектура":"Entity and content architecture"]],
-        ["ai",bg?"AI видимост":"AI Visibility",300,750,2,4,[bg?"AI-readiness и machine-readable сигнали":"AI-readiness and machine-readable signals"]],
-        ["complete",bg?"Пълен пакет":"Complete Package",700,1500,3,6,[bg?"SEO, GEO и AI visibility система":"SEO, GEO and AI visibility system"]]
+        ["geo",bg?"Видимост в AI търсене":"GEO",300,750,2,4,[bg?"Информационна структура и съдържание за AI търсене":"Entity and content architecture"]],
+        ["ai",bg?"Готовност за AI търсене":"AI Visibility",300,750,2,4,[bg?"Машинночетими сигнали и ясни описания":"AI-readiness and machine-readable signals"]],
+        ["complete",bg?"Пълен пакет":"Complete Package",700,1500,3,6,[bg?"SEO и система за видимост в AI търсене":"SEO, GEO and AI visibility system"]]
       ]},
       { id:"support", label:bg?"Техническа поддръжка":"Technical Support", scopes:[
         ["standard",bg?"Стандартна":"Standard",49,99,1,2,[bg?"Контролиран maintenance обхват":"Controlled maintenance scope"]],
@@ -198,12 +213,12 @@ const bg = locale === "bg";
       ["unsure",bg?"Не съм сигурен":"Not Sure Yet",0,Infinity]
     ];
     const extras = [
-      ["crm",bg?"CRM интеграция":"CRM Integration",390,[bg?"CRM свързване и field mapping":"CRM connection and field mapping"]],
-      ["booking",bg?"Система за резервации":"Booking System",390,[bg?"Booking flow и известия":"Booking flow and notifications"]],
-      ["automation",bg?"Маркетинг автоматизация":"Marketing Automation",290,[bg?"Автоматизирани комуникационни потоци":"Automated communication flows"]],
-      ["shopify","Shopify Integration",490,[bg?"Shopify свързване и QA":"Shopify connection and QA"]],
-      ["migration",bg?"Миграция на сайт":"Website Migration",290,[bg?"Контролирана миграция и redirects":"Controlled migration and redirects"]],
-      ["store-migration",bg?"Миграция на онлайн магазин":"Online Store Migration",990,[bg?"Миграция на каталог и commerce данни":"Catalogue and commerce data migration"]],
+      ["crm",bg?"Свързване със система за клиенти":"CRM Integration",390,[bg?"Свързване с CRM и подреждане на полетата":"CRM connection and field mapping"]],
+      ["booking",bg?"Система за резервации":"Booking System",390,[bg?"Процес за резервации и известия":"Booking flow and notifications"]],
+      ["automation",bg?"Автоматизация на маркетингови действия":"Marketing Automation",290,[bg?"Автоматизирани комуникационни потоци":"Automated communication flows"]],
+      ["shopify",bg?"Свързване със Shopify":"Shopify Integration",490,[bg?"Shopify свързване и проверка преди публикуване":"Shopify connection and QA"]],
+      ["migration",bg?"Миграция на сайт":"Website Migration",290,[bg?"Контролирано преместване и пренасочвания":"Controlled migration and redirects"]],
+      ["store-migration",bg?"Миграция на онлайн магазин":"Online Store Migration",990,[bg?"Миграция на каталог и данни за продажби":"Catalogue and commerce data migration"]],
       ["support",bg?"Текуща поддръжка":"Ongoing Support",99,[bg?"План за поддръжка след публикуване":"Post-launch maintenance plan"]]
     ];
     const state={step:1};
@@ -303,15 +318,19 @@ const bg = locale === "bg";
       const mediumConfidence=!lowConfidence&&(budget[0]==="unsure"||selected("goal")[0]==="unsure"||recommendations.length>1);
       const confidence=lowConfidence?"low":mediumConfidence?"medium":"high";
       const confidenceLabel=confidence==="high"?(bg?"Висока":"High"):confidence==="medium"?(bg?"Средна":"Medium"):(bg?"Ниска":"Low");
-      const approach=lowConfidence?(bg?"Комплексен проект — необходима е индивидуална оценка.":"Complex project — an individual assessment is required."):recommendations.length?(bg?"Поетапен старт с уточняване на препоръчаните зависимости.":"A phased start with clarification of the recommended dependencies."):(bg?"Директно уточняване на обхвата и стартовия план.":"Direct scope alignment and a defined starting plan.");
+      const approach=lowConfidence?(bg?"Комплексен проект":"Complex project"):recommendations.length?(bg?"Поетапен старт":"Phased start"):(bg?"Директно уточняване на обхвата":"Direct scope alignment");
+      const approachNote=lowConfidence?(bg?"Изисква индивидуална преценка преди конкретна ценова рамка.":"An individual assessment is required before a specific pricing framework."):recommendations.length?(bg?"Препоръчваме да уточним зависимостите преди финален стартов план.":"We recommend clarifying dependencies before the final starting plan."):(bg?"Избраният обхват е последователен и може да премине към кратко уточняване.":"The selected scope is coherent and can move into a short alignment step.");
       const outcomes=[...scopeRows.flatMap(x=>x.scope[6]),...ex.flatMap(x=>x[3])];
-      root.querySelector("[data-result-price]").textContent=lowConfidence?(bg?"Индивидуална оценка":"Individual assessment"):range;
+      root.querySelector("[data-result-price]").textContent=lowConfidence?(bg?"Изисква индивидуална преценка":"Requires individual assessment"):range;
       root.querySelector("[data-result-timeline]").textContent=duration;
       root.querySelector("[data-result-approach]").textContent=approach;
-      root.querySelector("[data-result-recommendations]").textContent=recommendations.length?(bg?`Препоръчваме да обсъдим и: ${recommendations.join(", ")}.`:`We also recommend discussing: ${recommendations.join(", ")}.`):(bg?"Избраният обхват е последователен и не изисква задължителни допълнения.":"The selected scope is coherent and requires no mandatory additions.");
+      root.querySelector("[data-result-recommendations]").textContent=recommendations.length?(bg?`${approachNote} Препоръчваме да обсъдим и: ${recommendations.join(", ")}.`:`${approachNote} We also recommend discussing: ${recommendations.join(", ")}.`):approachNote;
       root.querySelector("[data-result-outcomes]").textContent=outcomes.join(" · ");
+      root.querySelector("[data-result-next-step]").textContent=bg?"Подготовка на персонализирана оценка":"Prepare a personalised assessment";
+      root.querySelector("[data-result-next-note]").textContent=bg?"Изпратете описанието на проекта от следващия екран, за да уточним липсващите детайли и реалния стартов ред.":"Send the brief on the next screen so we can clarify missing details and the actual starting sequence.";
       root.querySelector("[data-result-readiness]").textContent=`${"●".repeat(readiness)}${"○".repeat(4-readiness)}`;
       root.querySelector("[data-result-readiness-note]").textContent=readinessMissing.length?(bg?`За по-точен старт липсва: ${readinessMissing.join(", ")}.`:`For a more precise start, clarify: ${readinessMissing.join(", ")}.`):(bg?"Основните предпоставки за старт са налични.":"The core prerequisites for starting are available.");
+      root.querySelector("[data-result-start-note]").textContent=readinessMissing.length?(bg?`Преди старт е добре да уточним: ${readinessMissing.join(", ")}.`:`Before starting, we should clarify: ${readinessMissing.join(", ")}.`):(bg?"Има достатъчно яснота за следваща консултативна стъпка.":"There is enough clarity for the next consultative step.");
       root.querySelector("[data-result-confidence]").textContent=confidenceLabel;
       root.querySelector("[data-result-confidence-note]").textContent=confidence==="high"?(bg?"Обхватът, срокът и бюджетът дават надеждна ориентировъчна рамка.":"Scope, timeline and budget support a reliable indicative framework."):confidence==="medium"?(bg?"Диапазонът е умишлено по-широк и е препоръчителна кратка консултация.":"The range is intentionally wider and a short consultation is recommended."):(bg?"Не показваме подвеждаща конкретна цена при тази комбинация.":"We do not show a misleading specific price for this combination.");
       root.querySelector("[data-result-lead-score]").textContent=`${leadScore}/100`;
@@ -328,7 +347,7 @@ const bg = locale === "bg";
         `${bg?"Срок":"Timeline"}: ${requested?.[1]||"—"}`,
         `${bg?"Бюджет":"Budget"}: ${budget[1]}`,
         `${bg?"Препоръки":"Recommendations"}: ${recommendations.join(", ")||(bg?"Няма задължителни допълнения":"No mandatory additions")}`,
-        `${bg?"Препоръчителен подход":"Recommended approach"}: ${approach}`
+        `${bg?"Препоръчителен подход":"Recommended approach"}: ${approach} — ${approachNote}`
       ].join("\n\n");
       const serviceValues={brand:"Brand Identity",graphic:"Graphic Design",content:"Content Creation",social:"Social Media Management",web:"Web Design & Development",seo:"SEO / GEO / AI Visibility",support:"Technical Support"};
       const params=new URLSearchParams({estimator:"1",goal:goal[1],services:scopeRows.map(x=>x.service.label).join(", "),serviceValues:scopeRows.map(x=>serviceValues[x.service.id]).join("|"),scope:scopeRows.map(x=>x.scope[1]).join(", "),complexity:cm[1],timeline:requested?.[1]||"",budget:budget[1],estimatedRange:lowConfidence?"":range,extras:ex.map(x=>x[1]).join(", "),recommendations:recommendations.join(", "),readinessScore:String(readiness),leadScore:String(leadScore),confidence,brief});

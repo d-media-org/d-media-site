@@ -32,7 +32,9 @@ const estimatorData = {
 const copy = isBg
   ? {
       title: "Проектно запитване",
-      intro: "Изпрати кратък контекст и ще върнем яснота за обхват, срок и следваща стъпка.",
+      intro: estimator
+        ? "Описанието на проекта е подготвено. Остава само да добавите контакт и специфични уточнения."
+        : "Изпрати кратък контекст и ще върнем яснота за обхват, срок и следваща стъпка.",
       formTitle: "Изпрати запитване",
       name: "Име",
       email: "E-mail",
@@ -58,16 +60,18 @@ const copy = isBg
       optional: "по избор",
       messageHint: "Разкажи накратко какъв е проектът и какъв резултат очакваш.",
       estimatorExplanation:
-        "Избраните параметри вече са добавени към проектния бриф. Попълнете име, имейл и допълнителна информация, ако има специфични изисквания, които искате да уточните.",
-      generatedBrief: "Генериран проектен бриф",
+        "Избраните параметри вече са добавени към описанието на проекта. Попълнете име, имейл и допълнителна информация, ако има специфични изисквания, които искате да уточните.",
+      generatedBrief: "Подготвено описание на проекта",
       generatedBriefNote: "Това обобщение ще бъде изпратено автоматично със запитването.",
-      additionalHint: "Добавете само контекст, който не присъства в генерирания бриф.",
+      additionalHint: "Добавете само контекст, който не присъства в подготвеното описание на проекта.",
       privacyLink: "/privacy/",
       privacyText: "За защита на данните",
     }
   : {
       title: "Project inquiry",
-      intro: "Send brief context and we will return with scope, timing, and the next step.",
+      intro: estimator
+        ? "The project brief is prepared. Add your contact details and any specific clarifications."
+        : "Send brief context and we will return with scope, timing, and the next step.",
       formTitle: "Send inquiry",
       name: "Name",
       email: "Email",
@@ -102,7 +106,7 @@ const copy = isBg
     };
 ---
 
-<section class="card inquiry-card" aria-labelledby="inquiry-form-title">
+<section class:list={["card", "inquiry-card", { "inquiry-card-estimator": estimator }]} aria-labelledby="inquiry-form-title">
   <div class="inquiry-card-header">
     <p class="eyebrow">{copy.title}</p>
     <h2 id="inquiry-form-title">{copy.formTitle}</h2>
@@ -144,7 +148,7 @@ const copy = isBg
       <label class:list={["field", { "estimator-locked-field": estimator }]}>
         <span class="field-label">{copy.service} <span class="field-required" aria-label={copy.required}>*</span></span>
         <select name="service" required>
-          <option value="">{isBg ? "Избери услуга" : "Select service"}</option>
+          <option value="">{isBg ? "Изберете услуга" : "Select service"}</option>
           {contactServices.map((service) => <option value={service}>{isBg ? contactServiceLabelsBg[service] : service}</option>)}
         </select>
       </label>
@@ -166,17 +170,17 @@ const copy = isBg
             <div><dt>{isBg ? "Обхват" : "Scope"}</dt><dd data-brief-scope>—</dd></div>
             <div><dt>{isBg ? "Срок" : "Timeline"}</dt><dd data-brief-timeline>—</dd></div>
             <div><dt>{isBg ? "Бюджет" : "Budget"}</dt><dd data-brief-budget>—</dd></div>
-            <div><dt>{isBg ? "Ориентир" : "Estimate"}</dt><dd data-brief-estimate>—</dd></div>
+            <div><dt>{isBg ? "Ориентировъчна оценка" : "Estimate"}</dt><dd data-brief-estimate>—</dd></div>
             <div class="generated-brief-wide" data-brief-recommendations-row hidden><dt>{isBg ? "Препоръки" : "Recommendations"}</dt><dd data-brief-recommendations></dd></div>
           </dl>
         </section>
       <details class="brief-details" data-standard-brief>
-        <summary>{isBg ? "Проектен бриф" : "Project brief"}</summary>
+        <summary>{isBg ? "Описание на проекта" : "Project brief"}</summary>
         <div class="brief-grid">
           <label class="field">
             <span class="field-label">{copy.budget}</span>
             <select name="budget">
-              <option value="">{isBg ? "Избери бюджет" : "Select budget"}</option>
+              <option value="">{isBg ? "Изберете бюджет" : "Select budget"}</option>
               {contactBudgets.map((budget) => <option value={budget}>{isBg ? contactBudgetLabelsBg[budget] : budget}</option>)}
             </select>
           </label>
@@ -242,6 +246,7 @@ const copy = isBg
   (() => {
     const form = document.querySelector("[data-inquiry-form]");
     if (!form) return;
+    const card = form.closest(".inquiry-card");
     const status = form.querySelector("[data-form-status]");
     const submitButton = form.querySelector("[data-submit-button]");
     const setStatus = (message, isError = false) => {
@@ -271,7 +276,7 @@ const copy = isBg
     });
     const params = new URLSearchParams(window.location.search);
     if (params.get("estimator") === "1") {
-      form.querySelectorAll("[data-estimator-only]").forEach((element) => {
+      (card || form).querySelectorAll("[data-estimator-only]").forEach((element) => {
         element.hidden = false;
       });
       const standardBrief = form.querySelector("[data-standard-brief]");
@@ -323,7 +328,7 @@ const copy = isBg
       setBriefValue("[data-brief-scope]", scope);
       setBriefValue("[data-brief-timeline]", timeline);
       setBriefValue("[data-brief-budget]", budget);
-      setBriefValue("[data-brief-estimate]", estimatedRange || (isEnglish ? "Individual assessment" : "Индивидуална оценка"));
+      setBriefValue("[data-brief-estimate]", estimatedRange || (isEnglish ? "Individual assessment" : "Индивидуална преценка"));
       if (recommendations) {
         const recommendationRow = form.querySelector("[data-brief-recommendations-row]");
         if (recommendationRow) recommendationRow.hidden = false;
