@@ -28,6 +28,12 @@
 ## Проверки за website задачи
 
 - `npm run qa`, когато задачата засяга code/build/production readiness и не изисква browser QA
+- `npm run browser-qa`, когато задачата засяга routes, responsive поведение, визуално поведение, navigation или video poster поведение
+- `npm run seo-check`, когато задачата засяга SEO, GEO, AI visibility, schema, sitemap, robots, `llms.txt` или Markdown negotiation
+- `npm run release-check`, преди release/deploy след production-relevant промени
+- `npm run smart-qa`, когато трябва автоматично да се избере минималният набор проверки според текущия diff
+- `npm run regression`, когато трябва да се сравни текущият build output с локална baseline
+- `npm run release`, когато трябва да се провери release readiness без deploy, commit или push
 - `npm run lint`
 - `npm run astro:cf:validate`
 - Проверка на засегнатите BG/EN routes

@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
-import { spawn } from "node:child_process";
+import { createReport, fail, nextAction, pass, writeHtmlReport } from "./automation-report.mjs";
+import { checkRequiredTools, runStep } from "./automation-runner.mjs";
 
 const checks = [
   { label: "Lint", command: "npm", args: ["run", "lint"] },
@@ -13,35 +14,23 @@ const checks = [
   },
 ];
 
-function runCheck({ label, command, args }) {
-  return new Promise((resolve, reject) => {
-    console.log(`\n[QA] ${label}`);
-    console.log(`[QA] $ ${command} ${args.join(" ")}`);
-
-    const child = spawn(command, args, {
-      stdio: "inherit",
-      shell: process.platform === "win32",
-    });
-
-    child.on("error", reject);
-    child.on("close", (code) => {
-      if (code === 0) {
-        resolve();
-        return;
-      }
-
-      reject(new Error(`${label} failed with exit code ${code}`));
-    });
-  });
-}
+const report = createReport("npm run qa");
 
 try {
+  await checkRequiredTools(report, ["node", "npm"]);
+
   for (const check of checks) {
-    await runCheck(check);
+    await runStep(report, check.label, check.command, check.args);
   }
 
+  pass(report, "All QA checks passed");
   console.log("\n[QA] Всички проверки минаха успешно.");
 } catch (error) {
+  fail(report, error.message);
+  nextAction(report, "Fix the failing QA step and rerun npm run qa.");
   console.error(`\n[QA] ${error.message}`);
-  process.exit(1);
+} finally {
+  writeHtmlReport(report);
 }
+
+if (report.failed.length) process.exit(1);

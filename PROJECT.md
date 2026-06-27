@@ -249,7 +249,7 @@ Automation 2.0 централизира повторяемите QA провер
 - `node scripts/validate-cloudflare-dist.mjs` проверява `astro/dist` за задължителни Cloudflare files, routes, headers, redirects и липсващи local references.
 - `npm run astro:cf:validate` комбинира site history validation, Astro build и Cloudflare dist validation.
 - `node scripts/check-ai-readiness.mjs` проверява markdown negotiation, `robots.txt` Content-Signal и canonical links в `llms.txt` срещу preview server.
-- В `scripts/` има browser/screenshot QA помощни scripts, които изискват preview/browser среда и не са част от първата unified QA команда.
+- В `scripts/` има browser/screenshot QA помощни scripts и unified Automation 2.0 scripts. Browser/SEO проверките стартират локален Cloudflare Pages preview върху `astro/dist`.
 
 Първата unified команда е `npm run qa`. Тя изпълнява последователно:
 
@@ -260,13 +260,21 @@ Automation 2.0 централизира повторяемите QA провер
 
 `npm run qa` не прави deploy, не прави commit, не изисква secrets, не проверява Cloudflare dashboard и не включва browser QA.
 
-Планирани бъдещи unified команди:
+Unified Automation 2.0 команди:
 
-- `npm run browser-qa` - preview/browser проверки за ключови routes, responsive поведение, console errors и network errors.
-- `npm run seo-check` - проверки за SEO/GEO/AI visibility, включително `robots.txt`, sitemap, `llms.txt`, schema и markdown negotiation.
-- `npm run release-check` - пълен pre-release gate, който комбинира стабилните build, Cloudflare, SEO/GEO/AI и browser проверки без deploy.
+- `npm run qa` - lint, root build, Astro build и Cloudflare dist validation.
+- `npm run browser-qa` - локален Cloudflare Pages preview, desktop/tablet/mobile smoke QA, key routes, console errors, 4xx/5xx network responses, horizontal overflow, basic layout shift, navigation targets и video poster checks за project video routes.
+- `npm run seo-check` - локален Cloudflare Pages preview, title, meta description, canonical, hreflang, Open Graph, Twitter card, JSON-LD parse validity, sitemap, `robots.txt`, `llms.txt`, Markdown content negotiation и `Content-Signal`.
+- `npm run release-check` - изпълнява последователно `npm run qa`, `npm run browser-qa` и `npm run seo-check`; спира при грешка.
+- `npm run smart-qa` - анализира текущите git промени и избира минимално необходимите проверки според засегнатите области.
+- `npm run regression` - сравнява build/validation metrics срещу локална baseline структура в `reports/baseline/`.
+- `npm run release` - изпълнява `smart-qa`, `regression` и `release-check` и връща само release readiness статус без deploy, commit или push.
 
-Automation 2.0 отчетите трябва да включват кратък terminal summary и машинно четим JSON резултат, когато бъде въведен report writer. Browser-only преценка, Project Owner approval, legal/pricing/brand решения, live Cloudflare dashboard проверки и production deploy остават извън автоматичния `qa` gate.
+Automation 2.0 командите генерират HTML отчети в `reports/`. Директорията е gitignored, защото отчетите са локални QA артефакти. Всеки отчет съдържа дата/час, команда, статус, изпълнени проверки, passed, failed, warnings и препоръчани следващи действия. Отчетите не трябва да съдържат secrets, sensitive данни или лична информация за Project Owner.
+
+Automation 2.0 включва Decision Engine върху същия reports и preview слой. Освен HTML отчетите всяка automation команда обновява `reports/report.json` със стабилна машинно четима структура: timestamp, executed command, overall status, passed, failed, warnings, skipped, executed checks, duration и recommended next action.
+
+Automation 2.0 командите не правят deploy, commit, push, live Cloudflare dashboard проверки, destructive tests или реално изпращане на контактна форма. Browser-only преценка, Project Owner approval, legal/pricing/brand решения, live smoke test след deploy и production deploy остават извън автоматичните local gates.
 
 Approval правила:
 

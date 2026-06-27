@@ -47,5 +47,6 @@ next-env.d.ts
 # local QA and temporary work
 .eslintcache
 .qa/
+reports/
 tmp/
 .env*.local
