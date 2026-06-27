@@ -30,6 +30,14 @@ export const resolvedProjectPngArchive = projectPngArchive.map((project) => ({
     ...image,
     src: resolveAssetUrl(image.src),
   })),
+  ...("videos" in project
+    ? {
+        videos: project.videos.map((video) => ({
+          ...video,
+          poster: resolveAssetUrl(video.poster),
+        })),
+      }
+    : {}),
 }));
 
 export const resolvedLegacyProjectArchive = legacyProjectArchive.map((project) => ({
@@ -54,6 +62,14 @@ export function getResolvedProjectPngArchive(locale: Locale) {
       ...image,
       src: resolveAssetUrl(image.src),
     })),
+    ...("videos" in project
+      ? {
+          videos: project.videos.map((video) => ({
+            ...video,
+            poster: resolveAssetUrl(video.poster),
+          })),
+        }
+      : {}),
   }));
 }
 

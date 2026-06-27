@@ -170,6 +170,7 @@ const baseProjectPngArchive = [
     "videos": [
       {
         "src": "/optimized-assets/project-media/support-account-logo-animation.mp4",
+        "poster": "/assets/project-covers/support-account.png",
         "label": "Анимация на знака Support Account"
       }
     ],
@@ -769,10 +770,12 @@ const baseProjectPngArchive = [
     "videos": [
       {
         "src": "/optimized-assets/project-media/syanka-ot-minaloto-intro.m4v",
+        "poster": "/assets/project-covers/syanka-ot-minaloto.png",
         "label": "Сянка от миналото — intro"
       },
       {
         "src": "/optimized-assets/project-media/syanka-ot-minaloto-opener.m4v",
+        "poster": "/assets/project-covers/syanka-ot-minaloto.png",
         "label": "Сянка от миналото — opener"
       }
     ],

@@ -10,6 +10,7 @@
     "lint": "eslint",
     "lint:cache": "eslint --cache --cache-location .eslintcache",
     "check": "npm run build && npm run lint:cache",
+    "qa": "node scripts/run-qa.mjs",
     "assets:web": "node scripts/generate-web-assets.mjs",
     "astro:dev": "npm --prefix astro run dev",
     "astro:build": "npm --prefix astro run build && node scripts/generate-markdown-pages.mjs",

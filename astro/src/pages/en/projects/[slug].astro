@@ -161,10 +161,10 @@ const relatedServices = relatedServiceIds
             <h2>Motion application</h2>
           </div>
           <div class="mockup-grid projects-gallery">
-            {projectVideos.map((video: { src: string; label: string }) => (
+            {projectVideos.map((video: { src: string; poster: string; label: string }) => (
               <article class="card mockup-card project-png-card">
                 <div class="mockup-image">
-                  <video controls playsinline preload="metadata" aria-label={video.label}>
+                  <video controls playsinline preload="metadata" poster={video.poster} aria-label={video.label}>
                     <source src={video.src} type="video/mp4" />
                   </video>
                 </div>
