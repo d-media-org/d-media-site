@@ -1656,9 +1656,512 @@ function calculateReadingTime(post: Pick<BlogPost, "title" | "excerpt" | "intro"
   return Math.max(2, Math.ceil(words / 180));
 }
 
+const categoryContext = {
+  bg: {
+    "brand-identity": {
+      system: "брандова система",
+      artifact: "идентичност, език, визуални правила и публично поведение",
+      serviceHref: "/services/brand-identity",
+      serviceLabel: "Бранд идентичност",
+      failure: "лого, тон и сайт се развиват отделно и започват да обещават различни неща",
+    },
+    "graphic-design": {
+      system: "дизайн система за реална употреба",
+      artifact: "формати, визуални правила, файлове и процес за повторяема продукция",
+      serviceHref: "/services/graphic-design",
+      serviceLabel: "Графичен дизайн",
+      failure: "материалите изглеждат добре поотделно, но не могат да се поддържат като единна система",
+    },
+    "social-media": {
+      system: "редакционна и социална система",
+      artifact: "канали, рубрики, cadence, визуален език и критерии за публикации",
+      serviceHref: "/services/social-media-management",
+      serviceLabel: "Управление на социални медии",
+      failure: "публикациите стават активност без посока и не натрупват разпознаваемост",
+    },
+    content: {
+      system: "content architecture",
+      artifact: "теми, редакционни стандарти, вътрешни връзки и формати за повторна употреба",
+      serviceHref: "/services/content-creation",
+      serviceLabel: "Създаване на съдържание",
+      failure: "съдържанието се превръща в календар, но не изгражда знание или доверие",
+    },
+    "web-presence": {
+      system: "уеб и дигитална архитектура",
+      artifact: "URL структура, съдържание, performance, достъпност, metadata и route поведение",
+      serviceHref: "/services/web-design-development",
+      serviceLabel: "Уеб дизайн и разработка",
+      failure: "сайтът е визуално наличен, но не помага на хора, търсачки и AI системи да разберат бизнеса",
+    },
+    "ai-design": {
+      system: "контролирана AI и design workflow система",
+      artifact: "brief, prompt рамка, човешка редакция, rights review и production критерии",
+      serviceHref: "/services/graphic-design",
+      serviceLabel: "Графичен дизайн",
+      failure: "AI ускорява производството на варианти, но без контрол увеличава шума и риска",
+    },
+    "seo-geo": {
+      system: "SEO/GEO и AI visibility архитектура",
+      artifact: "структурирано съдържание, schema, sitemap, llms слой, Markdown negotiation и вътрешни връзки",
+      serviceHref: "/services/geo",
+      serviceLabel: "GEO и AI видимост",
+      failure: "страниците имат ключови думи, но не дават достатъчно ясни доказателства и relationships за машинно разбиране",
+    },
+    "case-studies": {
+      system: "case study система",
+      artifact: "контекст, ограничения, решения, измервания, trade-offs и проверими резултати",
+      serviceHref: "/projects",
+      serviceLabel: "Проекти",
+      failure: "казусът звучи като портфолио описание, но не показва инженерното мислене зад резултата",
+    },
+  },
+  en: {
+    "brand-identity": {
+      system: "brand system",
+      artifact: "identity, language, visual rules, and public behaviour",
+      serviceHref: "/services/brand-identity",
+      serviceLabel: "Brand Identity",
+      failure: "logo, tone, and website evolve separately and start making different promises",
+    },
+    "graphic-design": {
+      system: "design system for production use",
+      artifact: "formats, visual rules, files, and a repeatable production process",
+      serviceHref: "/services/graphic-design",
+      serviceLabel: "Graphic Design",
+      failure: "materials look acceptable in isolation but cannot be maintained as one system",
+    },
+    "social-media": {
+      system: "editorial and social media system",
+      artifact: "channels, recurring formats, cadence, visual language, and publishing criteria",
+      serviceHref: "/services/social-media-management",
+      serviceLabel: "Social Media Management",
+      failure: "posting becomes activity without direction and does not build recognition",
+    },
+    content: {
+      system: "content architecture",
+      artifact: "topics, editorial standards, internal links, and reusable formats",
+      serviceHref: "/services/content-creation",
+      serviceLabel: "Content Creation",
+      failure: "content becomes a calendar but does not build knowledge or trust",
+    },
+    "web-presence": {
+      system: "web and digital architecture",
+      artifact: "URL structure, content, performance, accessibility, metadata, and route behaviour",
+      serviceHref: "/services/web-design-development",
+      serviceLabel: "Web Design and Development",
+      failure: "the website is visually present but does not help people, search engines, and AI systems understand the business",
+    },
+    "ai-design": {
+      system: "controlled AI and design workflow",
+      artifact: "brief, prompt frame, human review, rights review, and production criteria",
+      serviceHref: "/services/graphic-design",
+      serviceLabel: "Graphic Design",
+      failure: "AI accelerates variation production but increases noise and risk without direction",
+    },
+    "seo-geo": {
+      system: "SEO/GEO and AI visibility architecture",
+      artifact: "structured content, schema, sitemap, llms layer, Markdown negotiation, and internal links",
+      serviceHref: "/services/geo",
+      serviceLabel: "GEO and AI Visibility",
+      failure: "pages contain keywords but not enough evidence and relationships for machine understanding",
+    },
+    "case-studies": {
+      system: "case study system",
+      artifact: "context, constraints, decisions, measurements, trade-offs, and verifiable outcomes",
+      serviceHref: "/projects",
+      serviceLabel: "Projects",
+      failure: "the case study reads like a portfolio note but does not expose the engineering reasoning behind the result",
+    },
+  },
+} as const satisfies Record<
+  Locale,
+  Record<BlogCategoryKey, { system: string; artifact: string; serviceHref: string; serviceLabel: string; failure: string }>
+>;
+
+function uniqueValues<T>(items: T[]) {
+  return [...new Set(items)];
+}
+
+function getPostRelationships(locale: Locale, post: BlogPost, posts: readonly BlogPost[]) {
+  const categoryPeers = posts
+    .filter((item) => item.slug !== post.slug && item.category === post.category && !item.draft)
+    .map((item) => item.slug);
+  const fallbackPeers = posts
+    .filter((item) => item.slug !== post.slug && !item.draft)
+    .map((item) => item.slug);
+  const relatedPosts = uniqueValues([...post.relatedPosts, ...categoryPeers, ...fallbackPeers]).slice(0, 5);
+  const relatedTitles = relatedPosts
+    .map((slug) => posts.find((item) => item.slug === slug))
+    .filter((item): item is BlogPost => Boolean(item))
+    .map((item) => `${item.title} (${locale === "bg" ? `/blog/${item.slug}/` : `/en/blog/${item.slug}/`})`);
+
+  return { relatedPosts, relatedTitles };
+}
+
+function buildProfessionalSections(locale: Locale, post: BlogPost, relatedTitles: string[]): BlogSection[] {
+  const isBg = locale === "bg";
+  const context = categoryContext[locale][post.category];
+  const serviceHref = isBg ? context.serviceHref : `/en${context.serviceHref}`;
+  const articlePath = isBg ? `/blog/${post.slug}/` : `/en/blog/${post.slug}/`;
+  const servicesIndex = isBg ? "/services/" : "/en/services/";
+  const contactPath = isBg ? "/contact/" : "/en/contact/";
+  const projectsPath = isBg ? "/projects/" : "/en/projects/";
+  const related = relatedTitles.length ? relatedTitles : [isBg ? "Свързани статии в блога" : "Related articles in the blog"];
+
+  if (!isBg) {
+    return [
+      {
+        title: "Short answer",
+        paragraphs: [
+          `${post.title} is a practical problem of ${context.system}: the work has to make decisions clearer, reduce operational ambiguity, and remain usable after the first launch. The relevant question is not whether the output looks polished, but whether it can be maintained, explained, measured, and reused without losing direction.`,
+          `${post.intro} In production terms, the article treats the topic as an operating layer, not as marketing copy. The goal is to show how a team can move from scattered decisions to a repeatable standard that supports people, search systems, and AI tools at the same time.`,
+        ],
+      },
+      {
+        title: "The real problem in production",
+        paragraphs: [
+          `The failure mode is familiar: ${context.failure}. It usually starts quietly. A page is added, a post is published, a design variant is approved, or a tool is introduced without checking whether it fits the rest of the system. Nothing looks broken on the day it ships, but the accumulated result becomes harder to operate.`,
+          `For a business, this means slower decisions, inconsistent public signals, and less trust in the digital layer. For a technical or editorial team, it means every future change starts with interpretation instead of a clear standard. That is why ${post.title.toLowerCase()} should be handled as architecture, not as a one-off task.`,
+        ],
+      },
+      {
+        title: "A working model",
+        paragraphs: [
+          `A useful model starts by defining the role of the topic inside the wider ${context.system}. The work should state what problem it solves, which signals it depends on, how it will be reviewed, and which parts are allowed to change over time.`,
+          `The operating artifact is ${context.artifact}. If that artifact is missing, the team can still produce visible output, but it cannot reliably judge whether the output is coherent. The standard has to exist before scale, not after the system has already become noisy.`,
+          "The practical test is whether a second person can continue the work without asking for the original intention. If the article, page, visual system, or workflow only works when one person explains it verbally, the system is not yet documented. Engineering-grade content removes that dependency by making the reasoning visible.",
+          "This does not mean turning every article into a technical manual. It means making the decision path explicit enough that a reader can understand the constraints, compare alternatives, and see why the recommended approach is more stable than the common shortcut.",
+        ],
+        bullets: [
+          "Define the user problem before choosing the format.",
+          "Document the decision criteria before production starts.",
+          "Keep examples close to the rules so future changes are easier to review.",
+          "Treat metadata, internal links, and structured content as part of the same surface.",
+          "Measure whether the result reduces ambiguity, not only whether it is published.",
+        ],
+      },
+      {
+        title: "Three scenarios that expose the issue",
+        paragraphs: [
+          "The quality of a system becomes visible when it is used outside the ideal presentation. The following scenarios are useful because they reveal whether the work can survive real constraints.",
+          "They are also good AI-readiness tests: if a person or model cannot extract the main entity, the purpose, the next step, and the evidence from the page, the system is still under-specified.",
+        ],
+        bullets: [
+          `Scenario 1: a new visitor lands directly on ${articlePath} and must understand the topic without seeing the rest of the website.`,
+          `Scenario 2: a team member has to produce a related page, post, or asset and needs clear rules instead of taste-based guessing.`,
+          `Scenario 3: a search or AI system has to connect this article with ${serviceHref}, ${projectsPath}, and the broader d . media service structure.`,
+        ],
+      },
+      {
+        title: "Comparison: weak output versus engineered content",
+        paragraphs: [
+          "The difference between ordinary content and engineered content is not length. It is the density of decisions. Long text can still be weak if it repeats claims without showing relationships, constraints, and practical consequences.",
+          "A stronger article behaves like a system specification written for humans: it answers the question directly, explains the trade-offs, shows what can go wrong, and gives a usable review checklist.",
+        ],
+        bullets: [
+          "Weak: starts with a definition. Strong: starts with the operational problem.",
+          "Weak: lists benefits. Strong: explains dependencies and failure modes.",
+          "Weak: repeats keywords. Strong: builds topical clarity through examples.",
+          "Weak: ends with a generic CTA. Strong: connects the next step to the actual scope.",
+          "Weak: can be swapped with any competitor article. Strong: reflects a clear working method.",
+        ],
+      },
+      {
+        title: "Good practice checklist",
+        paragraphs: [
+          `For ${post.title.toLowerCase()}, the practical standard is to make the work inspectable. A reviewer should be able to tell why the decision exists, what it affects, and how it should evolve when the project grows.`,
+          "This checklist is intentionally operational. It is meant for teams that need to keep quality stable across content, design, website structure, and AI-readable signals.",
+        ],
+        bullets: [
+          "Start with a concrete user or business problem.",
+          "Name the entity, service, page, or workflow being improved.",
+          "Separate facts, assumptions, and recommendations.",
+          "Use examples that can be tested against real pages or assets.",
+          "Add internal links only when they support the reader's next question.",
+          "Keep metadata aligned with the actual argument of the article.",
+          "Avoid claims that cannot be verified from the project or the work.",
+          "Review the article as a system: headline, intro, sections, FAQ, CTA, and related links.",
+          "Check whether the article is useful without search traffic.",
+          "Update the piece when the service, workflow, or technical architecture changes.",
+        ],
+      },
+      {
+        title: "Common mistakes",
+        paragraphs: [
+          "Most weak articles do not fail because the topic is wrong. They fail because they avoid the difficult part: explaining the decision model. The result is content that sounds correct but does not help a team make better choices.",
+          "The most expensive mistakes are the ones that look harmless. A vague article can still rank, but it can also teach the wrong expectation, attract the wrong inquiry, or make the brand look less precise than the work behind it.",
+        ],
+        bullets: [
+          "Writing a broad explanation instead of a useful operating model.",
+          "Using examples that are too generic to verify.",
+          "Adding length without adding decisions, evidence, or trade-offs.",
+          "Ignoring internal links to service pages and related articles.",
+          "Treating AI visibility as metadata instead of clarity, structure, and evidence.",
+        ],
+      },
+      {
+        title: "How d . media applies this",
+        paragraphs: [
+          `At d . media, this topic is connected to ${context.serviceLabel} (${serviceHref}) and to the wider service architecture (${servicesIndex}). The work starts with context: what exists now, where the friction is, what should change, and what the output must make easier.`,
+          "The implementation is intentionally conservative. We prefer fewer moving parts, clearer editorial standards, and stronger relationships between pages. That protects performance, SEO/GEO, accessibility, and long-term maintainability at the same time.",
+          "The same standard is applied to wording, structure, and technical output. A service page should not promise something the process cannot support. A blog article should not create expectations that the actual workflow will not satisfy. A case study should not imply a result that cannot be traced back to a concrete decision.",
+          "This is why the next step is always scoped. Sometimes the right action is a full website rebuild. Sometimes it is a smaller correction: a better content model, a clearer navigation path, a stronger service page, or a more disciplined visual system. The point is to fix the cause of the friction instead of producing more surface area.",
+        ],
+      },
+      {
+        title: "Internal links for the next question",
+        paragraphs: [
+          "A good article should not trap the reader on one page. It should make the next useful question obvious and connect it to the right page in the system.",
+          "For this topic, the most useful internal paths are the service page, the project archive, the contact route, and the closest related articles.",
+        ],
+        bullets: [
+          `${context.serviceLabel}: ${serviceHref}`,
+          `Services index: ${servicesIndex}`,
+          `Selected projects: ${projectsPath}`,
+          `Project inquiry: ${contactPath}`,
+          ...related.slice(0, 5),
+        ],
+      },
+      {
+        title: "Conclusion",
+        paragraphs: [
+          `${post.title} matters because it turns a visible output into a maintainable decision. The work is stronger when it can be explained, reused, reviewed, and connected to the rest of the website without special interpretation.`,
+          "If this topic is part of an active project, the next step is not to produce more material immediately. The next step is to define the scope, the constraints, and the standard the work must satisfy. That is where d . media can help: by turning scattered digital decisions into a coherent operating system for the brand.",
+          "That is also the difference between content that merely fills a website and content that improves the website as a system. The article should leave the reader with a sharper model, not only with a list of terms. When that happens, SEO, GEO, and AI visibility are not separate tricks. They become natural consequences of clear structure and useful expertise.",
+          "A final review should therefore ask three questions. Can a reader act on the article without a sales call? Can an internal team use it as a standard when producing the next page, campaign, asset, or service explanation? Can an AI system extract the entity, problem, recommendation, and next step without guessing? If the answer is yes, the article is doing its job.",
+          "The same review should be repeated after publication. Search behaviour changes, AI systems read more context, and a business can change its offer, proof, or production process. An article that once explained the system well can become outdated if the surrounding pages evolve. Engineering-grade publishing treats maintenance as part of quality, not as an optional cleanup task.",
+          "That maintenance loop is what keeps the article useful after the first publication cycle.",
+        ],
+      },
+    ];
+  }
+
+  return [
+    {
+      title: "Накратко",
+      paragraphs: [
+        `${post.title} е практически проблем на ${context.system}: работата трябва да намали неяснотата, да улесни следващите решения и да остане използваема след първото публикуване. Въпросът не е дали резултатът изглежда добре, а дали може да бъде поддържан, обяснен, измерен и повторен без загуба на посока.`,
+        `${post.intro} В production контекст темата не е SEO текст и не е рекламно обещание. Тя е operational слой: начин екипът да премине от отделни решения към стандарт, който помага едновременно на хора, търсачки и AI системи да разберат какво е важно.`,
+      ],
+    },
+    {
+      title: "Реалният проблем в работна среда",
+      paragraphs: [
+        `Най-честият failure mode е ясен: ${context.failure}. Това рядко се случва изведнъж. Добавя се страница, публикува се пост, одобрява се визуален вариант или се въвежда инструмент, без да се провери дали решението се вписва в останалата система.`,
+        `За бизнеса това означава по-бавни решения, по-разнопосочни публични сигнали и по-малко доверие в дигиталния слой. За екипа означава, че всяка следваща промяна започва с тълкуване вместо с ясен стандарт. Затова темата трябва да се третира като архитектура, а не като еднократна задача.`,
+      ],
+    },
+    {
+      title: "Работещ модел",
+      paragraphs: [
+        `Полезният модел започва с ролята на темата в по-широката ${context.system}. Трябва да е ясно какъв проблем решава, от кои сигнали зависи, как ще се проверява и кои части могат да се променят с времето.`,
+        `Работният артефакт е ${context.artifact}. Ако той липсва, екипът може да произвежда видими резултати, но няма надежден критерий дали тези резултати са последователни. Стандартът трябва да съществува преди мащабирането, не след като системата вече е станала шумна.`,
+        "Практическият тест е дали втори човек може да продължи работата без да пита каква е била първоначалната идея. Ако статията, страницата, визуалната система или workflow-ът работят само когато един човек ги обяснява устно, системата още не е документирана достатъчно. Инженерното съдържание премахва тази зависимост, като прави логиката видима.",
+        "Това не означава всяка публикация да се превърне в технически наръчник. Означава decision path-ът да бъде достатъчно ясен: какви са ограниченията, какви са алтернативите, защо препоръчаният подход е по-устойчив и как читателят може да приложи принципа в реална среда.",
+      ],
+      bullets: [
+        "Определи реалния потребителски или бизнес проблем преди формата.",
+        "Запиши критериите за решение преди производство.",
+        "Дръж примерите близо до правилата, за да може следващата редакция да бъде проверима.",
+        "Третирай metadata, вътрешни връзки и структурирано съдържание като част от същата повърхност.",
+        "Измервай дали резултатът намалява неяснотата, не само дали е публикуван.",
+      ],
+    },
+    {
+      title: "Три сценария, които показват дали системата работи",
+      paragraphs: [
+        "Качеството на една система се вижда, когато тя се използва извън идеалната презентация. Следните сценарии са полезни, защото показват дали решението издържа на реални ограничения.",
+        "Те са и добър AI-readiness тест: ако човек или модел не може да извлече основната тема, ролята, следващата стъпка и доказателствата от страницата, системата още е недоописана.",
+      ],
+      bullets: [
+        `Сценарий 1: нов посетител отваря директно ${articlePath} и трябва да разбере темата без да познава останалия сайт.`,
+        `Сценарий 2: член на екипа трябва да произведе свързана страница, публикация или asset и има нужда от ясни правила, а не от догадки по вкус.`,
+        `Сценарий 3: търсачка или AI система трябва да свърже тази статия с ${serviceHref}, ${projectsPath} и общата service структура на d . media.`,
+      ],
+    },
+    {
+      title: "Сравнение: слаб текст срещу инженерна публикация",
+      paragraphs: [
+        "Разликата между обикновено съдържание и инженерна публикация не е само в дължината. Тя е в плътността на решенията. Дългият текст пак може да бъде слаб, ако повтаря твърдения без зависимости, ограничения и практически последствия.",
+        "По-силната статия работи като спецификация, написана за хора: отговаря директно, показва trade-offs, обяснява какво може да се счупи и дава контролен списък за проверка.",
+      ],
+      bullets: [
+        "Слабо: започва с речникова дефиниция. Силно: започва с operational проблем.",
+        "Слабо: изброява ползи. Силно: обяснява зависимости и failure modes.",
+        "Слабо: повтаря ключови думи. Силно: изгражда тематична яснота чрез примери.",
+        "Слабо: завършва с общ CTA. Силно: свързва следващата стъпка с реалния обхват.",
+        "Слабо: може да бъде заменено с текст на всеки конкурент. Силно: показва конкретен работен метод.",
+      ],
+    },
+    {
+      title: "Контролен списък за добра практика",
+      paragraphs: [
+        `При темата "${post.title}" практическият стандарт е работата да бъде проверима. Reviewer трябва да разбере защо решението съществува, какво засяга и как трябва да се развива при растеж на проекта.`,
+        "Този списък е operational, не декоративен. Той е за екипи, които трябва да пазят качество в съдържание, дизайн, структура на сайта и AI-readable сигнали.",
+      ],
+      bullets: [
+        "Започни с конкретен проблем, не с обща тема.",
+        "Назови entity, услуга, страница или workflow, който се подобрява.",
+        "Раздели фактите, предположенията и препоръките.",
+        "Използвай примери, които могат да се проверят спрямо реални страници или assets.",
+        "Добавяй вътрешни връзки само когато отговарят на следващ логичен въпрос.",
+        "Синхронизирай metadata с реалния аргумент на статията.",
+        "Избягвай твърдения, които не могат да бъдат доказани от проекта или работата.",
+        "Проверявай статията като система: заглавие, intro, секции, FAQ, CTA и related links.",
+        "Питай дали текстът е полезен дори без search traffic.",
+        "Обновявай публикацията, когато услугата, workflow-ът или техническата архитектура се променят.",
+      ],
+    },
+    {
+      title: "Чести грешки",
+      paragraphs: [
+        "Повечето слаби статии не се провалят, защото темата е грешна. Провалят се, защото избягват трудната част: модела на вземане на решения. Резултатът е съдържание, което звучи вярно, но не помага на екипа да взема по-добри решения.",
+        "Най-скъпите грешки изглеждат безобидно. Неясна статия може да получи трафик, но също така може да научи грешно очакване, да привлече неподходящо запитване или да направи бранда по-неточен от реалната работа зад него.",
+      ],
+      bullets: [
+        "Писане на широко обяснение вместо работещ operational модел.",
+        "Използване на примери, които са твърде общи за проверка.",
+        "Увеличаване на дължината без повече решения, доказателства или trade-offs.",
+        "Пропускане на връзките към service страници и близки статии.",
+        "Третиране на AI visibility като metadata, а не като яснота, структура и доказателства.",
+      ],
+    },
+    {
+      title: "Как d . media прилага това",
+      paragraphs: [
+        `В d . media тази тема се свързва с ${context.serviceLabel} (${serviceHref}) и с по-широката service архитектура (${servicesIndex}). Работата започва от контекст: какво съществува сега, къде има триене, какво трябва да се промени и какво резултатът трябва да улесни.`,
+        "Изпълнението е умишлено дисциплинирано. Предпочитаме по-малко движещи се части, по-ясни редакционни стандарти и по-силни връзки между страниците. Това пази performance, SEO/GEO, accessibility и дългосрочната поддръжка едновременно.",
+        "Същият стандарт се прилага към езика, структурата и техническия резултат. Service страница не трябва да обещава нещо, което процесът не може да поддържа. Блог статия не трябва да създава очакване, което реалният workflow няма да покрие. Казус не трябва да внушава резултат, който не може да бъде проследен до конкретно решение.",
+        "Затова следващата стъпка винаги се определя според обхвата. Понякога правилното действие е цялостна уеб система. Понякога е по-малка корекция: по-добър content model, по-ясна навигационна пътека, по-силна service страница или по-дисциплинирана визуална система. Целта е да се поправи причината за триенето, не просто да се произведе още повърхност.",
+      ],
+    },
+    {
+      title: "Вътрешни връзки за следващия въпрос",
+      paragraphs: [
+        "Добрата статия не трябва да затваря читателя в една страница. Тя трябва да направи следващия полезен въпрос очевиден и да го свърже с правилната част от системата.",
+        "За тази тема най-полезните вътрешни пътища са service страницата, архивът с проекти, контактният route и най-близките свързани статии.",
+      ],
+      bullets: [
+        `${context.serviceLabel}: ${serviceHref}`,
+        `Всички услуги: ${servicesIndex}`,
+        `Подбрани проекти: ${projectsPath}`,
+        `Проектно запитване: ${contactPath}`,
+        ...related.slice(0, 5),
+      ],
+    },
+    {
+      title: "Заключение",
+      paragraphs: [
+        `${post.title} има значение, защото превръща видимия резултат в поддържано решение. Работата е по-силна, когато може да бъде обяснена, повторена, проверена и свързана с останалия сайт без специално тълкуване.`,
+        "Ако тази тема е част от активен проект, следващата стъпка не е веднага да се произведе още материал. Следващата стъпка е да се уточнят обхватът, ограниченията и стандартът, на който работата трябва да отговаря. Точно там d . media може да помогне: да превърне разпилените дигитални решения в последователна operational система за бранда.",
+        "Това е и разликата между съдържание, което просто запълва сайт, и съдържание, което подобрява сайта като система. След добра публикация читателят трябва да има по-ясен модел, не само списък с термини. Когато това се случи, SEO, GEO и AI visibility не са отделни трикове. Те стават естествен резултат от ясна структура и реална експертност.",
+        "Финалният review трябва да зададе три въпроса. Може ли читателят да действа по статията без sales разговор? Може ли вътрешен екип да я използва като стандарт при следваща страница, кампания, asset или service обяснение? Може ли AI система да извлече entity, проблема, препоръката и следващата стъпка без догадки? Ако отговорът е да, публикацията върши работа.",
+        "Същият review трябва да се повтаря и след публикуване. Search поведението се променя, AI системите четат повече контекст, а бизнесът може да промени оферта, доказателства или production процес. Статия, която веднъж е обяснявала системата добре, може да остарее, ако околните страници се развият. Инженерното публикуване третира поддръжката като част от качеството, не като незадължително почистване.",
+        "Този цикъл на поддръжка пази публикацията полезна и след първия момент на публикуване.",
+      ],
+    },
+  ];
+}
+
+function buildProfessionalFaqs(locale: Locale, post: BlogPost) {
+  const isBg = locale === "bg";
+  const context = categoryContext[locale][post.category];
+
+  if (!isBg) {
+    return [
+      {
+        question: `What is the main point of "${post.title}"?`,
+        answer: `The main point is that ${post.title.toLowerCase()} should be handled as part of ${context.system}, with clear criteria, examples, internal links, and review rules.`,
+      },
+      {
+        question: "Why should this not be treated as ordinary SEO content?",
+        answer: "Because useful visibility comes from clarity, evidence, and structure. Keyword repetition cannot replace a practical model that helps people and AI systems understand the topic.",
+      },
+      {
+        question: "What should a team check before publishing?",
+        answer: "The team should check the problem statement, examples, metadata, internal links, FAQ, CTA, and whether the article provides a reusable decision model.",
+      },
+      {
+        question: "How does this connect to d . media services?",
+        answer: `It connects to ${context.serviceLabel}, because the article describes how the work should operate in a real brand, content, website, or visibility system.`,
+      },
+      {
+        question: "When should the article be updated?",
+        answer: "It should be updated when the service scope, technical architecture, project evidence, internal links, or relevant workflows change.",
+      },
+    ];
+  }
+
+  return [
+    {
+      question: `Какъв е основният извод от "${post.title}"?`,
+      answer: `Основният извод е, че темата трябва да се управлява като част от ${context.system}, с ясни критерии, примери, вътрешни връзки и правила за проверка.`,
+    },
+    {
+      question: "Защо това не трябва да бъде обикновена SEO статия?",
+      answer: "Защото полезната видимост идва от яснота, доказателства и структура. Повтарянето на ключови думи не може да замени practically usable модел, който помага на хора и AI системи да разберат темата.",
+    },
+    {
+      question: "Какво трябва да провери екипът преди публикуване?",
+      answer: "Трябва да се проверят проблемът, примерите, metadata, вътрешните връзки, FAQ секцията, CTA и дали статията дава модел за решение, който може да се използва повторно.",
+    },
+    {
+      question: "Как това се свързва с услугите на d . media?",
+      answer: `Свързва се с ${context.serviceLabel}, защото статията описва как работата трябва да функционира в реална брандова, content, уеб или visibility система.`,
+    },
+    {
+      question: "Кога трябва да се обнови такава статия?",
+      answer: "Когато се променят обхватът на услугата, техническата архитектура, доказателствата от проекти, вътрешните връзки или workflow-ът, който статията описва.",
+    },
+  ];
+}
+
+function enhanceBlogPost(locale: Locale, post: BlogPost, posts: readonly BlogPost[]): BlogPost {
+  const { relatedPosts, relatedTitles } = getPostRelationships(locale, post, posts);
+  const sections = buildProfessionalSections(locale, post, relatedTitles);
+  const cta = categoryContext[locale][post.category];
+  const ctaPrimaryHref = locale === "bg" ? cta.serviceHref : `/en${cta.serviceHref}`;
+  const ctaSecondaryHref = locale === "bg" ? "/contact" : "/en/contact";
+  const enhancedPost = {
+    ...post,
+    dateModified: "2026-06-28",
+    readingTime: calculateReadingTime({
+      ...post,
+      sections,
+    }),
+    relatedPosts,
+    sections,
+    faqs: buildProfessionalFaqs(locale, post),
+    relatedLinks: uniqueValues([
+      ...post.relatedLinks,
+      { href: ctaPrimaryHref, label: cta.serviceLabel },
+      { href: locale === "bg" ? "/services" : "/en/services", label: locale === "bg" ? "Всички услуги" : "All services" },
+      { href: locale === "bg" ? "/projects" : "/en/projects", label: locale === "bg" ? "Проекти" : "Projects" },
+      { href: ctaSecondaryHref, label: locale === "bg" ? "Контакт" : "Contact" },
+    ] as BlogLink[]),
+    ctaTitle:
+      locale === "bg"
+        ? "Ако темата е част от реален проект, започни с контекст."
+        : "If this topic is part of a real project, start with context.",
+    ctaText:
+      locale === "bg"
+        ? "Изпрати текущото състояние, целта, ограниченията и очаквания резултат. Оттам d . media може да подреди правилния обхват без излишни стъпки."
+        : "Send the current situation, goal, constraints, and expected outcome. From there, d . media can define the right scope without unnecessary steps.",
+    ctaPrimaryLabel: cta.serviceLabel,
+    ctaPrimaryHref,
+    ctaSecondaryLabel: locale === "bg" ? "Изпрати проектен контекст" : "Send project context",
+    ctaSecondaryHref,
+  };
+
+  return enhancedPost;
+}
+
+const bgBlogPosts = [...publishedBgPosts.map(withSectionOverrides), ...getAuthorityArticles("bg"), ...draftCaseStudies.map(withSectionOverrides)];
+const enBlogPosts = [...publishedEnPosts, ...getAuthorityArticles("en")];
+
 const localizedBlogPosts = {
-  bg: [...publishedBgPosts.map(withSectionOverrides), ...getAuthorityArticles("bg"), ...draftCaseStudies.map(withSectionOverrides)],
-  en: [...publishedEnPosts, ...getAuthorityArticles("en")],
+  bg: bgBlogPosts.map((post) => enhanceBlogPost("bg", post, bgBlogPosts)),
+  en: enBlogPosts.map((post) => enhanceBlogPost("en", post, enBlogPosts)),
 } as const satisfies Record<Locale, readonly BlogPost[]>;
 
 export function getBlogPageCopy(locale: Locale) {
