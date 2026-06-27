@@ -3276,6 +3276,11 @@ img {
   gap: var(--space-20);
 }
 
+.brief-section-start {
+  padding-top: var(--space-20);
+  border-top: 1px solid var(--line);
+}
+
 .turnstile-wrap {
   grid-column: 1 / -1;
   min-height: 65px;

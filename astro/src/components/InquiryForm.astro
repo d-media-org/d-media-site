@@ -201,7 +201,7 @@ const copy = isBg
           </select>
           {copy.budgetHint ? <span class="field-hint">{copy.budgetHint}</span> : null}
         </label>
-        <label class="field">
+        <label class="field brief-section-start">
           <span class="field-label">{copy.deadline} <span class="field-meta">{copy.optional}</span></span>
           <input name="deadline" type="text" maxlength={contactFieldLimits.deadline} placeholder={isBg ? "например: до края на юли" : "for example: end of July"} />
           {copy.deadlineHint ? <span class="field-hint">{copy.deadlineHint}</span> : null}
