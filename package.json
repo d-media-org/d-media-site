@@ -17,6 +17,7 @@
     "smart-qa": "node scripts/run-smart-qa.mjs",
     "regression": "node scripts/run-regression.mjs",
     "release": "node scripts/run-release.mjs",
+    "dashboard": "node scripts/generate-dashboard.mjs",
     "assets:web": "node scripts/generate-web-assets.mjs",
     "astro:dev": "npm --prefix astro run dev",
     "astro:build": "npm --prefix astro run build && node scripts/generate-markdown-pages.mjs",
