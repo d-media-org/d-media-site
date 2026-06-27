@@ -560,6 +560,10 @@
   margin-top: var(--space-8);
 }
 
+[data-estimator-only][hidden] {
+  display: none !important;
+}
+
 @media (max-width: 720px) {
   .estimator-step-nav {
     grid-template-columns: 1fr;
@@ -1185,6 +1189,9 @@ img {
   border-left: 0;
   padding-left: 0;
   padding-top: var(--space-8);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-8);
 }
 
 .site-brand > a {
@@ -1325,6 +1332,7 @@ img {
   border-radius: var(--space-24);
   background: var(--surface);
   transform: translateY(calc(var(--space-8) * -1));
+  overscroll-behavior: contain;
   transition:
     max-height var(--transition-base),
     opacity var(--transition-base),
@@ -1333,10 +1341,11 @@ img {
 }
 
 .site-mobile-panel.is-open {
-  max-height: 480px;
+  max-height: min(520px, calc(100dvh - 76px));
   opacity: 1;
   pointer-events: auto;
   padding: var(--space-16);
+  overflow-y: auto;
   transform: translateY(0);
 }
 
@@ -3160,6 +3169,53 @@ img {
     box-shadow var(--transition-base);
 }
 
+.service-choice-field {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+
+.service-choice-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.service-choice {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: 10px;
+  align-items: start;
+  min-height: 48px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 13px var(--space-16);
+  background: var(--surface);
+  color: var(--foreground);
+  cursor: pointer;
+  transition:
+    border-color var(--transition-base),
+    background-color var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.service-choice input {
+  width: 18px;
+  min-height: 18px;
+  margin: 1px 0 0;
+}
+
+.service-choice:hover,
+.service-choice:has(input:focus-visible) {
+  border-color: var(--line-strong);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--foreground) 8%, transparent);
+}
+
+.service-choice-field[data-invalid="true"] .service-choice-grid {
+  border-radius: 8px;
+  box-shadow: 0 0 0 1px color-mix(in srgb, #b00020 55%, var(--line));
+}
+
 .field textarea {
   resize: vertical;
   min-height: 140px;
@@ -3295,6 +3351,10 @@ img {
   .field select,
   .field textarea {
     border-radius: 8px;
+  }
+
+  .service-choice-grid {
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .field textarea,

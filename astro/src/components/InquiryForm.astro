@@ -37,10 +37,12 @@ const copy = isBg
         : "Изпрати кратък контекст и ще върнем яснота за обхват, срок и следваща стъпка.",
       formTitle: "Изпрати запитване",
       name: "Име",
-      email: "E-mail",
-      company: "Фирма",
-      service: "Услуга",
-      message: "Съобщение",
+      email: "Имейл",
+      company: "Организация",
+      service: "Тип запитване",
+      serviceHint: "Избери една или повече услуги, които са част от запитването.",
+      serviceRequired: "Моля, избери поне една услуга.",
+      message: "Кратко описание на проекта",
       budget: "Ориентировъчен бюджет",
       deadline: "Желан срок",
       website: "Съществуващ сайт",
@@ -54,11 +56,15 @@ const copy = isBg
       requiredLegend: "Полетата, отбелязани със звездичка, са задължителни.",
       loading: "Изпращане…",
       validationRequired: "Моля, попълни това поле.",
-      validationEmail: "Моля, въведи валиден e-mail адрес.",
+      validationEmail: "Моля, въведи валиден имейл адрес.",
       validationWebsite: "Моля, въведи пълен адрес, започващ с https://.",
       validationConsent: "Необходимо е съгласие, за да изпратиш запитването.",
       optional: "по избор",
-      messageHint: "Разкажи накратко какъв е проектът и какъв резултат очакваш.",
+      messageHint: "Опиши какво трябва да се изработи, за кого е и какъв резултат очакваш.",
+      companyHint: "Може да посочиш име на фирма, бранд или проект.",
+      budgetHint: "Избери диапазон, ако вече имаш ориентир.",
+      deadlineHint: "Например: до края на юли, преди събитие, без фиксиран срок.",
+      websiteHint: "Ако има текущ сайт или примерна страница.",
       estimatorExplanation:
         "Избраните параметри вече са добавени към описанието на проекта. Попълнете име, имейл и допълнителна информация, ако има специфични изисквания, които искате да уточните.",
       generatedBrief: "Подготвено описание на проекта",
@@ -77,6 +83,8 @@ const copy = isBg
       email: "Email",
       company: "Company",
       service: "Service",
+      serviceHint: "Select one or more services that are part of the inquiry.",
+      serviceRequired: "Please select at least one service.",
       message: "Message",
       budget: "Estimated Budget",
       deadline: "Desired Deadline",
@@ -96,6 +104,10 @@ const copy = isBg
       validationConsent: "Consent is required to send the inquiry.",
       optional: "optional",
       messageHint: "Briefly describe the project and the result you want.",
+      companyHint: "",
+      budgetHint: "",
+      deadlineHint: "",
+      websiteHint: "",
       estimatorExplanation:
         "Your selected parameters have already been added to the project brief. Add your name, email, and any additional context or specific requirements you would like to clarify.",
       generatedBrief: "Generated project brief",
@@ -132,7 +144,7 @@ const copy = isBg
     <div class="form-grid">
       <label class="field">
         <span class="field-label">{copy.name} <span class="field-required" aria-label={copy.required}>*</span></span>
-        <input name="name" type="text" autocomplete="name" maxlength={contactFieldLimits.name} required />
+        <input name="name" type="text" autocomplete="name" maxlength={contactFieldLimits.name} required placeholder={isBg ? "Име за контакт" : undefined} />
       </label>
 
       <label class="field">
@@ -143,19 +155,25 @@ const copy = isBg
       <label class:list={["field", { "estimator-locked-field": estimator }]}>
         <span class="field-label">{copy.company} <span class="field-meta">{copy.optional}</span></span>
         <input name="company" type="text" autocomplete="organization" maxlength={contactFieldLimits.company} />
+        {copy.companyHint ? <span class="field-hint">{copy.companyHint}</span> : null}
       </label>
 
-      <label class:list={["field", { "estimator-locked-field": estimator }]}>
-        <span class="field-label">{copy.service} <span class="field-required" aria-label={copy.required}>*</span></span>
-        <select name="service" required>
-          <option value="">{isBg ? "Изберете услуга" : "Select service"}</option>
-          {contactServices.map((service) => <option value={service}>{isBg ? contactServiceLabelsBg[service] : service}</option>)}
-        </select>
-      </label>
+      <fieldset class:list={["field", "field-full", "service-choice-field", { "estimator-locked-field": estimator }]} data-service-group data-service-required={copy.serviceRequired}>
+        <legend class="field-label">{copy.service} <span class="field-required" aria-label={copy.required}>*</span></legend>
+        <div class="service-choice-grid">
+          {contactServices.map((service) => (
+            <label class="service-choice">
+              <input type="checkbox" name="serviceOptions" value={service} />
+              <span>{isBg ? contactServiceLabelsBg[service] : service}</span>
+            </label>
+          ))}
+        </div>
+        <span class="field-hint">{copy.serviceHint}</span>
+      </fieldset>
 
       <label class:list={["field", "field-full", { "estimator-locked-field": estimator }]}>
         <span class="field-label">{copy.message} <span class="field-required" aria-label={copy.required}>*</span></span>
-        <textarea name="message" rows="6" maxlength={contactFieldLimits.message} required>{estimator ? (isBg ? `Проектен ориентир:\nУслуги: ${estimatorData.services}\nОбхват: ${estimatorData.scope}\nСложност: ${estimatorData.complexity}\nСрок: ${estimatorData.timeline}\nОриентировъчна инвестиция: ${estimatorData.estimatedRange}` : `Project estimate:\nServices: ${estimatorData.services}\nScope: ${estimatorData.scope}\nComplexity: ${estimatorData.complexity}\nTimeline: ${estimatorData.timeline}\nEstimated investment: ${estimatorData.estimatedRange}`) : ""}</textarea>
+        <textarea name="message" rows="6" maxlength={contactFieldLimits.message} required placeholder={isBg ? "Например: нужен ни е сайт, визуална идентичност или кампания; каква е аудиторията; какво трябва да бъде готово." : undefined}>{estimator ? (isBg ? `Проектен ориентир:\nУслуги: ${estimatorData.services}\nОбхват: ${estimatorData.scope}\nСложност: ${estimatorData.complexity}\nСрок: ${estimatorData.timeline}\nОриентировъчна инвестиция: ${estimatorData.estimatedRange}` : `Project estimate:\nServices: ${estimatorData.services}\nScope: ${estimatorData.scope}\nComplexity: ${estimatorData.complexity}\nTimeline: ${estimatorData.timeline}\nEstimated investment: ${estimatorData.estimatedRange}`) : ""}</textarea>
         <span class="field-hint">{copy.messageHint}</span>
       </label>
 
@@ -174,34 +192,34 @@ const copy = isBg
             <div class="generated-brief-wide" data-brief-recommendations-row hidden><dt>{isBg ? "Препоръки" : "Recommendations"}</dt><dd data-brief-recommendations></dd></div>
           </dl>
         </section>
-      <details class="brief-details" data-standard-brief>
-        <summary>{isBg ? "Описание на проекта" : "Project brief"}</summary>
-        <div class="brief-grid">
-          <label class="field">
-            <span class="field-label">{copy.budget}</span>
-            <select name="budget">
-              <option value="">{isBg ? "Изберете бюджет" : "Select budget"}</option>
-              {contactBudgets.map((budget) => <option value={budget}>{isBg ? contactBudgetLabelsBg[budget] : budget}</option>)}
-            </select>
-          </label>
-          <label class="field">
-            <span class="field-label">{copy.deadline}</span>
-            <input name="deadline" type="text" maxlength={contactFieldLimits.deadline} placeholder={isBg ? "например: края на юли" : "for example: end of July"} />
-          </label>
-          <label class="field">
-            <span class="field-label">{copy.website}</span>
-            <input name="website" type="url" inputmode="url" maxlength={contactFieldLimits.website} placeholder="https://..." />
-          </label>
-          <label class="field field-full">
-            <span class="field-label">{copy.additional}</span>
-            <textarea name="additionalInformation" rows="4" maxlength={contactFieldLimits.additionalInformation}></textarea>
-          </label>
-        </div>
-      </details>
+      <div class="brief-grid field-full" data-standard-brief>
+        <label class="field">
+          <span class="field-label">{copy.budget} <span class="field-meta">{copy.optional}</span></span>
+          <select name="budget">
+            <option value="">{isBg ? "Избери диапазон" : "Select budget"}</option>
+            {contactBudgets.map((budget) => <option value={budget}>{isBg ? contactBudgetLabelsBg[budget] : budget}</option>)}
+          </select>
+          {copy.budgetHint ? <span class="field-hint">{copy.budgetHint}</span> : null}
+        </label>
+        <label class="field">
+          <span class="field-label">{copy.deadline} <span class="field-meta">{copy.optional}</span></span>
+          <input name="deadline" type="text" maxlength={contactFieldLimits.deadline} placeholder={isBg ? "например: до края на юли" : "for example: end of July"} />
+          {copy.deadlineHint ? <span class="field-hint">{copy.deadlineHint}</span> : null}
+        </label>
+        <label class="field">
+          <span class="field-label">{copy.website} <span class="field-meta">{copy.optional}</span></span>
+          <input name="website" type="url" inputmode="url" maxlength={contactFieldLimits.website} placeholder="https://..." />
+          {copy.websiteHint ? <span class="field-hint">{copy.websiteHint}</span> : null}
+        </label>
+        <label class="field">
+          <span class="field-label">{copy.additional} <span class="field-meta">{copy.optional}</span></span>
+          <textarea name="additionalInformation" rows="4" maxlength={contactFieldLimits.additionalInformation}></textarea>
+        </label>
+      </div>
 
         <label class="field field-full estimator-additional-field" data-estimator-only hidden>
           <span class="field-label">{copy.additional} <span class="field-meta">{copy.optional}</span></span>
-          <textarea name="additionalInformation" rows="5" maxlength={contactFieldLimits.additionalInformation}></textarea>
+          <textarea name="additionalInformation" rows="5" maxlength={contactFieldLimits.additionalInformation} disabled></textarea>
           <span class="field-hint">{copy.additionalHint}</span>
         </label>
 
@@ -217,12 +235,13 @@ const copy = isBg
       <input name="honeypot" type="text" tabindex="-1" autocomplete="off" aria-hidden="true" class="inquiry-honeypot" />
       <input name="locale" type="hidden" value={locale} />
       <input name="projectScope" type="hidden" value={estimatorData.scope} />
+      <input name="service" type="hidden" value="" />
       <input name="services" type="hidden" value={estimatorData.serviceValues} />
       <input name="goal" type="hidden" value={estimatorData.goal} />
       <input name="complexity" type="hidden" value={estimatorData.complexity} />
       <input name="projectTimeline" type="hidden" value={estimatorData.timeline} />
       <input name="estimatedRange" type="hidden" value={estimatorData.estimatedRange} />
-      <input name="budget" type="hidden" value="" data-estimator-budget disabled />
+      <input name="estimatorBudget" type="hidden" value="" data-estimator-budget disabled />
       <input name="readinessScore" type="hidden" value={estimatorData.readinessScore} />
       <input name="leadScore" type="hidden" value={estimatorData.leadScore} />
       <input name="confidence" type="hidden" value={estimatorData.confidence} />
@@ -278,6 +297,9 @@ const copy = isBg
     if (params.get("estimator") === "1") {
       (card || form).querySelectorAll("[data-estimator-only]").forEach((element) => {
         element.hidden = false;
+        element.querySelectorAll?.("input, select, textarea").forEach((control) => {
+          control.disabled = false;
+        });
       });
       const standardBrief = form.querySelector("[data-standard-brief]");
       if (standardBrief) {
@@ -287,7 +309,7 @@ const copy = isBg
         });
       }
       form.querySelector('[name="company"]')?.closest(".field")?.classList.add("estimator-locked-field");
-      form.querySelector('[name="service"]')?.closest(".field")?.classList.add("estimator-locked-field");
+      form.querySelector("[data-service-group]")?.classList.add("estimator-locked-field");
       form.querySelector('[name="message"]')?.closest(".field")?.classList.add("estimator-locked-field");
       form.querySelector('[name="budget"]')?.closest(".field")?.classList.add("estimator-locked-field");
       form.querySelector('[name="deadline"]')?.closest(".field")?.classList.add("estimator-locked-field");
@@ -316,6 +338,7 @@ const copy = isBg
       const recommendationsField = form.querySelector('[name="recommendations"]');
       const projectBriefField = form.querySelector('[name="projectBrief"]');
       const serviceField = form.querySelector('[name="service"]');
+      const serviceOptionFields = [...form.querySelectorAll('[name="serviceOptions"]')];
       const budgetField = form.querySelector('[name="budget"]');
       const estimatorBudgetField = form.querySelector("[data-estimator-budget]");
       const isEnglish = form.querySelector('[name="locale"]')?.value === "en";
@@ -339,7 +362,13 @@ const copy = isBg
           ? `Project type: ${goal}\n\nSelected services: ${services}\n\nScope: ${scope}\n\nTimeline: ${timeline}\n\nBudget: ${budget}\n\nRecommendations: ${recommendations || "None"}`
           : `Тип проект: ${goal}\n\nИзбрани услуги: ${services}\n\nОбхват: ${scope}\n\nСрок: ${timeline}\n\nБюджет: ${budget}\n\nПрепоръки: ${recommendations || "Няма"}`);
       }
-      if (serviceField && serviceValues) serviceField.value = serviceValues.split("|")[0] || "Other";
+      if (serviceValues) {
+        const selectedValues = serviceValues.split("|").filter(Boolean);
+        serviceOptionFields.forEach((control) => {
+          control.checked = selectedValues.includes(control.value);
+        });
+        if (serviceField) serviceField.value = selectedValues[0] || "Other";
+      }
       if (budgetField && budget) {
         const budgetOption = [...budgetField.options].find((option) => option.textContent?.trim() === budget);
         if (budgetOption) budgetField.value = budgetOption.value;
@@ -384,6 +413,21 @@ const copy = isBg
     if (params.get("sent") === "1") {
       setStatus(form.dataset.successMessage || "", false);
     }
+    const syncSelectedServices = () => {
+      const selected = [...form.querySelectorAll('[name="serviceOptions"]:checked')].map((control) => control.value);
+      const serviceField = form.querySelector('[name="service"]');
+      const servicesField = form.querySelector('[name="services"]');
+      if (serviceField) serviceField.value = selected[0] || "";
+      if (servicesField && selected.length) servicesField.value = selected.join("|");
+      return selected;
+    };
+    form.querySelectorAll('[name="serviceOptions"]').forEach((control) => {
+      control.addEventListener("change", () => {
+        syncSelectedServices();
+        const group = form.querySelector("[data-service-group]");
+        if (group) group.dataset.invalid = "false";
+      });
+    });
     let formStarted = false;
     form.addEventListener("focusin", () => {
       if (formStarted) return;
@@ -394,6 +438,16 @@ const copy = isBg
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
       if (form.dataset.busy === "true") return;
+      const selectedServices = syncSelectedServices();
+      if (!selectedServices.length) {
+        const group = form.querySelector("[data-service-group]");
+        if (group) {
+          group.dataset.invalid = "true";
+          setStatus(group.dataset.serviceRequired || form.dataset.validationRequired || "", true);
+          group.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+        return;
+      }
       if (!form.checkValidity()) {
         form.reportValidity();
         return;
