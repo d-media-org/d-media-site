@@ -1,4 +1,5 @@
 import type { Locale } from "@/lib/i18n";
+import { mainProjectArchiveEntries, mainProjectAssetAdditions } from "@/lib/main-project-assets";
 
 function getImageOrder(label: string) {
   const normalized = label.toLowerCase();
@@ -27,7 +28,7 @@ function getImageOrder(label: string) {
   return 3;
 }
 
-export const projectPngArchive = [
+const baseProjectPngArchive = [
   {
     "slug": "d-media",
     "title": "d . media",
@@ -764,8 +765,43 @@ export const projectPngArchive = [
       "Лого и вариант без текст",
       "Файлове за светъл фон и мокъп приложение",
       "Присъствие, ориентирано към YouTube среда"
+    ],
+    "videos": [
+      {
+        "src": "/optimized-assets/project-media/syanka-ot-minaloto-intro.m4v",
+        "label": "Сянка от миналото — intro"
+      },
+      {
+        "src": "/optimized-assets/project-media/syanka-ot-minaloto-opener.m4v",
+        "label": "Сянка от миналото — opener"
+      }
+    ],
+    "links": [
+      {
+        "href": "https://www.youtube.com/@СЯНКА-ОТ-МИНАЛОТО",
+        "label": "Отвори YouTube канала",
+        "title": "YouTube канал",
+        "text": "Гледай реалното приложение на визуалната идентичност в канала „Сянка от миналото“."
+      }
     ]
   }
+] as const;
+
+export const projectPngArchive = [
+  ...baseProjectPngArchive.map((project) => {
+    const images = mainProjectAssetAdditions[project.slug as keyof typeof mainProjectAssetAdditions];
+
+    if (!images) {
+      return project;
+    }
+
+    return {
+      ...project,
+      imageCount: images.length,
+      images,
+    };
+  }),
+  ...mainProjectArchiveEntries,
 ] as const;
 
 export const featuredProjectPngs = projectPngArchive.filter((project) => project.featured);
@@ -1058,6 +1094,34 @@ const localizedProjectCopy = {
         "White transparent version",
       ],
     },
+    "elena-skevov-mua": {
+      summary: "A project from the main d . media archive, added with the available original files and application materials.",
+      context: "The archive shows the available files for Elena Skevov MUA, prepared as lightweight web images for fast browsing on the site.",
+      focus: [
+        "Original files from the project folder",
+        "Optimized web versions for the site",
+        "A preview of the available applications and working materials",
+      ],
+    },
+    "monika-hristova": {
+      summary: "A business-card project from the main d . media archive, added from the available PDF source.",
+      context: "The archive shows the available Monika Hristova business-card file as a lightweight web preview for fast browsing on the site.",
+      focus: [
+        "Original file from the project folder",
+        "Optimized web preview for the site",
+        "Business-card material prepared for project browsing",
+      ],
+    },
+    teti: {
+      title: "Teti",
+      summary: "A salon visual-material project from the main d . media archive, added with the available business-card and information files.",
+      context: "The archive shows the available files for Teti, prepared as lightweight web images for fast browsing on the site.",
+      focus: [
+        "Business-card files from the project folder",
+        "Salon price and working-time materials",
+        "Optimized web versions for the site",
+      ],
+    },
     "syanka-ot-minaloto": {
       title: "Shadow from the Past",
       summary: "Visual identity for a YouTube channel and video-led content.",
@@ -1066,6 +1130,14 @@ const localizedProjectCopy = {
         "Logo and a text-free variation",
         "Files for light backgrounds and mockup application",
         "A presence shaped for the YouTube environment",
+      ],
+      links: [
+        {
+          href: "https://www.youtube.com/@СЯНКА-ОТ-МИНАЛОТО",
+          label: "Open the YouTube channel",
+          title: "YouTube channel",
+          text: "See the visual identity in use on the Shadow from the Past channel.",
+        },
       ],
     },
   },

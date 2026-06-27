@@ -3117,12 +3117,13 @@ img {
 .form-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--space-24);
+  column-gap: var(--space-24);
+  row-gap: var(--space-32);
 }
 
 .field {
   display: grid;
-  gap: var(--space-8);
+  gap: 10px;
 }
 
 .field-label {
@@ -3139,6 +3140,7 @@ img {
 
 .form-required-note {
   font-size: var(--type-small);
+  font-style: italic;
   line-height: 1.5;
   color: var(--text-faint);
 }
@@ -3150,6 +3152,10 @@ img {
   font-size: var(--type-small);
   line-height: 1.5;
   color: var(--text-soft);
+}
+
+.field-hint {
+  font-style: italic;
 }
 
 .field input,
@@ -3169,10 +3175,16 @@ img {
     box-shadow var(--transition-base);
 }
 
+.field input::placeholder,
+.field textarea::placeholder {
+  font-style: italic;
+}
+
 .service-choice-field {
   border: 0;
   padding: 0;
   margin: 0;
+  gap: 12px;
 }
 
 .service-choice-grid {
@@ -3273,12 +3285,7 @@ img {
 
 .brief-grid {
   display: grid;
-  gap: var(--space-20);
-}
-
-.brief-section-start {
-  padding-top: var(--space-20);
-  border-top: 1px solid var(--line);
+  gap: var(--space-32);
 }
 
 .turnstile-wrap {
@@ -3331,7 +3338,8 @@ img {
 
   .form-grid {
     grid-template-columns: minmax(0, 1fr);
-    gap: 20px;
+    row-gap: 28px;
+    column-gap: 0;
   }
 
   .inquiry-card-header {

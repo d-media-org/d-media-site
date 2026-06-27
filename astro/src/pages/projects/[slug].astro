@@ -23,6 +23,7 @@ const siteContent = getSiteContent(locale);
 const ui = getUiCopy(locale);
 const caseStudySections = "caseStudySections" in project ? project.caseStudySections : [];
 const projectVideos = "videos" in project ? project.videos : [];
+const projectLinks = "links" in project ? project.links : [];
 const projectHeroImage = "detailCover" in project ? project.detailCover : project.cover;
 const hasProjectFiles = project.images.length > 0;
 const formatFileCount = (count: number) =>
@@ -114,6 +115,15 @@ const relatedServices = relatedServiceIds
               <a class="inline-link" href="/site-history/">История на сайта</a>
             </div>
           ) : null}
+          {projectLinks.map((link: { href: string; label: string; title: string; text: string }) => (
+            <div class="case-study-section">
+              <span class="case-study-label">{link.title}</span>
+              <p>{link.text}</p>
+              <a class="inline-link" href={link.href} target="_blank" rel="noopener noreferrer">
+                {link.label}
+              </a>
+            </div>
+          ))}
           <div class="project-card-footer">
             <span class="project-meta">{copy.meta}</span>
             <a class="inline-link" href={localizeHref(locale, "/projects")}>{copy.back}</a>
