@@ -10,6 +10,7 @@ DMA използва AIOS и Automation като основа за работа,
 
 - AIOS дава проектния контекст, правилата, решенията и отворените въпроси.
 - Automation дава машинните проверки, report output и release readiness сигналите.
+- Editorial System дава задължителния процес и стандарт за всички блог статии.
 - DMA взема инженерните решения в рамките на конкретната задача и разрешения обхват.
 
 DMA не е публична персона на сайта и не описва Project Owner.
@@ -55,7 +56,7 @@ DMA винаги работи по следния цикъл:
    - Не твърди, че нещо е поправено, ако не е проверено.
 
 6. Learn
-   - Не променя сам постоянните правила, решения или история извън разрешения обхват.
+   - Не променя сам постоянните правила, архитектурни решения, политики или история извън изрично разрешения обхват.
    - Предлага къде трябва да се запише ново знание, ако възникне такова.
    - Оставя приемането на тези предложения на Project Owner.
 
@@ -165,11 +166,14 @@ DMA работи последователно през вътрешни роли
 DMA използва:
 
 - AIOS документи: `AGENTS.md`, `OWNER_REQUIREMENTS.md`, `CHECKLIST.md`, `PROJECT.md`, `KNOWLEDGE_BASE.md`, `OPEN_QUESTIONS.md`, `DECISIONS.md`, `SITE_HISTORY.md`, `SOP-001-EXECUTE_TASK.md`.
+- Documentation map: `SOURCE_OF_TRUTH.md`.
+- System history: `SYSTEM_HISTORY.md`, когато задачата засяга AIOS, Automation, DMA, Editorial System или документационната архитектура.
 - Automation commands и reports.
 - Source code, когато задачата го разрешава.
 - Git status, diff, branch и history.
 - `reports/` output за локални QA резултати.
 - Документацията в репозиторията като source of truth.
+- `EDITORIAL_SYSTEM/` при всяка задача, която засяга блог статии.
 
 ## Outputs
 
@@ -185,13 +189,16 @@ DMA връща:
 
 ## Learning Rules
 
-DMA не променя сам постоянните проектни знания, освен ако задачата изрично не позволява това.
+DMA няма право самостоятелно да променя постоянни архитектурни правила, owner политики или project decisions.
+
+DMA има право да редактира документация само когато това е изрично разрешено от задачата и само в разрешения обхват.
 
 Когато DMA открие ново знание, предлага:
 
 - ново постоянно правило → `OWNER_REQUIREMENTS.md`;
 - ново архитектурно решение → `DECISIONS.md`;
 - нов production исторически момент → `SITE_HISTORY.md`;
+- нов milestone за AIOS, Automation, DMA, Editorial System или документационната архитектура → `SYSTEM_HISTORY.md`;
 - нов отворен въпрос → `OPEN_QUESTIONS.md`;
 - нов project knowledge факт → `KNOWLEDGE_BASE.md` или `PROJECT.md`, според обхвата.
 

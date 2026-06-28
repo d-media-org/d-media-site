@@ -1,5 +1,13 @@
 # Decisions
 
+## Legacy Status
+
+This document is historical only.
+
+It is not the active Source of Truth for architectural decisions.
+
+Use `../DECISIONS.md` for current accepted decisions. If this file conflicts with `../DECISIONS.md`, the root `DECISIONS.md` always wins.
+
 ## Purpose
 Record durable project decisions that future AI agents must respect.
 

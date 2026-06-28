@@ -1,4 +1,26 @@
-# AI Operating System
+# AI Operating System Legacy Archive
+
+## Legacy Status
+
+`.aios/` е Legacy AIOS Archive.
+
+Тази директория не е активен Source of Truth.
+
+Служи само за исторически контекст от първата AIOS bootstrap фаза. При конфликт винаги печелят root документите, описани в `../SOURCE_OF_TRUTH.md`.
+
+Активният AIOS слой е в root документите:
+
+- `../AGENTS.md`
+- `../SOURCE_OF_TRUTH.md`
+- `../DMA.md`
+- `../OWNER_REQUIREMENTS.md`
+- `../CHECKLIST.md`
+- `../PROJECT.md`
+- `../KNOWLEDGE_BASE.md`
+- `../OPEN_QUESTIONS.md`
+- `../DECISIONS.md`
+- `../SYSTEM_HISTORY.md`
+- `../SOP-001-EXECUTE_TASK.md`
 
 ## Purpose
 `.aios/` is the internal AI knowledge base for future AI agents working on the official `d . media` repository. It exists to preserve project-specific operating rules, architecture facts, brand constraints, QA expectations, and decision memory without changing the production website.

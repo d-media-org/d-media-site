@@ -241,6 +241,13 @@ Production deploy се прави само след изрично потвър�
 
 Automation 2.0 централизира повторяемите QA проверки в npm команди и постепенно трябва да добави машинно четими отчети за release readiness, без да променя production съдържание, design, pricing, legal текстове, assets или deploy flow.
 
+Source of Truth за Automation:
+
+- overview: `PROJECT.md`;
+- избор на проверки: `CHECKLIST.md`;
+- implementation: `package.json` и `scripts/`;
+- reports: `reports/`.
+
 Текущ инвентар на стабилните проверки:
 
 - `npm run lint` изпълнява ESLint.

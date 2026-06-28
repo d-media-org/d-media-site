@@ -4,6 +4,10 @@
 
 Текущият production сайт е статичен Astro сайт, deploy-нат в Cloudflare Pages.
 
+Този файл е Developer Onboarding документ. Той не е основният AI Source of Truth.
+
+За активната документационна карта използвай `SOURCE_OF_TRUTH.md`.
+
 Live:
 
 ```text

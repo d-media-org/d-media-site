@@ -10,14 +10,20 @@
 ## Начин на работа
 
 - `DMA.md` описва DMA (`d . media Agent`) като инженерния агент на проекта. DMA използва AIOS и Automation като основа за работа, но не ги заменя.
+- `EDITORIAL_SYSTEM/` е задължителният редакционен стандарт за всички задачи, които засягат блог статии.
 - При започване на всяка задача задължително зареди:
   - `AGENTS.md`
+  - `SOURCE_OF_TRUTH.md`
+  - `DMA.md`
   - `OWNER_REQUIREMENTS.md`
   - `CHECKLIST.md`
   - `PROJECT.md`
   - `KNOWLEDGE_BASE.md`
   - `OPEN_QUESTIONS.md`
+  - `DECISIONS.md`
+  - `SITE_HISTORY.md`
   - `SOP-001-EXECUTE_TASK.md`
+  - `EDITORIAL_SYSTEM/`, когато задачата засяга блог статии или editorial work
 - `OWNER_REQUIREMENTS.md` е задължителен контекст за всяка задача.
 - Не започвай с дълъг план или общ анализ.
 - След одобрение от потребителя започни директно изпълнение.
