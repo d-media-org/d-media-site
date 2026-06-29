@@ -2,6 +2,7 @@ import { localizeHref } from "@/lib/i18n";
 import { authorityServiceSlugs } from "@/lib/authority-services";
 import { authorityPageSlugs } from "@/lib/authority-pages";
 import { getPublishedBlogPosts } from "@/lib/blog";
+import { getKnowledgeBaseArticles, getKnowledgeBaseArticlePath } from "@/lib/knowledge-base";
 import { legacyProjectArchive } from "@/lib/legacy-project-archive";
 import { operationalPolicies } from "@/lib/operational-policies";
 import { projectPngArchive } from "@/lib/project-png-archive";
@@ -28,10 +29,12 @@ function sitemapEntry(path: string, lastModified?: string) {
   ].join("");
 }
 
-export function GET() {
+export async function GET() {
   const allProjects = [...projectPngArchive, ...legacyProjectArchive];
+  const knowledgeBaseArticles = await getKnowledgeBaseArticles();
   const basePaths = [
     "",
+    "/knowledge-base",
     "/blog",
     "/projects",
     "/case-studies",
@@ -69,6 +72,10 @@ export function GET() {
       { path: localizeHref("en", path || "/") },
     ]),
     ...blogEntries,
+    ...knowledgeBaseArticles.map((article) => ({
+      path: getKnowledgeBaseArticlePath(article.data.slug),
+      lastModified: article.data.dateModified,
+    })),
     ...projectPaths.flatMap((path) => [{ path: localizeHref("bg", path) }, { path: localizeHref("en", path) }]),
     ...policyPaths.flatMap((path) => [
       { path: localizeHref("bg", path) },

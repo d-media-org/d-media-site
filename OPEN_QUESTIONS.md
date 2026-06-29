@@ -8,6 +8,58 @@
 
 ## Open
 
+## Q-008 — Future lifecycle на Knowledge Base v1
+
+Status: Open
+Priority: Medium
+Area: Documentation Architecture
+
+### Въпрос
+
+Трябва ли `d . media Knowledge Base v1` да остане само root documentation layer, или в бъдеще да получи отделна директория, templates или machine-readable structure?
+
+### Защо е важно
+
+Това е архитектурно решение за документационния слой. Без approval не трябва да се създава нова директория, паралелен framework или втори Source of Truth.
+
+### Какво е известно
+
+Текущата задача изисква първо да се изгради архитектурата, стандартите и документацията, без писане на статии. `DEC-012` приема Knowledge Base v1 като разширение на съществуващата root документационна архитектура.
+
+### Какво трябва да се потвърди
+
+Дали бъдеща версия трябва да добави отделна структура извън root документите.
+
+### Решение
+
+Нуждае се от потвърждение.
+
+## Q-009 — Machine-readable Knowledge Base format
+
+Status: Open
+Priority: Low
+Area: Documentation Architecture
+
+### Въпрос
+
+Нужен ли е machine-readable формат за Knowledge Base v1, например JSON/YAML index, или Markdown документите остават достатъчни?
+
+### Защо е важно
+
+Machine-readable формат би бил нов документационен artifact и може да изисква validation правила. Това не трябва да се добавя без explicit архитектурно одобрение.
+
+### Какво е известно
+
+Текущата документационна архитектура използва Markdown root документи и `npm run validate-docs`.
+
+### Какво трябва да се потвърди
+
+Дали има реална нужда от machine-readable index и какъв трябва да бъде неговият source of truth.
+
+### Решение
+
+Нуждае се от потвърждение.
+
 ## Q-005 — Пълна responsive спецификация
 
 Status: Open
@@ -87,6 +139,33 @@ Area: Technical Debt
 Нуждае се от потвърждение.
 
 ## Resolved
+
+## Q-010 — Public Knowledge Base content architecture
+
+Status: Resolved
+Priority: High
+Area: Documentation Architecture / Content Architecture
+Resolution: `DEC-013` accepts `d . media Knowledge Base` as the official public content layer. `DEC-012` is superseded for this architecture.
+
+### Въпрос
+
+Трябва ли официалната `d . media Knowledge Base` да стане публичен content layer с Master Content Plan, категории, клъстери, pillar страници и 100+ publication-ready статии, или `Knowledge Base v1` остава само вътрешен root documentation layer според `DEC-012`?
+
+### Защо е важно
+
+Това е архитектурно решение. Предишните source-of-truth документи приемаха `Knowledge Base v1` като вътрешен документационен слой, който не създава нов production, content или editorial layer. Новата задача изисква пълна публична база знания със статии, вътрешни връзки, индекси и QA.
+
+### Какво е известно
+
+Project Owner разреши архитектурния конфликт за текущата задача. `DEC-013` приема Knowledge Base като официален публичен content layer на `d . media`.
+
+### Какво трябва да се потвърди
+
+Няма оставащо потвърждение за принципното архитектурно решение. Детайлите по изпълнението трябва да следват `DEC-013`, Astro/Cloudflare production архитектурата и editorial стандартите.
+
+### Решение
+
+Resolved by `DEC-013`.
 
 ## Q-001 — Роля на root Next.js приложението
 

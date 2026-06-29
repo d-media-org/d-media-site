@@ -241,3 +241,47 @@ AIOS 1.0 Documentation Architecture Freeze е приет.
 ### Статус
 
 Accepted
+
+## DEC-012
+
+### Решение
+
+`d . media Knowledge Base v1` използва съществуващата root документационна архитектура и не създава нов production, content или editorial слой.
+
+### Причина
+
+`SOURCE_OF_TRUTH.md` вече дефинира активните Source of Truth документи, `.aios/` е legacy archive, а `OWNER_REQUIREMENTS.md` изисква да не се създават нови документи или паралелни механизми, когато съществуващите могат да бъдат разширени.
+
+### Алтернативи
+
+Създаване на отделна директория или нов паралелен knowledge-base framework.
+
+### Последствия
+
+Knowledge Base v1 се поддържа чрез `SOURCE_OF_TRUTH.md`, `PROJECT.md`, `KNOWLEDGE_BASE.md`, `OPEN_QUESTIONS.md`, `DECISIONS.md`, `SYSTEM_HISTORY.md` и `SOP-001-EXECUTE_TASK.md`. Архитектурни промени се записват в `DECISIONS.md` само след approval от `Project Owner`; неяснотите се записват в `OPEN_QUESTIONS.md`.
+
+### Статус
+
+Superseded by `DEC-013`
+
+## DEC-013
+
+### Решение
+
+`d . media Knowledge Base` става официалният публичен content layer на `d . media`.
+
+### Причина
+
+Project Owner разреши архитектурния конфликт `Q-010` и изрично промени ролята на Knowledge Base за текущата задача. Knowledge Base вече не се разглежда като само вътрешен documentation layer. `DEC-012` остава исторически запис за предишното състояние, но вече не ограничава изграждането на публична Knowledge Base.
+
+### Алтернативи
+
+Запазване на Knowledge Base само като root documentation layer според `DEC-012`.
+
+### Последствия
+
+Knowledge Base може да има публична Astro content архитектура, Master Content Plan, категории, клъстери, pillar статии, supporting статии, вътрешни връзки, sitemap участие, schema и QA проверки. Публичното съдържание трябва да следва editorial стандартите, owner ограниченията, Astro/Cloudflare production архитектурата и правилата срещу недоказуеми твърдения.
+
+### Статус
+
+Accepted

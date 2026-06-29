@@ -1,5 +1,96 @@
 # KNOWLEDGE_BASE.md
 
+## d . media Knowledge Base v1
+
+`d . media Knowledge Base` е официалният публичен content layer на проекта според `DEC-013`.
+
+Исторически `Knowledge Base v1` е бил вътрешен documentation layer. Това състояние е superseded от `DEC-013`, след разрешаването на `Q-010` от Project Owner.
+
+Целта му е да публикува постоянна техническа база знания за branding, brand strategy, brand identity, graphic design, web design, UX, UI, web development, Astro, Cloudflare, performance, technical SEO, semantic SEO, GEO, AI visibility, structured data, hosting, CMS, accessibility, content architecture, information architecture и свързани дисциплини.
+
+Вътрешната project documentation продължава да използва съществуващата root документационна архитектура:
+
+- `SOURCE_OF_TRUTH.md` - карта на документите и conflict resolution.
+- `OWNER_REQUIREMENTS.md` - постоянни owner изисквания.
+- `DECISIONS.md` - приети архитектурни решения.
+- `PROJECT.md` - кратка актуална project архитектура.
+- `KNOWLEDGE_BASE.md` - подробна база знания за доказуеми project facts.
+- `OPEN_QUESTIONS.md` - неясноти, които изискват човешко решение.
+- `SYSTEM_HISTORY.md` - milestones за вътрешни системи.
+- `SOP-001-EXECUTE_TASK.md` - процедура за изпълнение на задачи.
+
+Публичната Knowledge Base използва текущия Astro/Cloudflare production path и не променя deployment модела.
+
+## Knowledge Base Architecture
+
+Knowledge Base v1 има следните слоеве:
+
+- Governance layer: `AGENTS.md`, `SOURCE_OF_TRUTH.md`, `OWNER_REQUIREMENTS.md`, `DMA.md`, `SOP-001-EXECUTE_TASK.md`.
+- Decision layer: `DECISIONS.md`.
+- Project knowledge layer: `PROJECT.md`, `KNOWLEDGE_BASE.md`.
+- Uncertainty layer: `OPEN_QUESTIONS.md`.
+- History layer: `SYSTEM_HISTORY.md`, `SITE_HISTORY.md`.
+- Editorial layer: `EDITORIAL_SYSTEM/`, само когато задачата засяга блог статии или editorial work.
+- Legacy archive layer: `.aios/`, само за исторически контекст.
+
+### Ownership правила
+
+- `Project Owner` одобрява архитектурни промени.
+- DMA няма право да променя архитектурата без изрично одобрение.
+- Ако липсва информация за архитектурно решение, тя се записва в `OPEN_QUESTIONS.md`.
+- Не се създават нови документи, ако съществуващите могат да бъдат разширени.
+- Не се дублира един и същ факт в повече от един документ без ясна причина.
+
+### Правила за съдържание
+
+Публичната `d . media Knowledge Base` следва research-first стандарт:
+
+- статии не се пишат по памет;
+- всяка статия първо се проучва чрез надеждни първоизточници;
+- фактите се проверяват и съпоставят;
+- противоречията се отбелязват, вместо да се решават произволно;
+- текстът е собствен аналитичен материал, не препис или механична перифраза на документация;
+- всяка статия минава през саморедакция, фактологична проверка, езиков одит и терминологична проверка преди `published` статус.
+
+В Knowledge Base v1 се записва само:
+
+- доказуем project факт от репозиторията;
+- прието решение от `DECISIONS.md`;
+- owner изискване от `OWNER_REQUIREMENTS.md`;
+- ясно маркирана неяснота с `Нуждае се от потвърждение.`;
+- вътрешен milestone, когато задачата засяга AIOS, Automation, DMA, Editorial System или документационната архитектура.
+
+В Knowledge Base v1 не се записва:
+
+- нова site архитектура без approval;
+- blog статия или draft статия;
+- публично позициониране, което не е поискано;
+- pricing, legal или SEO твърдение без source в репозиторията;
+- лична идентичност на Project Owner;
+- implementation detail, който принадлежи само в source code.
+
+### Task routing
+
+Когато бъдеща задача засяга Knowledge Base v1:
+
+- project fact се добавя или уточнява в `KNOWLEDGE_BASE.md`;
+- кратък project summary се добавя в `PROJECT.md`;
+- архитектурно решение се добавя в `DECISIONS.md` само след одобрение;
+- неяснота се добавя в `OPEN_QUESTIONS.md`;
+- вътрешен milestone се добавя в `SYSTEM_HISTORY.md`;
+- production site milestone се добавя в `SITE_HISTORY.md` само ако промяната е публикувана в production.
+
+### Definition of Done
+
+Knowledge Base v1 е завършен за текущия етап, когато:
+
+- има ясно дефинирана документационна архитектура;
+- има правила за ownership и approval;
+- има място за нерешени въпроси;
+- няма писане на blog статии;
+- няма промени по production code, конфигурации, assets или site content;
+- `npm run validate-docs` минава успешно за documentation-only промяната.
+
 ## Обща информация
 
 `d . media` е официалният сайт на дигитално студио в София, България. Репозиторията описва сайт за услуги, проекти, блог, цени, оценка на проект, правни страници, контакт и публична история на сайта.

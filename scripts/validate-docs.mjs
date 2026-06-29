@@ -23,6 +23,7 @@ const requiredFiles = [
   "EDITORIAL_SYSTEM/ARTICLE_UX.md",
   "EDITORIAL_SYSTEM/ARTICLE_UI.md",
   "EDITORIAL_SYSTEM/LINKING_STRATEGY.md",
+  "EDITORIAL_SYSTEM/EVIDENCE_GUIDE.md",
   "EDITORIAL_SYSTEM/WRITING_GUIDE.md",
   "EDITORIAL_SYSTEM/REVIEW_CHECKLIST.md",
   ".aios/README.md",
@@ -45,6 +46,7 @@ const requiredSections = {
     "## Required Documents by Task",
     "## Workflow",
     "## Research Output Template",
+    "## Evidence Map Output Template",
     "## Outline Template",
     "## Project Owner Approval Template",
     "## Definition of Done",
@@ -52,6 +54,7 @@ const requiredSections = {
   "CHECKLIST.md": [
     "## Преди започване",
     "## Преди приключване",
+    "## Automation Decision Matrix",
     "## Типове задачи и минимални проверки",
     "## Automation commands",
   ],
@@ -91,7 +94,7 @@ for (const file of requiredFiles) {
 }
 
 for (const file of docsToScan) {
-  const content = fs.readFileSync(file, "utf8").trim();
+  const content = stripFrontmatter(fs.readFileSync(file, "utf8").trim());
   if (!content) failures.push(`${file}: empty markdown document`);
   if (!content.startsWith("#")) failures.push(`${file}: missing top-level heading`);
 }
@@ -119,6 +122,7 @@ for (const file of docsToScan.filter((item) => !item.startsWith(".aios/"))) {
 
 validateOpenQuestions();
 validateSourceOfTruth();
+validateDecisionMatrix();
 validateInternalReferences();
 
 if (failures.length) {
@@ -141,6 +145,10 @@ console.log(
 function read(file) {
   if (!fs.existsSync(file)) return "";
   return fs.readFileSync(file, "utf8");
+}
+
+function stripFrontmatter(content) {
+  return content.replace(/^---\n[\s\S]*?\n---\n?/u, "").trim();
 }
 
 function collectMarkdownFiles(directory) {
@@ -197,6 +205,46 @@ function validateSourceOfTruth() {
     "AIOS",
   ]) {
     if (!content.includes(file)) failures.push(`SOURCE_OF_TRUTH.md: missing source-of-truth entry for ${file}`);
+  }
+}
+
+function validateDecisionMatrix() {
+  const content = read("CHECKLIST.md");
+  const requiredCategories = [
+    "### Documentation-only",
+    "### Research / Outline",
+    "### Editorial System",
+    "### Blog Writing",
+    "### Blog Content Update",
+    "### Blog Renderer",
+    "### SEO / GEO",
+    "### Service Pages",
+    "### Project Pages",
+    "### Navigation",
+    "### Forms",
+    "### Assets",
+    "### Video",
+    "### Astro Components",
+    "### Source Code",
+    "### Automation",
+    "### Dashboard",
+    "### Cloudflare Runtime",
+    "### Release Candidate",
+  ];
+
+  for (const category of requiredCategories) {
+    if (!content.includes(category)) failures.push(`CHECKLIST.md: missing Automation Decision Matrix category ${category}`);
+  }
+
+  for (const command of [
+    "npm run validate-docs",
+    "npm run qa",
+    "npm run browser-qa",
+    "npm run seo-check",
+    "npm run regression",
+    "npm run release",
+  ]) {
+    if (!content.includes(command)) failures.push(`CHECKLIST.md: Automation Decision Matrix missing command reference ${command}`);
   }
 }
 

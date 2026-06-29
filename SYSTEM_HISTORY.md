@@ -74,3 +74,16 @@
 - `SYSTEM_HISTORY.md` е отделен от `SITE_HISTORY.md`.
 - `EDITORIAL_SYSTEM/README.md` е добавен като entrypoint.
 - `scripts/validate-docs.mjs` е разширен с документационни архитектурни проверки.
+
+## 2026-06-29 — Knowledge Base v1
+
+- Дефиниран е `d . media Knowledge Base v1` като активен root documentation layer.
+- Потвърдено е, че Knowledge Base v1 не създава нов production, content или editorial слой.
+- Добавени са ownership правила: архитектурни промени изискват approval от `Project Owner`, а неяснотите се записват в `OPEN_QUESTIONS.md`.
+- Записани са отворени въпроси за бъдещ lifecycle и machine-readable формат на Knowledge Base v1.
+
+## 2026-06-29 — Public Knowledge Base architecture
+
+- Project Owner разреши `Q-010`.
+- `DEC-013` приема `d . media Knowledge Base` като официален публичен content layer.
+- `DEC-012` остава historical/superseded решение и вече не ограничава изграждането на публична Knowledge Base.

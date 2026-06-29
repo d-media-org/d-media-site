@@ -1,0 +1,66 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import {
+  getKnowledgeBaseArticlePath,
+  getKnowledgeBaseArticles,
+  groupKnowledgeBaseArticles,
+} from "@/lib/knowledge-base";
+import { getBreadcrumbSchema } from "@/lib/seo";
+
+const articles = await getKnowledgeBaseArticles();
+const groupedArticles = groupKnowledgeBaseArticles(articles);
+const canonical = "https://www.d-media.org/knowledge-base/";
+const localeSwitcherItems = [{ locale: "bg" as const, label: "BG", href: "/knowledge-base/", isActive: true }];
+---
+
+<Layout
+  locale="bg"
+  title="Knowledge Base | d . media"
+  description="Публична техническа база знания за брандинг, дизайн, уеб разработка, Astro, Cloudflare, SEO, GEO, видимост в AI системи, достъпност и архитектура на съдържанието."
+  path="/knowledge-base"
+  openGraphType="website"
+  alternateLinks={{ canonical, bg: canonical, en: null, xDefault: canonical }}
+  localeSwitcherItems={localeSwitcherItems}
+  structuredData={[getBreadcrumbSchema({ locale: "bg", path: "/knowledge-base", title: "Knowledge Base" })]}
+>
+  <main class="site-shell" id="top">
+    <section class="section-grid">
+      <div class="section-heading page-intro">
+        <p class="eyebrow">база знания</p>
+        <h1>d . media Knowledge Base</h1>
+        <p class="page-text">
+          Постоянна техническа база знания за брандинг, бранд стратегия, дизайн, потребителско преживяване,
+          потребителски интерфейс, уеб разработка, Astro, Cloudflare, производителност, техническо SEO,
+          семантично SEO, GEO, видимост в AI системи, структурирани данни, хостинг, CMS, достъпност
+          и архитектура на съдържанието.
+        </p>
+      </div>
+
+      <div class="stacked-cards">
+        {Object.entries(groupedArticles).map(([category, clusters]) => (
+          <article class="card text-card">
+            <p class="eyebrow">{category}</p>
+            <h2>{category}</h2>
+            <div class="stacked-cards">
+              {Object.entries(clusters).map(([cluster, clusterArticles]) => (
+                <section class="blog-article-block">
+                  <h3>{cluster}</h3>
+                  <ul class="detail-list">
+                    {clusterArticles.map((article) => (
+                      <li>
+                        <a class="inline-link" href={getKnowledgeBaseArticlePath(article.data.slug)}>
+                          {article.data.title}
+                        </a>
+                        <span class="project-meta"> {article.data.type === "pillar" ? "основна" : "поддържаща"}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              ))}
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  </main>
+</Layout>

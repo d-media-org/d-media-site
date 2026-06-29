@@ -1,0 +1,122 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { render } from "astro:content";
+import {
+  getKnowledgeBaseArticlePath,
+  getKnowledgeBaseArticles,
+  getKnowledgeBaseArticleBySlug,
+  getRelatedKnowledgeBaseArticles,
+} from "@/lib/knowledge-base";
+import { getAbsolutePageUrl } from "@/lib/seo";
+
+export async function getStaticPaths() {
+  const articles = await getKnowledgeBaseArticles();
+  return articles.map((article) => ({ params: { slug: article.data.slug } }));
+}
+
+const { slug } = Astro.params;
+
+if (!slug) {
+  throw new Error("Missing Knowledge Base slug");
+}
+
+const article = await getKnowledgeBaseArticleBySlug(slug);
+
+if (!article) {
+  throw new Error(`Unknown Knowledge Base slug: ${slug}`);
+}
+
+const { Content } = await render(article);
+const relatedArticles = await getRelatedKnowledgeBaseArticles(article);
+const path = getKnowledgeBaseArticlePath(article.data.slug);
+const canonical = getAbsolutePageUrl("bg", path);
+const localeSwitcherItems = [{ locale: "bg" as const, label: "BG", href: path, isActive: true }];
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Начало", item: getAbsolutePageUrl("bg", "/") },
+    { "@type": "ListItem", position: 2, name: "Knowledge Base", item: getAbsolutePageUrl("bg", "/knowledge-base") },
+    { "@type": "ListItem", position: 3, name: article.data.title, item: getAbsolutePageUrl("bg", path) },
+  ],
+};
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  headline: article.data.title,
+  description: article.data.description,
+  url: getAbsolutePageUrl("bg", path),
+  datePublished: article.data.datePublished,
+  dateModified: article.data.dateModified,
+  author: { "@type": "Organization", name: "d . media" },
+  publisher: { "@id": "https://www.d-media.org/#organization" },
+  articleSection: article.data.category,
+  keywords: article.data.tags,
+  inLanguage: "bg-BG",
+};
+---
+
+<Layout
+  locale="bg"
+  title={`${article.data.title} | d . media`}
+  description={article.data.description}
+  path={path}
+  openGraphType="article"
+  alternateLinks={{ canonical, bg: canonical, en: null, xDefault: canonical }}
+  localeSwitcherItems={localeSwitcherItems}
+  structuredData={[breadcrumbSchema, articleSchema]}
+>
+  <main class="site-shell" id="top">
+    <article class="section-grid">
+      <header class="section-heading page-intro">
+        <p class="eyebrow">{article.data.category} / {article.data.cluster}</p>
+        <h1>{article.data.title}</h1>
+        <p class="page-text">{article.data.description}</p>
+        <div class="blog-meta-row">
+          <p class="project-meta">автор: d . media</p>
+          <p class="project-meta"><time datetime={article.data.datePublished}>{article.data.datePublished}</time></p>
+          <p class="project-meta">{article.data.readingTime} минути четене</p>
+        </div>
+      </header>
+
+      <div class="split-content">
+        <div class="card text-card blog-article-content">
+          <Content />
+          <div class="project-card-footer blog-back-link-row">
+            <a class="inline-link" href="/knowledge-base/">Назад към Knowledge Base</a>
+          </div>
+        </div>
+
+        <aside class="stacked-cards blog-article-actions">
+          <article class="card services-cta-card">
+            <div class="services-cta-copy">
+              <p class="eyebrow">следваща стъпка</p>
+              <h2>Провери дали системата ти има ясна основа.</h2>
+              <p class="page-text">
+                Ако проблемът е в структурата на бранда, сайта, съдържанието или техническата видимост,
+                изпрати контекст и текущи ограничения.
+              </p>
+            </div>
+            <div class="hero-actions">
+              <a href="/contact/" class="button button-primary">Изпрати контекст</a>
+              <a href="/services/" class="button button-secondary">Разгледай услугите</a>
+            </div>
+          </article>
+
+          {relatedArticles.length ? (
+            <article class="card package-card">
+              <h2>Свързани Knowledge Base статии</h2>
+              <div class="blog-related-list">
+                {relatedArticles.map((relatedArticle) => (
+                  <a class="inline-link" href={getKnowledgeBaseArticlePath(relatedArticle.data.slug)}>
+                    {relatedArticle.data.title}
+                  </a>
+                ))}
+              </div>
+            </article>
+          ) : null}
+        </aside>
+      </div>
+    </article>
+  </main>
+</Layout>
