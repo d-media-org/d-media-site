@@ -402,7 +402,7 @@ WCAG 2.2, публикуван от W3C, е официална препорък�
 
 - [Брандинг](/knowledge-base/branding/)
 - [Бранд стратегия](/knowledge-base/brand-strategy/)
-- `logo-system`
+- [Лого система](/knowledge-base/logo-system/)
 - `typography-system`
 - `color-system`
 - `brand-guidelines`
