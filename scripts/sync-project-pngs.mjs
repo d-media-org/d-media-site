@@ -9,7 +9,7 @@ const sourceAssetRoot =
   path.resolve("..", "d . media - site source archive", "assets");
 const projectOutputRoot = path.join(sourceAssetRoot, "project-pngs");
 const projectCoverRoot = path.join(sourceAssetRoot, "project-covers");
-const dataOutputPath = path.resolve("src/lib/project-png-archive.ts");
+const dataOutputPath = path.resolve("astro/src/lib/project-png-archive.ts");
 const excludedDirectories = new Set(["салон за красота Нюанси - файлове"]);
 const fixedSlugByDirectory = {
   "Сянка от миналото": "syanka-ot-minaloto",

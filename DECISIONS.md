@@ -48,11 +48,11 @@ Accepted
 
 ### Решение
 
-Root Next.js остава `Legacy / fallback component`.
+Root Next.js слой е окончателно премахнат.
 
 ### Причина
 
-Root Next.js app все още присъства и може да се build-ва, но текущият production path е `Astro → astro/dist → Cloudflare Pages → Wrangler deploy`.
+Текущият production path е `Astro → astro/dist → Cloudflare Pages → Wrangler deploy`, а Next.js/Vercel слой не се използва.
 
 ### Алтернативи
 
@@ -60,7 +60,7 @@ Root Next.js app все още присъства и може да се build-в
 
 ### Последствия
 
-Feature work за production сайта не се прави в root `src/app`, освен ако задачата изрично не засяга legacy/fallback слоя.
+Feature work за production сайта се прави в Astro слоя.
 
 ### Статус
 

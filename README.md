@@ -32,7 +32,7 @@ npm run build
 
 ## Cloudflare / Astro
 
-Cloudflare build-ът е статичен и не изисква Workers или Pages Functions.
+Cloudflare build-ът е статичен и използва Pages Functions само за текущите API и middleware маршрути.
 
 ```bash
 npm run astro:dev
@@ -66,7 +66,7 @@ Cloudflare Pages project name е `d-media`. Cloudflare запази вътреш
 - задължителни routes, SEO файлове, manifest, favicon, PDFs и logo pack
 - `_headers` и `_redirects`
 - всички локални `href`/`src` references в HTML
-- липса на `_next`, Vercel runtime и Metricool references в Astro output
+- липса на legacy Next.js/Vercel runtime и Metricool references в Astro output
 
 ## Asset Pipeline
 

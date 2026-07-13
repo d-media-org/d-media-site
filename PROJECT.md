@@ -8,10 +8,7 @@
 
 ## Структура на проекта
 
-Репозиторията съдържа две основни приложения:
-
-- Root Next.js структура в `src/`.
-- Astro структура в `astro/`.
+Репозиторията съдържа Astro структура в `astro/`.
 
 Според `DEC-013` официалната `d . media Knowledge Base` е публичен content layer на production Astro сайта. Тя се изгражда като evergreen техническа база знания с Master Content Plan, категории, клъстери, pillar статии, supporting статии, вътрешни връзки и QA.
 
@@ -23,15 +20,12 @@
 Astro → astro/dist → Cloudflare Pages → Wrangler deploy
 ```
 
-Root Next.js приложението присъства в `src/` и root `package.json` съдържа `next dev`, `next build` и `next start`, но не е текущият production път на `d . media`. То се класифицира като `Legacy / fallback component`.
-
-Feature work за текущия production сайт не трябва да се прави в root `src/app`, освен ако задачата изрично не е за legacy/fallback слоя. QA за production сайта трябва да валидира Astro output-а и Cloudflare validation пътя, не само root Next.js build.
+Astro е единственият production и development слой. QA валидира Astro output-а и Cloudflare Pages пътя.
 
 Основни root файлове и директории:
 
 - `README.md` - обща документация за сайта, Cloudflare, Astro, assets и release checklist.
 - `package.json` - root scripts, включително proxy команди към Astro.
-- `src/` - Next.js структура.
 - `astro/` - Astro сайтът.
 - `public/` - browser-facing assets, favicon, fonts, optimized assets, downloads, SEO/GEO файлове и Cloudflare static files.
 - `scripts/` - build, asset и validation scripts.
@@ -43,10 +37,6 @@ Feature work за текущия production сайт не трябва да се
 От `package.json`, `astro/package.json` и конфигурационните файлове:
 
 - `Astro`
-- `Next.js`
-- `React`
-- `TypeScript`
-- `Tailwind CSS`
 - `ESLint`
 - `Playwright`
 - `sharp`

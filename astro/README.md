@@ -105,6 +105,5 @@ The validation checks required routes/assets, `_headers`, `_redirects`, local `h
 
 ## Current constraints
 
-- The current Next.js app remains untouched as the production site until cutover.
 - No domain or live deployment action is performed from this workspace without explicit approval.
-- Runtime Vercel services are intentionally not used in the Astro static build.
+- The Astro application is the only production and development application in this repository; the legacy Next.js/Vercel layer has been removed.
