@@ -4,7 +4,7 @@
 
 Този документ описва как DMA изгражда Evidence Map преди писане на блог статия за `d . media`.
 
-Evidence Map е задължителна стъпка между Research и Outline. Тя пази статията от недоказуеми твърдения, общи изводи, слаби примери и технически неточности.
+Evidence Map е част от Research и се завършва преди Outline. Тя пази статията от недоказуеми твърдения, общи изводи, слаби примери и технически неточности.
 
 DMA няма право да започва Writing без завършен Evidence Map.
 
@@ -102,6 +102,18 @@ Evidence Map не заменя Research. Research определя пробле�
 - `llms.txt` твърдения: текущите публични `llms` файлове и ясно ограничение, че това не е официален ranking фактор.
 - AI visibility твърдения: само като яснота, структура и извличаемост, не като гарантирано цитиране.
 
+## Source Mapping and Review
+
+За всяко важно твърдение Evidence Map посочва първичния източник, а вторичен източник се добавя само за контекст или проверка. Вторичен източник не заменя официална документация, стандарт, repository факт или друга първична спецификация.
+
+Източникът се записва с дата на проверка и с начина, по който ще бъде цитиран в статията. За BG и EN версия се отбелязва дали твърдението и източникът важат и за двете версии; при различие се правят отделни записи.
+
+Променяща се във времето информация се проверява отново преди `published` статус. Числово твърдение записва единица, период, източник и изчисление; ако изчислението не може да бъде повторено, числото не се публикува.
+
+При противоречащи си източници DMA записва конфликта, предпочита по-надеждния и по-актуален първичен източник и не прави заключение, докато разликата не е обяснена или маркирана с `Нуждае се от потвърждение.`.
+
+Evidence Map има собствен статус: `Draft → Peer Review (Technical Review) → Editorial (Editorial Review) → QA`. Това е проследяване на доказателствата, не нов етап в editorial workflow. QA проверява source mapping, цитиране, дата на проверка, езикова приложимост и липсата на недоказуеми твърдения преди `Project Owner Review`.
+
 ## Practical Examples
 
 Практическите примери трябва да бъдат максимално реални.
@@ -126,13 +138,37 @@ H2:
 
 Main claim:
 
+Claim type:
+Fact / Inference / Recommendation
+
 Proven facts:
 -
 
-Official sources:
+Primary sources:
 -
 
+Secondary sources:
+-
+
+Source checked on:
+-
+
+Citation to use:
+-
+
+BG / EN applicability:
+-
+
+Confidence:
+High / Medium / Low
+
+Source conflict:
+None / Describe
+
 Technical specifications:
+-
+
+Calculations and units:
 -
 
 Practical examples:
@@ -147,20 +183,14 @@ Allowed conclusions:
 Disallowed claims:
 -
 
-Fact:
--
-
-Inference:
--
-
-Recommendation:
--
-
 Cannot be proven:
 -
 
 Evidence status:
 PASS / FAIL
+
+Editorial status:
+Draft / Peer Review / Editorial / QA
 
 Decision:
 Keep as H2 / Convert to H3 / Merge / Remove / Needs Project Owner decision

@@ -155,11 +155,30 @@ H2:
 
 Main claim:
 
+Claim type:
+Fact / Inference / Recommendation
+
 Proven facts:
 
-Official sources:
+Primary sources:
+
+Secondary sources:
+
+Source checked on:
+
+Citation to use:
+
+BG / EN applicability:
+
+Confidence:
+High / Medium / Low
+
+Source conflict:
+None / Describe
 
 Technical specifications:
+
+Calculations and units:
 
 Practical examples:
 
@@ -169,16 +188,16 @@ Allowed conclusions:
 
 Disallowed claims:
 
-Fact:
-
-Inference:
-
-Recommendation:
-
 Cannot be proven:
 
 Evidence status:
 PASS / FAIL
+
+Editorial status:
+Draft / Peer Review / Editorial / QA
+
+Decision:
+Keep as H2 / Convert to H3 / Merge / Remove / Needs Project Owner decision
 ```
 
 
