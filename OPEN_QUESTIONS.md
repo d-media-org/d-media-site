@@ -280,3 +280,23 @@ API routes влияят върху deployment модела, Cloudflare bindings,
 ### Решение
 
 Текущият Astro/Cloudflare production API endpoint е `/api/contact`. Root Next.js `/api/social-preview` е legacy/helper route извън текущия production path. Други API routes не са открити в репозиторията.
+
+## Q-021 — Turnstile hostname за Cloudflare Pages preview
+
+Status: Open
+Priority: Medium
+Area: Cloudflare Runtime
+
+### Въпрос
+
+Трябва ли preview hostname-ите на Cloudflare Pages да бъдат добавени в Turnstile Hostname Management за end-to-end preview QA на контактната форма?
+
+### Какво е известно
+
+На `https://6e7c2d3a.d-media-site.pages.dev/contact/` Turnstile връща browser error `110200` (`Domain not authorized`), поради което не издава token и успешен preview submission не е възможен. Production contact page не показва този error.
+
+`/api/contact` обработва валиден payload с невалиден token с `400` JSON отговор и спира преди D1, Brevo CRM sync и email изпращане.
+
+### Какво трябва да се потвърди
+
+Project Owner трябва да реши дали preview hostname-ите да се разрешават за Turnstile. Това е външна Cloudflare configuration промяна и не е част от cleanup branch-а.

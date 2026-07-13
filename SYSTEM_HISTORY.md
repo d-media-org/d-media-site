@@ -99,3 +99,10 @@
 - `npm run validate-docs` връща идентични 20 документационни грешки и на базовия commit `a962e86`, и на cleanup commit `f587b23`; cleanup-ът не е добавил regression.
 - Clean-room проверката потвърждава, че активните root зависимости не включват Next.js, React или Vercel пакети; Astro използва собствен `astro/tsconfig.json`.
 - Cloudflare Pages preview deployment за `f587b23` е успешен и потвърждава публичните маршрути, sitemap, robots и липсата на `/_next/` runtime route.
+
+## 2026-07-13 — Cloudflare preview runtime validation
+
+- Preview deployment `6e7c2d3a.d-media-site.pages.dev` връща Cloudflare runtime и очакваните security headers; `/_next/` остава `404`, а Vercel headers не се връщат.
+- Contact endpoint-ът връща очакван `400` JSON отговор при невалиден Turnstile token и не достига D1/email пътя.
+- Preview Turnstile widget-ът връща `110200` (`Domain not authorized`), защото preview hostname-ът не е разрешен за site key. Production form не показва този console error. Това е Cloudflare hostname configuration follow-up, а не регресия от Next.js/Vercel cleanup-а.
+- Preview и production нямат `Content-Security-Policy` или `Content-Security-Policy-Report-Only`; отсъствието е предварително съществуващо и не е променено от cleanup-а.
