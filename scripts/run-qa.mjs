@@ -5,7 +5,6 @@ import { checkRequiredTools, runStep } from "./automation-runner.mjs";
 
 const checks = [
   { label: "Lint", command: "npm", args: ["run", "lint"] },
-  { label: "Root build", command: "npm", args: ["run", "build"] },
   { label: "Astro build", command: "npm", args: ["run", "astro:build"] },
   {
     label: "Cloudflare dist validation",

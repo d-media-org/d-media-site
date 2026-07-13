@@ -184,7 +184,7 @@ Resolution: Root Next.js is classified as a legacy/fallback component. Current p
 
 ### Какво е известно
 
-Root `package.json` съдържа `next dev`, `next build` и `next start`. Root `README.md` описва текущия production сайт като статичен Astro сайт, deploy-нат в Cloudflare Pages. `CLOUDFLARE_MIGRATION.md` и `astro/README.md` съдържат миграционни бележки от период преди cutover.
+Next.js/Vercel legacy слоят е окончателно премахнат. Текущият production път е Astro → Cloudflare Pages.
 
 ### Какво трябва да се потвърди
 

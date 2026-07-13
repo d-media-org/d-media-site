@@ -13,7 +13,7 @@ const sourceRoot =
   process.env.D_MEDIA_SOURCE_ASSET_ROOT ??
   path.resolve("..", "d . media - site source archive", "assets");
 const outputRoot = "public/optimized-assets/project-web";
-const manifestPath = "src/lib/generated-web-asset-manifest.ts";
+const manifestPath = "astro/src/lib/generated-web-asset-manifest.ts";
 const imagePattern = /\.(png|jpe?g)$/i;
 
 async function walk(directory) {

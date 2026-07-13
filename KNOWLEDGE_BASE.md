@@ -142,9 +142,7 @@ Astro е source of truth за текущия production сайт.
 
 Astro build-ът използва repository-level `public/` чрез `publicDir: "../public"`. Root scripts в `package.json` извикват Astro команди чрез `npm --prefix astro`.
 
-Root Next.js приложението присъства и има scripts `next dev`, `next build` и `next start`, но не е текущият production път на `d . media`. Feature work за production сайта трябва да се прави в Astro слоя, освен ако задачата изрично не засяга legacy/fallback слоя.
-
-`src/app/api/social-preview/route.tsx` е `Legacy/helper route, not part of the current Astro/Cloudflare production path`. Няма доказателство, че `/api/social-preview` се използва от текущия Astro production сайт.
+Next.js/Vercel legacy слоят е окончателно премахнат. Astro е единственият production и development слой на `d . media`.
 
 ## Структура на директориите
 

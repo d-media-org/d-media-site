@@ -87,3 +87,9 @@
 - Project Owner разреши `Q-010`.
 - `DEC-013` приема `d . media Knowledge Base` като официален публичен content layer.
 - `DEC-012` остава historical/superseded решение и вече не ограничава изграждането на публична Knowledge Base.
+
+## 2026-07-13 — Next.js/Vercel cleanup
+
+- Премахнат е legacy Next.js/Vercel слой, включително root `src/`, Next.js middleware, конфигурация и неизползвани зависимости.
+- Root automation scripts използват Astro build-а като единствен production build.
+- Historical и validation references към Vercel остават само когато описват минало състояние или проверяват за забранен runtime output.
