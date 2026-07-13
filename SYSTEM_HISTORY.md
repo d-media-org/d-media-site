@@ -106,3 +106,12 @@
 - Contact endpoint-ът връща очакван `400` JSON отговор при невалиден Turnstile token и не достига D1/email пътя.
 - Preview Turnstile widget-ът връща `110200` (`Domain not authorized`), защото preview hostname-ът не е разрешен за site key. Production form не показва този console error. Това е Cloudflare hostname configuration follow-up, а не регресия от Next.js/Vercel cleanup-а.
 - Preview и production нямат `Content-Security-Policy` или `Content-Security-Policy-Report-Only`; отсъствието е предварително съществуващо и не е променено от cleanup-а.
+
+## 2026-07-13 — Production contact QA cleanup
+
+- Production commit `f1f35bc` е публикуван чрез Cloudflare Pages deployment `f1311253-898c-4b96-9876-55126935a20d`. Production smoke test-ът е успешен; не се връщат Vercel headers и `/_next/` runtime route остава недостъпен.
+- Production контактната QA заявка е успешна: Turnstile е преминат, `POST /api/contact` връща HTTP `200` и `{"ok":true}`, success UI е показан, а browser console и network проверките нямат грешки. Служебното известие и клиентското потвърждение са реално получени в `contact@d-media.org`.
+- QA D1 записът в таблица `inquiries` с ID `6cf33816-cfe1-4238-a341-3088a9fe053e` е проверен като самостоятелен ред без foreign key зависимости и е изтрит с точно един засегнат D1 ред. След изтриването точният ID и единственото QA съвпадение не съществуват; други D1 записи не са засегнати.
+- Brevo контактът `contact@d-media.org` не е изтриван и не е променян ръчно. CRM sync не е потвърден като успешен или неуспешен, защото в работната среда няма Brevo Dashboard/API read-only достъп.
+- Read-only Vercel проверката за team `d-media` (`team_3lssNsQVxPuubyv2tDWJR5rx`) връща `0` проекта; в достъпния team няма ресурси за изтриване. Възможен стар проект в друг, недостъпен account или team остава непроверен.
+- Не са извършвани нови deployments, DNS, Cloudflare, Turnstile или source промени по време на QA cleanup-а.
