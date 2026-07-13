@@ -15,6 +15,9 @@
 
 ## Преди приключване
 
+- При CSP промяна проверени ли са report endpoint-ът, emitted headers, inline scripts, JSON-LD, Turnstile и външните origins преди enforcing режим?
+- Enforcing CSP остава ли изключен, докато production report traffic съдържа нерешени нарушения?
+
 - Променени ли са само разрешените файлове?
 - Няма ли странични подобрения?
 - Няма ли измислена или непотвърдена информация?
