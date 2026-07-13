@@ -146,6 +146,60 @@ Risks:
 
 Questions for Project Owner:
 ```
+## Evidence Map Output Template
+
+```text
+Article:
+
+H2:
+
+Main claim:
+
+Claim type:
+Fact / Inference / Recommendation
+
+Proven facts:
+
+Primary sources:
+
+Secondary sources:
+
+Source checked on:
+
+Citation to use:
+
+BG / EN applicability:
+
+Confidence:
+High / Medium / Low
+
+Source conflict:
+None / Describe
+
+Technical specifications:
+
+Calculations and units:
+
+Practical examples:
+
+Internal links:
+
+Allowed conclusions:
+
+Disallowed claims:
+
+Cannot be proven:
+
+Evidence status:
+PASS / FAIL
+
+Editorial status:
+Draft / Peer Review / Editorial / QA
+
+Decision:
+Keep as H2 / Convert to H3 / Merge / Remove / Needs Project Owner decision
+```
+
 
 ## Outline Template
 
