@@ -146,6 +146,41 @@ Risks:
 
 Questions for Project Owner:
 ```
+## Evidence Map Output Template
+
+```text
+Article:
+
+H2:
+
+Main claim:
+
+Proven facts:
+
+Official sources:
+
+Technical specifications:
+
+Practical examples:
+
+Internal links:
+
+Allowed conclusions:
+
+Disallowed claims:
+
+Fact:
+
+Inference:
+
+Recommendation:
+
+Cannot be proven:
+
+Evidence status:
+PASS / FAIL
+```
+
 
 ## Outline Template
 
