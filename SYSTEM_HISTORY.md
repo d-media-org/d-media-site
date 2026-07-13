@@ -93,3 +93,9 @@
 - Премахнат е legacy Next.js/Vercel слой, включително root `src/`, Next.js middleware, конфигурация и неизползвани зависимости.
 - Root automation scripts използват Astro build-а като единствен production build.
 - Historical и validation references към Vercel остават само когато описват минало състояние или проверяват за забранен runtime output.
+
+## 2026-07-13 — Next.js/Vercel cleanup validation
+
+- `npm run validate-docs` връща идентични 20 документационни грешки и на базовия commit `a962e86`, и на cleanup commit `f587b23`; cleanup-ът не е добавил regression.
+- Clean-room проверката потвърждава, че активните root зависимости не включват Next.js, React или Vercel пакети; Astro използва собствен `astro/tsconfig.json`.
+- Cloudflare Pages preview deployment за `f587b23` е успешен и потвърждава публичните маршрути, sitemap, robots и липсата на `/_next/` runtime route.
