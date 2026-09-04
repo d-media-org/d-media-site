@@ -1,8 +1,6 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import {
-  formatBlogDate,
-  getBlogCategories,
   getBlogCategoryLabel,
   getBlogPostBySlug,
   getPublishedBlogPosts,
@@ -40,6 +38,7 @@ const path = `/blog/${post.slug}`;
 const socialImage = getBlogSocialImage(post);
 const ui = getUiCopy(locale);
 const relatedArticles = getRelatedBlogPosts(locale, post);
+const translatedPost = getBlogPostBySlug("en", post.slug);
 const localeSwitcherItems = [
   {
     locale: "bg" as const,
@@ -47,12 +46,17 @@ const localeSwitcherItems = [
     href: localizeHref("bg", path),
     isActive: true,
   },
-  {
+  ...(translatedPost ? [{
     locale: "en" as const,
     label: "EN",
     href: localizeHref("en", path),
     isActive: false,
-  },
+  }] : [{
+    locale: "en" as const,
+    label: "EN",
+    href: localizeHref("en", "/blog"),
+    isActive: false,
+  }]),
 ];
 const breadcrumbSchema = {
   "@context": "https://schema.org",
@@ -91,7 +95,7 @@ const breadcrumbSchema = {
   alternateLinks={{
     canonical: getAbsolutePageUrl(locale, path),
     bg: getAbsolutePageUrl(locale, path),
-    en: getAbsolutePageUrl("en", path),
+    en: translatedPost ? getAbsolutePageUrl("en", path) : null,
     xDefault: getAbsolutePageUrl(locale, path),
   }}
   structuredData={[
@@ -117,11 +121,6 @@ const breadcrumbSchema = {
         <p class="eyebrow">{categoryLabel}</p>
         <h1>{post.title}</h1>
         <p class="page-text">{post.intro}</p>
-        <div class="blog-meta-row">
-          <p class="project-meta">{copy.authorLabel}: {post.author}</p>
-          <p class="project-meta"><time datetime={post.datePublished}>{formatBlogDate(locale, post.datePublished)}</time></p>
-          <p class="project-meta">{post.readingTime} минути четене</p>
-        </div>
       </header>
 
       <div class="split-content">
@@ -152,7 +151,7 @@ const breadcrumbSchema = {
           ) : null}
 
           <div class="project-card-footer blog-back-link-row">
-            <a class="inline-link" href="/blog/" data-blog-back>Назад към статиите</a>
+            <a class="inline-link" href="/blog/" data-history-back>Назад към статиите</a>
           </div>
         </div>
 
@@ -188,22 +187,4 @@ const breadcrumbSchema = {
     </article>
   </main>
 
-  <script is:inline>
-    const backButton = document.querySelector("[data-blog-back]");
-
-    backButton?.addEventListener("click", () => {
-      const referrer = document.referrer ? new URL(document.referrer) : null;
-      const sameOrigin = referrer?.origin === window.location.origin;
-      const fromBlog =
-        sameOrigin &&
-        (referrer.pathname === "/blog" || referrer.pathname.startsWith("/blog/"));
-
-      if (fromBlog && window.history.length > 1) {
-        window.history.back();
-        return;
-      }
-
-      window.location.href = "/blog";
-    });
-  </script>
 </Layout>

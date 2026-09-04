@@ -1,7 +1,6 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import {
-  formatBlogDate,
   getBlogCategoryLabel,
   getBlogPageCopy,
   getBlogPostBySlug,
@@ -69,11 +68,6 @@ const breadcrumbSchema = {
         <p class="eyebrow">{categoryLabel}</p>
         <h1>{post.title}</h1>
         <p class="page-text">{post.intro}</p>
-        <div class="blog-meta-row">
-          <p class="project-meta">{copy.authorLabel}: {post.author}</p>
-          <p class="project-meta"><time datetime={post.datePublished}>{formatBlogDate(locale, post.datePublished)}</time></p>
-          <p class="project-meta">{post.readingTime} {copy.readTimeLabel}</p>
-        </div>
       </header>
 
       <div class="split-content">
@@ -95,7 +89,7 @@ const breadcrumbSchema = {
             </section>
           ) : null}
           <div class="project-card-footer blog-back-link-row">
-            <a class="inline-link" href={localizeHref(locale, "/blog")}>Back to articles</a>
+            <a class="inline-link" href={localizeHref(locale, "/blog")} data-history-back>Back to articles</a>
           </div>
         </div>
 

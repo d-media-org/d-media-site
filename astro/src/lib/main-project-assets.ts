@@ -90,16 +90,6 @@ export const mainProjectAssetAdditions = {
       "label": "Diana_logo @ white_transparent.png"
     }
   ],
-  "elena-skevov-mua": [
-    {
-      "src": "/optimized-assets/project-web/main/elena-skevov-mua/01-es-mua-back.webp",
-      "label": "ES mua back.jpg"
-    },
-    {
-      "src": "/optimized-assets/project-web/main/elena-skevov-mua/02-es-mua-front.webp",
-      "label": "ES mua Front.jpg"
-    }
-  ],
   "galka-nails": [
     {
       "src": "/optimized-assets/project-web/main/galka-nails/01-galka-s-nails-transperent.webp",
@@ -156,12 +146,6 @@ export const mainProjectAssetAdditions = {
     {
       "src": "/optimized-assets/project-web/main/mis-18/02-mis-18-logo-transperent.webp",
       "label": "MIS 18 logo _ Transperent.png"
-    }
-  ],
-  "monika-hristova": [
-    {
-      "src": "/optimized-assets/project-web/main/monika-hristova/01-monika-hristova-bc.webp",
-      "label": "Monika Hristova_BC.pdf"
     }
   ],
   "pp-hairstyle": [
@@ -404,32 +388,6 @@ export const mainProjectAssetAdditions = {
     {
       "src": "/optimized-assets/project-web/main/syanka-ot-minaloto/12-asset.webp",
       "label": "Сянка от миналото.png"
-    }
-  ],
-  "teti": [
-    {
-      "src": "/optimized-assets/project-web/main/teti/01-salon-business-cards-1.webp",
-      "label": "salon business cards-1.png"
-    },
-    {
-      "src": "/optimized-assets/project-web/main/teti/02-salon-business-cards-2.webp",
-      "label": "salon business cards-2.png"
-    },
-    {
-      "src": "/optimized-assets/project-web/main/teti/03-salon-business-cards-3.webp",
-      "label": "salon business cards-3.png"
-    },
-    {
-      "src": "/optimized-assets/project-web/main/teti/04-salon-business-cards-4.webp",
-      "label": "salon business cards-4.png"
-    },
-    {
-      "src": "/optimized-assets/project-web/main/teti/05-salon-prices.webp",
-      "label": "salon prices.png"
-    },
-    {
-      "src": "/optimized-assets/project-web/main/teti/06-salon-working-time.webp",
-      "label": "salon working time.png"
     }
   ]
 } as const;

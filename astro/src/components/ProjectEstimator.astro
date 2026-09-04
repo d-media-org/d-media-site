@@ -25,14 +25,15 @@ const bg = locale === "bg";
   <form class="estimator-form" data-estimator-form>
     <fieldset class="estimator-step" data-step="1">
       <legend>{bg ? "Какво Ви е необходимо?" : "What do you need?"}</legend>
-      <p>{bg ? "Изберете една основна цел и всички услуги, които очаквате да са част от проекта. Това оформя началното описание на проекта и показва дали има важни зависимости за обсъждане." : "Choose one primary objective and every service you expect to be part of the project. This shapes the initial brief and reveals important dependencies to discuss."}</p>
+      <p>{bg ? "Изберете една или повече основни цели. След това ще видите само услугите, които най-често отговарят на тази посока, за да маркирате реално нужните." : "Choose one or more primary objectives. You will then see only the services most often relevant to that direction, so you can select what is genuinely needed."}</p>
       <div class="estimator-question-group">
-        <h3>{bg ? "Основна цел" : "Primary objective"}</h3>
+        <h3>{bg ? "Основни цели" : "Primary objectives"}</h3>
         <div class="estimator-options" data-goal-options></div>
       </div>
       <div class="estimator-question-group">
         <h3>{bg ? "Необходими услуги" : "Required services"}</h3>
-      <div class="estimator-options" data-primary-options></div>
+        <p class="estimator-helper" data-service-guidance>{bg ? "Първо изберете основна цел. След това ще видите най-релевантните услуги за тази посока." : "Choose a primary objective first. The most relevant services for that direction will appear here."}</p>
+        <div class="estimator-options" data-primary-options></div>
       </div>
     </fieldset>
 
@@ -152,65 +153,70 @@ const bg = locale === "bg";
     if (!root) return;
     const bg = root.dataset.locale === "bg";
     const services = [
-      { id:"brand", label:bg?"Бранд идентичност":"Brand Identity", scopes:[
+      { id:"brand", label:bg?"Бранд идентичност":"Brand Identity", note:bg?"Лого, логотип, визуална система и основни правила за употреба.":"Logo, logotype, visual system and core usage rules.", scopes:[
         ["logotype",bg?"Логотип":"Logotype",150,260,1,2,[bg?"Логотип и работни файлове":"Logotype and working files"]],
         ["mark",bg?"Лого / брандмарк":"Logo Mark",200,340,1,2,[bg?"Основен знак и варианти":"Primary mark and variants"]],
         ["logo",bg?"Лого + логотип":"Logo + Logotype",300,520,2,3,[bg?"Знак, логотип и композиции":"Mark, logotype and lockups"]],
         ["identity",bg?"Визуална идентичност":"Visual Identity",700,1400,3,5,[bg?"Лого система, цветове, типография и базови правила":"Logo system, colour, typography and core rules"]]
       ]},
-      { id:"graphic", label:bg?"Графичен дизайн":"Graphic Design", scopes:[
+      { id:"graphic", label:bg?"Графичен дизайн":"Graphic Design", note:bg?"Конкретни визуални материали за кампания, печат или дигитални канали.":"Specific visual assets for campaigns, print or digital channels.", scopes:[
         ["single",bg?"Единичен материал":"Single Asset",25,80,1,1,[bg?"Готов файл за избрания формат":"Production-ready selected format"]],
         ["small",bg?"Малка кампания":"Small Campaign",70,240,1,2,[bg?"Серия от основни визии и адаптации":"Core visual series and adaptations"]],
         ["large",bg?"Голяма кампания":"Large Campaign",250,700,2,4,[bg?"Кампанийна система и набор адаптации":"Campaign system and adaptation set"]]
       ]},
-      { id:"content", label:bg?"Създаване на съдържание":"Content Creation", scopes:[
+      { id:"content", label:bg?"Създаване на съдържание":"Content Creation", note:bg?"Текстове, визуални формати и съдържателна линия за реална употреба.":"Copy, visual formats and content direction for real use.", scopes:[
         ["basic",bg?"Базов":"Basic",50,180,1,2,[bg?"Основни текстови или визуални формати":"Core copy or visual formats"]],
         ["standard",bg?"Стандартен":"Standard",180,450,2,4,[bg?"Съдържателна линия и серия формати":"Content direction and format series"]],
         ["extended",bg?"Разширен":"Extended",450,900,3,6,[bg?"Система за съдържание и адаптации":"Content system and adaptations"]]
       ]},
-      { id:"social", label:bg?"Управление на социални медии":"Social Media Management", scopes:[
+      { id:"social", label:bg?"Управление на социални медии":"Social Media Management", note:bg?"Ритъм, публикации и оперативно управление на социални канали.":"Cadence, publishing and operational social channel management.", scopes:[
         ["starter",bg?"Старт":"Starter",100,250,1,2,[bg?"Канална рамка и стартови формати":"Channel framework and starter formats"]],
         ["growth",bg?"Развитие":"Growth",250,600,2,4,[bg?"Календарна логика, формати и ритъм":"Calendar logic, formats and cadence"]],
         ["full",bg?"Пълно управление":"Full Management",600,1200,3,5,[bg?"Оперативна система за управление":"Operational management system"]]
       ]},
-      { id:"web", label:bg?"Уеб дизайн и разработка":"Web Design & Development", scopes:[
+      { id:"web", label:bg?"Уеб дизайн и разработка":"Web Design & Development", note:bg?"Структура, UX/UI, разработка и техническа готовност за публикуване.":"Structure, UX/UI, development and technical launch readiness.", scopes:[
         ["landing",bg?"Страница за кампания или услуга":"Landing Page",690,1200,2,4,[bg?"Структура, дизайн, разработка и SEO основа":"Structure, design, development and SEO foundation"]],
         ["portfolio",bg?"Портфолио сайт":"Portfolio Website",1990,2900,4,6,[bg?"Портфолио система, проекти и адаптивна разработка":"Portfolio system, projects and responsive build"]],
         ["corporate",bg?"Корпоративен сайт":"Corporate Website",2490,3900,5,8,[bg?"Информационна архитектура, шаблони и интеграции":"Information architecture, templates and integrations"]],
         ["store",bg?"Онлайн магазин":"Online Store",3200,5200,7,10,[bg?"Каталог, checkout, плащания и оперативни потоци":"Catalogue, checkout, payments and operations"]],
         ["platform",bg?"Премиум дигитална платформа":"Premium Digital Platform",4990,8500,10,16,[bg?"Персонализирана структура, системи и проверка преди публикуване":"Custom architecture, systems and QA"]]
       ]},
-      { id:"seo", label:bg?"SEO и видимост в AI търсене":"SEO / GEO / AI Visibility", scopes:[
+      { id:"seo", label:bg?"SEO и видимост в AI търсене":"SEO / GEO / AI Visibility", note:bg?"Техническа, съдържателна и AI-четима откриваемост.":"Technical, content and AI-readable discoverability.", scopes:[
         ["technical",bg?"Техническо SEO":"Technical SEO",250,600,1,2,[bg?"Технически одит и приоритетен план":"Technical audit and priority plan"]],
         ["geo",bg?"Видимост в AI търсене":"GEO",300,750,2,4,[bg?"Информационна структура и съдържание за AI търсене":"Entity and content architecture"]],
         ["ai",bg?"Готовност за AI търсене":"AI Visibility",300,750,2,4,[bg?"Машинночетими сигнали и ясни описания":"AI-readiness and machine-readable signals"]],
         ["complete",bg?"Пълен пакет":"Complete Package",700,1500,3,6,[bg?"SEO и система за видимост в AI търсене":"SEO, GEO and AI visibility system"]]
       ]},
-      { id:"support", label:bg?"Техническа поддръжка":"Technical Support", scopes:[
+      { id:"support", label:bg?"Техническа поддръжка":"Technical Support", note:bg?"Поддръжка, наблюдение и контролирани промени след публикуване.":"Maintenance, monitoring and controlled changes after launch.", scopes:[
         ["standard",bg?"Стандартна":"Standard",49,99,1,2,[bg?"Контролиран maintenance обхват":"Controlled maintenance scope"]],
         ["extended",bg?"Разширена":"Extended",99,199,2,3,[bg?"Maintenance, наблюдение и промени":"Maintenance, monitoring and changes"]],
         ["priority",bg?"Приоритетна":"Priority",199,390,2,4,[bg?"Приоритетна реакция и release контрол":"Priority response and release control"]]
       ]}
     ];
     const goals = [
-      ["new-brand",bg?"Нов бранд":"New Brand",["brand"]],
-      ["rebrand",bg?"Ребрандинг":"Rebranding",["brand","graphic"]],
-      ["website",bg?"Нов уебсайт":"New Website",["web","seo"]],
-      ["store",bg?"Онлайн магазин":"Online Store",["web","seo"]],
-      ["leads",bg?"Повече запитвания":"More Enquiries",["web","seo","content"]],
-      ["visibility",bg?"По-добра видимост":"Better Visibility",["seo","content"]],
-      ["presence",bg?"Цялостно дигитално присъствие":"Complete Digital Presence",["brand","web","seo"]],
-      ["unsure",bg?"Не съм сигурен":"Not Sure Yet",[]]
+      ["new-brand",bg?"Нов бранд":"New Brand",["brand"],bg?"Започваме от име, знак, логотип и базова визуална система.":"Start with mark, logotype and core visual system."],
+      ["rebrand",bg?"Ребрандинг":"Rebranding",["brand","graphic"],bg?"Подреждаме съществуваща идентичност и нужните визуални материали.":"Restructure an existing identity and key visual materials."],
+      ["website",bg?"Нов уебсайт":"New Website",["web","seo"],bg?"Комбинира структура, дизайн, разработка и видимост.":"Combines structure, design, development and visibility."],
+      ["store",bg?"Онлайн магазин":"Online Store",["web","seo"],bg?"Фокус върху каталог, checkout и техническа готовност.":"Focus on catalogue, checkout and technical readiness."],
+      ["leads",bg?"Повече запитвания":"More Enquiries",["web","seo","content"],bg?"Свързва съдържание, сайт и откриваемост.":"Connects content, website and discoverability."],
+      ["visibility",bg?"По-добра видимост":"Better Visibility",["seo","content"],bg?"Подрежда съдържание, SEO и AI видимост.":"Structures content, SEO and AI visibility."],
+      ["presence",bg?"Цялостно дигитално присъствие":"Complete Digital Presence",["brand","web","seo"],bg?"Подходящо за бранд, сайт и видимост като система.":"Best for brand, website and visibility as one system."],
+      ["unsure",bg?"Не съм сигурен":"Not Sure Yet",[],bg?"Използвайте това, ако искате първо да уточним посоката.":"Use this when the direction should be clarified first."]
     ];
-    const complexity = [["simple",bg?"Опростен":"Simple",1],["standard",bg?"Стандартен":"Standard",1.15],["advanced",bg?"Разширен":"Advanced",1.35],["enterprise","Enterprise",1.6]];
-    const timelines = [["no-rush",bg?"Без спешност":"No Rush",null],["2-3-months",bg?"2–3 месеца":"2–3 Months",12],["1-month",bg?"1 месец":"1 Month",4],["2-weeks",bg?"2 седмици":"2 Weeks",2],["urgent",bg?"Спешно":"Urgent",1]];
+    const complexity = [
+      ["simple",bg?"Ясен и малък обхват":"Clear small scope",1,bg?"Една услуга, малко зависимости, готови материали и бързо уточняване.":"One service, few dependencies, prepared materials and quick alignment."],
+      ["standard",bg?"Стандартен проект":"Standard project",1.15,bg?"Няколко свързани услуги, нормален брой решения и контролирана координация.":"Several related services, normal decision load and controlled coordination."],
+      ["advanced",bg?"Разширен проект":"Expanded project",1.35,bg?"Повече страници, формати, участници, интеграции или съдържание за подреждане.":"More pages, formats, stakeholders, integrations or content to structure."],
+      ["enterprise",bg?"Комплексна система":"Complex system",1.6,bg?"Много зависимости, custom логика, миграции или нужда от индивидуална преценка.":"Many dependencies, custom logic, migrations or need for individual assessment."]
+    ];
+    const timelines = [["no-rush",bg?"Без спешност":"No Rush",null,bg?"Подходящо, когато качеството и редът са по-важни от фиксирана дата.":"Best when quality and order matter more than a fixed date."],["2-3-months",bg?"2–3 месеца":"2–3 Months",12,bg?"Най-спокойният срок за подреден проект със зависимости.":"The calmest window for an ordered project with dependencies."],["1-month",bg?"1 месец":"1 Month",4,bg?"Възможно при ясен обхват и бързи решения.":"Possible with clear scope and fast decisions."],["2-weeks",bg?"2 седмици":"2 Weeks",2,bg?"Подходящо само за ограничен обхват или поетапен старт.":"Suitable only for limited scope or phased start."],["urgent",bg?"Спешно":"Urgent",1,bg?"Изисква прецизиране, приоритет и вероятно ограничаване на обхвата.":"Requires precision, priority and likely scope reduction."]];
     const budgets = [
-      ["under-1000",bg?"Под 1 000 €":"Under €1,000",0,1000],
-      ["1000-3000","€1,000–€3,000",1000,3000],
-      ["3000-5000","€3,000–€5,000",3000,5000],
-      ["5000-10000","€5,000–€10,000",5000,10000],
-      ["over-10000",bg?"Над 10 000 €":"Over €10,000",10000,Infinity],
-      ["unsure",bg?"Не съм сигурен":"Not Sure Yet",0,Infinity]
+      ["under-1000",bg?"Под 1 000 €":"Under €1,000",0,1000,bg?"За ограничен обхват или начална задача.":"For limited scope or an initial task."],
+      ["1000-3000","€1,000–€3,000",1000,3000,bg?"Подходящо за малък до среден проект.":"Suitable for a small to mid-size project."],
+      ["3000-5000","€3,000–€5,000",3000,5000,bg?"Позволява по-пълна система и повече детайли.":"Allows a fuller system and more detail."],
+      ["5000-10000","€5,000–€10,000",5000,10000,bg?"За по-сложна реализация или няколко свързани направления.":"For more complex delivery or several connected tracks."],
+      ["over-10000",bg?"Над 10 000 €":"Over €10,000",10000,Infinity,bg?"За комплексни платформи, миграции или дългосрочни системи.":"For complex platforms, migrations or long-term systems."],
+      ["unsure",bg?"Не съм сигурен":"Not Sure Yet",0,Infinity,bg?"Изберете това, ако първо трябва да уточним реалистична рамка.":"Use this if we should first define a realistic frame."]
     ];
     const extras = [
       ["crm",bg?"Свързване със система за клиенти":"CRM Integration",390,[bg?"Свързване с CRM и подреждане на полетата":"CRM connection and field mapping"]],
@@ -224,15 +230,33 @@ const bg = locale === "bg";
     const state={step:1};
     const storageKey=`d-media-estimator-${bg?"bg":"en"}`;
     const form=root.querySelector("[data-estimator-form]");
-    const option=(name,value,label,type="checkbox")=>`<label class="estimator-option"><input type="${type}" name="${name}" value="${value}"><span>${label}</span></label>`;
-    root.querySelector("[data-goal-options]").innerHTML=goals.map(x=>option("goal",x[0],x[1],"radio")).join("");
-    root.querySelector("[data-primary-options]").innerHTML=services.map(s=>option("service",s.id,s.label)).join("");
-    root.querySelector("[data-complexity-options]").innerHTML=complexity.map(x=>option("complexity",x[0],x[1],"radio")).join("");
-    root.querySelector("[data-timeline-options]").innerHTML=timelines.map(x=>option("timeline",x[0],x[1],"radio")).join("");
-    root.querySelector("[data-budget-options]").innerHTML=budgets.map(x=>option("budget",x[0],x[1],"radio")).join("");
-    root.querySelector("[data-additional-options]").innerHTML=extras.map(x=>option("additional",x[0],x[1])).join("");
-    const track=(name,detail={})=>{ window.dataLayer=window.dataLayer||[]; window.dataLayer.push({event:name,...detail}); window.dispatchEvent(new CustomEvent(name,{detail})); };
+    const option=(name,value,label,type="checkbox",note="")=>`<label class="estimator-option"><input type="${type}" name="${name}" value="${value}"><span><b>${label}</b>${note?`<small>${note}</small>`:""}</span></label>`;
+    root.querySelector("[data-goal-options]").innerHTML=goals.map(x=>option("goal",x[0],x[1],"checkbox",x[3])).join("");
+    root.querySelector("[data-complexity-options]").innerHTML=complexity.map(x=>option("complexity",x[0],x[1],"radio",x[3])).join("");
+    root.querySelector("[data-timeline-options]").innerHTML=timelines.map(x=>option("timeline",x[0],x[1],"radio",x[3])).join("");
+    root.querySelector("[data-budget-options]").innerHTML=budgets.map(x=>option("budget",x[0],x[1],"radio",x[4])).join("");
+    root.querySelector("[data-additional-options]").innerHTML=extras.map(x=>option("additional",x[0],x[1],"checkbox",x[3]?.[0]||"")).join("");
+    const recommendedServiceIds=()=>{
+      const chosenGoals=selected("goal");
+      if(chosenGoals.includes("unsure")) return services.map(service=>service.id);
+      return [...new Set(chosenGoals.flatMap(id=>goals.find(goal=>goal[0]===id)?.[2]||[]))];
+    };
+    const renderServices=()=>{
+      const ids=recommendedServiceIds();
+      const container=root.querySelector("[data-primary-options]");
+      const guidance=root.querySelector("[data-service-guidance]");
+      container.innerHTML=ids.map(id=>{const service=services.find(item=>item.id===id);return option("service",service.id,service.label,"checkbox",service.note);}).join("");
+      if(!ids.length){
+        guidance.textContent=bg?"Първо изберете основна цел. След това ще видите най-релевантните услуги за тази посока.":"Choose a primary objective first. The most relevant services for that direction will appear here.";
+        return;
+      }
+      guidance.textContent=selected("goal").includes("unsure")
+        ? (bg?"Показани са всички услуги, защото посоката още не е уточнена. Маркирайте само това, което смятате за вероятно.":"All services are shown because the direction is not yet defined. Select only what seems likely.")
+        : (bg?"Показани са услугите, които най-често отговарят на избраните цели. Маркирайте само реално нужните.":"These are the services most often relevant to the selected objectives. Select only what is genuinely needed.");
+    };
+    const track=(name,detail={})=>window.dMediaAnalytics?.track(name,detail);
     const selected=(name)=>[...form.querySelectorAll(`[name="${name}"]:checked`)].map(x=>x.value);
+    renderServices();
     const updateSummary=()=>{
       const chosen=selected("service").map(id=>services.find(s=>s.id===id)?.label).filter(Boolean);
       const complexityChoice=complexity.find(x=>x[0]===selected("complexity")[0]);
@@ -256,10 +280,15 @@ const bg = locale === "bg";
     const renderScopes=()=>{
       root.querySelector("[data-scope-options]").innerHTML=selected("service").map(id=>{
         const service=services.find(s=>s.id===id);
-        return `<div class="estimator-scope-group"><h3>${service.label}</h3><div class="estimator-options">${service.scopes.map(x=>option(`scope-${id}`,x[0],x[1],"radio")).join("")}</div></div>`;
+        return `<div class="estimator-scope-group"><h3>${service.label}</h3><div class="estimator-options">${service.scopes.map(x=>option(`scope-${id}`,x[0],x[1],"radio",x[6]?.[0]||"")).join("")}</div></div>`;
       }).join("");
     };
-    const scrollToSection=(element)=>requestAnimationFrame(()=>element?.scrollIntoView({behavior:"smooth",block:"start"}));
+    const scrollToSection=(element)=>requestAnimationFrame(()=>{
+      if(!element) return;
+      const offset=window.matchMedia("(max-width: 720px)").matches?76:96;
+      const top=element.getBoundingClientRect().top+window.scrollY-offset;
+      window.scrollTo({top:Math.max(0,top),behavior:window.matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});
+    });
     const showStep=(step,shouldScroll=true)=>{
       state.step=step; root.querySelectorAll("[data-step]").forEach(el=>el.hidden=Number(el.dataset.step)!==step);
       root.querySelector("[data-prev]").hidden=step===1;
@@ -294,28 +323,32 @@ const bg = locale === "bg";
       const weeksMin=Math.max(1,Math.ceil((ranges[0]?.[0]||1)+(ranges.slice(1).reduce((n,x)=>n+x[0],0)*.4)));
       const weeksMax=Math.max(2,Math.ceil((ranges[0]?.[1]||2)+(ranges.slice(1).reduce((n,x)=>n+x[1],0)*.55)));
       const requested=timelines.find(x=>x[0]===selected("timeline")[0]);
-      const goal=goals.find(x=>x[0]===selected("goal")[0])||goals[7];
+      const selectedGoalIds=selected("goal");
+      const selectedGoals=selectedGoalIds.map(id=>goals.find(x=>x[0]===id)).filter(Boolean);
+      const hasUnsureGoal=selectedGoalIds.includes("unsure");
+      const activeGoals=selectedGoals.length?selectedGoals:[goals[7]];
+      const goalLabel=activeGoals.map(x=>x[1]).join(", ");
       const budget=budgets.find(x=>x[0]===selected("budget")[0])||budgets[5];
       const unrealistic=requested&&typeof requested[2]==="number"&&(weeksMin-requested[2]>=2);
       const format=n=>new Intl.NumberFormat(bg?"bg-BG":"en-GB",{maximumFractionDigits:0}).format(n);
       const range=`€${format(min)} – €${format(max)}`, duration=`${weeksMin}–${weeksMax} ${bg?"седмици":"weeks"}`;
       const selectedIds=scopeRows.map(x=>x.service.id);
-      const recommendedIds=goal[2].filter(id=>!selectedIds.includes(id));
+      const recommendedIds=[...new Set(activeGoals.flatMap(goal=>goal[2]))].filter(id=>!selectedIds.includes(id));
       if(selectedIds.includes("web")&&!selectedIds.includes("seo")&&!recommendedIds.includes("seo")) recommendedIds.push("seo");
       const recommendations=recommendedIds.map(id=>services.find(service=>service.id===id)?.label).filter(Boolean);
       const readinessMissing=[];
-      if(selected("goal")[0]==="unsure") readinessMissing.push(bg?"ясно формулирана основна цел":"a clearly defined primary objective");
+      if(hasUnsureGoal) readinessMissing.push(bg?"ясно формулирани цели":"clearly defined objectives");
       if(selected("budget")[0]==="unsure") readinessMissing.push(bg?"ориентировъчен бюджет":"an indicative budget");
       if(selected("timeline")[0]==="no-rush") readinessMissing.push(bg?"предпочитан стартов период":"a preferred start period");
       if(recommendations.length) readinessMissing.push(bg?`решение за ${recommendations.join(", ")}`:`a decision on ${recommendations.join(", ")}`);
       const readiness=Math.max(1,4-Math.min(3,readinessMissing.length));
       let leadScore=25+(selectedIds.length*8)+(ex.length*4)+(cm[0]==="advanced"?12:cm[0]==="enterprise"?18:6);
       if(selected("budget")[0]!=="unsure") leadScore+=10;
-      if(selected("goal")[0]!=="unsure") leadScore+=8;
+      if(!hasUnsureGoal) leadScore+=Math.min(12,6+(activeGoals.length*2));
       leadScore=Math.min(100,leadScore);
       const budgetConflict=budget[0]!=="unsure"&&max>budget[3]*1.25;
       const lowConfidence=cm[0]==="enterprise"||selectedIds.includes("web")&&scopeRows.some(x=>x.scope[0]==="platform")||budgetConflict&&unrealistic;
-      const mediumConfidence=!lowConfidence&&(budget[0]==="unsure"||selected("goal")[0]==="unsure"||recommendations.length>1);
+      const mediumConfidence=!lowConfidence&&(budget[0]==="unsure"||hasUnsureGoal||recommendations.length>1);
       const confidence=lowConfidence?"low":mediumConfidence?"medium":"high";
       const confidenceLabel=confidence==="high"?(bg?"Висока":"High"):confidence==="medium"?(bg?"Средна":"Medium"):(bg?"Ниска":"Low");
       const approach=lowConfidence?(bg?"Комплексен проект":"Complex project"):recommendations.length?(bg?"Поетапен старт":"Phased start"):(bg?"Директно уточняване на обхвата":"Direct scope alignment");
@@ -340,8 +373,8 @@ const bg = locale === "bg";
       fill("[data-result-deliverables]",outcomes);
       const warning=root.querySelector("[data-result-warning]"); warning.hidden=!unrealistic; warning.textContent=bg?"Избраният срок може да изисква поетапна реализация или прецизиране на обхвата на проекта.":"The selected timeline may require phased delivery or refinement of the project scope.";
       const brief=[
-        `${bg?"Тип проект":"Project type"}: ${goal[1]}`,
-        `${bg?"Цели":"Objectives"}: ${goal[1]}`,
+        `${bg?"Тип проект":"Project type"}: ${goalLabel}`,
+        `${bg?"Цели":"Objectives"}: ${goalLabel}`,
         `${bg?"Избрани услуги":"Selected services"}: ${scopeRows.map(x=>x.service.label).join(", ")}`,
         `${bg?"Обхват":"Scope"}: ${scopeRows.map(x=>x.scope[1]).join(", ")}`,
         `${bg?"Срок":"Timeline"}: ${requested?.[1]||"—"}`,
@@ -350,9 +383,10 @@ const bg = locale === "bg";
         `${bg?"Препоръчителен подход":"Recommended approach"}: ${approach} — ${approachNote}`
       ].join("\n\n");
       const serviceValues={brand:"Brand Identity",graphic:"Graphic Design",content:"Content Creation",social:"Social Media Management",web:"Web Design & Development",seo:"SEO / GEO / AI Visibility",support:"Technical Support"};
-      const params=new URLSearchParams({estimator:"1",goal:goal[1],services:scopeRows.map(x=>x.service.label).join(", "),serviceValues:scopeRows.map(x=>serviceValues[x.service.id]).join("|"),scope:scopeRows.map(x=>x.scope[1]).join(", "),complexity:cm[1],timeline:requested?.[1]||"",budget:budget[1],estimatedRange:lowConfidence?"":range,extras:ex.map(x=>x[1]).join(", "),recommendations:recommendations.join(", "),readinessScore:String(readiness),leadScore:String(leadScore),confidence,brief});
+      const params=new URLSearchParams({estimator:"1",goal:goalLabel,services:scopeRows.map(x=>x.service.label).join(", "),serviceValues:scopeRows.map(x=>serviceValues[x.service.id]).join("|"),scope:scopeRows.map(x=>x.scope[1]).join(", "),complexity:cm[1],timeline:requested?.[1]||"",budget:budget[1],estimatedRange:lowConfidence?"":range,extras:ex.map(x=>x[1]).join(", "),recommendations:recommendations.join(", "),readinessScore:String(readiness),leadScore:String(leadScore),confidence,brief});
       root.querySelector("[data-review-link]").href=`${bg?"/contact/":"/en/contact/"}?${params}#inquiry-form-title`;
       form.hidden=true;
+      root.classList.add("is-result-ready");
       const resultSection=root.querySelector("[data-estimator-result]");
       resultSection.hidden=false;
       resultSection.classList.add("is-ready");
@@ -364,11 +398,11 @@ const bg = locale === "bg";
     root.querySelector("[data-next]").addEventListener("click",()=>{
       if(!valid()){root.querySelector("[data-estimator-error]").textContent=bg?"Завършете всички избори в тази стъпка, за да продължите.":"Complete all choices in this step to continue.";return;}
       if(state.step===1){renderScopes();track("estimator_started");}
-      track("step_completed",{step:state.step});
+      track("estimator_step_completed",{step:state.step});
       state.step===5?result():showStep(state.step+1);
     });
     root.querySelector("[data-prev]").addEventListener("click",()=>showStep(state.step-1));
-    root.querySelector("[data-restart]").addEventListener("click",()=>{root.querySelector("[data-estimator-result]").hidden=true;form.hidden=false;showStep(1);});
+    root.querySelector("[data-restart]").addEventListener("click",()=>{root.classList.remove("is-result-ready");root.querySelector("[data-estimator-result]").hidden=true;form.hidden=false;showStep(1);});
     const saveProgress=()=>{
       try{
         localStorage.setItem(storageKey,JSON.stringify({step:state.step,values:[...new FormData(form).entries()]}));
@@ -379,12 +413,25 @@ const bg = locale === "bg";
         const saved=JSON.parse(localStorage.getItem(storageKey)||"null");
         if(!saved?.values) return;
         saved.values.forEach(([name,value])=>{const control=form.querySelector(`[name="${CSS.escape(name)}"][value="${CSS.escape(value)}"]`);if(control) control.checked=true;});
+        renderServices();
         if(selected("service").length) renderScopes();
         saved.values.forEach(([name,value])=>{const control=form.querySelector(`[name="${CSS.escape(name)}"][value="${CSS.escape(value)}"]`);if(control) control.checked=true;});
         updateSummary();
       }catch{}
     };
-    form.addEventListener("change",()=>{updateSummary();saveProgress();});
+    form.addEventListener("change",(event)=>{
+      if(event.target?.name==="goal"){
+        const unsure=form.querySelector('[name="goal"][value="unsure"]');
+        const goalControls=[...form.querySelectorAll('[name="goal"]')];
+        if(event.target.value==="unsure"&&event.target.checked) goalControls.forEach(control=>{if(control!==event.target) control.checked=false;});
+        if(event.target.value!=="unsure"&&event.target.checked&&unsure) unsure.checked=false;
+        const previousServices=selected("service");
+        renderServices();
+        previousServices.forEach(id=>{const control=form.querySelector(`[name="service"][value="${CSS.escape(id)}"]`); if(control) control.checked=true;});
+      }
+      updateSummary();
+      saveProgress();
+    });
     root.querySelectorAll("[data-nav-step]").forEach(button=>button.addEventListener("click",()=>{
       const target=Number(button.dataset.navStep);
       if(target<state.step){showStep(target);updateSummary();}

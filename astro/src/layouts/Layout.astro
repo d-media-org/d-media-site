@@ -1,11 +1,8 @@
 ---
-import "../styles/globals.css";
-
-import BrandAsset from "@/components/BrandAsset.astro";
-import { getAlternateLocale, localizeHref, stripLocalePrefix, type Locale } from "@/lib/i18n";
-import { getAbsolutePageUrl, getOrganizationSchema, getWebPageSchema, getWebsiteSchema } from "@/lib/seo";
-import { contactEmail, getSiteContent } from "@/lib/site-content";
-import { getLocaleSwitcherItems, getUiCopy } from "@/lib/ui-copy";
+import PreviewLayout from "@/layouts/PreviewLayout.astro";
+import type { Locale } from "@/lib/i18n";
+import { localizeHref } from "@/lib/i18n";
+import { getUiCopy } from "@/lib/ui-copy";
 
 type Props = {
   locale?: Locale;
@@ -36,590 +33,218 @@ const {
   description = "d . media",
   path = "/",
   structuredData = [],
-  socialImage = "https://www.d-media.org/social-preview-dmedia-v5.png",
-  openGraphType = "website",
+  socialImage,
+  openGraphType,
   metaRobots,
   alternateLinks,
-  localeSwitcherItems: localeSwitcherItemsOverride,
+  localeSwitcherItems,
 } = Astro.props;
-const siteContent = getSiteContent(locale);
 const ui = getUiCopy(locale);
-const alternateLocale = getAlternateLocale(locale);
-const alternateHref = localizeHref(alternateLocale, stripLocalePrefix(path));
-const localizedPath = localizeHref(locale, path);
-const localeSwitcherItems = localeSwitcherItemsOverride ?? getLocaleSwitcherItems(locale, path);
-const resolveAlternateLink = (value: string | null | undefined, fallback: string) =>
-  value === undefined ? fallback : value;
-const canonicalHref = resolveAlternateLink(alternateLinks?.canonical, getAbsolutePageUrl(locale, path));
-const alternateBgHref = resolveAlternateLink(alternateLinks?.bg, getAbsolutePageUrl("bg", path));
-const alternateEnHref = resolveAlternateLink(alternateLinks?.en, getAbsolutePageUrl("en", path));
-const alternateXDefaultHref = resolveAlternateLink(
-  alternateLinks?.xDefault,
-  getAbsolutePageUrl("bg", path),
-);
-const [footerCopyrightBefore, footerCopyrightAfter = ""] =
-  ui.footer.copyright.split("d . media");
-const isActiveHref = (href: string) =>
-  href === localizeHref(locale, "/") ? localizedPath === href : localizedPath.startsWith(href);
-const schemaItems = [
-  getOrganizationSchema(locale),
-  getWebsiteSchema(locale),
-  getWebPageSchema({ locale, path, title, description }),
-  ...structuredData,
-];
 ---
 
-<!doctype html>
-<html lang={locale}>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    {metaRobots ? <meta name="robots" content={metaRobots} /> : null}
-    <link rel="canonical" href={canonicalHref} />
-    {alternateBgHref ? <link rel="alternate" hreflang="bg" href={alternateBgHref} /> : null}
-    {alternateEnHref ? <link rel="alternate" hreflang="en" href={alternateEnHref} /> : null}
-    {alternateXDefaultHref ? <link rel="alternate" hreflang="x-default" href={alternateXDefaultHref} /> : null}
-    <link rel="icon" type="image/png" sizes="16x16" href="/dmedia-favicon-v6-16.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/dmedia-favicon-v6-32.png" />
-    <link rel="icon" type="image/png" sizes="48x48" href="/dmedia-favicon-v6-48.png" />
-    <link rel="icon" href="/favicon.ico" sizes="any" />
-    <link rel="shortcut icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/dmedia-apple-touch-v6.png" />
-    <link rel="manifest" href="/manifest.webmanifest" />
-    <link rel="preload" href="/fonts/panton-subset/Panton-Regular.latin-cyrillic.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/fonts/panton-subset/Panton-Black.latin-cyrillic.woff2" as="font" type="font/woff2" crossorigin />
-    <meta property="og:type" content={openGraphType} />
-    <meta property="og:site_name" content="d . media" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:url" content={canonicalHref} />
-    <meta property="og:image" content={socialImage} />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={socialImage} />
-    {schemaItems.map((item) => (
-      <script type="application/ld+json" set:html={JSON.stringify(item)} />
-    ))}
-    <script is:inline>
-      (() => {
-        const root = document.documentElement;
-        const media = window.matchMedia("(prefers-color-scheme: dark)");
-        const STORAGE_KEY = "d-media-theme-mode";
-        const getStoredMode = () => {
-          try {
-            return window.localStorage.getItem(STORAGE_KEY) || "auto";
-          } catch {
-            return "auto";
-          }
-        };
-        const applyTheme = () => {
-          const mode = getStoredMode();
-          const resolvedTheme = mode === "auto" ? (media.matches ? "dark" : "light") : mode;
-          root.dataset.themeMode = mode;
-          root.dataset.theme = resolvedTheme;
-        };
-        applyTheme();
-      })();
-    </script>
-    <script is:inline>
-      document.documentElement.classList.add("motion-ready");
-    </script>
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="site-header-inner">
-        <div class="site-header-main">
-          <div class="site-brand brand-image brand-image-logotype">
-            <a href={localizeHref(locale, "/")} aria-label={ui.homeAria}>
-              <BrandAsset
-                lightSrc="/assets/brand/ONLY-logotype.png"
-                alt="d . media"
-                width={206}
-                height={54}
-                fetchPriority="high"
-              />
-            </a>
-          </div>
-          <button
-            type="button"
-            class="site-menu-toggle"
-            aria-expanded="false"
-            aria-controls="site-mobile-nav"
-            aria-label={ui.openMenu}
-            data-menu-toggle
-            data-open-label={ui.openMenu}
-            data-close-label={ui.closeMenu}
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-        </div>
-        <div class="site-header-nav">
-          <nav class="site-nav site-nav-desktop" aria-label={ui.mainNavigationAria}>
-            {siteContent.mainNavigation.map((item) => (
-              <a
-                href={localizeHref(locale, item.href)}
-                class={isActiveHref(localizeHref(locale, item.href)) ? "is-active" : undefined}
-                aria-current={isActiveHref(localizeHref(locale, item.href)) ? "page" : undefined}
-              >
-                {item.label}
-              </a>
-            ))}
-            <div class="locale-switcher" aria-label={ui.languageSwitcherAria}>
-              {localeSwitcherItems.map((item) => (
-                <a
-                  href={item.href}
-                  class={item.isActive ? "is-active" : undefined}
-                  hreflang={item.locale}
-                  lang={item.locale}
-                >
-                  {item.label}
-                </a>
-              ))}
-            </div>
-          </nav>
-        </div>
-        <nav id="site-mobile-nav" class="site-mobile-panel" aria-label={ui.mobileNavigationAria} data-mobile-panel>
-          {siteContent.mainNavigation.map((item) => (
-            <a
-              href={localizeHref(locale, item.href)}
-              class={isActiveHref(localizeHref(locale, item.href)) ? "is-active" : undefined}
-              aria-current={isActiveHref(localizeHref(locale, item.href)) ? "page" : undefined}
-            >
-              {item.label}
-            </a>
-          ))}
-          <div class="locale-switcher locale-switcher-mobile" aria-label={ui.languageSwitcherAria}>
-            {localeSwitcherItems.map((item) => (
-              <a
-                href={item.href}
-                class={item.isActive ? "is-active" : undefined}
-                hreflang={item.locale}
-                lang={item.locale}
-              >
-                {item.label}
-              </a>
-            ))}
-          </div>
-        </nav>
-      </div>
-    </header>
+<PreviewLayout
+  locale={locale}
+  title={title}
+  description={description}
+  path={path}
+  structuredData={structuredData}
+  socialImage={socialImage}
+  openGraphType={openGraphType}
+  metaRobots={metaRobots}
+  alternateLinks={alternateLinks}
+  localeSwitcherItems={localeSwitcherItems}
+>
+  <div id="master-content" class="approved-page-content" tabindex="-1">
     <slot />
-    <div class="consent-banner" role="dialog" aria-live="polite" aria-label={ui.consent.ariaLabel} hidden data-consent-banner>
-      <div class="consent-banner-copy">
-        <p class="eyebrow">{ui.consent.eyebrow}</p>
-        <p>{ui.consent.text}</p>
-        <a href={localizeHref(locale, "/privacy")}>{ui.consent.more}</a>
-      </div>
-      <div class="consent-banner-actions">
-        <button type="button" class="button button-secondary" data-consent-choice="rejected">
-          {ui.consent.reject}
-        </button>
-        <button type="button" class="button button-primary" data-consent-choice="accepted">
-          {ui.consent.accept}
-        </button>
-      </div>
+  </div>
+
+  <a class="mobile-sticky-cta" href={localizeHref(locale, "/contact")} data-ga-event="cta_mobile_sticky_click" data-ga-location="mobile_sticky">
+    {locale === "bg" ? "изпрати кратък контекст" : "send project context"}
+  </a>
+
+  <div class="consent-banner" role="dialog" aria-live="polite" aria-label={ui.consent.ariaLabel} hidden data-consent-banner>
+    <div class="consent-banner-copy">
+      <p class="eyebrow">{ui.consent.eyebrow}</p>
+      <p>{ui.consent.text}</p>
+      <a href={localizeHref(locale, "/privacy")}>{ui.consent.more}</a>
     </div>
-    <footer class="site-footer">
-      <div class="site-footer-inner">
-        <div class="footer-column footer-column-contact">
-          <h2>{ui.footer.contact}</h2>
-          <div class="footer-contact-list">
-            <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
-          </div>
-        </div>
-        <div class="footer-column footer-column-socials">
-          <div class="footer-links footer-socials">
-            {siteContent.socials.map((social) => (
-            <a href={social.href} target="_blank" rel="noreferrer" aria-label={social.label} title={social.label}>
-              <span class="footer-social-icon" aria-hidden="true">
-                {social.label === "Instagram" ? (
-                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="footer-social-icon-svg">
-                    <path d="M16.98 3H7.02A4.02 4.02 0 0 0 3 7.02v9.96A4.02 4.02 0 0 0 7.02 21h9.96A4.02 4.02 0 0 0 21 16.98V7.02A4.02 4.02 0 0 0 16.98 3Zm1.47 13.98a1.47 1.47 0 0 1-1.47 1.47H7.02a1.47 1.47 0 0 1-1.47-1.47V7.02a1.47 1.47 0 0 1 1.47-1.47h9.96a1.47 1.47 0 0 1 1.47 1.47v9.96ZM12 7.06A4.94 4.94 0 1 0 16.94 12 4.95 4.95 0 0 0 12 7.06Zm0 7.33A2.39 2.39 0 1 1 14.39 12 2.39 2.39 0 0 1 12 14.39Zm5.05-7.74a1.15 1.15 0 1 1-1.15-1.15 1.15 1.15 0 0 1 1.15 1.15Z" fill="currentColor" />
-                  </svg>
-                ) : social.label === "Behance" ? (
-                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="footer-social-icon-svg">
-                    <path d="M9.35 11.4A2.73 2.73 0 0 0 10.88 8.8C10.88 6.2 8.96 5 6.48 5H2v14h4.79c2.62 0 4.86-1.26 4.86-4.03a3.52 3.52 0 0 0-2.3-3.57ZM4.64 7.22h1.73c.66 0 1.68.12 1.68 1.39 0 1.2-.8 1.43-1.57 1.43H4.64V7.22Zm1.89 9.56H4.64v-4.43h1.96c.98 0 2.34.28 2.34 2.18 0 1.58-1 2.25-2.07 2.25Zm9.86-8.35c-3.38 0-5.39 2.52-5.39 5.42 0 3.18 1.88 5.42 5.31 5.42 2.21 0 3.9-1 4.66-3.23h-2.43a2.24 2.24 0 0 1-2.14 1.1c-1.5 0-2.56-.9-2.62-2.68H21c.22-3.45-1.7-6.03-4.61-6.03Zm-2.55 4.07a2.44 2.44 0 0 1 2.42-2.14 2.14 2.14 0 0 1 2.15 2.14h-4.57ZM13 6.4h6V5h-6v1.4Z" fill="currentColor" />
-                  </svg>
-                ) : social.label === "LinkedIn" ? (
-                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="footer-social-icon-svg">
-                    <path d="M19.8 3.6H4.2C3.54 3.6 3 4.14 3 4.8V19.2C3 19.86 3.54 20.4 4.2 20.4H19.8C20.46 20.4 21 19.86 21 19.2V4.8C21 4.14 20.46 3.6 19.8 3.6ZM8.1 18H5.7V10.2H8.1V18ZM6.9 9.12C6.12 9.12 5.49 8.48 5.49 7.71C5.49 6.93 6.12 6.3 6.9 6.3C7.68 6.3 8.31 6.93 8.31 7.71C8.31 8.48 7.68 9.12 6.9 9.12ZM18.3 18H15.9V14.13C15.9 13.21 15.88 12.03 14.61 12.03C13.31 12.03 13.11 13.04 13.11 14.06V18H10.71V10.2H13.02V11.27H13.05C13.37 10.66 14.16 10.01 15.33 10.01C17.76 10.01 18.3 11.61 18.3 13.69V18Z" fill="currentColor" />
-                  </svg>
-                ) : social.label === "TikTok" ? (
-                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="footer-social-icon-svg">
-                    <path d="M14.7 3c.24 2.02 1.42 3.95 3.37 5.08a6.35 6.35 0 0 0 2.33.79v2.74a9.03 9.03 0 0 1-3.07-.58v5.05c0 3.55-2.88 6.42-6.43 6.42S4.48 19.63 4.48 16.08 7.36 9.66 10.9 9.66c.3 0 .6.02.89.07v2.84a3.66 3.66 0 0 0-.89-.12 3.63 3.63 0 1 0 3.63 3.63V3h2.17Z" fill="currentColor" />
-                  </svg>
-                ) : (
-                  <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="footer-social-icon-svg">
-                    <path d="M20.2 8.3C20 7.5 19.4 6.9 18.6 6.7C17.2 6.3 12 6.3 12 6.3C12 6.3 6.8 6.3 5.4 6.7C4.6 6.9 4 7.5 3.8 8.3C3.4 9.7 3.4 12.5 3.4 12.5C3.4 12.5 3.4 15.3 3.8 16.7C4 17.5 4.6 18.1 5.4 18.3C6.8 18.7 12 18.7 12 18.7C12 18.7 17.2 18.7 18.6 18.3C19.4 18.1 20 17.5 20.2 16.7C20.6 15.3 20.6 12.5 20.6 12.5C20.6 12.5 20.6 9.7 20.2 8.3ZM10.4 15.2V9.8L15 12.5L10.4 15.2Z" fill="currentColor" />
-                  </svg>
-                )}
-              </span>
-              <span class="sr-only">{social.label}</span>
-            </a>
-            ))}
-          </div>
-        </div>
-        <div class="footer-column footer-column-legal">
-          <div class="footer-links footer-legal">
-            <a href={localizeHref(locale, "/terms")}>{ui.footer.terms}</a>
-            <a href={localizeHref(locale, "/privacy")}>{ui.footer.privacy}</a>
-            <a href={localizeHref(locale, "/legal/policies")}>{locale === "bg" ? "Политики" : "Policies"}</a>
-          </div>
-        </div>
-      </div>
-      <div class="site-footer-bottom">
-        <p>{footerCopyrightBefore} <span class="brand-name">d . media</span>{footerCopyrightAfter}</p>
-        <div class="theme-toggle footer-theme-toggle" aria-label={ui.footer.themeSwitcherAria} role="group" data-theme-toggle>
-          <button type="button" data-theme-mode-option="auto" title={ui.footer.themeAuto} aria-pressed="true">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="theme-toggle-icon"><text x="12" y="16" text-anchor="middle" fill="currentColor" font-size="12" font-weight="700" font-family="inherit">A</text></svg>
-            <span class="sr-only">{ui.footer.themeAuto}</span>
-          </button>
-          <button type="button" data-theme-mode-option="light" title={ui.footer.themeLight} aria-pressed="false">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="theme-toggle-icon"><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.65" /><path d="M12 2.8V5.1M12 18.9v2.3M5.49 5.49l1.63 1.63M16.88 16.88l1.63 1.63M2.8 12h2.3M18.9 12h2.3M5.49 18.51l1.63-1.63M16.88 7.12l1.63-1.63" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" /></svg>
-            <span class="sr-only">{ui.footer.themeLight}</span>
-          </button>
-          <button type="button" data-theme-mode-option="dark" title={ui.footer.themeDark} aria-pressed="false">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" class="theme-toggle-icon"><path d="M16.9 14.9A7.3 7.3 0 0 1 9.1 7.1a7.35 7.35 0 1 0 7.8 7.8Z" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" /></svg>
-            <span class="sr-only">{ui.footer.themeDark}</span>
-          </button>
-        </div>
-        <div class="footer-history-entry">
-          <a href={localizeHref(locale, "/")} class="footer-brand-link footer-brand-link-logo footer-brand-bottom" aria-label={ui.footer.backToStart}>
-            <div class="brand-image brand-image-brandmark footer-brandmark footer-brandmark-only">
-              <BrandAsset
-                lightSrc="/assets/brand/ONLY-brandmark.png"
-                alt="d . media"
-                width={48}
-                height={48}
-                loading="lazy"
-                fetchPriority="low"
-              />
-            </div>
-          </a>
-          <a class="footer-history-link" href={localizeHref(locale, "/site-history")}>
-            {locale === "bg" ? "История на сайта" : "Site history"}
-          </a>
-        </div>
-      </div>
-    </footer>
-    <a class="floating-top is-hidden" href="#top" aria-label={ui.footer.backToTop} data-floating-top>
-      <span class="floating-top-label">{ui.footer.backToTop}</span>
-      <span class="floating-top-arrow" aria-hidden="true">↑</span>
-    </a>
-    <script is:inline>
-      (() => {
-        const brand = "d . media";
-        const excluded = new Set(["SCRIPT", "STYLE", "NOSCRIPT", "TEXTAREA", "OPTION", "CODE", "PRE", "SVG"]);
-        const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
-        const textNodes = [];
+    <div class="consent-banner-actions">
+      <button type="button" class="button button-secondary" data-consent-choice="rejected">{ui.consent.reject}</button>
+      <button type="button" class="button button-primary" data-consent-choice="accepted">{ui.consent.accept}</button>
+    </div>
+  </div>
 
-        while (walker.nextNode()) {
-          const node = walker.currentNode;
-          const parent = node.parentElement;
-          if (
-            !parent ||
-            excluded.has(parent.tagName) ||
-            parent.closest(".brand-name, script, style, noscript, textarea, option, code, pre, svg") ||
-            !node.nodeValue?.includes(brand)
-          ) {
-            continue;
+  <script is:inline>
+    (() => {
+      const key = "d-media-consent";
+      const version = "2026-06-06";
+      const readConsent = () => { try { const value = JSON.parse(localStorage.getItem(key) || "null"); return value?.version === version ? value.choice : null; } catch { return null; } };
+      const clean = (value) => typeof value === "string" ? value.slice(0, 120) : typeof value === "number" && Number.isFinite(value) || typeof value === "boolean" ? value : undefined;
+      let pageViewSent = false;
+      window.dMediaAnalytics = window.dMediaAnalytics || {
+        track(name, details = {}) {
+          if (readConsent() !== "accepted" || typeof name !== "string") return null;
+          const payload = { event: name.replace(/[^a-z0-9_:-]/gi, "_").slice(0, 80), analytics_version: "1", page_path: location.pathname, page_locale: document.documentElement.lang?.startsWith("bg") ? "bg" : "en" };
+          Object.entries(details).forEach(([field, value]) => { if (!/^[a-z][a-z0-9_]*$/i.test(field) || ["event", "page_path", "page_locale"].includes(field)) return; const safe = clean(value); if (safe !== undefined) payload[field] = safe; });
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push(payload);
+          window.dispatchEvent(new CustomEvent("dmedia:analytics", { detail: payload }));
+          return payload;
+        },
+        setConsent(choice) {
+          try { localStorage.setItem(key, JSON.stringify({ choice, version })); } catch {}
+          if (choice === "accepted") { this.track("consent_granted", { choice }); if (!pageViewSent) { pageViewSent = true; this.track("page_view"); } }
+        },
+      };
+      if (readConsent() === "accepted" && !pageViewSent) { pageViewSent = true; window.dMediaAnalytics.track("page_view"); }
+      document.addEventListener("click", (event) => {
+        const target = event.target instanceof Element ? event.target.closest("[data-ga-event]") : null;
+        if (!target || target.closest("[data-consent-banner]")) return;
+        const link = target instanceof HTMLAnchorElement ? target : target.querySelector?.("a[href]");
+        let linkTarget;
+        try { linkTarget = link?.href ? new URL(link.href, location.href).pathname : undefined; } catch {}
+        window.dMediaAnalytics.track(target.dataset.gaEvent, { location: target.dataset.gaLocation || "unspecified", link_target: linkTarget });
+      }, { capture: true });
+    })();
+  </script>
+
+  <script is:inline>
+    (() => {
+      const cta = document.querySelector(".mobile-sticky-cta");
+      const form = document.querySelector("#inquiry-form");
+      if (!cta || !form || !("IntersectionObserver" in window)) return;
+      const observer = new IntersectionObserver(([entry]) => {
+        cta.classList.toggle("is-near-form", Boolean(entry?.isIntersecting));
+      }, { rootMargin: "120px 0px 0px" });
+      observer.observe(form);
+    })();
+  </script>
+
+  <script is:inline>
+    (() => {
+      const brand = "d . media";
+      const excluded = new Set(["SCRIPT", "STYLE", "NOSCRIPT", "TEXTAREA", "OPTION", "CODE", "PRE", "SVG"]);
+      const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+      const nodes = [];
+      while (walker.nextNode()) {
+        const node = walker.currentNode;
+        const parent = node.parentElement;
+        if (!parent || excluded.has(parent.tagName) || parent.closest(".brand-name, script, style, noscript, textarea, option, code, pre, svg") || !node.nodeValue?.includes(brand)) continue;
+        nodes.push(node);
+      }
+      nodes.forEach((node) => {
+        const parts = node.nodeValue.split(brand);
+        const fragment = document.createDocumentFragment();
+        parts.forEach((part, index) => {
+          if (part) fragment.append(document.createTextNode(part));
+          if (index < parts.length - 1) {
+            const span = document.createElement("span");
+            span.className = "brand-name";
+            span.textContent = brand;
+            fragment.append(span);
           }
-          textNodes.push(node);
-        }
-
-        textNodes.forEach((node) => {
-          const parts = node.nodeValue.split(brand);
-          const fragment = document.createDocumentFragment();
-
-          parts.forEach((part, index) => {
-            if (part) fragment.append(document.createTextNode(part));
-            if (index < parts.length - 1) {
-              const span = document.createElement("span");
-              span.className = "brand-name";
-              span.textContent = brand;
-              fragment.append(span);
-            }
-          });
-
-          node.replaceWith(fragment);
         });
-      })();
-    </script>
-    <script is:inline>
-      (() => {
-        const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-        const selectors = [
-          "main .section-heading",
-          "main .section-actions",
-          "main .card",
-          "main .archive-summary",
-        ];
-        const candidates = Array.from(document.querySelectorAll(selectors.join(",")))
-          .filter((element) => !element.closest("[data-consent-banner], .gallery-lightbox"))
-          .filter((element) => !element.matches(".inquiry-card"));
-        const candidateSet = new Set(candidates);
-        const elements = candidates.filter((element) => {
-          let parent = element.parentElement;
-          while (parent) {
-            if (candidateSet.has(parent)) return false;
-            parent = parent.parentElement;
-          }
-          return true;
-        });
+        node.replaceWith(fragment);
+      });
+    })();
+  </script>
 
-        if (!elements.length) return;
+  <script is:inline>
+    (() => {
+      const banner = document.querySelector("[data-consent-banner]");
+      if (!banner) return;
+      const key = "d-media-consent";
+      const version = "2026-06-06";
+      const readConsent = () => {
+        try {
+          const raw = localStorage.getItem(key);
+          if (!raw) return null;
+          const parsed = JSON.parse(raw);
+          return parsed?.version === version ? parsed.choice : null;
+        } catch { return null; }
+      };
+      const hide = () => {
+        banner.hidden = true;
+        banner.setAttribute("aria-hidden", "true");
+      };
+      if (!["accepted", "rejected"].includes(readConsent())) {
+        banner.hidden = false;
+        banner.setAttribute("aria-hidden", "false");
+      }
+      banner.addEventListener("click", (event) => {
+        const button = event.target instanceof Element ? event.target.closest("[data-consent-choice]") : null;
+        if (!(button instanceof HTMLElement)) return;
+        try { localStorage.setItem(key, JSON.stringify({ choice: button.dataset.consentChoice || "rejected", version })); } catch {}
+        window.dMediaAnalytics?.setConsent(button.dataset.consentChoice || "rejected");
+        hide();
+      });
+    })();
+  </script>
 
-        elements.forEach((element) => {
-          element.classList.add("motion-reveal");
-          const siblings = element.parentElement
-            ? elements.filter((candidate) => candidate.parentElement === element.parentElement)
-            : [];
-          const index = Math.max(0, siblings.indexOf(element));
-          element.style.setProperty("--motion-delay", `${Math.min(index * 40, 80)}ms`);
-        });
-
-        if (reducedMotion.matches || !("IntersectionObserver" in window)) {
-          elements.forEach((element) => element.classList.add("is-revealed"));
-          return;
-        }
-
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (!entry.isIntersecting) return;
-            entry.target.classList.add("is-revealed");
-            observer.unobserve(entry.target);
-          });
-        }, {
-          rootMargin: "0px 0px -6% 0px",
-          threshold: 0.08,
-        });
-
-        elements.forEach((element) => observer.observe(element));
-        window.setTimeout(() => {
-          elements.forEach((element) => {
-            if (element.classList.contains("is-revealed")) return;
-            element.classList.add("is-revealed");
-            observer.unobserve(element);
-          });
-        }, 1600);
-      })();
-    </script>
-    <script is:inline>
-      (() => {
-        const toggle = document.querySelector("[data-menu-toggle]");
-        const panel = document.querySelector("[data-mobile-panel]");
-        if (!toggle || !panel) return;
-        toggle.addEventListener("click", () => {
-          const isOpen = toggle.getAttribute("aria-expanded") === "true";
-          const nextOpen = !isOpen;
-          toggle.setAttribute("aria-expanded", String(nextOpen));
-          toggle.setAttribute("aria-label", nextOpen ? toggle.dataset.closeLabel : toggle.dataset.openLabel);
-          toggle.classList.toggle("is-active", nextOpen);
-          panel.classList.toggle("is-open", nextOpen);
-        });
-        panel.querySelectorAll("a").forEach((link) => {
-          link.addEventListener("click", () => {
-            toggle.setAttribute("aria-expanded", "false");
-            toggle.setAttribute("aria-label", toggle.dataset.openLabel);
-            toggle.classList.remove("is-active");
-            panel.classList.remove("is-open");
-          });
-        });
-      })();
-    </script>
-    <script is:inline>
-      (() => {
-        const banner = document.querySelector("[data-consent-banner]");
-        if (!banner) return;
-        const key = "d-media-consent";
-        const version = "2026-06-06";
-        const readConsent = () => {
-          try {
-            const raw = window.localStorage.getItem(key);
-            if (!raw) return null;
-            const parsed = JSON.parse(raw);
-            if (parsed?.version !== version) return null;
-            return parsed.choice;
-          } catch {
-            return null;
-          }
-        };
-        const hideBanner = () => {
-          banner.hidden = true;
-          banner.setAttribute("aria-hidden", "true");
-        };
-        const current = readConsent();
-        if (current !== "accepted" && current !== "rejected") {
-          banner.hidden = false;
-          banner.setAttribute("aria-hidden", "false");
-        }
-        document.addEventListener("click", (event) => {
-          const target = event.target;
-          const button = target instanceof Element ? target.closest("[data-consent-choice]") : null;
-          if (!(button instanceof HTMLElement) || !banner.contains(button)) return;
-          event.preventDefault();
-          const choice = button.dataset.consentChoice || "rejected";
-          try {
-            window.localStorage.setItem(key, JSON.stringify({ choice, version }));
-          } catch {}
-          hideBanner();
-        });
-      })();
-    </script>
-    <script is:inline>
-      (() => {
-        const topLink = document.querySelector("[data-floating-top]");
-        const footer = document.querySelector(".site-footer");
-        if (!topLink) return;
-        const handleScroll = () => {
-          if (window.innerWidth >= 980) {
-            topLink.classList.toggle("is-hidden", window.scrollY <= 120);
-            return;
-          }
-          const footerTop = footer?.getBoundingClientRect().top ?? Infinity;
-          const shouldHideForFooter = footerTop < window.innerHeight - 84;
-          topLink.classList.toggle("is-hidden", window.scrollY <= 240 || shouldHideForFooter);
-        };
-        handleScroll();
-        window.addEventListener("scroll", handleScroll, { passive: true });
-        window.addEventListener("resize", handleScroll);
-      })();
-    </script>
-    <script is:inline>
-      (() => {
-        const root = document.documentElement;
-        const media = window.matchMedia("(prefers-color-scheme: dark)");
-        const storageKey = "d-media-theme-mode";
-        const controls = Array.from(document.querySelectorAll("[data-theme-mode-option]"));
-        const readMode = () => {
-          try {
-            const value = window.localStorage.getItem(storageKey);
-            return value === "light" || value === "dark" || value === "auto" ? value : "auto";
-          } catch {
-            return "auto";
-          }
-        };
-        const applyMode = (mode) => {
-          const resolvedTheme = mode === "auto" ? (media.matches ? "dark" : "light") : mode;
-          root.dataset.themeMode = mode;
-          root.dataset.theme = resolvedTheme;
-          controls.forEach((control) => {
-            const isActive = control.dataset.themeModeOption === mode;
-            control.classList.toggle("is-active", isActive);
-            control.setAttribute("aria-pressed", String(isActive));
-          });
-          try {
-            window.localStorage.setItem(storageKey, mode);
-          } catch {}
-        };
-        controls.forEach((control) => {
-          control.addEventListener("click", () => applyMode(control.dataset.themeModeOption || "auto"));
-        });
-        applyMode(readMode());
-        const syncAuto = () => {
-          if (readMode() === "auto") applyMode("auto");
-        };
-        if (typeof media.addEventListener === "function") {
-          media.addEventListener("change", syncAuto);
-        }
-      })();
-    </script>
-    <script is:inline define:vars={{ closeLabel: ui.closePreview }}>
-      (() => {
-        const triggers = Array.from(document.querySelectorAll("[data-gallery-trigger]"));
-        if (!triggers.length) return;
-
-        let overlay = null;
-        let removeLightboxListeners = null;
-
-        const close = () => {
-          removeLightboxListeners?.();
-          removeLightboxListeners = null;
-          overlay?.remove();
-          overlay = null;
-          document.documentElement.classList.remove("is-gallery-open");
-        };
-
-        const open = (src, alt) => {
-          close();
-          overlay = document.createElement("div");
-          overlay.className = "gallery-lightbox";
-          overlay.setAttribute("role", "dialog");
-          overlay.setAttribute("aria-modal", "true");
-          overlay.setAttribute("aria-label", alt);
-          const panel = document.createElement("div");
-          panel.className = "gallery-lightbox-panel";
-          const topbar = document.createElement("div");
-          topbar.className = "gallery-lightbox-topbar";
-          const closeButton = document.createElement("button");
-          closeButton.type = "button";
-          closeButton.className = "gallery-lightbox-close";
-          closeButton.setAttribute("aria-label", closeLabel);
-          closeButton.textContent = "×";
-          const frame = document.createElement("div");
-          frame.className = "gallery-lightbox-frame";
-          const imageWrap = document.createElement("div");
-          imageWrap.className = "gallery-lightbox-image";
-          const image = document.createElement("img");
-          const setImageOrientation = () => {
-            image.classList.remove("is-landscape", "is-portrait", "is-square");
-            const ratio = image.naturalWidth / Math.max(image.naturalHeight, 1);
-            image.classList.add(ratio > 1.08 ? "is-landscape" : ratio < 0.92 ? "is-portrait" : "is-square");
-          };
-          const fitImage = () => {
-            if (!image.naturalWidth || !image.naturalHeight) return;
-            const maxWidth = imageWrap.clientWidth;
-            const maxHeight = imageWrap.clientHeight;
-            if (!maxWidth || !maxHeight) return;
-            const scale = Math.min(maxWidth / image.naturalWidth, maxHeight / image.naturalHeight);
-            image.style.width = `${Math.floor(image.naturalWidth * scale)}px`;
-            image.style.height = `${Math.floor(image.naturalHeight * scale)}px`;
-          };
-          image.alt = alt;
-          image.loading = "eager";
-          image.decoding = "async";
-          image.addEventListener("load", () => {
-            setImageOrientation();
-            fitImage();
-          });
-          image.src = src;
-          if (image.complete) {
-            setImageOrientation();
-            fitImage();
-          }
-          imageWrap.append(image);
-          frame.append(imageWrap);
-          topbar.append(closeButton);
-          panel.append(topbar, frame);
-          overlay.append(panel);
-          overlay.addEventListener("click", (event) => {
-            if (event.target === overlay) close();
-          });
-          closeButton.addEventListener("click", close);
-          document.body.append(overlay);
-          requestAnimationFrame(fitImage);
-          const handleResize = () => fitImage();
-          window.addEventListener("resize", handleResize);
-          removeLightboxListeners = () => window.removeEventListener("resize", handleResize);
-          document.documentElement.classList.add("is-gallery-open");
-        };
-
-        triggers.forEach((trigger) => {
-          trigger.addEventListener("click", (event) => {
-            event.preventDefault();
-            open(trigger.getAttribute("href"), trigger.dataset.galleryAlt || "");
-          });
-        });
-
-        window.addEventListener("keydown", (event) => {
-          if (event.key === "Escape") close();
-        });
-      })();
-    </script>
-  </body>
-</html>
+  <script is:inline define:vars={{ closeLabel: ui.closePreview }}>
+    (() => {
+      let overlay = null;
+      let lastTrigger = null;
+      const close = () => {
+        overlay?.remove();
+        overlay = null;
+        document.documentElement.classList.remove("is-gallery-open");
+        lastTrigger?.focus?.();
+      };
+      const open = (src, alt, trigger) => {
+        close();
+        lastTrigger = trigger;
+        const normalizedSrc = String(src || "").toLowerCase();
+        const normalizedAlt = String(alt || "").toLowerCase();
+        const isDmediaBrandAsset =
+          normalizedSrc.includes("d-media") ||
+          normalizedSrc.includes("/project-web/d-media/") ||
+          normalizedSrc.includes("/assets/brand/") ||
+          normalizedSrc.includes("/optimized-assets/brand/") ||
+          normalizedAlt.includes("d . media") ||
+          normalizedAlt.includes("d.media");
+        overlay = document.createElement("div");
+        overlay.className = isDmediaBrandAsset ? "gallery-lightbox gallery-lightbox-brand-contrast" : "gallery-lightbox";
+        overlay.setAttribute("role", "dialog");
+        overlay.setAttribute("aria-modal", "true");
+        overlay.setAttribute("aria-label", alt);
+        const panel = document.createElement("div");
+        panel.className = "gallery-lightbox-panel";
+        const topbar = document.createElement("div");
+        topbar.className = "gallery-lightbox-topbar";
+        const closeButton = document.createElement("button");
+        closeButton.type = "button";
+        closeButton.className = "gallery-lightbox-close";
+        closeButton.setAttribute("aria-label", closeLabel);
+        closeButton.textContent = "×";
+        const frame = document.createElement("div");
+        frame.className = "gallery-lightbox-frame";
+        const imageWrap = document.createElement("div");
+        imageWrap.className = "gallery-lightbox-image";
+        const image = document.createElement("img");
+        image.alt = alt;
+        image.loading = "eager";
+        image.decoding = "async";
+        image.draggable = false;
+        image.src = src;
+        imageWrap.append(image);
+        frame.append(imageWrap);
+        topbar.append(closeButton);
+        panel.append(topbar, frame);
+        overlay.append(panel);
+        overlay.addEventListener("click", (event) => { if (event.target === overlay) close(); });
+        closeButton.addEventListener("click", close);
+        document.body.append(overlay);
+        document.documentElement.classList.add("is-gallery-open");
+        closeButton.focus();
+      };
+      document.addEventListener("click", (event) => {
+        const trigger = event.target instanceof Element ? event.target.closest("[data-gallery-trigger]") : null;
+        if (!(trigger instanceof HTMLAnchorElement)) return;
+        event.preventDefault();
+        open(trigger.getAttribute("href"), trigger.dataset.galleryAlt || "", trigger);
+      });
+      addEventListener("keydown", (event) => { if (event.key === "Escape" && overlay) close(); });
+    })();
+  </script>
+</PreviewLayout>

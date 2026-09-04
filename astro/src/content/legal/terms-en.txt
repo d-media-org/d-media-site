@@ -612,121 +612,138 @@ It represents priority service support.
 8.8.3. d . media is not responsible for subsequent changes to third party license terms.
 8.8.4. The customer is obliged to comply with all license restrictions related to the used resources.
 
-9. RIGHTS AND OBLIGATIONS OF THE PARTIES
-9.1. Rights to d . media:
-9.1.1. To require the Client to provide the necessary materials, information and assistance.
-9.1.2. To determine the organization of the work process and the technologies used.
-9.1.3. To require timely feedback from the Client.
-9.1.4. To use subcontractors when necessary for the execution of the project.
-9.1.5. To suspend work on a project in the event of non-fulfillment of financial obligations by the Client.
-9.1.6. To refuse implementation of projects that contradict the legislation or good morals.
-9.1.7. To consider the project as accepted under the conditions specified in these General Terms and Conditions.
-9.1.8. To use the completed projects as part of its portfolio, unless White-label execution or other restriction is agreed.
-9.1.9. To indicate his authorship on created projects, unless otherwise agreed.
-9.1.10. To refuse to provide working files when this is not included in the particular service.
-9.1.11. To determine the internal organization of project implementation without the need for approval from the Client.
-9.1.12. To offer alternative solutions when they are in the interest of the project or the Client.
-9.1.13. To require confirmation of intermediate stages when this is necessary for the implementation of the project.
-9.1.14. To stop the implementation of a project in the absence of communication from the Client for a period of more than 30 calendar days.
-9.1.15. To consider a project temporarily frozen in the absence of communication from the Client for a period of more than 30 calendar days.
-9.1.16. To update these General Terms and Conditions, the Privacy Policy and its internal rules in accordance with current legislation.
+9. OPERATIONAL POLICIES
+9.1. The d . media operational policies are an integral part of the working procedure for specific situations that may arise during commissioning, execution, delivery, support, and subsequent use of a project.
+9.2. Where a specific operational policy applies to a project, it applies together with these Terms and Conditions, the confirmed offer, and the individual agreement between the parties.
+9.3. In case of conflict between an individually agreed written term and a general operational policy, the individually agreed term prevails to the extent permitted and applicable.
+9.4. The current version of the operational policies is published on the “Operational Policies” page of the d . media website.
+9.5. The operational policies include the following rules and apply according to the nature of the specific project or service:
+9.5.1. Corrections and Revisions Policy — governs the submission, grouping, scope, and execution of corrections in active projects.
+9.5.2. Frozen Projects Policy — governs temporary suspension of a project when materials, feedback, approval, or another required action is missing.
+9.5.3. Abandoned Projects Policy — governs closing projects where the necessary communication or action has been missing for an extended period.
+9.5.4. Working Files Policy — distinguishes final files intended for use from the working resources through which the project was created.
+9.5.5. Priority Work Policy — governs accepting priority tasks after checking scope, available resources, and the possibility of reliable delivery.
+9.5.6. Domains and Hosting Policy — governs work with domains, hosting, and external providers separately from web design and development.
+9.5.7. External Accounts, Access, and Budgets Policy — governs access, external accounts, and costs payable to platforms outside d . media.
+9.5.8. Technical Support Policy — governs support as a separate one-off or subscription service with a predefined scope.
+9.5.9. AI Use Policy — governs AI tools as an assisting layer that does not replace professional judgment, control, and responsibility for the final result.
+9.5.10. Refunds Policy — governs refund review according to project stage, work performed, incurred costs, and the specific agreement.
+9.5.11. Project Delivery and Acceptance Policy — governs the information accompanying final project delivery and the way acceptance is confirmed.
 
-9.2. Duties of d . media:
-9.2.1. To perform the assigned work in good faith and professionally.
-9.2.2. To perform the services according to the agreed parameters.
-9.2.3. To use professional means and methods to perform the assigned services.
-9.2.4. To store the provided information in compliance with the applicable legislation.
-9.2.5. To notify the Client in the event of circumstances that may have a significant impact on the project.
-9.2.6. To provide information on the status of the project upon request by the Client.
-9.2.7. To eliminate identified deficiencies when they are the result of actions or inactions of d . media.
-9.2.8. To maintain the confidentiality of information received in connection with the project.
-9.2.9. To comply with the applicable legislation when performing the assigned services.
+10. RIGHTS AND OBLIGATIONS OF THE PARTIES
+10.1. Rights to d . media:
+10.1.1. To require the Client to provide the necessary materials, information and assistance.
+10.1.2. To determine the organization of the work process and the technologies used.
+10.1.3. To require timely feedback from the Client.
+10.1.4. To use subcontractors when necessary for the execution of the project.
+10.1.5. To suspend work on a project in the event of non-fulfillment of financial obligations by the Client.
+10.1.6. To refuse implementation of projects that contradict the legislation or good morals.
+10.1.7. To consider the project as accepted under the conditions specified in these General Terms and Conditions.
+10.1.8. To use the completed projects as part of its portfolio, unless White-label execution or other restriction is agreed.
+10.1.9. To indicate his authorship on created projects, unless otherwise agreed.
+10.1.10. To refuse to provide working files when this is not included in the particular service.
+10.1.11. To determine the internal organization of project implementation without the need for approval from the Client.
+10.1.12. To offer alternative solutions when they are in the interest of the project or the Client.
+10.1.13. To require confirmation of intermediate stages when this is necessary for the implementation of the project.
+10.1.14. To stop the implementation of a project in the absence of communication from the Client for a period of more than 30 calendar days.
+10.1.15. To consider a project temporarily frozen in the absence of communication from the Client for a period of more than 30 calendar days.
+10.1.16. To update these General Terms and Conditions, the Privacy Policy and its internal rules in accordance with current legislation.
 
-9.3. Customer Rights:
-9.3.1. To receive the services according to the agreed parameters.
-9.3.2. To receive information about the implementation of the project.
-9.3.3. To make reasonable requests for corrections according to the scope of the contracted service.
-9.3.4. To receive the final files and materials included in the relevant service.
-9.3.5. To demand the elimination of defects when they are the result of actions or omissions of d . media.
-9.3.6. To terminate contractual relations under the conditions provided for in this document or in the specific contract.
-9.3.7. To receive invoices, reports and other documents when applicable.
+10.2. Duties of d . media:
+10.2.1. To perform the assigned work in good faith and professionally.
+10.2.2. To perform the services according to the agreed parameters.
+10.2.3. To use professional means and methods to perform the assigned services.
+10.2.4. To store the provided information in compliance with the applicable legislation.
+10.2.5. To notify the Client in the event of circumstances that may have a significant impact on the project.
+10.2.6. To provide information on the status of the project upon request by the Client.
+10.2.7. To eliminate identified deficiencies when they are the result of actions or inactions of d . media.
+10.2.8. To maintain the confidentiality of information received in connection with the project.
+10.2.9. To comply with the applicable legislation when performing the assigned services.
 
-9.4. Obligations of the Client:
-9.4.1. To provide true, current and complete information.
-9.4.2. To provide all necessary materials for the implementation of the project.
-9.4.3. To provide the necessary assistance for the performance of the services.
-9.4.4. To provide timely feedback.
-9.4.5. To comply with the agreed deadlines for providing information, materials and approvals.
-9.4.6. To pay the remuneration within the agreed terms.
-9.4.7. To have the necessary rights to use all materials provided.
-9.4.8. To indemnify d . media for claims of third parties related to materials provided by the Client.
-9.4.9. Not to use the projects outside the scope of the acquired license.
-9.4.10. Not to remove authorship designations when such are part of the project and White-label performance is not agreed upon.
-9.4.11. To review the materials provided within a reasonable time after receiving them.
-9.4.12. The lack of objection within 3 working days after providing a project, correction or final files is considered acceptance at the relevant stage.
+10.3. Customer Rights:
+10.3.1. To receive the services according to the agreed parameters.
+10.3.2. To receive information about the implementation of the project.
+10.3.3. To make reasonable requests for corrections according to the scope of the contracted service.
+10.3.4. To receive the final files and materials included in the relevant service.
+10.3.5. To demand the elimination of defects when they are the result of actions or omissions of d . media.
+10.3.6. To terminate contractual relations under the conditions provided for in this document or in the specific contract.
+10.3.7. To receive invoices, reports and other documents when applicable.
 
-10. TERMS, PRICES AND PAYMENTS
-10.1. Deadlines
-10.1.1. Implementation deadlines are determined individually for each project.
-10.1.2. The terms begin to run after the provision of all necessary materials and information by the Client.
-10.1.3. In case of delay on the part of the Client, the deadlines are extended by the corresponding period of delay.
-10.1.4. d . media has the right to change the performance schedule in the presence of objective reasons.
-10.1.5. Intermediate terms can be determined in stages depending on the development of the project.
-10.1.6. Times are considered indicative unless otherwise agreed.
+10.4. Obligations of the Client:
+10.4.1. To provide true, current and complete information.
+10.4.2. To provide all necessary materials for the implementation of the project.
+10.4.3. To provide the necessary assistance for the performance of the services.
+10.4.4. To provide timely feedback.
+10.4.5. To comply with the agreed deadlines for providing information, materials and approvals.
+10.4.6. To pay the remuneration within the agreed terms.
+10.4.7. To have the necessary rights to use all materials provided.
+10.4.8. To indemnify d . media for claims of third parties related to materials provided by the Client.
+10.4.9. Not to use the projects outside the scope of the acquired license.
+10.4.10. Not to remove authorship designations when such are part of the project and White-label performance is not agreed upon.
+10.4.11. To review the materials provided within a reasonable time after receiving them.
+10.4.12. The lack of objection within 3 working days after providing a project, correction or final files is considered acceptance at the relevant stage.
 
-10.2. Prices
-10.2.1. All services are provided according to the current Price List at the time of assignment.
-10.2.2. Individual offers take precedence over the general Price List.
-10.2.3. All prices are negotiated in Euros (€), unless otherwise agreed.
-10.2.4. For informational purposes, prices may also be indicated in BGN equivalents according to the current legislation.
-10.2.5. Prices do not include costs for external services, licenses, domains, hosting, advertising budgets, paid resources or other costs, unless otherwise agreed.
-10.2.6. d . media has the right to update the Price List at any time, and the updates do not affect already awarded and confirmed projects.
+11. TERMS, PRICES AND PAYMENTS
+11.1. Deadlines
+11.1.1. Implementation deadlines are determined individually for each project.
+11.1.2. The terms begin to run after the provision of all necessary materials and information by the Client.
+11.1.3. In case of delay on the part of the Client, the deadlines are extended by the corresponding period of delay.
+11.1.4. d . media has the right to change the performance schedule in the presence of objective reasons.
+11.1.5. Intermediate terms can be determined in stages depending on the development of the project.
+11.1.6. Times are considered indicative unless otherwise agreed.
 
-10.3. Payments
-10.3.1. Payment is made in the manner specified in the invoice, contract or offer.
-10.3.2. Payment can be made by bank transfer, payment system or other agreed method.
-10.3.3. d . media has the right to require advance payment.
-10.3.4. Unless otherwise agreed, work on the project begins after receipt of the agreed advance payment.
-10.3.5. For larger projects, the payment can be divided into stages.
-10.3.6. d . media has the right to suspend work on the project in case of late payment.
-10.3.7. All bank charges and payment costs are for the account of the Customer, unless otherwise agreed.
-10.3.8. In case of unpaid debts, d . media has the right to refuse the provision of files, access, materials or services until they are paid in full.
+11.2. Prices
+11.2.1. All services are provided according to the current Price List at the time of assignment.
+11.2.2. Individual offers take precedence over the general Price List.
+11.2.3. All prices are negotiated in Euros (€), unless otherwise agreed.
+11.2.5. Prices do not include costs for external services, licenses, domains, hosting, advertising budgets, paid resources or other costs, unless otherwise agreed.
+11.2.6. d . media has the right to update the Price List at any time, and the updates do not affect already awarded and confirmed projects.
 
-11. materials, content and intellectual property
+11.3. Payments
+11.3.1. Payment is made in the manner specified in the invoice, contract or offer.
+11.3.2. Payment can be made by bank transfer, payment system or other agreed method.
+11.3.3. d . media has the right to require advance payment.
+11.3.4. Unless otherwise agreed, work on the project begins after receipt of the agreed advance payment.
+11.3.5. For larger projects, the payment can be divided into stages.
+11.3.6. d . media has the right to suspend work on the project in case of late payment.
+11.3.7. All bank charges and payment costs are for the account of the Customer, unless otherwise agreed.
+11.3.8. In case of unpaid debts, d . media has the right to refuse the provision of files, access, materials or services until they are paid in full.
+
+12. materials, content and intellectual property
 1.1. General conditions
-11.1.1. d . media performs the assigned services with its own technical means, knowledge, skills, methodologies and work processes, unless otherwise agreed.
-11.1.2. All concepts, proposals, sketches, variants, ideas, strategies, visual solutions, work files and other materials created in the course of work constitute the intellectual property of d . media, unless otherwise agreed.
-11.1.3. Providing a project, file, design, code or other content does not automatically transfer copyright.
-11.1.4. The customer acquires only the rights that are expressly agreed between the parties.
+12.1.1. d . media performs the assigned services with its own technical means, knowledge, skills, methodologies and work processes, unless otherwise agreed.
+12.1.2. All concepts, proposals, sketches, variants, ideas, strategies, visual solutions, work files and other materials created in the course of work constitute the intellectual property of d . media, unless otherwise agreed.
+12.1.3. Providing a project, file, design, code or other content does not automatically transfer copyright.
+12.1.4. The customer acquires only the rights that are expressly agreed between the parties.
 
-11.2. Materials provided by the Client
-11.2.1. The customer is fully responsible for all materials they provide to d . media.
-11.2.2. The customer declares that he has the necessary rights to use all materials provided.
-11.2.3. The customer bears full responsibility for infringement of copyrights, trademarks, industrial property or other rights of third parties in connection with provided materials.
-11.2.4. d . media is not obliged to carry out a legal review of the materials provided.
-11.2.5. In the event of claims from third parties, the Customer is obliged to indemnify d . media for all incurred damages, costs and claims.
+12.2. Materials provided by the Client
+12.2.1. The customer is fully responsible for all materials they provide to d . media.
+12.2.2. The customer declares that he has the necessary rights to use all materials provided.
+12.2.3. The customer bears full responsibility for infringement of copyrights, trademarks, industrial property or other rights of third parties in connection with provided materials.
+12.2.4. d . media is not obliged to carry out a legal review of the materials provided.
+12.2.5. In the event of claims from third parties, the Customer is obliged to indemnify d . media for all incurred damages, costs and claims.
 
-11.3. Materials created by d . media
-11.3.1. All projects, designs, texts, strategies, concepts, structures, visual solutions, code, documentation and other materials created by d . media constitute protected objects of intellectual property.
-11.3.2. Copyright arises automatically from the moment of creation of the relevant material.
-11.3.3. Unless otherwise agreed, d . media reserves all proprietary and non-property rights in the materials created.
-11.3.4. Unselected concepts, variants and proposals remain the exclusive property of d . media.
+12.3. Materials created by d . media
+12.3.1. All projects, designs, texts, strategies, concepts, structures, visual solutions, code, documentation and other materials created by d . media constitute protected objects of intellectual property.
+12.3.2. Copyright arises automatically from the moment of creation of the relevant material.
+12.3.3. Unless otherwise agreed, d . media reserves all proprietary and non-property rights in the materials created.
+12.3.4. Unselected concepts, variants and proposals remain the exclusive property of d . media.
 
-11.4. Licensing
-11.4.1. Unless otherwise agreed, all services are provided with a non-exclusive license to use.
-11.4.2. The non-exclusive license gives the Client the right to use the project for his own needs according to its purpose.
-11.4.3. An exclusive license is granted only by express written agreement between the parties.
-11.4.4. Full transfer of property copyrights is done only through a separate contract or annex.
-11.4.5. In the absence of an express written agreement, all rights remain the property of d . media.
+12.4. Licensing
+12.4.1. Unless otherwise agreed, all services are provided with a non-exclusive license to use.
+12.4.2. The non-exclusive license gives the Client the right to use the project for his own needs according to its purpose.
+12.4.3. An exclusive license is granted only by express written agreement between the parties.
+12.4.4. Full transfer of property copyrights is done only through a separate contract or annex.
+12.4.5. In the absence of an express written agreement, all rights remain the property of d . media.
 
-11.5. Restrictions on Use
-11.5.1. The customer has no right to resell, assign or license the project to third parties outside of the rights granted to him.
-11.5.2. The client has no right to present the project as his own work of authorship when this contradicts the acquired license.
-11.5.3. The customer has no right to use the projects outside the scope of the license granted.
-11.5.4. The customer may not use unused concepts, variants and proposals without express written permission.
+12.5. Restrictions on Use
+12.5.1. The customer has no right to resell, assign or license the project to third parties outside of the rights granted to him.
+12.5.2. The client has no right to present the project as his own work of authorship when this contradicts the acquired license.
+12.5.3. The customer has no right to use the projects outside the scope of the license granted.
+12.5.4. The customer may not use unused concepts, variants and proposals without express written permission.
 
-11.6. Portfolio and public presentation
-11.6.1. Unless otherwise agreed, d . media has the right to use the executed projects for:
+12.6. Portfolio and public presentation
+12.6.1. Unless otherwise agreed, d . media has the right to use the executed projects for:
  portfolio;
  marketing;
  advertising;
@@ -735,34 +752,34 @@ It represents priority service support.
  social networks;
  website;
  competitions and professional participations.
-11.6.2. This right applies to both completed and partially displayed designs.
-11.6.3. Restrictions may be negotiated by separate agreement.
+12.6.2. This right applies to both completed and partially displayed designs.
+12.6.3. Restrictions may be negotiated by separate agreement.
 
-11.7. White-label execution
-11.7.1. In case of White-label performance, d . media refuses to be publicly designated as the contractor for the specific project.
-11.7.2. White-label performance does not constitute an automatic transfer of copyright.
-11.7.3. White-label the performance is provided for an additional fee according to the current Price List or an individual contract.
+12.7. White-label execution
+12.7.1. In case of White-label performance, d . media refuses to be publicly designated as the contractor for the specific project.
+12.7.2. White-label performance does not constitute an automatic transfer of copyright.
+12.7.3. White-label the performance is provided for an additional fee according to the current Price List or an individual contract.
 
-12. liability and penalties
-12.1. Responsibility of the parties
-12.1.1. Each party is responsible for failure to fulfill its obligations under these General Terms and Conditions and the specific agreements between the parties.
-12.1.2. Neither party shall be liable for damages caused by circumstances beyond its reasonable control.
+13. liability and penalties
+13.1. Responsibility of the parties
+13.1.1. Each party is responsible for failure to fulfill its obligations under these General Terms and Conditions and the specific agreements between the parties.
+13.1.2. Neither party shall be liable for damages caused by circumstances beyond its reasonable control.
 
-12.2. Penalties for delay by d . media
-12.2.1. In case of culpable delay in performance, d . media owes a penalty of 1% of the value of the specific service for each day overdue.
-12.2.2. The total amount of the penalty cannot exceed 20% of the value of the specific service.
+13.2. Penalties for delay by d . media
+13.2.1. In case of culpable delay in performance, d . media owes a penalty of 1% of the value of the specific service for each day overdue.
+13.2.2. The total amount of the penalty cannot exceed 20% of the value of the specific service.
 
-12.3. Penalties in case of delay on the part of the Client
-12.3.1. In case of delay in payment, the Customer owes a penalty in the amount of 0.5% of the overdue amount for each day of delay.
-12.3.2. The total amount of the penalty cannot exceed the amount of the remuneration due.
-12.3.3. d . media has the right to suspend work on the project until the amounts due are paid in full.
+13.3. Penalties in case of delay on the part of the Client
+13.3.1. In case of delay in payment, the Customer owes a penalty in the amount of 0.5% of the overdue amount for each day of delay.
+13.3.2. The total amount of the penalty cannot exceed the amount of the remuneration due.
+13.3.3. d . media has the right to suspend work on the project until the amounts due are paid in full.
 
-12.4. Termination at Customer's fault
-12.4.1. In case of rejection of a project after the start of work, the Client owes payment for all activities carried out to date.
-12.4.2. When the exact amount of work performed cannot be determined, d . media has the right to calculate the remuneration based on the actual time and resources invested.
+13.4. Termination at Customer's fault
+13.4.1. In case of rejection of a project after the start of work, the Client owes payment for all activities carried out to date.
+13.4.2. When the exact amount of work performed cannot be determined, d . media has the right to calculate the remuneration based on the actual time and resources invested.
 
-12.5. Limitation of Liability
-12.5.1. d . media is not responsible for:
+13.5. Limitation of Liability
+13.5.1. d . media is not responsible for:
  loss of profit;
  lost profits;
  indirect damages;
@@ -772,15 +789,15 @@ It represents priority service support.
  reduced attendance;
  loss of positions in search engines;
  reduced engagement in social networks.
-12.5.2. d . media's maximum liability under a particular project may not exceed the value of the remuneration received under it.
-12.5.3. d . media is not responsible for decisions made by the Client based on any advice, analysis or recommendations provided.
-12.5.4. d . media is not responsible for the acts, omissions or technical problems of third parties.
+13.5.2. d . media's maximum liability under a particular project may not exceed the value of the remuneration received under it.
+13.5.3. d . media is not responsible for decisions made by the Client based on any advice, analysis or recommendations provided.
+13.5.4. d . media is not responsible for the acts, omissions or technical problems of third parties.
 
-13. LIMITATION OF LIABILITY (FORCE MAJEURE)
+14. LIMITATION OF LIABILITY (FORCE MAJEURE)
 
-13.1. Force majeure
-13.1.1. Force majeure is any unforeseeable, extraordinary and insurmountable event that occurred after the conclusion of the contractual relationship and regardless of the will of the parties.
-13.1.2. Circumstances of force majeure can be considered:
+14.1. Force majeure
+14.1.1. Force majeure is any unforeseeable, extraordinary and insurmountable event that occurred after the conclusion of the contractual relationship and regardless of the will of the parties.
+14.1.2. Circumstances of force majeure can be considered:
  natural disasters;
  earthquakes;
  floods;
@@ -798,51 +815,51 @@ It represents priority service support.
  actions of government bodies;
  legislative changes;
  other circumstances beyond the reasonable control of the parties.
-13.1.3. The party affected by force majeure is obliged to notify the other party within a reasonable period of time after becoming aware of it.
-13.1.4. During the effect of the force majeure circumstance, the performance of the affected obligations is suspended.
-13.1.5. After the termination of the force majeure circumstance, the performance of obligations resumes.
-13.1.6. d . media shall not be liable for any delay or impossibility of performance caused by force majeure.
-13.1.7. d . media is not responsible for damage, loss of data or interruption of services caused by force majeure or actions of third parties.
+14.1.3. The party affected by force majeure is obliged to notify the other party within a reasonable period of time after becoming aware of it.
+14.1.4. During the effect of the force majeure circumstance, the performance of the affected obligations is suspended.
+14.1.5. After the termination of the force majeure circumstance, the performance of obligations resumes.
+14.1.6. d . media shall not be liable for any delay or impossibility of performance caused by force majeure.
+14.1.7. d . media is not responsible for damage, loss of data or interruption of services caused by force majeure or actions of third parties.
 
-13.2. External suppliers and services
-13.2.1. d . media is not responsible for malfunctions, limitations or termination of services provided by external providers.
-13.2.2. d . media is not responsible for changes in terms, policies or technical features of external platforms.
-13.2.3. d . media is not responsible for the suspension, restriction or termination of accounts by external platforms.
+14.2. External suppliers and services
+14.2.1. d . media is not responsible for malfunctions, limitations or termination of services provided by external providers.
+14.2.2. d . media is not responsible for changes in terms, policies or technical features of external platforms.
+14.2.3. d . media is not responsible for the suspension, restriction or termination of accounts by external platforms.
 
-14. TERM AND TERMINATION OF AGREEMENT
+15. TERM AND TERMINATION OF AGREEMENT
 
-14.1. Term of the contract
-14.1.1. The term of the contract is determined between the parties and is specified in the specific contract, offer or other written agreement.
-14.1.2. In the absence of an explicitly defined term, the contract is considered effective until the obligations of the parties are fulfilled.
+15.1. Term of the contract
+15.1.1. The term of the contract is determined between the parties and is specified in the specific contract, offer or other written agreement.
+15.1.2. In the absence of an explicitly defined term, the contract is considered effective until the obligations of the parties are fulfilled.
 
-14.2. Termination of the contract
-14.2.1. The contract is terminated:
+15.2. Termination of the contract
+15.2.1. The contract is terminated:
  with its implementation;
  by mutual written agreement;
  in accordance with these General Terms and Conditions;
  by virtue of law;
  in other stipulated cases.
-14.2.2. Each of the parties has the right to terminate the contract in case of material non-performance by the other party.
-14.2.3. d . media has the right to unilaterally terminate the contract without notice if:
+15.2.2. Each of the parties has the right to terminate the contract in case of material non-performance by the other party.
+15.2.3. d . media has the right to unilaterally terminate the contract without notice if:
  providing false information;
  breaking the law;
  misuse of services;
  abusive, aggressive or threatening behaviour;
  non-fulfillment of financial obligations;
  other material violations.
-14.2.4. The customer has the right to terminate the contract in the event of substantial culpable non-performance on the part of d . media.
-14.2.5. Termination of the contract does not release the parties from obligations that arose before its termination.
+15.2.4. The customer has the right to terminate the contract in the event of substantial culpable non-performance on the part of d . media.
+15.2.5. Termination of the contract does not release the parties from obligations that arose before its termination.
 
-14.3. Consequences of Termination
-14.3.1. Upon termination, the Client owes payment for all activities performed to date.
-14.3.2. d . media has the right to retain undelivered materials pending final settlement of the financial relationship.
-14.3.3. After termination of the contract, all granted licenses remain in force according to the agreed terms.
+15.3. Consequences of Termination
+15.3.1. Upon termination, the Client owes payment for all activities performed to date.
+15.3.2. d . media has the right to retain undelivered materials pending final settlement of the financial relationship.
+15.3.3. After termination of the contract, all granted licenses remain in force according to the agreed terms.
 
-15. CONFIDENTIALITY
+16. CONFIDENTIALITY
 
-15.1. Confidential Information
-15.1.1. Any information received in connection with the performance of the services, regardless of its medium or form, is considered confidential.
-15.1.2. Confidential information may include:
+16.1. Confidential Information
+16.1.1. Any information received in connection with the performance of the services, regardless of its medium or form, is considered confidential.
+16.1.2. Confidential information may include:
  trade secrets;
  business plans;
  marketing strategies;
@@ -854,41 +871,43 @@ It represents priority service support.
  know-how;
  other non-public information.
 
-15.2. Obligations of the parties
-15.2.1. The parties undertake to use the confidential information only for the purposes of fulfilling contractual relations.
-15.2.2. The parties undertake not to disclose confidential information to third parties without prior consent.
-15.2.3. The parties are required to take reasonable measures to protect confidential information.
+16.2. Obligations of the parties
+16.2.1. The parties undertake to use the confidential information only for the purposes of fulfilling contractual relations.
+16.2.2. The parties undertake not to disclose confidential information to third parties without prior consent.
+16.2.3. The parties are required to take reasonable measures to protect confidential information.
 
-15.3. Exceptions
-15.3.1. It is not considered confidential information that:
+16.3. Exceptions
+16.3.1. It is not considered confidential information that:
 is publicly available;
 was obtained lawfully from a third party;
 subject to disclosure by law;
 was known to the recipient prior to receipt.
 
-15.4. Term of confidentiality
-15.4.1. The obligations of confidentiality remain in force even after the termination of the contractual relationship.
-15.4.2. Unless otherwise agreed, the confidentiality obligations remain in force for a period of 5 years after the termination of the relationship between the parties.
+16.4. Term of confidentiality
+16.4.1. The obligations of confidentiality remain in force even after the termination of the contractual relationship.
+16.4.2. Unless otherwise agreed, the confidentiality obligations remain in force for a period of 5 years after the termination of the relationship between the parties.
 
-16. ADDITIONAL PROVISIONS
+17. ADDITIONAL PROVISIONS
 
-16.1. All changes and additions to a specific project can be agreed between the parties in writing.
-16.2. Individual agreements take precedence over these General Terms and Conditions regarding the specific project.
-16.3. If a separate provision of these General Terms and Conditions is declared invalid, this does not affect the validity of the remaining provisions.
-16.4. Section headings are used for convenience only and do not affect the interpretation of the document.
-16.5. d . media's failure to exercise a right does not constitute a waiver of that right.
-16.6. All notifications between the parties may be made through:
+17.1. All changes and additions to a specific project can be agreed between the parties in writing.
+17.2. Individual agreements take precedence over these General Terms and Conditions regarding the specific project.
+17.3. If a separate provision of these General Terms and Conditions is declared invalid, this does not affect the validity of the remaining provisions.
+17.4. Section headings are used for convenience only and do not affect the interpretation of the document.
+17.5. d . media's failure to exercise a right does not constitute a waiver of that right.
+17.6. All notifications between the parties may be made through:
  e-mail;
  courier;
  postal service;
  electronic platforms;
  other written communication channels.
-16.7. For unsettled cases, the current legislation of the Republic of Bulgaria is applied.
+17.7. For unsettled cases, the current legislation of the Republic of Bulgaria is applied.
 
-17. GOVERNING LAW AND DISPUTES
+18. GOVERNING LAW AND DISPUTES
 
-17.1. These General Terms and Conditions are regulated and interpreted according to the legislation of the Republic of Bulgaria.
-17.2. All disputes between the parties shall be resolved first through negotiations and good faith attempts to reach an agreement.
-17.3. In case of impossibility of voluntary settlement, the dispute shall be decided by the competent Bulgarian court.
-17.4. The court at the seat or permanent address of the Contractor is competent, unless the applicable legislation provides otherwise.
-17.5. These General Terms and Conditions enter into force from the date of their publication or from the date specified in a specific contract between the parties.
+18.1. These General Terms and Conditions are regulated and interpreted according to the legislation of the Republic of Bulgaria.
+18.2. All disputes between the parties shall be resolved first through negotiations and good faith attempts to reach an agreement.
+18.3. In case of impossibility of voluntary settlement, the dispute shall be decided by the competent Bulgarian court.
+18.4. The court at the seat or permanent address of the Contractor is competent, unless the applicable legislation provides otherwise.
+18.5. These General Terms and Conditions enter into force from the date of their publication or from the date specified in a specific contract between the parties.
+
+undefined

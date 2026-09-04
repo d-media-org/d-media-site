@@ -34,9 +34,9 @@ const fileCountLabel = project.imageCount > 0 ? ui.fileCount(project.imageCount)
         <img
           src={coverSrc}
           alt={project.title}
-          loading="lazy"
+          loading={isArchive ? "lazy" : "eager"}
           decoding="async"
-          fetchpriority="low"
+          fetchpriority={isArchive ? "low" : "high"}
           sizes={isArchive ? "(max-width: 767px) calc(100vw - 32px), 720px" : "(max-width: 767px) calc(100vw - 32px), (max-width: 1199px) 48vw, 500px"}
         />
       </div>

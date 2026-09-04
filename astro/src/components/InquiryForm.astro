@@ -118,7 +118,7 @@ const copy = isBg
     };
 ---
 
-<section class:list={["card", "inquiry-card", { "inquiry-card-estimator": estimator }]} aria-labelledby="inquiry-form-title">
+<section id="inquiry-form" class:list={["card", "inquiry-card", { "inquiry-card-estimator": estimator }]} aria-labelledby="inquiry-form-title">
   <div class="inquiry-card-header">
     <p class="eyebrow">{copy.title}</p>
     <h2 id="inquiry-form-title">{copy.formTitle}</h2>
@@ -432,8 +432,7 @@ const copy = isBg
     form.addEventListener("focusin", () => {
       if (formStarted) return;
       formStarted = true;
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({ event: "contact_started", source: params.get("estimator") === "1" ? "estimator" : "contact" });
+      window.dMediaAnalytics?.track("contact_form_started", { source: params.get("estimator") === "1" ? "estimator" : "contact" });
     });
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
@@ -446,10 +445,12 @@ const copy = isBg
           setStatus(group.dataset.serviceRequired || form.dataset.validationRequired || "", true);
           group.scrollIntoView({ behavior: "smooth", block: "center" });
         }
+        window.dMediaAnalytics?.track("contact_form_validation_error", { reason: "service_required" });
         return;
       }
       if (!form.checkValidity()) {
         form.reportValidity();
+        window.dMediaAnalytics?.track("contact_form_validation_error", { reason: "required_field" });
         return;
       }
       setBusy(true);
@@ -457,6 +458,7 @@ const copy = isBg
       const data = new FormData(form);
       if (!data.get("cf-turnstile-response")) {
         setStatus(form.dataset.turnstileError || "", true);
+        window.dMediaAnalytics?.track("contact_form_validation_error", { reason: "anti_spam_check" });
         setBusy(false);
         return;
       }
@@ -465,18 +467,17 @@ const copy = isBg
         const payload = await response.json().catch(() => null);
         if (!response.ok || !payload?.ok) {
           setStatus(payload?.error || form.dataset.errorMessage || "", true);
+          window.dMediaAnalytics?.track("contact_form_error", { reason: "server_rejected" });
           if (window.turnstile?.reset) window.turnstile.reset();
           return;
         }
         form.reset();
         setStatus(form.dataset.successMessage || "", false);
-        if (new URLSearchParams(window.location.search).get("estimator") === "1") {
-          window.dataLayer = window.dataLayer || [];
-          window.dataLayer.push({ event: "contact_submitted", source: "estimator" });
-        }
+        window.dMediaAnalytics?.track("contact_form_submitted", { source: new URLSearchParams(window.location.search).get("estimator") === "1" ? "estimator" : "contact", service_count: selectedServices.length });
         if (window.turnstile?.reset) window.turnstile.reset();
       } catch {
         setStatus(form.dataset.errorMessage || "", true);
+        window.dMediaAnalytics?.track("contact_form_error", { reason: "network" });
         if (window.turnstile?.reset) window.turnstile.reset();
       } finally {
         setBusy(false);

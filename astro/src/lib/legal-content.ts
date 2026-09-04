@@ -495,7 +495,6 @@ const termsContent = {
           title: "Prices and payments",
           bullets: [
             "(1) Prices are agreed in euro.",
-            "(2) They are also stated in lev at the rate of 1.95583.",
             "(3) Payments are made in the agreed manner.",
           ],
         },
@@ -576,3 +575,5 @@ export function getPrivacyPolicy(locale: Locale) {
 export function getTermsPolicy(locale: Locale) {
   return termsContent[locale];
 }
+
+undefined

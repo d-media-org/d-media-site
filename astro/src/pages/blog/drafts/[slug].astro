@@ -1,7 +1,6 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import {
-  formatBlogDate,
   getBlogCategoryLabel,
   getBlogPageCopy,
   getBlogPostBySlug,
@@ -125,11 +124,6 @@ const breadcrumbSchema = {
         <p class="eyebrow">{categoryLabel}</p>
         <h1>{post.title}</h1>
         <p class="page-text">{post.intro}</p>
-        <div class="blog-meta-row">
-          <p class="project-meta">{copy.authorLabel}: {post.author}</p>
-          <p class="project-meta"><time datetime={post.datePublished}>{formatBlogDate(locale, post.datePublished)}</time></p>
-          <p class="project-meta">{post.readingTime} минути четене</p>
-        </div>
       </header>
 
       <div class="split-content">
@@ -151,7 +145,7 @@ const breadcrumbSchema = {
           ))}
 
           <div class="project-card-footer blog-back-link-row">
-            <a class="inline-link" href="/blog/drafts" data-blog-back>Назад към казусите</a>
+            <a class="inline-link" href="/blog/drafts" data-history-back>Назад към казусите</a>
           </div>
         </div>
 
@@ -187,22 +181,4 @@ const breadcrumbSchema = {
     </article>
   </main>
 
-  <script is:inline>
-    const backButton = document.querySelector("[data-blog-back]");
-
-    backButton?.addEventListener("click", () => {
-      const referrer = document.referrer ? new URL(document.referrer) : null;
-      const sameOrigin = referrer?.origin === window.location.origin;
-      const fromDrafts =
-        sameOrigin &&
-        (referrer.pathname === "/blog/drafts" || referrer.pathname.startsWith("/blog/drafts/"));
-
-      if (fromDrafts && window.history.length > 1) {
-        window.history.back();
-        return;
-      }
-
-      window.location.href = "/blog/drafts";
-    });
-  </script>
 </Layout>

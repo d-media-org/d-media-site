@@ -146,7 +146,7 @@ const relatedTechnicalServices = getAuthorityServices(locale).filter(
           <BrandText text={copy.intro} />
         </p>
         <div class="project-card-footer">
-          <a class="inline-link" href={localizeHref(locale, "/services")}>{backLabel}</a>
+          <a class="inline-link" href={localizeHref(locale, "/services")} data-history-back>{backLabel}</a>
         </div>
         <div class="hero-actions">
           <a
@@ -214,9 +214,8 @@ const relatedTechnicalServices = getAuthorityServices(locale).filter(
         <h2>{copy.processTitle}</h2>
       </div>
       <div class="process-timeline">
-        {copy.processSteps.map((step, index) => (
+        {copy.processSteps.map((step) => (
           <article class="card process-step-card">
-            <span class="process-step-index">{String(index + 1).padStart(2, "0")}</span>
             <h3>{step.title}</h3>
             <p><BrandText text={step.text} /></p>
           </article>
@@ -293,7 +292,7 @@ const relatedTechnicalServices = getAuthorityServices(locale).filter(
       </article>
 
       <div class="project-card-footer">
-        <a class="inline-link" href={localizeHref(locale, "/services")}>{backLabel}</a>
+        <a class="inline-link" href={localizeHref(locale, "/services")} data-history-back>{backLabel}</a>
       </div>
     </section>
   </main>

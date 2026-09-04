@@ -72,18 +72,13 @@ const articleSchema = {
         <p class="eyebrow">{article.data.category} / {article.data.cluster}</p>
         <h1>{article.data.title}</h1>
         <p class="page-text">{article.data.description}</p>
-        <div class="blog-meta-row">
-          <p class="project-meta">автор: d . media</p>
-          <p class="project-meta"><time datetime={article.data.datePublished}>{article.data.datePublished}</time></p>
-          <p class="project-meta">{article.data.readingTime} минути четене</p>
-        </div>
       </header>
 
       <div class="split-content">
         <div class="card text-card blog-article-content">
           <Content />
           <div class="project-card-footer blog-back-link-row">
-            <a class="inline-link" href="/knowledge-base/">Назад към Knowledge Base</a>
+            <a class="inline-link" href="/knowledge-base/" data-history-back>Назад към Knowledge Base</a>
           </div>
         </div>
 

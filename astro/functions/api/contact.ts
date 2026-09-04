@@ -75,6 +75,23 @@ async function verifyTurnstile(env: Env, token: string, ip?: string) {
   return result.success === true;
 }
 
+async function claimRateLimitSlot(database: D1Database, ipAddress: string) {
+  const windowStart = Math.floor(Date.now() / 600_000) * 600_000;
+
+  for (let slot = 0; slot < 5; slot += 1) {
+    const result = await database
+      .prepare(
+        "INSERT OR IGNORE INTO inquiry_rate_limit_slots (ip_address, window_start, slot) VALUES (?1, ?2, ?3)",
+      )
+      .bind(ipAddress, windowStart, slot)
+      .run();
+
+    if ((result.meta.changes ?? 0) > 0) return true;
+  }
+
+  return false;
+}
+
 async function sendEmail(
   env: Env,
   payload: {
@@ -158,6 +175,9 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
 
   const turnstileValid = await verifyTurnstile(env, turnstileToken, ipAddress || undefined);
   if (!turnstileValid) return json({ ok: false, error: copy.turnstileFailed }, { status: 400 });
+
+  const rateLimitSlotClaimed = await claimRateLimitSlot(env.d_media_inquiries, ipAddress);
+  if (!rateLimitSlotClaimed) return json({ ok: false, error: copy.rateLimited }, { status: 429 });
 
   const record = {
     id: crypto.randomUUID(),

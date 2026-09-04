@@ -1,11 +1,19 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import { getBlogPageCopy } from "@/lib/blog";
+import {
+  getBlogCategories,
+  getBlogCategoryLabel,
+  getBlogPageCopy,
+  getPublishedBlogPosts,
+} from "@/lib/blog";
 import { type Locale } from "@/lib/i18n";
+import { localizeHref } from "@/lib/i18n";
 import { getBreadcrumbSchema } from "@/lib/seo";
 
 const locale: Locale = "en";
 const copy = getBlogPageCopy(locale);
+const posts = getPublishedBlogPosts(locale);
+const categories = getBlogCategories(locale);
 ---
 
 <Layout
@@ -24,11 +32,46 @@ const copy = getBlogPageCopy(locale);
         <p class="page-text">{copy.intro}</p>
       </div>
 
-      <article class="card services-cta-card">
-        <div class="services-cta-copy">
-          <h2>This section is currently being updated.</h2>
-        </div>
-      </article>
+      <nav class="blog-filters" aria-label={copy.filtersLabel} data-blog-filters>
+        <a class="button button-secondary is-active" href="/en/blog/" data-blog-filter="all">{copy.allLabel}</a>
+        {categories.map((category) => (
+          <a class="button button-secondary" href={`/en/blog/?category=${category.key}`} data-blog-filter={category.key}>{category.label}</a>
+        ))}
+      </nav>
+
+      <div class="project-grid" data-blog-grid>
+        {posts.map((post) => (
+          <article class={`card service-category-card${post.featured ? " is-featured" : ""}`} data-blog-card data-category={post.category}>
+            <div class="blog-meta-row">
+              <p class="project-meta">{getBlogCategoryLabel(locale, post.category)}</p>
+            </div>
+            <h2>{post.title}</h2>
+            <p>{post.excerpt}</p>
+            <div class="project-card-footer">
+              <a class="inline-link" href={localizeHref(locale, `/blog/${post.slug}`)}>{copy.articleCta}</a>
+            </div>
+          </article>
+        ))}
+      </div>
     </section>
   </main>
+
+  <script is:inline>
+    (() => {
+      const cards = [...document.querySelectorAll("[data-blog-card]")];
+      const filters = [...document.querySelectorAll("[data-blog-filter]")];
+      const applyFilter = (category) => {
+        cards.forEach((card) => { card.hidden = category !== "all" && card.dataset.category !== category; });
+        filters.forEach((filter) => filter.classList.toggle("is-active", filter.dataset.blogFilter === category));
+      };
+      const category = new URLSearchParams(location.search).get("category") || "all";
+      applyFilter(filters.some((filter) => filter.dataset.blogFilter === category) ? category : "all");
+      filters.forEach((filter) => filter.addEventListener("click", (event) => {
+        event.preventDefault();
+        const next = filter.dataset.blogFilter || "all";
+        history.replaceState(null, "", next === "all" ? "/en/blog/" : `/en/blog/?category=${next}`);
+        applyFilter(next);
+      }));
+    })();
+  </script>
 </Layout>

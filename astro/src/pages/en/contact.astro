@@ -18,6 +18,10 @@ const siteContent = getSiteContent(locale);
         <h1>{copy.title}</h1>
         <p class="page-text">{copy.text}</p>
       </div>
+      <div class="section-actions contact-hero-actions">
+        <a class="button button-primary" href="#inquiry-form">{copy.primaryCta}</a>
+        <p class="contact-microcopy">You do not need a finished brief. A short context about the goal, available materials, and timing is enough to start.</p>
+      </div>
       <div class="showcase-grid contact-start-grid">
         <article class="card contact-start-card">
           <h2>{copy.needsTitle}</h2>
@@ -28,13 +32,13 @@ const siteContent = getSiteContent(locale);
           <p>{copy.responseText}</p>
         </article>
       </div>
-      <div class="split-content page-grid stacked-cards">
+      <div class="split-content page-grid stacked-cards contact-detail-wrap">
         <div class="card contact-detail-card content-card-wide">
           <h2>{copy.mainContact}</h2>
-          <div class="contact-stack">
+          <div class="contact-email-row">
             <a href={`mailto:${contactEmail}`}>{contactEmail}</a>
           </div>
-          <div class="contact-stack contact-channel-list">
+          <div class="contact-channel-list" aria-label="Social media">
             {siteContent.socials.map((social) => (
               <a href={social.href} target="_blank" rel="noreferrer" class="contact-channel">
                 <span>{social.label}</span>

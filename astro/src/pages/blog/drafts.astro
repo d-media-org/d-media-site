@@ -61,7 +61,6 @@ const drafts = isDev ? getDraftBlogPosts(locale) : [];
             <article class="card service-category-card">
               <div class="blog-meta-row">
                 <p class="project-meta">{getBlogCategoryLabel(locale, post.category)}</p>
-                <p class="project-meta">{post.readingTime} {copy.readTimeLabel}</p>
               </div>
               <h2>{post.title}</h2>
               <p>{post.excerpt}</p>

@@ -145,6 +145,31 @@ export const operationalPolicies: OperationalPolicy[] = [
     ],
   },
   {
+    slug: "external-accounts-budgets",
+    title: "Политика за външни акаунти, достъпи и бюджети",
+    shortTitle: "Външни акаунти и бюджети",
+    description: "Работен ред за външни акаунти, достъпи, рекламни бюджети, платени платформи и услуги на трети страни.",
+    intro: "Политиката урежда как се предоставят достъпи, управляват външни акаунти и третират разходи към платформи извън d . media.",
+    sections: [
+      {
+        title: "Собственост на акаунтите",
+        paragraphs: ["Когато е възможно, рекламни, аналитични, социални, домейн, хостинг, CMS, payment, email и други външни акаунти се създават и поддържат на името на клиента. Клиентът отговаря за собствеността, платежните данни, достъпите и спазването на правилата на съответната платформа."],
+      },
+      {
+        title: "Предоставяне и ограничаване на достъп",
+        paragraphs: ["d . media работи само с достъпите, необходими за договорения обхват. Клиентът трябва да предостави навременен, валиден и достатъчен достъп. Забавяне, липса на права или промяна на достъпите може да промени срок, обхват или цена."],
+      },
+      {
+        title: "Бюджети и външни разходи",
+        paragraphs: ["Рекламни бюджети, абонаменти, лицензи, платени плъгини, шрифтове, изображения, SaaS услуги, API такси, домейни, хостинг и други разходи към трети страни не са включени в цената на d . media, освен ако не е изрично уговорено друго."],
+      },
+      {
+        title: "Ограничения на платформите",
+        paragraphs: ["d . media не контролира одобрения, блокирания, промени в алгоритми, цени, правила, функционалности, модерация, технически прекъсвания или ограничения на външни платформи. При такова събитие се преценява необходимата корекция на работния план."],
+      },
+    ],
+  },
+  {
     slug: "support",
     title: "Политика за техническа поддръжка",
     shortTitle: "Техническа поддръжка",
@@ -209,10 +234,10 @@ export const operationalPolicies: OperationalPolicy[] = [
   },
   {
     slug: "project-delivery",
-    title: "Приемо-предавателен протокол",
-    shortTitle: "Приемо-предавателен протокол",
+    title: "Предаване и приемане на проект",
+    shortTitle: "Предаване и приемане",
     description: "Работен ред за предаване, проверка и приемане на финални материали и проекти от d . media.",
-    intro: "Протоколът описва информацията, която съпътства предаването на завършен проект, и начина за потвърждаване на приемането.",
+    intro: "Политиката описва информацията, която съпътства предаването на завършен проект, и начина за потвърждаване на приемането.",
     sections: [
       {
         title: "Данни за проекта",
@@ -305,6 +330,19 @@ export const operationalPoliciesEn: OperationalPolicy[] = [
       { title: "Ownership and access", paragraphs: ["Where possible, the domain and hosting account are registered in the client’s name and with the client’s details. The client is responsible for access, renewal, and current payment information."] },
       { title: "Configuration and management", paragraphs: ["d . media may assist with selection, configuration, DNS settings, migration, and service connections within the agreed technical scope."] },
       { title: "Third-party providers", paragraphs: ["d . media does not control outages, changes in terms, prices, restrictions, or loss of service caused by external providers. Domain, hosting, and paid integration costs are excluded unless stated otherwise."] },
+    ],
+  },
+  {
+    slug: "external-accounts-budgets",
+    title: "External Accounts, Access, and Budgets Policy",
+    shortTitle: "External accounts and budgets",
+    description: "Workflow for external accounts, access, advertising budgets, paid platforms, and third-party services.",
+    intro: "This policy governs how access is provided, external accounts are handled, and platform costs outside d . media are treated.",
+    sections: [
+      { title: "Account ownership", paragraphs: ["Where possible, advertising, analytics, social, domain, hosting, CMS, payment, email, and other external accounts are created and maintained in the client’s name. The client is responsible for ownership, payment details, access, and compliance with the relevant platform rules."] },
+      { title: "Providing and limiting access", paragraphs: ["d . media works only with the access required for the agreed scope. The client must provide timely, valid, and sufficient access. Delay, missing permissions, or access changes may affect timing, scope, or price."] },
+      { title: "Budgets and external costs", paragraphs: ["Advertising budgets, subscriptions, licences, paid plugins, fonts, images, SaaS services, API fees, domains, hosting, and other third-party costs are not included in the d . media price unless expressly agreed otherwise."] },
+      { title: "Platform limitations", paragraphs: ["d . media does not control approvals, blocks, algorithm changes, pricing, rules, features, moderation, technical outages, or restrictions of external platforms. When such an event occurs, the required adjustment to the work plan is assessed."] },
     ],
   },
   {

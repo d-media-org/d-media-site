@@ -33,6 +33,6 @@
     "@types/node": "^20.19.41",
     "eslint": "^9",
     "playwright": "^1.60.0",
-    "sharp": "^0.34.5"
+    "sharp": "^0.35.3"
   }
 }

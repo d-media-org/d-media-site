@@ -1,0 +1,386 @@
+---
+import BrandAsset from "@/components/BrandAsset.astro";
+import BrandText from "@/components/BrandText.astro";
+import PreviewLayout from "@/layouts/PreviewLayout.astro";
+import { getFeaturedProjects } from "@/lib/featured-projects-static";
+import { localizeHref, type Locale } from "@/lib/i18n";
+import { getPageCopy } from "@/lib/page-copy";
+import { getSiteContent } from "@/lib/site-content";
+
+type Props = {
+  locale: Locale;
+  preview?: boolean;
+};
+
+const { locale, preview = false } = Astro.props;
+const isBg = locale === "bg";
+const copy = getPageCopy(locale).home;
+const content = getSiteContent(locale);
+const selectedProjects = getFeaturedProjects(locale);
+const systemProject = selectedProjects.find((project) => project.slug === "d-media") ?? selectedProjects[0];
+const serviceById = new Map(content.coreServices.map((service) => [service.id, service]));
+const additionalService = serviceById.get("additional-charges-rights");
+const featuredServices = ["brand-identity", "content", "social-media-management", "web-design-development", "technical-seo"]
+  .map((id) => serviceById.get(id))
+  .filter(Boolean);
+---
+
+<PreviewLayout
+  locale={locale}
+  title={`${copy.metaTitle} | d . media${preview ? " — master preview" : ""}`}
+  description={copy.metaDescription}
+  path="/"
+  preview={preview}
+>
+  <main class="mp-main" id="master-content">
+    <section class="mp-hero" data-header-tone="dark" aria-labelledby="mp-hero-title">
+      <div class="mp-container mp-hero-grid">
+        <div class="mp-hero-copy" data-reveal>
+          <p class="mp-hero-eyebrow">{copy.eyebrow}</p>
+          <h1 id="mp-hero-title">{copy.title}</h1>
+        </div>
+        <aside class="mp-hero-accent" aria-label={copy.brandmarkAlt} data-reveal>
+          <div class="mp-hero-mark" aria-hidden="true"><BrandAsset class="mp-brand-outline" lightSrc="/optimized-assets/brand/ONLY-brandmark.display.webp" alt="" width={472} height={512} fetchPriority="high" /></div>
+        </aside>
+        <div class="mp-hero-summary" data-reveal>
+          <p><BrandText text={copy.text} /></p>
+          <div class="mp-actions"><a class="mp-button mp-button-solid" href={localizeHref(locale, "/contact")} data-ga-event="cta_hero_click" data-ga-location="hero">{copy.primaryCta}</a><a class="mp-text-link" href="#mp-services">{copy.secondaryCta}<svg viewBox="0 0 18 18" aria-hidden="true"><path d="M9 3v11M5 10l4 4 4-4" /></svg></a></div>
+          <p class="mp-hero-note">{copy.note}</p>
+        </div>
+      </div>
+      <div class="md-hero-media"><img src="/optimized-assets/project-web/d-media/business-card-mockup.jpg" alt={isBg ? "d . media брандова визитна картичка" : "d . media brand business card"} width="1800" height="1100" fetchpriority="high" /></div>
+      <div class="mp-hero-rule" aria-hidden="true"><span></span></div>
+    </section>
+
+    <section class="mp-work-intro" id="mp-work" data-header-tone="dark" aria-labelledby="mp-work-title">
+      <div class="mp-container mp-work-intro-grid" data-reveal>
+        <p class="mp-section-index">01 / {isBg ? "работа" : "work"}</p>
+        <h2 id="mp-work-title">{isBg ? "Красивото е началото. Работещото е целта." : "Pretty is the beginning. Working is the point."}</h2>
+        <p>{isBg ? "Идентичност, съдържание и технологии в една система, създадена за реална употреба." : "Identity, content and technology in one system, built for real use."}</p>
+      </div>
+    </section>
+
+    <section class="mp-services" id="mp-services" data-header-tone="dark" aria-labelledby="mp-services-title">
+      <div class="mp-container">
+        <div class="mp-premium-services-grid" data-reveal>
+          <h2 id="mp-services-title">{isBg ? "Услуги" : "Services"}</h2>
+          <div>
+            <ul class="mp-premium-services-list">
+              {featuredServices.map((service) => service && (
+                <li>
+                  <a href={localizeHref(locale, service.detailHref)}>
+                    <span>{service.title}</span>
+                    <svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 9h10M10 5l4 4-4 4" /></svg>
+                  </a>
+                  <p>{service.result}</p>
+                </li>
+              ))}
+            </ul>
+            <a class="mp-text-link" href={localizeHref(locale, "/services")}>{isBg ? "всички услуги" : "all services"}<svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 9h10M10 5l4 4-4 4" /></svg></a>
+          </div>
+        </div>
+
+        {additionalService ? (
+          <div class="mp-service-utility" data-reveal>
+            <p>{additionalService.text}</p>
+            <a class="mp-text-link" href={localizeHref(locale, additionalService.detailHref)}>{additionalService.title}<svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 9h10M10 5l4 4-4 4" /></svg></a>
+          </div>
+        ) : null}
+      </div>
+    </section>
+
+    <section class="mp-system-statement" data-header-tone="surface" aria-labelledby="mp-system-title">
+      <div class="mp-container" data-reveal>
+        <p class="mp-section-index">02 / {isBg ? "система" : "system"}</p>
+        <h2 id="mp-system-title">{isBg ? "Едно студио. Една система." : "One studio. One system."}</h2>
+      </div>
+    </section>
+
+    <section class="mp-benefits" data-header-tone="surface" aria-labelledby="mp-benefits-title">
+      <div class="mp-container">
+        <header class="mp-section-heading" data-reveal>
+          <h2 id="mp-benefits-title">{isBg ? "Какво получаваш" : "What you get"}</h2>
+          <p>{isBg ? "Подреждаме не само отделен материал, а ясна основа за реална употреба." : "We organise more than a single deliverable: we build a clear foundation for real use."}</p>
+        </header>
+        <div class="mp-benefits-grid">
+          {(isBg ? [
+            ["Ясна посока", "Решенията започват от цел, аудитория и реален контекст."],
+            ["Последователна система", "Брандът, съдържанието и интерфейсът работят като едно цяло."],
+            ["Готово за употреба", "Получаваш материали и структура, които могат да се използват след проекта."],
+            ["Подредена следваща стъпка", "Знаеш какво следва, какво е включено и къде се развива системата."]
+          ] : [
+            ["Clear direction", "Every decision starts from a goal, audience, and real context."],
+            ["Consistent system", "Brand, content, and interface work as one coherent whole."],
+            ["Ready for use", "You receive materials and structure that can be used after the project."],
+            ["A clear next step", "You know what follows, what is included, and how the system can grow."]
+          ]).map(([title, text], index) => (
+            <article class="mp-benefit" data-reveal>
+              <div class="mp-benefit-topline">
+                <span class="mp-benefit-icon" aria-hidden="true">
+                  {index === 0 ? <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" /><path d="m12 8 2 4-2 2-2-2 2-4Z" /><path d="M12 4v2M20 12h-2M12 20v-2M4 12h2" /></svg> : null}
+                  {index === 1 ? <svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2" /><path d="M8 9h8M8 12h8M8 15h5" /></svg> : null}
+                  {index === 2 ? <svg viewBox="0 0 24 24"><path d="M7 12.5 10.5 16 17 8.5" /><circle cx="12" cy="12" r="8" /></svg> : null}
+                  {index === 3 ? <svg viewBox="0 0 24 24"><path d="M5 12h13M13 7l5 5-5 5" /><path d="M5 7v10" /></svg> : null}
+                </span>
+              </div>
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="mp-pricing" data-header-tone="surface" aria-labelledby="mp-pricing-title">
+      <div class="mp-container">
+        <header class="mp-section-heading mp-section-heading-split" data-reveal>
+          <h2 id="mp-pricing-title">{copy.pricingTitle}</h2>
+          <div>
+            <p>{copy.pricingText}</p>
+            <a class="mp-text-link" href={localizeHref(locale, "/pricing")}>{isBg ? "всички начални рамки" : "all starting ranges"}<svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 9h10M10 5l4 4-4 4" /></svg></a>
+          </div>
+        </header>
+        <div class="mp-pricing-list" data-reveal>
+          {copy.pricingItems.map((item) => (
+            <article>
+              <h3>{item.title}</h3>
+              <p>{item.price}</p>
+              <span>{item.value}</span>
+            </article>
+          ))}
+        </div>
+        <p class="mp-pricing-note">{copy.pricingRangeCue} {isBg ? "Всички стойности са начални и се потвърждават след преглед на задачата." : "All values are starting ranges and are confirmed after reviewing the brief."}</p>
+      </div>
+    </section>
+
+    <section class="mp-process" data-header-tone="dark" aria-labelledby="mp-process-title">
+      <div class="mp-container">
+        <header class="mp-process-heading" data-reveal>
+          <h2 id="mp-process-title">{copy.processTitle}</h2>
+          <div>
+            <a class="mp-text-link mp-text-link-inverse" href={localizeHref(locale, "/contact")}>{copy.processCta}<svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 9h10M10 5l4 4-4 4" /></svg></a>
+          </div>
+        </header>
+
+        <ol class="mp-process-list" data-reveal>
+          {content.coreProcess.map((step) => (
+            <li>
+              <h3>{step.title}</h3>
+              <p>{step.text}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    {selectedProjects.length ? (
+      <section class="mp-project" data-header-tone="surface" aria-labelledby="mp-project-title">
+        <div class="mp-container">
+          <header class="mp-section-heading mp-project-heading" data-reveal>
+            <h2 id="mp-project-title">{copy.projectsTitle}</h2>
+            <p>{copy.projectsText}</p>
+          </header>
+
+          <div
+            class="mp-project-carousel"
+            data-project-carousel
+            aria-label={isBg ? "Подбрани проекти" : "Selected projects"}
+          >
+            <div class="mp-random-projects" data-project-track tabindex="0">
+              {selectedProjects.map((project) => (
+                <a
+                  class="mp-project-feature"
+                  href={localizeHref(locale, `/projects/${project.slug}`)}
+                  data-project-card
+                  data-reveal
+                >
+                  <figure>
+                    <img
+                      src={project.cover}
+                      alt={`${project.title} — ${isBg ? "избран проект" : "selected project"}`}
+                      width="1600"
+                      height="1000"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </figure>
+                  <div class="mp-project-copy">
+                    <h3>{project.title}</h3>
+                    <p>{project.summary}</p>
+                    <span class="mp-text-link">{isBg ? "виж проекта" : "view project"}<svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 9h10M10 5l4 4-4 4" /></svg></span>
+                  </div>
+                </a>
+              ))}
+            </div>
+
+            <div class="mp-project-carousel-controls" aria-label={isBg ? "Навигация на подбраните проекти" : "Selected projects navigation"}>
+              <button type="button" data-project-prev aria-label={isBg ? "Предишни проекти" : "Previous projects"}>
+                <svg viewBox="0 0 18 18" aria-hidden="true"><path d="M11 4 6 9l5 5M7 9h7" /></svg>
+              </button>
+              <button type="button" data-project-next aria-label={isBg ? "Следващи проекти" : "Next projects"}>
+                <svg viewBox="0 0 18 18" aria-hidden="true"><path d="M7 4l5 5-5 5M4 9h7" /></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="mp-project-footer" data-reveal>
+            <a class="mp-text-link" href={localizeHref(locale, "/projects")}>{copy.projectsCta}<svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 9h10M10 5l4 4-4 4" /></svg></a>
+          </div>
+        </div>
+      </section>
+    ) : null}
+
+    <section class="mp-testimonials" data-header-tone="surface" aria-labelledby="mp-testimonials-title">
+      <div class="mp-container">
+        <header class="mp-section-heading" data-reveal>
+          <h2 id="mp-testimonials-title">{content.testimonials.title}</h2>
+          <p>{content.testimonials.text}</p>
+        </header>
+        <div class="mp-testimonials-grid">
+          {content.testimonials.items.map((item) => (
+            <blockquote data-reveal>
+              <p>“{item.quote}”</p>
+              <footer>{item.name}<span>{item.source}</span></footer>
+            </blockquote>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="mp-proof-bridge" data-header-tone="surface" aria-labelledby="mp-proof-title">
+      <div class="mp-container mp-proof-bridge-grid" data-reveal>
+        <div>
+          <h2 id="mp-proof-title">{isBg ? "Виж как това изглежда в реален проект." : "See how this works in a real project."}</h2>
+          <p>{isBg ? "Разгледай казусите, после избери най-лесния начин да продължиш — с кратък контекст или с оценка на проекта." : "Explore the case studies, then choose the easiest way to continue — with a short brief or the project estimator."}</p>
+        </div>
+        <div class="mp-actions">
+          <a class="mp-button mp-button-solid" href={localizeHref(locale, "/case-studies")} data-ga-event="case_studies_click" data-ga-location="proof_bridge">{isBg ? "Разгледай казусите" : "Explore case studies"}</a>
+          <a class="mp-text-link" href={localizeHref(locale, "/estimator")} data-ga-event="estimator_start_click" data-ga-location="proof_bridge">{isBg ? "Не знаеш от какво имаш нужда?" : "Not sure what you need?"}<svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 9h10M10 5l4-4-4 4" /></svg></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="mp-trust-strip" aria-label={isBg ? "Технически и работни стандарти" : "Technical and working standards"}>
+      <div class="mp-container mp-trust-items">
+        {(isBg ? ["BG / EN", "SEO и GEO основа", "Astro + Cloudflare", "Готово за реална употреба"] : ["BG / EN", "SEO and GEO foundation", "Astro + Cloudflare", "Ready for real use"]).map((item) => <span>{item}</span>)}
+      </div>
+    </section>
+
+    <section class="mp-final-cta" data-header-tone="dark" aria-labelledby="mp-contact-title">
+      <div class="mp-container mp-final-grid" data-reveal>
+        <div>
+          <h2 id="mp-contact-title">{copy.contactTitle}</h2>
+          <p>{copy.contactText}</p>
+        </div>
+        <div class="mp-actions mp-actions-inverse">
+          <a class="mp-button mp-button-light" href={localizeHref(locale, "/contact")} data-ga-event="cta_final_click" data-ga-location="final_cta">{isBg ? "Изпрати кратък контекст" : "Send a short brief"}</a>
+          <a class="mp-text-link mp-text-link-inverse" href={localizeHref(locale, "/estimator")} data-ga-event="estimator_start_click" data-ga-location="final_cta">{isBg ? "Оцени проекта първо" : "Start with the estimator"}<svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 9h10M10 5l4 4-4 4" /></svg></a>
+        </div>
+      </div>
+    </section>
+  </main>
+</PreviewLayout>
+
+<script>
+  const projectCarousels = document.querySelectorAll("[data-project-carousel]");
+
+  projectCarousels.forEach((carousel) => {
+    const track = carousel.querySelector("[data-project-track]");
+    const previous = carousel.querySelector("[data-project-prev]");
+    const next = carousel.querySelector("[data-project-next]");
+
+    if (!(track instanceof HTMLElement) || !(previous instanceof HTMLButtonElement) || !(next instanceof HTMLButtonElement)) {
+      return;
+    }
+
+    const cards = Array.from(track.querySelectorAll("[data-project-card]"));
+    const shuffledCards = [...cards];
+
+    for (let index = shuffledCards.length - 1; index > 0; index -= 1) {
+      const randomIndex = Math.floor(Math.random() * (index + 1));
+      const current = shuffledCards[index];
+      const random = shuffledCards[randomIndex];
+
+      if (current && random) {
+        shuffledCards[index] = random;
+        shuffledCards[randomIndex] = current;
+      }
+    }
+
+    const originalOrder = cards.map((card) => card.getAttribute("href")).join("|");
+    const shuffledOrder = shuffledCards.map((card) => card.getAttribute("href")).join("|");
+
+    if (shuffledCards.length > 1 && originalOrder === shuffledOrder) {
+      const firstCard = shuffledCards.shift();
+
+      if (firstCard) {
+        shuffledCards.push(firstCard);
+      }
+    }
+
+    const visibleCards = shuffledCards.slice(0, Math.min(5, shuffledCards.length));
+    track.replaceChildren(...visibleCards);
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let autoScrollTimer = 0;
+    let activeIndex = 0;
+
+    const setActiveIndex = (index) => {
+      if (!visibleCards.length) return;
+      activeIndex = (index + visibleCards.length) % visibleCards.length;
+      visibleCards.forEach((card, cardIndex) => {
+        const isActive = cardIndex === activeIndex;
+        card.classList.toggle("is-active", isActive);
+        card.setAttribute("aria-hidden", String(!isActive));
+        if (card instanceof HTMLElement) {
+          card.tabIndex = isActive ? 0 : -1;
+        }
+      });
+    };
+
+    const scrollNext = () => {
+      setActiveIndex(activeIndex + 1);
+    };
+
+    const updateControls = () => {
+      const hasMultipleCards = visibleCards.length > 1;
+      previous.disabled = !hasMultipleCards;
+      next.disabled = !hasMultipleCards;
+    };
+
+    const stopAutoScroll = () => {
+      if (autoScrollTimer) {
+        window.clearInterval(autoScrollTimer);
+        autoScrollTimer = 0;
+      }
+    };
+
+    const startAutoScroll = () => {
+      stopAutoScroll();
+
+      if (reduceMotion || visibleCards.length < 2) {
+        return;
+      }
+
+      autoScrollTimer = window.setInterval(scrollNext, 3000);
+    };
+
+    previous.addEventListener("click", () => {
+      setActiveIndex(activeIndex - 1);
+      startAutoScroll();
+    });
+
+    next.addEventListener("click", () => {
+      scrollNext();
+      startAutoScroll();
+    });
+
+    carousel.addEventListener("pointerenter", stopAutoScroll);
+    carousel.addEventListener("pointerleave", startAutoScroll);
+    carousel.addEventListener("focusin", stopAutoScroll);
+    carousel.addEventListener("focusout", startAutoScroll);
+    window.addEventListener("resize", updateControls, { passive: true });
+    setActiveIndex(0);
+    updateControls();
+    startAutoScroll();
+  });
+</script>

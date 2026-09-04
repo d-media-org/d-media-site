@@ -810,13 +810,13 @@ const draftCaseStudies: readonly BlogPost[] = [
     category: "case-studies",
     title: "Пътят до d . media",
     excerpt: "Казус за преминаването към по-събрана студийна система за идентичност, съдържание, уеб и реклама.",
-    intro: "Този казус проследява развитието на бранда през последователни редакции на посока, език и визуална система. Остава в draft статус, защото историческият контекст трябва да бъде подреден внимателно и без архивен шум.",
+    intro: "Този казус проследява развитието на бранда през последователни редакции на посока, език и визуална система. Историята е подредена около решенията, които обясняват сегашната система, а не около всеки архивен вариант.",
     metaDescription: "Казус за развитието на d . media и преминаването към по-системно студийно позициониране.",
     tags: ["case study", "brand development", "d . media"],
-    draft: true,
+    draft: false,
     relatedPosts: ["zashto-sazdadohme-d-media"],
     ctaTitle: "Историята на бранда трябва да подкрепя настоящата му яснота.",
-    ctaText: "Затова тази версия остава в draft статус, докато бъде редактирана така, че да носи контекст без архивен шум.",
+    ctaText: "Тук са оставени решенията и контекстът, които обясняват настоящото позициониране без архивен шум.",
   }),
   createScaffoldPost({
     slug: "izgrazhdane-na-mnogoezichen-sait-s-astro",
@@ -839,10 +839,10 @@ const draftCaseStudies: readonly BlogPost[] = [
     intro: "Този казус разглежда минимализма като функционално решение: по-малко елементи, повече контрол върху пропорцията, типографията, ритъма и приложението.",
     metaDescription: "Казус за минималистичната визуална идентичност на d . media и ролята на типографията, въздуха и системата.",
     tags: ["казус", "минимализъм", "визуална идентичност"],
-    draft: true,
+    draft: false,
     relatedPosts: ["kak-izgradihme-vizualnata-identichnost-na-d-media"],
     ctaTitle: "Минимализмът работи само когато е подкрепен от система.",
-    ctaText: "Черновата версия пази логиката на решението, докато публичният текст бъде финално синхронизиран с brandbook контекста.",
+    ctaText: "Текстът свързва визуалния избор с конкретните правила за приложение и проверка.",
   }),
   createScaffoldPost({
     slug: "ot-ideya-do-zavarshen-brand-realen-proces",
@@ -899,6 +899,43 @@ const draftCaseStudies: readonly BlogPost[] = [
 ] as const;
 
 const postSectionOverrides: Record<string, BlogSection[]> = {
+  "zashto-sazdadohme-d-media": [
+    {
+      title: "Наблюдението, от което тръгнахме",
+      paragraphs: [
+        "d . media започна от конкретно наблюдение: бизнесите често имат отделни добри материали, но нямат връзка между тях. Логото говори едно, сайтът обяснява друго, социалните публикации тръгват в трета посока, а рекламата трябва да компенсира липсата на общ контекст.",
+        "Това не е проблем на един канал. Това е проблем на решенията, които са вземани поотделно и никога не са били подредени като една система.",
+      ],
+    },
+    {
+      title: "Какво искахме да променим",
+      paragraphs: [
+        "Не искахме да създадем поредното място за отделни изпълнения. Искахме работа, при която идентичността определя езика, съдържанието следва позицията, сайтът обяснява услугите, а визуалните и рекламните материали имат ясна роля.",
+        "Тази връзка е причината d . media да събира бранд идентичност, съдържание, социални медии, дизайн, уеб и реклама в един разговор, без да твърди, че всеки проект има нужда от всичко.",
+      ],
+    },
+    {
+      title: "Как превръщаме идеята в работа",
+      paragraphs: [
+        "Започваме от контекста на проекта: какво вече съществува, къде се губи яснота и какво трябва да стане по-лесно за потребителя или екипа. След това подреждаме приоритетите и избираме само слоевете, които решават реалния проблем.",
+        "Това пази процеса от автоматично производство. Понякога правилното решение е идентичност, понякога е по-добра service page, понякога е съдържателен ред или корекция в сайта.",
+      ],
+    },
+    {
+      title: "Как изглежда това в собствения ни бранд",
+      paragraphs: [
+        "Собственият сайт на d . media е мястото, в което тази логика се проверява ежедневно. Името, типографията, услугите, проектите, статиите и контактният път трябва да водят към една и съща представа за студиото.",
+        "Това не означава всички страници да звучат еднакво. Означава всяка да има различна функция, без да противоречи на останалите.",
+      ],
+    },
+    {
+      title: "Какво проверяваме преди да наречем системата готова",
+      paragraphs: [
+        "Проверяваме дали човек разбира какво правим, дали може да намери релевантната услуга, дали примерите подкрепят твърдението и дали следващата стъпка е ясна. Проверяваме и дали визуалната система остава стабилна в реални формати, а не само в една презентация.",
+        "Това е смисълът на d . media: не обем от услуги, а подредена връзка между решенията, които стигат до публичната среда.",
+      ],
+    },
+  ],
   "zashto-prekaleno-shodniyat-domain-e-problem": [
     {
       title: "Домейнът е част от бранд системата",
@@ -1513,7 +1550,7 @@ const postSectionOverrides: Record<string, BlogSection[]> = {
       title: "Какво прави казуса полезен",
       paragraphs: [
         "Полезността на този казус не е в архивната подробност, а в това да покаже как един бранд става по-силен, когато услугите, езикът и визуалната среда се подредят около една ясна логика.",
-        "Казусът остава в draft статус, докато тази линия бъде редактирана до финална публична версия без странични детайли, които не добавят стойност към текущото позициониране.",
+        "Историята е полезна, когато показва причината зад сегашната система, а не превръща публикацията в хронология на всеки междинен вариант. Затова тук остават само промените, които обясняват посоката и реалното приложение.",
       ],
     },
     {
@@ -1584,9 +1621,9 @@ const postSectionOverrides: Record<string, BlogSection[]> = {
       ],
     },
     {
-      title: "Защо остава draft",
+      title: "Как проверяваме посоката",
       paragraphs: [
-        "Казусът остава draft, докато бъде синхронизиран с пълния brandbook контекст и с правилата за употреба на логото, логотипа и Panton типографията.",
+        "Проверяваме дали изборът за редукция се вижда в реалните приложения: сайта, публикациите, документите и презентационните материали. Ако системата работи само в една демонстрация, тя не е завършена.",
       ],
     },
     {
@@ -1624,6 +1661,557 @@ const postSectionOverrides: Record<string, BlogSection[]> = {
     { title: "Какво прави сайта по-полезен за AI search", paragraphs: ["По-полезен го правят ясните теми, липсата на общи фрази и способността системата да извлече точен контекст без догадки."] },
     { title: "Защо това има стойност", paragraphs: ["GEO-ready подходът повишава и човешката четимост, защото изисква повече ред и по-малко шум. Това е причината да го разглеждаме като част от добрия сайт, а не като отделна техническа добавка."] },
     { title: "Какво следва оттук", paragraphs: ["Следващата стъпка не е просто още метаданни, а поддържане на същия стандарт във всички нови страници, статии и слоеве с услуги. GEO-ready сайтът е процес на последователност, не еднократна настройка.", "Това прави казуса полезен и като работна рамка, не само като концепция."] },
+  ],
+};
+
+type BlogFaq = { question: string; answer: string };
+
+const dMediaFaqOverrides: Record<string, Partial<Record<Locale, BlogFaq[]>>> = {
+  "zashto-sazdadohme-d-media": {
+    bg: [
+      {
+        question: "Какъв проблем стои зад създаването на d . media?",
+        answer:
+          "Началният проблем е фрагментираното дигитално присъствие: отделните материали могат да са добри, но да не водят към една и съща представа за бизнеса.",
+      },
+      {
+        question: "Защо d . media не е просто списък от услуги?",
+        answer:
+          "Защото смисълът е във връзката между услугите. Идентичността задава посоката, съдържанието я обяснява, сайтът я подрежда, а дизайнът и рекламата я пренасят в различни ситуации.",
+      },
+      {
+        question: "Как се определя от какво има нужда един проект?",
+        answer:
+          "Първо се гледат текущият контекст и мястото, където се губи яснота. Едва след това се избира дали е нужен бранд, съдържание, сайт, дизайн, социален слой или реклама.",
+      },
+      {
+        question: "Как собственият сайт проверява тази идея?",
+        answer:
+          "Чрез съгласуването на име, типография, услуги, проекти, статии и контактна пътека. Те не трябва да изглеждат еднакво, но трябва да водят към последователно разбиране на студиото.",
+      },
+      {
+        question: "Какво означава „готова система“ за d . media?",
+        answer:
+          "Означава посетителят да разбира какво прави студиото, да намира релевантна услуга, да вижда доказателство и да знае каква е следващата стъпка без допълнително устно обяснение.",
+      },
+    ],
+  },
+  "kak-izgradihme-vizualnata-identichnost-na-d-media": {
+    bg: [
+      {
+        question: "От какъв практически критерий започна визуалната идентичност?",
+        answer:
+          "От приложението: знакът, логотипът и типографската логика трябва да работят в сайт, документи, социални формати и презентационни материали, а не само в една композиция.",
+      },
+      {
+        question: "Защо системата е минималистична?",
+        answer:
+          "За да намали декоративния шум и да остави структурата, смисъла и последователността да носят разпознаваемостта.",
+      },
+      {
+        question: "Кои са основните части на идентичността?",
+        answer:
+          "Знак, логотип, типографска логика, черно-бяла основа и правила за приложение. Правилата са важни, защото превръщат отделните файлове в повторяема система.",
+      },
+      {
+        question: "Как разбираме дали идентичността работи извън презентация?",
+        answer:
+          "Проверяваме дали различни материали остават част от една среда, без да бъдат механично еднакви. Ако всяко ново приложение изисква импровизация, системата не е достатъчно ясна.",
+      },
+      {
+        question: "Каква е реалната стойност за d . media?",
+        answer:
+          "Идентичността намалява хаоса в следващите материали и прави студиото разпознаваемо в повече от една точка на контакт.",
+      },
+    ],
+  },
+  "kak-postignahme-100-100-v-google-pagespeed-insights": {
+    bg: [
+      {
+        question: "Какво стои зад резултата 100/100?",
+        answer:
+          "Комбинация от статично генериране, контрол върху ресурсите, ограничен runtime и внимателно подбран front-end слой. Резултатът не е добавен като финална настройка.",
+      },
+      {
+        question: "Кои ресурси изискваха най-много дисциплина?",
+        answer:
+          "Изображенията, шрифтовете, CSS и client-side JavaScript, защото всеки от тях влияе върху rendering path-а и върху това кога съдържанието става използваемо.",
+      },
+      {
+        question: "Какво променя средата за публикуване?",
+        answer:
+          "Подходящата среда прави поведението по-предвидимо и намалява поддръжката, но не компенсира лоша архитектура или тежки ресурси.",
+      },
+      {
+        question: "Защо резултатът не е достатъчен сам по себе си?",
+        answer:
+          "Защото лабораторната оценка не описва цялото преживяване. Истинската стойност е сайтът да остане бърз, стабилен и разбираем при реална употреба.",
+      },
+      {
+        question: "Кога този казус би бил подвеждащ?",
+        answer:
+          "Ако се представи като универсална рецепта или гаранция. Той показва конкретна архитектурна дисциплина, а не обещава същата оценка за всеки сайт.",
+      },
+    ],
+  },
+  "kak-dostignahme-100-100-100-100-na-d-media-org": {
+    bg: [
+      {
+        question: "Какъв е провереният резултат за d-media.org?",
+        answer:
+          "Публично потвърденият резултат е 100/100/100/100 за desktop и 98/100/100/100 за mobile. Не добавяме отделни LCP, CLS или INP стойности без актуална проверка.",
+      },
+      {
+        question: "Кое беше основното предизвикателство?",
+        answer:
+          "Сайтът трябваше да остане визуално строг и типографски характерен, като същевременно контролира изображенията, шрифтовете, скриптовете, routing-а и SEO слоя.",
+      },
+      {
+        question: "Какво включваше архитектурният подход?",
+        answer:
+          "Статично публикуване, внимателна работа с ресурсите, ограничен runtime и последователна проверка на мобилното поведение, плюс canonical логика, sitemap и структурирани данни.",
+      },
+      {
+        question: "Какво означава резултатът за реалния потребител?",
+        answer:
+          "Че високата техническа оценка има смисъл само когато е свързана с бързо, четимо и стабилно преживяване, а не остане лабораторна снимка.",
+      },
+      {
+        question: "Какво трябва да остане устойчиво след казуса?",
+        answer:
+          "Дисциплината при публикуване и поддръжка. Без нея първоначалната оценка може да се разпадне при следващи ресурси, страници и функции.",
+      },
+    ],
+  },
+  "patyat-do-d-media": {
+    bg: [
+      {
+        question: "Какво проследява „Пътят до d . media“?",
+        answer:
+          "Развитието към по-събрана студийна система, в която идентичност, съдържание, уеб, дизайн и реклама се подреждат около една посока.",
+      },
+      {
+        question: "Коя е най-съществената промяна в посоката?",
+        answer:
+          "Преминаването от визуално натрупване към редукция: по-малко шум, по-точен език, по-стабилна типография и по-добра връзка между услугите и приложението.",
+      },
+      {
+        question: "Кои решения оформят сегашната система?",
+        answer:
+          "По-ясно позициониране, минималистична визуална среда, монохромна логика, редакционна дисциплина и подреждане на услугите около реални бизнес нужди.",
+      },
+      {
+        question: "Защо историята не е просто архив?",
+        answer:
+          "Защото има стойност само ако обяснява защо настоящата система изглежда и работи по този начин, без да претоварва читателя с несъществени етапи.",
+      },
+      {
+        question: "Какъв е изводът от развитието?",
+        answer:
+          "Че разпознаваемостта идва от последователното подреждане на език, услуги и визуална среда, а не от добавянето на още елементи.",
+      },
+    ],
+  },
+  "zashto-izbrahme-minimalistichna-identichnost": {
+    bg: [
+      {
+        question: "Какво означава минимализмът в тази идентичност?",
+        answer:
+          "Означава контрол върху пропорцията, типографията, въздуха и ритъма, така че малкото елементи да имат ясна роля.",
+      },
+      {
+        question: "Какво решава минималистичният подход?",
+        answer:
+          "Намалява визуалния шум и позволява една система да работи в сайт, публикации, документи, презентации и PDF материали без различен характер във всеки формат.",
+      },
+      {
+        question: "Какъв е рискът при минимализма?",
+        answer:
+          "Когато правилата са слаби, всяко разминаване става видимо. Затова минималистичната среда изисква повече дисциплина, а не по-малко.",
+      },
+      {
+        question: "Как разбираме дали решението е достатъчно силно?",
+        answer:
+          "Гледаме пропорцията, ритъма и качеството на приложението. Ако системата изглежда празна, тя няма достатъчно смисъл; ако изглежда шумна, е загубила причината за избора.",
+      },
+      {
+        question: "Какво доказва изборът за d . media?",
+        answer:
+          "Че премиум усещането може да бъде изградено чрез ред и ясни ограничения, без декоративно натрупване.",
+      },
+    ],
+  },
+};
+
+const dMediaSectionOverrides: Record<string, Partial<Record<Locale, BlogSection[]>>> = {
+  "zashto-sazdadohme-d-media": {
+    en: [
+      {
+        title: "The observation that started it",
+        paragraphs: [
+          "d . media needed to behave like a studio with a clear point of view, not like a list of disconnected services.",
+          "The problem was not a missing visual layer. It was the lack of one relationship between identity, content, web work, design, and advertising.",
+        ],
+      },
+      {
+        title: "What we wanted to change",
+        paragraphs: [
+          "The goal was to make the offer easier to understand and easier to apply. Every public touchpoint had to support the same studio position without repeating the same sentence.",
+          "That required a tighter vocabulary, a more deliberate visual environment, and a content structure that could explain decisions instead of only displaying outputs.",
+        ],
+      },
+      {
+        title: "How the idea becomes work",
+        paragraphs: [
+          "The idea becomes useful when it changes how a brief is framed, how a page is structured, how a visual is approved, and how a result is explained.",
+          "This is why the d . media system connects positioning with production rules. The identity is not an introduction placed above the work; it is a filter used while the work is being made.",
+        ],
+      },
+      {
+        title: "How it appears in our own brand",
+        paragraphs: [
+          "The website, editorial material, project presentation, and service language are treated as parts of one environment. They may use different formats, but they should not suggest different kinds of studio.",
+          "The test is simple: a new page or material should feel native to d . media without requiring a new visual explanation every time.",
+        ],
+      },
+      {
+        title: "When we call the system ready",
+        paragraphs: [
+          "We check whether the positioning is understandable, whether the visual rules survive different formats, and whether the content can explain the work without inflated claims.",
+          "A system is ready when it reduces decisions for the next project while keeping enough flexibility for a real brief.",
+        ],
+      },
+    ],
+  },
+  "kak-izgradihme-vizualnata-identichnost-na-d-media": {
+    en: [
+      {
+        title: "Identity as a working system",
+        paragraphs: [
+          "The d . media identity was built to organise the studio's public work, not to exist as an isolated logo presentation.",
+          "Its job is to keep the website, editorial material, social formats, presentations, and project explanations recognisable as parts of one studio.",
+        ],
+      },
+      {
+        title: "The decisions that carry the system",
+        paragraphs: [
+          "The mark, logotype, typography, spacing, and contrast each have a defined role. The system becomes recognisable through their relationship, not through a single decorative device.",
+          "This makes the identity usable in small, dense, long-form, and presentation-led formats without changing its character.",
+        ],
+      },
+      {
+        title: "Why the environment stays restrained",
+        paragraphs: [
+          "A monochrome environment keeps attention on hierarchy, language, and the quality of the work. It also makes inconsistencies visible early.",
+          "The restraint is therefore a production decision: it narrows the number of easy shortcuts and protects the studio's tone.",
+        ],
+      },
+      {
+        title: "Testing the identity outside the board",
+        paragraphs: [
+          "We test the identity on actual pages, service descriptions, project material, and editorial layouts. A system that works only in a brand presentation is not complete.",
+          "The useful question is whether the next application can be made with confidence and without improvising a new visual language.",
+        ],
+      },
+      {
+        title: "The result",
+        paragraphs: [
+          "The result is a repeatable environment: quiet enough for the work to lead, but specific enough to be recognised across different contact points.",
+          "That balance is more important than adding more visible elements to the identity.",
+        ],
+      },
+    ],
+  },
+  "kak-postignahme-100-100-v-google-pagespeed-insights": {
+    en: [
+      {
+        title: "What the score actually records",
+        paragraphs: [
+          "The 100/100 result records a combination of static generation, controlled resources, limited runtime, and a deliberately small front-end layer.",
+          "It is not a final score added after the site was designed. The architecture and the visual implementation had to support the same performance requirement.",
+        ],
+      },
+      {
+        title: "Where the discipline mattered",
+        paragraphs: [
+          "Images, fonts, CSS, and client-side JavaScript all affect the rendering path. Each one was treated as part of the page experience rather than as an isolated asset.",
+          "The practical goal was to keep the first meaningful interaction clear without stripping the site of its visual character.",
+        ],
+      },
+      {
+        title: "What the publishing environment changes",
+        paragraphs: [
+          "A predictable publishing environment reduces runtime uncertainty and makes regressions easier to detect.",
+          "It cannot repair a heavy layout or poor resource choices. It only makes a disciplined architecture easier to preserve.",
+        ],
+      },
+      {
+        title: "Why the score is not the whole case",
+        paragraphs: [
+          "A laboratory score is useful evidence, but it does not describe every real-user condition. The site still has to be readable, stable, and understandable when people use it.",
+          "The case is therefore about the decisions behind the score, not about treating one number as a universal promise.",
+        ],
+      },
+      {
+        title: "The boundary of the result",
+        paragraphs: [
+          "This is a verified result for a specific implementation. It is not a guarantee that every site with the same label or stack will reach the same score.",
+          "The transferable lesson is the discipline of measuring, reducing unnecessary work, and checking again after publishing changes.",
+        ],
+      },
+    ],
+  },
+  "kak-dostignahme-100-100-100-100-na-d-media-org": {
+    en: [
+      {
+        title: "The verified result",
+        paragraphs: [
+          "The confirmed result for d-media.org is 100/100/100/100 on desktop and 98/100/100/100 on mobile.",
+          "We keep the claim at those measured values and do not add separate LCP, CLS, or INP numbers without a current verification.",
+        ],
+      },
+      {
+        title: "The constraint behind the work",
+        paragraphs: [
+          "The site had to remain visually strict and typographically distinctive while controlling images, fonts, scripts, routing, and the SEO layer.",
+          "The challenge was to preserve the studio's character without making the page pay for unnecessary runtime or resource weight.",
+        ],
+      },
+      {
+        title: "The architectural approach",
+        paragraphs: [
+          "The approach combines static publishing, resource discipline, limited runtime, and repeated mobile checks with canonical logic, a sitemap, and structured data.",
+          "Each part supports the same goal: a page that can be read by people and interpreted by search and AI systems without hidden complexity.",
+        ],
+      },
+      {
+        title: "What the result means",
+        paragraphs: [
+          "The score matters because it accompanies a fast, readable, and stable experience. Without that connection, it would remain a laboratory snapshot.",
+          "The case is valuable as evidence of a process that keeps technical quality close to the design decision.",
+        ],
+      },
+      {
+        title: "What must remain true",
+        paragraphs: [
+          "The result depends on the publishing discipline continuing after the case is written. New resources, pages, and features must be checked against the same standard.",
+          "Performance is maintained through repeated decisions, not protected by one successful measurement.",
+        ],
+      },
+    ],
+  },
+  "patyat-do-d-media": {
+    en: [
+      {
+        title: "What the development involved",
+        paragraphs: [
+          "The path to d . media was a move toward a more coherent studio system for identity, content, web, design, and advertising.",
+          "The useful history is not a catalogue of every past version. It is the sequence of decisions that explains why the current system is more focused.",
+        ],
+      },
+      {
+        title: "The central shift",
+        paragraphs: [
+          "The central shift was from visual accumulation to reduction: less noise, more precise language, steadier typography, and a clearer relationship between services and application.",
+          "This made the brand stronger through focus rather than through adding another layer of decoration.",
+        ],
+      },
+      {
+        title: "The decisions that shaped the direction",
+        paragraphs: [
+          "The direction is carried by clearer positioning, a restrained visual environment, editorial discipline, and services organised around real business needs.",
+          "Together, these decisions make d . media read as one studio rather than as a collection of separate executions.",
+        ],
+      },
+      {
+        title: "Why the history is useful",
+        paragraphs: [
+          "The history is useful when it explains the present system without overloading the reader with intermediate versions that no longer guide a decision.",
+          "The article keeps the context that helps a reader understand the change and leaves out detail that would only create archive noise.",
+        ],
+      },
+      {
+        title: "The outcome",
+        paragraphs: [
+          "The outcome is a clearer studio core: one voice, one more stable application logic, and fewer competing directions.",
+          "That is the practical lesson for a brand that has accumulated material but still needs a stronger organising principle.",
+        ],
+      },
+    ],
+  },
+  "zashto-izbrahme-minimalistichna-identichnost": {
+    en: [
+      {
+        title: "The choice was functional",
+        paragraphs: [
+          "The minimalist identity was not selected as a style pose. It was the clearest way to give structure, typography, space, and consistency more weight than decoration.",
+          "The visual strength of d . media comes from the controlled relationship between mark, logotype, text, proportion, and empty space.",
+        ],
+      },
+      {
+        title: "What the approach solves",
+        paragraphs: [
+          "Reduction lowers visual noise and lets the system work across the website, social posts, documents, presentations, PDF material, and shared previews.",
+          "With fewer elements, every mismatch becomes visible. That makes the system harder to fake and easier to evaluate.",
+        ],
+      },
+      {
+        title: "What remains visible",
+        paragraphs: [
+          "The visible qualities are proportion, rhythm, and the quality of the decision itself. That is where minimalism shows whether the system is strong or merely empty.",
+          "For d . media, the premium impression has to come from order and control rather than visual noise.",
+        ],
+      },
+      {
+        title: "How we test the direction",
+        paragraphs: [
+          "We check whether the reduction is visible in actual applications: the website, publications, documents, and presentation material.",
+          "If the system works only in one demonstration, it is not finished. It has to guide the next application without requiring a new explanation.",
+        ],
+      },
+      {
+        title: "What the choice demonstrates",
+        paragraphs: [
+          "The choice demonstrates that a premium impression does not require visual accumulation. It can become clearer when the system uses fewer elements and stronger rules.",
+          "That is why a minimalist identity is demanding to produce, but durable when it is applied consistently.",
+        ],
+      },
+    ],
+  },
+};
+
+const dMediaEnglishFaqOverrides: Record<string, BlogFaq[]> = {
+  "zashto-sazdadohme-d-media": [
+    {
+      question: "What problem was d . media created to solve?",
+      answer: "It was created to connect identity, content, web, design, and advertising in one studio system instead of presenting them as disconnected services.",
+    },
+    {
+      question: "What changed in the positioning?",
+      answer: "The positioning became more focused: the language, visual environment, and service structure now support one clearer studio direction.",
+    },
+    {
+      question: "How is the idea used in production?",
+      answer: "It is used as a filter for briefs, pages, visuals, approvals, and explanations, so the identity affects the work instead of sitting above it.",
+    },
+    {
+      question: "How can the system be recognised in practice?",
+      answer: "A new page or material should feel native to d . media without needing a new visual explanation, while still serving its specific format.",
+    },
+    {
+      question: "When is this system ready to expand?",
+      answer: "When the positioning is understandable, the rules survive different formats, and the content can explain the work without inflated claims.",
+    },
+  ],
+  "kak-izgradihme-vizualnata-identichnost-na-d-media": [
+    {
+      question: "What does the d . media identity organise?",
+      answer: "It organises the website, editorial material, social formats, presentations, and project explanations as parts of one recognisable studio.",
+    },
+    {
+      question: "Which elements carry the identity?",
+      answer: "The mark, logotype, typography, spacing, and contrast carry it through their relationship rather than through one decorative device.",
+    },
+    {
+      question: "Why is the visual environment restrained?",
+      answer: "The monochrome and restrained environment keeps attention on hierarchy, language, and the quality of the work while making inconsistencies easier to see.",
+    },
+    {
+      question: "What proves that the identity is usable?",
+      answer: "Testing it on actual pages, service descriptions, project material, and editorial layouts proves whether it works outside a brand presentation.",
+    },
+    {
+      question: "What is the practical result?",
+      answer: "The result is a repeatable environment that remains recognisable across different contact points without adding more visible elements than the work needs.",
+    },
+  ],
+  "kak-postignahme-100-100-v-google-pagespeed-insights": [
+    {
+      question: "What produced the 100/100 result?",
+      answer: "Static generation, controlled resources, limited runtime, and a deliberately small front-end layer worked together to produce the measured result.",
+    },
+    {
+      question: "Which resources needed the most discipline?",
+      answer: "Images, fonts, CSS, and client-side JavaScript needed close control because each one affects the rendering path and the first useful interaction.",
+    },
+    {
+      question: "What does the publishing environment contribute?",
+      answer: "It reduces runtime uncertainty and makes regressions easier to detect, but it cannot repair a heavy layout or poor resource decisions.",
+    },
+    {
+      question: "Why is the score not the whole case?",
+      answer: "The score is laboratory evidence. The site still has to be readable, stable, and understandable when people use it in real conditions.",
+    },
+    {
+      question: "What is the boundary of this result?",
+      answer: "It is evidence for one specific implementation, not a universal guarantee. The transferable lesson is measuring, reducing unnecessary work, and checking again.",
+    },
+  ],
+  "kak-dostignahme-100-100-100-100-na-d-media-org": [
+    {
+      question: "What is the verified d-media.org result?",
+      answer: "The confirmed result is 100/100/100/100 on desktop and 98/100/100/100 on mobile; no extra LCP, CLS, or INP values are claimed without a current check.",
+    },
+    {
+      question: "What was the main constraint?",
+      answer: "The site had to remain visually strict and typographically distinctive while controlling images, fonts, scripts, routing, and the SEO layer.",
+    },
+    {
+      question: "What did the architecture include?",
+      answer: "It included static publishing, resource discipline, limited runtime, mobile checks, canonical logic, a sitemap, and structured data.",
+    },
+    {
+      question: "What does the result mean for visitors?",
+      answer: "The technical score matters because it accompanies a fast, readable, and stable experience rather than remaining only a laboratory snapshot.",
+    },
+    {
+      question: "What keeps the result sustainable?",
+      answer: "The same publishing discipline must be applied to every new resource, page, and feature so later changes do not quietly undo the measured quality.",
+    },
+  ],
+  "patyat-do-d-media": [
+    {
+      question: "What does the path to d . media describe?",
+      answer: "It describes the move toward a coherent studio system for identity, content, web, design, and advertising.",
+    },
+    {
+      question: "What was the central change?",
+      answer: "The direction moved from visual accumulation to reduction: less noise, more precise language, steadier typography, and a clearer link between services and application.",
+    },
+    {
+      question: "Which decisions shaped the current direction?",
+      answer: "Clearer positioning, a restrained visual environment, editorial discipline, and services organised around real business needs shaped it.",
+    },
+    {
+      question: "Why is the history more than an archive?",
+      answer: "It is useful only when it explains why the present system looks and works as it does, without burdening the reader with versions that no longer guide decisions.",
+    },
+    {
+      question: "What is the practical outcome?",
+      answer: "The outcome is a clearer studio core with one voice, more stable application logic, and fewer competing directions.",
+    },
+  ],
+  "zashto-izbrahme-minimalistichna-identichnost": [
+    {
+      question: "What does minimalism mean in this identity?",
+      answer: "It means controlling proportion, typography, space, and rhythm so that every remaining element has a clear role.",
+    },
+    {
+      question: "What does the minimalist approach solve?",
+      answer: "It reduces visual noise and lets one system work across the website, publications, documents, presentations, and PDF material.",
+    },
+    {
+      question: "What is the risk of minimalism?",
+      answer: "Weak rules make every mismatch visible. Minimalism therefore requires more discipline, not less.",
+    },
+    {
+      question: "How do we test whether the choice is strong?",
+      answer: "We look at proportion, rhythm, and the quality of actual application. The system must guide real formats rather than look empty or noisy.",
+    },
+    {
+      question: "What does the choice prove for d . media?",
+      answer: "It proves that a premium impression can come from order and clear limits without decorative accumulation.",
+    },
   ],
 };
 
@@ -1782,6 +2370,59 @@ function uniqueValues<T>(items: T[]) {
   return [...new Set(items)];
 }
 
+const reusableArticleParagraphStarts = [
+  "Темата се разглежда през практическата работа",
+  "Когато липсва ясна рамка",
+  "Затова разглеждаме всяка тема",
+  "Подхождаме към темата системно",
+  "Това мислене се превежда",
+  "Практическата стойност идва от яснотата",
+  "Целта не е обем",
+  "Темата има практическа стойност само ако",
+  "Когато системата е подредена",
+  "Добрата комуникация започва от ред",
+  "Терминът има стойност само когато",
+  "Проблемът обикновено не е липса на още един инструмент",
+  "Започваме от intent",
+  "Работим в последователност",
+  "Проверката включва реалните URLs",
+  "Практическата стойност е по-малко неяснота",
+  "Нито една техническа или съдържателна промяна",
+  "Следващата стъпка е да се определи текущото състояние",
+  "Когато темата включва външна платформа или алгоритъм",
+  "The topic is considered through the practical work",
+  "When a clear framework is missing",
+  "That is why we treat every topic",
+  "We approach the topic systematically",
+  "This way of thinking translates",
+  "Practical value comes from clarity",
+  "The goal is not volume",
+  "The topic has practical value only if",
+  "When the system is organized",
+  "Good communication starts with order",
+  "The term is useful only when",
+  "The problem is usually not the absence of another tool",
+  "We begin with intent",
+  "We work in sequence",
+  "Validation covers real URLs",
+  "The practical value is reduced ambiguity",
+  "No technical or content change",
+  "The next step is to determine the current state",
+  "When a topic involves an external platform or algorithm",
+];
+
+function getDistinctiveArticleFacts(post: BlogPost) {
+  return uniqueValues(
+    [post.intro, post.excerpt, ...post.sections.flatMap((section) => section.paragraphs)]
+      .map((paragraph) => paragraph.trim())
+      .filter(
+        (paragraph) =>
+          paragraph.length > 0 &&
+          !reusableArticleParagraphStarts.some((prefix) => paragraph.startsWith(prefix)),
+      ),
+  );
+}
+
 function getPostRelationships(locale: Locale, post: BlogPost, posts: readonly BlogPost[]) {
   const categoryPeers = posts
     .filter((item) => item.slug !== post.slug && item.category === post.category && !item.draft)
@@ -1798,7 +2439,127 @@ function getPostRelationships(locale: Locale, post: BlogPost, posts: readonly Bl
   return { relatedPosts, relatedTitles };
 }
 
+function buildDistinctArticleSections(locale: Locale, post: BlogPost, relatedTitles: string[]): BlogSection[] {
+  const isBg = locale === "bg";
+  const context = categoryContext[locale][post.category];
+  const serviceHref = isBg ? context.serviceHref : "/en" + context.serviceHref;
+  const articlePath = isBg ? "/blog/" + post.slug + "/" : "/en/blog/" + post.slug + "/";
+  const servicesIndex = isBg ? "/services/" : "/en/services/";
+  const contactPath = isBg ? "/contact/" : "/en/contact/";
+  const projectsPath = isBg ? "/projects/" : "/en/projects/";
+  const facts = getDistinctiveArticleFacts(post);
+  const lead = facts[0] || post.intro;
+  const tension = facts[1] || post.excerpt;
+  const outcome = facts[2] || post.excerpt;
+  const detail =
+    facts[3] ||
+    (isBg
+      ? post.title + " изисква ясна връзка между проблема, решението и проверката на резултата."
+      : post.title + " requires a clear relationship between the problem, the response, and the way the result is reviewed.");
+  const related = relatedTitles.length
+    ? relatedTitles
+    : [isBg ? "Свързани статии в блога" : "Related articles in the blog"];
+
+  if (isBg) {
+    return [
+      {
+        title: "Въпросът зад „" + post.title + "“",
+        paragraphs: [
+          lead,
+          post.title + " има стойност, когато превежда началния въпрос в конкретно решение, а не остава само с определение.",
+        ],
+      },
+      {
+        title: "Къде възниква трудността при „" + post.title + "“",
+        paragraphs: [
+          tension,
+          "При „" + post.title + "“ рискът в " + context.system + " е, че " + context.failure + ". Статията проверява точно тази зависимост, вместо да оставя темата като общо предупреждение.",
+        ],
+      },
+      {
+        title: "Как се прилага „" + post.title + "“ на практика",
+        paragraphs: [
+          "Работният слой тук е " + context.artifact + ". При „" + post.title + "“ това означава темата да се превърне в правило, което друг човек може да използва без догадки.",
+          detail,
+        ],
+      },
+      {
+        title: "Как се проверява резултатът при „" + post.title + "“",
+        paragraphs: [
+          "Започни от " + articlePath + ", след което сравни видимото твърдение с релевантната услуга на " + serviceHref + ". Проверката трябва да покаже дали страницата обяснява темата ясно и води към правилната следваща стъпка.",
+          "Добрата проверка на „" + post.title + "“ търси конкретен проблем, конкретен отговор и доказателство, че отговорът може да се използва и извън тази една страница.",
+        ],
+      },
+      {
+        title: "Границата на „" + post.title + "“",
+        paragraphs: [
+          outcome + " Този извод помага за по-добро решение по „" + post.title + "“, но не е гаранция за позиция, конверсия, цитиране или бизнес резултат.",
+          "Ограничението при „" + post.title + "“ е важно, защото " + context.system + " зависи и от контекста, качеството на изпълнение, поддръжката и външните условия.",
+        ],
+      },
+      {
+        title: "Извод за „" + post.title + "“",
+        paragraphs: [
+          "Практическият извод е „" + post.title + "“ да се използва за намаляване на неяснотата около " + context.artifact + ".",
+          "Следващите полезни пътища след „" + post.title + "“ са " + context.serviceLabel + " (" + serviceHref + "), архивът с проекти (" + projectsPath + "), всички услуги (" + servicesIndex + ") и " + related[0] + ". За конкретен обхват използвай " + contactPath + ".",
+        ],
+      },
+    ];
+  }
+
+  return [
+    {
+      title: "The question behind " + post.title,
+      paragraphs: [
+        lead,
+        post.title + " becomes useful when it turns the starting question into a concrete decision instead of stopping at a definition.",
+      ],
+    },
+    {
+      title: "Where " + post.title + " becomes difficult",
+      paragraphs: [
+        tension,
+        "For " + post.title + ", the risk in " + context.system + " is that " + context.failure + ". This article tests that dependency instead of leaving the topic as a general warning.",
+      ],
+    },
+    {
+      title: "A practical way to apply " + post.title,
+      paragraphs: [
+        "The relevant working layer is " + context.artifact + ". For " + post.title.toLowerCase() + ", that means turning the subject into a rule that another person can use without guessing.",
+        detail,
+      ],
+    },
+    {
+      title: "How to check the result for " + post.title,
+      paragraphs: [
+        "Start with " + articlePath + ", then compare the visible claim with the related service at " + serviceHref + ". The check should show whether the page explains its subject clearly and leads to the right next step.",
+        "A useful review of " + post.title.toLowerCase() + " should look for a specific problem, a specific response, and evidence that the response is usable beyond this single page.",
+      ],
+    },
+    {
+      title: "The boundary of " + post.title,
+      paragraphs: [
+        outcome + " This supports a better decision about " + post.title + ", but it is not a guarantee of a ranking, conversion, citation, or business result.",
+        "The limitation around " + post.title + " matters because " + context.system + " also depends on context, implementation quality, maintenance, and external conditions.",
+      ],
+    },
+    {
+      title: "Conclusion for " + post.title,
+      paragraphs: [
+        "The practical conclusion is to use " + post.title.toLowerCase() + " as a way to reduce ambiguity around " + context.artifact + ".",
+        "The next useful paths after " + post.title + " are " + context.serviceLabel + " (" + serviceHref + "), the project archive (" + projectsPath + "), the services index (" + servicesIndex + "), and " + related[0] + ". For a scoped inquiry, use " + contactPath + ".",
+      ],
+    },
+  ];
+}
+
 function buildProfessionalSections(locale: Locale, post: BlogPost, relatedTitles: string[]): BlogSection[] {
+  const localizedSections = dMediaSectionOverrides[post.slug]?.[locale];
+  if (localizedSections) return localizedSections;
+  const explicitSections = postSectionOverrides[post.slug];
+  if (explicitSections) return explicitSections;
+  if (post.sections.length >= 4) return buildDistinctArticleSections(locale, post, relatedTitles);
+
   const isBg = locale === "bg";
   const context = categoryContext[locale][post.category];
   const serviceHref = isBg ? context.serviceHref : `/en${context.serviceHref}`;
@@ -2064,30 +2825,37 @@ function buildProfessionalSections(locale: Locale, post: BlogPost, relatedTitles
 }
 
 function buildProfessionalFaqs(locale: Locale, post: BlogPost) {
+  const override =
+    dMediaFaqOverrides[post.slug]?.[locale] ??
+    (locale === "en" ? dMediaEnglishFaqOverrides[post.slug] : undefined);
+  if (override) return override;
   const isBg = locale === "bg";
   const context = categoryContext[locale][post.category];
+  const facts = getDistinctiveArticleFacts(post);
+  const focus = facts[0] || post.intro;
+  const problem = facts[1] || post.excerpt;
 
   if (!isBg) {
     return [
       {
         question: `What is the main point of "${post.title}"?`,
-        answer: `The main point is that ${post.title.toLowerCase()} should be handled as part of ${context.system}, with clear criteria, examples, internal links, and review rules.`,
+        answer: focus + " The article treats this point as part of " + context.system + ", with clear criteria, examples, internal links, and review rules.",
       },
       {
-        question: "Why should this not be treated as ordinary SEO content?",
-        answer: "Because useful visibility comes from clarity, evidence, and structure. Keyword repetition cannot replace a practical model that helps people and AI systems understand the topic.",
+        question: "Why can " + post.title.toLowerCase() + " fail in practice?",
+        answer: problem + " In practice, the risk appears when " + context.failure + ".",
       },
       {
-        question: "What should a team check before publishing?",
-        answer: "The team should check the problem statement, examples, metadata, internal links, FAQ, CTA, and whether the article provides a reusable decision model.",
+        question: "What should be checked specifically for " + post.title.toLowerCase() + "?",
+        answer: focus + " The review should connect this point with the next step, the relevant service, and evidence that the recommendation is usable.",
       },
       {
-        question: "How does this connect to d . media services?",
-        answer: `It connects to ${context.serviceLabel}, because the article describes how the work should operate in a real brand, content, website, or visibility system.`,
+        question: "How does " + post.title.toLowerCase() + " connect to " + context.serviceLabel + "?",
+        answer: "The article's own focus is: " + focus + " Its relationship to " + context.serviceLabel + " is the practical application of this point.",
       },
       {
-        question: "When should the article be updated?",
-        answer: "It should be updated when the service scope, technical architecture, project evidence, internal links, or relevant workflows change.",
+        question: "When should " + post.title.toLowerCase() + " be revisited?",
+        answer: "Revisit it when the claim — " + post.excerpt + " — is affected by a change in scope, evidence, internal links, or workflow.",
       },
     ];
   }
@@ -2095,23 +2863,23 @@ function buildProfessionalFaqs(locale: Locale, post: BlogPost) {
   return [
     {
       question: `Какъв е основният извод от "${post.title}"?`,
-      answer: `Основният извод е, че темата трябва да се управлява като част от ${context.system}, с ясни критерии, примери, вътрешни връзки и правила за проверка.`,
+      answer: focus + " Статията разглежда този извод като част от " + context.system + ", с ясни критерии, примери, вътрешни връзки и правила за проверка.",
     },
     {
-      question: "Защо това не трябва да бъде обикновена SEO статия?",
-      answer: "Защото полезната видимост идва от яснота, доказателства и структура. Повтарянето на ключови думи не може да замени практически използваем модел, който помага на хора и AI системи да разберат темата.",
+      question: "Къде може да се обърка " + post.title.toLowerCase() + "?",
+      answer: problem + " В практиката това се превръща в риск, когато " + context.failure + ".",
     },
     {
-      question: "Какво трябва да провери екипът преди публикуване?",
-      answer: "Трябва да се проверят проблемът, примерите, метаданните, вътрешните връзки, секцията с въпроси и отговори, призивът за действие и дали статията дава модел за решение, който може да се използва повторно.",
+      question: "Какво трябва да се провери конкретно при " + post.title.toLowerCase() + "?",
+      answer: focus + " Проверката трябва да свърже този извод със следващата стъпка, релевантната услуга и доказателство, че препоръката може да се използва.",
     },
     {
-      question: "Как това се свързва с услугите на d . media?",
-      answer: `Свързва се с ${context.serviceLabel}, защото статията описва как работата трябва да функционира в реална брандова, съдържателна, уеб или видимостна система.`,
+      question: "Как „" + post.title + "“ се свързва с " + context.serviceLabel + "?",
+      answer: "Фокусът на статията е: " + focus + " Връзката с " + context.serviceLabel + " е практическото приложение на този извод.",
     },
     {
-      question: "Кога трябва да се обнови такава статия?",
-      answer: "Когато се променят обхватът на услугата, техническата архитектура, доказателствата от проекти, вътрешните връзки или работният процес, който статията описва.",
+      question: "Кога трябва да се прегледа " + post.title.toLowerCase() + "?",
+      answer: "Прегледай я, когато твърдението — " + post.excerpt + " — бъде засегнато от промяна в обхвата, доказателствата, вътрешните връзки или работния процес.",
     },
   ];
 }
@@ -2162,16 +2930,32 @@ const duplicateOrOverlappingBlogSlugs = new Set([
   "kade-ai-pomaga-na-dizainera-i-kade-ne-mozhe-da-go-zameni",
 ]);
 
+const excludedBlogSlugs = new Set([
+  "kak-chatgpt-izbira-iztochnitsi",
+  "kak-gemini-izbira-iztochnitsi",
+  "kak-rabotyat-google-ai-overviews",
+  "zashto-izpolzvame-astro",
+  "astro-sreshtu-wordpress",
+  "zashto-100-100-v-pagespeed-ne-garantira-dobar-sait",
+  "vercel-ili-cloudflare-pages-realno-sravnenie",
+  "kakvo-vizhda-chatgpt-kogato-analizira-vashiya-biznes",
+  "izgrazhdane-na-mnogoezichen-sait-s-astro",
+]);
+
 function removeDuplicateOrOverlappingPosts(posts: readonly BlogPost[]) {
   return posts.filter((post) => !duplicateOrOverlappingBlogSlugs.has(post.slug));
 }
 
-const bgBlogPosts = removeDuplicateOrOverlappingPosts([
+function removeExcludedBlogPosts(posts: readonly BlogPost[]) {
+  return posts.filter((post) => !excludedBlogSlugs.has(post.slug));
+}
+
+const bgBlogPosts = removeExcludedBlogPosts(removeDuplicateOrOverlappingPosts([
   ...publishedBgPosts.map(withSectionOverrides),
   ...getAuthorityArticles("bg"),
   ...draftCaseStudies.map(withSectionOverrides),
-]);
-const enBlogPosts = removeDuplicateOrOverlappingPosts([...publishedEnPosts, ...getAuthorityArticles("en")]);
+]));
+const enBlogPosts = removeExcludedBlogPosts(removeDuplicateOrOverlappingPosts([...publishedEnPosts, ...getAuthorityArticles("en")]));
 
 const localizedBlogPosts = {
   bg: bgBlogPosts.map((post) => enhanceBlogPost("bg", post, bgBlogPosts)),
