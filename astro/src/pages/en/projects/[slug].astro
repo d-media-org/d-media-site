@@ -24,9 +24,6 @@ const ui = getUiCopy(locale);
 const caseStudySections = "caseStudySections" in project ? project.caseStudySections : [];
 const projectVideos = "videos" in project ? project.videos : [];
 const projectLinks = "links" in project ? project.links : [];
-const projectSubtitle = "subtitle" in project ? project.subtitle : null;
-const projectType = "projectType" in project ? project.projectType : null;
-const projectStatus = "status" in project ? project.status : null;
 const projectHeroImage = "detailCover" in project ? project.detailCover : project.cover;
 const projectSocialImage = projectHeroImage.startsWith("http") ? projectHeroImage : `https://www.d-media.org${projectHeroImage}`;
 const projectGalleryImages = project.images.filter(
@@ -38,7 +35,6 @@ const formatFileCount = (count: number) =>
   locale === "en" ? `${count} ${count === 1 ? "file" : "files"}` : `${count} ${count === 1 ? "файл" : "файла"}`;
 const relatedServiceIdsByProject: Record<string, string[]> = {
   "d-media": ["brand-identity", "web-design-development", "content"],
-  "apple-community-bulgaria": ["brand-identity", "content", "social-media-management"],
   yanita: ["brand-identity", "content", "graphic-design"],
   "support-account": ["brand-identity", "web-design-development", "graphic-design"],
   "support-account-group": ["brand-identity", "web-design-development", "graphic-design"],
@@ -77,14 +73,7 @@ const relatedServices = relatedServiceIds
     <section class="section-grid">
       <div class="section-heading page-intro">
         <h1>{project.title}</h1>
-        {projectSubtitle ? <p class="project-case-subtitle">{projectSubtitle}</p> : null}
         <p class="page-text">{project.context}</p>
-        {projectType || projectStatus ? (
-          <dl class="project-case-meta" aria-label="Project details">
-            {projectType ? <div><dt>Type</dt><dd>{projectType}</dd></div> : null}
-            {projectStatus ? <div><dt>Status</dt><dd>{projectStatus}</dd></div> : null}
-          </dl>
-        ) : null}
       </div>
 
       <article class="card case-study-hero">

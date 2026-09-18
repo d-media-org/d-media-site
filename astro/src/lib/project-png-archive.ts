@@ -30,58 +30,6 @@ function getImageOrder(label: string) {
 
 const baseProjectPngArchive = [
   {
-    "slug": "apple-community-bulgaria",
-    "title": "Apple Community Bulgaria",
-    "imageCount": 22,
-    "cover": "/assets/projects/apple-community-bulgaria/cover.png",
-    "images": [
-      { "src": "/assets/projects/apple-community-bulgaria/community-cover.png", "label": "Apple Community Bulgaria — Community cover" },
-      { "src": "/assets/projects/apple-community-bulgaria/community-clean-cover.png", "label": "Apple Community Bulgaria — clean Community cover" },
-      { "src": "/assets/projects/apple-community-bulgaria/community-logotype.png", "label": "Apple Community Bulgaria — Community logotype" },
-      { "src": "/assets/projects/apple-community-bulgaria/sales-cover.png", "label": "Apple Sales Community Bulgaria — cover" },
-      { "src": "/assets/projects/apple-community-bulgaria/sales-clean-cover.png", "label": "Apple Sales Community Bulgaria — clean cover" },
-      { "src": "/assets/projects/apple-community-bulgaria/sales-logotype.png", "label": "Apple Sales Community Bulgaria — logotype" },
-      { "src": "/assets/projects/apple-community-bulgaria/airpods-cover.png", "label": "AirPods Community Bulgaria — cover" },
-      { "src": "/assets/projects/apple-community-bulgaria/airpods-clean-cover.png", "label": "AirPods Community Bulgaria — clean cover" },
-      { "src": "/assets/projects/apple-community-bulgaria/airpods-logotype.png", "label": "AirPods Community Bulgaria — logotype" },
-      { "src": "/assets/projects/apple-community-bulgaria/podcast-cover.png", "label": "Apple Community Bulgaria podcast — cover" },
-      { "src": "/assets/projects/apple-community-bulgaria/podcast-clean-cover.png", "label": "Apple Community Bulgaria podcast — clean cover" },
-      { "src": "/assets/projects/apple-community-bulgaria/podcast-artcover.png", "label": "Apple Community Bulgaria podcast — artwork" },
-      { "src": "/assets/projects/apple-community-bulgaria/podcast-logotype.png", "label": "Apple Community Bulgaria podcast — logotype" },
-      { "src": "/assets/projects/apple-community-bulgaria/christmas-community-cover.png", "label": "Apple Community Bulgaria — Christmas cover" },
-      { "src": "/assets/projects/apple-community-bulgaria/christmas-airpods-cover.png", "label": "AirPods Community Bulgaria — Christmas cover" },
-      { "src": "/assets/projects/apple-community-bulgaria/christmas-sales-cover.png", "label": "Apple Sales Community Bulgaria — Christmas cover" },
-      { "src": "/assets/projects/apple-community-bulgaria/christmas-podcast-cover.png", "label": "Apple Community Bulgaria podcast — Christmas cover" },
-      { "src": "/assets/projects/apple-community-bulgaria/newyear-community-cover.png", "label": "Apple Community Bulgaria — New Year cover" },
-      { "src": "/assets/projects/apple-community-bulgaria/newyear-airpods-cover.png", "label": "AirPods Community Bulgaria — New Year cover" },
-      { "src": "/assets/projects/apple-community-bulgaria/newyear-sales-cover.png", "label": "Apple Sales Community Bulgaria — New Year cover" },
-      { "src": "/assets/projects/apple-community-bulgaria/newyear-podcast-cover.png", "label": "Apple Community Bulgaria podcast — New Year cover" }
-    ],
-    "featured": true,
-    "priority": 1,
-    "subtitle": "От общност до собствена медийна екосистема",
-    "projectType": "Собствен проект / общност / бранд / подкаст",
-    "status": "Завършен",
-    "summary": "Собствен проект на d . media, изграден около идеята за организирана българска общност за потребители на Apple.",
-    "context": "С развитието си проектът прераства от една Facebook група в система от специализирани общности и собствен подкаст с разработена визуална и звукова идентичност.",
-    "focus": [
-      "Завършен собствен проект на d . media",
-      "Общност, бранд и подкаст екосистема",
-      "Визуална идентичност и съдържание за социални мрежи",
-      "Звукова продукция, sound design, запис, монтаж и микс",
-      "Завършен E0 епизод, суров запис за E1, видео версия и тийзър"
-    ],
-    "caseStudySections": [
-      { "title": "Статус", "text": "Завършен собствен проект на d . media. На 1 август 2025 г. започва едномесечен период на замразяване на Apple Community Bulgaria, Apple Sales Community Bulgaria и Apple Community Bulgaria podcast след оценка на активността и устойчивостта на общностите." },
-      { "title": "Проектът в числа", "text": "Провереният запазен производствен архив съдържа 93 файла и е приблизително 1.29 GB. В него са налични 43 графични файла, 2 видеоматериала и над 2 часа и 35 минути възпроизвеждаем звуков материал. Тези стойности описват запазения архив, а не целия произведен обем и не 43 уникални дизайна." },
-      { "title": "Екосистема", "text": "Екосистемата включва Apple Community Bulgaria, Apple Sales Community Bulgaria, AirPods Community Bulgaria и Apple Community Bulgaria podcast. AirPods Community Bulgaria е името по време на участието на d . media; след оттеглянето групата е върната към първоначалното си име и оригиналния си администратор и днес е AirPods Users Bulgaria." },
-      { "title": "Визуална система", "text": "Разработена е свързана визуална система с лога, логотипи, Facebook корици, podcast artwork, шаблони, Christmas и New Year варианти и editable AI/PSD източници." },
-      { "title": "Подкаст", "text": "Подкаст направлението разширява проекта отвъд Facebook общностите. Архивът съдържа original intro, jingle, extended intro, extended mix, full theme, short intro, background, closing, clean, clean strings, club и ethno edits, запис, монтаж, микс, аудио реклама, видео версия и тийзър. Има завършен E0 и суров запис за E1; E1 не е представен като публикуван епизод." },
-      { "title": "Общност", "text": "Към 4 септември 2026 г. предоставената снимка показва приблизително 1.2K членове в основната Apple Community Bulgaria група, 47 в Apple Sales Community Bulgaria и 9 в Apple Community Bulgaria podcast. Текущите приблизително 3.4K членове на AirPods Users Bulgaria не са използвани като резултат на d . media. Не са налични надеждни исторически данни за темп на растеж, обхват, импресии, ангажираност или уникална аудитория." },
-      { "title": "Равносметка", "text": "Apple Community Bulgaria преминава през целия жизнен цикъл на собствен медиен проект — от концепция и визуална идентичност до управление на общности, съдържание, звук, видео и подкаст продукция. Проектът е приключен и архивът показва реално произведената система без твърдения за недоказани резултати." }
-    ]
-  },
-  {
     "slug": "d-media",
     "title": "d . media",
     "imageCount": 4,
@@ -864,30 +812,6 @@ export const featuredProjectPngs = projectPngArchive.filter((project) => project
 const localizedProjectCopy = {
   bg: {},
   en: {
-    "apple-community-bulgaria": {
-      title: "Apple Community Bulgaria",
-      subtitle: "From a community to an owned media ecosystem",
-      projectType: "Owned project / community / brand / podcast",
-      status: "Completed",
-      summary: "A d . media-owned project built around the idea of an organised Bulgarian community for Apple users.",
-      context: "As it developed, the project grew from one Facebook group into a system of specialised communities and an owned podcast with a developed visual and sound identity.",
-      focus: [
-        "Completed d . media-owned project",
-        "Community, brand, and podcast ecosystem",
-        "Visual identity and social media content",
-        "Audio production, sound design, recording, editing, and mixing",
-        "Completed E0 episode, raw E1 recording, video version, and teaser",
-      ],
-      caseStudySections: [
-        { title: "Status", text: "A completed d . media-owned project. On 1 August 2025, a one-month freeze period began for Apple Community Bulgaria, Apple Sales Community Bulgaria, and Apple Community Bulgaria podcast after an assessment of community activity and sustainability." },
-        { title: "The project in numbers", text: "The checked preserved production archive contains 93 files and is approximately 1.29 GB. It includes 43 saved graphic files, 2 video materials, and more than 2 hours and 35 minutes of playable audio. These figures describe the preserved archive, not the total production volume and not 43 unique designs." },
-        { title: "The ecosystem", text: "The ecosystem included Apple Community Bulgaria, Apple Sales Community Bulgaria, AirPods Community Bulgaria, and Apple Community Bulgaria podcast. AirPods Community Bulgaria was the name used during d . media’s involvement; after withdrawal, the group returned to its original name and original administrator and is now AirPods Users Bulgaria." },
-        { title: "Visual system", text: "A connected visual system was developed with logos, logotypes, Facebook covers, podcast artwork, templates, Christmas and New Year variants, and editable AI/PSD sources." },
-        { title: "Podcast", text: "The podcast direction expanded the project beyond Facebook communities. The archive contains original intro, jingle, extended intro, extended mix, full theme, short intro, background, closing, clean, clean strings, club and ethno edits, recording, editing, mixing, audio advertising, video version, and teaser. It includes a completed E0 and a raw E1 recording; E1 is not presented as a published episode." },
-        { title: "Community", text: "As of 4 September 2026, the provided screenshot shows approximately 1.2K members in the main Apple Community Bulgaria group, 47 in Apple Sales Community Bulgaria, and 9 in Apple Community Bulgaria podcast. The current approximately 3.4K members of AirPods Users Bulgaria are not used as a d . media result. Reliable historical growth, reach, impressions, engagement, and unique-audience data are not available." },
-        { title: "Reflection", text: "Apple Community Bulgaria passed through the full lifecycle of an owned media project—from concept and visual identity to community management, content, sound, video, and podcast production. The project is completed, and the archive shows the produced system without claims about unverified outcomes." },
-      ],
-    },
     "d-media": {
       summary: "The d . media platform, built as a fast, multilingual, maintainable website with a clear SEO/GEO foundation.",
       context: "The project shows how brand identity, content, web architecture, performance, and real application work as one system.",

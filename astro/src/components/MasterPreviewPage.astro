@@ -52,14 +52,6 @@ const featuredServices = ["brand-identity", "content", "social-media-management"
       <div class="mp-hero-rule" aria-hidden="true"><span></span></div>
     </section>
 
-    <section class="mp-work-intro" id="mp-work" data-header-tone="dark" aria-labelledby="mp-work-title">
-      <div class="mp-container mp-work-intro-grid" data-reveal>
-        <p class="mp-section-index">01 / {isBg ? "работа" : "work"}</p>
-        <h2 id="mp-work-title">{isBg ? "Красивото е началото. Работещото е целта." : "Pretty is the beginning. Working is the point."}</h2>
-        <p>{isBg ? "Идентичност, съдържание и технологии в една система, създадена за реална употреба." : "Identity, content and technology in one system, built for real use."}</p>
-      </div>
-    </section>
-
     <section class="mp-services" id="mp-services" data-header-tone="dark" aria-labelledby="mp-services-title">
       <div class="mp-container">
         <div class="mp-premium-services-grid" data-reveal>
@@ -86,13 +78,6 @@ const featuredServices = ["brand-identity", "content", "social-media-management"
             <a class="mp-text-link" href={localizeHref(locale, additionalService.detailHref)}>{additionalService.title}<svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 9h10M10 5l4 4-4 4" /></svg></a>
           </div>
         ) : null}
-      </div>
-    </section>
-
-    <section class="mp-system-statement" data-header-tone="surface" aria-labelledby="mp-system-title">
-      <div class="mp-container" data-reveal>
-        <p class="mp-section-index">02 / {isBg ? "система" : "system"}</p>
-        <h2 id="mp-system-title">{isBg ? "Едно студио. Една система." : "One studio. One system."}</h2>
       </div>
     </section>
 

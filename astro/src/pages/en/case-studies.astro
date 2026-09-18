@@ -12,7 +12,7 @@ const caseStudies = getFeaturedProjects(locale);
 <Layout
   locale={locale}
   title="Case Studies | d . media"
-  description="Selected completed d . media projects across brand identity, web, graphic design, content, and real-world applications."
+  description="Selected d . media case studies in brand identity, web platforms, graphic design, content, and real application."
   path="/case-studies"
   structuredData={[getBreadcrumbSchema({ locale, path: "/case-studies", title: "Case Studies" })]}
 >
@@ -21,7 +21,7 @@ const caseStudies = getFeaturedProjects(locale);
       <div class="section-heading page-intro">
         <h1>Case Studies</h1>
         <p class="page-text">
-          Selected completed projects and the specific work created for each of them.
+          A focused view of projects where identity, content, design, web structure, and application work as one system.
         </p>
       </div>
 
@@ -33,11 +33,11 @@ const caseStudies = getFeaturedProjects(locale);
 
       <article class="card services-cta-card">
         <div class="services-cta-copy">
-          <h2>Have a project?</h2>
-          <p class="page-text">Tell us what needs to be created and what result you are looking for.</p>
+          <h2>If you need a similar scope, start with context.</h2>
+          <p class="page-text">Send what needs to be built, who it is for, and what result you expect.</p>
         </div>
         <div class="hero-actions">
-          <a href={localizeHref(locale, "/contact")} class="button button-primary">Send an inquiry</a>
+          <a href={localizeHref(locale, "/contact")} class="button button-primary">Send project context</a>
           <a href={localizeHref(locale, "/services")} class="button button-secondary">Explore services</a>
         </div>
       </article>
