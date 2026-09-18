@@ -2,6 +2,7 @@
 import BrandAsset from "@/components/BrandAsset.astro";
 import BrandText from "@/components/BrandText.astro";
 import PreviewLayout from "@/layouts/PreviewLayout.astro";
+import { resolveProjectPrimaryImage } from "@/lib/asset-url";
 import { getFeaturedProjects } from "@/lib/featured-projects-static";
 import { localizeHref, type Locale } from "@/lib/i18n";
 import { getPageCopy } from "@/lib/page-copy";
@@ -20,9 +21,16 @@ const selectedProjects = getFeaturedProjects(locale);
 const systemProject = selectedProjects.find((project) => project.slug === "d-media") ?? selectedProjects[0];
 const serviceById = new Map(content.coreServices.map((service) => [service.id, service]));
 const additionalService = serviceById.get("additional-charges-rights");
-const featuredServices = ["brand-identity", "content", "social-media-management", "web-design-development", "technical-seo"]
-  .map((id) => serviceById.get(id))
-  .filter(Boolean);
+const featuredDirections = [
+  { id: "brand-identity", label: isBg ? "Бранд" : "Brand" },
+  { id: "content", label: isBg ? "Съдържание" : "Content" },
+  { id: "web-design-development", label: isBg ? "Уеб" : "Web" },
+  { id: "technical-seo", label: isBg ? "Видимост" : "Visibility" },
+].flatMap((direction) => {
+  const service = serviceById.get(direction.id);
+  return service ? [{ ...direction, service }] : [];
+});
+const homePricingItems = copy.pricingItems.filter((item) => !item.price.includes("25") && !item.price.includes("50"));
 ---
 
 <PreviewLayout
@@ -33,46 +41,88 @@ const featuredServices = ["brand-identity", "content", "social-media-management"
   preview={preview}
 >
   <main class="mp-main" id="master-content">
-    <section class="mp-hero" data-header-tone="dark" aria-labelledby="mp-hero-title">
+    <section class="mp-hero" data-header-tone="dark" data-hero-motion aria-labelledby="mp-hero-title">
       <div class="mp-container mp-hero-grid">
-        <div class="mp-hero-copy" data-reveal>
+        <div class="mp-hero-copy" data-reveal data-motion="hero-copy">
           <p class="mp-hero-eyebrow">{copy.eyebrow}</p>
           <h1 id="mp-hero-title">{copy.title}</h1>
         </div>
-        <aside class="mp-hero-accent" aria-label={copy.brandmarkAlt} data-reveal>
-          <div class="mp-hero-mark" aria-hidden="true"><BrandAsset class="mp-brand-outline" lightSrc="/optimized-assets/brand/ONLY-brandmark.display.webp" alt="" width={472} height={512} fetchPriority="high" /></div>
+        <aside class="mp-hero-accent" aria-label={copy.brandmarkAlt} data-reveal data-motion="hero-mark">
+          <div class="mp-hero-mark" aria-hidden="true"><BrandAsset class="mp-brand-outline" lightSrc="/optimized-assets/brand/ONLY-brandmark.lossless.webp" alt="" width={1730} height={1875} fetchPriority="high" /></div>
         </aside>
-        <div class="mp-hero-summary" data-reveal>
+        <div class="mp-hero-summary" data-reveal data-motion="hero-summary">
           <p><BrandText text={copy.text} /></p>
           <div class="mp-actions"><a class="mp-button mp-button-solid" href={localizeHref(locale, "/contact")} data-ga-event="cta_hero_click" data-ga-location="hero">{copy.primaryCta}</a><a class="mp-text-link" href="#mp-services">{copy.secondaryCta}<svg viewBox="0 0 18 18" aria-hidden="true"><path d="M9 3v11M5 10l4 4 4-4" /></svg></a></div>
           <p class="mp-hero-note">{copy.note}</p>
         </div>
       </div>
-      <div class="md-hero-media"><img src="/optimized-assets/project-web/d-media/business-card-mockup.jpg" alt={isBg ? "d . media брандова визитна картичка" : "d . media brand business card"} width="1800" height="1100" fetchpriority="high" /></div>
       <div class="mp-hero-rule" aria-hidden="true"><span></span></div>
     </section>
 
-    <section class="mp-work-intro" id="mp-work" data-header-tone="dark" aria-labelledby="mp-work-title">
-      <div class="mp-container mp-work-intro-grid" data-reveal>
-        <p class="mp-section-index">01 / {isBg ? "работа" : "work"}</p>
-        <h2 id="mp-work-title">{isBg ? "Красивото е началото. Работещото е целта." : "Pretty is the beginning. Working is the point."}</h2>
-        <p>{isBg ? "Идентичност, съдържание и технологии в една система, създадена за реална употреба." : "Identity, content and technology in one system, built for real use."}</p>
-      </div>
-    </section>
+    {selectedProjects.length ? (
+      <section class="mp-project mp-project-priority" id="mp-work" data-header-tone="surface" aria-labelledby="mp-project-title">
+        <div class="mp-container">
+          <header class="mp-section-heading mp-project-heading" data-reveal data-motion="section-heading">
+            <p class="mp-section-index">01 / {isBg ? "работа" : "work"}</p>
+            <h2 id="mp-project-title">{copy.projectsTitle}</h2>
+            <p>{copy.projectsText}</p>
+          </header>
+
+          <div class="mp-project-carousel" data-project-carousel aria-label={isBg ? "Подбрани проекти" : "Selected projects"}>
+            <div class="mp-random-projects" data-project-track tabindex="0">
+              {selectedProjects.map((project) => {
+                const logo = resolveProjectPrimaryImage(project.slug, project.cover);
+                return (
+                <a class="mp-project-feature" href={localizeHref(locale, `/projects/${project.slug}`)} data-project-card data-reveal>
+                  <figure>
+                    <img src={logo} alt={`${project.title} — ${isBg ? "лого" : "logo"}`} width="1600" height="1000" loading="lazy" decoding="async" />
+                  </figure>
+                  <div class="mp-project-copy">
+                    <h3>{project.title}</h3>
+                    <p>{project.summary}</p>
+                    <span class="mp-text-link">{isBg ? "виж проекта" : "view project"}<svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 9h10M10 5l4 4-4 4" /></svg></span>
+                  </div>
+                </a>
+                );
+              })}
+            </div>
+
+            <div class="mp-project-carousel-controls" aria-label={isBg ? "Навигация на подбраните проекти" : "Selected projects navigation"}>
+              <button type="button" data-project-prev aria-label={isBg ? "Предишни проекти" : "Previous projects"}>
+                <svg viewBox="0 0 18 18" aria-hidden="true"><path d="M11 4 6 9l5 5M7 9h7" /></svg>
+              </button>
+              <button type="button" data-project-next aria-label={isBg ? "Следващи проекти" : "Next projects"}>
+                <svg viewBox="0 0 18 18" aria-hidden="true"><path d="M7 4l5 5-5 5M4 9h7" /></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="mp-project-footer" data-reveal>
+            <a class="mp-text-link" href={localizeHref(locale, "/projects")}>{copy.projectsCta}<svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 9h10M10 5l4 4-4 4" /></svg></a>
+          </div>
+        </div>
+      </section>
+    ) : null}
 
     <section class="mp-services" id="mp-services" data-header-tone="dark" aria-labelledby="mp-services-title">
       <div class="mp-container">
-        <div class="mp-premium-services-grid" data-reveal>
-          <h2 id="mp-services-title">{isBg ? "Услуги" : "Services"}</h2>
+        <div class="mp-premium-services-grid" data-reveal data-motion="section-heading">
+          <h2 id="mp-services-title">{isBg ? "Основни направления" : "Core directions"}</h2>
           <div>
             <ul class="mp-premium-services-list">
-              {featuredServices.map((service) => service && (
-                <li>
-                  <a href={localizeHref(locale, service.detailHref)}>
-                    <span>{service.title}</span>
+              {featuredDirections.map((direction, index) => direction.service && (
+                <li data-direction={direction.id}>
+                  <a href={localizeHref(locale, direction.service.detailHref)}>
+                    <span class="mp-direction-icon" aria-hidden="true">
+                      {index === 0 ? <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5.5" /><path d="M12 2.5v4M21.5 12h-4M12 21.5v-4M2.5 12h4" /></svg> : null}
+                      {index === 1 ? <svg viewBox="0 0 24 24"><path d="M5 6.5h14M5 12h10M5 17.5h14" /></svg> : null}
+                      {index === 2 ? <svg viewBox="0 0 24 24"><rect x="4.5" y="5" width="15" height="14" rx="1.5" /><path d="M8 9h8M8 13h5" /></svg> : null}
+                      {index === 3 ? <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7.5" /><path d="m9.5 12 1.7 1.7 3.5-3.5" /></svg> : null}
+                    </span>
+                    <span>{direction.label}</span>
                     <svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 9h10M10 5l4 4-4 4" /></svg>
                   </a>
-                  <p>{service.result}</p>
+                  <p>{direction.service.result}</p>
                 </li>
               ))}
             </ul>
@@ -140,8 +190,8 @@ const featuredServices = ["brand-identity", "content", "social-media-management"
             <a class="mp-text-link" href={localizeHref(locale, "/pricing")}>{isBg ? "всички начални рамки" : "all starting ranges"}<svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 9h10M10 5l4 4-4 4" /></svg></a>
           </div>
         </header>
-        <div class="mp-pricing-list" data-reveal>
-          {copy.pricingItems.map((item) => (
+        <div class="mp-pricing-list" data-reveal data-motion="pricing-list">
+          {homePricingItems.map((item) => (
             <article>
               <h3>{item.title}</h3>
               <p>{item.price}</p>
@@ -173,63 +223,6 @@ const featuredServices = ["brand-identity", "content", "social-media-management"
       </div>
     </section>
 
-    {selectedProjects.length ? (
-      <section class="mp-project" data-header-tone="surface" aria-labelledby="mp-project-title">
-        <div class="mp-container">
-          <header class="mp-section-heading mp-project-heading" data-reveal>
-            <h2 id="mp-project-title">{copy.projectsTitle}</h2>
-            <p>{copy.projectsText}</p>
-          </header>
-
-          <div
-            class="mp-project-carousel"
-            data-project-carousel
-            aria-label={isBg ? "Подбрани проекти" : "Selected projects"}
-          >
-            <div class="mp-random-projects" data-project-track tabindex="0">
-              {selectedProjects.map((project) => (
-                <a
-                  class="mp-project-feature"
-                  href={localizeHref(locale, `/projects/${project.slug}`)}
-                  data-project-card
-                  data-reveal
-                >
-                  <figure>
-                    <img
-                      src={project.cover}
-                      alt={`${project.title} — ${isBg ? "избран проект" : "selected project"}`}
-                      width="1600"
-                      height="1000"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </figure>
-                  <div class="mp-project-copy">
-                    <h3>{project.title}</h3>
-                    <p>{project.summary}</p>
-                    <span class="mp-text-link">{isBg ? "виж проекта" : "view project"}<svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 9h10M10 5l4 4-4 4" /></svg></span>
-                  </div>
-                </a>
-              ))}
-            </div>
-
-            <div class="mp-project-carousel-controls" aria-label={isBg ? "Навигация на подбраните проекти" : "Selected projects navigation"}>
-              <button type="button" data-project-prev aria-label={isBg ? "Предишни проекти" : "Previous projects"}>
-                <svg viewBox="0 0 18 18" aria-hidden="true"><path d="M11 4 6 9l5 5M7 9h7" /></svg>
-              </button>
-              <button type="button" data-project-next aria-label={isBg ? "Следващи проекти" : "Next projects"}>
-                <svg viewBox="0 0 18 18" aria-hidden="true"><path d="M7 4l5 5-5 5M4 9h7" /></svg>
-              </button>
-            </div>
-          </div>
-
-          <div class="mp-project-footer" data-reveal>
-            <a class="mp-text-link" href={localizeHref(locale, "/projects")}>{copy.projectsCta}<svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 9h10M10 5l4 4-4 4" /></svg></a>
-          </div>
-        </div>
-      </section>
-    ) : null}
-
     <section class="mp-testimonials" data-header-tone="surface" aria-labelledby="mp-testimonials-title">
       <div class="mp-container">
         <header class="mp-section-heading" data-reveal>
@@ -257,12 +250,6 @@ const featuredServices = ["brand-identity", "content", "social-media-management"
           <a class="mp-button mp-button-solid" href={localizeHref(locale, "/case-studies")} data-ga-event="case_studies_click" data-ga-location="proof_bridge">{isBg ? "Разгледай казусите" : "Explore case studies"}</a>
           <a class="mp-text-link" href={localizeHref(locale, "/estimator")} data-ga-event="estimator_start_click" data-ga-location="proof_bridge">{isBg ? "Не знаеш от какво имаш нужда?" : "Not sure what you need?"}<svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 9h10M10 5l4-4-4 4" /></svg></a>
         </div>
-      </div>
-    </section>
-
-    <section class="mp-trust-strip" aria-label={isBg ? "Технически и работни стандарти" : "Technical and working standards"}>
-      <div class="mp-container mp-trust-items">
-        {(isBg ? ["BG / EN", "SEO и GEO основа", "Astro + Cloudflare", "Готово за реална употреба"] : ["BG / EN", "SEO and GEO foundation", "Astro + Cloudflare", "Ready for real use"]).map((item) => <span>{item}</span>)}
       </div>
     </section>
 

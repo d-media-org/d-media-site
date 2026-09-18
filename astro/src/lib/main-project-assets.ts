@@ -146,6 +146,14 @@ export const mainProjectAssetAdditions = {
     {
       "src": "/optimized-assets/project-web/main/mis-18/02-mis-18-logo-transperent.webp",
       "label": "MIS 18 logo _ Transperent.png"
+    },
+    {
+      "src": "/optimized-assets/project-web/main/mis-18/03-mis-18-business-card-front.png",
+      "label": "MIS 18 business card — front"
+    },
+    {
+      "src": "/optimized-assets/project-web/main/mis-18/04-mis-18-business-card-back.png",
+      "label": "MIS 18 business card — back"
     }
   ],
   "pp-hairstyle": [
@@ -242,6 +250,14 @@ export const mainProjectAssetAdditions = {
     {
       "src": "/optimized-assets/project-web/main/support-account/07-support-account-logotype-transparent-original.webp",
       "label": "Support Account_logotype_transparent (original).png"
+    },
+    {
+      "src": "/optimized-assets/project-web/main/support-account/08-support-account-business-card-front.png",
+      "label": "Support Account business card — front"
+    },
+    {
+      "src": "/optimized-assets/project-web/main/support-account/09-support-account-business-card-back.png",
+      "label": "Support Account business card — back"
     }
   ],
   "support-account-group": [

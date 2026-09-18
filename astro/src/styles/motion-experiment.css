@@ -1,0 +1,382 @@
+/* Experimental motion layer: preserves the current visual tokens and component shapes. */
+
+:root {
+  --motion-experiment-ease: cubic-bezier(.22, 1, .36, 1);
+  --motion-experiment-fast: 180ms;
+  --motion-experiment-base: 520ms;
+}
+
+.mp-header,
+.mp-header-inner,
+.mp-nav-link,
+.mp-language a,
+.mp-theme-control button,
+.mp-menu-button,
+.mp-footer a,
+.mp-button,
+.mp-text-link,
+.mp-project-carousel-controls button,
+.approved-page-content :is(a, button, input, textarea, select, summary) {
+  transition-duration: var(--motion-experiment-fast);
+  transition-timing-function: var(--motion-experiment-ease);
+}
+
+.mp-header {
+  transition-property: background-color, border-color, box-shadow, transform;
+}
+
+.mp-header[data-scrolled] {
+  box-shadow: 0 10px 28px color-mix(in srgb, var(--mp-text) 8%, transparent);
+}
+
+.mp-footer-links a,
+.approved-page-content :is(.inline-link, .project-link-hint) {
+  position: relative;
+}
+
+.mp-footer-links a::after,
+.approved-page-content :is(.inline-link, .project-link-hint)::after {
+  position: absolute;
+  right: 0;
+  bottom: -5px;
+  left: 0;
+  height: 1px;
+  content: "";
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform var(--motion-experiment-fast) var(--motion-experiment-ease);
+}
+
+.mp-footer-links a:hover::after,
+.mp-footer-links a:focus-visible::after,
+.approved-page-content :is(.inline-link, .project-link-hint):hover::after,
+.approved-page-content :is(.inline-link, .project-link-hint):focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
+/* The baseline header already owns the single navigation underline. */
+.mp-nav-link::after {
+  content: none;
+}
+
+/* Front and back of a business card stay visually and semantically together. */
+.approved-page-content .project-card-pair {
+  display: grid;
+  gap: 14px;
+  padding: clamp(14px, 1.8vw, 20px);
+  border: 1px solid var(--mp-line);
+  border-radius: var(--mp-radius);
+  background: var(--mp-surface);
+}
+
+.approved-page-content .project-card-pair-label {
+  margin: 0;
+  color: var(--mp-text-soft);
+  font-family: PantonRegular, sans-serif;
+  font-size: 12px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.approved-page-content .project-card-pair-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.approved-page-content .project-card-pair .mockup-card {
+  min-width: 0;
+  padding: 10px;
+}
+
+.approved-page-content .project-card-pair .mockup-image {
+  min-height: 0;
+  aspect-ratio: 3 / 2;
+}
+
+/* Project cards retain a shared text rhythm when descriptions vary in length. */
+.approved-page-content .project-card-aligned,
+.approved-page-content .project-card-aligned article {
+  height: 100%;
+}
+
+.approved-page-content .project-card-aligned article,
+.approved-page-content .project-card-aligned :is(.showcase-copy, .archive-project-copy) {
+  display: grid;
+}
+
+.approved-page-content .project-card-aligned article {
+  grid-template-rows: auto minmax(0, 1fr);
+}
+
+.approved-page-content .project-card-aligned .showcase-copy {
+  grid-template-rows: minmax(2.6lh, auto) minmax(4.8lh, auto) 1fr;
+}
+
+.approved-page-content .project-card-aligned .archive-project-copy {
+  grid-template-rows: auto minmax(2.6lh, auto) minmax(4.8lh, auto) 1fr;
+}
+
+.approved-page-content .project-card-aligned :is(.showcase-copy, .archive-project-copy) .project-card-footer,
+.approved-page-content .project-card-aligned .archive-project-copy .project-link-hint {
+  align-self: end;
+}
+
+.mp-button:hover,
+.mp-button:focus-visible,
+.mp-project-carousel-controls button:hover,
+.mp-project-carousel-controls button:focus-visible {
+  transform: translateY(-2px);
+}
+
+.mp-button:active,
+.mp-project-carousel-controls button:active {
+  transform: translateY(0) scale(.98);
+}
+
+.mp-text-link svg,
+.mp-project-copy .mp-text-link svg,
+.mp-premium-services-list a > svg {
+  transition: transform var(--motion-experiment-fast) var(--motion-experiment-ease);
+}
+
+.mp-text-link:hover svg,
+.mp-text-link:focus-visible svg,
+.mp-premium-services-list a:hover > svg,
+.mp-premium-services-list a:focus-visible > svg {
+  transform: translateX(3px);
+}
+
+.mp-hero-mark {
+  transform: translate3d(var(--hero-mark-x, 0), var(--hero-mark-y, 0), 0);
+  transition: transform 700ms var(--motion-experiment-ease);
+}
+
+.mp-hero-rule span {
+  transform-origin: left center;
+  animation: motion-rule-grow 900ms var(--motion-experiment-ease) both 420ms;
+}
+
+.mp-project-priority .mp-section-index {
+  margin-bottom: 16px;
+}
+
+.mp-project-feature figure {
+  overflow: hidden;
+}
+
+.mp-project-feature figure img {
+  transition: transform 700ms var(--motion-experiment-ease), filter 420ms var(--motion-experiment-ease);
+}
+
+.mp-project-feature figure video,
+.md-hero-media video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mp-project-feature.is-active figure {
+  animation: motion-project-reveal 700ms var(--motion-experiment-ease) both;
+}
+
+.mp-project-feature.is-active .mp-project-copy > * {
+  animation: motion-project-copy 560ms var(--motion-experiment-ease) both;
+}
+
+.mp-project-feature.is-active .mp-project-copy > :nth-child(2) { animation-delay: 60ms; }
+.mp-project-feature.is-active .mp-project-copy > :nth-child(3) { animation-delay: 120ms; }
+
+.mp-direction-icon {
+  display: inline-grid;
+  width: 24px;
+  height: 24px;
+  place-items: center;
+  margin-right: 12px;
+  vertical-align: middle;
+}
+
+.mp-direction-icon svg {
+  width: 21px;
+  height: 21px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.35;
+  transition: transform 420ms var(--motion-experiment-ease), stroke-dashoffset 620ms var(--motion-experiment-ease);
+}
+
+.mp-premium-services-list li {
+  transition: background-color var(--motion-experiment-fast) var(--motion-experiment-ease), padding-inline var(--motion-experiment-fast) var(--motion-experiment-ease);
+}
+
+.mp-premium-services-list li:hover,
+.mp-premium-services-list li:focus-within {
+  padding-inline: 10px;
+  background: color-mix(in srgb, var(--mp-text) 4%, transparent);
+}
+
+.mp-premium-services-list li:hover .mp-direction-icon svg,
+.mp-premium-services-list li:focus-within .mp-direction-icon svg {
+  transform: rotate(-8deg) scale(1.08);
+}
+
+.mp-service-icon {
+  display: grid;
+  width: 46px;
+  height: 46px;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--foreground);
+  transition: transform 420ms var(--motion-experiment-ease), background-color var(--motion-experiment-fast) var(--motion-experiment-ease), color var(--motion-experiment-fast) var(--motion-experiment-ease);
+}
+
+.mp-service-icon svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.35;
+}
+
+.mp-pricing-list article,
+.mp-process-list li,
+.mp-benefit,
+.mp-testimonials-grid blockquote,
+.approved-page-content :is(.card, .service-category-card, .package-card, .process-step-card, .contact-start-card, .archive-project-card) {
+  transition: transform 340ms var(--motion-experiment-ease), border-color var(--motion-experiment-fast) var(--motion-experiment-ease), box-shadow 340ms var(--motion-experiment-ease), background-color var(--motion-experiment-fast) var(--motion-experiment-ease);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .mp-pricing-list article:hover,
+  .mp-process-list li:hover,
+  .mp-benefit:hover,
+  .mp-testimonials-grid blockquote:hover,
+  .approved-page-content :is(.card, .service-category-card, .package-card, .process-step-card, .contact-start-card, .archive-project-card):hover {
+    transform: translateY(-5px);
+  }
+
+  .approved-page-content .service-category-card:hover .mp-service-icon {
+    color: var(--background);
+    background: var(--foreground);
+    transform: rotate(-9deg) scale(1.06);
+  }
+
+  .approved-page-content .showcase-link-card:hover .showcase-image-frame {
+    transform: scale(1.024) rotate(.35deg);
+  }
+
+  .mp-project-feature.is-active:hover figure img,
+  .mp-project-feature.is-active:focus-visible figure img {
+    transform: scale(1.035);
+  }
+}
+
+.approved-page-content :is(input, textarea, select):focus-visible,
+.approved-page-content summary:focus-visible {
+  outline: 2px solid var(--mp-text);
+  outline-offset: 3px;
+}
+
+.approved-page-content details > summary::marker { content: ""; }
+.approved-page-content details > summary::after {
+  display: inline-block;
+  margin-left: 10px;
+  content: "+";
+  transition: transform var(--motion-experiment-fast) var(--motion-experiment-ease);
+}
+.approved-page-content details[open] > summary::after { transform: rotate(45deg); }
+
+@media (prefers-reduced-motion: no-preference) {
+  html.mp-js [data-motion="hero-copy"]:not(.is-visible) {
+    clip-path: inset(0 0 100% 0);
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  html.mp-js [data-motion="hero-copy"].is-visible {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+    transform: translateY(0);
+    transition: clip-path 860ms var(--motion-experiment-ease), opacity 400ms var(--motion-experiment-ease), transform 860ms var(--motion-experiment-ease);
+  }
+
+  html.mp-js [data-motion="hero-mark"]:not(.is-visible) { opacity: 0; transform: scale(.92) rotate(-3deg); }
+  html.mp-js [data-motion="hero-mark"].is-visible { opacity: 1; transform: translate3d(var(--hero-mark-x, 0), var(--hero-mark-y, 0), 0) scale(1) rotate(0); transition: opacity 520ms var(--motion-experiment-ease) 120ms, transform 840ms var(--motion-experiment-ease) 120ms; }
+  html.mp-js [data-motion="hero-summary"]:not(.is-visible) { opacity: 0; transform: translateY(18px); }
+  html.mp-js [data-motion="hero-summary"].is-visible { opacity: 1; transform: translateY(0); transition: opacity 420ms var(--motion-experiment-ease) 240ms, transform 620ms var(--motion-experiment-ease) 240ms; }
+  html.mp-js [data-motion="pricing-list"].is-visible > article { animation: motion-item-rise 620ms var(--motion-experiment-ease) both; }
+  html.mp-js [data-motion="pricing-list"].is-visible > article:nth-child(2) { animation-delay: 70ms; }
+
+  html.mp-js [data-route-motion]:not(.is-visible) {
+    opacity: 0;
+    transform: translateY(38px) rotate(.35deg);
+  }
+
+  html.mp-js [data-route-motion="intro"]:not(.is-visible) {
+    clip-path: inset(0 0 100% 0);
+    transform: translateY(26px);
+  }
+
+  html.mp-js [data-route-motion="media"]:not(.is-visible) {
+    clip-path: inset(0 0 8% 0);
+    transform: translateY(28px) scale(.975);
+  }
+
+  html.mp-js [data-route-motion].is-visible {
+    opacity: 1;
+    transform: translateY(0) rotate(0);
+    transition: opacity 420ms var(--motion-experiment-ease) var(--route-motion-delay, 0ms), transform 760ms var(--motion-experiment-ease) var(--route-motion-delay, 0ms);
+  }
+
+  html.mp-js [data-route-motion="intro"].is-visible {
+    clip-path: inset(0 0 0 0);
+    transition: clip-path 800ms var(--motion-experiment-ease) var(--route-motion-delay, 0ms), opacity 420ms var(--motion-experiment-ease) var(--route-motion-delay, 0ms), transform 760ms var(--motion-experiment-ease) var(--route-motion-delay, 0ms);
+  }
+
+  html.mp-js [data-route-motion="media"].is-visible {
+    clip-path: inset(0 0 0 0);
+    transition: clip-path 760ms var(--motion-experiment-ease) var(--route-motion-delay, 0ms), opacity 420ms var(--motion-experiment-ease) var(--route-motion-delay, 0ms), transform 760ms var(--motion-experiment-ease) var(--route-motion-delay, 0ms);
+  }
+}
+
+@media (max-width: 760px) {
+  .mp-project-priority .mp-section-index { margin-bottom: 12px; }
+  .approved-page-content .project-card-pair-grid { grid-template-columns: 1fr; }
+  .mp-premium-services-list li:hover,
+  .mp-premium-services-list li:focus-within { padding-inline: 0; background: transparent; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mp-hero-rule span { animation: none; }
+  .mp-project-feature.is-active figure,
+  .mp-project-feature.is-active .mp-project-copy > *,
+  html.mp-js :is([data-motion], [data-route-motion]) { animation: none; clip-path: none; opacity: 1; transform: none; transition: none; }
+}
+
+@keyframes motion-rule-grow {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@keyframes motion-project-reveal {
+  from { clip-path: inset(0 100% 0 0); }
+  to { clip-path: inset(0 0 0 0); }
+}
+
+@keyframes motion-project-copy {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes motion-item-rise {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}

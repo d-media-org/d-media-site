@@ -9,6 +9,19 @@ import { getSiteContent } from "@/lib/site-content";
 const locale: Locale = "bg";
 const copy = getPageCopy(locale).services;
 const siteContent = getSiteContent(locale);
+const serviceIconPaths: Record<string, string> = {
+  "brand-identity": "M12 3.5a8.5 8.5 0 1 0 0 17 8.5 8.5 0 0 0 0-17Zm0 4.5v8m-4-4h8",
+  "graphic-design": "M5 5h14v14H5zM9 9h6v6H9z",
+  "content": "M5 6h14M5 12h10M5 18h14",
+  "social-media-management": "M7 7h3v3H7zM14 14h3v3h-3zM10 9.5l4 5",
+  "advertising": "M5 11h4l6-4v10l-6-4H5zM8 15v4",
+  "web-design-development": "M4 5h16v14H4zM4 9h16M8 7h.01M11 7h.01",
+  "technical-seo": "m10 5 5 5-5 5M5 19l4-4M14 19h5v-5",
+  "geo": "M12 21s6-4.3 6-10A6 6 0 0 0 6 11c0 5.7 6 10 6 10Zm0-12.5h.01",
+  "performance-optimization": "M5 17a7 7 0 1 1 14 0M12 10l3 3",
+  "technical-support": "M8 18h8M9 18v-3a3 3 0 0 1 6 0v3M6 12v-2a6 6 0 0 1 12 0v2",
+  "additional-charges-rights": "M12 5v14M5 12h14",
+};
 ---
 
 <Layout
@@ -32,6 +45,9 @@ const siteContent = getSiteContent(locale);
       <div class="showcase-grid service-card-grid">
         {siteContent.coreServices.map((service) => (
           <article class="card service-category-card">
+            <span class="mp-service-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d={serviceIconPaths[service.id] ?? serviceIconPaths["additional-charges-rights"]} /></svg>
+            </span>
             <h2>{service.title}</h2>
             <p>{service.text}</p>
             <p><strong>{copy.includes}:</strong> {service.includes}</p>

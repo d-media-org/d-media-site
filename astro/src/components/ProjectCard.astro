@@ -1,6 +1,6 @@
 ---
 import { localizeHref, type Locale } from "@/lib/i18n";
-import { resolveAssetUrl } from "@/lib/asset-url";
+import { resolveProjectPrimaryImage } from "@/lib/asset-url";
 import { getUiCopy } from "@/lib/ui-copy";
 
 type Project = {
@@ -20,12 +20,12 @@ type Props = {
 const { project, locale, variant = "showcase" } = Astro.props;
 const ui = getUiCopy(locale);
 const isArchive = variant === "archive";
-const coverSrc = resolveAssetUrl(project.cover);
+const coverSrc = resolveProjectPrimaryImage(project.slug, project.cover);
 const fileCountLabel = project.imageCount > 0 ? ui.fileCount(project.imageCount) : null;
 ---
 
 <a
-  class={`card ${isArchive ? "archive-card archive-project-card" : "showcase-card"} showcase-link-card`}
+  class={`card ${isArchive ? "archive-card archive-project-card" : "showcase-card"} showcase-link-card project-card-aligned`}
   href={localizeHref(locale, `/projects/${project.slug}`)}
 >
   <article>

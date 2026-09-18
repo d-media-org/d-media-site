@@ -4,10 +4,11 @@ import type { Locale } from "@/lib/i18n";
 export const featuredProjectSlugs = [
   "d-media",
   "apple-community-bulgaria",
-  "yanita",
   "support-account",
   "support-account-group",
-  "boris-lilov-photography",
+  "dj-nedi",
+  "syanka-ot-minaloto",
+  "mis-18",
 ] as const;
 
 export function getFeaturedProjectSlugs() {

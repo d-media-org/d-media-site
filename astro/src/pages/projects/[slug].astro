@@ -33,6 +33,31 @@ const projectGalleryImages = project.images.filter(
   (image: { src: string }, index: number, images: { src: string }[]) =>
     image.src !== projectHeroImage && images.findIndex((entry) => entry.src === image.src) === index,
 );
+type ProjectImage = { src: string; label?: string };
+type ProjectGalleryGroup = { pairKey: string | null; images: ProjectImage[] };
+const getBusinessCardPairKey = (image: ProjectImage) => {
+  const source = `${image.src} ${image.label ?? ""}`.toLowerCase();
+  if (!/\b(front|back)\b/.test(source)) return null;
+
+  return image.src
+    .split("/")
+    .at(-1)
+    ?.replace(/^\d+[-_]/, "")
+    .replace(/[-_](?:business[-_]?cards?[-_]?)?(?:front|back)(?=\.[^.]+$)/i, "")
+    .replace(/\.[^.]+$/, "") ?? null;
+};
+const projectGalleryGroups = projectGalleryImages.reduce<ProjectGalleryGroup[]>((groups, image: ProjectImage) => {
+  const pairKey = getBusinessCardPairKey(image);
+  const existingGroup = pairKey ? groups.find((group) => group.pairKey === pairKey) : undefined;
+
+  if (existingGroup) {
+    existingGroup.images.push(image);
+  } else {
+    groups.push({ pairKey, images: [image] });
+  }
+
+  return groups;
+}, []);
 const hasProjectFiles = projectGalleryImages.length > 0;
 const formatFileCount = (count: number) =>
   locale === "en" ? `${count} ${count === 1 ? "file" : "files"}` : `${count} ${count === 1 ? "файл" : "файла"}`;
@@ -78,7 +103,6 @@ const relatedServices = relatedServiceIds
       <div class="section-heading page-intro">
         <h1>{project.title}</h1>
         {projectSubtitle ? <p class="project-case-subtitle">{projectSubtitle}</p> : null}
-        <p class="page-text">{project.context}</p>
         {projectType || projectStatus ? (
           <dl class="project-case-meta" aria-label="Данни за проекта">
             {projectType ? <div><dt>Тип</dt><dd>{projectType}</dd></div> : null}
@@ -132,10 +156,10 @@ const relatedServices = relatedServiceIds
               <a class="inline-link" href="/site-history/">История на сайта</a>
             </div>
           ) : null}
-          {projectLinks.map((link: { href: string; label: string; title: string; text: string }) => (
+          {projectLinks.map((link: { href: string; label: string; title?: string; text?: string }) => (
             <div class="case-study-section">
-              <span class="case-study-label">{link.title}</span>
-              <p>{link.text}</p>
+              {link.title ? <span class="case-study-label">{link.title}</span> : null}
+              {link.text ? <p>{link.text}</p> : null}
               <a class="inline-link" href={link.href} target="_blank" rel="noopener noreferrer">
                 {link.label}
               </a>
@@ -154,7 +178,25 @@ const relatedServices = relatedServiceIds
             <h2>{copy.applicationsTitle}</h2>
           </div>
           <div class="mockup-grid projects-gallery">
-            {projectGalleryImages.map((image: { src: string; label?: string }) => (
+            {projectGalleryGroups.map((group) => group.pairKey && group.images.length > 1 ? (
+              <div class="project-card-pair">
+                <p class="project-card-pair-label">Визитка — лице и гръб</p>
+                <div class="project-card-pair-grid">
+                  {group.images.map((image) => (
+                    <a
+                      class="card mockup-card project-png-card gallery-trigger project-file-trigger"
+                      href={image.src}
+                      data-gallery-trigger
+                      data-gallery-alt={image.label ?? project.title}
+                    >
+                      <div class="mockup-image">
+                        <img src={image.src} alt={image.label ?? project.title} decoding="async" />
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ) : group.images.map((image) => (
               <a
                 class="card mockup-card project-png-card gallery-trigger project-file-trigger"
                 href={image.src}
@@ -165,7 +207,7 @@ const relatedServices = relatedServiceIds
                   <img src={image.src} alt={image.label ?? project.title} decoding="async" />
                 </div>
               </a>
-            ))}
+            )))}
           </div>
         </>
       ) : null}

@@ -41,8 +41,8 @@ const pageCopy = {
       eyebrow: "Ясен облик. Подредена комуникация. Реално приложение.",
       brandmarkAlt: "Брандмарк на d . media",
       title: "Създаваме бранд идентичност, съдържание, уеб платформи, дизайн и реклама в една работеща система.",
-      text: "Работим за бизнеси, които търсят ясен облик, подредена комуникация и дигитална среда за реална употреба. От знака до сайта и ежедневната комуникация, всичко се изгражда в една последователна система.",
-      note: "Ясен облик. Подреден процес. Последователно приложение.",
+      text: "Свързваме знака, сайта и ежедневната комуникация в последователна система, която помага на бранда да бъде разпознаваем във всяка точка на контакт.",
+      note: "От първата идея до материалите, които остават след проекта.",
       primaryCta: "Изпрати проектно запитване",
       secondaryCta: "Разгледай услугите",
       servicesEyebrow: "услуги",
@@ -111,8 +111,8 @@ const pageCopy = {
       metaDescription:
         "Услуги на d . media за бранд идентичност, съдържание, уеб дизайн, разработка на сайтове, графичен дизайн и реклама от студио в София.",
       eyebrow: "услуги",
-      title: "Услуги за бранд, съдържание, уеб платформи и работещо присъствие.",
-      text: "Тук е работният обхват. Всяка услуга е подредена така, че да води до ясен резултат, стабилна основа и готовност за реална употреба.",
+      title: "Услуги за бранд, съдържание и дигитално присъствие.",
+      text: "Избери конкретна услуга или комбинирай нужните направления. Всяка е описана с обхват, за кого е и какъв резултат носи.",
       includes: "Какво включва",
       audience: "За кого е",
       result: "Какъв резултат дава",
@@ -596,7 +596,7 @@ const pageCopy = {
       metaDescription:
         "Научи повече за d . media, начина на работа, визуалните системи и дигиталните платформи на студиото в София.",
       eyebrow: "за бранда",
-      text: "d . media е студио, изградено за ясна работа, последователност, дигитални платформи и реална употреба.",
+      text: "Независимо студио за визуална идентичност, съдържание и дигитално присъствие.",
       brandbookTitle: "Официален брандбук",
       brandbookText:
         "Брандбукът показва основната система, правилата за употреба и начина, по който идентичността се държи последователно.",
@@ -685,8 +685,8 @@ const pageCopy = {
       eyebrow: "Clear presence. Ordered communication. Real application.",
       brandmarkAlt: "d . media brand mark",
       title: "We create brand identity, content, web platforms, design and advertising in one working system.",
-      text: "We work with businesses that need a clear presence, ordered communication, and a digital environment for real use. From mark to website and day-to-day communication, everything is built as one consistent system.",
-      note: "Clear presence. Ordered process. Consistent application.",
+      text: "We connect the mark, website, and day-to-day communication into a consistent system that helps a brand stay recognisable at every point of contact.",
+      note: "From the first idea to the materials that remain after the project.",
       primaryCta: "Send a project inquiry",
       secondaryCta: "Explore services",
       servicesEyebrow: "services",
@@ -755,8 +755,8 @@ const pageCopy = {
       metaDescription:
         "Services by d . media for brand identity, content, web design, website development, graphic design, and advertising from a studio based in Sofia, Bulgaria.",
       eyebrow: "services",
-      title: "Services for brand, content, web platforms, and working presence.",
-      text: "This is the working scope. Each service is structured to lead to a clear deliverable, stable foundation, and immediate readiness for real use.",
+      title: "Services for brand, content, and digital presence.",
+      text: "Choose a specific service or combine the directions you need. Each one explains its scope, who it is for, and the result it delivers.",
       includes: "What it includes",
       audience: "Who it is for",
       result: "What result it delivers",
@@ -1240,7 +1240,7 @@ const pageCopy = {
       metaDescription:
         "Learn more about d . media, the working approach, visual systems, and digital platforms of the Sofia-based studio.",
       eyebrow: "about",
-      text: "d . media is a studio built for clear work, consistency, digital platforms, and real use.",
+      text: "An independent studio for visual identity, content, and digital presence.",
       brandbookTitle: "Official brand book",
       brandbookText:
         "The brand book shows the core system, the usage rules, and the way the identity stays consistent in application.",

@@ -213,11 +213,11 @@ const baseProjectPngArchive = [
     "featured": true,
     "priority": 2,
     "summary": "Корпоративна идентичност за счетоводна дейност с ясен и подреден професионален облик.",
-    "context": "Подборът тук е сведен до основните прозрачни файлове, които държат най-точно първичната logo система и отделното присъствие на бранда.",
+    "context": "Подборът показва основния знак и логотипите в ключовите им версии, както и визитката като реално печатно приложение на идентичността.",
     "focus": [
-      "Оригинален прозрачен логотип",
-      "Българска версия на логотипа",
-      "Прозрачен logo вариант за директно приложение"
+      "Оригинален и български логотип",
+      "Прозрачен logo вариант за директно приложение",
+      "Визитка — лице и гръб"
     ],
     "videos": [
       {
@@ -567,12 +567,18 @@ const baseProjectPngArchive = [
     ],
     "featured": false,
     "priority": 999,
-    "summary": "Идентичност и дигитални материали за митническа агенция.",
+    "summary": "Идентичност за митническа агенция, представена чрез основния знак и визитките.",
     "context": "Проектът беше ориентиран към административна и логистична среда, в която четимостта и ясният професионален облик са решаващи.",
     "focus": [
       "Основен прозрачен logo export",
-      "Ясна дигитална употреба",
+      "Визитка — лице и гръб",
       "Чист знак за професионална среда"
+    ],
+    "links": [
+      {
+        "href": "https://www.customsagencymis.com/",
+        "label": "Посети сайта на MIS 18"
+      }
     ]
   },
   {
@@ -819,6 +825,32 @@ const baseProjectPngArchive = [
       "Файлове за светъл фон и мокъп приложение",
       "Присъствие, ориентирано към YouTube среда"
     ],
+    "caseStudySections": [
+      {
+        "title": "Начало и формат",
+        "text": "„Сянка от миналото“ стартира през юли 2025 г. като съвместен проект с участието на d . media в изграждането на неговия визуален и аудиовизуален облик. В рамките на активния период са публикувани шест видеоматериала — пет основни теренни епизода и специално издание „Зад кадър“."
+      },
+      {
+        "title": "Потенциал",
+        "text": "За краткия си активен период каналът достига приблизително 4,8 хил. гледания и 164 абонати. Отделни епизоди показват реален потенциал за достигане до значително по-широка публика. Най-силният резултат е при „Бункерите под планината – част 2“ с над 2100 гледания, като наличните данни показват, че голямата част от аудиторията е достигната чрез препоръчващите механизми на YouTube. Това показва, че самата концепция и тематиката имат потенциал."
+      },
+      {
+        "title": "Прекъсване на развитието",
+        "text": "Въпреки тези положителни показатели развитието на проекта практически е преустановено. Последната публикация е от 26 октомври 2025 г., което означава близо 11 месеца без ново съдържание. Така не е използван моментът, в който каналът започва да достига аудитория извън собствената си абонатна база, нито е изградена необходимата последователност за устойчиво развитие на поредицата."
+      },
+      {
+        "title": "Основание за оттегляне",
+        "text": "За d . media копродукцията предполага не само участие в създаването на отделни материали, а активно развиващ се проект, последователност и възможност изградената визуална идентичност да бъде използвана като част от дългосрочно съдържателно развитие. При продължителната липса на нови епизоди тази предпоставка вече не е налице."
+      },
+      {
+        "title": "Решение",
+        "text": "Поради това d . media се оттегля от бъдещото си участие в копродукцията на „Сянка от миналото“. Решението не е оценка, че проектът е неуспешен — наличните резултати по-скоро показват обратното. Причината е продължителното фактическо прекъсване на активното му развитие и липсата на основание студиото да продължава да бъде обвързано като копродуцент с неактивен проект."
+      },
+      {
+        "title": "Материали и архив",
+        "text": "d . media запазва положителната си оценка за извършената съвместна работа и няма да ограничава използването на вече създадените и предоставени аудио- и визуални материали, при условие че те се използват във вида, в който са предоставени. По този начин създадената идентичност и архивът на „Сянка от миналото“ могат да останат част от проекта и след прекратяването на копродукцията."
+      }
+    ],
     "videos": [
       {
         "src": "/optimized-assets/project-media/syanka-ot-minaloto-intro.m4v",
@@ -946,11 +978,11 @@ const localizedProjectCopy = {
     },
     "support-account": {
       summary: "Corporate identity for an accounting business with a clear and structured professional presence.",
-      context: "The selection here is reduced to the core transparent files that preserve the primary logo system and the brand’s independent presence most clearly.",
+      context: "The selection shows the core mark and logotypes in their key versions, together with the business card as a real print application of the identity.",
       focus: [
-        "Original transparent logotype",
-        "Bulgarian logotype version",
+        "Original and Bulgarian logotype",
         "Transparent logo version for direct application",
+        "Business card — front and back",
       ],
       caseStudySections: [
         {
@@ -1090,12 +1122,18 @@ const localizedProjectCopy = {
       ],
     },
     "mis-18": {
-      summary: "Identity and digital materials for a customs agency.",
+      summary: "Identity for a customs agency, presented through the primary mark and business cards.",
       context: "The project was built for an administrative and logistics setting, where legibility and a clear professional image were essential.",
       focus: [
         "Primary transparent logo export",
-        "Clear digital application",
+        "Business card — front and back",
         "A clean sign for a professional setting",
+      ],
+      links: [
+        {
+          href: "https://www.customsagencymis.com/",
+          label: "Visit the MIS 18 website",
+        },
       ],
     },
     "photo-workshop": {
