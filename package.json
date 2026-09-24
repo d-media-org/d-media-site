@@ -30,8 +30,8 @@
     "astro:cf:deploy:production": "npm run astro:cf:validate && cd astro && npx wrangler pages deploy dist --project-name \"${CF_PAGES_PROJECT:-d-media}\" --branch \"${CF_PAGES_PRODUCTION_BRANCH:-main}\""
   },
   "devDependencies": {
-    "@types/node": "^20.19.41",
-    "eslint": "^9",
+    "@types/node": "^26.6.1",
+    "eslint": "^10.10.0",
     "playwright": "^1.60.0",
     "sharp": "^0.35.3"
   }
