@@ -30,6 +30,58 @@ function getImageOrder(label: string) {
 
 const baseProjectPngArchive = [
   {
+    "slug": "apple-community-bulgaria",
+    "title": "Apple Community Bulgaria",
+    "imageCount": 22,
+    "cover": "/assets/projects/apple-community-bulgaria/cover.png",
+    "images": [
+      { "src": "/assets/projects/apple-community-bulgaria/community-cover.png", "label": "Apple Community Bulgaria — Community cover" },
+      { "src": "/assets/projects/apple-community-bulgaria/community-clean-cover.png", "label": "Apple Community Bulgaria — clean Community cover" },
+      { "src": "/assets/projects/apple-community-bulgaria/community-logotype.png", "label": "Apple Community Bulgaria — Community logotype" },
+      { "src": "/assets/projects/apple-community-bulgaria/sales-cover.png", "label": "Apple Sales Community Bulgaria — cover" },
+      { "src": "/assets/projects/apple-community-bulgaria/sales-clean-cover.png", "label": "Apple Sales Community Bulgaria — clean cover" },
+      { "src": "/assets/projects/apple-community-bulgaria/sales-logotype.png", "label": "Apple Sales Community Bulgaria — logotype" },
+      { "src": "/assets/projects/apple-community-bulgaria/airpods-cover.png", "label": "AirPods Community Bulgaria — cover" },
+      { "src": "/assets/projects/apple-community-bulgaria/airpods-clean-cover.png", "label": "AirPods Community Bulgaria — clean cover" },
+      { "src": "/assets/projects/apple-community-bulgaria/airpods-logotype.png", "label": "AirPods Community Bulgaria — logotype" },
+      { "src": "/assets/projects/apple-community-bulgaria/podcast-cover.png", "label": "Apple Community Bulgaria podcast — cover" },
+      { "src": "/assets/projects/apple-community-bulgaria/podcast-clean-cover.png", "label": "Apple Community Bulgaria podcast — clean cover" },
+      { "src": "/assets/projects/apple-community-bulgaria/podcast-artcover.png", "label": "Apple Community Bulgaria podcast — artwork" },
+      { "src": "/assets/projects/apple-community-bulgaria/podcast-logotype.png", "label": "Apple Community Bulgaria podcast — logotype" },
+      { "src": "/assets/projects/apple-community-bulgaria/christmas-community-cover.png", "label": "Apple Community Bulgaria — Christmas cover" },
+      { "src": "/assets/projects/apple-community-bulgaria/christmas-airpods-cover.png", "label": "AirPods Community Bulgaria — Christmas cover" },
+      { "src": "/assets/projects/apple-community-bulgaria/christmas-sales-cover.png", "label": "Apple Sales Community Bulgaria — Christmas cover" },
+      { "src": "/assets/projects/apple-community-bulgaria/christmas-podcast-cover.png", "label": "Apple Community Bulgaria podcast — Christmas cover" },
+      { "src": "/assets/projects/apple-community-bulgaria/newyear-community-cover.png", "label": "Apple Community Bulgaria — New Year cover" },
+      { "src": "/assets/projects/apple-community-bulgaria/newyear-airpods-cover.png", "label": "AirPods Community Bulgaria — New Year cover" },
+      { "src": "/assets/projects/apple-community-bulgaria/newyear-sales-cover.png", "label": "Apple Sales Community Bulgaria — New Year cover" },
+      { "src": "/assets/projects/apple-community-bulgaria/newyear-podcast-cover.png", "label": "Apple Community Bulgaria podcast — New Year cover" }
+    ],
+    "featured": true,
+    "priority": 1,
+    "subtitle": "От общност до собствена медийна екосистема",
+    "projectType": "Собствен проект / общност / бранд / подкаст",
+    "status": "Завършен",
+    "summary": "Собствен проект на d . media, изграден около идеята за организирана българска общност за потребители на Apple.",
+    "context": "С развитието си проектът прераства от една Facebook група в система от специализирани общности и собствен подкаст с разработена визуална и звукова идентичност.",
+    "focus": [
+      "Завършен собствен проект на d . media",
+      "Общност, бранд и подкаст екосистема",
+      "Визуална идентичност и съдържание за социални мрежи",
+      "Звукова продукция, sound design, запис, монтаж и микс",
+      "Завършен E0 епизод, суров запис за E1, видео версия и тийзър"
+    ],
+    "caseStudySections": [
+      { "title": "Статус", "text": "Завършен собствен проект на d . media. На 1 август 2025 г. започва едномесечен период на замразяване на Apple Community Bulgaria, Apple Sales Community Bulgaria и Apple Community Bulgaria podcast след оценка на активността и устойчивостта на общностите." },
+      { "title": "Запазени материали", "text": "Проектът включва визуални материали, видео и звукова продукция, разработени за общностите и подкаста." },
+      { "title": "Екосистема", "text": "Екосистемата включва Apple Community Bulgaria, Apple Sales Community Bulgaria, AirPods Community Bulgaria и Apple Community Bulgaria podcast. AirPods Community Bulgaria е името по време на участието на d . media; след оттеглянето групата е върната към първоначалното си име и оригиналния си администратор и днес е AirPods Users Bulgaria." },
+      { "title": "Визуална система", "text": "Разработена е свързана визуална система с лога, логотипи, Facebook корици, podcast artwork, шаблони, Christmas и New Year варианти и editable AI/PSD източници." },
+      { "title": "Подкаст", "text": "Подкаст направлението разширява проекта отвъд Facebook общностите. Архивът съдържа original intro, jingle, extended intro, extended mix, full theme, short intro, background, closing, clean, clean strings, club и ethno edits, запис, монтаж, микс, аудио реклама, видео версия и тийзър. Има завършен E0 и суров запис за E1; E1 не е представен като публикуван епизод." },
+      { "title": "Общност", "text": "Към 4 септември 2026 г. предоставената снимка показва приблизително 1.2K членове в основната Apple Community Bulgaria група, 47 в Apple Sales Community Bulgaria и 9 в Apple Community Bulgaria podcast. Текущите приблизително 3.4K членове на AirPods Users Bulgaria не са използвани като резултат на d . media. Не са налични надеждни исторически данни за темп на растеж, обхват, импресии, ангажираност или уникална аудитория." },
+      { "title": "Равносметка", "text": "Apple Community Bulgaria преминава през целия жизнен цикъл на собствен медиен проект — от концепция и визуална идентичност до управление на общности, съдържание, звук, видео и подкаст продукция. Проектът е приключен и архивът показва реално произведената система без твърдения за недоказани резултати." }
+    ]
+  },
+  {
     "slug": "d-media",
     "title": "d . media",
     "imageCount": 4,
@@ -60,8 +112,8 @@ const baseProjectPngArchive = [
     "focus": [
       "100 Performance, 100 Accessibility, 100 Best Practices и 100 SEO в Lighthouse",
       "Миграция към Astro и Cloudflare Pages",
-      "SEO, GEO и multilingual архитектура за реална употреба",
-      "Реални brand applications и архив от 155 motion варианта"
+      "SEO, GEO и многоезична архитектура за търсене",
+      "Приложения на бранда и motion материали"
     ],
     "caseStudySections": [
       {
@@ -74,7 +126,7 @@ const baseProjectPngArchive = [
       },
       {
         "title": "Архитектура",
-        "text": "Платформата премина от първоначален Next.js сайт към Astro/Cloudflare Pages архитектура с ясни маршрути, локални публични assets и синхронизирана езикова структура между BG и EN."
+        "text": "Платформата беше преструктурирана с ясни маршрути, локални материали и синхронизирана езикова структура между BG и EN."
       },
       {
         "title": "Performance",
@@ -82,11 +134,11 @@ const baseProjectPngArchive = [
       },
       {
         "title": "Миграция към Astro",
-        "text": "Миграцията към Astro намали runtime тежестта и направи сайта по-предвидим за статично публикуване, route validation и дългосрочна поддръжка."
+        "text": "По-леката архитектура намали излишната тежест и направи сайта по-предвидим за публикуване и поддръжка."
       },
       {
         "title": "Миграция към Cloudflare",
-        "text": "Преместването към Cloudflare Pages даде по-чиста инфраструктура, директен контрол върху домейна, preview/live процес и премахване на активната зависимост от стар външен asset слой."
+        "text": "Новият начин на публикуване даде по-чиста инфраструктура, директен контрол върху домейна и отделни среди за преглед и публикуване."
       },
       {
         "title": "SEO и GEO готовност",
@@ -98,15 +150,15 @@ const baseProjectPngArchive = [
       },
       {
         "title": "Галерии и мобилна стабилност",
-        "text": "Проектният архив премина през оптимизация на PNG файлове, bounded web derivatives, portrait/landscape логика за mockup секции и специални итерации за iPhone/Safari стабилност."
+        "text": "Изображенията бяха оптимизирани за различни съотношения и екрани, включително iPhone и Safari."
       },
       {
         "title": "Motion система",
-        "text": "Казусът включва архив от 155 оптимизирани logo intro и animation варианта с poster кадри и отложено зареждане, така че motion разработката остава достъпна без да натоварва първоначалното отваряне на страницата."
+        "text": "Motion материалите използват оптимизирани варианти, poster кадри и отложено зареждане, за да останат достъпни без да забавят първоначалното отваряне на страницата."
       },
       {
         "title": "Резултат",
-        "text": "d-media.org работи като собствен работен пример: бранд система, реални приложения, съдържание, проектен и motion архив и уеб платформа, изградени по същия стандарт, който предлагаме."
+        "text": "d-media.org е собствен работен пример за съчетаване на бранд, съдържание и уеб платформа в едно последователно присъствие."
       }
     ]
   },
@@ -132,7 +184,7 @@ const baseProjectPngArchive = [
     "featured": true,
     "priority": 1,
     "summary": "Beauty идентичност, представена през основните прозрачни logo варианти.",
-    "context": "Текущият архив пази чистата основа на знака в оригинална, тъмна и светла версия, без приложните файлове от по-късни формати.",
+    "context": "Знакът е представен в оригинална, тъмна и светла версия, за да може да се използва върху различни фонове.",
     "focus": [
       "Оригинален прозрачен знак",
       "Черна прозрачна версия",
@@ -161,11 +213,11 @@ const baseProjectPngArchive = [
     "featured": true,
     "priority": 2,
     "summary": "Корпоративна идентичност за счетоводна дейност с ясен и подреден професионален облик.",
-    "context": "Подборът тук е сведен до основните прозрачни файлове, които държат най-точно първичната logo система и отделното присъствие на бранда.",
+    "context": "Подборът показва основния знак и логотипите в ключовите им версии, както и визитката като реално печатно приложение на идентичността.",
     "focus": [
-      "Оригинален прозрачен логотип",
-      "Българска версия на логотипа",
-      "Прозрачен logo вариант за директно приложение"
+      "Оригинален и български логотип",
+      "Прозрачен logo вариант за директно приложение",
+      "Визитка — лице и гръб"
     ],
     "videos": [
       {
@@ -207,7 +259,7 @@ const baseProjectPngArchive = [
     "featured": true,
     "priority": 3,
     "summary": "Корпоративна идентичност за втори бранд в рамките на същата счетоводна дейност.",
-    "context": "Подборът е сведен до двата прозрачни основни файла, които пазят най-чисто връзката със Support Account и отделното позициониране на групата.",
+    "context": "Двата прозрачни основни файла запазват връзката със Support Account и отделното позициониране на групата.",
     "focus": [
       "Прозрачен логотип за корпоративна употреба",
       "Комбиниран прозрачен знак за директно приложение",
@@ -236,7 +288,7 @@ const baseProjectPngArchive = [
     "featured": true,
     "priority": 4,
     "summary": "Авторски знак с чист силует и подредени прозрачни версии за различен фон.",
-    "context": "Архивът вече държи основния знак в прозрачна, черна и бяла версия, вместо единичен export.",
+    "context": "Основният знак е подготвен в прозрачна, черна и бяла версия за различни приложения.",
     "focus": [
       "Основен прозрачен знак",
       "Черна прозрачна версия",
@@ -370,7 +422,7 @@ const baseProjectPngArchive = [
     "featured": false,
     "priority": 999,
     "summary": "DJ идентичност, представена чрез трите основни прозрачни версии на знака.",
-    "context": "Подборът е сведен до оригиналния, черния и белия прозрачeн вариант, за да се пази най-чистият вид на системата.",
+    "context": "Оригиналният, черният и белият прозрачен вариант покриват основните приложения на знака.",
     "focus": [
       "Оригинален прозрачен знак",
       "Черна прозрачна версия",
@@ -391,7 +443,7 @@ const baseProjectPngArchive = [
     "featured": false,
     "priority": 999,
     "summary": "Знак за off-road отбор, запазен тук в основния прозрачен export.",
-    "context": "Текущият архив държи само оригиналния прозрачен файл, който носи най-чисто клубния характер на знака.",
+    "context": "Оригиналният прозрачен файл предава клубния характер на знака и остава подходящ за различни фонове.",
     "focus": [
       "Основен прозрачен знак",
       "Ясно изразен клубен характер",
@@ -515,12 +567,18 @@ const baseProjectPngArchive = [
     ],
     "featured": false,
     "priority": 999,
-    "summary": "Идентичност и дигитални материали за митническа агенция.",
+    "summary": "Идентичност за митническа агенция, представена чрез основния знак и визитките.",
     "context": "Проектът беше ориентиран към административна и логистична среда, в която четимостта и ясният професионален облик са решаващи.",
     "focus": [
       "Основен прозрачен logo export",
-      "Ясна дигитална употреба",
+      "Визитка — лице и гръб",
       "Чист знак за професионална среда"
+    ],
+    "links": [
+      {
+        "href": "https://www.customsagencymis.com/",
+        "label": "Посети сайта на MIS 18"
+      }
     ]
   },
   {
@@ -699,7 +757,7 @@ const baseProjectPngArchive = [
     "featured": false,
     "priority": 999,
     "summary": "Идентичност с няколко цветови прозрачни версии за директна дигитална и сценична употреба.",
-    "context": "Архивът събира четирите основни прозрачни exports, през които се вижда цветовият диапазон и поведението на знака върху различен фон.",
+    "context": "Четирите основни прозрачни варианта показват цветовия диапазон и поведението на знака върху различен фон.",
     "focus": [
       "Electric green прозрачна версия",
       "Electric orange прозрачна версия",
@@ -728,7 +786,7 @@ const baseProjectPngArchive = [
     "featured": false,
     "priority": 999,
     "summary": "Car detailing идентичност, запазена през основните прозрачни версии на знака.",
-    "context": "Подборът е сведен до оригиналния, черния и белия прозрачен export, за да остане най-чистата работна система на знака.",
+    "context": "Оригиналният, черният и белият прозрачен вариант покриват основните работни приложения на знака.",
     "focus": [
       "Основен прозрачен знак",
       "Черна прозрачна версия",
@@ -766,6 +824,32 @@ const baseProjectPngArchive = [
       "Лого и вариант без текст",
       "Файлове за светъл фон и мокъп приложение",
       "Присъствие, ориентирано към YouTube среда"
+    ],
+    "caseStudySections": [
+      {
+        "title": "Начало и формат",
+        "text": "„Сянка от миналото“ стартира през юли 2025 г. като съвместен проект с участието на d . media в изграждането на неговия визуален и аудиовизуален облик. В рамките на активния период са публикувани шест видеоматериала — пет основни теренни епизода и специално издание „Зад кадър“."
+      },
+      {
+        "title": "Потенциал",
+        "text": "За краткия си активен период каналът достига приблизително 4,8 хил. гледания и 164 абонати. Отделни епизоди показват реален потенциал за достигане до значително по-широка публика. Най-силният резултат е при „Бункерите под планината – част 2“ с над 2100 гледания, като наличните данни показват, че голямата част от аудиторията е достигната чрез препоръчващите механизми на YouTube. Това показва, че самата концепция и тематиката имат потенциал."
+      },
+      {
+        "title": "Прекъсване на развитието",
+        "text": "Въпреки тези положителни показатели развитието на проекта практически е преустановено. Последната публикация е от 26 октомври 2025 г., което означава близо 11 месеца без ново съдържание. Така не е използван моментът, в който каналът започва да достига аудитория извън собствената си абонатна база, нито е изградена необходимата последователност за устойчиво развитие на поредицата."
+      },
+      {
+        "title": "Основание за оттегляне",
+        "text": "За d . media копродукцията предполага не само участие в създаването на отделни материали, а активно развиващ се проект, последователност и възможност изградената визуална идентичност да бъде използвана като част от дългосрочно съдържателно развитие. При продължителната липса на нови епизоди тази предпоставка вече не е налице."
+      },
+      {
+        "title": "Решение",
+        "text": "Поради това d . media се оттегля от бъдещото си участие в копродукцията на „Сянка от миналото“. Решението не е оценка, че проектът е неуспешен — наличните резултати по-скоро показват обратното. Причината е продължителното фактическо прекъсване на активното му развитие и липсата на основание студиото да продължава да бъде обвързано като копродуцент с неактивен проект."
+      },
+      {
+        "title": "Материали и архив",
+        "text": "d . media запазва положителната си оценка за извършената съвместна работа и няма да ограничава използването на вече създадените и предоставени аудио- и визуални материали, при условие че те се използват във вида, в който са предоставени. По този начин създадената идентичност и архивът на „Сянка от миналото“ могат да останат част от проекта и след прекратяването на копродукцията."
+      }
     ],
     "videos": [
       {
@@ -812,14 +896,38 @@ export const featuredProjectPngs = projectPngArchive.filter((project) => project
 const localizedProjectCopy = {
   bg: {},
   en: {
+    "apple-community-bulgaria": {
+      title: "Apple Community Bulgaria",
+      subtitle: "From a community to an owned media ecosystem",
+      projectType: "Owned project / community / brand / podcast",
+      status: "Completed",
+      summary: "A d . media-owned project built around the idea of an organised Bulgarian community for Apple users.",
+      context: "As it developed, the project grew from one Facebook group into a system of specialised communities and an owned podcast with a developed visual and sound identity.",
+      focus: [
+        "Completed d . media-owned project",
+        "Community, brand, and podcast ecosystem",
+        "Visual identity and social media content",
+        "Audio production, sound design, recording, editing, and mixing",
+        "Completed E0 episode, raw E1 recording, video version, and teaser",
+      ],
+      caseStudySections: [
+        { title: "Status", text: "A completed d . media-owned project. On 1 August 2025, a one-month freeze period began for Apple Community Bulgaria, Apple Sales Community Bulgaria, and Apple Community Bulgaria podcast after an assessment of community activity and sustainability." },
+        { title: "Preserved materials", text: "The project includes visual materials, video, and sound production developed for the communities and podcast." },
+        { title: "The ecosystem", text: "The ecosystem included Apple Community Bulgaria, Apple Sales Community Bulgaria, AirPods Community Bulgaria, and Apple Community Bulgaria podcast. AirPods Community Bulgaria was the name used during d . media’s involvement; after withdrawal, the group returned to its original name and original administrator and is now AirPods Users Bulgaria." },
+        { title: "Visual system", text: "A connected visual system was developed with logos, logotypes, Facebook covers, podcast artwork, templates, Christmas and New Year variants, and editable AI/PSD sources." },
+        { title: "Podcast", text: "The podcast direction expanded the project beyond Facebook communities. The archive contains original intro, jingle, extended intro, extended mix, full theme, short intro, background, closing, clean, clean strings, club and ethno edits, recording, editing, mixing, audio advertising, video version, and teaser. It includes a completed E0 and a raw E1 recording; E1 is not presented as a published episode." },
+        { title: "Community", text: "As of 4 September 2026, the provided screenshot shows approximately 1.2K members in the main Apple Community Bulgaria group, 47 in Apple Sales Community Bulgaria, and 9 in Apple Community Bulgaria podcast. The current approximately 3.4K members of AirPods Users Bulgaria are not used as a d . media result. Reliable historical growth, reach, impressions, engagement, and unique-audience data are not available." },
+        { title: "Reflection", text: "Apple Community Bulgaria passed through the full lifecycle of an owned media project—from concept and visual identity to community management, content, sound, video, and podcast production. The project is completed, and the archive shows the produced system without claims about unverified outcomes." },
+      ],
+    },
     "d-media": {
       summary: "The d . media platform, built as a fast, multilingual, maintainable website with a clear SEO/GEO foundation.",
       context: "The project shows how brand identity, content, web architecture, performance, and real application work as one system.",
       focus: [
         "100 Performance, 100 Accessibility, 100 Best Practices, and 100 SEO in Lighthouse",
         "Migration to Astro and Cloudflare Pages",
-        "SEO, GEO, and multilingual architecture for real use",
-        "Real brand applications and an archive of 155 motion variants",
+        "SEO, GEO, and multilingual architecture for search",
+        "Brand applications and motion materials",
       ],
       caseStudySections: [
         {
@@ -832,7 +940,7 @@ const localizedProjectCopy = {
         },
         {
           title: "Architecture",
-          text: "The platform moved from an initial Next.js website to an Astro/Cloudflare Pages architecture with clear routes, local browser-facing assets, and language parity between BG and EN.",
+          text: "The platform was restructured with clear routes, local materials, and language parity between BG and EN.",
         },
         {
           title: "Performance",
@@ -870,11 +978,11 @@ const localizedProjectCopy = {
     },
     "support-account": {
       summary: "Corporate identity for an accounting business with a clear and structured professional presence.",
-      context: "The selection here is reduced to the core transparent files that preserve the primary logo system and the brand’s independent presence most clearly.",
+      context: "The selection shows the core mark and logotypes in their key versions, together with the business card as a real print application of the identity.",
       focus: [
-        "Original transparent logotype",
-        "Bulgarian logotype version",
+        "Original and Bulgarian logotype",
         "Transparent logo version for direct application",
+        "Business card — front and back",
       ],
       caseStudySections: [
         {
@@ -1014,12 +1122,18 @@ const localizedProjectCopy = {
       ],
     },
     "mis-18": {
-      summary: "Identity and digital materials for a customs agency.",
+      summary: "Identity for a customs agency, presented through the primary mark and business cards.",
       context: "The project was built for an administrative and logistics setting, where legibility and a clear professional image were essential.",
       focus: [
         "Primary transparent logo export",
-        "Clear digital application",
+        "Business card — front and back",
         "A clean sign for a professional setting",
+      ],
+      links: [
+        {
+          href: "https://www.customsagencymis.com/",
+          label: "Visit the MIS 18 website",
+        },
       ],
     },
     "photo-workshop": {

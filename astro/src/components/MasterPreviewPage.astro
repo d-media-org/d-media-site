@@ -16,7 +16,7 @@ const { locale, preview = false } = Astro.props;
 const isBg = locale === "bg";
 const copy = getPageCopy(locale).home;
 const content = getSiteContent(locale);
-const selectedProjects = getFeaturedProjects(locale);
+const selectedProjects = getFeaturedProjects(locale).slice(0, 4);
 const systemProject = selectedProjects.find((project) => project.slug === "d-media") ?? selectedProjects[0];
 const serviceById = new Map(content.coreServices.map((service) => [service.id, service]));
 const additionalService = serviceById.get("additional-charges-rights");
@@ -48,9 +48,34 @@ const featuredServices = ["brand-identity", "content", "social-media-management"
           <p class="mp-hero-note">{copy.note}</p>
         </div>
       </div>
-      <div class="md-hero-media"><img src="/optimized-assets/project-web/d-media/business-card-mockup.jpg" alt={isBg ? "d . media брандова визитна картичка" : "d . media brand business card"} width="1800" height="1100" fetchpriority="high" /></div>
       <div class="mp-hero-rule" aria-hidden="true"><span></span></div>
     </section>
+
+    {selectedProjects.length ? (
+      <section class="mp-project" data-header-tone="surface" aria-labelledby="mp-project-title">
+        <div class="mp-container">
+          <header class="mp-section-heading mp-project-heading" data-reveal>
+            <h2 id="mp-project-title">{copy.projectsTitle}</h2>
+            <p>{copy.projectsText}</p>
+          </header>
+          <div class="mp-project-carousel" data-project-carousel aria-label={isBg ? "Подбрани проекти" : "Selected projects"}>
+            <div class="mp-random-projects" data-project-track tabindex="0">
+              {selectedProjects.map((project) => (
+                <a class="mp-project-feature" href={localizeHref(locale, `/projects/${project.slug}`)} data-project-card data-reveal>
+                  <figure><img src={project.cover} alt={`${project.title} — ${isBg ? "избран проект" : "selected project"}`} width="1600" height="1000" loading="lazy" decoding="async" /></figure>
+                  <div class="mp-project-copy"><h3>{project.title}</h3><p>{project.summary}</p><span class="mp-text-link">{isBg ? "виж проекта" : "view project"}<svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 9h10M10 5l4 4-4 4" /></svg></span></div>
+                </a>
+              ))}
+            </div>
+            <div class="mp-project-carousel-controls" aria-label={isBg ? "Навигация на подбраните проекти" : "Selected projects navigation"}>
+              <button type="button" data-project-prev aria-label={isBg ? "Предишни проекти" : "Previous projects"}><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M11 4 6 9l5 5M7 9h7" /></svg></button>
+              <button type="button" data-project-next aria-label={isBg ? "Следващи проекти" : "Next projects"}><svg viewBox="0 0 18 18" aria-hidden="true"><path d="M7 4l5 5-5 5M4 9h7" /></svg></button>
+            </div>
+          </div>
+          <div class="mp-project-footer" data-reveal><a class="mp-text-link" href={localizeHref(locale, "/projects")}>{copy.projectsCta}<svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 9h10M10 5l4 4-4 4" /></svg></a></div>
+        </div>
+      </section>
+    ) : null}
 
     <section class="mp-services" id="mp-services" data-header-tone="dark" aria-labelledby="mp-services-title">
       <div class="mp-container">
@@ -158,63 +183,6 @@ const featuredServices = ["brand-identity", "content", "social-media-management"
       </div>
     </section>
 
-    {selectedProjects.length ? (
-      <section class="mp-project" data-header-tone="surface" aria-labelledby="mp-project-title">
-        <div class="mp-container">
-          <header class="mp-section-heading mp-project-heading" data-reveal>
-            <h2 id="mp-project-title">{copy.projectsTitle}</h2>
-            <p>{copy.projectsText}</p>
-          </header>
-
-          <div
-            class="mp-project-carousel"
-            data-project-carousel
-            aria-label={isBg ? "Подбрани проекти" : "Selected projects"}
-          >
-            <div class="mp-random-projects" data-project-track tabindex="0">
-              {selectedProjects.map((project) => (
-                <a
-                  class="mp-project-feature"
-                  href={localizeHref(locale, `/projects/${project.slug}`)}
-                  data-project-card
-                  data-reveal
-                >
-                  <figure>
-                    <img
-                      src={project.cover}
-                      alt={`${project.title} — ${isBg ? "избран проект" : "selected project"}`}
-                      width="1600"
-                      height="1000"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </figure>
-                  <div class="mp-project-copy">
-                    <h3>{project.title}</h3>
-                    <p>{project.summary}</p>
-                    <span class="mp-text-link">{isBg ? "виж проекта" : "view project"}<svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 9h10M10 5l4 4-4 4" /></svg></span>
-                  </div>
-                </a>
-              ))}
-            </div>
-
-            <div class="mp-project-carousel-controls" aria-label={isBg ? "Навигация на подбраните проекти" : "Selected projects navigation"}>
-              <button type="button" data-project-prev aria-label={isBg ? "Предишни проекти" : "Previous projects"}>
-                <svg viewBox="0 0 18 18" aria-hidden="true"><path d="M11 4 6 9l5 5M7 9h7" /></svg>
-              </button>
-              <button type="button" data-project-next aria-label={isBg ? "Следващи проекти" : "Next projects"}>
-                <svg viewBox="0 0 18 18" aria-hidden="true"><path d="M7 4l5 5-5 5M4 9h7" /></svg>
-              </button>
-            </div>
-          </div>
-
-          <div class="mp-project-footer" data-reveal>
-            <a class="mp-text-link" href={localizeHref(locale, "/projects")}>{copy.projectsCta}<svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 9h10M10 5l4 4-4 4" /></svg></a>
-          </div>
-        </div>
-      </section>
-    ) : null}
-
     <section class="mp-testimonials" data-header-tone="surface" aria-labelledby="mp-testimonials-title">
       <div class="mp-container">
         <header class="mp-section-heading" data-reveal>
@@ -236,18 +204,12 @@ const featuredServices = ["brand-identity", "content", "social-media-management"
       <div class="mp-container mp-proof-bridge-grid" data-reveal>
         <div>
           <h2 id="mp-proof-title">{isBg ? "Виж как това изглежда в реален проект." : "See how this works in a real project."}</h2>
-          <p>{isBg ? "Разгледай казусите, после избери най-лесния начин да продължиш — с кратък контекст или с оценка на проекта." : "Explore the case studies, then choose the easiest way to continue — with a short brief or the project estimator."}</p>
+          <p>{isBg ? "Разгледай проектите, после избери най-лесния начин да продължиш — с описание на проекта или с оценка." : "Explore the projects, then choose the easiest way to continue — by describing the project or starting an estimate."}</p>
         </div>
         <div class="mp-actions">
-          <a class="mp-button mp-button-solid" href={localizeHref(locale, "/case-studies")} data-ga-event="case_studies_click" data-ga-location="proof_bridge">{isBg ? "Разгледай казусите" : "Explore case studies"}</a>
+          <a class="mp-button mp-button-solid" href={localizeHref(locale, "/projects")} data-ga-event="projects_click" data-ga-location="proof_bridge">{isBg ? "Виж проектите" : "View projects"}</a>
           <a class="mp-text-link" href={localizeHref(locale, "/estimator")} data-ga-event="estimator_start_click" data-ga-location="proof_bridge">{isBg ? "Не знаеш от какво имаш нужда?" : "Not sure what you need?"}<svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 9h10M10 5l4-4-4 4" /></svg></a>
         </div>
-      </div>
-    </section>
-
-    <section class="mp-trust-strip" aria-label={isBg ? "Технически и работни стандарти" : "Technical and working standards"}>
-      <div class="mp-container mp-trust-items">
-        {(isBg ? ["BG / EN", "SEO и GEO основа", "Astro + Cloudflare", "Готово за реална употреба"] : ["BG / EN", "SEO and GEO foundation", "Astro + Cloudflare", "Ready for real use"]).map((item) => <span>{item}</span>)}
       </div>
     </section>
 
@@ -258,8 +220,8 @@ const featuredServices = ["brand-identity", "content", "social-media-management"
           <p>{copy.contactText}</p>
         </div>
         <div class="mp-actions mp-actions-inverse">
-          <a class="mp-button mp-button-light" href={localizeHref(locale, "/contact")} data-ga-event="cta_final_click" data-ga-location="final_cta">{isBg ? "Изпрати кратък контекст" : "Send a short brief"}</a>
-          <a class="mp-text-link mp-text-link-inverse" href={localizeHref(locale, "/estimator")} data-ga-event="estimator_start_click" data-ga-location="final_cta">{isBg ? "Оцени проекта първо" : "Start with the estimator"}<svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 9h10M10 5l4 4-4 4" /></svg></a>
+          <a class="mp-button mp-button-light" href={localizeHref(locale, "/contact")} data-ga-event="cta_final_click" data-ga-location="final_cta">{isBg ? "Опиши проекта" : "Describe project"}</a>
+          <a class="mp-text-link mp-text-link-inverse" href={localizeHref(locale, "/estimator")} data-ga-event="estimator_start_click" data-ga-location="final_cta">{isBg ? "Оцени проект" : "Estimate project"}<svg viewBox="0 0 18 18" aria-hidden="true"><path d="M4 9h10M10 5l4 4-4 4" /></svg></a>
         </div>
       </div>
     </section>

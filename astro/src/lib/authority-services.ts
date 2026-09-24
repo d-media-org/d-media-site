@@ -80,7 +80,7 @@ const bg: AuthorityService[] = [
     ],
     ctaTitle: "Ако сайтът има нужда от ясна визуална и UX система, започни с контекст.",
     ctaText: "Изпрати целта, наличното съдържание, нужните страници и текущата бранд основа.",
-    primaryCta: "Изпрати контекст за уеб дизайн",
+    primaryCta: "Опиши проекта",
   },
   {
     slug: "web-development",
@@ -119,7 +119,7 @@ const bg: AuthorityService[] = [
     ],
     ctaTitle: "Ако проектът изисква стабилна разработка, започни с техническия контекст.",
     ctaText: "Изпрати нужните функции, съдържание, текуща среда, интеграции и срок.",
-    primaryCta: "Изпрати контекст за разработка",
+    primaryCta: "Опиши проекта",
   },
   {
     slug: "technical-seo",
@@ -158,7 +158,7 @@ const bg: AuthorityService[] = [
     ],
     ctaTitle: "Ако важни страници не се индексират правилно, започни с технически crawl.",
     ctaText: "Изпрати домейна, платформата и наличните Search Console сигнали.",
-    primaryCta: "Изпрати SEO контекст",
+    primaryCta: "Опиши проекта",
   },
   {
     slug: "geo",
@@ -170,7 +170,7 @@ const bg: AuthorityService[] = [
       { title: "Яснота на публичните сигнали", text: "Определяме основната организация, услугите, темите, локацията и устойчивите отношения между тях." },
       { title: "Съдържание, готово за цитиране", text: "Създаваме ясни дефиниции, конкретни методологии, доказуеми казуси и отговори, които могат да бъдат извлечени без догадки." },
       { title: "Тематични групи", text: "Свързваме страниците за услуги, знание и казуси в тематични групи с ясна вътрешна логика." },
-      { title: "Машинночетими сигнали", text: "Използваме семантичен HTML, метаданни, schema, llms ориентация и стабилни URL отношения като допълващи сигнали." },
+      { title: "Машинночетими сигнали", text: "Използваме семантичен HTML, метаданни, schema, llms ориентация и стабилни URL отношения като допълващи сигнали. Това не гарантира цитиране или отговор от конкретна AI система." },
       { title: "Последователност", text: "Проверяваме дали сайтът, социалните профили и външните споменавания описват бранда без противоречия." },
       { title: "Качество на източниците", text: "Разграничаваме собствените твърдения от потвърдените резултати и избягваме фиктивни авторитетни сигнали." },
       { title: "Наблюдение", text: "Следим как различни системи описват бранда и коригираме източника на неяснотата, а не само конкретен AI отговор." },
@@ -197,7 +197,7 @@ const bg: AuthorityService[] = [
     ],
     ctaTitle: "Ако AI системите описват бранда твърде тясно, започни с проверка на публичното описание.",
     ctaText: "Изпрати домейна, желаното позициониране и примери за текущи AI отговори.",
-    primaryCta: "Изпрати GEO контекст",
+    primaryCta: "Опиши проекта",
   },
   {
     slug: "performance-optimization",
@@ -236,7 +236,7 @@ const bg: AuthorityService[] = [
     ],
     ctaTitle: "Ако сайтът е бавен или нестабилен, започни с измерим baseline.",
     ctaText: "Изпрати URL адрес, проблемни устройства и налични PageSpeed или crash данни.",
-    primaryCta: "Изпрати контекст за скорост",
+    primaryCta: "Опиши проекта",
   },
   {
     slug: "technical-support",
@@ -257,7 +257,7 @@ const bg: AuthorityService[] = [
     integrationsText: "Обхватът може да включва Cloudflare, Vercel, CMS, онлайн търговия, аналитика и други системи според конкретния проект.",
     integrationGroups: [
       { title: "Процес за публикуване", text: "Използваме build, preview, QA и production последователност вместо директни непроверени промени." },
-      { title: "Ownership", text: "Достъпите, домейнът, hosting и repositories остават подредени и проследими." },
+      { title: "Достъпи и собственост", text: "Достъпите, домейнът и хостингът се пазят ясни и проследими." },
       { title: "Приоритет", text: "Разделяме критичните incidents от планираните подобрения, за да няма хаотична работа." },
     ],
     ...commonBg,
@@ -275,7 +275,7 @@ const bg: AuthorityService[] = [
     ],
     ctaTitle: "Ако сайтът има нужда от контролирана поддръжка, започни с технически преглед.",
     ctaText: "Изпрати платформата, hosting средата, текущите проблеми и очаквания работен ритъм.",
-    primaryCta: "Изпрати контекст за поддръжка",
+    primaryCta: "Опиши проекта",
   },
 ];
 
@@ -372,7 +372,7 @@ const englishDetails: Record<string, { sections: Section[]; groups: Section[] }>
     ],
     groups: [
       { title: "Release process", text: "Build, preview, QA, and production stages replace direct unverified changes." },
-      { title: "Ownership", text: "Access, domain, hosting, and repositories remain organized and traceable." },
+      { title: "Access and ownership", text: "Access, domain, and hosting remain clear and traceable." },
       { title: "Priority", text: "Critical incidents are separated from planned improvements to prevent chaotic work." },
     ],
   },
@@ -380,12 +380,12 @@ const englishDetails: Record<string, { sections: Section[]; groups: Section[] }>
 
 const en: AuthorityService[] = bg.map((service) => {
   const translations: Record<string, Pick<AuthorityService, "metaTitle" | "metaDescription" | "title" | "intro" | "ctaTitle" | "ctaText" | "primaryCta">> = {
-    "web-design": { metaTitle: "Web Design for Clear, Usable Websites", metaDescription: "Web design by d . media for corporate websites, portfolios, and landing pages with clear architecture, UX logic, and brand consistency.", title: "Web Design", intro: "We design websites as part of the brand system, with clear information architecture, consistent interface logic, and a specific next step for the user.", ctaTitle: "If the website needs a clear visual and UX system, start with context.", ctaText: "Send the goal, available content, required pages, and current brand foundation.", primaryCta: "Send web design context" },
-    "web-development": { metaTitle: "Web Development and Stable Technical Architecture", metaDescription: "Web development by d . media for fast, accessible, maintainable websites with the appropriate stack, integrations, and performance-first architecture.", title: "Web Development", intro: "We develop websites and digital platforms with technology selected for the actual project, rather than restricting every client to one stack or provider.", ctaTitle: "If the project requires stable development, start with technical context.", ctaText: "Send the required functionality, content, current environment, integrations, and timing.", primaryCta: "Send development context" },
-    "technical-seo": { metaTitle: "Technical SEO for Crawling, Indexing, and Clear Structure", metaDescription: "Technical SEO by d . media covering crawlability, indexing, canonical, hreflang, sitemaps, structured data, internal links, and performance checks.", title: "Technical SEO", intro: "We organise the technical signals that allow search engines to discover, understand, and index the correct pages without unnecessary duplicates.", ctaTitle: "If important pages are not indexed correctly, start with a technical crawl.", ctaText: "Send the domain, platform, and available Search Console signals.", primaryCta: "Send SEO context" },
-    geo: { metaTitle: "GEO and Visibility in AI Search", metaDescription: "GEO by d . media for clearer entity understanding, AI citation readiness, content architecture, structured data, and consistent public signals.", title: "GEO and AI Visibility", intro: "We organise content and entity signals so AI systems can understand more accurately who the brand is, what it offers, and which sources support that description.", ctaTitle: "If AI systems describe the brand too narrowly, start with an entity audit.", ctaText: "Send the domain, intended positioning, and examples of current AI answers.", primaryCta: "Send GEO context" },
-    "performance-optimization": { metaTitle: "Performance Optimization and Core Web Vitals", metaDescription: "Performance optimization by d . media for LCP, CLS, INP, images, fonts, JavaScript, caching, and stable mobile behaviour.", title: "Performance Optimization", intro: "We optimize websites through measurement, asset discipline, and architectural decisions without removing content or identity merely to improve a laboratory score.", ctaTitle: "If the website is slow or unstable, start with a measurable baseline.", ctaText: "Send the URL, affected devices, and available PageSpeed or crash data.", primaryCta: "Send performance context" },
-    "technical-support": { metaTitle: "Technical Support for Websites and Digital Platforms", metaDescription: "Technical support by d . media for updates, monitoring, content changes, integrations, incident response, and controlled releases.", title: "Technical Support", intro: "We maintain websites as working systems through controlled changes, pre-release checks, and a clear response to real incidents.", ctaTitle: "If the website needs controlled support, start with a technical review.", ctaText: "Send the platform, hosting environment, current issues, and expected working rhythm.", primaryCta: "Send support context" },
+    "web-design": { metaTitle: "Web Design for Clear, Usable Websites", metaDescription: "Web design by d . media for corporate websites, portfolios, and landing pages with clear architecture, UX logic, and brand consistency.", title: "Web Design", intro: "We design websites as part of the brand system, with clear information architecture, consistent interface logic, and a specific next step for the user.", ctaTitle: "If the website needs a clear visual and UX system, start with context.", ctaText: "Describe the goal, available content, required pages, and current brand foundation.", primaryCta: "Describe project" },
+    "web-development": { metaTitle: "Web Development and Stable Technical Architecture", metaDescription: "Web development by d . media for fast, accessible, maintainable websites with the appropriate stack, integrations, and performance-first architecture.", title: "Web Development", intro: "We develop websites and digital platforms with technology selected for the actual project. Technology follows the project, not the other way around.", ctaTitle: "If the project requires stable development, start with technical context.", ctaText: "Describe the required functionality, content, current environment, integrations, and timing.", primaryCta: "Describe project" },
+    "technical-seo": { metaTitle: "Technical SEO for Crawling, Indexing, and Clear Structure", metaDescription: "Technical SEO by d . media covering crawlability, indexing, canonical, hreflang, sitemaps, structured data, internal links, and performance checks.", title: "Technical SEO", intro: "When important pages cannot be found, indexed, or resolved without duplicates, we start with the technical causes. We organise the signals that help search engines discover and understand the correct pages.", ctaTitle: "If important pages are not indexed correctly, start with a technical crawl.", ctaText: "Describe the domain, platform, and available Search Console signals.", primaryCta: "Describe project" },
+    geo: { metaTitle: "GEO and Visibility in AI Search", metaDescription: "GEO by d . media for clearer entity understanding, content architecture, structured data, and consistent public signals.", title: "GEO and AI Visibility", intro: "We organise content and entity signals so AI systems can understand more accurately who the brand is, what it offers, and which sources support that description.", ctaTitle: "If AI systems describe the brand too narrowly, start with an entity audit.", ctaText: "Describe the domain, intended positioning, and examples of current AI answers.", primaryCta: "Describe project" },
+    "performance-optimization": { metaTitle: "Performance Optimization and Core Web Vitals", metaDescription: "Performance optimization by d . media for LCP, CLS, INP, images, fonts, JavaScript, caching, and stable mobile behaviour.", title: "Performance Optimization", intro: "We optimize websites through measurement, asset discipline, and architectural decisions without removing content or identity merely to improve a laboratory score.", ctaTitle: "If the website is slow or unstable, start with a measurable baseline.", ctaText: "Describe the URL, affected devices, and available PageSpeed or crash data.", primaryCta: "Describe project" },
+    "technical-support": { metaTitle: "Technical Support for Websites and Digital Platforms", metaDescription: "Technical support by d . media for updates, monitoring, content changes, integrations, incident response, and controlled releases.", title: "Technical Support", intro: "We maintain websites as working systems through controlled changes, pre-release checks, and a clear response to real incidents.", ctaTitle: "If the website needs controlled support, start with a technical review.", ctaText: "Describe the platform, hosting environment, current issues, and expected working rhythm.", primaryCta: "Describe project" },
   };
   const t = translations[service.slug];
   return {

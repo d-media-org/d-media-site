@@ -39,6 +39,8 @@ const categories = getBlogCategories(locale);
         ))}
       </nav>
 
+      <p class="page-text">Technical reference material is currently available in the Bulgarian <a class="inline-link" href="/knowledge-base/">Knowledge Base</a>.</p>
+
       <div class="project-grid" data-blog-grid>
         {posts.map((post) => (
           <article class={`card service-category-card${post.featured ? " is-featured" : ""}`} data-blog-card data-category={post.category}>

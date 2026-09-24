@@ -58,10 +58,6 @@ const ui = getUiCopy(locale);
     <slot />
   </div>
 
-  <a class="mobile-sticky-cta" href={localizeHref(locale, "/contact")} data-ga-event="cta_mobile_sticky_click" data-ga-location="mobile_sticky">
-    {locale === "bg" ? "изпрати кратък контекст" : "send project context"}
-  </a>
-
   <div class="consent-banner" role="dialog" aria-live="polite" aria-label={ui.consent.ariaLabel} hidden data-consent-banner>
     <div class="consent-banner-copy">
       <p class="eyebrow">{ui.consent.eyebrow}</p>

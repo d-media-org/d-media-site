@@ -1,5 +1,4 @@
 ---
-import BrandText from "@/components/BrandText.astro";
 import Layout from "@/layouts/Layout.astro";
 import { localizeHref, type Locale } from "@/lib/i18n";
 import { getBreadcrumbSchema, getServiceCatalogSchema } from "@/lib/seo";
@@ -10,47 +9,46 @@ const pricingGroups = [
     title: "Branding",
     text: "Identity, mark, logotype, and core visual system.",
     items: [
-      { title: "Logotype design", price: "from 149,99 €" },
-      { title: "Logo / brand mark", price: "from 199,99 €" },
-      { title: "Visual identity", price: "from 699,99 €" },
+      { title: "Logotype design", price: "from 149,99 €", includes: "A word mark designed around the agreed direction.", excludes: "An illustrative symbol, full identity, and applications outside the agreed scope.", factors: "The number of directions, required checks, variants, and intended applications.", deliverable: "A final logotype in the agreed file formats." },
+      { title: "Logo / brand mark", price: "from 199,99 €", includes: "A visual mark designed for the agreed use.", excludes: "A full visual system, additional materials, and trademark registration.", factors: "The mark’s complexity, variants, checks, and required applications.", deliverable: "A final mark in the agreed file formats." },
+      { title: "Visual identity", price: "from 699,99 €", includes: "A core mark, colour and type framework, and agreed basic rules.", excludes: "Unlimited applications, print production, and work outside the agreed package.", factors: "The number of applications, variants, rule-set scope, and required preparation.", deliverable: "The agreed final files and usage guidance." },
     ],
   },
   {
     title: "Content & Social",
     text: "Content, social formats, series, and working channel logic.",
     items: [
-      { title: "Social format 1:1 or 9:16", price: "from 24,99 €" },
-      { title: "Facebook cover", price: "from 29,99 €" },
-      { title: "3x visual package", price: "from 69,99 €" },
+      { title: "Social format 1:1 or 9:16", price: "from 24,99 €", includes: "One visual in the selected format, prepared from supplied content.", excludes: "Copy strategy, photography, video, animation, and additional adaptations.", factors: "Visual complexity, source materials, and the number of revisions.", deliverable: "A final file for the selected social format." },
+      { title: "Facebook cover", price: "from 29,99 €", includes: "One cover aligned to the agreed content and Facebook format.", excludes: "Copywriting, photography, a visual series, and adaptations for other channels.", factors: "Composition complexity, supplied materials, and the number of revisions.", deliverable: "A final Facebook cover file." },
+      { title: "3x visual package", price: "from 69,99 €", includes: "Three agreed static visuals in one communication direction.", excludes: "A calendar, publishing, video, animation, and unagreed formats.", factors: "The number of adaptations, each visual’s complexity, and material readiness.", deliverable: "Three final files in the agreed formats." },
     ],
   },
   {
     title: "Print & Digital Design",
     text: "Print, digital, and informational materials for real use.",
     items: [
-      { title: "Single-sided business card", price: "from 24,99 €" },
-      { title: "Flyer / brochure", price: "from 39,99 €" },
-      { title: "Menu or multipage material", price: "from 69,99 €" },
+      { title: "Single-sided business card", price: "from 24,99 €", includes: "One-sided business-card design from supplied details.", excludes: "A reverse side, printing, content editing, and additional formats.", factors: "Whether the logo and details are ready, composition complexity, and revisions.", deliverable: "A print-ready file in the agreed format." },
+      { title: "Flyer / brochure", price: "from 39,99 €", includes: "A flyer or brochure design in the agreed starting format.", excludes: "Printing, photography, copywriting, multi-page scope, and unagreed adaptations.", factors: "Page count, content, imagery, and print preparation.", deliverable: "A final file for the agreed print or digital format." },
+      { title: "Menu or multipage material", price: "from 69,99 €", includes: "Initial structure and design for a menu or multipage material.", excludes: "Unlimited pages, printing, copy editing, and photography.", factors: "Page count, language versions, tables, imagery, and revisions.", deliverable: "A final file in the agreed format and page count." },
     ],
   },
   {
     title: "Web Design & Development",
     text: "Websites, landing pages, platforms, integrations, and maintenance.",
     items: [
-      { title: "Landing Page", price: "from 690 €" },
-      { title: "Portfolio website", price: "from 1 990 €" },
-      { title: "Corporate website", price: "from 2 490 €" },
+      { title: "Landing Page", price: "from 690 €", includes: "Structure, design, and development of one page with agreed sections.", excludes: "Copywriting, photography, complex integrations, advertising, and ongoing support.", factors: "Section count, content, forms, integrations, and timeline.", deliverable: "A responsive page published or ready to publish." },
+      { title: "Portfolio website", price: "from 1 990 €", includes: "Structure, design, and development for the agreed number of pages and projects.", excludes: "Unlimited content entry, external systems, hosting, and support.", factors: "The number of pages and projects, galleries, languages, and integrations.", deliverable: "A responsive portfolio website with the agreed content." },
+      { title: "Corporate website", price: "from 2 490 €", includes: "Information architecture, design, and development for the agreed corporate scope.", excludes: "Copywriting, photography, external licences, complex integrations, and ongoing support.", factors: "Templates and page count, languages, CMS needs, integrations, and migration.", deliverable: "A responsive corporate website in the agreed scope." },
     ],
   },
   {
-    title: "Licensing & White-label",
-    text: "Rights, priority, white-label, and separate working modes.",
+    title: "Visibility and support",
+    text: "Technical SEO, GEO, performance, and support are scoped after reviewing the current state, goals, and required work.",
     items: [
-      { title: "White-label execution / no author credit", price: "from 19,99 €" },
-      { title: "Non-exclusive usage licence", price: "from 49,99 €" },
-      { title: "Exclusive licence", price: "from 99,99 €" },
-      { title: "Full transfer of economic rights by individual agreement", price: "from 2799 €" },
-      { title: "Priority timeline", price: "from +25%" },
+      { title: "Technical SEO", price: "Individually scoped", includes: "A technical review and agreed crawl, indexing, and structure corrections.", excludes: "Guaranteed rankings, advertising budgets, and work outside the agreed website.", factors: "The current state, page count, platform, and required corrections.", deliverable: "A documented review and the agreed technical changes." },
+      { title: "GEO and visibility in AI systems", price: "Individually scoped", includes: "Review of public descriptions, content structure, and agreed improvements.", excludes: "Guaranteed citations, rankings, or control over AI-system answers.", factors: "Existing signals, content, technical foundations, and required scope.", deliverable: "Agreed changes with clear limits for the work." },
+      { title: "Performance optimisation", price: "Individually scoped", includes: "Measurement of the current state and agreed priority optimisations.", excludes: "A guaranteed fixed PageSpeed score and changes outside the agreed technical scope.", factors: "The platform, assets, integrations, current metrics, and testing required.", deliverable: "Verified agreed optimisations and measurement results." },
+      { title: "Technical support", price: "Individually scoped", includes: "An agreed rhythm for updates, corrections, diagnostics, and controlled releases.", excludes: "Large new features, external licences, and work outside agreed hours or scope.", factors: "The platform, access, priority, frequency, and accumulated technical risk.", deliverable: "Traceable agreed changes and a pre-release check." },
     ],
   },
 ];
@@ -58,20 +56,20 @@ const pricingGroups = [
 
 <Layout
   locale={locale}
-  title="Starting ranges | d . media"
-  description="Starting pricing ranges for brand identity, content, social media, design, web development, rights, and white-label services."
+  title="Pricing and starting ranges | d . media"
+  description="Starting prices and individual scopes for brand identity, content, design, web development, visibility, and technical support."
   path="/pricing"
   structuredData={[
-    getBreadcrumbSchema({ locale, path: "/pricing", title: "Starting ranges" }),
+    getBreadcrumbSchema({ locale, path: "/pricing", title: "Pricing and starting ranges" }),
     getServiceCatalogSchema(locale),
   ]}
 >
   <main class="site-shell services-page" id="top">
     <section class="section-grid">
       <div class="section-heading page-intro">
-        <h1>Starting ranges</h1>
+        <h1>Pricing and starting ranges</h1>
         <p class="page-text">
-          Starting ranges for core <BrandText text="d . media" /> services. Final scope is aligned around project scale, timing, formats, rights, and complexity.
+          We publish starting prices where a service can be described with a sufficiently clear standard scope. For more complex projects, pricing follows a review of the task.
         </p>
         <p class="pricing-guidance">All values are starting ranges, not final prices. Final scope is confirmed after a short review of the project.</p>
       </div>
@@ -87,19 +85,27 @@ const pricingGroups = [
               <article class="card package-card">
                 <h3>{item.title}</h3>
                 <p class="package-price">{item.price}</p>
+                <dl class="pricing-details">
+                  <div><dt>What it includes</dt><dd>{item.includes}</dd></div>
+                  <div><dt>What it excludes</dt><dd>{item.excludes}</dd></div>
+                  <div><dt>What can change the price</dt><dd>{item.factors}</dd></div>
+                  <div><dt>What you receive</dt><dd>{item.deliverable}</dd></div>
+                </dl>
               </article>
             ))}
           </div>
         </>
       ))}
 
+      <p class="pricing-guidance">External costs such as advertising budgets, domains, hosting, paid licences, paid resources, and third-party services are not included unless the offer explicitly says so.</p>
+
       <article class="card services-cta-card">
         <div class="services-cta-copy">
           <h2>Pricing follows the real scope.</h2>
-          <p class="page-text">Send context, required formats, and timing. We will return a structured working range.</p>
+          <p class="page-text">Describe the project, required formats, and timing. We will return a structured working range.</p>
         </div>
         <div class="hero-actions">
-          <a href={localizeHref(locale, "/contact")} class="button button-primary">Send project context</a>
+          <a href={localizeHref(locale, "/contact")} class="button button-primary">Send an inquiry</a>
           <a href={localizeHref(locale, "/services")} class="button button-secondary">Explore services</a>
         </div>
       </article>
@@ -112,11 +118,11 @@ const pricingGroups = [
         </details>
         <details>
           <summary>Do I need a finished brief?</summary>
-          <p>No. Send the goal, available materials, and the next step you need.</p>
+          <p>No. Describe the goal, available materials, and the next step you need.</p>
         </details>
         <details>
           <summary>What happens next?</summary>
-          <p>Send project context and we will organise a more precise working range after review.</p>
+          <p>Send an inquiry and we will organise a more precise working range after review.</p>
         </details>
       </section>
 

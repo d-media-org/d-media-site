@@ -22,8 +22,8 @@ if (page.faqs?.length) schema.push(getFAQPageSchema({ locale, path, faqs: page.f
         {page.faqs?.map((faq) => <article class="card service-category-card"><h2>{faq.question}</h2><p>{faq.answer}</p></article>)}
       </div>
       <article class="card services-cta-card">
-        <div class="services-cta-copy"><h2>{locale === "bg" ? "Следваща стъпка" : "Next step"}</h2><p class="page-text">{locale === "bg" ? "Изпрати текущия контекст и резултата, който трябва да бъде постигнат." : "Send the current context and the outcome that needs to be achieved."}</p></div>
-        <div class="hero-actions"><a class="button button-primary" href={localizeHref(locale, "/contact")}>{locale === "bg" ? "Изпрати контекст" : "Send context"}</a><a class="button button-secondary" href={localizeHref(locale, "/services")}>{locale === "bg" ? "Разгледай услугите" : "Explore services"}</a></div>
+        <div class="services-cta-copy"><h2>{locale === "bg" ? "Следваща стъпка" : "Next step"}</h2><p class="page-text">{locale === "bg" ? "Опиши проекта и резултата, който трябва да бъде постигнат." : "Describe the project and the outcome that needs to be achieved."}</p></div>
+        <div class="hero-actions"><a class="button button-primary" href={localizeHref(locale, "/contact")}>{locale === "bg" ? "Опиши проекта" : "Describe project"}</a><a class="button button-secondary" href={localizeHref(locale, "/services")}>{locale === "bg" ? "Разгледай услугите" : "Explore services"}</a></div>
       </article>
     </section>
   </main>

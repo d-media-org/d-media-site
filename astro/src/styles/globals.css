@@ -3959,29 +3959,6 @@ html[data-theme="dark"] .terms-full-shell {
   line-height: 1.55;
 }
 
-.mobile-sticky-cta { display: none; }
-
-@media (max-width: 760px) {
-  .mobile-sticky-cta {
-    position: fixed;
-    left: 16px;
-    right: 16px;
-    bottom: 14px;
-    z-index: 70;
-    display: flex;
-    min-height: 48px;
-    align-items: center;
-    justify-content: center;
-    border-radius: 999px;
-    background: var(--foreground);
-    color: var(--surface);
-    box-shadow: 0 12px 30px rgb(0 0 0 / 18%);
-    font-family: var(--font-panton-semibold), sans-serif;
-    font-size: 14px;
-    text-decoration: none;
-  }
-}
-
 .pricing-faq {
   display: grid;
   gap: var(--space-8);

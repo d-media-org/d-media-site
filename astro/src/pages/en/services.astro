@@ -9,6 +9,13 @@ import { getSiteContent } from "@/lib/site-content";
 const locale: Locale = "en";
 const copy = getPageCopy(locale).services;
 const siteContent = getSiteContent(locale);
+const serviceById = new Map(siteContent.coreServices.map((service) => [service.id, service]));
+const serviceGroups = [
+  { title: "Brand and design", text: "Identity, graphic materials, and clear rules for applying the brand consistently.", services: ["brand-identity", "graphic-design"] },
+  { title: "Content and communication", text: "Copy, visual formats, social channels, and advertising organised around a real communication goal.", services: ["content", "social-media-management", "advertising"] },
+  { title: "Web", text: "Websites and digital platforms with clear structure, appropriate technology, sound performance, and room to develop.", services: ["web-design-development"] },
+  { title: "Visibility and support", text: "A technical foundation for search engines and AI systems, performance, and ongoing technical care.", services: ["technical-seo", "geo", "performance-optimization", "technical-support"] },
+].map((group) => ({ ...group, services: group.services.map((id) => serviceById.get(id)).filter(Boolean) }));
 ---
 
 <Layout
@@ -29,20 +36,26 @@ const siteContent = getSiteContent(locale);
           <BrandText text={copy.text} />
         </p>
       </div>
-      <div class="showcase-grid service-card-grid">
-        {siteContent.coreServices.map((service) => (
-          <article class="card service-category-card">
-            <h2>{service.title}</h2>
-            <p>{service.text}</p>
-            <p><strong>{copy.includes}:</strong> {service.includes}</p>
-            <p><strong>{copy.audience}:</strong> {service.audience}</p>
-            <p><strong>{copy.result}:</strong> {service.result}</p>
-            {"detailHref" in service ? (
-              <a class="inline-link" href={localizeHref(locale, service.detailHref)}>{service.detailLabel}</a>
-            ) : null}
-          </article>
-        ))}
-      </div>
+      {serviceGroups.map((group) => (
+        <section class="section-grid">
+          <div class="section-heading page-subheading">
+            <h2>{group.title}</h2>
+            <p class="page-text">{group.text}</p>
+          </div>
+          <div class="showcase-grid service-card-grid">
+            {group.services.map((service) => service && (
+              <article class="card service-category-card">
+                <h3>{service.title}</h3>
+                <p>{service.text}</p>
+                <p><strong>{copy.includes}:</strong> {service.includes}</p>
+                <p><strong>{copy.audience}:</strong> {service.audience}</p>
+                <p><strong>{copy.result}:</strong> {service.result}</p>
+                <a class="inline-link" href={localizeHref(locale, service.detailHref)}>{service.detailLabel}</a>
+              </article>
+            ))}
+          </div>
+        </section>
+      ))}
       <article class="card services-cta-card">
         <div class="services-cta-copy">
           <h2>{copy.ctaTitle}</h2>

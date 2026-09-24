@@ -9,6 +9,13 @@ import { getSiteContent } from "@/lib/site-content";
 const locale: Locale = "bg";
 const copy = getPageCopy(locale).services;
 const siteContent = getSiteContent(locale);
+const serviceById = new Map(siteContent.coreServices.map((service) => [service.id, service]));
+const serviceGroups = [
+  { title: "Бранд и дизайн", text: "Идентичност, графични материали и ясни правила за последователно приложение на бранда.", services: ["brand-identity", "graphic-design"] },
+  { title: "Съдържание и комуникация", text: "Текстове, визуални формати, социални канали и реклама, подредени около реална комуникационна цел.", services: ["content", "social-media-management", "advertising"] },
+  { title: "Уеб", text: "Сайтове и дигитални платформи с ясна структура, подходяща технология, добра производителност и възможност за развитие.", services: ["web-design-development"] },
+  { title: "Видимост и поддръжка", text: "Техническа основа за търсачки и системи с изкуствен интелект, производителност и текуща техническа грижа.", services: ["technical-seo", "geo", "performance-optimization", "technical-support"] },
+].map((group) => ({ ...group, services: group.services.map((id) => serviceById.get(id)).filter(Boolean) }));
 ---
 
 <Layout
@@ -29,20 +36,26 @@ const siteContent = getSiteContent(locale);
           <BrandText text={copy.text} />
         </p>
       </div>
-      <div class="showcase-grid service-card-grid">
-        {siteContent.coreServices.map((service) => (
-          <article class="card service-category-card">
-            <h2>{service.title}</h2>
-            <p>{service.text}</p>
-            <p><strong>{copy.includes}:</strong> {service.includes}</p>
-            <p><strong>{copy.audience}:</strong> {service.audience}</p>
-            <p><strong>{copy.result}:</strong> {service.result}</p>
-            {"detailHref" in service ? (
-              <a class="inline-link" href={localizeHref(locale, service.detailHref)}>{service.detailLabel}</a>
-            ) : null}
-          </article>
-        ))}
-      </div>
+      {serviceGroups.map((group) => (
+        <section class="section-grid">
+          <div class="section-heading page-subheading">
+            <h2>{group.title}</h2>
+            <p class="page-text">{group.text}</p>
+          </div>
+          <div class="showcase-grid service-card-grid">
+            {group.services.map((service) => service && (
+              <article class="card service-category-card">
+                <h3>{service.title}</h3>
+                <p>{service.text}</p>
+                <p><strong>{copy.includes}:</strong> {service.includes}</p>
+                <p><strong>{copy.audience}:</strong> {service.audience}</p>
+                <p><strong>{copy.result}:</strong> {service.result}</p>
+                <a class="inline-link" href={localizeHref(locale, service.detailHref)}>{service.detailLabel}</a>
+              </article>
+            ))}
+          </div>
+        </section>
+      ))}
       <article class="card services-cta-card">
         <div class="services-cta-copy">
           <h2>{copy.ctaTitle}</h2>
@@ -55,7 +68,7 @@ const siteContent = getSiteContent(locale);
             data-ga-event="cta_start_project_click"
             data-ga-location="services_cta"
           >
-            {copy.primaryCta}
+            Опиши проекта
           </a>
           <a href={localizeHref(locale, "/projects")} class="button button-secondary">
             {copy.secondaryCta}

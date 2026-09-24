@@ -85,13 +85,13 @@ const blogCategories = {
 
 const blogPageCopy = {
   bg: {
-    metaTitle: "Блог и knowledge center",
+    metaTitle: "Блог",
     metaDescription:
       "Идеи, анализи и практически наблюдения за бранд идентичност, съдържание, социални медии, дизайн, реклама, уеб присъствие, SEO и GEO от d . media.",
     title: "Блог",
     intro:
       "Идеи, анализи и практически наблюдения за бранд идентичност, съдържание, социални медии, дизайн, реклама и дигитално присъствие.",
-    knowledgeTitle: "Редакционен knowledge center с практическа стойност.",
+    knowledgeTitle: "Редакционни материали с практическа стойност.",
     knowledgeText:
       "Тук събираме текстове, които обясняват по-ясно как работят идентичност, съдържание, сайт, SEO, GEO и реалното дигитално присъствие. Целта не е обем, а яснота, аргумент и практическа стойност.",
     filtersLabel: "Категории",
@@ -102,20 +102,20 @@ const blogPageCopy = {
     zeroPostsLabel: "Категорията се подготвя",
     emptyTitle: "Английската редакция се подготвя отделно.",
     emptyText:
-      "Структурата е готова за английски публикации. Първо публикуваме българската knowledge center линия, след което добавяме пълните английски версии.",
+      "Българската редакция е водеща; английските версии се публикуват отделно, когато са готови.",
     relatedArticlesTitle: "Свързани статии",
     relatedLinksTitle: "Вътрешни връзки",
     articleFooterLabel: "следваща стъпка",
     caseStudyDraftNote: "казусите се подготвят като отделна редакционна линия и не са публични, докато няма финално съдържание",
   },
   en: {
-    metaTitle: "Blog and knowledge center",
+    metaTitle: "Blog",
     metaDescription:
       "Ideas, analysis, and practical observations on brand identity, content, social media, design, advertising, web presence, SEO, and GEO from d . media.",
     title: "Blog",
     intro:
       "Ideas, analysis, and practical observations on brand identity, content, social media, design, advertising, and digital presence.",
-    knowledgeTitle: "Knowledge center with editorial weight, not filler content.",
+    knowledgeTitle: "Editorial articles with practical value.",
     knowledgeText:
       "This section gathers articles that explain how identity, content, websites, SEO, GEO, and real digital presence work together. The goal is clarity and usefulness, not volume.",
     filtersLabel: "Categories",
@@ -216,7 +216,7 @@ function createScaffoldPost({
         title: "Практически извод",
         paragraphs: [
           "Практическата стойност идва от яснотата: какво трябва да се промени, защо има значение и как следващата стъпка може да бъде взета без хаотични импровизации.",
-          "Целта не е обем, а смисъл: текстът трябва да бъде достатъчно конкретен, за да подкрепя тематичен авторитет, готовност за AI системи и реална употреба.",
+          "Целта не е обем, а смисъл: текстът трябва да бъде достатъчно конкретен, за да подкрепя тематичен авторитет и разбиране от хора и AI системи.",
         ],
       },
       {
@@ -1004,7 +1004,7 @@ const postSectionOverrides: Record<string, BlogSection[]> = {
     {
       title: "От какво тръгнахме",
       paragraphs: [
-        "Идентичността на d . media беше изградена като система за реална употреба, не като самостоятелен графичен жест. Още в началото беше ясно, че тя трябва да издържа еднакво убедително в сайт, документи, социални формати и презентационни материали.",
+        "Идентичността на d . media беше изградена за сайт, документи, социални формати и презентационни материали, а не като самостоятелен графичен жест.",
         "Затова тръгнахме от приложението: как се държи знакът, каква е ролята на логотипа и как типографията поема тежестта на комуникацията.",
       ],
     },
@@ -1512,7 +1512,7 @@ const postSectionOverrides: Record<string, BlogSection[]> = {
     {
       title: "Резултат",
       paragraphs: [
-        "По-важният резултат не е самата оценка, а фактът, че сайтът остана бърз, четим и по-лесен за реална употреба. Високият Lighthouse резултат има стойност само когато подкрепя възприятието за стабилност и качество.",
+        "По-важният резултат не е самата оценка, а фактът, че сайтът остана бърз, четим и лесен за ежедневна работа. Lighthouse има стойност само когато подкрепя възприятието за стабилност и качество.",
         "Текущите PageSpeed резултати са потвърдени и затова казусът може да стои публично като пример за дисциплина в скоростта, а не като временна лабораторна снимка.",
       ],
     },
@@ -1646,7 +1646,7 @@ const postSectionOverrides: Record<string, BlogSection[]> = {
     { title: "Къде най-често се греши", paragraphs: ["Най-често се греши, когато редизайнът се мисли като козметична подмяна, без да се анализира защо предишната система вече не работи достатъчно добре."] },
     { title: "Как подхождаме", paragraphs: ["Подхождаме с анализ на структурата, възприятието, приложението и ограниченията, а не само на визуалната повърхност."] },
     { title: "Защо остава draft", paragraphs: ["Казусът остава draft, защото реалният редизайн трябва да бъде показан с конкретен преди/след контекст или ясно обозначена методология. Без това би звучал като общо обещание."] },
-    { title: "Кога редизайнът има смисъл", paragraphs: ["Редизайнът има смисъл тогава, когато намалява триенето и прави системата по-ясна за реална употреба. Ако промяната е само видима, но не и полезна, тя рядко носи дългосрочна стойност.", "Този принцип е в центъра на целия ни подход към редизайна."] },
+    { title: "Кога редизайнът има смисъл", paragraphs: ["Редизайнът има смисъл тогава, когато намалява триенето и улеснява работата със сайта. Ако промяната е само видима, но не и полезна, тя рядко носи дългосрочна стойност.", "Този принцип е в центъра на подхода ни към редизайна."] },
   ],
   "kak-podobrihme-skorostta-na-sait-s-nad-80-procenta": [
     { title: "Какъв е проблемът", paragraphs: ["Бавният сайт рядко има една причина. Обикновено проблемът е комбинация от тежки изображения, излишни скриптове, недисциплиниран CSS, неясен rendering модел и липса на проверка след всяка промяна."] },
@@ -1745,7 +1745,7 @@ const dMediaFaqOverrides: Record<string, Partial<Record<Locale, BlogFaq[]>>> = {
       {
         question: "Защо резултатът не е достатъчен сам по себе си?",
         answer:
-          "Защото лабораторната оценка не описва цялото преживяване. Истинската стойност е сайтът да остане бърз, стабилен и разбираем при реална употреба.",
+          "Защото лабораторната оценка не описва цялото преживяване. Истинската стойност е сайтът да остане бърз, стабилен и разбираем при ежедневна работа.",
       },
       {
         question: "Кога този казус би бил подвеждащ?",
@@ -2254,7 +2254,7 @@ const categoryContext = {
       failure: "лого, тон и сайт се развиват отделно и започват да обещават различни неща",
     },
     "graphic-design": {
-      system: "дизайн система за реална употреба",
+      system: "дизайн система за ежедневна работа",
       artifact: "формати, визуални правила, файлове и процес за повторяема продукция",
       serviceHref: "/services/graphic-design",
       serviceLabel: "Графичен дизайн",
@@ -2886,7 +2886,9 @@ function buildProfessionalFaqs(locale: Locale, post: BlogPost) {
 
 function enhanceBlogPost(locale: Locale, post: BlogPost, posts: readonly BlogPost[]): BlogPost {
   const { relatedPosts, relatedTitles } = getPostRelationships(locale, post, posts);
-  const sections = buildProfessionalSections(locale, post, relatedTitles);
+  // Keep each article's authored structure. The long generic methodology outline
+  // is only a fallback for legacy entries that have no editorial sections of their own.
+  const sections = post.sections?.length ? post.sections : buildProfessionalSections(locale, post, relatedTitles);
   const cta = categoryContext[locale][post.category];
   const ctaPrimaryHref = locale === "bg" ? cta.serviceHref : `/en${cta.serviceHref}`;
   const ctaSecondaryHref = locale === "bg" ? "/contact" : "/en/contact";
@@ -2899,7 +2901,7 @@ function enhanceBlogPost(locale: Locale, post: BlogPost, posts: readonly BlogPos
     }),
     relatedPosts,
     sections,
-    faqs: buildProfessionalFaqs(locale, post),
+    faqs: post.faqs?.length ? post.faqs : buildProfessionalFaqs(locale, post),
     relatedLinks: uniqueValues([
       ...post.relatedLinks,
       { href: ctaPrimaryHref, label: cta.serviceLabel },
@@ -2909,12 +2911,12 @@ function enhanceBlogPost(locale: Locale, post: BlogPost, posts: readonly BlogPos
     ] as BlogLink[]),
     ctaTitle:
       locale === "bg"
-        ? "Ако темата е част от реален проект, започни с контекст."
-        : "If this topic is part of a real project, start with context.",
+        ? `${cta.serviceLabel}: следваща практична стъпка`
+        : `${cta.serviceLabel}: a practical next step`,
     ctaText:
       locale === "bg"
-        ? "Изпрати текущото състояние, целта, ограниченията и очаквания резултат. Оттам d . media може да подреди правилния обхват без излишни стъпки."
-        : "Send the current situation, goal, constraints, and expected outcome. From there, d . media can define the right scope without unnecessary steps.",
+        ? `Опиши текущото състояние, целта и ограниченията. Ще свържем темата с ${cta.serviceLabel.toLowerCase()} и ще предложим конкретен следващ ход.`
+        : `Share the current situation, goal, and constraints. We will connect the topic to ${cta.serviceLabel.toLowerCase()} and suggest a concrete next step.`,
     ctaPrimaryLabel: cta.serviceLabel,
     ctaPrimaryHref,
     ctaSecondaryLabel: locale === "bg" ? "Изпрати проектен контекст" : "Send project context",

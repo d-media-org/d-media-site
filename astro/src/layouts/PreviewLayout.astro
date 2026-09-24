@@ -1,5 +1,7 @@
 ---
 import "../styles/preview.css";
+import "../styles/footer-alignment.css";
+import "../styles/menu-adjustments.css";
 
 import BrandAsset from "@/components/BrandAsset.astro";
 import { getAbsolutePageUrl, getOrganizationSchema, getWebPageSchema, getWebsiteSchema } from "@/lib/seo";
@@ -72,7 +74,7 @@ const resolvedLocaleSwitcherItems = localeSwitcherItems ?? getLocaleSwitcherItem
 const serviceById = new Map(content.coreServices.map((service) => [service.id, service]));
 const serviceGroups = [
   {
-    title: isBg ? "Идентичност и дизайн" : "Identity and design",
+    title: isBg ? "Бранд и дизайн" : "Brand and design",
     services: ["brand-identity", "graphic-design"],
   },
   {
@@ -80,8 +82,12 @@ const serviceGroups = [
     services: ["content", "social-media-management", "advertising"],
   },
   {
-    title: isBg ? "Уеб и видимост" : "Web and visibility",
-    services: ["web-design-development", "technical-seo", "geo", "performance-optimization", "technical-support"],
+    title: isBg ? "Уеб" : "Web",
+    services: ["web-design-development"],
+  },
+  {
+    title: isBg ? "Видимост и поддръжка" : "Visibility and support",
+    services: ["technical-seo", "geo", "performance-optimization", "technical-support"],
   },
 ].map((group) => ({
   ...group,
@@ -101,12 +107,12 @@ const footerServices = [
 ];
 const footerProjects = [
   { label: isBg ? "всички проекти" : "all projects", href: route("/projects") },
-  { label: "case studies", href: route("/case-studies") },
+  { label: isBg ? "казуси" : "case studies", href: route("/case-studies") },
 ];
 const footerInformation = [
-  { label: isBg ? "начални рамки" : "starting ranges", href: route("/pricing") },
-  { label: isBg ? "за бранда" : "about d . media", href: route("/about") },
-  { label: isBg ? "контакти" : "contacts", href: route("/contact") },
+  { label: isBg ? "цени" : "pricing", href: route("/pricing") },
+  { label: isBg ? "за d . media" : "about d . media", href: route("/about") },
+  { label: isBg ? "контакт" : "contact", href: route("/contact") },
 ];
 const footerLegal = [
   { label: isBg ? "условия" : "terms", href: route("/terms") },
@@ -211,6 +217,9 @@ const socialIconPaths: Record<string, string> = {
         </nav>
 
         <div class="mp-header-tools">
+          <a class="mp-nav-link mp-nav-pricing" href={route("/estimator")} aria-current={isActive(route("/estimator")) ? "page" : undefined}>
+            <span class="mp-nav-label">{isBg ? "Оцени проект" : "Estimate project"}</span>
+          </a>
           <div class="mp-language" aria-label={isBg ? "Избор на език" : "Language switcher"}>
             {(preview ? [
               { locale: "bg" as const, label: "BG", href: "/preview/", isActive: isBg },
@@ -259,11 +268,11 @@ const socialIconPaths: Record<string, string> = {
           <div class="mp-mobile-nav-group mp-mobile-nav-secondary">
             {remainingPrimaryNav.filter((item) => item.href !== route("/projects")).map((item) => <a class:list={{ "mp-nav-pricing": item.href === route("/pricing") }} href={item.href} aria-current={isActive(item.href) ? "page" : undefined}>{item.label}</a>)}
           </div>
-          <a class="mp-mobile-menu-cta" href={route("/contact")}>{isBg ? "изпрати проектен контекст" : "send project context"}</a>
+          <a class="mp-mobile-menu-cta" href={route("/contact")}>{isBg ? "Изпрати запитване" : "Send inquiry"}</a>
         </nav>
         <div class="mp-mobile-meta">
           <a href={encodedContactEmailHref}><span set:html={encodedContactEmailLabel} /></a>
-          <a class="mp-mobile-cta" href={route("/contact")}>{isBg ? "изпрати проектен контекст" : "send project context"}</a>
+          <a class="mp-mobile-cta" href={route("/contact")}>{isBg ? "Изпрати запитване" : "Send inquiry"}</a>
           <div class="mp-mobile-socials" aria-label={isBg ? "Социални профили" : "Social profiles"}>
             {content.socials.map((social) => (
               <a href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label} title={social.label}>

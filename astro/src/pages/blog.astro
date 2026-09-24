@@ -39,6 +39,8 @@ const categories = getBlogCategories(locale);
         ))}
       </nav>
 
+      <p class="page-text">Търсиш систематизирани технически материали? <a class="inline-link" href="/knowledge-base/">Разгледай База знания</a>.</p>
+
       <div class="project-grid" data-blog-grid>
         {posts.map((post) => (
           <article class={`card service-category-card${post.featured ? " is-featured" : ""}`} data-blog-card data-category={post.category}>

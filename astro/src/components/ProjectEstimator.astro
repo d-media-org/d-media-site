@@ -45,7 +45,7 @@ const bg = locale === "bg";
 
     <fieldset class="estimator-step" data-step="3" hidden>
       <legend>{bg ? "Сложност на проекта" : "Project complexity"}</legend>
-      <p>{bg ? "Изберете една рамка за сложност според броя зависимости, варианти, страници, интеграции и участници. Това влияе върху увереността на оценката." : "Choose one complexity level based on dependencies, variants, pages, integrations, and stakeholders. This affects estimate confidence."}</p>
+      <p>{bg ? "Избери една рамка за сложност според броя зависимости, варианти, страници, интеграции и участници. Това помага да очертаем реалистичен обхват." : "Choose one complexity level based on dependencies, variants, pages, integrations, and stakeholders. This helps us outline a realistic scope."}</p>
       <div class="estimator-options" data-complexity-options></div>
     </fieldset>
 
@@ -110,11 +110,6 @@ const bg = locale === "bg";
         <strong data-result-timeline></strong>
       </div>
     </div>
-    <div class="estimator-score-grid">
-      <div><span>{bg ? "Готовност" : "Readiness"}</span><strong data-result-readiness></strong><p data-result-readiness-note></p></div>
-      <div><span>{bg ? "Увереност" : "Confidence"}</span><strong data-result-confidence></strong><p data-result-confidence-note></p></div>
-      <div><span>{bg ? "Квалификация" : "Qualification"}</span><strong data-result-lead-score></strong><p>{bg ? "Вътрешен ориентир за следващата стъпка." : "Internal guide for the next step."}</p></div>
-    </div>
     <p class="estimator-warning" data-result-warning hidden></p>
     <div class="estimator-result-grid">
       <div><h3>{bg ? "Избрани услуги" : "Selected Services"}</h3><ul data-result-services></ul></div>
@@ -124,13 +119,13 @@ const bg = locale === "bg";
     <p class="estimator-disclaimer">{bg ? "Този ориентир е само индикативен. Финалната цена зависи от проектния обхват, готовността на съдържанието, интеграциите и техническите изисквания." : "This estimate is indicative only. Final pricing depends on project scope, content readiness, integrations and technical requirements."}</p>
     <p class="estimator-next-explanation">{bg ? "След изпращане на запитването избраните параметри ще бъдат добавени автоматично към заявката, което ще ни помогне да подготвим по-точна оценка." : "After you submit the inquiry, the selected parameters will be added automatically, helping us prepare a more accurate assessment."}</p>
     <div class="hero-actions">
-      <a class="button button-primary" data-review-link href={bg ? "/contact/#inquiry-form-title" : "/en/contact/#inquiry-form-title"}>{bg ? "Получете персонализирана оценка" : "Get a Personalised Estimate"}</a>
+      <a class="button button-primary" data-review-link href={bg ? "/contact/#inquiry-form-title" : "/en/contact/#inquiry-form-title"}>{bg ? "Изпрати тази оценка като запитване" : "Send this estimate as an inquiry"}</a>
       <button type="button" class="button button-secondary" data-restart>{bg ? "Промени избора" : "Change selection"}</button>
     </div>
   </section>
   <aside class="estimator-summary" data-summary>
     <button type="button" class="estimator-summary-toggle" data-summary-toggle aria-expanded="true">
-      <span>{bg ? "Вашият проект" : "Your project"}</span><span aria-hidden="true">⌄</span>
+      <span>{bg ? "Твоят проект" : "Your project"}</span><span aria-hidden="true">⌄</span>
     </button>
     <div data-summary-content>
       <dl>
@@ -341,16 +336,9 @@ const bg = locale === "bg";
       if(selected("budget")[0]==="unsure") readinessMissing.push(bg?"ориентировъчен бюджет":"an indicative budget");
       if(selected("timeline")[0]==="no-rush") readinessMissing.push(bg?"предпочитан стартов период":"a preferred start period");
       if(recommendations.length) readinessMissing.push(bg?`решение за ${recommendations.join(", ")}`:`a decision on ${recommendations.join(", ")}`);
-      const readiness=Math.max(1,4-Math.min(3,readinessMissing.length));
-      let leadScore=25+(selectedIds.length*8)+(ex.length*4)+(cm[0]==="advanced"?12:cm[0]==="enterprise"?18:6);
-      if(selected("budget")[0]!=="unsure") leadScore+=10;
-      if(!hasUnsureGoal) leadScore+=Math.min(12,6+(activeGoals.length*2));
-      leadScore=Math.min(100,leadScore);
       const budgetConflict=budget[0]!=="unsure"&&max>budget[3]*1.25;
       const lowConfidence=cm[0]==="enterprise"||selectedIds.includes("web")&&scopeRows.some(x=>x.scope[0]==="platform")||budgetConflict&&unrealistic;
       const mediumConfidence=!lowConfidence&&(budget[0]==="unsure"||hasUnsureGoal||recommendations.length>1);
-      const confidence=lowConfidence?"low":mediumConfidence?"medium":"high";
-      const confidenceLabel=confidence==="high"?(bg?"Висока":"High"):confidence==="medium"?(bg?"Средна":"Medium"):(bg?"Ниска":"Low");
       const approach=lowConfidence?(bg?"Комплексен проект":"Complex project"):recommendations.length?(bg?"Поетапен старт":"Phased start"):(bg?"Директно уточняване на обхвата":"Direct scope alignment");
       const approachNote=lowConfidence?(bg?"Изисква индивидуална преценка преди конкретна ценова рамка.":"An individual assessment is required before a specific pricing framework."):recommendations.length?(bg?"Препоръчваме да уточним зависимостите преди финален стартов план.":"We recommend clarifying dependencies before the final starting plan."):(bg?"Избраният обхват е последователен и може да премине към кратко уточняване.":"The selected scope is coherent and can move into a short alignment step.");
       const outcomes=[...scopeRows.flatMap(x=>x.scope[6]),...ex.flatMap(x=>x[3])];
@@ -360,13 +348,8 @@ const bg = locale === "bg";
       root.querySelector("[data-result-recommendations]").textContent=recommendations.length?(bg?`${approachNote} Препоръчваме да обсъдим и: ${recommendations.join(", ")}.`:`${approachNote} We also recommend discussing: ${recommendations.join(", ")}.`):approachNote;
       root.querySelector("[data-result-outcomes]").textContent=outcomes.join(" · ");
       root.querySelector("[data-result-next-step]").textContent=bg?"Подготовка на персонализирана оценка":"Prepare a personalised assessment";
-      root.querySelector("[data-result-next-note]").textContent=bg?"Изпратете описанието на проекта от следващия екран, за да уточним липсващите детайли и реалния стартов ред.":"Send the brief on the next screen so we can clarify missing details and the actual starting sequence.";
-      root.querySelector("[data-result-readiness]").textContent=`${"●".repeat(readiness)}${"○".repeat(4-readiness)}`;
-      root.querySelector("[data-result-readiness-note]").textContent=readinessMissing.length?(bg?`За по-точен старт липсва: ${readinessMissing.join(", ")}.`:`For a more precise start, clarify: ${readinessMissing.join(", ")}.`):(bg?"Основните предпоставки за старт са налични.":"The core prerequisites for starting are available.");
+      root.querySelector("[data-result-next-note]").textContent=bg?"Изпрати описанието на проекта от следващия екран, за да уточним липсващите детайли и реалния стартов ред.":"Send the brief on the next screen so we can clarify missing details and the actual starting sequence.";
       root.querySelector("[data-result-start-note]").textContent=readinessMissing.length?(bg?`Преди старт е добре да уточним: ${readinessMissing.join(", ")}.`:`Before starting, we should clarify: ${readinessMissing.join(", ")}.`):(bg?"Има достатъчно яснота за следваща консултативна стъпка.":"There is enough clarity for the next consultative step.");
-      root.querySelector("[data-result-confidence]").textContent=confidenceLabel;
-      root.querySelector("[data-result-confidence-note]").textContent=confidence==="high"?(bg?"Обхватът, срокът и бюджетът дават надеждна ориентировъчна рамка.":"Scope, timeline and budget support a reliable indicative framework."):confidence==="medium"?(bg?"Диапазонът е умишлено по-широк и е препоръчителна кратка консултация.":"The range is intentionally wider and a short consultation is recommended."):(bg?"Не показваме подвеждаща конкретна цена при тази комбинация.":"We do not show a misleading specific price for this combination.");
-      root.querySelector("[data-result-lead-score]").textContent=`${leadScore}/100`;
       const fill=(sel,items)=>root.querySelector(sel).innerHTML=items.map(x=>`<li>${x}</li>`).join("");
       fill("[data-result-services]",scopeRows.map(x=>x.service.label));
       fill("[data-result-scope]",[...scopeRows.map(x=>x.scope[1]),...ex.map(x=>x[1])]);
@@ -383,7 +366,7 @@ const bg = locale === "bg";
         `${bg?"Препоръчителен подход":"Recommended approach"}: ${approach} — ${approachNote}`
       ].join("\n\n");
       const serviceValues={brand:"Brand Identity",graphic:"Graphic Design",content:"Content Creation",social:"Social Media Management",web:"Web Design & Development",seo:"SEO / GEO / AI Visibility",support:"Technical Support"};
-      const params=new URLSearchParams({estimator:"1",goal:goalLabel,services:scopeRows.map(x=>x.service.label).join(", "),serviceValues:scopeRows.map(x=>serviceValues[x.service.id]).join("|"),scope:scopeRows.map(x=>x.scope[1]).join(", "),complexity:cm[1],timeline:requested?.[1]||"",budget:budget[1],estimatedRange:lowConfidence?"":range,extras:ex.map(x=>x[1]).join(", "),recommendations:recommendations.join(", "),readinessScore:String(readiness),leadScore:String(leadScore),confidence,brief});
+      const params=new URLSearchParams({estimator:"1",goal:goalLabel,services:scopeRows.map(x=>x.service.label).join(", "),serviceValues:scopeRows.map(x=>serviceValues[x.service.id]).join("|"),scope:scopeRows.map(x=>x.scope[1]).join(", "),complexity:cm[1],timeline:requested?.[1]||"",budget:budget[1],estimatedRange:lowConfidence?"":range,extras:ex.map(x=>x[1]).join(", "),recommendations:recommendations.join(", "),brief});
       root.querySelector("[data-review-link]").href=`${bg?"/contact/":"/en/contact/"}?${params}#inquiry-form-title`;
       form.hidden=true;
       root.classList.add("is-result-ready");
@@ -392,7 +375,7 @@ const bg = locale === "bg";
       resultSection.classList.add("is-ready");
       window.setTimeout(()=>resultSection.classList.remove("is-ready"),1400);
       try{localStorage.removeItem(storageKey);}catch{}
-      track("estimator_completed",{estimated_range:lowConfidence?"individual":range,estimated_timeline:duration,confidence,readiness_score:readiness,lead_score:leadScore});
+      track("estimator_completed",{estimated_range:lowConfidence?"individual":range,estimated_timeline:duration});
       scrollToSection(resultSection);
     };
     root.querySelector("[data-next]").addEventListener("click",()=>{

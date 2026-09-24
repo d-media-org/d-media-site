@@ -3,9 +3,11 @@ export const contactServices = [
   "Graphic Design",
   "Content Creation",
   "Social Media Management",
+  "Advertising",
   "Web Design & Development",
   "SEO / GEO / AI Visibility",
   "Technical Support",
+  "Not Sure Yet",
   "Other",
 ] as const;
 
@@ -23,9 +25,11 @@ export const contactServiceLabelsBg: Record<(typeof contactServices)[number], st
   "Graphic Design": "Графичен дизайн",
   "Content Creation": "Създаване на съдържание",
   "Social Media Management": "Управление на социални мрежи",
+  Advertising: "Реклама",
   "Web Design & Development": "Уеб дизайн и разработка",
   "SEO / GEO / AI Visibility": "SEO / GEO / видимост в AI",
   "Technical Support": "Техническа поддръжка",
+  "Not Sure Yet": "Не съм сигурен/сигурна",
   Other: "Друго",
 };
 

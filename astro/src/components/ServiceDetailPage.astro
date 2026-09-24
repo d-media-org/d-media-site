@@ -1,8 +1,8 @@
 ---
 import BrandText from "@/components/BrandText.astro";
 import Layout from "@/layouts/Layout.astro";
-import { getAuthorityServices } from "@/lib/authority-services";
 import { localizeHref, type Locale } from "@/lib/i18n";
+import { getSiteContent } from "@/lib/site-content";
 import { getBreadcrumbSchema, getFAQPageSchema, getServicePageSchema } from "@/lib/seo";
 
 type ServiceSection = {
@@ -122,9 +122,20 @@ const relatedCaseStudies =
         { title: "Yanita", href: "/projects/yanita", text: "Visual system and materials prepared for real communication use." },
         { title: "Support Account", href: "/projects/support-account", text: "Structured identity and usable files for a digital environment." },
       ]);
-const relatedTechnicalServices = getAuthorityServices(locale).filter(
-  (service) => `/services/${service.slug}` !== path,
-);
+const relatedServiceIds: Record<string, string[]> = {
+  "/services/brand-identity": ["graphic-design", "web-design-development"],
+  "/services/graphic-design": ["brand-identity", "content"],
+  "/services/content-creation": ["social-media-management", "advertising", "technical-seo"],
+  "/services/social-media-management": ["content", "advertising"],
+  "/services/advertising": ["content", "social-media-management"],
+  "/services/web-design-development": ["technical-seo", "performance-optimization", "technical-support"],
+  "/services/technical-seo": ["web-design-development", "geo", "performance-optimization"],
+  "/services/geo": ["technical-seo", "content"],
+  "/services/performance-optimization": ["web-design-development", "technical-seo", "technical-support"],
+  "/services/technical-support": ["web-design-development", "technical-seo"],
+};
+const serviceById = new Map(getSiteContent(locale).coreServices.map((service) => [service.id, service]));
+const relatedServices = (relatedServiceIds[path] ?? []).map((id) => serviceById.get(id)).filter(Boolean);
 ---
 
 <Layout
@@ -249,25 +260,24 @@ const relatedTechnicalServices = getAuthorityServices(locale).filter(
         ))}
       </div>
 
-      <div class="section-heading page-subheading">
-        <h2>{locale === "bg" ? "Свързани дигитални специализации" : "Related digital specialisms"}</h2>
-        <p class="page-text">
-          {locale === "bg"
-            ? "Уеб дизайнът, разработката, техническото SEO, видимостта в AI търсене, скоростта и поддръжката работят като свързана система."
-            : "Web design, development, technical SEO, GEO, performance, and support work as a connected system."}
-        </p>
-      </div>
-      <div class="showcase-grid service-card-grid">
-        {relatedTechnicalServices.map((service) => (
-          <article class="card service-category-card">
-            <h2>{service.title}</h2>
-            <p>{service.metaDescription}</p>
-            <a class="inline-link" href={localizeHref(locale, `/services/${service.slug}`)}>
-              {locale === "bg" ? "Виж специализацията" : "View specialism"}
-            </a>
-          </article>
-        ))}
-      </div>
+      {relatedServices.length ? (
+        <>
+          <div class="section-heading page-subheading">
+            <h2>{locale === "bg" ? "Свързани услуги" : "Related services"}</h2>
+          </div>
+          <div class="showcase-grid service-card-grid">
+            {relatedServices.map((service) => service && (
+              <article class="card service-category-card">
+                <h2>{service.title}</h2>
+                <p>{service.text}</p>
+                <a class="inline-link" href={localizeHref(locale, service.detailHref)}>
+                  {locale === "bg" ? "Виж услугата" : "View service"}
+                </a>
+              </article>
+            ))}
+          </div>
+        </>
+      ) : null}
 
       <article class="card services-cta-card">
         <div class="services-cta-copy">

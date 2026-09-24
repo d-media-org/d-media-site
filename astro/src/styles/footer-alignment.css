@@ -1,0 +1,7 @@
+@media (min-width: 1120px) {
+  .mp-footer-links,
+  .mp-footer-socials {
+    align-items: center;
+    text-align: center;
+  }
+}

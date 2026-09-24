@@ -23,9 +23,6 @@ const estimatorData = {
   extras: Astro.url.searchParams.get("extras") ?? "",
   budget: Astro.url.searchParams.get("budget") ?? "",
   recommendations: Astro.url.searchParams.get("recommendations") ?? "",
-  readinessScore: Astro.url.searchParams.get("readinessScore") ?? "",
-  leadScore: Astro.url.searchParams.get("leadScore") ?? "",
-  confidence: Astro.url.searchParams.get("confidence") ?? "",
   brief: Astro.url.searchParams.get("brief") ?? "",
 };
 
@@ -33,15 +30,15 @@ const copy = isBg
   ? {
       title: "Проектно запитване",
       intro: estimator
-        ? "Описанието на проекта е подготвено. Остава само да добавите контакт и специфични уточнения."
+        ? "Описанието на проекта е подготвено. Остава само да добавиш контакт и специфични уточнения."
         : "Изпрати кратък контекст и ще върнем яснота за обхват, срок и следваща стъпка.",
       formTitle: "Изпрати запитване",
       name: "Име",
       email: "Имейл",
       company: "Организация",
-      service: "Тип запитване",
+      service: "От какво имаш нужда?",
       serviceHint: "Избери една или повече услуги, които са част от запитването.",
-      serviceRequired: "Моля, избери поне една услуга.",
+      serviceRequired: "Моля, избери поне една услуга или „Не съм сигурен/сигурна“.",
       message: "Кратко описание на проекта",
       budget: "Ориентировъчен бюджет",
       deadline: "Желан срок",
@@ -66,10 +63,10 @@ const copy = isBg
       deadlineHint: "Например: до края на юли, преди събитие, без фиксиран срок.",
       websiteHint: "Ако има текущ сайт или примерна страница.",
       estimatorExplanation:
-        "Избраните параметри вече са добавени към описанието на проекта. Попълнете име, имейл и допълнителна информация, ако има специфични изисквания, които искате да уточните.",
+        "Избраните параметри вече са добавени към описанието на проекта. Попълни име, имейл и допълнителна информация, ако има специфични изисквания, които искаш да уточниш.",
       generatedBrief: "Подготвено описание на проекта",
       generatedBriefNote: "Това обобщение ще бъде изпратено автоматично със запитването.",
-      additionalHint: "Добавете само контекст, който не присъства в подготвеното описание на проекта.",
+      additionalHint: "Добави само контекст, който не присъства в подготвеното описание на проекта.",
       privacyLink: "/privacy/",
       privacyText: "За защита на данните",
     }
@@ -192,7 +189,9 @@ const copy = isBg
             <div class="generated-brief-wide" data-brief-recommendations-row hidden><dt>{isBg ? "Препоръки" : "Recommendations"}</dt><dd data-brief-recommendations></dd></div>
           </dl>
         </section>
-      <div class="brief-grid field-full" data-standard-brief>
+      <details class="field-full" data-standard-brief>
+        <summary>{isBg ? "Допълнителни подробности (по избор)" : "Additional details (optional)"}</summary>
+      <div class="brief-grid">
         <label class="field">
           <span class="field-label">{copy.budget} <span class="field-meta">{copy.optional}</span></span>
           <select name="budget">
@@ -216,6 +215,7 @@ const copy = isBg
           <textarea name="additionalInformation" rows="4" maxlength={contactFieldLimits.additionalInformation}></textarea>
         </label>
       </div>
+      </details>
 
         <label class="field field-full estimator-additional-field" data-estimator-only hidden>
           <span class="field-label">{copy.additional} <span class="field-meta">{copy.optional}</span></span>
@@ -242,9 +242,6 @@ const copy = isBg
       <input name="projectTimeline" type="hidden" value={estimatorData.timeline} />
       <input name="estimatedRange" type="hidden" value={estimatorData.estimatedRange} />
       <input name="estimatorBudget" type="hidden" value="" data-estimator-budget disabled />
-      <input name="readinessScore" type="hidden" value={estimatorData.readinessScore} />
-      <input name="leadScore" type="hidden" value={estimatorData.leadScore} />
-      <input name="confidence" type="hidden" value={estimatorData.confidence} />
       <input name="recommendations" type="hidden" value={estimatorData.recommendations} />
       <input name="projectBrief" type="hidden" value={estimatorData.brief} />
 
@@ -332,9 +329,6 @@ const copy = isBg
       const estimatedRangeField = form.querySelector('[name="estimatedRange"]');
       const servicesField = form.querySelector('[name="services"]');
       const goalField = form.querySelector('[name="goal"]');
-      const readinessField = form.querySelector('[name="readinessScore"]');
-      const leadField = form.querySelector('[name="leadScore"]');
-      const confidenceField = form.querySelector('[name="confidence"]');
       const recommendationsField = form.querySelector('[name="recommendations"]');
       const projectBriefField = form.querySelector('[name="projectBrief"]');
       const serviceField = form.querySelector('[name="service"]');
@@ -399,9 +393,6 @@ const copy = isBg
       if (estimatedRangeField) estimatedRangeField.value = estimatedRange;
       if (servicesField) servicesField.value = serviceValues;
       if (goalField) goalField.value = goal;
-      if (readinessField) readinessField.value = params.get("readinessScore") || "";
-      if (leadField) leadField.value = params.get("leadScore") || "";
-      if (confidenceField) confidenceField.value = params.get("confidence") || "";
       if (recommendationsField) recommendationsField.value = recommendations;
       if (projectBriefField) projectBriefField.value = brief;
       window.requestAnimationFrame(() => {
