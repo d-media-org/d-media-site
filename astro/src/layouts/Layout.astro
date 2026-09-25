@@ -58,10 +58,6 @@ const ui = getUiCopy(locale);
     <slot />
   </div>
 
-  <a class="mobile-sticky-cta" href={localizeHref(locale, "/contact")} data-ga-event="cta_mobile_sticky_click" data-ga-location="mobile_sticky">
-    {locale === "bg" ? "изпрати кратък контекст" : "send project context"}
-  </a>
-
   <div class="consent-banner" role="dialog" aria-live="polite" aria-label={ui.consent.ariaLabel} hidden data-consent-banner>
     <div class="consent-banner-copy">
       <p class="eyebrow">{ui.consent.eyebrow}</p>
@@ -105,18 +101,6 @@ const ui = getUiCopy(locale);
         try { linkTarget = link?.href ? new URL(link.href, location.href).pathname : undefined; } catch {}
         window.dMediaAnalytics.track(target.dataset.gaEvent, { location: target.dataset.gaLocation || "unspecified", link_target: linkTarget });
       }, { capture: true });
-    })();
-  </script>
-
-  <script is:inline>
-    (() => {
-      const cta = document.querySelector(".mobile-sticky-cta");
-      const form = document.querySelector("#inquiry-form");
-      if (!cta || !form || !("IntersectionObserver" in window)) return;
-      const observer = new IntersectionObserver(([entry]) => {
-        cta.classList.toggle("is-near-form", Boolean(entry?.isIntersecting));
-      }, { rootMargin: "120px 0px 0px" });
-      observer.observe(form);
     })();
   </script>
 

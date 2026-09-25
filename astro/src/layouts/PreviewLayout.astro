@@ -65,6 +65,9 @@ const schemas = [
 ];
 const normalizedPath = localizeHref(locale, path);
 const normalizeRoute = (value: string) => value === "/" ? value : value.replace(/\/+$/, "");
+const showMobileMenuCta = ![route("/contact"), route("/estimator")].some(
+  (href) => normalizeRoute(normalizedPath) === normalizeRoute(href),
+);
 const isActive = (href: string) => {
   const current = normalizeRoute(normalizedPath);
   const target = normalizeRoute(href);
@@ -261,7 +264,7 @@ const socialIconPaths: Record<string, string> = {
           <div class="mp-mobile-nav-group mp-mobile-nav-secondary">
             {remainingPrimaryNav.filter((item) => item.href !== route("/projects")).map((item) => <a class:list={{ "mp-nav-pricing": item.href === route("/pricing") }} href={item.href} aria-current={isActive(item.href) ? "page" : undefined}>{item.label}</a>)}
           </div>
-          <a class="mp-mobile-menu-cta" href={route("/contact")}>{isBg ? "изпрати проектен контекст" : "send project context"}</a>
+          {showMobileMenuCta ? <a class="mp-mobile-menu-cta" href={route("/contact")}>{isBg ? "изпрати проектен контекст" : "send project context"}</a> : null}
         </nav>
         <div class="mp-mobile-meta">
           <a href={encodedContactEmailHref}><span set:html={encodedContactEmailLabel} /></a>
