@@ -17,41 +17,41 @@ const bg = locale === "bg";
     <span class="estimator-progress-line"><i data-progress-bar></i></span>
   </div>
   <div class="estimator-intro">
-    <p>{bg ? "Отговорите Ви ще се използват за автоматично подготвяне на описание на проекта. В края ще получите ориентировъчна рамка за обхват, инвестиция и следваща стъпка." : "Your answers will be used to automatically prepare a project brief. At the end, you will receive an indicative framework for scope, investment, and next step."}</p>
+    <p>{bg ? "Отговорите ти ще се използват за автоматично подготвяне на описание на проекта. В края ще получиш ориентировъчна рамка за обхват, инвестиция и следваща стъпка." : "Your answers will be used to automatically prepare a project brief. At the end, you will receive an indicative framework for scope, investment, and next step."}</p>
     <p>{bg ? "Това е консултативен ориентир, не автоматична обвързваща оферта." : "This is a consultative guide, not an automatic binding quote."}</p>
   </div>
 
   <div class="estimator-workspace">
   <form class="estimator-form" data-estimator-form>
     <fieldset class="estimator-step" data-step="1">
-      <legend>{bg ? "Какво Ви е необходимо?" : "What do you need?"}</legend>
-      <p>{bg ? "Изберете една или повече основни цели. След това ще видите само услугите, които най-често отговарят на тази посока, за да маркирате реално нужните." : "Choose one or more primary objectives. You will then see only the services most often relevant to that direction, so you can select what is genuinely needed."}</p>
+      <legend>{bg ? "Какво ти е необходимо?" : "What do you need?"}</legend>
+      <p>{bg ? "Избери една или повече основни цели. След това ще видиш само услугите, които най-често отговарят на тази посока, за да маркираш реално нужните." : "Choose one or more primary objectives. You will then see only the services most often relevant to that direction, so you can select what is genuinely needed."}</p>
       <div class="estimator-question-group">
         <h3>{bg ? "Основни цели" : "Primary objectives"}</h3>
         <div class="estimator-options" data-goal-options></div>
       </div>
       <div class="estimator-question-group">
         <h3>{bg ? "Необходими услуги" : "Required services"}</h3>
-        <p class="estimator-helper" data-service-guidance>{bg ? "Първо изберете основна цел. След това ще видите най-релевантните услуги за тази посока." : "Choose a primary objective first. The most relevant services for that direction will appear here."}</p>
+        <p class="estimator-helper" data-service-guidance>{bg ? "Първо избери основна цел. След това ще видиш най-релевантните услуги за тази посока." : "Choose a primary objective first. The most relevant services for that direction will appear here."}</p>
         <div class="estimator-options" data-primary-options></div>
       </div>
     </fieldset>
 
     <fieldset class="estimator-step" data-step="2" hidden>
-      <legend>{bg ? "Уточнете обхвата" : "Define the scope"}</legend>
-      <p>{bg ? "За всяка избрана услуга посочете един най-близък стартов обхват. Следващата стъпка ще уточни сложността и зависимостите." : "For each selected service, choose one closest starting scope. The next step will clarify complexity and dependencies."}</p>
+      <legend>{bg ? "Уточни обхвата" : "Define the scope"}</legend>
+      <p>{bg ? "За всяка избрана услуга посочи един най-близък стартов обхват. Следващата стъпка ще уточни сложността и зависимостите." : "For each selected service, choose one closest starting scope. The next step will clarify complexity and dependencies."}</p>
       <div data-scope-options></div>
     </fieldset>
 
     <fieldset class="estimator-step" data-step="3" hidden>
       <legend>{bg ? "Сложност на проекта" : "Project complexity"}</legend>
-      <p>{bg ? "Изберете една рамка за сложност според броя зависимости, варианти, страници, интеграции и участници. Това влияе върху увереността на оценката." : "Choose one complexity level based on dependencies, variants, pages, integrations, and stakeholders. This affects estimate confidence."}</p>
+      <p>{bg ? "Избери една рамка за сложност според броя зависимости, варианти, страници, интеграции и участници. Това влияе върху увереността на оценката." : "Choose one complexity level based on dependencies, variants, pages, integrations, and stakeholders. This affects estimate confidence."}</p>
       <div class="estimator-options" data-complexity-options></div>
     </fieldset>
 
     <fieldset class="estimator-step" data-step="4" hidden>
       <legend>{bg ? "Желан срок" : "Desired timeline"}</legend>
-      <p>{bg ? "Изберете един желан срок и един ориентировъчен бюджет. Комбинацията показва дали обхватът е реалистичен или е нужен поетапен старт." : "Choose one desired timeline and one indicative budget. The combination shows whether the scope is realistic or needs a phased start."}</p>
+      <p>{bg ? "Избери един желан срок и един ориентировъчен бюджет. Комбинацията показва дали обхватът е реалистичен или е нужен поетапен старт." : "Choose one desired timeline and one indicative budget. The combination shows whether the scope is realistic or needs a phased start."}</p>
       <div class="estimator-question-group">
         <h3>{bg ? "Желан срок" : "Desired timeline"}</h3>
       <div class="estimator-options" data-timeline-options></div>
@@ -64,7 +64,7 @@ const bg = locale === "bg";
 
     <fieldset class="estimator-step" data-step="5" hidden>
       <legend>{bg ? "Допълнителни услуги" : "Additional services"}</legend>
-      <p>{bg ? "Изберете допълнителните системи, които проектът действително изисква. Може да оставите стъпката без избор и да видите рамката." : "Select the additional systems the project genuinely requires. You can leave this step empty and view the framework."}</p>
+      <p>{bg ? "Избери допълнителните системи, които проектът действително изисква. Можеш да оставиш стъпката без избор и да видиш рамката." : "Select the additional systems the project genuinely requires. You can leave this step empty and view the framework."}</p>
       <div class="estimator-options" data-additional-options></div>
     </fieldset>
 
@@ -124,13 +124,13 @@ const bg = locale === "bg";
     <p class="estimator-disclaimer">{bg ? "Този ориентир е само индикативен. Финалната цена зависи от проектния обхват, готовността на съдържанието, интеграциите и техническите изисквания." : "This estimate is indicative only. Final pricing depends on project scope, content readiness, integrations and technical requirements."}</p>
     <p class="estimator-next-explanation">{bg ? "След изпращане на запитването избраните параметри ще бъдат добавени автоматично към заявката, което ще ни помогне да подготвим по-точна оценка." : "After you submit the inquiry, the selected parameters will be added automatically, helping us prepare a more accurate assessment."}</p>
     <div class="hero-actions">
-      <a class="button button-primary" data-review-link href={bg ? "/contact/#inquiry-form-title" : "/en/contact/#inquiry-form-title"}>{bg ? "Получете персонализирана оценка" : "Get a Personalised Estimate"}</a>
+      <a class="button button-primary" data-review-link href={bg ? "/contact/#inquiry-form-title" : "/en/contact/#inquiry-form-title"}>{bg ? "Получи персонализирана оценка" : "Get a Personalised Estimate"}</a>
       <button type="button" class="button button-secondary" data-restart>{bg ? "Промени избора" : "Change selection"}</button>
     </div>
   </section>
   <aside class="estimator-summary" data-summary>
     <button type="button" class="estimator-summary-toggle" data-summary-toggle aria-expanded="true">
-      <span>{bg ? "Вашият проект" : "Your project"}</span><span aria-hidden="true">⌄</span>
+      <span>{bg ? "Твоят проект" : "Your project"}</span><span aria-hidden="true">⌄</span>
     </button>
     <div data-summary-content>
       <dl>
@@ -201,7 +201,7 @@ const bg = locale === "bg";
       ["leads",bg?"Повече запитвания":"More Enquiries",["web","seo","content"],bg?"Свързва съдържание, сайт и откриваемост.":"Connects content, website and discoverability."],
       ["visibility",bg?"По-добра видимост":"Better Visibility",["seo","content"],bg?"Подрежда съдържание, SEO и AI видимост.":"Structures content, SEO and AI visibility."],
       ["presence",bg?"Цялостно дигитално присъствие":"Complete Digital Presence",["brand","web","seo"],bg?"Подходящо за бранд, сайт и видимост като система.":"Best for brand, website and visibility as one system."],
-      ["unsure",bg?"Не съм сигурен":"Not Sure Yet",[],bg?"Използвайте това, ако искате първо да уточним посоката.":"Use this when the direction should be clarified first."]
+      ["unsure",bg?"Не съм сигурен":"Not Sure Yet",[],bg?"Използвай това, ако искаш първо да уточним посоката.":"Use this when the direction should be clarified first."]
     ];
     const complexity = [
       ["simple",bg?"Ясен и малък обхват":"Clear small scope",1,bg?"Една услуга, малко зависимости, готови материали и бързо уточняване.":"One service, few dependencies, prepared materials and quick alignment."],
@@ -216,7 +216,7 @@ const bg = locale === "bg";
       ["3000-5000","€3,000–€5,000",3000,5000,bg?"Позволява по-пълна система и повече детайли.":"Allows a fuller system and more detail."],
       ["5000-10000","€5,000–€10,000",5000,10000,bg?"За по-сложна реализация или няколко свързани направления.":"For more complex delivery or several connected tracks."],
       ["over-10000",bg?"Над 10 000 €":"Over €10,000",10000,Infinity,bg?"За комплексни платформи, миграции или дългосрочни системи.":"For complex platforms, migrations or long-term systems."],
-      ["unsure",bg?"Не съм сигурен":"Not Sure Yet",0,Infinity,bg?"Изберете това, ако първо трябва да уточним реалистична рамка.":"Use this if we should first define a realistic frame."]
+      ["unsure",bg?"Не съм сигурен":"Not Sure Yet",0,Infinity,bg?"Избери това, ако първо трябва да уточним реалистична рамка.":"Use this if we should first define a realistic frame."]
     ];
     const extras = [
       ["crm",bg?"Свързване със система за клиенти":"CRM Integration",390,[bg?"Свързване с CRM и подреждане на полетата":"CRM connection and field mapping"]],
@@ -247,12 +247,12 @@ const bg = locale === "bg";
       const guidance=root.querySelector("[data-service-guidance]");
       container.innerHTML=ids.map(id=>{const service=services.find(item=>item.id===id);return option("service",service.id,service.label,"checkbox",service.note);}).join("");
       if(!ids.length){
-        guidance.textContent=bg?"Първо изберете основна цел. След това ще видите най-релевантните услуги за тази посока.":"Choose a primary objective first. The most relevant services for that direction will appear here.";
+        guidance.textContent=bg?"Първо избери основна цел. След това ще видиш най-релевантните услуги за тази посока.":"Choose a primary objective first. The most relevant services for that direction will appear here.";
         return;
       }
       guidance.textContent=selected("goal").includes("unsure")
-        ? (bg?"Показани са всички услуги, защото посоката още не е уточнена. Маркирайте само това, което смятате за вероятно.":"All services are shown because the direction is not yet defined. Select only what seems likely.")
-        : (bg?"Показани са услугите, които най-често отговарят на избраните цели. Маркирайте само реално нужните.":"These are the services most often relevant to the selected objectives. Select only what is genuinely needed.");
+        ? (bg?"Показани са всички услуги, защото посоката още не е уточнена. Маркирай само това, което смяташ за вероятно.":"All services are shown because the direction is not yet defined. Select only what seems likely.")
+        : (bg?"Показани са услугите, които най-често отговарят на избраните цели. Маркирай само реално нужните.":"These are the services most often relevant to the selected objectives. Select only what is genuinely needed.");
     };
     const track=(name,detail={})=>window.dMediaAnalytics?.track(name,detail);
     const selected=(name)=>[...form.querySelectorAll(`[name="${name}"]:checked`)].map(x=>x.value);
@@ -360,7 +360,7 @@ const bg = locale === "bg";
       root.querySelector("[data-result-recommendations]").textContent=recommendations.length?(bg?`${approachNote} Препоръчваме да обсъдим и: ${recommendations.join(", ")}.`:`${approachNote} We also recommend discussing: ${recommendations.join(", ")}.`):approachNote;
       root.querySelector("[data-result-outcomes]").textContent=outcomes.join(" · ");
       root.querySelector("[data-result-next-step]").textContent=bg?"Подготовка на персонализирана оценка":"Prepare a personalised assessment";
-      root.querySelector("[data-result-next-note]").textContent=bg?"Изпратете описанието на проекта от следващия екран, за да уточним липсващите детайли и реалния стартов ред.":"Send the brief on the next screen so we can clarify missing details and the actual starting sequence.";
+      root.querySelector("[data-result-next-note]").textContent=bg?"Изпрати описанието на проекта от следващия екран, за да уточним липсващите детайли и реалния стартов ред.":"Send the brief on the next screen so we can clarify missing details and the actual starting sequence.";
       root.querySelector("[data-result-readiness]").textContent=`${"●".repeat(readiness)}${"○".repeat(4-readiness)}`;
       root.querySelector("[data-result-readiness-note]").textContent=readinessMissing.length?(bg?`За по-точен старт липсва: ${readinessMissing.join(", ")}.`:`For a more precise start, clarify: ${readinessMissing.join(", ")}.`):(bg?"Основните предпоставки за старт са налични.":"The core prerequisites for starting are available.");
       root.querySelector("[data-result-start-note]").textContent=readinessMissing.length?(bg?`Преди старт е добре да уточним: ${readinessMissing.join(", ")}.`:`Before starting, we should clarify: ${readinessMissing.join(", ")}.`):(bg?"Има достатъчно яснота за следваща консултативна стъпка.":"There is enough clarity for the next consultative step.");
@@ -396,7 +396,7 @@ const bg = locale === "bg";
       scrollToSection(resultSection);
     };
     root.querySelector("[data-next]").addEventListener("click",()=>{
-      if(!valid()){root.querySelector("[data-estimator-error]").textContent=bg?"Завършете всички избори в тази стъпка, за да продължите.":"Complete all choices in this step to continue.";return;}
+      if(!valid()){root.querySelector("[data-estimator-error]").textContent=bg?"Завърши всички избори в тази стъпка, за да продължиш.":"Complete all choices in this step to continue.";return;}
       if(state.step===1){renderScopes();track("estimator_started");}
       track("estimator_step_completed",{step:state.step});
       state.step===5?result():showStep(state.step+1);

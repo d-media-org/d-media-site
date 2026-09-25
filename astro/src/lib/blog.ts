@@ -85,13 +85,13 @@ const blogCategories = {
 
 const blogPageCopy = {
   bg: {
-    metaTitle: "Блог и knowledge center",
+    metaTitle: "Блог и база знания",
     metaDescription:
       "Идеи, анализи и практически наблюдения за бранд идентичност, съдържание, социални медии, дизайн, реклама, уеб присъствие, SEO и GEO от d . media.",
     title: "Блог",
     intro:
       "Идеи, анализи и практически наблюдения за бранд идентичност, съдържание, социални медии, дизайн, реклама и дигитално присъствие.",
-    knowledgeTitle: "Редакционен knowledge center с практическа стойност.",
+    knowledgeTitle: "Редакционна база знания с практическа стойност.",
     knowledgeText:
       "Тук събираме текстове, които обясняват по-ясно как работят идентичност, съдържание, сайт, SEO, GEO и реалното дигитално присъствие. Целта не е обем, а яснота, аргумент и практическа стойност.",
     filtersLabel: "Категории",
@@ -102,7 +102,7 @@ const blogPageCopy = {
     zeroPostsLabel: "Категорията се подготвя",
     emptyTitle: "Английската редакция се подготвя отделно.",
     emptyText:
-      "Структурата е готова за английски публикации. Първо публикуваме българската knowledge center линия, след което добавяме пълните английски версии.",
+      "Структурата е готова за английски публикации. Първо публикуваме българските материали в базата знания, след което добавяме пълните английски версии.",
     relatedArticlesTitle: "Свързани статии",
     relatedLinksTitle: "Вътрешни връзки",
     articleFooterLabel: "следваща стъпка",
@@ -340,7 +340,7 @@ const publishedBgPosts: readonly BlogPost[] = [
     relatedLinks: [
       { href: "/services", label: "Разгледай услугите" },
       { href: "/about", label: "Виж контекста зад бранда" },
-      { href: "/projects/d-media", label: "Прегледай case study-то на d . media" },
+      { href: "/projects/d-media", label: "Прегледай казуса на d . media" },
     ],
     ctaTitle: "Ако присъствието трябва да работи като система, започни оттук.",
     ctaText:
@@ -459,7 +459,7 @@ const publishedBgPosts: readonly BlogPost[] = [
     ],
     relatedLinks: [
       { href: "/services/web-design-development", label: "Виж уеб обхвата" },
-      { href: "/projects/d-media", label: "Прегледай уеб case study-то" },
+      { href: "/projects/d-media", label: "Прегледай уеб казуса" },
       { href: "/contact", label: "Изпрати контекст за сайт" },
     ],
     ctaTitle: "Ако сайтът трябва да бъде бърз и стабилен, архитектурата идва първа.",
@@ -812,7 +812,7 @@ const draftCaseStudies: readonly BlogPost[] = [
     excerpt: "Казус за преминаването към по-събрана студийна система за идентичност, съдържание, уеб и реклама.",
     intro: "Този казус проследява развитието на бранда през последователни редакции на посока, език и визуална система. Историята е подредена около решенията, които обясняват сегашната система, а не около всеки архивен вариант.",
     metaDescription: "Казус за развитието на d . media и преминаването към по-системно студийно позициониране.",
-    tags: ["case study", "brand development", "d . media"],
+    tags: ["казус", "brand development", "d . media"],
     draft: false,
     relatedPosts: ["zashto-sazdadohme-d-media"],
     ctaTitle: "Историята на бранда трябва да подкрепя настоящата му яснота.",
@@ -825,7 +825,7 @@ const draftCaseStudies: readonly BlogPost[] = [
     excerpt: "Казус за многоезична архитектура, локализирани URL-и, canonical логика и статично публикуване с Astro.",
     intro: "Този казус разглежда как многоезичният слой може да бъде подреден без фалшиви преводи, счупени alternate връзки или излишна сложност в съдържанието.",
     metaDescription: "Казус за многоезична Astro архитектура, локализирани route-и, canonical и hreflang логика.",
-    tags: ["case study", "Astro", "multilingual"],
+    tags: ["казус", "Astro", "multilingual"],
     draft: true,
     relatedPosts: ["vercel-ili-cloudflare-pages-realno-sravnenie"],
     ctaTitle: "Многоезичният сайт изисква съдържателна дисциплина, не само превод.",
@@ -864,7 +864,7 @@ const draftCaseStudies: readonly BlogPost[] = [
     excerpt: "Казус за това как анализираме редизайн: какво се запазва, какво се пренарежда и кога промяната има реална стойност.",
     intro: "Този казус не измисля клиент или резултат. Той подрежда методологията за анализ на редизайн през структура, възприятие, употреба и дългосрочна приложимост.",
     metaDescription: "Казус за анализ на редизайн процес без измислени клиенти, резултати или данни.",
-    tags: ["case study", "redesign", "analysis"],
+    tags: ["казус", "redesign", "analysis"],
     draft: true,
     relatedPosts: ["brand-identichnost-sreshtu-logo"],
     ctaTitle: "Редизайнът трябва да решава проблем, не само да сменя повърхността.",
@@ -877,7 +877,7 @@ const draftCaseStudies: readonly BlogPost[] = [
     excerpt: "Казус за процес на оптимизация без недоказани проценти: диагностика, ресурси, runtime, rendering и проверка след всяка намеса.",
     intro: "Този казус е редактиран като методологична чернова, защото няма публично потвърдени данни за конкретно подобрение с над 80%. Заглавието и текстът избягват недоказани проценти.",
     metaDescription: "Казус за системен процес по подобряване на скоростта на сайт без измислени проценти.",
-    tags: ["case study", "performance", "speed optimization"],
+    tags: ["казус", "performance", "speed optimization"],
     draft: true,
     relatedPosts: ["kak-postignahme-100-100-v-google-pagespeed-insights"],
     ctaTitle: "Performance твърденията трябва да бъдат доказуеми.",
@@ -890,7 +890,7 @@ const draftCaseStudies: readonly BlogPost[] = [
     excerpt: "Казус за GEO-ready архитектура: ясно съдържание, structured data, sitemap, llms.txt и вътрешни връзки.",
     intro: "Този казус разглежда GEO-ready подхода като подредена система за хора, търсачки и AI инструменти, без да го представя като гаранция за цитиране или класиране.",
     metaDescription: "Казус за GEO-ready уебсайт през 2026 със съдържателна архитектура, structured data и AI ориентация.",
-    tags: ["case study", "GEO", "website", "AI search"],
+    tags: ["казус", "GEO", "website", "AI search"],
     draft: true,
     relatedPosts: ["kakvo-e-geo-i-zashto-shte-promeni-seo"],
     ctaTitle: "GEO-ready сайтът започва от яснота, не от обещания.",

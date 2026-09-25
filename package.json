@@ -18,6 +18,7 @@
     "regression": "node scripts/run-regression.mjs",
     "release": "node scripts/run-release.mjs",
     "validate-docs": "node scripts/validate-docs.mjs",
+    "check-public-internal-names": "node scripts/check-public-internal-names.mjs",
     "dashboard": "node scripts/generate-dashboard.mjs",
     "assets:web": "node scripts/generate-web-assets.mjs",
     "astro:dev": "npm --prefix astro run dev",
