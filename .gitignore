@@ -38,6 +38,7 @@ yarn-error.log*
 *.tsbuildinfo
 
 # local QA and temporary work
+.playwright-cli/
 .eslintcache
 .qa/
 reports/
