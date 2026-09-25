@@ -189,6 +189,7 @@ const copy = isBg
             <div><dt>{isBg ? "Срок" : "Timeline"}</dt><dd data-brief-timeline>—</dd></div>
             <div><dt>{isBg ? "Бюджет" : "Budget"}</dt><dd data-brief-budget>—</dd></div>
             <div><dt>{isBg ? "Ориентировъчна оценка" : "Estimate"}</dt><dd data-brief-estimate>—</dd></div>
+            <div class="generated-brief-wide" data-brief-extras-row hidden><dt>{isBg ? "Допълнителни услуги" : "Additional services"}</dt><dd data-brief-extras></dd></div>
             <div class="generated-brief-wide" data-brief-recommendations-row hidden><dt>{isBg ? "Препоръки" : "Recommendations"}</dt><dd data-brief-recommendations></dd></div>
           </dl>
         </section>
@@ -352,15 +353,26 @@ const copy = isBg
       setBriefValue("[data-brief-timeline]", timeline);
       setBriefValue("[data-brief-budget]", budget);
       setBriefValue("[data-brief-estimate]", estimatedRange || (isEnglish ? "Individual assessment" : "Индивидуална преценка"));
+      if (extras) {
+        const extrasRow = form.querySelector("[data-brief-extras-row]");
+        if (extrasRow) extrasRow.hidden = false;
+        setBriefValue("[data-brief-extras]", extras);
+      }
       if (recommendations) {
         const recommendationRow = form.querySelector("[data-brief-recommendations-row]");
         if (recommendationRow) recommendationRow.hidden = false;
         setBriefValue("[data-brief-recommendations]", recommendations);
       }
       if (message) {
-        message.value = brief || (isEnglish
+        const baseBrief = brief || (isEnglish
           ? `Project type: ${goal}\n\nSelected services: ${services}\n\nScope: ${scope}\n\nTimeline: ${timeline}\n\nBudget: ${budget}\n\nRecommendations: ${recommendations || "None"}`
           : `Тип проект: ${goal}\n\nИзбрани услуги: ${services}\n\nОбхват: ${scope}\n\nСрок: ${timeline}\n\nБюджет: ${budget}\n\nПрепоръки: ${recommendations || "Няма"}`);
+        const extrasLine = `${isEnglish ? "Additional services" : "Допълнителни услуги"}: ${extras}`;
+        const completeBrief = extras && !baseBrief.includes(extrasLine)
+          ? `${baseBrief}${baseBrief ? "\n\n" : ""}${extrasLine}`
+          : baseBrief;
+        message.value = completeBrief;
+        if (projectBriefField) projectBriefField.value = completeBrief;
       }
       if (serviceValues) {
         const selectedValues = serviceValues.split("|").filter(Boolean);
@@ -403,7 +415,7 @@ const copy = isBg
       if (leadField) leadField.value = params.get("leadScore") || "";
       if (confidenceField) confidenceField.value = params.get("confidence") || "";
       if (recommendationsField) recommendationsField.value = recommendations;
-      if (projectBriefField) projectBriefField.value = brief;
+      if (projectBriefField && !extras) projectBriefField.value = brief;
       window.requestAnimationFrame(() => {
         document.getElementById("inquiry-form-title")?.scrollIntoView({ behavior: "smooth", block: "start" });
         const firstField = form.querySelector('input[name="name"]');
