@@ -13,8 +13,8 @@ const pageCopy = {
         "уеб дизайн",
         "изработка на сайт",
         "корпоративни сайтове",
-        "SEO-ready сайтове",
-        "GEO-ready сайтове",
+        "сайтове с готова SEO основа",
+        "сайтове, подготвени за GEO",
         "многоезични сайтове",
         "онлайн магазини",
         "интеграции за сайт",
@@ -189,7 +189,7 @@ const pageCopy = {
         },
         {
           title: "Онлайн магазини",
-          text: "Shopify, WooCommerce, Shopify migration и WooCommerce migration за подредена търговска среда и по-чист преход.",
+          text: "Shopify, WooCommerce, миграция към Shopify и миграция към WooCommerce за подредена търговска среда и по-чист преход.",
         },
         {
           title: "CRM системи",
@@ -197,7 +197,7 @@ const pageCopy = {
         },
         {
           title: "Маркетинг платформи",
-          text: "Mailchimp, Brevo, MailerLite и ActiveCampaign за по-подредена email комуникация и автоматизация.",
+          text: "Mailchimp, Brevo, MailerLite и ActiveCampaign за по-подредена имейл комуникация и автоматизация.",
         },
         {
           title: "Системи за резервации",
