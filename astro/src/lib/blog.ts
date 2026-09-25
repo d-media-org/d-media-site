@@ -2888,6 +2888,7 @@ function enhanceBlogPost(locale: Locale, post: BlogPost, posts: readonly BlogPos
   const { relatedPosts, relatedTitles } = getPostRelationships(locale, post, posts);
   const sections = buildProfessionalSections(locale, post, relatedTitles);
   const cta = categoryContext[locale][post.category];
+  const isProjectTarget = cta.serviceHref === "/projects";
   const ctaPrimaryHref = locale === "bg" ? cta.serviceHref : `/en${cta.serviceHref}`;
   const ctaSecondaryHref = locale === "bg" ? "/contact" : "/en/contact";
   const enhancedPost = {
@@ -2908,13 +2909,17 @@ function enhanceBlogPost(locale: Locale, post: BlogPost, posts: readonly BlogPos
       { href: ctaSecondaryHref, label: locale === "bg" ? "Контакт" : "Contact" },
     ] as BlogLink[]),
     ctaTitle:
-      locale === "bg"
-        ? "Ако темата е част от реален проект, започни с контекст."
-        : "If this topic is part of a real project, start with context.",
+      isProjectTarget
+        ? locale === "bg" ? "Разгледай свързани проекти." : "Explore related projects."
+        : locale === "bg" ? "Разгледай свързаната услуга." : "Explore the related service.",
     ctaText:
-      locale === "bg"
-        ? "Изпрати текущото състояние, целта, ограниченията и очаквания резултат. Оттам d . media може да подреди правилния обхват без излишни стъпки."
-        : "Send the current situation, goal, constraints, and expected outcome. From there, d . media can define the right scope without unnecessary steps.",
+      isProjectTarget
+        ? locale === "bg"
+          ? "Виж как решенията по темата са приложени в реални проекти."
+          : "See how solutions related to this topic have been applied in real projects."
+        : locale === "bg"
+          ? "Виж обхвата на услугата и как тя се отнася към темата на статията."
+          : "See the service scope and how it relates to this article's topic.",
     ctaPrimaryLabel: cta.serviceLabel,
     ctaPrimaryHref,
     ctaSecondaryLabel: locale === "bg" ? "Изпрати проектен контекст" : "Send project context",
