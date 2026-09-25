@@ -609,14 +609,8 @@ const pageCopy = {
         "Свържи се с d . media за нов проект по бранд идентичност, съдържание, уеб платформа, дизайн или реклама.",
       eyebrow: "контакти",
       title: "Ако имаш проект, започни с ясен контекст.",
-      text: "Изпрати какво трябва да се изработи, за кого е, в какъв срок и с какъв приоритет. Връщаме преценка, обхват и следваща стъпка.",
-      needsTitle: "Какво да изпратиш",
-      needsText:
-        "Изпрати услуга, кратък контекст, срок, ориентир за обем и ако има, референции или налични материали.",
-      responseTitle: "Какво връщаме",
-      responseText:
-        "Връщаме отговор с преценка, обхват, срок, цена или нужда от кратко уточнение преди оферта.",
-      primaryCta: "Изпрати проектен контекст",
+      text: "Изпрати запитване за проекта си чрез формата по-долу.",
+      primaryCta: "Към формата",
       secondaryCta: "Разгледай услугите",
       mainContact: "Контакти",
       channels: "Канали",
@@ -1253,14 +1247,8 @@ const pageCopy = {
         "Contact d . media about a new project in brand identity, content, web platforms, design, or advertising.",
       eyebrow: "contact",
       title: "If you have a project, start with clear context.",
-      text: "Send what needs to be developed, who it is for, the deadline, and the level of priority. We return with an assessment, scope, and next step.",
-      needsTitle: "What to send",
-      needsText:
-        "Send the required service, a short context, a deadline, an approximate scale, and if available, references or existing materials.",
-      responseTitle: "What we return",
-      responseText:
-        "We return with an assessment, scope, timeframe, pricing, or the need for a short clarification before the quote.",
-      primaryCta: "Send project context",
+      text: "Use the form below to send a project inquiry.",
+      primaryCta: "Go to form",
       secondaryCta: "Explore services",
       mainContact: "Contacts",
       channels: "Channels",

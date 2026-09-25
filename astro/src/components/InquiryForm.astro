@@ -34,7 +34,7 @@ const copy = isBg
       title: "Проектно запитване",
       intro: estimator
         ? "Описанието на проекта е подготвено. Остава само да добавиш контакт и специфични уточнения."
-        : "Изпрати кратък контекст и ще върнем яснота за обхват, срок и следваща стъпка.",
+        : "Попълни задължителните полета; останалото е по избор.",
       formTitle: "Изпрати запитване",
       name: "Име",
       email: "Имейл",
@@ -77,7 +77,7 @@ const copy = isBg
       title: "Project inquiry",
       intro: estimator
         ? "The project brief is prepared. Add your contact details and any specific clarifications."
-        : "Send brief context and we will return with scope, timing, and the next step.",
+        : "Complete the required fields; the rest is optional.",
       formTitle: "Send inquiry",
       name: "Name",
       email: "Email",
@@ -103,7 +103,7 @@ const copy = isBg
       validationWebsite: "Please enter a complete address beginning with https://.",
       validationConsent: "Consent is required to send the inquiry.",
       optional: "optional",
-      messageHint: "Briefly describe the project and the result you want.",
+      messageHint: "Briefly describe what you need, who it is for, and what you want to achieve.",
       companyHint: "",
       budgetHint: "",
       deadlineHint: "",
@@ -173,7 +173,7 @@ const copy = isBg
 
       <label class:list={["field", "field-full", { "estimator-locked-field": estimator }]}>
         <span class="field-label">{copy.message} <span class="field-required" aria-label={copy.required}>*</span></span>
-        <textarea name="message" rows="6" maxlength={contactFieldLimits.message} required placeholder={isBg ? "Например: нужен ни е сайт, визуална идентичност или кампания; каква е аудиторията; какво трябва да бъде готово." : undefined}>{estimator ? (isBg ? `Проектен ориентир:\nУслуги: ${estimatorData.services}\nОбхват: ${estimatorData.scope}\nСложност: ${estimatorData.complexity}\nСрок: ${estimatorData.timeline}\nОриентировъчна инвестиция: ${estimatorData.estimatedRange}` : `Project estimate:\nServices: ${estimatorData.services}\nScope: ${estimatorData.scope}\nComplexity: ${estimatorData.complexity}\nTimeline: ${estimatorData.timeline}\nEstimated investment: ${estimatorData.estimatedRange}`) : ""}</textarea>
+        <textarea name="message" rows="6" maxlength={contactFieldLimits.message} required placeholder={isBg ? "Например: нов уебсайт." : undefined}>{estimator ? (isBg ? `Проектен ориентир:\nУслуги: ${estimatorData.services}\nОбхват: ${estimatorData.scope}\nСложност: ${estimatorData.complexity}\nСрок: ${estimatorData.timeline}\nОриентировъчна инвестиция: ${estimatorData.estimatedRange}` : `Project estimate:\nServices: ${estimatorData.services}\nScope: ${estimatorData.scope}\nComplexity: ${estimatorData.complexity}\nTimeline: ${estimatorData.timeline}\nEstimated investment: ${estimatorData.estimatedRange}`) : ""}</textarea>
         <span class="field-hint">{copy.messageHint}</span>
       </label>
 
