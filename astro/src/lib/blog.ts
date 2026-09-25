@@ -802,7 +802,7 @@ const draftCaseStudies: readonly BlogPost[] = [
     tags: ["казус", "скорост", "SEO", "d-media.org"],
     draft: false,
     relatedPosts: ["kak-postignahme-100-100-v-google-pagespeed-insights"],
-    ctaTitle: "Performance казусите трябва да стъпват върху реални измервания.",
+    ctaTitle: "Казусите за производителност трябва да стъпват върху реални измервания.",
     ctaText: "Тук показваме само потвърдени резултати и решения, които реално са участвали в текущата архитектура на сайта.",
   }),
   createScaffoldPost({
