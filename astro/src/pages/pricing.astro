@@ -5,14 +5,30 @@ import { localizeHref, type Locale } from "@/lib/i18n";
 import { getBreadcrumbSchema, getServiceCatalogSchema } from "@/lib/seo";
 
 const locale: Locale = "bg";
-const pricingGroups = [
+const corePricingGroups = [
   {
     title: "Бранд идентичност",
     text: "Име, знак, логотип и базова визуална система, които правят бранда разпознаваем.",
     items: [
+      { title: "Визуална идентичност", price: "от 699,99 €" },
+    ],
+  },
+  {
+    title: "Уеб дизайн и разработка",
+    text: "Сайтове, страници за кампания или услуга, платформи, свързване със системи и поддръжка.",
+    items: [
+      { title: "Страница за кампания или услуга", price: "от 690 €" },
+      { title: "Портфолио сайт", price: "от 1 990 €" },
+      { title: "Корпоративен уеб сайт", price: "от 2 490 €" },
+    ],
+  },
+];
+const singlePricingGroups = [
+  {
+    title: "Бранд идентичност",
+    items: [
       { title: "Дизайн на логотип", price: "от 149,99 €" },
       { title: "Лого / брандмарк", price: "от 199,99 €" },
-      { title: "Визуална идентичност", price: "от 699,99 €" },
     ],
   },
   {
@@ -33,26 +49,13 @@ const pricingGroups = [
       { title: "Меню или многостраничен материал", price: "от 69,99 €" },
     ],
   },
-  {
-    title: "Уеб дизайн и разработка",
-    text: "Сайтове, страници за кампания или услуга, платформи, свързване със системи и поддръжка.",
-    items: [
-      { title: "Страница за кампания или услуга", price: "от 690 €" },
-      { title: "Портфолио сайт", price: "от 1 990 €" },
-      { title: "Корпоративен уеб сайт", price: "от 2 490 €" },
-    ],
-  },
-  {
-    title: "Права и работа без авторски кредит",
-    text: "Права за използване, приоритетен срок, работа без публичен авторски кредит и отделни работни режими.",
-    items: [
-      { title: "Изпълнение без авторски кредит", price: "от 19,99 €" },
-      { title: "Неизключителен лиценз за използване", price: "от 49,99 €" },
-      { title: "Изключителен лиценз", price: "от 99,99 €" },
-      { title: "Пълно прехвърляне на имуществени права по индивидуално договаряне", price: "от 2799 €" },
-      { title: "Приоритетен срок", price: "от +25%" },
-    ],
-  },
+];
+const rightsAndConditions = [
+  { title: "Изпълнение без авторски кредит", price: "от 19,99 €" },
+  { title: "Неизключителен лиценз за използване", price: "от 49,99 €" },
+  { title: "Изключителен лиценз", price: "от 99,99 €" },
+  { title: "Пълно прехвърляне на имуществени права по индивидуално договаряне", price: "от 2799 €" },
+  { title: "Приоритетен срок", price: "от +25%" },
 ];
 ---
 
@@ -66,26 +69,34 @@ const pricingGroups = [
     getServiceCatalogSchema(locale),
   ]}
 >
-  <main class="site-shell services-page" id="top">
+  <main class="site-shell services-page pricing-page" id="top">
     <section class="section-grid">
       <div class="section-heading page-intro">
         <h1>Начални рамки</h1>
         <p class="page-text">
           Начални рамки за основните услуги на <BrandText text="d . media" />. Финалната оферта се подрежда според обхват, срок, формати, права и сложност.
         </p>
-        <p class="pricing-guidance">Всички стойности са начални рамки, а не крайна цена. Финалният обхват се потвърждава след кратък преглед на проекта.</p>
       </div>
 
-      {pricingGroups.map((group) => (
+      <div class="section-heading page-subheading">
+        <h2>Как да се четат началните рамки</h2>
+        <p class="pricing-guidance">Всички стойности са начални рамки, а не крайна цена. Финалният обхват се потвърждава след кратък преглед на проекта.</p>
+        <p class="page-text">Единичните позиции обозначават конкретна изработка; +25% е процентно начисление; пълното прехвърляне на имуществени права се договаря индивидуално.</p>
+      </div>
+
+      <div class="section-heading page-subheading">
+        <h2>Основни услуги и по-големи обхвати</h2>
+      </div>
+      {corePricingGroups.map((group) => (
         <>
           <div class="section-heading page-subheading">
-            <h2>{group.title}</h2>
+            <h3>{group.title}</h3>
             <p class="page-text">{group.text}</p>
           </div>
           <div class="showcase-grid project-reading-grid">
             {group.items.map((item) => (
               <article class="card package-card">
-                <h3>{item.title}</h3>
+                <h4>{item.title}</h4>
                 <p class="package-price">{item.price}</p>
               </article>
             ))}
@@ -93,19 +104,51 @@ const pricingGroups = [
         </>
       ))}
 
-      <article class="card services-cta-card">
-        <div class="services-cta-copy">
-          <h2>Цената следва реалния обхват.</h2>
-          <p class="page-text">Изпрати контекст, нужните формати и срок. Ще върнем подредена рамка за работа.</p>
-        </div>
-        <div class="hero-actions">
-          <a href={localizeHref(locale, "/contact")} class="button button-primary">Изпрати проектен контекст</a>
-          <a href={localizeHref(locale, "/services")} class="button button-secondary">Разгледай услугите</a>
-        </div>
-      </article>
+      <div class="section-heading page-subheading">
+        <h2>Единични позиции</h2>
+      </div>
+      {singlePricingGroups.map((group) => (
+        <>
+          <div class="section-heading page-subheading">
+            <h3>{group.title}</h3>
+            {group.text && <p class="page-text">{group.text}</p>}
+          </div>
+          <div class="showcase-grid project-reading-grid">
+            {group.items.map((item) => (
+              <article class="card package-card">
+                <h4>{item.title}</h4>
+                <p class="package-price">{item.price}</p>
+              </article>
+            ))}
+          </div>
+        </>
+      ))}
+
+      <div class="section-heading page-subheading">
+        <h2>Права, режими и допълнителни условия</h2>
+        <p class="page-text">Изпълнението без авторски кредит е работен режим; лицензите и прехвърлянето се отнасят до права; приоритетният срок е допълнително начисление.</p>
+      </div>
+      <div class="showcase-grid project-reading-grid">
+        {rightsAndConditions.map((item) => (
+          <article class="card package-card">
+            <h3>{item.title}</h3>
+            <p class="package-price">{item.price}</p>
+          </article>
+        ))}
+      </div>
 
       <section class="pricing-faq" aria-labelledby="pricing-faq-title">
-        <h2 id="pricing-faq-title">Как се определя финалната цена?</h2>
+        <h2 id="pricing-faq-title">Въпроси и следваща стъпка</h2>
+        <article class="card services-cta-card">
+          <div class="services-cta-copy">
+            <h3>Обсъди проекта си с d . media.</h3>
+          </div>
+          <div class="hero-actions">
+            <a href={localizeHref(locale, "/contact")} class="button button-primary">Свържи се с нас</a>
+            <a href={localizeHref(locale, "/services")} class="button button-secondary">Разгледай услугите</a>
+          </div>
+        </article>
+        <h3>Как се определя финалната цена?</h3>
         <details>
           <summary>Какво променя началната рамка?</summary>
           <p>Съдържанието, сложността, обемът, срокът, интеграциите, правата и нужната поддръжка.</p>

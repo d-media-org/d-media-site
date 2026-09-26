@@ -5,14 +5,30 @@ import { localizeHref, type Locale } from "@/lib/i18n";
 import { getBreadcrumbSchema, getServiceCatalogSchema } from "@/lib/seo";
 
 const locale: Locale = "en";
-const pricingGroups = [
+const corePricingGroups = [
   {
     title: "Branding",
     text: "Identity, mark, logotype, and core visual system.",
     items: [
+      { title: "Visual identity", price: "from 699,99 €" },
+    ],
+  },
+  {
+    title: "Web Design & Development",
+    text: "Websites, landing pages, platforms, integrations, and maintenance.",
+    items: [
+      { title: "Landing Page", price: "from 690 €" },
+      { title: "Portfolio website", price: "from 1 990 €" },
+      { title: "Corporate website", price: "from 2 490 €" },
+    ],
+  },
+];
+const singlePricingGroups = [
+  {
+    title: "Branding",
+    items: [
       { title: "Logotype design", price: "from 149,99 €" },
       { title: "Logo / brand mark", price: "from 199,99 €" },
-      { title: "Visual identity", price: "from 699,99 €" },
     ],
   },
   {
@@ -33,26 +49,13 @@ const pricingGroups = [
       { title: "Menu or multipage material", price: "from 69,99 €" },
     ],
   },
-  {
-    title: "Web Design & Development",
-    text: "Websites, landing pages, platforms, integrations, and maintenance.",
-    items: [
-      { title: "Landing Page", price: "from 690 €" },
-      { title: "Portfolio website", price: "from 1 990 €" },
-      { title: "Corporate website", price: "from 2 490 €" },
-    ],
-  },
-  {
-    title: "Licensing & White-label",
-    text: "Rights, priority, white-label, and separate working modes.",
-    items: [
-      { title: "White-label execution / no author credit", price: "from 19,99 €" },
-      { title: "Non-exclusive usage licence", price: "from 49,99 €" },
-      { title: "Exclusive licence", price: "from 99,99 €" },
-      { title: "Full transfer of economic rights by individual agreement", price: "from 2799 €" },
-      { title: "Priority timeline", price: "from +25%" },
-    ],
-  },
+];
+const rightsAndConditions = [
+  { title: "White-label execution / no author credit", price: "from 19,99 €" },
+  { title: "Non-exclusive usage licence", price: "from 49,99 €" },
+  { title: "Exclusive licence", price: "from 99,99 €" },
+  { title: "Full transfer of economic rights by individual agreement", price: "from 2799 €" },
+  { title: "Priority timeline", price: "from +25%" },
 ];
 ---
 
@@ -66,26 +69,34 @@ const pricingGroups = [
     getServiceCatalogSchema(locale),
   ]}
 >
-  <main class="site-shell services-page" id="top">
+  <main class="site-shell services-page pricing-page" id="top">
     <section class="section-grid">
       <div class="section-heading page-intro">
         <h1>Starting ranges</h1>
         <p class="page-text">
           Starting ranges for core <BrandText text="d . media" /> services. Final scope is aligned around project scale, timing, formats, rights, and complexity.
         </p>
-        <p class="pricing-guidance">All values are starting ranges, not final prices. Final scope is confirmed after a short review of the project.</p>
       </div>
 
-      {pricingGroups.map((group) => (
+      <div class="section-heading page-subheading">
+        <h2>How to read the starting ranges</h2>
+        <p class="pricing-guidance">All values are starting ranges, not final prices. Final scope is confirmed after a short review of the project.</p>
+        <p class="page-text">Single-item entries refer to a specific piece of work; +25% is a percentage charge; full transfer of economic rights is agreed individually.</p>
+      </div>
+
+      <div class="section-heading page-subheading">
+        <h2>Core services and larger scopes</h2>
+      </div>
+      {corePricingGroups.map((group) => (
         <>
           <div class="section-heading page-subheading">
-            <h2>{group.title}</h2>
+            <h3>{group.title}</h3>
             <p class="page-text">{group.text}</p>
           </div>
           <div class="showcase-grid project-reading-grid">
             {group.items.map((item) => (
               <article class="card package-card">
-                <h3>{item.title}</h3>
+                <h4>{item.title}</h4>
                 <p class="package-price">{item.price}</p>
               </article>
             ))}
@@ -93,19 +104,51 @@ const pricingGroups = [
         </>
       ))}
 
-      <article class="card services-cta-card">
-        <div class="services-cta-copy">
-          <h2>Pricing follows the real scope.</h2>
-          <p class="page-text">Send context, required formats, and timing. We will return a structured working range.</p>
-        </div>
-        <div class="hero-actions">
-          <a href={localizeHref(locale, "/contact")} class="button button-primary">Send project context</a>
-          <a href={localizeHref(locale, "/services")} class="button button-secondary">Explore services</a>
-        </div>
-      </article>
+      <div class="section-heading page-subheading">
+        <h2>Single items</h2>
+      </div>
+      {singlePricingGroups.map((group) => (
+        <>
+          <div class="section-heading page-subheading">
+            <h3>{group.title}</h3>
+            {group.text && <p class="page-text">{group.text}</p>}
+          </div>
+          <div class="showcase-grid project-reading-grid">
+            {group.items.map((item) => (
+              <article class="card package-card">
+                <h4>{item.title}</h4>
+                <p class="package-price">{item.price}</p>
+              </article>
+            ))}
+          </div>
+        </>
+      ))}
+
+      <div class="section-heading page-subheading">
+        <h2>Rights, working modes, and additional conditions</h2>
+        <p class="page-text">No-author-credit execution is a working mode; licences and rights transfers concern usage rights; priority timing is an additional charge.</p>
+      </div>
+      <div class="showcase-grid project-reading-grid">
+        {rightsAndConditions.map((item) => (
+          <article class="card package-card">
+            <h3>{item.title}</h3>
+            <p class="package-price">{item.price}</p>
+          </article>
+        ))}
+      </div>
 
       <section class="pricing-faq" aria-labelledby="pricing-faq-title">
-        <h2 id="pricing-faq-title">How is the final price determined?</h2>
+        <h2 id="pricing-faq-title">Questions and next step</h2>
+        <article class="card services-cta-card">
+          <div class="services-cta-copy">
+            <h3>Discuss your project with d . media.</h3>
+          </div>
+          <div class="hero-actions">
+            <a href={localizeHref(locale, "/contact")} class="button button-primary">Contact us</a>
+            <a href={localizeHref(locale, "/services")} class="button button-secondary">Explore services</a>
+          </div>
+        </article>
+        <h3>How is the final price determined?</h3>
         <details>
           <summary>What changes the starting range?</summary>
           <p>Content, complexity, volume, timing, integrations, rights, and required support.</p>
