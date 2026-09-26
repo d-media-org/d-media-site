@@ -69,6 +69,7 @@ const relatedServiceIdsByProject: Record<string, string[]> = {
   "support-account": ["brand-identity", "web-design-development", "graphic-design"],
   "support-account-group": ["brand-identity", "web-design-development", "graphic-design"],
   "dj-nedi": ["graphic-design", "social-media-management", "advertising"],
+  "zlatimira-u": ["brand-identity", "graphic-design"],
 };
 const selectableServices = siteContent.coreServices.filter((service) => service.id !== "additional-charges-rights");
 const relatedServiceIds = relatedServiceIdsByProject[project.slug] ?? [

@@ -194,6 +194,31 @@ const baseProjectPngArchive = [
     ]
   },
   {
+    "slug": "zlatimira-u",
+    "title": "zlatimira.u",
+    "imageCount": 2,
+    "cover": "/optimized-assets/project-web/main/zlatimira-u/01-zlatimira-u-dark.webp",
+    "images": [
+      {
+        "src": "/optimized-assets/project-web/main/zlatimira-u/01-zlatimira-u-dark.webp",
+        "label": "zlatimira.u — тъмен вариант"
+      },
+      {
+        "src": "/optimized-assets/project-web/main/zlatimira-u/02-zlatimira-u-light.webp",
+        "label": "zlatimira.u — светъл вариант"
+      }
+    ],
+    "featured": false,
+    "priority": 999,
+    "summary": "Декоративна емблема за zlatimira.u, разработена в светъл и тъмен вариант.",
+    "context": "Материалите документират създаването на декоративен знак в светъл и тъмен вариант.",
+    "focus": [
+      "Декоративна емблема",
+      "Светъл вариант",
+      "Тъмен вариант"
+    ]
+  },
+  {
     "slug": "support-account",
     "title": "Support Account",
     "imageCount": 3,
@@ -1021,6 +1046,26 @@ const localizedProjectCopy = {
         "White transparent version",
       ],
     },
+    "zlatimira-u": {
+      title: "zlatimira.u",
+      summary: "A decorative emblem for zlatimira.u, developed in light and dark variants.",
+      context: "The available materials document the creation of a decorative mark in light and dark variants.",
+      focus: [
+        "Decorative emblem",
+        "Light variant",
+        "Dark variant",
+      ],
+      images: [
+        {
+          src: "/optimized-assets/project-web/main/zlatimira-u/01-zlatimira-u-dark.webp",
+          label: "zlatimira.u — dark variant",
+        },
+        {
+          src: "/optimized-assets/project-web/main/zlatimira-u/02-zlatimira-u-light.webp",
+          label: "zlatimira.u — light variant",
+        },
+      ],
+    },
     aneliart: {
       summary: "An authorial mark with a clean silhouette and organised transparent versions for different backgrounds.",
       context: "The archive now holds the main sign in transparent, black, and white variants instead of a single export.",
@@ -1290,6 +1335,11 @@ const localizedProjectCopy = {
   },
 } as const;
 
+function getEnglishProjectImages(project: (typeof projectPngArchive)[number]) {
+  const localizedCopy = localizedProjectCopy.en[project.slug as keyof typeof localizedProjectCopy.en];
+  return localizedCopy && "images" in localizedCopy ? localizedCopy.images : project.images;
+}
+
 export function getProjectPngArchive(locale: Locale) {
   if (locale === "bg") {
     return projectPngArchive.map((project) => ({
@@ -1310,7 +1360,7 @@ export function getProjectPngArchive(locale: Locale) {
   return projectPngArchive.map((project) => ({
     ...project,
     ...localizedProjectCopy.en[project.slug as keyof typeof localizedProjectCopy.en],
-    images: [...project.images].sort((left, right) => {
+    images: [...getEnglishProjectImages(project)].sort((left, right) => {
       const leftOrder = getImageOrder(left.label ?? "");
       const rightOrder = getImageOrder(right.label ?? "");
 
