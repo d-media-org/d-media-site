@@ -766,12 +766,6 @@
   --type-small: 12px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-panton-regular), sans-serif;
-}
-
 * {
   box-sizing: border-box;
 }
