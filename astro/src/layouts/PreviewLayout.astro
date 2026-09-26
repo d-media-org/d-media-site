@@ -339,6 +339,37 @@ const socialIconPaths: Record<string, string> = {
       </div>
     </footer>
 
+    <style is:global>
+      .approved-page-content h2,
+      .approved-page-content .estimator-result h2,
+      .approved-page-content :is(.service-category-card, .package-card, .process-step-card, .contact-start-card) :is(h2, h3),
+      .mp-premium-services-grid h2,
+      .mp-section-heading h2,
+      .mp-process-heading h2,
+      .mp-final-grid h2,
+      .mp-project-copy h3,
+      .mp-benefit h3 {
+        line-height: 1.16;
+      }
+
+      @media (min-width: 761px) {
+        .mp-footer-links,
+        .mp-footer-socials {
+          align-items: center;
+          text-align: center;
+        }
+      }
+
+      .mp-footer-socials a {
+        display: grid;
+        grid-template-columns: 14px auto 14px;
+      }
+
+      .mp-footer-socials a::after {
+        content: "";
+      }
+    </style>
+
     <script is:inline>
       (() => {
         const root = document.documentElement;
