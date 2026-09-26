@@ -1,147 +1,45 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import siteHistorySource from "../../../SITE_HISTORY.md?raw";
 
-type HistoryBlock =
-  | { type: "heading"; level: 2 | 3 | 4; text: string; id: string }
-  | { type: "paragraph"; text: string }
-  | { type: "list"; items: string[] };
-
-const inlineMarkup = (text: string) =>
-  text
-    .replace(/`([^`]+)`/g, "<code>$1</code>")
-    .replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g, '<a href="$2">$1</a>')
-    .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
-    .replace(/blob\.vercel-storage/gi, "blob&#46;vercel-storage")
-    .replace(/metricool\.com/gi, "metricool&#46;com");
-
-const slugify = (text: string) =>
-  text
-    .toLowerCase()
-    .replace(/`/g, "")
-    .replace(/[^\p{L}\p{N}]+/gu, "-")
-    .replace(/^-|-$/g, "");
-
-const lines = siteHistorySource.split(/\r?\n/);
-const blocks: HistoryBlock[] = [];
-let paragraph: string[] = [];
-let listItems: string[] = [];
-
-const flushParagraph = () => {
-  if (!paragraph.length) return;
-  blocks.push({ type: "paragraph", text: inlineMarkup(paragraph.join(" ")) });
-  paragraph = [];
-};
-
-const flushList = () => {
-  if (!listItems.length) return;
-  blocks.push({ type: "list", items: listItems.map(inlineMarkup) });
-  listItems = [];
-};
-
-for (const line of lines.slice(1)) {
-  const heading = line.match(/^(#{2,4})\s+(.+)$/);
-  const listItem = line.match(/^\s*-\s+(.+)$/);
-
-  if (heading) {
-    flushParagraph();
-    flushList();
-    const text = heading[2].replace(/`/g, "");
-    blocks.push({
-      type: "heading",
-      level: heading[1].length as 2 | 3 | 4,
-      text,
-      id: slugify(text),
-    });
-    continue;
-  }
-
-  if (listItem) {
-    flushParagraph();
-    listItems.push(listItem[1]);
-    continue;
-  }
-
-  if (!line.trim()) {
-    flushParagraph();
-    flushList();
-    continue;
-  }
-
-  flushList();
-  paragraph.push(line.trim());
-}
-
-flushParagraph();
-flushList();
-
-const maintenanceHeadingIndex = blocks.findIndex(
-  (block) => block.type === "heading" && block.level === 2 && block.text.includes("Как да се поддържа този файл"),
-);
-const nextHeadingIndex =
-  maintenanceHeadingIndex < 0
-    ? -1
-    : blocks.findIndex(
-        (block, index) =>
-          index > maintenanceHeadingIndex && block.type === "heading" && block.level === 2,
-      );
-const publicBlocks =
-  maintenanceHeadingIndex < 0
-    ? blocks
-    : blocks.filter(
-        (_, index) =>
-          index < maintenanceHeadingIndex ||
-          (nextHeadingIndex >= 0 && index >= nextHeadingIndex),
-      );
-
-const timelineHeadings = publicBlocks.filter(
-  (block): block is Extract<HistoryBlock, { type: "heading" }> =>
-    block.type === "heading" && block.level === 2,
-);
+const sections = [
+  ["Начало на платформата", "Сайтът започва като представителна среда с основни страници и първоначално портфолио. Той събира на едно място информацията за бранда, услугите и извършената работа."],
+  ["Развитие на структурата", "Платформата се разширява с отделни страници за услуги, ценови рамки и пътища за запитване. Информацията се подрежда така, че посетителят да може да премине от общ преглед към конкретно направление."],
+  ["Работа и знания", "Към проектите и казусите се добавят двуезични статии и база знания. Така сайтът представя както визуалната работа, така и практическото съдържание около нея."],
+  ["Технологична еволюция", "Публичната платформа преминава към Astro и статично генерирани страници. Това е архитектурен етап в развитието на сайта, а не гаранция за конкретни резултати."],
+  ["Astro и Cloudflare Pages", "Текущият сайт се изгражда с Astro и се публикува чрез Cloudflare Pages. Отделени са средите за предварителен преглед и публично публикуване."],
+  ["Производителност и качество", "По-ранната проектна документация записва оценки 98 / 100 / 100 / 100 за мобилни устройства и 100 / 100 / 100 / 100 за настолни устройства. Няма датиран първичен отчет; стойностите не са текущо измерване и не представляват постоянна гаранция."],
+  ["SEO, GEO и AI видимост", "Съдържанието и техническата структура са развити с канонични адреси, езикови връзки, структурирани данни, карта на сайта и машинночетими файлове. Тези решения не гарантират позиции в търсачки или цитиране от AI системи."],
+  ["Текущо състояние", "Днес d-media.org е двуезична платформа за представяне на услугите, проектите и казусите, началните ценови рамки, публикациите, базата знания и запитванията. Платформата продължава да се развива около тази съдържателна структура."],
+] as const;
 ---
 
 <Layout
   locale="bg"
-  title="История на сайта | d . media"
-  description="Хронология на развитието на d . media — от първоначалния сайт до текущата Astro и Cloudflare Pages архитектура."
+  title="История на платформата | d . media"
+  description="Етапите в развитието на d-media.org като публична дигитална платформа."
   path="/site-history"
   alternateLinks={{ en: "https://www.d-media.org/en/site-history/", xDefault: "https://www.d-media.org/site-history/" }}
 >
   <main class="site-shell history-page" id="top">
     <section class="section-grid">
       <header class="section-heading page-intro">
-        <h1>История на сайта</h1>
-        <p class="page-text">
-          Проследима хронология на решенията, миграциите, съдържанието и техническото развитие на d . media.
-        </p>
+        <h1>История на платформата</h1>
+        <p class="page-text">Етапи в развитието на d-media.org — отделно от историята на бранда и от вътрешния дневник на промените.</p>
         <p class="page-text history-version-switch">
-          <a class="inline-link is-active" href="/site-history/">Обобщена версия</a>
-          <a class="inline-link" href="/site-history/daily/">Пълна версия</a>
+          <a class="inline-link is-active" href="/site-history/">Обобщен преглед</a>
+          <a class="inline-link" href="/site-history/daily/">Разширен преглед</a>
         </p>
       </header>
-
-      <details class="card history-index">
-        <summary>Периоди и етапи</summary>
-        <nav aria-label="Съдържание">
-          <ul>
-            {timelineHeadings.map((heading) => (
-              <li><a href={`#${heading.id}`}>{heading.text}</a></li>
-            ))}
-          </ul>
-        </nav>
-      </details>
-
+      <nav class="card history-index history-index-static" aria-label="Съдържание">
+        <ul>{sections.map(([title], index) => <li><a href={`#stage-${index + 1}`}>{title}</a></li>)}</ul>
+      </nav>
       <article class="card text-card history-content is-revealed">
-        {publicBlocks.map((block) => {
-          if (block.type === "heading") {
-            const Tag = `h${block.level}` as "h2" | "h3" | "h4";
-            return <Tag id={block.id}>{block.text}</Tag>;
-          }
-          if (block.type === "list") {
-            return <ul class="detail-list">{block.items.map((item) => <li set:html={item} />)}</ul>;
-          }
-          return <p set:html={block.text} />;
-        })}
+        {sections.map(([title, text], index) => (
+          <section class="history-stage">
+            <h2 id={`stage-${index + 1}`}>{title}</h2>
+            <p>{text}</p>
+          </section>
+        ))}
       </article>
     </section>
   </main>

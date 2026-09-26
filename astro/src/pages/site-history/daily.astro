@@ -1,115 +1,43 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import dailySource from "../../../../SITE_HISTORY_DAILY.md?raw";
 
-type HistoryBlock =
-  | { type: "heading"; level: 2 | 3 | 4; text: string; id: string }
-  | { type: "paragraph"; text: string }
-  | { type: "list"; items: string[] };
-
-const inlineMarkup = (text: string) =>
-  text
-    .replace(/`([^`]+)`/g, "<code>$1</code>")
-    .replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g, '<a href="$2">$1</a>')
-    .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
-
-const slugify = (text: string) =>
-  text
-    .toLowerCase()
-    .replace(/`/g, "")
-    .replace(/[^\p{L}\p{N}]+/gu, "-")
-    .replace(/^-|-$/g, "");
-
-const lines = dailySource.split(/\r?\n/);
-const blocks: HistoryBlock[] = [];
-let paragraph: string[] = [];
-let listItems: string[] = [];
-
-const flushParagraph = () => {
-  if (!paragraph.length) return;
-  blocks.push({ type: "paragraph", text: inlineMarkup(paragraph.join(" ")) });
-  paragraph = [];
-};
-
-const flushList = () => {
-  if (!listItems.length) return;
-  blocks.push({ type: "list", items: listItems.map(inlineMarkup) });
-  listItems = [];
-};
-
-for (const line of lines.slice(1)) {
-  const heading = line.match(/^(#{2,4})\s+(.+)$/);
-  const listItem = line.match(/^\s*-\s+(.+)$/);
-
-  if (heading) {
-    flushParagraph();
-    flushList();
-    const text = heading[2].replace(/`/g, "");
-    blocks.push({
-      type: "heading",
-      level: heading[1].length as 2 | 3 | 4,
-      text,
-      id: slugify(text),
-    });
-    continue;
-  }
-
-  if (listItem) {
-    flushParagraph();
-    listItems.push(listItem[1]);
-    continue;
-  }
-
-  if (!line.trim()) {
-    flushParagraph();
-    flushList();
-    continue;
-  }
-
-  flushList();
-  paragraph.push(line.trim());
-}
-
-flushParagraph();
-flushList();
-
-const timelineHeadings = blocks.filter(
-  (block): block is Extract<HistoryBlock, { type: "heading" }> =>
-    block.type === "heading" && block.level === 2,
-);
+const sections = [
+  ["Начало на платформата", "Сайтът започва като представителна среда с основните страници и първоначално портфолио.", "Първата структура събира информацията за бранда, услугите и проектите на едно място и създава основа за двуезично развитие."],
+  ["Развитие на структурата", "От представителен сайт платформата се разширява към по-пълна система от съдържание и услуги.", "Появяват се самостоятелни страници за услугите, начални ценови рамки и по-ясни пътища към запитване. Навигацията и вътрешните връзки свързват тези части."],
+  ["Работа и знания", "Проектите и казусите постепенно се допълват от редакционно съдържание.", "Блогът и базата знания имат отделни роли и адреси. Публикациите, проектите и казусите се свързват тематично, без да се смесват с непубликувани чернови."],
+  ["Технологична еволюция", "Публичният сайт преминава от предишна уеб архитектура към Astro и статично генерирани страници.", "Това променя начина, по който се изгражда платформата. Самият технологичен избор не е представен като доказателство за бизнес резултат или конкретно измерване."],
+  ["Astro и Cloudflare Pages", "Текущата платформа използва Astro за страниците и Cloudflare Pages за публикуването им.", "Процесите за предварителен преглед и публично публикуване са разделени. Сайтът е двуезичен и се генерира като статично съдържание."],
+  ["Производителност и качество", "По-ранната проектна документация записва оценки 98 / 100 / 100 / 100 за мобилни устройства и 100 / 100 / 100 / 100 за настолни устройства.", "Това са стойности от по-ранна документация, а не от датиран първичен отчет. Не са текущо измерване, не доказват постоянно състояние и не представляват гаранция."],
+  ["SEO, GEO и AI видимост", "Техническата и съдържателната структура включва канонични адреси, езикови алтернативи, структурирани данни, карта на сайта и машинночетими файлове.", "Целта е публичната информация да бъде последователна и достъпна. Реалното класиране и изборът на източници от търсачки или AI системи не могат да бъдат гарантирани."],
+  ["Текущо състояние", "d-media.org представя услуги, проекти, казуси, начални ценови рамки, блог, база знания и форма за запитвания.", "Платформата включва и двуезична оценка на проект, която предава избраните параметри към контактната форма. Публичният разказ описва етапи и продуктова структура, а не дневник на вътрешните промени."],
+] as const;
 ---
 
 <Layout
   locale="bg"
-  title="Пълна история на сайта | d . media"
-  description="Пълна хронология на промените по d . media с кратки записи по дати."
+  title="Разширена история на платформата | d . media"
+  description="По-подробен преглед на етапите в развитието на d-media.org като публична платформа."
   path="/site-history/daily"
   alternateLinks={{ en: "https://www.d-media.org/en/site-history/daily/", xDefault: "https://www.d-media.org/site-history/daily/" }}
 >
   <main class="site-shell history-page" id="top">
     <section class="section-grid">
       <header class="section-heading page-intro">
-        <h1>История на сайта</h1>
-        <p class="page-text">
-          <a class="inline-link" href="/site-history/">Обобщената версия</a> остава за широкия преглед, а тази страница пази кратки записи ден по ден.
-        </p>
+        <h1>История на платформата</h1>
+        <p class="page-text"><a class="inline-link" href="/site-history/">Обобщеният преглед</a> дава кратка ориентация, а тук е представено по-подробно развитието по етапи.</p>
         <p class="page-text history-version-switch">
-          <a class="inline-link" href="/site-history/">Обобщена версия</a>
-          <a class="inline-link is-active" href="/site-history/daily/">Пълна версия</a>
+          <a class="inline-link" href="/site-history/">Обобщен преглед</a>
+          <a class="inline-link is-active" href="/site-history/daily/">Разширен преглед</a>
         </p>
       </header>
-
       <article class="card text-card history-content is-revealed">
-        {blocks.map((block) => {
-          if (block.type === "heading") {
-            const Tag = `h${block.level}` as "h2" | "h3" | "h4";
-            return <Tag id={block.id}>{block.text}</Tag>;
-          }
-          if (block.type === "list") {
-            return <ul class="detail-list">{block.items.map((item) => <li set:html={item} />)}</ul>;
-          }
-          return <p set:html={block.text} />;
-        })}
+        {sections.map(([title, summary, detail], index) => (
+          <section class="history-stage">
+            <h2 id={`stage-${index + 1}`}>{title}</h2>
+            <p>{summary}</p>
+            <p>{detail}</p>
+          </section>
+        ))}
       </article>
     </section>
   </main>

@@ -4,7 +4,7 @@ const pageCopy = {
   bg: {
     seo: {
       siteDescription:
-        "В d . media създаваме бранд идентичност, съдържание, уеб платформи, графичен дизайн и реклама за реално приложение от студио в София, България.",
+        "d . media е премиум творческо и дигитално студио, което свързва идентичност, съдържание и уеб в последователно дигитално присъствие.",
       siteKeywords: [
         "d . media",
         "бранд идентичност",
@@ -35,14 +35,14 @@ const pageCopy = {
       ],
     },
     home: {
-      metaTitle: "Бранд идентичност, съдържание, уеб платформи, дизайн и реклама",
+      metaTitle: "Последователно дигитално присъствие | d . media",
       metaDescription:
-        "d . media е студио в София за бранд идентичност, съдържание, уеб платформи, дизайн и реклама с фокус върху реално приложение.",
+        "d . media свързва бранд идентичност, съдържание, социални медии, графичен дизайн, уеб и поддръжка — като общ обхват или отделни направления.",
       eyebrow: "Ясен облик. Подредена комуникация. Реално приложение.",
       brandmarkAlt: "Брандмарк на d . media",
-      title: "Създаваме бранд идентичност, съдържание, уеб платформи, дизайн и реклама в една работеща система.",
-      text: "Свързваме знака, сайта и ежедневната комуникация в последователна система, която помага на бранда да бъде разпознаваем във всяка точка на контакт.",
-      note: "От първата идея до материалите, които остават след проекта.",
+      title: "Свързваме идентичност, съдържание и уеб в последователно дигитално присъствие.",
+      text: "d . media обединява бранд идентичност, съдържание, социални медии, графичен дизайн, уеб, видимост и поддръжка — като цялостен обхват или отделни направления.",
+      note: "Единна посока, съобразена с конкретния проект.",
       primaryCta: "Изпрати проектно запитване",
       secondaryCta: "Разгледай услугите",
       servicesEyebrow: "услуги",
@@ -587,9 +587,9 @@ const pageCopy = {
     about: {
       metaTitle: "За бранда",
       metaDescription:
-        "Научи повече за d . media, начина на работа, визуалните системи и дигиталните платформи на студиото в София.",
+        "d . media е премиум творческо и дигитално студио. Разгледай посоката на бранда, историята му, принципите и визуалната система.",
       eyebrow: "за бранда",
-      text: "Независимо студио за визуална идентичност, съдържание и дигитално присъствие.",
+      text: "Премиум творческо и дигитално студио, което свързва идентичност, съдържание и уеб.",
       brandbookTitle: "Официален брандбук",
       brandbookText:
         "Брандбукът показва основната система, правилата за употреба и начина, по който идентичността се държи последователно.",
@@ -634,7 +634,7 @@ const pageCopy = {
   en: {
     seo: {
       siteDescription:
-        "At d . media, we create brand identity, content, web platforms, graphic design, and advertising for real application from a studio based in Sofia, Bulgaria.",
+        "d . media is a premium creative and digital studio connecting identity, content, and web into a consistent digital presence.",
       siteKeywords: [
         "d . media",
         "brand identity",
@@ -666,14 +666,14 @@ const pageCopy = {
       ],
     },
     home: {
-      metaTitle: "Brand identity, content, web platforms, design, and advertising",
+      metaTitle: "Consistent digital presence | d . media",
       metaDescription:
-        "d . media is a Sofia, Bulgaria studio for brand identity, content, web platforms, design, and advertising built for real application.",
+        "d . media connects brand identity, content, social media, graphic design, web, visibility, and support—as one wider scope or as separate areas.",
       eyebrow: "Clear presence. Ordered communication. Real application.",
       brandmarkAlt: "d . media brand mark",
-      title: "We create brand identity, content, web platforms, design and advertising in one working system.",
-      text: "We connect the mark, website, and day-to-day communication into a consistent system that helps a brand stay recognisable at every point of contact.",
-      note: "From the first idea to the materials that remain after the project.",
+      title: "We connect identity, content, and web into a consistent digital presence.",
+      text: "d . media brings together brand identity, content, social media, graphic design, web, visibility, and support—as one wider scope or as separate areas.",
+      note: "One clear direction, shaped around the project.",
       primaryCta: "Send a project inquiry",
       secondaryCta: "Explore services",
       servicesEyebrow: "services",
@@ -1218,9 +1218,9 @@ const pageCopy = {
     about: {
       metaTitle: "About",
       metaDescription:
-        "Learn more about d . media, the working approach, visual systems, and digital platforms of the Sofia-based studio.",
+        "d . media is a premium creative and digital studio. Explore the brand direction, its history, principles, and visual system.",
       eyebrow: "about",
-      text: "An independent studio for visual identity, content, and digital presence.",
+      text: "A premium creative and digital studio connecting identity, content, and web.",
       brandbookTitle: "Official brand book",
       brandbookText:
         "The brand book shows the core system, the usage rules, and the way the identity stays consistent in application.",

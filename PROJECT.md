@@ -94,6 +94,8 @@ Astro конфигурацията в `astro/astro.config.mjs` задава:
 - `project-png-archive.ts`
 - `legacy-project-archive.ts`
 
+Публичната страница „За бранда“ отделя текущото позициониране от етапите в историята на бранда. Историята на платформата е самостоятелен, етапен разказ в `/site-history/` и `/site-history/daily/`; тя не извежда директно вътрешните файлове `SITE_HISTORY.md` и `SITE_HISTORY_DAILY.md`.
+
 ## Основни директории
 
 - `astro/src/pages/` - file-based Astro routes.

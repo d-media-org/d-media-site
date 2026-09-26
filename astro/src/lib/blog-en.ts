@@ -133,9 +133,9 @@ const seeds: EnglishPostSeed[] = [
   {
     slug: "zashto-sazdadohme-d-media",
     category: "brand-identity",
-    title: "Why we created d . media",
-    excerpt: "Why d . media was created as a response to fragmented digital presence and disconnected communication.",
-    intro: "Every business leaves a trace in the digital environment. The question is not whether it is present, but how it looks, communicates, and what impression it leaves behind.",
+    title: "The direction of d . media",
+    excerpt: "How d . media connects identity, content, social media, design, advertising, and web into a consistent digital presence.",
+    intro: "Every business leaves a trace in the digital environment. The question is not whether it is present, but how it looks and communicates. d . media connects the key elements of that presence into a consistent system.",
     focus: "a connected brand, content, social, design, advertising, and web presence",
     relatedPosts: ["kak-izgradihme-vizualnata-identichnost-na-d-media", "brand-identichnost-sreshtu-logo", "kak-se-izgrazhda-posledovatelno-digitalno-prisastvie"],
     featured: true,

@@ -1,11 +1,12 @@
 # d . media
 
-> d . media is a digital studio in Sofia, Bulgaria, creating brand identities, content systems, websites, and performance-focused digital experiences.
+> d . media is a premium creative and digital studio connecting identity, content, and web into a consistent digital presence. Areas can be combined or commissioned separately.
 
 ## Website
 
 - [Home](https://www.d-media.org/en/)
 - [About](https://www.d-media.org/en/about/)
+- [Platform history](https://www.d-media.org/en/site-history/)
 - [Projects](https://www.d-media.org/en/projects/)
 - [Case Studies](https://www.d-media.org/en/case-studies/)
 - [Contact](https://www.d-media.org/en/contact/)

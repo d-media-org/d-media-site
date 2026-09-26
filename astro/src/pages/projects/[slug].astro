@@ -219,7 +219,7 @@ const relatedServices = relatedServiceIds
       {projectVideos.length ? (
         <>
           <div class="section-heading page-subheading">
-            <h2>Motion приложение</h2>
+            <h2>{locale === "bg" ? "Анимационни приложения" : "Motion application"}</h2>
           </div>
           <div class="mockup-grid projects-gallery">
             {projectVideos.map((video: { src: string; poster: string; label: string }) => (

@@ -7,18 +7,37 @@ const { locale } = Astro.props;
 const bg = locale === "bg";
 const categories = [...new Set(dMediaMotionArchive.map((item) => item.category))];
 const categoryLabels: Record<string, { bg: string; en: string }> = {
-  "Cinematic intro": { bg: "Кинематографични интрота", en: "Cinematic intros" },
-  "Logo animations": { bg: "Лого анимации", en: "Logo animations" },
-  "Logo intro": { bg: "Лого интрота", en: "Logo intros" },
+  "Cinematic intro": { bg: "Кинематографични начални анимации", en: "Cinematic intros" },
+  "Logo animations": { bg: "Анимации на логото", en: "Logo animations" },
+  "Logo intro": { bg: "Начални анимации на логото", en: "Logo intros" },
   Other: { bg: "Други", en: "Other" },
+};
+const getItemTitle = (title: string, category: string) => {
+  if (!bg) return title;
+
+  if (category === "Cinematic intro") {
+    return title.replace("d . media cinematic intro", "d . media — кинематографична начална анимация");
+  }
+
+  if (category === "Logo animations") {
+    return title.replace("d . media logo animation", "d . media — анимация на логото");
+  }
+
+  if (category === "Logo intro") {
+    return title.replace("d . media logo intro", "d . media — начална анимация на логото");
+  }
+
+  return title
+    .replace("d . media logo intro", "d . media — начална анимация на знака")
+    .replace("d . media logotype intro", "d . media — начална анимация на логотипа");
 };
 ---
 
 <div class="section-heading page-subheading">
-  <h2>{bg ? "Motion архив" : "Motion archive"}</h2>
+  <h2>{bg ? "Анимационен архив" : "Motion archive"}</h2>
   <p class="page-text">
     {bg
-      ? "Пълна селекция от 155 интро и анимационни варианта на знака и логотипа. Видеата се зареждат само при стартиране."
+      ? "Пълна селекция от 155 начални и други анимационни варианта на знака и логотипа. Видеата се зареждат само при стартиране."
       : "A complete selection of 155 intro and animation variants of the mark and logotype. Videos load only when played."}
   </p>
 </div>
@@ -31,7 +50,8 @@ const categoryLabels: Record<string, { bg: string; en: string }> = {
         numeric: true,
         sensitivity: "base",
       }),
-    );
+    )
+    .map((item) => ({ ...item, displayTitle: getItemTitle(item.title, item.category) }));
   const label = categoryLabels[category]?.[locale] ?? category;
   return (
     <>
@@ -42,11 +62,11 @@ const categoryLabels: Record<string, { bg: string; en: string }> = {
       <div class="motion-archive-grid">
         {items.map((item) => (
           <article class="card motion-archive-card">
-            <video controls playsinline preload="none" poster={item.poster} aria-label={item.title}>
+            <video controls playsinline preload="none" poster={item.poster} aria-label={item.displayTitle}>
               <source src={item.video} type="video/x-m4v" />
             </video>
             <div class="motion-archive-copy">
-              <h3>{item.title}</h3>
+              <h3>{item.displayTitle}</h3>
             </div>
           </article>
         ))}
