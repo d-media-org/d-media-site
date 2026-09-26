@@ -340,15 +340,14 @@ const socialIconPaths: Record<string, string> = {
     </footer>
 
     <style is:global>
-      .approved-page-content h2,
-      .approved-page-content .estimator-result h2,
-      .approved-page-content :is(.service-category-card, .package-card, .process-step-card, .contact-start-card) :is(h2, h3),
+      .approved-page-content :is(h1, h2, h3, h4, h5, h6),
       .mp-premium-services-grid h2,
       .mp-section-heading h2,
       .mp-process-heading h2,
       .mp-final-grid h2,
       .mp-project-copy h3,
-      .mp-benefit h3 {
+      .mp-benefit h3,
+      .mp-hero h1 {
         line-height: 1.16;
       }
 
@@ -362,6 +361,7 @@ const socialIconPaths: Record<string, string> = {
         .mp-footer-socials a {
           display: grid;
           grid-template-columns: 14px auto 14px;
+          transform: translateX(6px);
         }
 
         .mp-footer-socials a::after {
