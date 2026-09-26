@@ -489,10 +489,13 @@ Draft съдържанието е отделено от публичните с�
 - `Cloudflare Turnstile`;
 - GDPR consent;
 - rate limiting по IP чрез D1;
+- потокова граница от 64 KiB преди разчитане на тялото на заявката;
 - D1 запис на запитване;
 - Brevo Transactional Email;
-- Brevo CRM sync;
+- Brevo CRM sync към оперативния списък `Website Leads`;
 - BG/EN error messages.
+
+`Website Leads` е предназначен за оперативна обработка на запитвания и е отделен от `Newsletter Subscribers`. Съгласието във формата покрива отговор на конкретното запитване, не маркетингови съобщения. Добавянето към `Website Leads` само по себе си не представлява маркетингово съгласие. Реалните автоматизации и настройки в Brevo акаунта не се потвърждават от кода в хранилището.
 
 Според `SITE_HISTORY_DAILY.md` contact flow е потвърден в production на 2026-06-22.
 
@@ -539,10 +542,9 @@ Indexes:
 
 ## API
 
-Реален API inventory:
+Реален API опис:
 
 - `astro/functions/api/contact.ts`
-- `src/app/api/social-preview/route.tsx`
 
 Текущият Astro/Cloudflare production endpoint е:
 
@@ -557,6 +559,7 @@ Indexes:
 Функцията:
 
 - приема `FormData`;
+- ограничава тялото на заявката до 64 KiB и връща HTTP 413 при превишаване;
 - валидира задължителни полета;
 - валидира email;
 - валидира service и budget;
@@ -568,11 +571,9 @@ Indexes:
 - изпраща вътрешен email и confirmation email;
 - обновява D1 status след изпратени email-и.
 
-Root Next.js endpoint:
+Публичната форма създава нов Brevo контакт, но не разрешава обновяване на вече съществуващи контакти (`updateEnabled: false`). Конфликтът при съществуващ адрес не прекъсва D1 записването или изпращането на служебните писма. Синхронизацията към Brevo се изпълнява след успешния D1 запис и грешката ѝ не отменя запитването.
 
-- `/api/social-preview`
-
-`/api/social-preview` се имплементира от `src/app/api/social-preview/route.tsx`. Той е legacy/helper route, не е част от текущия Astro/Cloudflare production path и няма доказателство да се използва от текущия Astro production сайт.
+Изображенията за визуализация при споделяне са статичните файлове `public/social-preview-dmedia-v3.png` и `public/social-preview-dmedia-v5.png`. Те не се обслужват от API маршрут.
 
 Други API routes не са открити при проверка в `astro/functions/`, `astro/src/pages/api/`, root `src/pages/api/` и root `src/app/api/`.
 
@@ -692,7 +693,7 @@ Root `README.md` казва:
 - Astro е source of truth за текущия production сайт.
 - Production пътят е `Astro → astro/dist → Cloudflare Pages → Wrangler deploy`.
 - Root Next.js е legacy/fallback component, не production source of truth.
-- `src/app/api/social-preview/route.tsx` е legacy/helper route и не е част от текущия Astro/Cloudflare production path.
+- Изображенията за визуализация при споделяне са статични ресурси, а не API маршрут.
 - Astro config използва `output: "static"`.
 - Canonical base URL е `https://www.d-media.org`.
 - Routes използват trailing slash.

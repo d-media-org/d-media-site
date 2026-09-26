@@ -21,6 +21,8 @@ const budgetOptions = new Set([
   "Not Sure Yet",
 ]);
 
+const maxContactRequestBytes = 64 * 1024;
+
 const messages = {
   bg: {
     invalidForm: "Формулярът не може да бъде обработен.",
@@ -64,6 +66,38 @@ function prefersHtml(request: Request) {
 
 function clean(value: FormDataEntryValue | null, maxLength: number) {
   return clampText(typeof value === "string" ? value : "", maxLength);
+}
+
+async function readBoundedRequestBody(request: Request, maxBytes: number) {
+  const contentLength = Number(request.headers.get("content-length"));
+  if (Number.isFinite(contentLength) && contentLength > maxBytes) return null;
+
+  if (!request.body) return new Uint8Array();
+
+  const reader = request.body.getReader();
+  const chunks: Uint8Array[] = [];
+  let totalBytes = 0;
+
+  while (true) {
+    const { done, value } = await reader.read();
+    if (done) break;
+
+    totalBytes += value.byteLength;
+    if (totalBytes > maxBytes) {
+      await reader.cancel().catch(() => undefined);
+      return null;
+    }
+
+    chunks.push(value);
+  }
+
+  const body = new Uint8Array(totalBytes);
+  let offset = 0;
+  for (const chunk of chunks) {
+    body.set(chunk, offset);
+    offset += chunk.byteLength;
+  }
+  return body;
 }
 
 async function verifyTurnstile(env: Env, token: string, ip?: string) {
@@ -121,7 +155,18 @@ async function sendEmail(
 }
 
 export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
-  const formData = await request.formData().catch(() => null);
+  let requestBody: Uint8Array | null;
+  try {
+    requestBody = await readBoundedRequestBody(request, maxContactRequestBytes);
+  } catch {
+    return json({ ok: false, error: messages.bg.invalidForm }, { status: 400 });
+  }
+  if (requestBody === null) return json({ ok: false }, { status: 413 });
+
+  const formHeaders = new Headers(request.headers);
+  formHeaders.delete("content-length");
+  const formRequest = new Request(request.url, { method: "POST", headers: formHeaders, body: requestBody });
+  const formData = await formRequest.formData().catch(() => null);
   if (!formData) return json({ ok: false, error: messages.bg.invalidForm }, { status: 400 });
 
   const locale = clean(formData.get("locale"), 2) === "en" ? "en" : "bg";

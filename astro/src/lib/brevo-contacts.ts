@@ -91,7 +91,7 @@ export async function upsertWebsiteLead(
       email: contact.email,
       attributes: contact.attributes,
       listIds: [listId],
-      updateEnabled: true,
+      updateEnabled: false,
     }),
   });
 

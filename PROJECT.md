@@ -199,11 +199,12 @@ D1 binding `d_media_inquiries` се използва от `astro/functions/api/c
 
 Схемата за таблицата е в `astro/migrations/0001_create_inquiries.sql`.
 
-Реален API inventory:
+Реален опис на API маршрутите:
 
 - `astro/functions/api/contact.ts` обслужва текущия Astro/Cloudflare endpoint `/api/contact`.
-- `src/app/api/social-preview/route.tsx` обслужва root Next.js endpoint `/api/social-preview`, но е legacy/helper route и не е част от текущия Astro/Cloudflare production path.
-- Други API routes не са открити при проверка в `astro/functions/`, `astro/src/pages/api/`, root `src/pages/api/` и root `src/app/api/`.
+- Други API маршрути не са открити при проверка в `astro/functions/`, `astro/src/pages/api/`, root `src/pages/api/` и root `src/app/api/`.
+
+Изображенията за визуализация при споделяне са статичните файлове `public/social-preview-dmedia-v3.png` и `public/social-preview-dmedia-v5.png`; отделен API маршрут за тях няма.
 
 Markdown content negotiation:
 
