@@ -61,8 +61,6 @@ const baseProjectPngArchive = [
     "priority": 1,
     "isCaseStudy": true,
     "subtitle": "От общност до собствена медийна екосистема",
-    "projectType": "Собствен проект / общност / бранд / подкаст",
-    "status": "Завършен",
     "summary": "Собствен проект на d . media, изграден около идеята за организирана българска общност за потребители на Apple.",
     "context": "С развитието си проектът прераства от една Facebook група в система от специализирани общности и собствен подкаст с разработена визуална и звукова идентичност.",
     "focus": [
@@ -920,8 +918,6 @@ const localizedProjectCopy = {
     "apple-community-bulgaria": {
       title: "Apple Community Bulgaria",
       subtitle: "From a community to an owned media ecosystem",
-      projectType: "Owned project / community / brand / podcast",
-      status: "Completed",
       summary: "A d . media-owned project built around the idea of an organised Bulgarian community for Apple users.",
       context: "As it developed, the project grew from one Facebook group into a system of specialised communities and an owned podcast with a developed visual and sound identity.",
       focus: [
