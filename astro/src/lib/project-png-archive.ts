@@ -837,7 +837,7 @@ const baseProjectPngArchive = [
       },
       {
       "title": "Резултати на канала",
-      "text": "За периода 1 юли 2025 г. – 26 септември 2026 г. каналът отчита 5 708 гледания и 435 часа, 1 минута и 54 секунди време на гледане. От тях 5 188 (90,89%) са органични, а 520 (9,11%) са платени и са свързани с популяризирането на епизод 2. Функциите за разглеждане и предложените видеоклипове носят общо 3 378 гледания (59,18%). Нетната промяна в броя на абонатите за периода е +164. Най-гледаното основно видео е „Бункерите под планината – част 2“, публикувано на 31 август 2025 г.: 2 126 гледания и 223 часа и 27 минути гледане. При него 92,38% от гледанията идват от функциите за разглеждане и предложените видеоклипове, 95,63% са от зрители без абонамент, а нетният принос е +27 абоната."
+      "text": "За периода 1 юли 2025 г. – 26 септември 2026 г. каналът отчита 5 708 гледания и 435 часа, 1 минута и 54 секунди време на гледане. От тях 5 188 (90,89%) са органични, а 520 (9,11%) са платени и са свързани с популяризирането на епизод 2. Функциите за разглеждане и предложените видеоклипове носят общо 3 378 гледания (59,18%). Каналът има 164 абонати; през периода са спечелени +185 и са загубени −21, с нетна промяна +164. Отчетени са 49 232 импресии, CTR 6,2%, средна продължителност на гледане 5:13 и среден изгледан процент 17,74%. Най-гледаното основно видео е „Бункерите под планината – част 2“, публикувано на 31 август 2025 г.: 2 126 гледания и 223 часа и 27 минути гледане. При него 92,38% от гледанията идват от функциите за разглеждане и предложените видеоклипове, 95,63% са от зрители без абонамент, а нетният принос е +27 абоната."
       },
       {
         "title": "Прекъсване на развитието",
@@ -1253,7 +1253,7 @@ const localizedProjectCopy = {
         },
         {
           title: "Channel results",
-          text: "For 1 July 2025–26 September 2026, the channel recorded 5,708 views and 435 hours, 1 minute, and 54 seconds of watch time. Of these, 5,188 (90.89%) were organic and 520 (9.11%) were paid, associated with promotion of episode 2. Browse features and suggested videos brought 3,378 views (59.18%) combined. Net subscriber change for the period was +164. The most-viewed main video was ‘The Bunkers under the Mountain – Part 2’, published on 31 August 2025: 2,126 views and 223 hours, 27 minutes of watch time. Browse features and suggested videos accounted for 92.38% of its views; 95.63% came from non-subscribed viewers, and it brought a net +27 subscribers.",
+          text: "For 1 July 2025–26 September 2026, the channel recorded 5,708 views and 435 hours, 1 minute, and 54 seconds of watch time. Of these, 5,188 (90.89%) were organic and 520 (9.11%) were paid, associated with promotion of episode 2. Browse features and suggested videos brought 3,378 views (59.18%) combined. The channel had 164 subscribers; it gained +185 and lost −21 during the period, for a net change of +164. It recorded 49,232 impressions, a 6.2% CTR, an average view duration of 5:13, and an average percentage viewed of 17.74%. The most-viewed main video was ‘The Bunkers under the Mountain – Part 2’, published on 31 August 2025: 2,126 views and 223 hours, 27 minutes of watch time. Browse features and suggested videos accounted for 92.38% of its views; 95.63% came from non-subscribed viewers, and it brought a net +27 subscribers.",
         },
         {
           title: "Pause in development",

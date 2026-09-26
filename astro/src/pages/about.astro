@@ -14,7 +14,7 @@ const brandbookWebHref = "/brandbook_web_exact/index.html";
 
 <Layout locale={locale} title={`${copy.metaTitle} | d . media`} description={copy.metaDescription} path="/about" structuredData={[getBreadcrumbSchema({ locale, path: "/about", title: copy.metaTitle })]}>
   <main class="site-shell" id="top">
-    <section class="section-grid">
+    <section class="section-grid about-page">
       <div class="section-heading page-intro">
         <h1><span class="brand-name">d . media</span></h1>
         {copy.introParagraphs.map((paragraph) => <p class="page-text">{paragraph}</p>)}
@@ -68,3 +68,13 @@ const brandbookWebHref = "/brandbook_web_exact/index.html";
     </section>
   </main>
 </Layout>
+
+<style is:global>
+  .approved-page-content .section-grid.about-page {
+    gap: var(--space-24);
+  }
+
+  .approved-page-content .section-grid.about-page > .page-grid.stacked-cards {
+    padding-block-start: 0;
+  }
+</style>

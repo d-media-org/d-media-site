@@ -9,12 +9,28 @@ const englishSources = [
 ];
 
 const forbiddenPatterns = [
-  { pattern: /(?:^|[\s`"'(])(?:\.{0,2}\/|\/Users\/|src\/|public\/|scripts\/|functions\/|components\/|pages\/)/imu, label: "file path" },
+  { pattern: /(?:^|[\s`"'(])(?:\.{1,2}\/|\/Users\/|src\/|public\/|scripts\/|functions\/|components\/|pages\/)/imu, label: "file path" },
   { pattern: /\b[\w.-]+\.(?:astro|tsx?|jsx?|mjs|cjs|json|toml|md|txt|css|scss|woff2?|png|jpe?g|webp|svg|mp4)\b/iu, label: "file name" },
   { pattern: /\b(?:commit|branch|repository|repo|pull request|merge)\b/iu, label: "repository detail" },
   { pattern: /\b(?:revert(?:ed)?|rollback|undepployed|not deployed|local path|локал(?:ен|ни|на|но)?\s+път|върнат[аио]?|недеплойн\w*)\b/iu, label: "non-production change" },
   { pattern: /\b(?:lint|dry-run|mock validation|build check|route check|QA-only)\b/iu, label: "internal validation detail" },
 ];
+
+const filePathPattern = forbiddenPatterns[0].pattern;
+const pathRegressionCases = [
+  { value: "98 / 100 / 100 / 100", shouldMatch: false },
+  { value: "./file.css", shouldMatch: true },
+  { value: "../file.md", shouldMatch: true },
+  { value: "src/file.ts", shouldMatch: true },
+  { value: "/Users/example/file", shouldMatch: true },
+];
+
+for (const { value, shouldMatch } of pathRegressionCases) {
+  if (filePathPattern.test(value) !== shouldMatch) {
+    console.error(`Site history path regression test failed: ${value}`);
+    process.exit(1);
+  }
+}
 
 const failures = [];
 
