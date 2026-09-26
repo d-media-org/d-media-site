@@ -9,11 +9,7 @@ import { getSiteContent } from "@/lib/site-content";
 const locale: Locale = "bg";
 const copy = getPageCopy(locale).about;
 const siteContent = getSiteContent(locale);
-const brandbookWebHref =
-  locale === "en" ? "/brandbook_web_exact_en/index.html" : "/brandbook_web_exact/index.html";
-const brandbookOpenLabel = locale === "en" ? "Open brand book" : "Отвори брандбук";
-const logoPackDownloadLabel =
-  locale === "en" ? "Download brand logo and logotype" : "Свали лого и логотип на марката";
+const brandbookWebHref = "/brandbook_web_exact/index.html";
 ---
 
 <Layout locale={locale} title={`${copy.metaTitle} | d . media`} description={copy.metaDescription} path="/about" structuredData={[getBreadcrumbSchema({ locale, path: "/about", title: copy.metaTitle })]}>
@@ -21,10 +17,16 @@ const logoPackDownloadLabel =
     <section class="section-grid">
       <div class="section-heading page-intro">
         <h1><span class="brand-name">d . media</span></h1>
-        <p class="page-text">{copy.text}</p>
+        {copy.introParagraphs.map((paragraph) => <p class="page-text">{paragraph}</p>)}
       </div>
       <div class="split-content page-grid stacked-cards">
-        <div class="card about-copy content-card-wide">
+        {copy.sectionsBeforeHistory.map((section) => (
+          <article class="card about-copy content-card-wide">
+            <h2>{section.title}</h2>
+            {section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+          </article>
+        ))}
+        <article class="card about-copy content-card-wide">
           <h2>История на бранда</h2>
           {siteContent.aboutNotes.map((item) => (
             <section class="history-stage">
@@ -32,30 +34,36 @@ const logoPackDownloadLabel =
               <p><BrandText text={item.text} /></p>
             </section>
           ))}
-        </div>
-        <div class="card package-card content-card-wide brandbook-card">
-          <h2>{copy.brandbookTitle}</h2>
-          <p>{copy.brandbookText}</p>
-          <div class="hero-actions brandbook-actions">
-            <a href={brandbookWebHref} target="_blank" rel="noreferrer" class="button button-secondary desktop-only">
-              {brandbookOpenLabel}
-            </a>
-            <a href="/downloads/d-media-logo-pack.zip" class="button button-secondary" download>
-              {logoPackDownloadLabel}
-            </a>
+        </article>
+        {copy.sectionsAfterHistory.map((section) => (
+          <article class="card about-copy content-card-wide">
+            <h2>{section.title}</h2>
+            {section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+            {section.id === "brandbook" && (
+              <div class="hero-actions brandbook-actions">
+                <a href={brandbookWebHref} target="_blank" rel="noreferrer" class="button button-secondary desktop-only">
+                  {copy.secondaryCta}
+                </a>
+                <a href="/downloads/d-media-logo-pack.zip" class="button button-secondary" download>
+                  Свали лого и логотип на марката
+                </a>
+              </div>
+            )}
+            {section.links && (
+              <div class="blog-related-list">
+                {section.links.map((link) => <a class="inline-link" href={link.href}>{link.label}</a>)}
+              </div>
+            )}
+          </article>
+        ))}
+        <article class="card about-copy content-card-wide">
+          <h2>{copy.finalTitle}</h2>
+          <p>{copy.finalText}</p>
+          <div class="hero-actions">
+            <a href="/contact/" class="button button-primary">{copy.primaryCta}</a>
+            <a href="/projects/" class="button button-secondary">{copy.workCta}</a>
           </div>
-        </div>
-        <div class="card about-copy content-card-wide">
-          <h2>Как работим</h2>
-          <p>Процесът, методологията, технологичният избор и стандартът за скорост показват как творческата и дигиталната работа се подреждат в една система.</p>
-          <div class="blog-related-list">
-            <a class="inline-link" href="/our-process/">Процес</a>
-            <a class="inline-link" href="/methodology/">Методология</a>
-            <a class="inline-link" href="/technologies/">Технологии</a>
-            <a class="inline-link" href="/performance/">Стандарт за скорост</a>
-            <a class="inline-link" href="/faq/">Често задавани въпроси</a>
-          </div>
-        </div>
+        </article>
       </div>
     </section>
   </main>

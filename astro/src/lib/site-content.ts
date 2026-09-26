@@ -151,9 +151,10 @@ const localizedSiteContent = {
       { id: "05", title: "Предаване", text: "Получаваш готовите файлове в уговорения формат, подготвени за реална употреба." },
     ],
     aboutNotes: [
-      { title: "Начален фокус", text: "Ранният фокус на d . media е върху графичния дизайн и визуалната идентичност." },
-      { title: "Разширяване", text: "Обхватът постепенно се разширява към рекламни и дигитални материали, а след това и към уеб разработка." },
-      { title: "Посока днес", text: "Днес d . media свързва бранд идентичност, съдържание, социални мрежи, графичен дизайн, уеб, техническо SEO, GEO, видимост в AI системи и поддръжка. Тези направления могат да се комбинират или да се възложат отделно според проекта." },
+      { title: "Визуална основа", text: "Първите направления на d . media са графичният дизайн и визуалната идентичност. Работата върху знак, типография и приложение поставя основата за последователно представяне на бранда." },
+      { title: "Комуникация и приложения", text: "След това обхватът се разширява към рекламни и дигитални материали. Визуалната работа започва да се разглежда заедно с начина, по който брандът общува и използва съдържанието си в различни формати." },
+      { title: "Уеб среда", text: "С разширяването към уеб дизайн и разработка фокусът включва и средата, в която съдържанието се представя и използва. Визуалната посока и техническото изпълнение се свързват в реален уеб продукт." },
+      { title: "d . media днес", text: "Днес студиото свързва бранд идентичност, съдържание, социални медии, графичен дизайн, реклама, уеб, техническо SEO, GEO, видимост в системи с изкуствен интелект и поддръжка. Това са различни направления, които могат да се възложат самостоятелно или да се съчетаят в обхват според конкретния проект." },
     ],
     aboutSummary: [
       "Ранният фокус на d . media е върху графичния дизайн и визуалната идентичност.",
@@ -355,9 +356,10 @@ const localizedSiteContent = {
       { id: "05", title: "Delivery", text: "You receive the final files in the agreed format, ready for real use." },
     ],
     aboutNotes: [
-      { title: "Initial focus", text: "The early focus of d . media was graphic design and visual identity." },
-      { title: "Expansion", text: "The scope gradually expanded to advertising and digital materials, followed by web development." },
-      { title: "Direction today", text: "Today, d . media connects brand identity, content, social media, graphic design, web, technical SEO, GEO, AI visibility, and support. These areas can be combined or commissioned separately according to the project." },
+      { title: "Visual foundations", text: "d . media began with graphic design and visual identity. Work on marks, typography, and application established a foundation for presenting a brand consistently." },
+      { title: "Communication and applications", text: "The work later expanded into advertising and digital materials. Visual design was considered alongside how a brand communicates and uses content across different formats." },
+      { title: "Web environments", text: "As the work expanded into web design and development, it also covered the environment where content is presented and used. Visual direction and technical execution came together in a real web product." },
+      { title: "d . media today", text: "Today, the studio brings together brand identity, content, social media, graphic design, advertising, web, technical SEO, GEO, AI visibility, and support. These remain distinct disciplines; clients can commission them individually or combine them within a scope shaped for the project." },
     ],
     aboutSummary: [
       "The early focus of d . media was graphic design and visual identity.",

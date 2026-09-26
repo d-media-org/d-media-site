@@ -1,5 +1,4 @@
 ---
-import BrandText from "@/components/BrandText.astro";
 import Layout from "@/layouts/Layout.astro";
 import type { Locale } from "@/lib/i18n";
 import { getPageCopy } from "@/lib/page-copy";
@@ -9,11 +8,7 @@ import { getSiteContent } from "@/lib/site-content";
 const locale: Locale = "en";
 const copy = getPageCopy(locale).about;
 const siteContent = getSiteContent(locale);
-const brandbookWebHref =
-  locale === "en" ? "/brandbook_web_exact_en/index.html" : "/brandbook_web_exact/index.html";
-const brandbookOpenLabel = locale === "en" ? "Open brand book" : "Отвори брандбук";
-const logoPackDownloadLabel =
-  locale === "en" ? "Download brand logo and logotype" : "Свали лого и логотип на марката";
+const brandbookWebHref = "/brandbook_web_exact_en/index.html";
 ---
 
 <Layout locale={locale} title={`${copy.metaTitle} | d . media`} description={copy.metaDescription} path="/about" structuredData={[getBreadcrumbSchema({ locale, path: "/about", title: copy.metaTitle })]}>
@@ -21,41 +16,53 @@ const logoPackDownloadLabel =
     <section class="section-grid">
       <div class="section-heading page-intro">
         <h1><span class="brand-name">d . media</span></h1>
-        <p class="page-text">{copy.text}</p>
+        {copy.introParagraphs.map((paragraph) => <p class="page-text">{paragraph}</p>)}
       </div>
       <div class="split-content page-grid stacked-cards">
-        <div class="card about-copy content-card-wide">
+        {copy.sectionsBeforeHistory.map((section) => (
+          <article class="card about-copy content-card-wide">
+            <h2>{section.title}</h2>
+            {section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+          </article>
+        ))}
+        <article class="card about-copy content-card-wide">
           <h2>Brand history</h2>
           {siteContent.aboutNotes.map((item) => (
             <section class="history-stage">
               <h3>{item.title}</h3>
-              <p><BrandText text={item.text} /></p>
+              <p>{item.text}</p>
             </section>
           ))}
-        </div>
-        <div class="card package-card content-card-wide brandbook-card">
-          <h2>{copy.brandbookTitle}</h2>
-          <p>{copy.brandbookText}</p>
-          <div class="hero-actions brandbook-actions">
-            <a href={brandbookWebHref} target="_blank" rel="noreferrer" class="button button-secondary desktop-only">
-              {brandbookOpenLabel}
-            </a>
-            <a href="/downloads/d-media-logo-pack.zip" class="button button-secondary" download>
-              {logoPackDownloadLabel}
-            </a>
+        </article>
+        {copy.sectionsAfterHistory.map((section) => (
+          <article class="card about-copy content-card-wide">
+            <h2>{section.title}</h2>
+            {section.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+            {section.id === "brandbook" && (
+              <div class="hero-actions brandbook-actions">
+                <a href={brandbookWebHref} target="_blank" rel="noreferrer" class="button button-secondary desktop-only">
+                  {copy.secondaryCta}
+                </a>
+                <a href="/downloads/d-media-logo-pack.zip" class="button button-secondary" download>
+                  Download brand logo and logotype
+                </a>
+              </div>
+            )}
+            {section.links && (
+              <div class="blog-related-list">
+                {section.links.map((link) => <a class="inline-link" href={link.href}>{link.label}</a>)}
+              </div>
+            )}
+          </article>
+        ))}
+        <article class="card about-copy content-card-wide">
+          <h2>{copy.finalTitle}</h2>
+          <p>{copy.finalText}</p>
+          <div class="hero-actions">
+            <a href="/en/contact/" class="button button-primary">{copy.primaryCta}</a>
+            <a href="/en/projects/" class="button button-secondary">{copy.workCta}</a>
           </div>
-        </div>
-        <div class="card about-copy content-card-wide">
-          <h2>How we work</h2>
-          <p>The process, methodology, technology choices, and performance standard show how creative and digital work operate as one system.</p>
-          <div class="blog-related-list">
-            <a class="inline-link" href="/en/our-process/">Process</a>
-            <a class="inline-link" href="/en/methodology/">Methodology</a>
-            <a class="inline-link" href="/en/technologies/">Technologies</a>
-            <a class="inline-link" href="/en/performance/">Performance standard</a>
-            <a class="inline-link" href="/en/faq/">Frequently asked questions</a>
-          </div>
-        </div>
+        </article>
       </div>
     </section>
   </main>

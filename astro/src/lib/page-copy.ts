@@ -587,13 +587,91 @@ const pageCopy = {
     about: {
       metaTitle: "За бранда",
       metaDescription:
-        "d . media е премиум творческо и дигитално студио. Разгледай посоката на бранда, историята му, принципите и визуалната система.",
+        "d . media е творческо и дигитално студио за бранд идентичност, съдържание и уеб. Научи повече за подхода, историята и визуалната система на бранда.",
       eyebrow: "за бранда",
-      text: "Премиум творческо и дигитално студио, което свързва идентичност, съдържание и уеб.",
-      brandbookTitle: "Официален брандбук",
-      brandbookText:
-        "Брандбукът показва основната система, правилата за употреба и начина, по който идентичността се държи последователно.",
-      primaryCta: "Изпрати кратък контекст",
+      introParagraphs: [
+        "d . media е премиум творческо и дигитално студио, което изгражда последователно присъствие на бранда — от идентичност и съдържание до уеб, видимост и поддръжка. Направленията могат да се свържат в общ обхват, когато проектът има нужда от обща посока, или да се възложат самостоятелно.",
+        "Целта е образът, посланията и дигиталната среда да работят съгласувано. Така всяка част има собствена роля, без да се откъсва от цялостното представяне на бранда.",
+      ],
+      sectionsBeforeHistory: [
+        {
+          title: "Какво е d . media",
+          paragraphs: [
+            "d . media съчетава творческа и техническа работа около реалните нужди на един бранд. В основата е връзката между визуалните материали, съдържанието и уеб средата: какво казва брандът, как изглежда, къде се среща с аудиторията и как дигиталните му решения функционират.",
+            "Според проекта работата може да се фокусира върху конкретна нужда — например визуална идентичност, съдържание или уеб разработка — или да обхване няколко свързани направления. Всеки обхват се подрежда спрямо задачата, аудиторията и начина, по който решението ще бъде използвано.",
+          ],
+        },
+        {
+          title: "Една система, различни направления",
+          paragraphs: [
+            "Бранд идентичността задава визуалната основа. Графичният дизайн и рекламата я прилагат в конкретни материали. Съдържанието оформя посланията, а управлението на социални медии ги подрежда в устойчив ритъм и подходящи формати.",
+            "Уеб дизайнът и разработката изграждат средата, в която информацията трябва да бъде разбираема и удобна за използване. Техническото SEO, GEO и работата по видимостта в системи с изкуствен интелект са свързани с това съдържанието и структурата да могат да бъдат откривани и интерпретирани. Техническата поддръжка допълва този слой след създаването.",
+            "Това са различни услуги, а не задължителни части на един пакет. Връзката между тях помага на бранда да запази посоката си, когато отделни материали, канали или дигитални решения се развиват по различно време.",
+          ],
+        },
+        {
+          title: "Какво означава премиум работа",
+          paragraphs: [
+            "За d . media премиум работата означава внимание към детайла и последователност между идеята и приложението ѝ. Типографията служи на съдържанието, визуалните решения са практични, прилагането им се контролира, а техническото изпълнение е чисто и съобразено с предназначението.",
+            "Визуалната и функционалната страна трябва да бъдат съгласувани, а материалите — подготвени за реална употреба. Не се добавя ненужна сложност. Ясна документация се включва, когато е част от конкретния обхват. Това е стандарт на изпълнение, а не обещание за бизнес резултат.",
+          ],
+        },
+        {
+          title: "Подход",
+          paragraphs: [
+            "Контекстът предхожда изпълнението. Преди да се избере формат, трябва да е ясно каква задача решава той и за кого е предназначен. Системата предхожда отделния формат: логото, страницата или публикацията трябва да се вписват в по-широката визуална и комуникационна посока, когато такава е част от обхвата.",
+            "Функцията идва преди украсата. Реалното приложение се проверява заедно с визуалното решение, а техническите ограничения се вземат предвид навреме. Тези принципи не заместват конкретния процес по проекта; те помагат решенията да бъдат последователни от първата задача до предаването.",
+          ],
+        },
+      ],
+      sectionsAfterHistory: [
+        {
+          title: "Защо свързаният подход има значение",
+          paragraphs: [
+            "Един знак може да изглежда добре самостоятелно, но да не работи в сайта или в малък формат. Сайтът може да е технически завършен, но да представя съдържание без ясна структура. Кампанията може да използва правилни материали, но да не следва визуалния език на бранда. Тези връзки са практични, не абстрактни.",
+            "Когато повече от едно направление е част от задачата, координацията между тях намалява риска решенията да си противоречат. Когато задачата е ограничена, същата логика помага тя да бъде изпълнена самостоятелно и да остане приложима към съществуващото присъствие.",
+          ],
+        },
+        {
+          id: "brandbook",
+          title: "Визуална идентичност и брандбук",
+          paragraphs: [
+            "Визуалната идентичност на d . media стъпва върху логотипа, типографията и сдържана визуална логика. Значение имат не само отделните елементи, а начинът, по който се съчетават в уеб среда и комуникационни материали.",
+            "Брандбукът събира основните правила за употреба и показва как идентичността запазва последователност в различни приложения. Той допълва тази страница с конкретни визуални насоки, без да замества контекста и принципите, описани тук.",
+          ],
+        },
+        {
+          title: "Как работим",
+          paragraphs: [
+            "Работният процес се съобразява с обхвата. Методологията помага задачите и зависимостите да бъдат подредени; технологиите се избират според предназначението на решението, а не като самоцел. При уеб работа производителността и техническата чистота са част от изпълнението, заедно с визуалната и съдържателната страна.",
+            "При предаване целта е материалите и решенията да бъдат ясни за реална употреба в договорения обхват. Подробностите за отделните етапи, методи, технологии, стандарта за скорост и често задаваните въпроси са в специализираните страници.",
+          ],
+          links: [
+            { href: "/our-process/", label: "Процес" },
+            { href: "/methodology/", label: "Методология" },
+            { href: "/technologies/", label: "Технологии" },
+            { href: "/performance/", label: "Стандарт за скорост" },
+            { href: "/faq/", label: "Често задавани въпроси" },
+          ],
+        },
+        {
+          title: "Доказателства чрез работа",
+          paragraphs: [
+            "Проектите показват конкретни приложения — от визуални материали до уеб решения. Казусите добавят повече контекст за задачата, подхода и изпълнението, когато има достатъчно информация, която може да бъде представена отговорно.",
+            "Самият сайт d-media.org също е проект на d . media и показва как идентичността, съдържанието, архивите и уеб платформата се събират в едно публично приложение. Разглеждането на тези примери дава по-точна представа за вида работа от общите обещания.",
+          ],
+          links: [
+            { href: "/projects/", label: "Разгледай работата" },
+            { href: "/case-studies/", label: "Виж казусите" },
+            { href: "/projects/d-media/", label: "Сайтът d-media.org като проект" },
+          ],
+        },
+      ],
+      finalTitle: "Следваща стъпка",
+      finalText:
+        "Ако проектът изисква едно конкретно направление, може да започне от него. Ако задачата обхваща повече части от присъствието на бранда, обхватът може да бъде подреден между съответните направления.",
+      primaryCta: "Изпрати проектен контекст",
+      workCta: "Разгледай работата",
       secondaryCta: "Отвори брандбука",
     },
     contact: {
@@ -1218,13 +1296,91 @@ const pageCopy = {
     about: {
       metaTitle: "About",
       metaDescription:
-        "d . media is a premium creative and digital studio. Explore the brand direction, its history, principles, and visual system.",
+        "d . media is a creative and digital studio for brand identity, content, and web. Explore the brand's approach, history, and visual system.",
       eyebrow: "about",
-      text: "A premium creative and digital studio connecting identity, content, and web.",
-      brandbookTitle: "Official brand book",
-      brandbookText:
-        "The brand book shows the core system, the usage rules, and the way the identity stays consistent in application.",
-      primaryCta: "Send short context",
+      introParagraphs: [
+        "d . media is a premium creative and digital studio that shapes a coherent brand presence across identity, content, web, visibility, and support. These disciplines can be brought together when a project needs a shared direction, or commissioned individually.",
+        "The aim is for the brand's image, messages, and digital environment to work together. Each part keeps its own role while contributing to a coherent public presence.",
+      ],
+      sectionsBeforeHistory: [
+        {
+          title: "What is d . media",
+          paragraphs: [
+            "d . media brings creative and technical disciplines together around a brand's actual needs. At its core is the relationship between visual materials, content, and the web environment: what a brand communicates, how it appears, where it meets its audience, and how its digital presence works.",
+            "Depending on the project, the work can focus on a specific need — such as visual identity, content, or web development — or include several connected areas. Each scope is shaped around the task, its audience, and how the solution will be used.",
+          ],
+        },
+        {
+          title: "One system, multiple disciplines",
+          paragraphs: [
+            "Brand identity establishes the visual foundation. Graphic design and advertising apply it to specific materials. Content shapes the messages, while social media management arranges them into a consistent rhythm and suitable formats.",
+            "Web design and development create the environment where information needs to be clear and usable. Technical SEO, GEO, and AI visibility work relate to how content and structure can be discovered and interpreted. Technical support extends this layer beyond the initial creation.",
+            "These are distinct services, not required parts of one package. Their connection helps a brand maintain direction when different materials, channels, or digital solutions develop at different times.",
+          ],
+        },
+        {
+          title: "What premium means",
+          paragraphs: [
+            "For d . media, premium work means close attention to detail and consistency from concept through application. Typography serves the content; visual decisions remain practical and their application is carefully controlled; technical execution is clean and fit for purpose.",
+            "Visual and functional decisions should work together, and materials should be prepared for real use. Complexity is kept purposeful rather than added for its own sake. Clear documentation is included when it is part of the agreed scope. This is a standard of execution, not a promise of business results.",
+          ],
+        },
+        {
+          title: "Approach",
+          paragraphs: [
+            "Work starts with context. Before choosing a format, the task it serves and its audience should be clear. A logo, page, or post should fit the wider visual and communication direction when that direction is part of the scope.",
+            "Function comes before decoration. Real-world application is considered alongside the visual solution, and technical constraints are addressed in time. These principles do not replace the project-specific process; they help keep decisions consistent from the initial task through handover.",
+          ],
+        },
+      ],
+      sectionsAfterHistory: [
+        {
+          title: "Why a connected approach matters",
+          paragraphs: [
+            "A mark may look good on its own but fail on a website or at a small size. A website may be technically complete yet present content without a clear structure. A campaign may use the right materials but not follow the brand's visual language. These connections are practical, not abstract.",
+            "When a task includes more than one area, coordination helps reduce the risk of conflicting decisions. When the task is limited, the same logic helps it stand on its own and remain compatible with the existing presence.",
+          ],
+        },
+        {
+          id: "brandbook",
+          title: "Visual identity and brand book",
+          paragraphs: [
+            "The visual identity of d . media is built around its logotype, typography, and restrained visual logic. What matters is not only each element, but how they work together across web and communication materials.",
+            "The brand book brings together the core usage rules and shows how the identity remains consistent across applications. It adds specific visual guidance to this page without replacing the context and principles described here.",
+          ],
+        },
+        {
+          title: "How we work",
+          paragraphs: [
+            "The working process is shaped around the scope. Methodology helps organize tasks and dependencies; technologies are selected for the purpose of the solution, not as an end in themselves. In web work, performance and technical cleanliness are part of execution alongside visual and content considerations.",
+            "At handover, the aim is to make the materials and decisions clear for their agreed use. Detailed information about individual stages, methods, technologies, the performance standard, and frequently asked questions is available on dedicated pages.",
+          ],
+          links: [
+            { href: "/en/our-process/", label: "Process" },
+            { href: "/en/methodology/", label: "Methodology" },
+            { href: "/en/technologies/", label: "Technologies" },
+            { href: "/en/performance/", label: "Performance standard" },
+            { href: "/en/faq/", label: "Frequently asked questions" },
+          ],
+        },
+        {
+          title: "Evidence through work",
+          paragraphs: [
+            "Projects show specific applications, from visual materials to web solutions. Case studies add more context about the task, approach, and execution when there is enough information to present them responsibly.",
+            "The d-media.org website is also a d . media project, showing how identity, content, archives, and a web platform come together in a public application. These examples offer a more precise view of the work than general promises.",
+          ],
+          links: [
+            { href: "/en/projects/", label: "Explore the work" },
+            { href: "/en/case-studies/", label: "View case studies" },
+            { href: "/en/projects/d-media/", label: "The d-media.org website project" },
+          ],
+        },
+      ],
+      finalTitle: "Next step",
+      finalText:
+        "If a project needs one specific area, it can start there. If the task spans more parts of a brand's presence, the scope can be arranged across the relevant directions.",
+      primaryCta: "Send project context",
+      workCta: "Explore the work",
       secondaryCta: "Open the brand book",
     },
     contact: {
