@@ -3,7 +3,8 @@ import BrandText from "@/components/BrandText.astro";
 import Layout from "@/layouts/Layout.astro";
 import { getAuthorityServices } from "@/lib/authority-services";
 import { localizeHref, type Locale } from "@/lib/i18n";
-import { getBreadcrumbSchema, getFAQPageSchema, getServicePageSchema } from "@/lib/seo";
+import { getBreadcrumbSchema, getFAQPageSchema, getServicePageSchema, getWebPageSchema } from "@/lib/seo";
+import { getSiteContent } from "@/lib/site-content";
 
 type ServiceSection = {
   title: string;
@@ -19,6 +20,11 @@ type ServicePricingGroup = {
   title: string;
   items: ServicePricingItem[];
 };
+type ContextualLink = {
+  href: string;
+  label: string;
+  text: string;
+};
 
 type ServiceDetailCopy = {
   metaTitle: string;
@@ -29,6 +35,7 @@ type ServiceDetailCopy = {
   integrationsTitle?: string;
   integrationsText?: string;
   integrationGroups?: ServiceSection[];
+  contextualLink?: ContextualLink;
   pricingTitle: string;
   pricingText: string;
   pricingGroups: ServicePricingGroup[];
@@ -48,9 +55,11 @@ interface Props {
   path: string;
   copy: ServiceDetailCopy;
   ctaLocation: string;
+  presentation?: "detail" | "overview";
 }
 
-const { locale, path, copy, ctaLocation } = Astro.props;
+const { locale, path, copy, ctaLocation, presentation = "detail" } = Astro.props;
+const isOverview = presentation === "overview";
 const backLabel = locale === "bg" ? "обратно към услугите" : "back to services";
 const primarySection = copy.sections[0];
 const pricingPreview = copy.pricingGroups[0]?.items[0];
@@ -108,7 +117,7 @@ const defaultFaqs =
           answer: "We need short context, goal, timing, available materials, usage environment, and any existing constraints.",
         },
       ];
-const faqs = copy.faqs ?? defaultFaqs;
+const faqs = isOverview ? [] : copy.faqs ?? defaultFaqs;
 const relatedCaseStudies =
   copy.relatedCaseStudies ??
   (locale === "bg"
@@ -122,9 +131,55 @@ const relatedCaseStudies =
         { title: "Yanita", href: "/projects/yanita", text: "Visual system and materials prepared for real communication use." },
         { title: "Support Account", href: "/projects/support-account", text: "Structured identity and usable files for a digital environment." },
       ]);
-const relatedTechnicalServices = getAuthorityServices(locale).filter(
-  (service) => `/services/${service.slug}` !== path,
+const relatedServiceSlugs: Record<string, string[]> = {
+  "brand-identity": ["graphic-design", "content-creation", "web-design"],
+  "graphic-design": ["brand-identity", "advertising", "social-media-management"],
+  "content-creation": ["social-media-management", "content-social-media", "advertising", "geo"],
+  "social-media-management": ["content-creation", "content-social-media", "advertising"],
+  "content-social-media": ["content-creation", "social-media-management"],
+  "web-design-development": ["web-design", "web-development", "technical-seo", "performance-optimization"],
+  "web-design": ["web-design-development", "brand-identity", "content-creation"],
+  "web-development": ["web-design-development", "technical-support", "performance-optimization", "technical-seo"],
+  "technical-seo": ["web-development", "geo", "performance-optimization"],
+  geo: ["content-creation", "technical-seo", "brand-identity"],
+  "performance-optimization": ["web-development", "technical-seo", "technical-support"],
+  "technical-support": ["web-development", "performance-optimization", "technical-seo"],
+  advertising: ["content-creation", "social-media-management", "graphic-design"],
+  "additional-charges-rights": ["advertising", "brand-identity", "graphic-design"],
+};
+const currentSlug = path.split("/").filter(Boolean).at(-1) ?? "";
+const serviceCatalog = new Map(
+  getSiteContent(locale).coreServices.map((service) => {
+    const slug = service.detailHref.split("/").filter(Boolean).at(-1) ?? "";
+    return [slug, { slug, title: service.title, description: service.text }];
+  }),
 );
+for (const service of getAuthorityServices(locale)) {
+  if (!serviceCatalog.has(service.slug)) {
+    serviceCatalog.set(service.slug, {
+      slug: service.slug,
+      title: service.title,
+      description: service.metaDescription,
+    });
+  }
+}
+serviceCatalog.set("content-social-media", {
+  slug: "content-social-media",
+  title: locale === "bg" ? "Съдържание и социални медии" : "Content and Social Media",
+  description:
+    locale === "bg"
+      ? "Общ преглед на създаването на съдържание и управлението на социални медии."
+      : "An overview of content creation and social media management.",
+});
+const relatedServices = (relatedServiceSlugs[currentSlug] ?? [])
+  .filter((slug) => slug !== currentSlug)
+  .slice(0, 4)
+  .map((slug) => serviceCatalog.get(slug))
+  .filter((service): service is NonNullable<typeof service> => Boolean(service));
+const pageSchema =
+  currentSlug === "additional-charges-rights"
+    ? getWebPageSchema({ locale, path, title: copy.metaTitle, description: copy.metaDescription })
+    : getServicePageSchema({ locale, path, title: copy.metaTitle, description: copy.metaDescription });
 ---
 
 <Layout
@@ -134,8 +189,8 @@ const relatedTechnicalServices = getAuthorityServices(locale).filter(
   path={path}
   structuredData={[
     getBreadcrumbSchema({ locale, path, title: copy.metaTitle }),
-    getServicePageSchema({ locale, path, title: copy.metaTitle, description: copy.metaDescription }),
-    getFAQPageSchema({ locale, path, faqs }),
+    pageSchema,
+    ...(faqs.length ? [getFAQPageSchema({ locale, path, faqs })] : []),
   ]}
 >
   <main class="site-shell services-page" id="top">
@@ -148,19 +203,21 @@ const relatedTechnicalServices = getAuthorityServices(locale).filter(
         <div class="project-card-footer">
           <a class="inline-link" href={localizeHref(locale, "/services")} data-history-back>{backLabel}</a>
         </div>
-        <div class="hero-actions">
-          <a
-            href={localizeHref(locale, "/contact")}
-            class="button button-primary"
-            data-ga-event="cta_start_project_click"
-            data-ga-location={`${ctaLocation}_hero`}
-          >
-            {copy.primaryCta}
-          </a>
-          <a href={localizeHref(locale, "/pricing")} class="button button-secondary">
-            {locale === "bg" ? "Виж началните рамки" : "View starting ranges"}
-          </a>
-        </div>
+        {!isOverview ? (
+          <div class="hero-actions">
+            <a
+              href={localizeHref(locale, "/contact")}
+              class="button button-primary"
+              data-ga-event="cta_start_project_click"
+              data-ga-location={`${ctaLocation}_hero`}
+            >
+              {copy.primaryCta}
+            </a>
+            <a href={localizeHref(locale, "/pricing")} class="button button-secondary">
+              {locale === "bg" ? "Виж началните рамки" : "View starting ranges"}
+            </a>
+          </div>
+        ) : null}
       </div>
 
       <div class="showcase-grid service-card-grid">
@@ -172,7 +229,7 @@ const relatedTechnicalServices = getAuthorityServices(locale).filter(
         ))}
       </div>
 
-      {copy.integrationsTitle && copy.integrationsText && copy.integrationGroups?.length ? (
+      {!isOverview && copy.integrationsTitle && copy.integrationsText && copy.integrationGroups?.length ? (
         <>
           <div class="section-heading page-subheading">
             <h2>{copy.integrationsTitle}</h2>
@@ -189,107 +246,108 @@ const relatedTechnicalServices = getAuthorityServices(locale).filter(
         </>
       ) : null}
 
-      <div class="section-heading page-subheading">
-        <h2>{copy.pricingTitle}</h2>
-        <p class="page-text"><BrandText text={copy.pricingText} /></p>
-        <p class="project-meta">{copy.pricingNote}</p>
-      </div>
-      {copy.pricingGroups.map((group) => (
+      {!isOverview ? (
         <>
           <div class="section-heading page-subheading">
-            <h2>{group.title}</h2>
+            <h2>{copy.pricingTitle}</h2>
+            <p class="page-text"><BrandText text={copy.pricingText} /></p>
+            <p class="project-meta">{copy.pricingNote}</p>
+            {copy.contextualLink ? (
+              <p class="project-meta">
+                <BrandText text={copy.contextualLink.text} />{" "}
+                <a class="inline-link" href={localizeHref(locale, copy.contextualLink.href)}>
+                  {copy.contextualLink.label}
+                </a>
+              </p>
+            ) : null}
           </div>
-          <div class="showcase-grid project-reading-grid">
-            {group.items.map((item) => (
-              <article class="card package-card">
-                <h3>{item.title}</h3>
-                <p class="package-price">{item.price}</p>
+          {copy.pricingGroups.map((group) => (
+            <>
+              <div class="section-heading page-subheading">
+                <h2>{group.title}</h2>
+              </div>
+              <div class="showcase-grid project-reading-grid">
+                {group.items.map((item) => (
+                  <article class="card package-card">
+                    <h3>{item.title}</h3>
+                    <p class="package-price">{item.price}</p>
+                  </article>
+                ))}
+              </div>
+            </>
+          ))}
+        </>
+      ) : null}
+
+      {!isOverview ? (
+        <>
+          <div class="section-heading page-subheading">
+            <h2>{copy.processTitle}</h2>
+          </div>
+          <div class="process-timeline">
+            {copy.processSteps.map((step) => (
+              <article class="card process-step-card">
+                <h3>{step.title}</h3>
+                <p><BrandText text={step.text} /></p>
               </article>
             ))}
           </div>
         </>
-      ))}
+      ) : null}
 
-      <div class="section-heading page-subheading">
-        <h2>{copy.processTitle}</h2>
-      </div>
-      <div class="process-timeline">
-        {copy.processSteps.map((step) => (
-          <article class="card process-step-card">
-            <h3>{step.title}</h3>
-            <p><BrandText text={step.text} /></p>
-          </article>
-        ))}
-      </div>
+      {!isOverview ? (
+        <>
+          <div class="section-heading page-subheading">
+            <h2>{locale === "bg" ? "Често задавани въпроси" : "FAQ"}</h2>
+          </div>
+          <div class="showcase-grid service-card-grid">
+            {faqs.map((faq) => (
+              <article class="card service-category-card">
+                <h2>{faq.question}</h2>
+                <p><BrandText text={faq.answer} /></p>
+              </article>
+            ))}
+          </div>
+        </>
+      ) : null}
 
-      <div class="section-heading page-subheading">
-        <h2>{locale === "bg" ? "Често задавани въпроси" : "FAQ"}</h2>
-      </div>
-      <div class="showcase-grid service-card-grid">
-        {faqs.map((faq) => (
-          <article class="card service-category-card">
-            <h2>{faq.question}</h2>
-            <p><BrandText text={faq.answer} /></p>
-          </article>
-        ))}
-      </div>
+      {!isOverview ? (
+        <>
+          <div class="section-heading page-subheading">
+            <h2>{locale === "bg" ? "Свързани казуси" : "Related case studies"}</h2>
+          </div>
+          <div class="showcase-grid service-card-grid">
+            {relatedCaseStudies.map((caseStudy) => (
+              <article class="card service-category-card">
+                <h2>{caseStudy.title}</h2>
+                <p><BrandText text={caseStudy.text} /></p>
+                <a class="inline-link" href={localizeHref(locale, caseStudy.href)}>
+                  {locale === "bg" ? "Виж казуса" : "View case study"}
+                </a>
+              </article>
+            ))}
+          </div>
+        </>
+      ) : null}
 
-      <div class="section-heading page-subheading">
-        <h2>{locale === "bg" ? "Свързани казуси" : "Related case studies"}</h2>
-      </div>
-      <div class="showcase-grid service-card-grid">
-        {relatedCaseStudies.map((caseStudy) => (
-          <article class="card service-category-card">
-            <h2>{caseStudy.title}</h2>
-            <p><BrandText text={caseStudy.text} /></p>
-            <a class="inline-link" href={localizeHref(locale, caseStudy.href)}>
-              {locale === "bg" ? "Виж казуса" : "View case study"}
-            </a>
-          </article>
-        ))}
-      </div>
-
-      <div class="section-heading page-subheading">
-        <h2>{locale === "bg" ? "Свързани дигитални специализации" : "Related digital specialisms"}</h2>
-        <p class="page-text">
-          {locale === "bg"
-            ? "Уеб дизайнът, разработката, техническото SEO, видимостта в AI търсене, скоростта и поддръжката работят като свързана система."
-            : "Web design, development, technical SEO, GEO, performance, and support work as a connected system."}
-        </p>
-      </div>
-      <div class="showcase-grid service-card-grid">
-        {relatedTechnicalServices.map((service) => (
-          <article class="card service-category-card">
-            <h2>{service.title}</h2>
-            <p>{service.metaDescription}</p>
-            <a class="inline-link" href={localizeHref(locale, `/services/${service.slug}`)}>
-              {locale === "bg" ? "Виж специализацията" : "View specialism"}
-            </a>
-          </article>
-        ))}
-      </div>
-
-      <article class="card services-cta-card">
-        <div class="services-cta-copy">
-          <h2>{copy.ctaTitle}</h2>
-          <p class="page-text">
-            <BrandText text={copy.ctaText} />
-          </p>
-        </div>
-        <div class="hero-actions">
-          <a
-            href={localizeHref(locale, "/contact")}
-            class="button button-primary"
-            data-ga-event="cta_start_project_click"
-            data-ga-location={ctaLocation}
-          >
-            {copy.primaryCta}
-          </a>
-          <a href={localizeHref(locale, "/projects")} class="button button-secondary">
-            {copy.secondaryCta}
-          </a>
-        </div>
-      </article>
+      {relatedServices.length ? (
+        <>
+          <div class="section-heading page-subheading">
+            <h2>{locale === "bg" ? "Свързани услуги и специализации" : "Related services and specialisms"}</h2>
+          </div>
+          <div class="showcase-grid service-card-grid">
+            {relatedServices.map((service) => (
+              <article class="card service-category-card">
+                <h2>{service.title}</h2>
+                <p>{service.description}</p>
+                <a class="inline-link" href={localizeHref(locale, `/services/${service.slug}`)}>
+                  {locale === "bg" ? "Виж обхвата" : "View scope"}
+                </a>
+              </article>
+            ))}
+          </div>
+        </>
+      ) : null}
 
       <div class="project-card-footer">
         <a class="inline-link" href={localizeHref(locale, "/services")} data-history-back>{backLabel}</a>

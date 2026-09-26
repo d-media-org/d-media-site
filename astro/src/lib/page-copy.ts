@@ -128,7 +128,7 @@ const pageCopy = {
         "Уеб дизайн и разработка на бързи сайтове, дигитални платформи, интеграции, SEO и GEO основа според реалния обхват на проекта.",
       title: "Уеб дизайн и разработка",
       intro:
-        "Създаваме сайтове и уеб платформи, които работят като част от бранд системата: ясни, бързи, поддържими и подготвени за реална употреба.",
+        "Обединяваме проектирането и техническата разработка на сайт в един обхват. Когато е нужна само едната част, тя има отделна страница за уеб дизайн или уеб разработка.",
       sections: [
         {
           title: "Какво създаваме",
@@ -435,21 +435,19 @@ const pageCopy = {
     advertisingService: {
       metaTitle: "Реклама",
       metaDescription:
-        "Обхват за реклама: видеообработка, видео реклама, анимация на лого и логотип, приоритетни начисления, работа без авторски кредит и лицензионни рамки.",
+        "Рекламни видеоформати и анимация на лого и логотип с предоставено съдържание или файлове.",
       title: "Реклама",
       intro:
-        "Изграждаме рекламни формати, които водят до ясно послание и действие: видеообработка, анимация, адаптации и допълнителни права според начина на употреба.",
+        "Подготвяме видеообработка и анимация за рекламни формати според наличното съдържание, файлове и мястото на употреба.",
       sections: [
         { title: "Видео реклама с предоставено съдържание", text: "Работим по видеообработка и рекламни проекти, когато има наличен материал и задачата е да се подреди в ясна и работеща рекламна форма." },
         { title: "Анимация, свързана с идентичността", text: "Анимираме лого и логотип, когато брандът има нужда от по-динамична употреба в intro, outro, реклама или видео среда." },
         { title: "По проект на d . media", text: "Когато анимираме знак, създаден от нас, имаме пряка визуална логика и по-ясна рамка за движение, ритъм и поведение." },
         { title: "С предоставени файлове", text: "Когато работим с външно създадени файлове, първо подреждаме техническата им годност и след това разработваме анимационния обхват." },
-        { title: "Приоритет и срок", text: "При бърза, експресна и супер експресна поръчка начисляваме отделна рамка според съкращаването на договореното време за работа." },
-        { title: "Права и допълнителни начисления", text: "Когато е нужна работа без авторски кредит, работа с клиент на място или по-широко право на използване, това се подрежда отделно като част от рекламния обхват." },
       ],
       pricingTitle: "Начални рамки за рекламни формати.",
       pricingText:
-        "Тези рамки покриват рекламна видеообработка, анимация, допълнителни начисления и права за използване. Финалният обхват зависи от продължителност, сложност, изходни файлове и начина на използване.",
+        "Тези рамки се отнасят до рекламна видеообработка и анимация. Обхватът зависи от продължителност, сложност и изходни файлове.",
       pricingGroups: [
         {
           title: "Услуги за видео реклама с предоставено съдържание",
@@ -471,25 +469,17 @@ const pageCopy = {
             { title: "Всяка секунда след десетата", price: "от +5,99 €" },
           ],
         },
-        {
-          title: "Допълнителни начисления и права",
-          items: [
-            { title: "Работа с клиент на място", price: "+20%" },
-            { title: "Изпълнение без авторски кредит", price: "от 19,99 €" },
-            { title: "Бърза поръчка", price: "+25%" },
-            { title: "Експресна поръчка", price: "+50%" },
-            { title: "Супер експресна поръчка", price: "+75%" },
-            { title: "Неизключителен лиценз за използване на създаденото съдържание за срок от 1 година", price: "от 49,99 €" },
-            { title: "Изключителен лиценз за използване на създаденото съдържание за срок от 1 година", price: "от 99,99 €" },
-            { title: "Пълно прехвърляне на имуществени права по индивидуално договаряне", price: "200% от стойността на проекта, но не по-малко от 2799 €" },
-          ],
-        },
       ],
+      contextualLink: {
+        href: "/services/additional-charges-rights",
+        text: "Общите условия за права и допълнителни начисления са описани отделно.",
+        label: "Виж права и условия",
+      },
       pricingNote: "",
       processTitle: "Процес",
       processSteps: [
         { title: "Контекст", text: "Изясняваме какъв е форматът, къде ще се използва, какви файлове има и какъв срок реално се търси." },
-        { title: "Обхват", text: "Подреждаме продължителността, вида анимация или видеообработка, нужните адаптации и рамката за права на използване." },
+        { title: "Обхват", text: "Подреждаме продължителността, вида анимация или видеообработка и нужните адаптации." },
         { title: "Разработка", text: "Изграждаме рекламния материал с ясен ритъм, чиста визуална логика и контрол върху финалното усещане." },
         { title: "Предаване", text: "Предаваме готов материал в уговорения формат и с яснота по правата, срока на използване и следващите приложения." },
       ],
@@ -499,23 +489,23 @@ const pageCopy = {
       secondaryCta: "Разгледай проектите",
     },
     additionalChargesRightsService: {
-      metaTitle: "Допълнителни начисления и права",
+      metaTitle: "Права, начисления и допълнителни условия",
       metaDescription:
-        "Отделен обхват за допълнителни начисления, приоритетни поръчки, работа без авторски кредит и права за използване на създаденото съдържание.",
-      title: "Допълнителни начисления и права",
+        "Информация за допълнителни начисления, приоритетни поръчки, работа без авторски кредит и права за използване на създаденото съдържание.",
+      title: "Права, начисления и допълнителни условия",
       intro:
-        "Когато проектът изисква по-бърз срок, отделен начин на работа или специфични права за използване, тези рамки се подреждат отделно от основната услуга.",
+        "Тази страница обобщава условията, правата и допълнителните начисления, които могат да се отнасят към основна услуга, когато проектът ги изисква.",
       sections: [
-        { title: "Какво влиза тук", text: "Това е отделен обхват за приоритет, работа без авторски кредит, работа с клиент на място и лицензионни или правни условия около предаването на създаденото съдържание." },
+        { title: "Какво е описано тук", text: "Тук са събрани условията за приоритет, работа без авторски кредит, работа с клиент на място и правата за използване на създаденото съдържание." },
         { title: "Приоритетни поръчки", text: "Когато срокът трябва да бъде съкратен, начисляваме отделна рамка според степента на ускоряване и влиянието върху работния процес." },
         { title: "Работа без авторски кредит и присъствие на място", text: "Когато проектът трябва да бъде изпълнен без авторски кредит или изисква физическа работа с клиента на място, това се оценява отделно." },
         { title: "Права за използване", text: "Не всяка услуга автоматично включва разширен или изключителен лиценз. Когато проектът го изисква, правата се подреждат като самостоятелен обхват." },
         { title: "Пълно прехвърляне", text: "При пълно прехвърляне на права рамката е значително по-широка, защото засяга бъдещото използване, контрол и стойност на самия проект." },
-        { title: "Защо е отделно", text: "Тези начисления не са второстепенна подробност. Те влияят пряко върху срока, модела на работа и начина, по който съдържанието може да бъде използвано след предаването." },
+        { title: "Към коя услуга се отнасят", text: "Тези условия се разглеждат заедно с основната услуга и не представляват самостоятелна производствена услуга." },
       ],
-      pricingTitle: "Начални рамки за допълнителни начисления и права.",
+      pricingTitle: "Права и допълнителни условия.",
       pricingText:
-        "Тази страница обобщава отделните начисления и правни рамки, които могат да се добавят към основните услуги, когато реалният проект го изисква.",
+        "Посочените начисления и права се прилагат според конкретния проект и се разглеждат заедно с основната услуга.",
       pricingGroups: [
         {
           title: "Допълнителни начисления върху услугите",
@@ -549,9 +539,9 @@ const pageCopy = {
         { title: "Потвърждение", text: "Потвърждаваме отделно условията, които излизат извън стандартния обхват на услугата." },
         { title: "Предаване", text: "При финалното предаване правата, ограниченията и допълнителните условия остават формулирани ясно, без неясноти след проекта." },
       ],
-      ctaTitle: "Ако проектът изисква отделна рамка за срок или права, започни оттук.",
-      ctaText: "Изпрати основната услуга и уточни дали има ускорен срок, работа без авторски кредит или нужда от конкретни права за използване. Оттам подреждаме рамката правилно.",
-      primaryCta: "Изпрати контекст за условията",
+      ctaTitle: "Уточни приложимите права и условия.",
+      ctaText: "Прегледай условията заедно с обхвата на основната услуга.",
+      primaryCta: "Запитване за права и условия",
       secondaryCta: "Разгледай проектите",
     },
     projects: {
@@ -766,7 +756,7 @@ const pageCopy = {
         "Web design and development for fast websites, digital platforms, integrations, SEO, and GEO foundations shaped around the real project scope.",
       title: "Web Design & Development",
       intro:
-        "We create websites and web platforms that work as part of the brand system: clear, fast, maintainable, and ready for real use.",
+        "We bring website design and technical development together in one scope. When only one part is needed, it has a separate page for web design or web development.",
       sections: [
         {
           title: "What we create",
@@ -1073,21 +1063,19 @@ const pageCopy = {
     advertisingService: {
       metaTitle: "Advertising",
       metaDescription:
-        "Scope for advertising: video editing, video ads, logo and logotype animation, priority add-ons, white-label work, and licensing framework.",
+        "Advertising video formats and logo or logotype animation using supplied content or files.",
       title: "Advertising",
       intro:
-        "We build advertising formats that lead to clear messaging and action: video editing, animation, adaptations, and additional rights based on real use.",
+        "We prepare video editing and animation for advertising formats around the available content, files, and intended use.",
       sections: [
         { title: "Video ads with provided content", text: "We work on video editing and advertising projects when source footage already exists and the task is to organise it into a clear, working advertising format." },
         { title: "Animation connected to the visual identity", text: "We animate logos and logotypes when the brand needs a more dynamic use across intros, outros, ads, or video environments." },
         { title: "Based on a d . media identity", text: "When we animate a sign created by us, we already have a clear visual logic for movement, rhythm, and behaviour." },
         { title: "With provided files", text: "When we work from externally created files, we first organise their technical usability and then define the animation scope." },
-        { title: "Priority and timing", text: "For fast, express, and super express requests, we apply a separate framework based on how much the agreed production time is reduced." },
-        { title: "Rights and additional charges", text: "When white-label work, on-site work with the client, or broader usage rights are needed, we structure that separately as part of the advertising scope." },
       ],
       pricingTitle: "Starting ranges for advertising formats.",
       pricingText:
-        "These ranges cover advertising video editing, animation, add-ons, and usage rights. The final scope depends on duration, complexity, source files, and the intended mode of use.",
+        "These ranges apply to advertising video editing and animation. Scope depends on duration, complexity, and source files.",
       pricingGroups: [
         {
           title: "Video advertising services with provided content",
@@ -1109,27 +1097,19 @@ const pageCopy = {
             { title: "Each second after the tenth", price: "from +5,99 €" },
           ],
         },
-        {
-          title: "Additional charges and rights",
-          items: [
-            { title: "On-site work with the client", price: "+20%" },
-            { title: "White-label execution / no author credit", price: "from 19,99 €" },
-            { title: "Fast order", price: "+25%" },
-            { title: "Express order", price: "+50%" },
-            { title: "Super express order", price: "+75%" },
-            { title: "Non-exclusive licence to use the created content for 1 year", price: "from 49,99 €" },
-            { title: "Exclusive licence to use the created content for 1 year", price: "from 99,99 €" },
-            { title: "Full transfer of economic rights by individual agreement", price: "200% of the project value, but not less than 2799 €" },
-          ],
-        },
       ],
+      contextualLink: {
+        href: "/services/additional-charges-rights",
+        text: "General terms for rights and additional charges are covered separately.",
+        label: "View rights and terms",
+      },
       pricingNote: "",
       processTitle: "Process",
       processSteps: [
         { title: "Context", text: "We define the format, where it will be used, which files exist, and what timing is actually needed." },
-        { title: "Scope", text: "We organise duration, the type of animation or video editing, the required adaptations, and the usage-rights framework." },
+        { title: "Scope", text: "We organise duration, the type of animation or video editing, and the required adaptations." },
         { title: "Development", text: "We build the advertising material with a clear rhythm, clean visual logic, and control over the final perception." },
-        { title: "Delivery", text: "We deliver the final material in the agreed format with clarity on rights, usage period, and future applications." },
+        { title: "Delivery", text: "We deliver the final material in the agreed format." },
       ],
       ctaTitle: "If the advertising format needs to be clear before launch, start here.",
       ctaText: "Send the type of advertising needed, which files exist, where it will be used, and the deadline. From there we align the real scope.",
@@ -1137,23 +1117,23 @@ const pageCopy = {
       secondaryCta: "Explore projects",
     },
     additionalChargesRightsService: {
-      metaTitle: "Additional Charges and Rights",
+      metaTitle: "Rights, Charges and Additional Terms",
       metaDescription:
-        "Separate scope for additional charges, priority orders, white-label work, and usage rights for created content.",
-      title: "Additional Charges and Rights",
+        "Information about additional charges, priority orders, white-label work, and usage rights for created content.",
+      title: "Rights, Charges and Additional Terms",
       intro:
-        "When a project requires a faster timeline, a separate working mode, or specific usage rights, these frameworks are aligned separately from the core service.",
+        "This page summarises terms, rights, and additional charges that may apply alongside a core service when the project requires them.",
       sections: [
-        { title: "What belongs here", text: "This is a separate scope for priority handling, white-label work, on-site client work, and licensing or legal terms around delivery of the created content." },
+        { title: "What is covered here", text: "This page brings together terms for priority handling, work without author credit, on-site work with the client, and usage rights for created content." },
         { title: "Priority orders", text: "When the timeline needs to be shortened, we apply a separate framework based on the level of acceleration and its impact on the working process." },
         { title: "White-label and on-site work", text: "When the project needs to be delivered without author credit or requires physical work with the client on site, this is priced separately." },
         { title: "Usage rights", text: "Not every service automatically includes extended or exclusive rights. When the project requires it, rights are aligned as a standalone scope." },
         { title: "Full transfer", text: "A full transfer of rights is a significantly broader framework because it affects future use, control, and the underlying value of the project itself." },
-        { title: "Why it is separate", text: "These charges are not secondary details. They directly affect the timeline, working model, and the way the content may be used after delivery." },
+        { title: "How these terms apply", text: "These terms are considered alongside the core service and are not a standalone production service." },
       ],
-      pricingTitle: "Starting ranges for additional charges and rights.",
+      pricingTitle: "Rights and additional terms.",
       pricingText:
-        "This page summarises the separate charges and rights frameworks that may be added to core services when the real project requires them.",
+        "The listed charges and rights apply according to the project and are considered alongside the core service.",
       pricingGroups: [
         {
           title: "Additional charges on services",
@@ -1187,9 +1167,9 @@ const pageCopy = {
         { title: "Confirmation", text: "We confirm separately the terms that go beyond the standard service scope." },
         { title: "Delivery", text: "At final delivery, the rights, limits, and additional terms remain clearly defined, without ambiguity after the project." },
       ],
-      ctaTitle: "If the project needs a separate framework for timing or rights, start here.",
-      ctaText: "Send the core service and clarify whether there is an accelerated deadline, white-label work, or a specific rights requirement. From there we align the framework properly.",
-      primaryCta: "Send rights and timing context",
+      ctaTitle: "Clarify the applicable rights and terms.",
+      ctaText: "Review these terms alongside the scope of the core service.",
+      primaryCta: "Ask about rights and terms",
       secondaryCta: "Explore projects",
     },
     projects: {
@@ -1279,7 +1259,37 @@ const pageCopy = {
 } as const;
 
 export function getPageCopy(locale: Locale) {
-  return pageCopy[locale];
+  const copy = pageCopy[locale];
+  const contentSocialMediaService = {
+    ...copy.contentService,
+    metaTitle: locale === "bg" ? "Съдържание и социални медии" : "Content and Social Media",
+    metaDescription:
+      locale === "bg"
+        ? "Общ преглед на създаването на съдържание и управлението на социални медии с връзки към двата отделни обхвата."
+        : "An overview of content creation and social media management, with links to both separate scopes.",
+    title: locale === "bg" ? "Съдържание и социални медии" : "Content and Social Media",
+    intro:
+      locale === "bg"
+        ? "Тази страница обединява темите за създаване на съдържание и управление на социални медии. Подробностите за всеки обхват са в отделните страници."
+        : "This page brings together content creation and social media management. Details for each scope are available on their separate pages.",
+    sections:
+      locale === "bg"
+        ? [
+            { title: "Създаване на съдържание", text: "Текстове, визуални формати и серии съдържание се подреждат според каналите и начина на употреба." },
+            { title: "Управление на социални медии", text: "Формати, календарна логика и работен ритъм организират присъствието в социалните канали." },
+          ]
+        : [
+            { title: "Content creation", text: "Copy, visual formats, and content series are organised around the channels and how they are used." },
+            { title: "Social media management", text: "Formats, calendar logic, and a working rhythm organise presence across social channels." },
+          ],
+    pricingTitle: locale === "bg" ? "Начални рамки за социални формати" : "Starting ranges for social formats",
+    pricingText:
+      locale === "bg"
+        ? "Показаните стойности се отнасят до съществуващите визуални формати за социални мрежи; останалият обхват се разглежда в съответната услуга."
+        : "The ranges shown apply to the existing visual formats for social media; the remaining scope is described on the relevant service page.",
+  };
+
+  return { ...copy, contentSocialMediaService };
 }
 
 undefined

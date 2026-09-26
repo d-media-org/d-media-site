@@ -48,7 +48,7 @@ const bg: AuthorityService[] = [
     metaTitle: "Уеб дизайн за ясни и приложими сайтове",
     metaDescription: "Уеб дизайн от d . media за корпоративни сайтове, портфолиа и страници за кампания или услуга с ясна структура, UX логика и бранд последователност.",
     title: "Уеб дизайн",
-    intro: "Проектираме сайтове като част от бранд системата: с ясна информационна архитектура, последователен интерфейс и конкретна следваща стъпка за потребителя.",
+    intro: "Проектираме информационната структура, потребителския поток и визуалния интерфейс на сайта. Техническата реализация е описана отделно в обхвата за уеб разработка.",
     sections: [
       { title: "Информационна архитектура", text: "Подреждаме услугите, доказателствата, съдържанието и контактните точки така, че сайтът да бъде разбираем още при първото посещение." },
       { title: "Потребителски поток", text: "Определяме логичен път от първото обещание до конкретно действие, без конкуриращи се сигнали и декоративни препятствия." },
@@ -87,7 +87,7 @@ const bg: AuthorityService[] = [
     metaTitle: "Уеб разработка и стабилна техническа архитектура",
     metaDescription: "Уеб разработка от d . media за бързи, достъпни и поддържаеми сайтове с подходяща технология, интеграции и архитектура с фокус върху скоростта.",
     title: "Уеб разработка",
-    intro: "Разработваме сайтове и дигитални платформи с технология, избрана според реалния проект, а не според предварително ограничение към един технологичен стек или доставчик.",
+    intro: "Реализираме техническата архитектура, интерфейса и интеграциите на сайтове и дигитални платформи според нуждите на проекта. Проектирането на структурата и визуалния интерфейс е отделният обхват за уеб дизайн.",
     sections: [
       { title: "Техническа архитектура", text: "Избираме модел на зареждане, слой за съдържание, хостинг и процес за публикуване според съдържанието, динамиката и поддръжката." },
       { title: "Разработка на интерфейса", text: "Изграждаме семантични, адаптивни и достъпни интерфейси с минимален излишен JavaScript." },
@@ -134,7 +134,7 @@ const bg: AuthorityService[] = [
       { title: "Международно SEO", text: "Проверяваме реципрочните hreflang връзки, езиковите URL адреси и липсата на невалидни езикови алтернативи към несъществуващо съдържание." },
       { title: "Структурирани данни", text: "Валидираме Organization, Service, Article, BreadcrumbList, FAQPage и CreativeWork спрямо видимото съдържание." },
       { title: "Вътрешни връзки", text: "Свързваме услуги, статии и казуси по тема и потребителско намерение, без осиротели страници." },
-      { title: "Сигнали за производителност", text: "Проверяваме техническите фактори, които влияят на crawling, rendering и потребителското преживяване." },
+      { title: "Сигнали за скорост и визуализиране", text: "Проверяваме факторите, които влияят на обхождането и визуализирането на страниците; цялостната оптимизация на скоростта е отделен обхват." },
     ],
     integrationsTitle: "Техническа SEO система",
     integrationsText: "Техническото SEO работи само когато архитектура, съдържание, скорост и наблюдение се разглеждат заедно.",
@@ -165,7 +165,7 @@ const bg: AuthorityService[] = [
     metaTitle: "GEO и видимост в AI търсене",
     metaDescription: "GEO от d . media за по-ясно разбиране на бранда в AI търсене, съдържание за цитиране, структурирани данни и последователни публични сигнали.",
     title: "GEO и видимост в AI търсене",
-    intro: "Подреждаме съдържанието и публичните сигнали така, че AI системите да разбират по-точно кой е брандът, какво предлага и кои източници подкрепят това описание.",
+    intro: "Подреждаме съдържанието и публичните сигнали така, че AI системите да разбират по-точно кой е брандът, какво предлага и кои източници подкрепят това описание. Техническите проверки за обхождане и индексиране са отделен SEO обхват.",
     sections: [
       { title: "Яснота на публичните сигнали", text: "Определяме основната организация, услугите, темите, локацията и устойчивите отношения между тях." },
       { title: "Съдържание, готово за цитиране", text: "Създаваме ясни дефиниции, конкретни методологии, доказуеми казуси и отговори, които могат да бъдат извлечени без догадки." },
@@ -215,7 +215,7 @@ const bg: AuthorityService[] = [
       { title: "Контрол върху регресиите", text: "След всяка промяна повтаряме build, проверка на ключови страници и device проверки, защото единичен резултат не доказва стабилност." },
     ],
     integrationsTitle: "Производителност без орязване",
-    integrationsText: "Целта е устойчив сайт, не празна страница с висок лабораторен резултат.",
+    integrationsText: "Целта е устойчив сайт, не празна страница с висок лабораторен резултат. Текущите обновявания и поддръжката са отделен обхват.",
     integrationGroups: [
       { title: "Core Web Vitals", text: "Работим по причините за LCP, CLS и INP, а не по визуално прикриване на симптомите." },
       { title: "Мобилна стабилност", text: "Проверяваме памет, галерии, lightbox изгледи и embedded browsers, където ресурсните ограничения са по-строги." },
@@ -254,7 +254,7 @@ const bg: AuthorityService[] = [
       { title: "Документация", text: "Поддържаме release история, конфигурация и процедури така, че системата да не зависи от паметта на един човек." },
     ],
     integrationsTitle: "Поддръжка според реалната среда",
-    integrationsText: "Обхватът може да включва Cloudflare, Vercel, CMS, онлайн търговия, аналитика и други системи според конкретния проект.",
+    integrationsText: "Обхватът може да включва Cloudflare, Vercel, CMS, онлайн търговия, аналитика и други системи според конкретния проект. Специализираната оптимизация на скоростта е отделен обхват.",
     integrationGroups: [
       { title: "Процес за публикуване", text: "Използваме последователност от изграждане, преглед, QA и публикуване вместо директни непроверени промени." },
       { title: "Отговорности и достъпи", text: "Достъпите, домейнът, хостингът и хранилищата на кода остават подредени и проследими." },
@@ -320,7 +320,7 @@ const englishDetails: Record<string, { sections: Section[]; groups: Section[] }>
       { title: "International SEO", text: "We verify reciprocal hreflang relationships and prevent alternates that point to content that does not exist." },
       { title: "Structured data", text: "Organization, Service, Article, BreadcrumbList, FAQPage, and CreativeWork markup is validated against visible content." },
       { title: "Internal linking", text: "Services, articles, and case studies are connected by topic and intent without orphan pages." },
-      { title: "Performance signals", text: "We inspect technical factors that affect crawling, rendering, and user experience." },
+      { title: "Speed and rendering signals", text: "We inspect factors that affect crawling and page rendering; broader speed optimization is a separate scope." },
     ],
     groups: [
       { title: "Google Search Console", text: "Indexing, sitemap, and URL inspection reports are diagnostic signals, not substitutes for inspecting the website itself." },
@@ -378,12 +378,117 @@ const englishDetails: Record<string, { sections: Section[]; groups: Section[] }>
   },
 };
 
+const englishProcess: Record<string, Section[]> = {
+  "web-design": [
+    { title: "Context", text: "We clarify the audience, goals, content, languages, functionality, and constraints." },
+    { title: "Architecture", text: "We organise pages, navigation, relationships, and the key user flows." },
+    { title: "System", text: "We develop the visual and component logic around real content." },
+    { title: "Review", text: "We check responsive behaviour, readability, accessibility, and readiness for development." },
+  ],
+  "web-development": [
+    { title: "Technical context", text: "We clarify content, integrations, editorial workflow, traffic, and ownership." },
+    { title: "Architecture", text: "We select the technology, data flow, publishing process, and component model." },
+    { title: "Development", text: "We build, integrate, and test functionality in small, controlled steps." },
+    { title: "QA and publishing", text: "We check browsers, devices, accessibility, SEO, performance, and rollback readiness." },
+  ],
+  "technical-seo": [
+    { title: "Crawl", text: "We collect URLs, statuses, metadata, canonical signals, language versions, structured data, and internal links." },
+    { title: "Priorities", text: "We separate indexing blockers from improvements without direct risk." },
+    { title: "Correction", text: "We address the cause in templates, routing, or the data layer instead of fixing URLs one by one." },
+    { title: "Validation", text: "We repeat the crawl, build, and live checks, then monitor Search Console after publication." },
+  ],
+  geo: [
+    { title: "Review of the public description", text: "We review how the website and external sources describe d . media and its services." },
+    { title: "Knowledge map", text: "We identify missing relationships between services, topics, evidence, and internal links." },
+    { title: "Implementation", text: "We improve content, structured data, topic hubs, llms guidance, and consistency." },
+    { title: "Review", text: "We check crawling, indexing, and how different AI systems describe the brand over time." },
+  ],
+  "performance-optimization": [
+    { title: "Measurement", text: "We establish a baseline for key pages, assets, and devices." },
+    { title: "Profiling", text: "We identify the actual bottleneck in the network, rendering, memory, or main thread." },
+    { title: "Optimization", text: "We apply small, measurable changes in priority order." },
+    { title: "Stress checks", text: "We repeat navigation, scrolling, reload, and gallery scenarios in the relevant browser engines." },
+  ],
+  "technical-support": [
+    { title: "Onboarding", text: "We document the system, access, critical routes, and current risks." },
+    { title: "Baseline", text: "We check the build, dependencies, publishing, monitoring, and backup readiness." },
+    { title: "Working rhythm", text: "We define the channel, priority, release cycle, and acceptance criteria." },
+    { title: "Traceability", text: "Each change remains traceable through its commit, publication, and a brief verification." },
+  ],
+};
+
+const englishFaqs: Record<string, { question: string; answer: string }[]> = {
+  "web-design": [
+    { question: "Does web design include development?", answer: "It can be a standalone scope or part of an integrated project. When development is included, design decisions are checked in the working environment." },
+    { question: "Do you work only with Astro?", answer: "No. Technology is selected according to the project, maintenance needs, integrations, and the client's environment." },
+    { question: "Can you work with an existing identity?", answer: "Yes. We first check whether the system has clear enough rules for consistent use on the website." },
+    { question: "How do you avoid a template-like result?", answer: "By working with real content, brand logic, and the specific user flow rather than decoratively changing a ready-made template." },
+  ],
+  "web-development": [
+    { question: "Can you work with technology selected by the client?", answer: "Yes, when it fits the goals and maintenance needs. If it creates a demonstrable risk, we explain the trade-off before work starts." },
+    { question: "Do you develop WordPress sites and online stores?", answer: "Yes, when a CMS or commerce model is the right choice for the project. The work is not limited to Astro and Cloudflare." },
+    { question: "Who owns the project?", answer: "Ownership, access, and rights are defined within the scope so the client is not left with an unclear technical dependency." },
+    { question: "Is maintenance included?", answer: "Maintenance can be agreed as a separate ongoing scope after publication." },
+  ],
+  "technical-seo": [
+    { question: "Does technical SEO guarantee rankings?", answer: "No. It removes technical barriers and makes content easier to interpret, but rankings also depend on quality, competition, reputation, and external signals." },
+    { question: "Does a website need a sitemap?", answer: "Most structured websites benefit from one, but a sitemap does not replace crawlable internal links or a correct canonical model." },
+    { question: "Does structured data automatically produce rich results?", answer: "No. Structured data can help systems understand a page and its eligibility, but Google decides whether and how to show a rich result." },
+    { question: "Can you work with an existing website?", answer: "Yes. An audit can be carried out on the current system without a redesign." },
+  ],
+  geo: [
+    { question: "Does GEO replace SEO?", answer: "No. GEO extends the work to AI search and clearer interpretation of the brand, while relying on a sound SEO and content foundation." },
+    { question: "Is llms.txt a ranking factor?", answer: "No. It is a proposed format for helping AI tools navigate information, not an official Google ranking factor." },
+    { question: "Can AI citations be guaranteed?", answer: "No. We can improve clarity, access, and evidence, but each system chooses its own sources." },
+    { question: "How is progress assessed?", answer: "Through crawl and indexing coverage, consistency of the public description, branded searches, independent mentions, and periodic controlled AI checks." },
+  ],
+  "performance-optimization": [
+    { question: "Do you guarantee a permanent score of 100?", answer: "No. PageSpeed varies with the test environment, network, and external factors. The goal is stable real-world performance and controlled regressions." },
+    { question: "Do images need to be removed?", answer: "Not by default. The appropriate approach is responsive delivery, correct dimensions, suitable formats, and controlled loading." },
+    { question: "Can the original brand font remain?", answer: "Yes. Brand typography can be preserved with optimized local files and careful loading behaviour." },
+    { question: "Do you test Safari?", answer: "Yes, when an issue involves WebKit or iOS, testing should use the same browser engine rather than Chromium alone." },
+  ],
+  "technical-support": [
+    { question: "Do you maintain websites built by another team?", answer: "Yes, after a technical review of the code, platform, access, and accumulated risk." },
+    { question: "Does maintenance include new features?", answer: "Small changes may be included; larger features are scoped as separate project work." },
+    { question: "How are critical issues handled?", answer: "According to the agreed priority, available access, and whether a safe rollback is possible." },
+    { question: "Do you work only with Cloudflare?", answer: "No. Support follows the existing infrastructure and may include other hosting providers and platforms." },
+  ],
+};
+
+const englishIntegrationCopy: Record<string, { title: string; text: string }> = {
+  "web-design": {
+    title: "Connected disciplines",
+    text: "Web design connects brand identity, content structure, interface decisions, and readiness for implementation.",
+  },
+  "web-development": {
+    title: "Technology choice",
+    text: "The implementation approach is selected for the content, required integrations, publishing process, and maintenance needs.",
+  },
+  "technical-seo": {
+    title: "Technical SEO system",
+    text: "Technical SEO addresses crawling, indexing, canonical relationships, structured data, and internal links; it does not replace broader speed optimization.",
+  },
+  geo: {
+    title: "GEO is not a shortcut",
+    text: "GEO builds on useful content, technical SEO, a consistent public description, and external trust. llms.txt is a proposed aid, not a ranking guarantee.",
+  },
+  "performance-optimization": {
+    title: "Performance without cutting content",
+    text: "The goal is a stable website, not an empty page with a high lab score. Ongoing platform and dependency maintenance belongs to technical support.",
+  },
+  "technical-support": {
+    title: "Support around the real environment",
+    text: "Support focuses on ongoing updates, monitoring, incidents, and controlled releases; dedicated performance optimization is a separate scope.",
+  },
+};
+
 const en: AuthorityService[] = bg.map((service) => {
   const translations: Record<string, Pick<AuthorityService, "metaTitle" | "metaDescription" | "title" | "intro" | "ctaTitle" | "ctaText" | "primaryCta">> = {
-    "web-design": { metaTitle: "Web Design for Clear, Usable Websites", metaDescription: "Web design by d . media for corporate websites, portfolios, and landing pages with clear architecture, UX logic, and brand consistency.", title: "Web Design", intro: "We design websites as part of the brand system, with clear information architecture, consistent interface logic, and a specific next step for the user.", ctaTitle: "If the website needs a clear visual and UX system, start with context.", ctaText: "Send the goal, available content, required pages, and current brand foundation.", primaryCta: "Send web design context" },
-    "web-development": { metaTitle: "Web Development and Stable Technical Architecture", metaDescription: "Web development by d . media for fast, accessible, maintainable websites with the appropriate stack, integrations, and performance-first architecture.", title: "Web Development", intro: "We develop websites and digital platforms with technology selected for the actual project, rather than restricting every client to one stack or provider.", ctaTitle: "If the project requires stable development, start with technical context.", ctaText: "Send the required functionality, content, current environment, integrations, and timing.", primaryCta: "Send development context" },
+    "web-design": { metaTitle: "Web Design for Clear, Usable Websites", metaDescription: "Web design by d . media for corporate websites, portfolios, and landing pages with clear architecture, UX logic, and brand consistency.", title: "Web Design", intro: "We design the information structure, user flow, and visual interface of a website. Technical implementation is described separately under web development.", ctaTitle: "If the website needs a clear visual and UX system, start with context.", ctaText: "Send the goal, available content, required pages, and current brand foundation.", primaryCta: "Send web design context" },
+    "web-development": { metaTitle: "Web Development and Stable Technical Architecture", metaDescription: "Web development by d . media for fast, accessible, maintainable websites with the appropriate stack, integrations, and performance-first architecture.", title: "Web Development", intro: "We implement the technical architecture, interface, and integrations for websites and digital platforms around the project. Visual and information design is described separately under web design.", ctaTitle: "If the project requires stable development, start with technical context.", ctaText: "Send the required functionality, content, current environment, integrations, and timing.", primaryCta: "Send development context" },
     "technical-seo": { metaTitle: "Technical SEO for Crawling, Indexing, and Clear Structure", metaDescription: "Technical SEO by d . media covering crawlability, indexing, canonical, hreflang, sitemaps, structured data, internal links, and performance checks.", title: "Technical SEO", intro: "We organise the technical signals that allow search engines to discover, understand, and index the correct pages without unnecessary duplicates.", ctaTitle: "If important pages are not indexed correctly, start with a technical crawl.", ctaText: "Send the domain, platform, and available Search Console signals.", primaryCta: "Send SEO context" },
-    geo: { metaTitle: "GEO and Visibility in AI Search", metaDescription: "GEO by d . media for clearer entity understanding, AI citation readiness, content architecture, structured data, and consistent public signals.", title: "GEO and AI Visibility", intro: "We organise content and entity signals so AI systems can understand more accurately who the brand is, what it offers, and which sources support that description.", ctaTitle: "If AI systems describe the brand too narrowly, start with an entity audit.", ctaText: "Send the domain, intended positioning, and examples of current AI answers.", primaryCta: "Send GEO context" },
+    geo: { metaTitle: "GEO and Visibility in AI Search", metaDescription: "GEO by d . media for clearer entity understanding, AI citation readiness, content architecture, structured data, and consistent public signals.", title: "GEO and AI Visibility", intro: "We organise content and public signals so AI systems can better understand who the brand is, what it offers, and which sources support that description. Technical crawling and indexing checks belong to the separate SEO scope.", ctaTitle: "If AI systems describe the brand too narrowly, start with an entity audit.", ctaText: "Send the domain, intended positioning, and examples of current AI answers.", primaryCta: "Send GEO context" },
     "performance-optimization": { metaTitle: "Performance Optimization and Core Web Vitals", metaDescription: "Performance optimization by d . media for LCP, CLS, INP, images, fonts, JavaScript, caching, and stable mobile behaviour.", title: "Performance Optimization", intro: "We optimize websites through measurement, asset discipline, and architectural decisions without removing content or identity merely to improve a laboratory score.", ctaTitle: "If the website is slow or unstable, start with a measurable baseline.", ctaText: "Send the URL, affected devices, and available PageSpeed or crash data.", primaryCta: "Send performance context" },
     "technical-support": { metaTitle: "Technical Support for Websites and Digital Platforms", metaDescription: "Technical support by d . media for updates, monitoring, content changes, integrations, incident response, and controlled releases.", title: "Technical Support", intro: "We maintain websites as working systems through controlled changes, pre-release checks, and a clear response to real incidents.", ctaTitle: "If the website needs controlled support, start with a technical review.", ctaText: "Send the platform, hosting environment, current issues, and expected working rhythm.", primaryCta: "Send support context" },
   };
@@ -392,22 +497,12 @@ const en: AuthorityService[] = bg.map((service) => {
     ...service,
     ...t,
     sections: englishDetails[service.slug].sections,
-    integrationsTitle: "Connected systems and methodology",
-    integrationsText: "The service is delivered as part of a wider system connecting brand, content, technology, search visibility, and maintainability.",
+    integrationsTitle: englishIntegrationCopy[service.slug].title,
+    integrationsText: englishIntegrationCopy[service.slug].text,
     integrationGroups: englishDetails[service.slug].groups,
     ...commonEn,
-    processSteps: [
-      { title: "Context", text: "We establish the current state, goals, constraints, ownership, and measurable outcome." },
-      { title: "Architecture", text: "We define the information, technical, and operational relationships required by the scope." },
-      { title: "Implementation", text: "We apply controlled changes in the appropriate content, code, platform, and delivery layers." },
-      { title: "Validation", text: "We repeat build, crawl, device, and production checks before considering the work complete." },
-    ],
-    faqs: [
-      { question: `How does a ${t.title.toLowerCase()} engagement begin?`, answer: "We start with the current state, intended outcome, available access, constraints, and the evidence needed to define a responsible scope." },
-      { question: "Is the work limited to Astro or Cloudflare?", answer: "No. Technology and infrastructure are selected according to the project, existing environment, maintenance model, and client requirements." },
-      { question: "Can this be applied to an existing website?", answer: "Yes. The work can begin with an existing platform and does not require a redesign unless the evidence shows that structural change is necessary." },
-      { question: "Does this guarantee rankings or AI citations?", answer: "No. We improve technical access, clarity, consistency, and evidence. Search engines and generative systems retain control over rankings, presentation, and source selection." },
-    ],
+    processSteps: englishProcess[service.slug],
+    faqs: englishFaqs[service.slug],
   };
 });
 
