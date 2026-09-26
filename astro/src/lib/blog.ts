@@ -444,13 +444,13 @@ const publishedBgPosts: readonly BlogPost[] = [
   createScaffoldPost({
     slug: "kak-postignahme-100-100-v-google-pagespeed-insights",
     category: "web-presence",
-    title: "Как постигнахме 100/100 в Google PageSpeed Insights",
+    title: "Архитектурата зад PageSpeed резултатите на d-media.org",
     excerpt:
-      "Практическите решения зад производителността на d-media.org и защо високият резултат е следствие от архитектура, а не от една настройка.",
+      "Архитектурните решения зад документираните PageSpeed стойности на d-media.org и ограниченията на тези данни.",
     intro:
-      "Високият резултат в PageSpeed не идва от един плъгин и не е козметичен показател. Той е следствие от добри решения в архитектурата, ресурсите, типографията и публикуването.",
+      "По-ранната документация записва PageSpeed стойности за d-media.org. Те не са текущо измерване; статията разглежда архитектурните решения и ограниченията на наличните данни.",
     metaDescription:
-      "Архитектурните и техническите решения зад 100/100 PageSpeed резултатите на d-media.org: Astro, Cloudflare Pages, оптимизирани ресурси и статично публикуване.",
+      "Архитектурните решения зад по-ранните документирани PageSpeed стойности на d-media.org и уточнение защо те не са текущо измерване.",
     tags: ["PageSpeed", "Astro", "Cloudflare Pages", "скорост", "уеб сайт"],
     relatedPosts: [
       "zashto-100-100-v-pagespeed-ne-garantira-dobar-sait",
@@ -795,15 +795,15 @@ const draftCaseStudies: readonly BlogPost[] = [
   createScaffoldPost({
     slug: "kak-dostignahme-100-100-100-100-na-d-media-org",
     category: "case-studies",
-    title: "Как достигнахме 100/100/100/100 на d-media.org",
-    excerpt: "Казус за архитектурата, дисциплината при ресурсите и QA процеса зад високите Lighthouse резултати на d-media.org.",
-    intro: "Този казус подрежда скоростта, достъпността, добрите практики и SEO слоя на d-media.org като една обща система, базирана на потвърдените актуални резултати.",
+    title: "Документираните Lighthouse резултати на d-media.org",
+    excerpt: "Казус за архитектурата и запазените по-ранни Lighthouse стойности на d-media.org, без да ги представя като текущи измервания.",
+    intro: "Този казус описва архитектурата на d-media.org и по-ранните документирани Lighthouse стойности. Датиран първичен отчет не е наличен, затова числата не се представят като текущ резултат.",
     metaDescription: "Казус за скоростта, достъпността, добрите практики и SEO слоя на d-media.org без недоказани метрики.",
     tags: ["казус", "скорост", "SEO", "d-media.org"],
     draft: false,
     relatedPosts: ["kak-postignahme-100-100-v-google-pagespeed-insights"],
     ctaTitle: "Казусите за производителност трябва да стъпват върху реални измервания.",
-    ctaText: "Тук показваме само потвърдени резултати и решения, които реално са участвали в текущата архитектура на сайта.",
+    ctaText: "Тук разграничаваме документираните по-ранни стойности от текущо измерване и описваме решенията в архитектурата на сайта.",
   }),
   createScaffoldPost({
     slug: "patyat-do-d-media",
@@ -1119,7 +1119,7 @@ const postSectionOverrides: Record<string, BlogSection[]> = {
     {
       title: "Резултатът започна от архитектурата",
       paragraphs: [
-        "100/100 в PageSpeed не дойде от единична настройка накрая. Той беше резултат от решения още в основата: статично генериране, дисциплина при ресурсите, ограничен runtime и внимателно подбран front-end слой.",
+        "По-ранната документация записва стойности в ред Performance/Accessibility/Best Practices/SEO: 100/100/100/100 за настолни устройства и 98/100/100/100 за мобилни. Няма датиран първичен отчет, затова тези стойности не се представят като текущо измерване. Архитектурният контекст включва статично генериране, контрол върху ресурсите и ограничен JavaScript слой.",
         "Когато скоростта е част от архитектурата, оптимизацията спира да бъде паническа фаза преди публикуване.",
       ],
     },
@@ -1492,7 +1492,7 @@ const postSectionOverrides: Record<string, BlogSection[]> = {
       title: "Контекст",
       paragraphs: [
         "d-media.org беше изграден като собствена платформа на d . media, а не като демонстрационен сайт. Затова скоростта, достъпността, добрите практики и SEO не бяха третирани като финална техническа проверка, а като част от самото позициониране.",
-        "Реално известните публични данни са ясни: desktop резултатът достига 100/100/100/100, а mobile резултатът е 98/100/100/100. Не добавяме конкретни LCP, CLS, INP или други стойности, защото те трябва да се цитират само когато са актуално проверени.",
+        "Наличната документация записва по-ранни стойности в ред Performance/Accessibility/Best Practices/SEO: 100/100/100/100 за настолни устройства и 98/100/100/100 за мобилни. Датиран първичен отчет не е наличен, затова стойностите не се представят като текущи. Не добавяме конкретни LCP, CLS, INP или други показатели без подходящ източник.",
       ],
     },
     {
@@ -1512,8 +1512,8 @@ const postSectionOverrides: Record<string, BlogSection[]> = {
     {
       title: "Резултат",
       paragraphs: [
-        "По-важният резултат не е самата оценка, а фактът, че сайтът остана бърз, четим и по-лесен за реална употреба. Високият Lighthouse резултат има стойност само когато подкрепя възприятието за стабилност и качество.",
-        "Текущите PageSpeed резултати са потвърдени и затова казусът може да стои публично като пример за дисциплина в скоростта, а не като временна лабораторна снимка.",
+        "По-важният контекст е как архитектурата, четимостта и достъпността работят заедно; Lighthouse оценката е само лабораторен показател.",
+        "Тези числа са документирани по-ранни стойности, а не текуща или постоянна оценка. Казусът описва архитектурни решения и не обещава същите резултати при друго измерване.",
       ],
     },
     {
@@ -1728,9 +1728,9 @@ const dMediaFaqOverrides: Record<string, Partial<Record<Locale, BlogFaq[]>>> = {
   "kak-postignahme-100-100-v-google-pagespeed-insights": {
     bg: [
       {
-        question: "Какво стои зад резултата 100/100?",
+        question: "Какви по-ранни стойности са документирани?",
         answer:
-          "Комбинация от статично генериране, контрол върху ресурсите, ограничен runtime и внимателно подбран front-end слой. Резултатът не е добавен като финална настройка.",
+          "В ред Performance/Accessibility/Best Practices/SEO за настолни устройства са записани 100/100/100/100, а за мобилни — 98/100/100/100. Датиран първичен отчет не е наличен; тези стойности не са текущо измерване.",
       },
       {
         question: "Кои ресурси изискваха най-много дисциплина?",
@@ -1757,9 +1757,9 @@ const dMediaFaqOverrides: Record<string, Partial<Record<Locale, BlogFaq[]>>> = {
   "kak-dostignahme-100-100-100-100-na-d-media-org": {
     bg: [
       {
-        question: "Какъв е провереният резултат за d-media.org?",
+        question: "Какви по-ранни Lighthouse стойности са документирани за d-media.org?",
         answer:
-          "Публично потвърденият резултат е 100/100/100/100 за desktop и 98/100/100/100 за mobile. Не добавяме отделни LCP, CLS или INP стойности без актуална проверка.",
+          "В ред Performance/Accessibility/Best Practices/SEO документацията записва 100/100/100/100 за настолни устройства и 98/100/100/100 за мобилни. Датиран първичен отчет не е наличен, затова това не се представя като текущ резултат.",
       },
       {
         question: "Кое беше основното предизвикателство?",
@@ -1927,8 +1927,8 @@ const dMediaSectionOverrides: Record<string, Partial<Record<Locale, BlogSection[
       {
         title: "What the score actually records",
         paragraphs: [
-          "The 100/100 result records a combination of static generation, controlled resources, limited runtime, and a deliberately small front-end layer.",
-          "It is not a final score added after the site was designed. The architecture and the visual implementation had to support the same performance requirement.",
+          "Earlier documentation records scores in Performance/Accessibility/Best Practices/SEO order: 100/100/100/100 on desktop and 98/100/100/100 on mobile. No dated primary report is available, so these are not presented as current measurements. The architectural context includes static generation, resource control, and a limited JavaScript layer.",
+          "The scores were not a final setting added after the site was designed; the architecture and visual implementation had to support the same performance requirement.",
         ],
       },
       {
@@ -1964,10 +1964,10 @@ const dMediaSectionOverrides: Record<string, Partial<Record<Locale, BlogSection[
   "kak-dostignahme-100-100-100-100-na-d-media-org": {
     en: [
       {
-        title: "The verified result",
+        title: "Earlier documented scores",
         paragraphs: [
-          "The confirmed result for d-media.org is 100/100/100/100 on desktop and 98/100/100/100 on mobile.",
-          "We keep the claim at those measured values and do not add separate LCP, CLS, or INP numbers without a current verification.",
+          "The available documentation records earlier scores in Performance/Accessibility/Best Practices/SEO order: 100/100/100/100 on desktop and 98/100/100/100 on mobile.",
+          "No dated primary report is available, so these figures are not presented as current or permanent scores. We do not add separate LCP, CLS, or INP values without an appropriate source.",
         ],
       },
       {
@@ -2127,8 +2127,8 @@ const dMediaEnglishFaqOverrides: Record<string, BlogFaq[]> = {
   ],
   "kak-postignahme-100-100-v-google-pagespeed-insights": [
     {
-      question: "What produced the 100/100 result?",
-      answer: "Static generation, controlled resources, limited runtime, and a deliberately small front-end layer worked together to produce the measured result.",
+      question: "Which earlier scores are documented?",
+      answer: "In Performance/Accessibility/Best Practices/SEO order, the documentation records 100/100/100/100 on desktop and 98/100/100/100 on mobile. No dated primary report is available, so these are not current measurements.",
     },
     {
       question: "Which resources needed the most discipline?",
@@ -2149,8 +2149,8 @@ const dMediaEnglishFaqOverrides: Record<string, BlogFaq[]> = {
   ],
   "kak-dostignahme-100-100-100-100-na-d-media-org": [
     {
-      question: "What is the verified d-media.org result?",
-      answer: "The confirmed result is 100/100/100/100 on desktop and 98/100/100/100 on mobile; no extra LCP, CLS, or INP values are claimed without a current check.",
+      question: "Which earlier Lighthouse scores are documented for d-media.org?",
+      answer: "In Performance/Accessibility/Best Practices/SEO order, the available documentation records 100/100/100/100 on desktop and 98/100/100/100 on mobile. No dated primary report is available, so these are not presented as current scores.",
     },
     {
       question: "What was the main constraint?",

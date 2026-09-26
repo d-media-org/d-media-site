@@ -98,7 +98,7 @@ const pageCopy = {
       trustEyebrow: "стандарт",
       trustTitle: "Изградено по същия стандарт, който предлагаме.",
       trustText:
-        "Платформата d-media.org е проектирана, разработена и поддържана от d . media с Astro, Cloudflare, архитектура с фокус върху скоростта и ясна основа за Google и AI търсене. Текущата базова оценка в PageSpeed Insights е 98/100/100/100 на мобилни устройства и 100/100/100/100 на настолни устройства.",
+        "Платформата d-media.org е проектирана, разработена и поддържана от d . media с Astro, Cloudflare, архитектура с фокус върху скоростта и ясна основа за Google и AI търсене. По-ранната документация записва стойности в ред Performance/Accessibility/Best Practices/SEO: 98/100/100/100 на мобилни устройства и 100/100/100/100 на настолни. Няма датиран първичен отчет, затова не ги представяме като текуща оценка.",
       trustCta: "Виж проекта d . media",
       contactEyebrow: "следваща стъпка",
       contactTitle: "Ако обхватът е ясен, продължаваме оттук.",
@@ -729,7 +729,7 @@ const pageCopy = {
       trustEyebrow: "standard",
       trustTitle: "Built on the same standards we offer.",
       trustText:
-        "The d-media.org platform is designed, developed, and continuously improved by d . media with Astro, Cloudflare, performance-first architecture, and a clear SEO/GEO foundation. The current PageSpeed Insights baseline is 98/100/100/100 on mobile and 100/100/100/100 on desktop.",
+        "The d-media.org platform is designed, developed, and continuously improved by d . media with Astro, Cloudflare, performance-first architecture, and a clear SEO/GEO foundation. Earlier documentation records scores in Performance/Accessibility/Best Practices/SEO order: 98/100/100/100 on mobile and 100/100/100/100 on desktop. No dated primary report is available, so these are not presented as current scores.",
       trustCta: "View the d . media case study",
       contactEyebrow: "next step",
       contactTitle: "If the scope is clear, we continue from here.",

@@ -112,7 +112,7 @@ const baseProjectPngArchive = [
     "summary": "Собствената платформа на d . media, изградена като бърз, многоезичен и поддържим сайт с ясна SEO/GEO основа.",
     "context": "Проектът показва как бранд идентичност, съдържание, уеб архитектура, производителност и реално приложение работят в една система.",
     "focus": [
-      "100 Performance, 100 Accessibility, 100 Best Practices и 100 SEO в Lighthouse",
+      "По-ранни Lighthouse стойности (Performance/Accessibility/Best Practices/SEO): мобилно 98/100/100/100; настолно 100/100/100/100",
       "Миграция към Astro и Cloudflare Pages",
       "SEO, GEO и multilingual архитектура за реална употреба",
       "Реални brand applications и архив от 155 motion варианта"
@@ -132,7 +132,7 @@ const baseProjectPngArchive = [
       },
       {
         "title": "Performance",
-        "text": "Финалната линия е стабилно PageSpeed/Lighthouse състояние около 100 Performance, 100 Accessibility, 100 Best Practices и 100 SEO, с възможни моментни флуктуации според измерването."
+        "text": "Наличната документация записва по-ранни стойности в категориите Performance/Accessibility/Best Practices/SEO: 98/100/100/100 на мобилни устройства и 100/100/100/100 на настолни. Датиран първичен отчет не е наличен, затова тези стойности не се представят като текущи или постоянни."
       },
       {
         "title": "Миграция към Astro",
@@ -823,7 +823,7 @@ const baseProjectPngArchive = [
     "featured": false,
     "priority": 999,
     "isCaseStudy": true,
-    "summary": "Визуална идентичност за YouTube канал и видео съдържание.",
+    "summary": "Копродукция на YouTube канал с аудио- и визуални материали, рекламни и графични елементи и постпродукция.",
     "context": "Проектът беше създаден за силно дигитално присъствие, в което знакът и каналната употреба трябва да работят заедно.",
     "focus": [
       "Лого и вариант без текст",
@@ -833,27 +833,27 @@ const baseProjectPngArchive = [
     "caseStudySections": [
       {
         "title": "Начало и формат",
-        "text": "„Сянка от миналото“ стартира през юли 2025 г. като съвместен проект с участието на d . media в изграждането на неговия визуален и аудиовизуален облик. В рамките на активния период са публикувани шест видеоматериала — пет основни теренни епизода и специално издание „Зад кадър“."
+        "text": "„Сянка от миналото“ стартира през юли 2025 г. като копродукция с участието на d . media. В активния период са публикувани шест основни дълги видеа — пет теренни епизода и едно издание „Зад кадър“, както и седем кратки видеа."
       },
       {
-        "title": "Потенциал",
-        "text": "За краткия си активен период каналът достига приблизително 4,8 хил. гледания и 164 абонати. Отделни епизоди показват реален потенциал за достигане до значително по-широка публика. Най-силният резултат е при „Бункерите под планината – част 2“ с над 2100 гледания, като наличните данни показват, че голямата част от аудиторията е достигната чрез препоръчващите механизми на YouTube. Това показва, че самата концепция и тематиката имат потенциал."
+      "title": "Резултати на канала",
+      "text": "За периода 1 юли 2025 г. – 26 септември 2026 г. каналът отчита 5 708 гледания и 435 часа, 1 минута и 54 секунди време на гледане. От тях 5 188 (90,89%) са органични, а 520 (9,11%) са платени и са свързани с популяризирането на епизод 2. Функциите за разглеждане и предложените видеоклипове носят общо 3 378 гледания (59,18%). Нетната промяна в броя на абонатите за периода е +164. Най-гледаното основно видео е „Бункерите под планината – част 2“, публикувано на 31 август 2025 г.: 2 126 гледания и 223 часа и 27 минути гледане. При него 92,38% от гледанията идват от функциите за разглеждане и предложените видеоклипове, 95,63% са от зрители без абонамент, а нетният принос е +27 абоната."
       },
       {
         "title": "Прекъсване на развитието",
-        "text": "Въпреки тези положителни показатели развитието на проекта практически е преустановено. Последната публикация е от 26 октомври 2025 г., което означава близо 11 месеца без ново съдържание. Така не е използван моментът, в който каналът започва да достига аудитория извън собствената си абонатна база, нито е изградена необходимата последователност за устойчиво развитие на поредицата."
+      "text": "Последното основно видео е публикувано на 26 октомври 2025 г. До 26 септември 2026 г. каналът е получил още 1 401 гледания, 133 часа и 56 минути време на гледане и +6 нетни абоната. Тези стойности описват канала за посочения период, без да приписват резултатите на отделен участник."
       },
       {
-        "title": "Основание за оттегляне",
-        "text": "За d . media копродукцията предполага не само участие в създаването на отделни материали, а активно развиващ се проект, последователност и възможност изградената визуална идентичност да бъде използвана като част от дългосрочно съдържателно развитие. При продължителната липса на нови епизоди тази предпоставка вече не е налице."
+        "title": "Участие на d . media",
+      "text": "d . media създава всички аудио-, визуални, рекламни и графични елементи и извършва обработката и постпродукцията на съдържанието за канала. Заснемането не е извършвано от d . media."
       },
       {
         "title": "Решение",
-        "text": "Поради това d . media се оттегля от бъдещото си участие в копродукцията на „Сянка от миналото“. Решението не е оценка, че проектът е неуспешен — наличните резултати по-скоро показват обратното. Причината е продължителното фактическо прекъсване на активното му развитие и липсата на основание студиото да продължава да бъде обвързано като копродуцент с неактивен проект."
+      "text": "d . media прекратява бъдещото си участие като копродуцент на „Сянка от миналото“. Това е решение на d . media за собственото ѝ бъдещо участие."
       },
       {
         "title": "Материали и архив",
-        "text": "d . media запазва положителната си оценка за извършената съвместна работа и няма да ограничава използването на вече създадените и предоставени аудио- и визуални материали, при условие че те се използват във вида, в който са предоставени. По този начин създадената идентичност и архивът на „Сянка от миналото“ могат да останат част от проекта и след прекратяването на копродукцията."
+      "text": "От страна на d . media няма ограничение вече предоставените аудио- и визуални материали да продължат да бъдат използвани във вида, в който са предоставени. Това не заявява прехвърляне на права върху материали на трети лица."
       }
     ],
     "videos": [
@@ -940,7 +940,7 @@ const localizedProjectCopy = {
       summary: "The d . media platform, built as a fast, multilingual, maintainable website with a clear SEO/GEO foundation.",
       context: "The project shows how brand identity, content, web architecture, performance, and real application work as one system.",
       focus: [
-        "100 Performance, 100 Accessibility, 100 Best Practices, and 100 SEO in Lighthouse",
+        "Earlier documented Lighthouse scores (Performance/Accessibility/Best Practices/SEO): 98/100/100/100 on mobile; 100/100/100/100 on desktop",
         "Migration to Astro and Cloudflare Pages",
         "SEO, GEO, and multilingual architecture for real use",
         "Real brand applications and an archive of 155 motion variants",
@@ -960,7 +960,7 @@ const localizedProjectCopy = {
         },
         {
           title: "Performance",
-          text: "The final baseline is a stable PageSpeed/Lighthouse state around 100 Performance, 100 Accessibility, 100 Best Practices, and 100 SEO, with possible momentary measurement fluctuations.",
+          text: "The available documentation records earlier scores for Performance/Accessibility/Best Practices/SEO of 98/100/100/100 on mobile and 100/100/100/100 on desktop. No dated primary report is available, so these scores are not presented as current or permanent.",
         },
         {
           title: "Migration to Astro",
@@ -1238,7 +1238,7 @@ const localizedProjectCopy = {
     },
     "syanka-ot-minaloto": {
       title: "Shadow from the Past",
-      summary: "Visual identity for a YouTube channel and video-led content.",
+      summary: "YouTube channel co-production with audio and visual materials, advertising and graphic elements, plus post-production.",
       context: "The project was created for a strongly digital presence in which the mark and the channel application had to work together.",
       focus: [
         "Logo and a text-free variation",
@@ -1248,27 +1248,27 @@ const localizedProjectCopy = {
       caseStudySections: [
         {
           title: "Origins and format",
-          text: "Shadow from the Past launched in July 2025 as a collaborative project, with d . media taking part in developing its visual and audiovisual identity. During the active period, six videos were published—five main field episodes and a special ‘Behind the Scenes’ edition.",
+          text: "Shadow from the Past launched in July 2025 as a co-production involving d . media. During the active period, six main long-form videos were published—five field episodes and one ‘Behind the Scenes’ edition—along with seven Shorts.",
         },
         {
-          title: "Potential",
-          text: "During its short active period, the channel reached approximately 4.8K views and 164 subscribers. Individual episodes showed potential to reach a significantly wider audience. The strongest result was ‘The Bunkers under the Mountain – Part 2’ with over 2,100 views; the available data shows that most of the audience was reached through YouTube’s recommendation mechanisms. This indicates potential in the concept and subject matter.",
+          title: "Channel results",
+          text: "For 1 July 2025–26 September 2026, the channel recorded 5,708 views and 435 hours, 1 minute, and 54 seconds of watch time. Of these, 5,188 (90.89%) were organic and 520 (9.11%) were paid, associated with promotion of episode 2. Browse features and suggested videos brought 3,378 views (59.18%) combined. Net subscriber change for the period was +164. The most-viewed main video was ‘The Bunkers under the Mountain – Part 2’, published on 31 August 2025: 2,126 views and 223 hours, 27 minutes of watch time. Browse features and suggested videos accounted for 92.38% of its views; 95.63% came from non-subscribed viewers, and it brought a net +27 subscribers.",
         },
         {
           title: "Pause in development",
-          text: "Despite these positive indicators, the project’s development has effectively stopped. The last publication was on 26 October 2025, meaning almost 11 months without new content. As a result, the moment when the channel began reaching viewers beyond its subscriber base was not used, and the consistency needed for the series’ sustained development was not established.",
+          text: "The last main video was published on 26 October 2025. By 26 September 2026, the channel had received another 1,401 views, 133 hours and 56 minutes of watch time, and a net +6 subscribers. These figures describe the channel during that period and do not attribute the results to any one participant.",
         },
         {
-          title: "Reason for withdrawal",
-          text: "For d . media, co-production means not only contributing to individual materials, but also an actively developing project, consistency, and the possibility for the visual identity to support long-term content development. With the prolonged absence of new episodes, that premise no longer applies.",
+          title: "d . media's contribution",
+          text: "d . media created all audio, visual, advertising, and graphic elements, and handled the processing and post-production of the channel content. Filming was not carried out by d . media.",
         },
         {
           title: "Decision",
-          text: "For this reason, d . media is withdrawing from future co-production of Shadow from the Past. This is not an assessment that the project failed—the available results indicate otherwise. The reason is the prolonged factual interruption of its active development and the lack of grounds for the studio to remain bound as co-producer to an inactive project.",
+          text: "d . media is ending its future participation as a co-producer of Shadow from the Past. This is d . media’s decision about its own future involvement.",
         },
         {
           title: "Materials and archive",
-          text: "d . media retains a positive view of the work completed together and will not restrict use of the audio and visual materials already created and supplied, provided they are used in the form in which they were supplied. The identity and archive of Shadow from the Past can therefore remain part of the project after co-production ends.",
+          text: "d . media does not restrict continued use of audio and visual materials already supplied by d . media, in the form in which they were supplied. This does not state a transfer of rights to materials belonging to third parties.",
         },
       ],
       links: [

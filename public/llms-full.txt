@@ -142,7 +142,7 @@ Important article examples:
 - Why we created d . media: https://www.d-media.org/blog/zashto-sazdadohme-d-media
 - What GEO is and why it will change SEO: https://www.d-media.org/blog/kakvo-e-geo-i-zashto-shte-promeni-seo
 - What llms.txt is and whether a website needs it: https://www.d-media.org/blog/kakvo-e-llms-txt-i-nuzhen-li-e-za-vashiya-sait
-- How d-media.org reached 100/100/100/100: https://www.d-media.org/blog/kak-dostignahme-100-100-100-100-na-d-media-org
+- Documented Lighthouse scores for d-media.org: https://www.d-media.org/blog/kak-dostignahme-100-100-100-100-na-d-media-org
 
 English article equivalents are available under `https://www.d-media.org/en/blog/{slug}/` with the same published slugs and equivalent editorial scope.
 

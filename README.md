@@ -101,15 +101,11 @@ public/fonts/panton-subset/
 
 Текущата Cloudflare версия е статична. Featured projects, announcement и home section visibility използват кодови fallback стойности, без външен runtime config service.
 
-## Current QA Baseline
+## Документирани стойности за производителност
 
-- PageSpeed Insights е постигнал `100` навсякъде след performance pass-а:
-  - Mobile Performance: `100`
-  - Desktop Performance: `100`
-  - Accessibility: `100`
-  - Best Practices: `100`
-  - SEO: `100` за indexable production URL-ите
-- Performance score може да флуктуира между `99` и `100` в отделни PageSpeed lab runs заради Lighthouse/PSI variance, cache/edge timing, latency и FCP/LCP измервания. Това не се третира автоматично като regression, ако няма нов конкретен audit проблем.
+- Наличната документация записва по-ранни PageSpeed Insights стойности в ред Performance/Accessibility/Best Practices/SEO: `98/100/100/100` за мобилни устройства и `100/100/100/100` за настолни.
+- Датиран първичен отчет не е наличен; тези стойности не са текущо измерване и не трябва да се представят като постоянни.
+- Лабораторните резултати могат да се променят според условията на измерване. Разлика сама по себе си не е регресия без установен конкретен проблем.
 - `/projects` legacy секциите имат orientation-aware gallery rendering:
   - `legacy-mockup-card-portrait`
   - `legacy-mockup-card-landscape`

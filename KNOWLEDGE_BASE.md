@@ -578,13 +578,7 @@ Root Next.js endpoint:
 
 ## Производителност
 
-Root `README.md` посочва PageSpeed Insights резултати `100` за:
-
-- Mobile Performance
-- Desktop Performance
-- Accessibility
-- Best Practices
-- SEO за indexable production URL-ите
+Наличната документация записва по-ранни PageSpeed Insights/Lighthouse стойности в ред Performance/Accessibility/Best Practices/SEO: `98/100/100/100` за мобилни устройства и `100/100/100/100` за настолни. Датиран първичен отчет не е наличен, затова тези стойности не са текущо измерване и не се представят като постоянни.
 
 Performance решения, доказуеми от документацията:
 
@@ -597,7 +591,7 @@ Performance решения, доказуеми от документацията
 - cache правила в `public/_headers`;
 - липса на Vercel runtime и Metricool references в Astro output според validation script.
 
-`README.md` посочва, че performance score може да флуктуира между `99` и `100` заради Lighthouse/PSI variance.
+Лабораторните резултати могат да се променят според условията на измерване; разлика сама по себе си не доказва регресия без конкретен установен проблем.
 
 ## Accessibility
 
