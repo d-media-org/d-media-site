@@ -2,6 +2,7 @@
 import BrandText from "@/components/BrandText.astro";
 import Layout from "@/layouts/Layout.astro";
 import { localizeHref, type Locale } from "@/lib/i18n";
+import { getAuthorityServices } from "@/lib/authority-services";
 import { getPageCopy } from "@/lib/page-copy";
 import { getBreadcrumbSchema, getServiceCatalogSchema } from "@/lib/seo";
 import { getSiteContent } from "@/lib/site-content";
@@ -9,6 +10,60 @@ import { getSiteContent } from "@/lib/site-content";
 const locale: Locale = "bg";
 const copy = getPageCopy(locale).services;
 const siteContent = getSiteContent(locale);
+type CatalogEntry = {
+  id: string;
+  title: string;
+  text: string;
+  detailHref: string;
+  detailLabel: string;
+  includes?: string;
+  audience?: string;
+  result?: string;
+};
+const catalogEntries: CatalogEntry[] = siteContent.coreServices
+  .filter((service) => service.id !== "additional-charges-rights" && "detailHref" in service)
+  .map((service) => ({ ...service, detailHref: service.detailHref, detailLabel: service.detailLabel }));
+catalogEntries.push(
+  ...getAuthorityServices(locale)
+    .filter((service) => service.slug === "web-design" || service.slug === "web-development")
+    .map((service) => ({
+      id: service.slug,
+      title: service.title,
+      text: service.intro,
+      detailHref: `/services/${service.slug}`,
+      detailLabel: service.slug === "web-design" ? "Виж обхвата за уеб дизайн" : "Виж обхвата за уеб разработка",
+    })),
+);
+const catalogById = Object.fromEntries(catalogEntries.map((service) => [service.id, service]));
+const serviceGroups = [
+  { title: "Бранд и дизайн", primaryId: "brand-identity", items: [{ id: "graphic-design" }] },
+  {
+    title: "Съдържание и комуникация",
+    primaryId: "content",
+    items: [
+      { id: "social-media-management" },
+      { id: "advertising" },
+    ],
+  },
+  {
+    title: "Уеб",
+    primaryId: "web-design-development",
+    items: [
+      { id: "web-design" },
+      { id: "web-development" },
+    ],
+  },
+  {
+    title: "Видимост и поддръжка",
+    items: [
+      { id: "technical-seo" },
+      { id: "geo" },
+      { id: "performance-optimization" },
+      { id: "technical-support" },
+    ],
+  },
+];
+const rightsEntry = siteContent.coreServices.find((service) => service.id === "additional-charges-rights");
 const serviceIconPaths: Record<string, string> = {
   "brand-identity": "M12 3.5a8.5 8.5 0 1 0 0 17 8.5 8.5 0 0 0 0-17Zm0 4.5v8m-4-4h8",
   "graphic-design": "M5 5h14v14H5zM9 9h6v6H9z",
@@ -42,23 +97,44 @@ const serviceIconPaths: Record<string, string> = {
           <BrandText text={copy.text} />
         </p>
       </div>
-      <div class="showcase-grid service-card-grid">
-        {siteContent.coreServices.map((service) => (
-          <article class="card service-category-card">
-            <span class="mp-service-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d={serviceIconPaths[service.id] ?? serviceIconPaths["additional-charges-rights"]} /></svg>
-            </span>
-            <h2>{service.title}</h2>
-            <p>{service.text}</p>
-            <p><strong>{copy.includes}:</strong> {service.includes}</p>
-            <p><strong>{copy.audience}:</strong> {service.audience}</p>
-            <p><strong>{copy.result}:</strong> {service.result}</p>
-            {"detailHref" in service ? (
-              <a class="inline-link" href={localizeHref(locale, service.detailHref)}>{service.detailLabel}</a>
-            ) : null}
-          </article>
-        ))}
-      </div>
+      {serviceGroups.map((group) => (
+        <section class="page-subheading">
+          <h2>{group.title}</h2>
+          {group.primaryId && catalogById[group.primaryId] ? (
+            <article class="card service-category-card">
+              <span class="mp-service-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d={serviceIconPaths[group.primaryId]} /></svg>
+              </span>
+              <h3>{catalogById[group.primaryId].title}</h3>
+              <p>{catalogById[group.primaryId].text}</p>
+              {catalogById[group.primaryId].includes ? <p><strong>{copy.includes}:</strong> {catalogById[group.primaryId].includes}</p> : null}
+              {catalogById[group.primaryId].audience ? <p><strong>{copy.audience}:</strong> {catalogById[group.primaryId].audience}</p> : null}
+              {catalogById[group.primaryId].result ? <p><strong>{copy.result}:</strong> {catalogById[group.primaryId].result}</p> : null}
+              <a class="inline-link" href={localizeHref(locale, catalogById[group.primaryId].detailHref)}>{catalogById[group.primaryId].detailLabel}</a>
+            </article>
+          ) : null}
+          {group.items.length > 0 ? (
+            <ul>
+              {group.items.map((item) => {
+                const service = catalogById[item.id];
+                return service ? (
+                  <li>
+                    <a class="inline-link" href={localizeHref(locale, service.detailHref)}>{service.title}</a>
+                    <p>{service.text}</p>
+                  </li>
+                ) : null;
+              })}
+            </ul>
+          ) : null}
+        </section>
+      ))}
+      {rightsEntry ? (
+        <aside class="page-subheading">
+          <h2>Обхват, права и допълнителни условия</h2>
+          <p>{rightsEntry.text}</p>
+          <a class="inline-link" href={localizeHref(locale, rightsEntry.detailHref)}>{rightsEntry.detailLabel}</a>
+        </aside>
+      ) : null}
       <article class="card services-cta-card">
         <div class="services-cta-copy">
           <h2>{copy.ctaTitle}</h2>
