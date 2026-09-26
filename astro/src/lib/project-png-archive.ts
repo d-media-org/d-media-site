@@ -185,12 +185,11 @@ const baseProjectPngArchive = [
     ],
     "featured": true,
     "priority": 1,
-    "summary": "Beauty идентичност, представена през основните прозрачни logo варианти.",
-    "context": "Текущият архив пази чистата основа на знака в оригинална, тъмна и светла версия, без приложните файлове от по-късни формати.",
+    "summary": "Визуалната идентичност на Yanita е представена чрез знака и подаръчни карти.",
+    "context": "Галерията включва три варианта на знака и две подаръчни карти.",
     "focus": [
-      "Оригинален прозрачен знак",
-      "Черна прозрачна версия",
-      "Бяла прозрачна версия"
+      "Три варианта на знака",
+      "Две подаръчни карти"
     ]
   },
   {
@@ -287,7 +286,7 @@ const baseProjectPngArchive = [
     "featured": true,
     "priority": 3,
     "summary": "Корпоративна идентичност за втори бранд в рамките на същата счетоводна дейност.",
-    "context": "Подборът е сведен до двата прозрачни основни файла, които пазят най-чисто връзката със Support Account и отделното позициониране на групата.",
+    "context": "Галерията показва основни варианти на знака и логотипа, заедно с две визуализации.",
     "focus": [
       "Прозрачен логотип за корпоративна употреба",
       "Комбиниран прозрачен знак за директно приложение",
@@ -556,12 +555,12 @@ const baseProjectPngArchive = [
     ],
     "featured": false,
     "priority": 999,
-    "summary": "Ранен етап от идентичност за гримьорски услуги.",
-    "context": "Този проект поставя първата визуална основа преди по-късното развитие на бранда в по-завършена посока.",
+    "summary": "Начална визуална идентичност за услуги по грим.",
+    "context": "Галерията показва два варианта на знака, две визитки и визуализация с продукти.",
     "focus": [
-      "Първоначален logo asset",
-      "Връзка с по-късната еволюция към TS makeup",
-      "Начална beauty визуална рамка"
+      "Два варианта на знака",
+      "Две визитки",
+      "Визуализация с продукти"
     ]
   },
   {
@@ -577,12 +576,12 @@ const baseProjectPngArchive = [
     ],
     "featured": false,
     "priority": 999,
-    "summary": "Идентичност за митническа агенция, представена чрез основния знак и визитките.",
-    "context": "Проектът беше ориентиран към административна и логистична среда, в която четимостта и ясният професионален облик са решаващи.",
+    "summary": "Идентичност за митническа агенция, показана чрез знака, визитките и визуализацията.",
+    "context": "Материалите включват прозрачен вариант на знака, визитки и негова визуализация.",
     "focus": [
-      "Основен прозрачен logo export",
+      "Прозрачен вариант на знака",
       "Визитка — лице и гръб",
-      "Чист знак за професионална среда"
+      "Визуализация на знака"
     ],
     "links": [
       {
@@ -900,7 +899,18 @@ export const projectPngArchive = [
 export const featuredProjectPngs = projectPngArchive.filter((project) => project.featured);
 
 const localizedProjectCopy = {
-  bg: {},
+  bg: {
+    "monika-hristova": {
+      summary: "Дизайн на визитка за Monika Hristova, съчетаващ знак, име и обозначение ColorExpert.",
+      context: "Показаната визитка съчетава графичен знак и името Monika Hristova с обозначението ColorExpert.",
+      focus: ["Графичен знак", "Име и обозначение ColorExpert", "Дизайн на визитка"],
+    },
+    teti: {
+      summary: "Визуални материали за салон, представени чрез визитки, ценова листа и работно време.",
+      context: "Галерията включва четири визитки, ценова листа и информация за работното време на салона.",
+      focus: ["Четири визитки", "Ценова листа", "Работно време на салона"],
+    },
+  },
   en: {
     "apple-community-bulgaria": {
       title: "Apple Community Bulgaria",
@@ -1007,7 +1017,7 @@ const localizedProjectCopy = {
     },
     "support-account-group": {
       summary: "Corporate identity for a second brand within the same accounting activity.",
-      context: "The selection is reduced to the two core transparent files that keep the link to Support Account clear while preserving the group’s separate positioning.",
+      context: "The gallery shows core mark and logotype variants alongside two visualisations.",
       focus: [
         "Transparent logotype for corporate use",
         "Combined transparent mark for direct application",
@@ -1015,12 +1025,11 @@ const localizedProjectCopy = {
       ],
     },
     yanita: {
-      summary: "Beauty identity presented through the core transparent logo versions.",
-      context: "The current archive keeps the sign in its original, dark, and light transparent versions, without the later applied formats.",
+      summary: "Yanita’s visual identity is presented through the mark and gift cards.",
+      context: "The gallery includes three mark variants and two gift cards.",
       focus: [
-        "Original transparent mark",
-        "Black transparent version",
-        "White transparent version",
+        "Three mark variants",
+        "Two gift cards",
       ],
     },
     "zlatimira-u": {
@@ -1121,22 +1130,14 @@ const localizedProjectCopy = {
       ],
     },
     "makeup-by-tsvetomira": {
-      summary: "An early-stage identity for make-up services.",
-      context: "This project established the first visual foundation before the brand evolved into a more developed direction.",
-      focus: [
-        "Initial logo asset",
-        "A link to the later evolution into TS makeup",
-        "An early beauty visual framework",
-      ],
+      summary: "An initial visual identity for make-up services.",
+      context: "The gallery shows two mark variants, two business cards, and a product visualisation.",
+      focus: ["Two mark variants", "Two business cards", "Product visualisation"],
     },
     "mis-18": {
-      summary: "Identity for a customs agency, presented through the primary mark and business cards.",
-      context: "The project was built for an administrative and logistics setting, where legibility and a clear professional image were essential.",
-      focus: [
-        "Primary transparent logo export",
-        "Business card — front and back",
-        "A clean sign for a professional setting",
-      ],
+      summary: "Identity for a customs agency, shown through its mark, business cards, and a visualisation.",
+      context: "The materials include a transparent mark, business cards, and a visualisation of the mark.",
+      focus: ["Transparent mark", "Business card — front and back", "Mark visualisation"],
       links: [
         {
           href: "https://www.customsagencymis.com/",
@@ -1225,23 +1226,15 @@ const localizedProjectCopy = {
       ],
     },
     "monika-hristova": {
-      summary: "A business-card project from the main d . media archive, added from the available PDF source.",
-      context: "The archive shows the available Monika Hristova business-card file as a lightweight web preview for fast browsing on the site.",
-      focus: [
-        "Original file from the project folder",
-        "Optimized web preview for the site",
-        "Business-card material prepared for project browsing",
-      ],
+      summary: "Business-card design for Monika Hristova, combining a mark, her name, and the ColorExpert designation.",
+      context: "The displayed card combines a graphic mark and the name Monika Hristova with the ColorExpert designation.",
+      focus: ["Graphic mark", "Name and ColorExpert designation", "Business-card design"],
     },
     teti: {
       title: "Teti",
-      summary: "A salon visual-material project from the main d . media archive, added with the available business-card and information files.",
-      context: "The archive shows the available files for Teti, prepared as lightweight web images for fast browsing on the site.",
-      focus: [
-        "Business-card files from the project folder",
-        "Salon price and working-time materials",
-        "Optimized web versions for the site",
-      ],
+      summary: "Visual materials for a salon, shown through business cards, a price list, and working hours.",
+      context: "The gallery includes four business cards, a price list, and the salon’s working hours.",
+      focus: ["Four business cards", "Price list", "Salon working hours"],
     },
     "syanka-ot-minaloto": {
       title: "Shadow from the Past",
@@ -1299,6 +1292,7 @@ export function getProjectPngArchive(locale: Locale) {
   if (locale === "bg") {
     return projectPngArchive.map((project) => ({
       ...project,
+      ...localizedProjectCopy.bg[project.slug as keyof typeof localizedProjectCopy.bg],
       images: [...project.images].sort((left, right) => {
         const leftOrder = getImageOrder(left.label ?? "");
         const rightOrder = getImageOrder(right.label ?? "");
