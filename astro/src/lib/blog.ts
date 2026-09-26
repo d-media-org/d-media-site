@@ -1955,7 +1955,7 @@ const dMediaSectionOverrides: Record<string, Partial<Record<Locale, BlogSection[
       {
         title: "The boundary of the result",
         paragraphs: [
-          "This is a verified result for a specific implementation. It is not a guarantee that every site with the same label or stack will reach the same score.",
+          "These are earlier documented values for a specific implementation, not a current measurement or a continuing guarantee.",
           "The transferable lesson is the discipline of measuring, reducing unnecessary work, and checking again after publishing changes.",
         ],
       },
