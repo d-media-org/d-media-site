@@ -315,8 +315,8 @@ const baseProjectPngArchive = [
     ],
     "featured": true,
     "priority": 4,
-    "summary": "Авторски знак с чист силует и подредени прозрачни версии за различен фон.",
-    "context": "Архивът вече държи основния знак в прозрачна, черна и бяла версия, вместо единичен export.",
+    "summary": "Авторски знак с изчистен силует, показан в прозрачна, черна и бяла версия.",
+    "context": "Наличните материали показват знака в три варианта.",
     "focus": [
       "Основен прозрачен знак",
       "Черна прозрачна версия",
@@ -351,20 +351,6 @@ const baseProjectPngArchive = [
       "Прозрачен логотип",
       "Прозрачен logo знак"
     ],
-    "caseStudySections": [
-      {
-        "title": "Задача",
-        "text": "Фотографската идентичност трябваше да носи авторски характер, без да конкурира самите изображения и работата на фотографа."
-      },
-      {
-        "title": "Подход",
-        "text": "Системата е сведена до комбиниран знак, самостоятелен логотип и отделен символ, за да работи еднакво добре върху кадри, корици и motion материали."
-      },
-      {
-        "title": "Резултат",
-        "text": "Получен е чист визуален подпис с достатъчно гъвкавост за портфолио, социални канали и видео представяне."
-      }
-    ]
   },
   {
     "slug": "diana",
@@ -395,7 +381,7 @@ const baseProjectPngArchive = [
     "context": "Посоката търсеше по-деликатно и празнично присъствие, което да остане четимо и подредено в различни формати.",
     "focus": [
       "Оригинален прозрачен знак",
-      "Вариант с бял letterform treatment",
+      "Вариант със светло изписване",
       "Черна и бяла прозрачна версия"
     ]
   },
@@ -470,12 +456,10 @@ const baseProjectPngArchive = [
     ],
     "featured": false,
     "priority": 999,
-    "summary": "Знак за off-road отбор, запазен тук в основния прозрачен export.",
-    "context": "Текущият архив държи само оригиналния прозрачен файл, който носи най-чисто клубния характер на знака.",
+    "summary": "Знак за ендуро отбор, показан в един прозрачен вариант.",
+    "context": "Наличният материал показва един прозрачен вариант на знака.",
     "focus": [
       "Основен прозрачен знак",
-      "Ясно изразен клубен характер",
-      "Директна употреба върху различни носители"
     ]
   },
   {
@@ -491,12 +475,11 @@ const baseProjectPngArchive = [
     ],
     "featured": false,
     "priority": 999,
-    "summary": "Компактен beauty знак с директно име и бързо разпознаване.",
-    "context": "Проектът беше сведен до най-чистата форма, без да губи характер и приложимост.",
+    "summary": "Знак с надпис Galka’s Nails.",
+    "context": "Наличният материал показва един вариант на знака на прозрачен фон.",
     "focus": [
-      "Един основен brand asset",
-      "Прозрачна версия за приложение",
-      "Чист beauty знак с директно присъствие"
+      "Знак с надпис Galka’s Nails",
+      "Един вариант на прозрачен фон"
     ]
   },
   {
@@ -553,12 +536,11 @@ const baseProjectPngArchive = [
     ],
     "featured": false,
     "priority": 999,
-    "summary": "Идентичност за clothing label с чист fashion характер.",
-    "context": "Проектът търсеше по-редакционен прочит, в който знакът да стои уверено и без излишно усложнение.",
+    "summary": "Визуален знак с буквите J & V и цветни акценти.",
+    "context": "Наличните материали показват няколко графични варианта и една визуализация.",
     "focus": [
-      "Основни logo варианти",
-      "Мокъп контекст за по-реална маркова среда",
-      "Чист и редакционен моден характер"
+      "Графични варианти на знака",
+      "Визуализация"
     ]
   },
   {
@@ -626,12 +608,11 @@ const baseProjectPngArchive = [
     ],
     "featured": false,
     "priority": 999,
-    "summary": "Идентичност за Фото работилничка като фотостудио с версии за различни носители.",
-    "context": "Решението трябваше да събере фотографския характер на студиото в спокойна и чиста визуална рамка.",
+    "summary": "Знакът на Фото работилничка е показан в цветен и бял вариант.",
+    "context": "Наличните материали показват двата цветови варианта на знака.",
     "focus": [
-      "Цветен прозрачен logo вариант",
-      "Бяла прозрачна версия",
-      "Спокоен фотографски визуален език"
+      "Цветен прозрачен вариант на знака",
+      "Бяла прозрачна версия"
     ]
   },
   {
@@ -655,12 +636,12 @@ const baseProjectPngArchive = [
     ],
     "featured": false,
     "priority": 999,
-    "summary": "Beauty знак с цветови варианти и ясно декоративно присъствие.",
-    "context": "Проектът беше насочен към един знак в няколко цветови версии, подготвен за различни повърхности и бърза употреба.",
+    "summary": "Знакът на Plamena Nails е показан в сиво, червено и виолетово.",
+    "context": "Наличните материали показват три цветови версии на знака.",
     "focus": [
       "Няколко цветови варианта",
-      "Прозрачни файлове за лесно приложение",
-      "Лек и декоративен beauty тон"
+      "Прозрачни файлове",
+      "Декоративно оформление"
     ]
   },
   {
@@ -676,12 +657,10 @@ const baseProjectPngArchive = [
     ],
     "featured": false,
     "priority": 999,
-    "summary": "Beauty бранд с ясни версии за ежедневна употреба.",
-    "context": "Проектът трябваше да изведе името чисто и разпознаваемо в различни базови приложения за услугата.",
+    "summary": "Знакът на PP Hairstyle е показан в наличния прозрачен файл.",
+    "context": "Наличният материал показва една версия на знака.",
     "focus": [
-      "Основен прозрачен logo файл",
-      "По-лек beauty service характер",
-      "Ясна практическа употреба"
+      "Прозрачен файл на знака"
     ]
   },
   {
@@ -705,8 +684,8 @@ const baseProjectPngArchive = [
     ],
     "featured": false,
     "priority": 999,
-    "summary": "Идентичност за място за спортен риболов с директен характер и ясни версии за приложение.",
-    "context": "Решението беше насочено към по-ясно присъствие за самото място, без да губи сила при реално приложение.",
+    "summary": "Знакът за Спортен риболов Столетово е показан в цветови варианти.",
+    "context": "Материалите включват оригиналния, черния и белия вариант, както и визуализация, която не доказва реално производство или употреба.",
     "focus": [
       "Оригинален прозрачен знак",
       "Черна прозрачна версия",
@@ -726,12 +705,10 @@ const baseProjectPngArchive = [
     ],
     "featured": false,
     "priority": 999,
-    "summary": "Компактен знак за къща за гости с чисто и ясно изписване.",
-    "context": "Проектът беше фокусиран върху директна разпознаваемост и спокойно присъствие в базови приложения за място за настаняване.",
+    "summary": "Знак с името Stanulovi’s House.",
+    "context": "Наличният материал показва един вариант на знака.",
     "focus": [
-      "Един основен visual export",
-      "Чисто име и знак в едно решение",
-      "Лесно приложение в базови контексти"
+      "Един вариант на знака с изписано име"
     ]
   },
   {
@@ -751,12 +728,12 @@ const baseProjectPngArchive = [
     ],
     "featured": false,
     "priority": 999,
-    "summary": "По-завършен етап от прехода от d . media към Makeup by Tsvetomira в по-чист beauty знак.",
-    "context": "Това е по-зрелият етап на ребрандиране, в който ранната посока е събрана в по-точно и уверено решение за Makeup by Tsvetomira.",
+    "summary": "Знакът TS makeup е показан в два варианта: лазерно изрязан и със сянка.",
+    "context": "Наличните материали показват лазерно изрязан вариант и вариант със сянка.",
     "focus": [
-      "Lasercut прозрачен вариант",
+      "Лазерно изрязан прозрачен вариант",
       "Прозрачна версия със сянка",
-      "По-зрял beauty визуален език след прехода към новото име"
+      "Два налични варианта на знака"
     ]
   },
   {
@@ -784,11 +761,11 @@ const baseProjectPngArchive = [
     ],
     "featured": false,
     "priority": 999,
-    "summary": "Идентичност с няколко цветови прозрачни версии за директна дигитална и сценична употреба.",
-    "context": "Архивът събира четирите основни прозрачни exports, през които се вижда цветовият диапазон и поведението на знака върху различен фон.",
+    "summary": "Знакът KDJ е показан в зелена, оранжева, черна и бяла версия.",
+    "context": "Материалите показват четири прозрачни цветови варианта на знака.",
     "focus": [
-      "Electric green прозрачна версия",
-      "Electric orange прозрачна версия",
+      "Зелена прозрачна версия",
+      "Оранжева прозрачна версия",
       "Черна и бяла прозрачна версия"
     ]
   },
@@ -813,8 +790,8 @@ const baseProjectPngArchive = [
     ],
     "featured": false,
     "priority": 999,
-    "summary": "Car detailing идентичност, запазена през основните прозрачни версии на знака.",
-    "context": "Подборът е сведен до оригиналния, черния и белия прозрачен export, за да остане най-чистата работна система на знака.",
+    "summary": "Знак за автомобилно детайлиране на TANEV в цветен, черен и бял вариант.",
+    "context": "Наличните материали показват трите прозрачни версии на знака.",
     "focus": [
       "Основен прозрачен знак",
       "Черна прозрачна версия",
@@ -1067,8 +1044,8 @@ const localizedProjectCopy = {
       ],
     },
     aneliart: {
-      summary: "An authorial mark with a clean silhouette and organised transparent versions for different backgrounds.",
-      context: "The archive now holds the main sign in transparent, black, and white variants instead of a single export.",
+      summary: "An authorial mark with a clean silhouette, shown in transparent, black, and white variants.",
+      context: "The available materials show the mark in three versions.",
       focus: [
         "Primary transparent mark",
         "Black transparent version",
@@ -1083,27 +1060,13 @@ const localizedProjectCopy = {
         "Transparent logotype",
         "Transparent logo sign",
       ],
-      caseStudySections: [
-        {
-          title: "Brief",
-          text: "The photography identity needed an authorial character without competing with the images or the photographer’s work.",
-        },
-        {
-          title: "Approach",
-          text: "The system uses a combined mark, a standalone logotype, and a separate symbol so it can work across photographs, covers, and motion materials.",
-        },
-        {
-          title: "Result",
-          text: "The outcome is a clean visual signature with enough flexibility for a portfolio, social channels, and video presentation.",
-        },
-      ],
     },
     diana: {
       summary: "Identity for a handmade decorations brand for celebrations and events.",
       context: "The direction called for a softer, more festive presence that would still remain legible and organised across formats.",
       focus: [
         "Original transparent mark",
-        "Variant with a white type treatment",
+        "Light lettering variant",
         "Black and white transparent versions",
       ],
     },
@@ -1118,7 +1081,7 @@ const localizedProjectCopy = {
     },
     "dj-just-mp": {
       summary: "DJ identity shown through the three core transparent versions of the mark.",
-      context: "The selection is reduced to the original, black, and white transparent exports to preserve the cleanest reading of the system.",
+      context: "The available files show the original, black, and white transparent versions of the mark.",
       focus: [
         "Original transparent mark",
         "Black transparent version",
@@ -1126,21 +1089,18 @@ const localizedProjectCopy = {
       ],
     },
     "enduro-team-stoletovo": {
-      summary: "A mark for an off-road team, kept here through its primary transparent export.",
-      context: "The current archive keeps only the original transparent file, which carries the club character most cleanly.",
+      summary: "A mark for Enduro Team Stoletovo, shown in one transparent version.",
+      context: "The available material shows one transparent version of the mark.",
       focus: [
         "Primary transparent mark",
-        "A clearly expressed club character",
-        "Direct application across different materials",
       ],
     },
     "galka-nails": {
-      summary: "A compact beauty mark with a direct name and quick recognition.",
-      context: "The project was reduced to its cleanest form without losing character or usability.",
+      summary: "A mark bearing the name Galka’s Nails.",
+      context: "The available material shows one version of the mark on a transparent background.",
       focus: [
-        "One core brand asset",
-        "Transparent version for application",
-        "A clean beauty mark with a direct presence",
+        "Mark bearing the name Galka’s Nails",
+        "One transparent version",
       ],
     },
     gosmile: {
@@ -1153,12 +1113,11 @@ const localizedProjectCopy = {
       ],
     },
     "j-v": {
-      summary: "Identity for a clothing label with a clean fashion character.",
-      context: "The project aimed for a more editorial reading in which the mark could feel confident without unnecessary complication.",
+      summary: "A visual mark built around the letters J & V and colour accents.",
+      context: "The available materials show several graphic versions and one visualisation.",
       focus: [
-        "Core logo variants",
-        "Mockup context for a more realistic brand setting",
-        "A clean and editorial fashion character",
+        "Graphic versions of the mark",
+        "Visualisation",
       ],
     },
     "makeup-by-tsvetomira": {
@@ -1187,36 +1146,34 @@ const localizedProjectCopy = {
     },
     "photo-workshop": {
       title: "Foto Rabotilnichka",
-      summary: "Identity for Foto Rabotilnichka as a photography studio, with versions for different applications.",
-      context: "The solution needed to bring the studio’s photographic character into a calm, clean visual framework.",
+      summary: "The Foto Rabotilnichka mark is shown in colour and white versions.",
+      context: "The available materials show two colour versions of the mark.",
       focus: [
-        "Colour transparent logo version",
+        "Colour transparent mark version",
         "White transparent version",
         "A calm photographic visual language",
       ],
     },
     "plamena-nails": {
-      summary: "A beauty mark with colour variants and a clearly decorative presence.",
-      context: "The project centred on one sign in several colour versions, prepared for different surfaces and immediate use.",
+      summary: "The Plamena Nails mark is shown in grey, red, and violet.",
+      context: "The available materials show three colour versions of the mark.",
       focus: [
         "Several colour variants",
-        "Transparent files for easy application",
-        "A light, decorative beauty tone",
+        "Transparent files",
+        "Decorative treatment",
       ],
     },
     "pp-hairstyle": {
-      summary: "A beauty brand with clear versions for everyday use.",
-      context: "The project had to bring the name forward in a clean and recognisable way across the core applications of the service.",
+      summary: "The PP Hairstyle mark is shown in the available transparent file.",
+      context: "The available material shows one version of the mark.",
       focus: [
-        "Primary transparent logo file",
-        "A lighter beauty service character",
-        "Clear practical application",
+        "Transparent mark file",
       ],
     },
     "sport-fishing-stoletovo": {
       title: "Sport Fishing Stoletovo",
-      summary: "Identity for a sport fishing venue with direct character and clear application versions.",
-      context: "The solution aimed for a clearer presence for the place itself without losing force in real use.",
+      summary: "The Sport Fishing Stoletovo mark is shown in several colour versions.",
+      context: "The materials include the original, black, and white versions, plus a visualization that does not prove real-world production or use.",
       focus: [
         "Original transparent mark",
         "Black transparent version",
@@ -1224,36 +1181,34 @@ const localizedProjectCopy = {
       ],
     },
     "stanulovi-s-house": {
-      summary: "A compact sign for a guest house with a clean and clear wordmark.",
-      context: "The project focused on direct recognition and a calm presence in the core applications of a hospitality place.",
+      summary: "A mark bearing the name Stanulovi’s House.",
+      context: "The available material shows one version of the mark.",
       focus: [
-        "One primary visual export",
-        "A clean combination of name and sign",
-        "Easy application in core contexts",
+        "One version of the mark with the name",
       ],
     },
     "ts-makeup": {
-      summary: "A more developed stage in the shift from d . media to Makeup by Tsvetomira, resolved through a cleaner beauty sign.",
-      context: "This is the more mature stage of the rebrand, where the earlier direction was gathered into a more precise and confident solution for Makeup by Tsvetomira.",
+      summary: "The TS makeup mark is shown in two versions: laser-cut and with a shadow.",
+      context: "The available materials show a laser-cut version and a version with a shadow.",
       focus: [
-        "Lasercut transparent variant",
+        "Laser-cut transparent variant",
         "Transparent version with shadow",
-        "A more mature beauty visual language after the move into the new name",
+        "Two available versions of the mark",
       ],
     },
     kdj: {
-      summary: "Identity with several colour-led transparent versions for direct digital and stage use.",
-      context: "The archive gathers the four core transparent exports, showing the colour range and the sign’s behaviour on different backgrounds.",
+      summary: "The KDJ mark is shown in green, orange, black, and white versions.",
+      context: "The materials show four transparent colour versions of the mark.",
       focus: [
-        "Electric green transparent version",
-        "Electric orange transparent version",
+        "Green transparent version",
+        "Orange transparent version",
         "Black and white transparent versions",
       ],
     },
     "tanev-car-detailing": {
       title: "TANEV Car Detailing",
-      summary: "Car detailing identity kept through the main transparent versions of the sign.",
-      context: "The selection is reduced to the original, black, and white transparent exports so the clean working system of the mark stays intact.",
+      summary: "The TANEV mark for car detailing is shown in colour, black, and white versions.",
+      context: "The available materials show three transparent versions of the mark.",
       focus: [
         "Primary transparent mark",
         "Black transparent version",

@@ -65,17 +65,17 @@ const formatFileCount = (count: number) =>
 const relatedServiceIdsByProject: Record<string, string[]> = {
   "d-media": ["brand-identity", "web-design-development", "content"],
   "apple-community-bulgaria": ["brand-identity", "content", "social-media-management"],
-  yanita: ["brand-identity", "content", "graphic-design"],
-  "support-account": ["brand-identity", "web-design-development", "graphic-design"],
-  "support-account-group": ["brand-identity", "web-design-development", "graphic-design"],
+  yanita: ["brand-identity", "graphic-design"],
+  "support-account": ["brand-identity", "graphic-design"],
+  "support-account-group": ["brand-identity", "graphic-design"],
   "dj-nedi": ["graphic-design", "social-media-management", "advertising"],
+  "syanka-ot-minaloto": ["brand-identity", "graphic-design", "content"],
   "zlatimira-u": ["brand-identity", "graphic-design"],
 };
 const selectableServices = siteContent.coreServices.filter((service) => service.id !== "additional-charges-rights");
 const relatedServiceIds = relatedServiceIdsByProject[project.slug] ?? [
   "brand-identity",
   "graphic-design",
-  "content",
 ];
 const relatedServices = relatedServiceIds
   .map((id) => selectableServices.find((service) => service.id === id))
