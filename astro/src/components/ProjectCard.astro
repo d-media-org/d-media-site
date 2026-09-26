@@ -9,6 +9,7 @@ type Project = {
   summary: string;
   cover: string;
   imageCount: number;
+  isCaseStudy?: boolean;
 };
 
 type Props = {
@@ -49,6 +50,7 @@ const fileCountLabel = project.imageCount > 0 ? ui.fileCount(project.imageCount)
         </div>
       ) : null}
       <h3>{project.title}</h3>
+      {project.isCaseStudy ? <span class="project-meta">{locale === "bg" ? "Казус" : "Case"}</span> : null}
       <p class={isArchive ? undefined : "project-lead"}>{project.summary}</p>
       {isArchive ? (
         <span class="project-link-hint">{ui.projectHint}</span>

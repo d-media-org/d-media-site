@@ -2306,6 +2306,7 @@ img {
 }
 
 .case-study-label {
+  margin: 0;
   font-family: var(--font-panton-semibold), sans-serif;
   font-size: var(--type-small);
   line-height: 1.1;
@@ -2496,6 +2497,7 @@ img {
   padding: var(--card-pad) var(--card-pad) var(--space-16);
 }
 
+.project-reading-grid > .package-card h2,
 .project-reading-grid > .package-card h3,
 .pricing-page .project-reading-grid > .package-card h4 {
   font-size: 18px;
@@ -2525,6 +2527,7 @@ img {
   grid-auto-rows: min-content;
 }
 
+.project-reading-grid > .package-card h2,
 .package-card h3,
 .pricing-page .package-card h4,
 .contact-detail-card h2,

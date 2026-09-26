@@ -59,6 +59,7 @@ const baseProjectPngArchive = [
     ],
     "featured": true,
     "priority": 1,
+    "isCaseStudy": true,
     "subtitle": "От общност до собствена медийна екосистема",
     "projectType": "Собствен проект / общност / бранд / подкаст",
     "status": "Завършен",
@@ -107,6 +108,7 @@ const baseProjectPngArchive = [
     ],
     "featured": true,
     "priority": 0,
+    "isCaseStudy": true,
     "summary": "Собствената платформа на d . media, изградена като бърз, многоезичен и поддържим сайт с ясна SEO/GEO основа.",
     "context": "Проектът показва как бранд идентичност, съдържание, уеб архитектура, производителност и реално приложение работят в една система.",
     "focus": [
@@ -212,6 +214,7 @@ const baseProjectPngArchive = [
     ],
     "featured": true,
     "priority": 2,
+    "isCaseStudy": true,
     "summary": "Корпоративна идентичност за счетоводна дейност с ясен и подреден професионален облик.",
     "context": "Подборът показва основния знак и логотипите в ключовите им версии, както и визитката като реално печатно приложение на идентичността.",
     "focus": [
@@ -818,6 +821,7 @@ const baseProjectPngArchive = [
     ],
     "featured": false,
     "priority": 999,
+    "isCaseStudy": true,
     "summary": "Визуална идентичност за YouTube канал и видео съдържание.",
     "context": "Проектът беше създаден за силно дигитално присъствие, в което знакът и каналната употреба трябва да работят заедно.",
     "focus": [
@@ -1247,6 +1251,32 @@ const localizedProjectCopy = {
         "Logo and a text-free variation",
         "Files for light backgrounds and mockup application",
         "A presence shaped for the YouTube environment",
+      ],
+      caseStudySections: [
+        {
+          title: "Origins and format",
+          text: "Shadow from the Past launched in July 2025 as a collaborative project, with d . media taking part in developing its visual and audiovisual identity. During the active period, six videos were published—five main field episodes and a special ‘Behind the Scenes’ edition.",
+        },
+        {
+          title: "Potential",
+          text: "During its short active period, the channel reached approximately 4.8K views and 164 subscribers. Individual episodes showed potential to reach a significantly wider audience. The strongest result was ‘The Bunkers under the Mountain – Part 2’ with over 2,100 views; the available data shows that most of the audience was reached through YouTube’s recommendation mechanisms. This indicates potential in the concept and subject matter.",
+        },
+        {
+          title: "Pause in development",
+          text: "Despite these positive indicators, the project’s development has effectively stopped. The last publication was on 26 October 2025, meaning almost 11 months without new content. As a result, the moment when the channel began reaching viewers beyond its subscriber base was not used, and the consistency needed for the series’ sustained development was not established.",
+        },
+        {
+          title: "Reason for withdrawal",
+          text: "For d . media, co-production means not only contributing to individual materials, but also an actively developing project, consistency, and the possibility for the visual identity to support long-term content development. With the prolonged absence of new episodes, that premise no longer applies.",
+        },
+        {
+          title: "Decision",
+          text: "For this reason, d . media is withdrawing from future co-production of Shadow from the Past. This is not an assessment that the project failed—the available results indicate otherwise. The reason is the prolonged factual interruption of its active development and the lack of grounds for the studio to remain bound as co-producer to an inactive project.",
+        },
+        {
+          title: "Materials and archive",
+          text: "d . media retains a positive view of the work completed together and will not restrict use of the audio and visual materials already created and supplied, provided they are used in the form in which they were supplied. The identity and archive of Shadow from the Past can therefore remain part of the project after co-production ends.",
+        },
       ],
       links: [
         {

@@ -1,18 +1,18 @@
 ---
 import ProjectCard from "@/components/ProjectCard.astro";
 import Layout from "@/layouts/Layout.astro";
-import { getFeaturedProjects } from "@/lib/featured-projects-static";
+import { getResolvedAllProjectsArchive } from "@/lib/asset-url";
 import { localizeHref, type Locale } from "@/lib/i18n";
 import { getBreadcrumbSchema } from "@/lib/seo";
 
 const locale: Locale = "bg";
-const caseStudies = getFeaturedProjects(locale);
+const caseStudies = getResolvedAllProjectsArchive(locale).filter((project) => "isCaseStudy" in project && project.isCaseStudy);
 ---
 
 <Layout
   locale={locale}
   title="Казуси | d . media"
-  description="Подбрани завършени проекти на d . media — бранд идентичност, уеб, графичен дизайн, съдържание и реални приложения."
+  description="Задълбочени истории за избрани проекти от секцията „Работа“ на d . media."
   path="/case-studies"
   structuredData={[getBreadcrumbSchema({ locale, path: "/case-studies", title: "Казуси" })]}
 >
@@ -21,10 +21,14 @@ const caseStudies = getFeaturedProjects(locale);
       <div class="section-heading page-intro">
         <h1>Казуси</h1>
         <p class="page-text">
-          Подбрани завършени проекти и конкретната работа, създадена за всеки от тях.
+          Задълбочени истории за избрани проекти от секцията „Работа“.
         </p>
+        <a class="inline-link" href={localizeHref(locale, "/projects")}>Към цялата работа</a>
       </div>
 
+      <div class="section-heading page-subheading">
+        <h2>Подбрани казуси</h2>
+      </div>
       <div class="showcase-grid projects-grid">
         {caseStudies.map((project) => (
           <ProjectCard project={project} locale={locale} />

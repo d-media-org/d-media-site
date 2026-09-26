@@ -1,18 +1,18 @@
 ---
 import ProjectCard from "@/components/ProjectCard.astro";
 import Layout from "@/layouts/Layout.astro";
-import { getFeaturedProjects } from "@/lib/featured-projects-static";
+import { getResolvedAllProjectsArchive } from "@/lib/asset-url";
 import { localizeHref, type Locale } from "@/lib/i18n";
 import { getBreadcrumbSchema } from "@/lib/seo";
 
 const locale: Locale = "en";
-const caseStudies = getFeaturedProjects(locale);
+const caseStudies = getResolvedAllProjectsArchive(locale).filter((project) => "isCaseStudy" in project && project.isCaseStudy);
 ---
 
 <Layout
   locale={locale}
   title="Case Studies | d . media"
-  description="Selected completed d . media projects across brand identity, web, graphic design, content, and real-world applications."
+  description="In-depth stories about selected projects from d . media Work."
   path="/case-studies"
   structuredData={[getBreadcrumbSchema({ locale, path: "/case-studies", title: "Case Studies" })]}
 >
@@ -21,10 +21,14 @@ const caseStudies = getFeaturedProjects(locale);
       <div class="section-heading page-intro">
         <h1>Case Studies</h1>
         <p class="page-text">
-          Selected completed projects and the specific work created for each of them.
+          In-depth stories about selected projects from the Work section.
         </p>
+        <a class="inline-link" href={localizeHref(locale, "/projects")}>Back to all work</a>
       </div>
 
+      <div class="section-heading page-subheading">
+        <h2>Selected case studies</h2>
+      </div>
       <div class="showcase-grid projects-grid">
         {caseStudies.map((project) => (
           <ProjectCard project={project} locale={locale} />

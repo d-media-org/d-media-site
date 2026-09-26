@@ -18,10 +18,11 @@ export function getStaticPaths() {
 
 const locale: Locale = "bg";
 const { project } = Astro.props;
+const isCaseStudy = "isCaseStudy" in project && project.isCaseStudy;
 const copy = getPageCopy(locale).projectDetail;
 const siteContent = getSiteContent(locale);
 const ui = getUiCopy(locale);
-const caseStudySections = "caseStudySections" in project ? project.caseStudySections : [];
+const caseStudySections = isCaseStudy && "caseStudySections" in project ? project.caseStudySections : [];
 const projectVideos = "videos" in project ? project.videos : [];
 const projectLinks = "links" in project ? project.links : [];
 const projectSubtitle = "subtitle" in project ? project.subtitle : null;
@@ -82,7 +83,7 @@ const relatedServices = relatedServiceIds
 
 <Layout
   locale={locale}
-  title={`${project.title} проект | d . media`}
+  title={`${project.title} ${isCaseStudy ? "казус" : "проект"} | d . media`}
   description={`${project.summary} ${project.context}`.trim()}
   path={`/projects/${project.slug}`}
   socialImage={projectSocialImage}
@@ -119,15 +120,15 @@ const relatedServices = relatedServiceIds
         </div>
         <div class="case-study-body">
           <div class="case-study-section">
-            <span class="case-study-label">{copy.context}</span>
+            <h2 class="case-study-label">{copy.context}</h2>
             <p>{project.context}</p>
           </div>
           <div class="case-study-section">
-            <span class="case-study-label">{copy.solution}</span>
+            <h2 class="case-study-label">{copy.solution}</h2>
             <p>{project.summary}</p>
           </div>
           <div class="case-study-section">
-            <span class="case-study-label">{copy.usage}</span>
+            <h2 class="case-study-label">{copy.usage}</h2>
             <ul class="detail-list">
               {project.focus.map((detail: string) => (
                 <li>{detail}</li>
@@ -136,13 +137,13 @@ const relatedServices = relatedServiceIds
           </div>
           {caseStudySections.map((section: { title: string; text: string }) => (
             <div class="case-study-section">
-              <span class="case-study-label">{section.title}</span>
+              <h2 class="case-study-label">{section.title}</h2>
               <p><BrandText text={section.text} /></p>
             </div>
           ))}
           {hasProjectFiles ? (
             <div class="case-study-section">
-              <span class="case-study-label">{copy.archive}</span>
+              <h2 class="case-study-label">{copy.archive}</h2>
               <div class="tag-list">
                 <span class="tag-pill">{formatFileCount(projectGalleryImages.length)}</span>
                 <span class="tag-pill">{project.featured ? ui.featuredProject : ui.archiveProject}</span>
@@ -151,14 +152,14 @@ const relatedServices = relatedServiceIds
           ) : null}
           {project.slug === "d-media" ? (
             <div class="case-study-section">
-              <span class="case-study-label">Развитие</span>
+              <h2 class="case-study-label">Развитие</h2>
               <p>Виж хронологията на решенията, миграциите и системните подобрения по сайта.</p>
               <a class="inline-link" href="/site-history/">История на сайта</a>
             </div>
           ) : null}
           {projectLinks.map((link: { href: string; label: string; title?: string; text?: string }) => (
             <div class="case-study-section">
-              {link.title ? <span class="case-study-label">{link.title}</span> : null}
+              {link.title ? <h2 class="case-study-label">{link.title}</h2> : null}
               {link.text ? <p>{link.text}</p> : null}
               <a class="inline-link" href={link.href} target="_blank" rel="noopener noreferrer">
                 {link.label}
@@ -234,12 +235,12 @@ const relatedServices = relatedServiceIds
       ) : null}
 
       <div class="section-heading page-subheading">
-        <h2>Свързани услуги</h2>
+        <h2>Свързани направления</h2>
       </div>
       <div class="showcase-grid service-card-grid">
         {relatedServices.map((service) => (
           <article class="card service-category-card">
-            <h2>{service.title}</h2>
+            <h3>{service.title}</h3>
             <p>{service.text}</p>
             <a class="inline-link" href={localizeHref(locale, service.detailHref)}>
               {service.detailLabel}

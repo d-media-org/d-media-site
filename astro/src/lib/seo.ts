@@ -175,7 +175,7 @@ export function getProjectBreadcrumbSchema({
       {
         "@type": "ListItem",
         position: 2,
-        name: locale === "bg" ? "Проекти" : "Projects",
+        name: locale === "bg" ? "Работа" : "Work",
         item: getAbsolutePageUrl(locale, "/projects"),
       },
       {

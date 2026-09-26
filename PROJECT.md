@@ -112,7 +112,7 @@ BG навигация:
 
 - Начало
 - Услуги
-- Проекти
+- Работа
 - Цени
 - Оценка на проект
 - Блог
@@ -123,7 +123,7 @@ EN навигация:
 
 - Home
 - Services
-- Projects
+- Work
 - Pricing
 - Estimator
 - Blog
@@ -304,6 +304,8 @@ Astro приложението е в `astro/`.
 - `/en/services/`
 - `/projects/`
 - `/en/projects/`
+- `/case-studies/`
+- `/en/case-studies/`
 - `/pricing/`
 - `/en/pricing/`
 - `/estimator/`
@@ -328,6 +330,7 @@ Astro приложението е в `astro/`.
 ## Важни архитектурни решения
 
 - Текущият production сайт е статичен Astro сайт.
+- „Работа“ е общият концептуален слой; `/projects/` е главният индекс, а `/case-studies/` е вторичен индекс за задълбочени проекти. И двата типа използват каноничния адрес `/projects/<slug>/`, а статусът „казус“ се съхранява в проектните данни.
 - Cloudflare Pages build-ът не изисква Workers или Pages Functions според `README.md`.
 - Astro използва root `public/` чрез `publicDir: "../public"`.
 - Canonical base URL е `https://www.d-media.org`.

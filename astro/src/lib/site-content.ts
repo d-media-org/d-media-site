@@ -17,7 +17,7 @@ const localizedSiteContent = {
     mainNavigation: [
       { href: "/", label: "Начало" },
       { href: "/services", label: "Услуги" },
-      { href: "/projects", label: "Проекти" },
+      { href: "/projects", label: "Работа" },
       { href: "/pricing", label: "Начални рамки" },
       { href: "/estimator", label: "Оценка на проект" },
       { href: "/blog", label: "Блог" },
@@ -226,7 +226,7 @@ const localizedSiteContent = {
     mainNavigation: [
       { href: "/", label: "Home" },
       { href: "/services", label: "Services" },
-      { href: "/projects", label: "Projects" },
+      { href: "/projects", label: "Work" },
       { href: "/pricing", label: "Starting ranges" },
       { href: "/estimator", label: "Estimator" },
       { href: "/blog", label: "Blog" },

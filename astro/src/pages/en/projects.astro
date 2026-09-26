@@ -48,11 +48,11 @@ const portraitLegacyMockupPaths = new Set([
       </div>
       <div class="showcase-grid project-reading-grid">
         <article class="card package-card">
-          <h3>{copy.readingTitle}</h3>
+          <h2>{copy.readingTitle}</h2>
           <p>{copy.readingText}</p>
         </article>
         <article class="card package-card">
-          <h3>{copy.resultTitle}</h3>
+          <h2>{copy.resultTitle}</h2>
           <p>{copy.resultText}</p>
         </article>
       </div>
@@ -76,6 +76,12 @@ const portraitLegacyMockupPaths = new Set([
           <ProjectCard project={project} locale={locale} variant="archive" />
         ))}
       </div>
+
+      <article class="card package-card">
+        <h2>{copy.casesTitle}</h2>
+        <p>{copy.casesText}</p>
+        <a class="inline-link" href={localizeHref(locale, "/case-studies")}>{copy.casesLink}</a>
+      </article>
 
       {legacyMockupCollections.map((collection) => (
         <section class="legacy-mockup-section">
